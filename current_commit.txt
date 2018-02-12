@@ -1,5 +1,7 @@
-Make HSGroup collapsible
+Sort HSGroups alphabetically
 
-* add collapse button to HSGroup
-* write collapsing styles
+* TODO IN FUTURE sort function runs, at minimal cost, every
+  time state is updated. Probably not even worth optimizing,
+  though.
+
 

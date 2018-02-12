@@ -57465,7 +57465,7 @@ var HSProgramList = function (props) {
             overflowY: "auto",
             overflowX: "hidden",
             position: "relative"
-        } }, Object.keys(props.hsProgramsByType).map(function (programType) {
+        } }, Object.keys(props.hsProgramsByType).sort().map(function (programType) {
         var programs = props.hsProgramsByType[programType];
         return (React.createElement(hs_group_1.default, { key: programType, title: programType, programs: programs, selectedProgramID: props.selectedProgramID, onSelectedProgramIDChange: function (id) { return props.onSelectedProgramIDChange(id); } }));
     })));
