@@ -52,7 +52,9 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
       >
         <button 
           className={className}
-          onClick={() => this.props.onSelect(this.props.program.id)}
+          onClick={(ev) => {
+            this.props.onSelect(this.props.program.id);
+          } }
         />
         <div className="hs-list-element-shortname">
           {this.props.program.shortname}
@@ -61,6 +63,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
           visible={this.state.showHSPreview} 
           program={this.props.program}
           style={{top: this.state.pxFromTop}}
+          onCloseButtonClick={ ev => this.props.onSelect(null) }
         />
       </div>
     )

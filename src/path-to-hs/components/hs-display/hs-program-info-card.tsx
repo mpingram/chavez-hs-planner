@@ -9,6 +9,7 @@ interface HSInfoCardProps {
   program: HSProgram 
   visible: boolean
   style: Object
+  onCloseButtonClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const HSProgramInfoCard = (props: HSInfoCardProps) => {
@@ -63,8 +64,17 @@ const HSProgramInfoCard = (props: HSInfoCardProps) => {
   };
 
   return (
-    <div style={props.style} className={`hs-info-card-container ${props.visible ? "visible" : "" }`}>
+    <div 
+      style={props.style} 
+      className={`hs-info-card-container ${props.visible ? "visible" : "" }`}
+    >
       <div className="hs-info-card">
+        <button 
+          className="hs-info-card-close-button"
+          onClick={props.onCloseButtonClick}
+        >
+          X
+        </button>
         <div className="hs-info-card-program-name">
           {`${props.program.shortname} - ${props.program.programType} Program`}
         </div>

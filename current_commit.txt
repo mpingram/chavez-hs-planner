@@ -1,0 +1,5 @@
+Add ways to close HSInfoCard
+
+* add close button to HSInfoCard
+* close HSInfoCard on close button click
+  ** add onCloseButtonClick to HSInfoCard props
