@@ -57459,7 +57459,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var hs_group_1 = __webpack_require__(307);
 var HSProgramList = function (props) {
-    return (React.createElement("div", { style: { width: "100%", height: "100%", overflowY: "auto", overflowX: "hidden" } }, Object.keys(props.hsProgramsByType).map(function (programType) {
+    return (React.createElement("div", { style: { width: "100%", height: "100%", overflowY: "auto", overflowX: "hidden", position: "relative" } }, Object.keys(props.hsProgramsByType).map(function (programType) {
         var programs = props.hsProgramsByType[programType];
         return (React.createElement(hs_group_1.default, { key: programType, title: programType, programs: programs, selectedProgramID: props.selectedProgramID, onSelectedProgramIDChange: function (id) { return props.onSelectedProgramIDChange(id); } }));
     })));
