@@ -9,7 +9,7 @@
 }
 
 .hs-category-container.collapsed {
-  height: 50px;
+  height: 75px;
 }
 
 .hs-category-container.collapsed > .hs-list {
@@ -18,7 +18,7 @@
 
 .hs-category-header {
   width: 100%;
-  height: 50px;
+  height: 75px;
   flex: 1 0 100%;
   border-bottom: $border-light;
   
@@ -26,24 +26,99 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  flex-wrap: nowrap;
   
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  
+}
+
+.hs-category-info-container {
+  height: 100%;
+  flex: 1 1 90%;
+  padding: 0 0.5em;
 }
 
 .hs-category-title {
-  line-height: 40px;
-  font-size: 130%;
+  max-width: 100%;
+
+  font-size: 140%;
+  margin-top: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.count-all {
+  flex: 0 0 6em;
+}
+
+.count-all-number {
+  color: $text-dark-gray;
+  font-size: 1.25em;
+  font-weight: bold;
+  line-height: 36px; 
+}
+.count-all-desc {
+  color: $text-gray;
+  font-size: 90%;
+  line-height: 36px;
+}
+
+.hs-program-outcome-counts {
+  font-size: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.outcome-counts-wrapper {
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  background-color: #fafafa;
+  border-radius: $border-radius-med;
+}
+
+.outcome-count {
+  width: 20px;
+  margin: 0 5px;
+  line-height: 16px;
+  font-size: 1.25em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.outcome-count.count-empty {
+  color: lighten($text-light-gray, 5%);
+  font-weight: normal;
+}
+
+.outcome-count.count-certain {
+  color: $col-succ-certain;
+}
+.outcome-count.count-likely {
+  color: darken($col-succ-likely, 5%);
+}
+.outcome-count.count-uncertain {
+  color: darken($col-succ-uncertain, 7%);
+}
+.outcome-count.count-unlikely {
+  color: $col-succ-unlikely;
+}
+.outcome-count.count-none {
+  color: $col-succ-none;
+}
+.outcome-count.count-notimplemented {
+  color: $col-succ-not-implemented;
 }
 
 .hs-category-collapse-button {
+  flex: 0 0 40px;
   font-size: 130%;
   display: block;
   width: 40px;
   height: 40px;
   margin-right: 1em;
+
+  align-self: center;
 
   border-radius: 100%;
   border: 2px solid $col-app-gray;

@@ -395,7 +395,7 @@ module.exports = warning;
 "use strict";
 
 
-module.exports = __webpack_require__(25);
+module.exports = __webpack_require__(26);
 
 
 /***/ }),
@@ -799,7 +799,7 @@ module.exports = ExecutionEnvironment;
 
 
 
-var _prodInvariant = __webpack_require__(26);
+var _prodInvariant = __webpack_require__(27);
 
 var ReactCurrentOwner = __webpack_require__(13);
 
@@ -1248,6 +1248,12 @@ module.exports = { debugTool: debugTool };
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.INPUT_DEBOUNCE_TIME = 250;
+exports.OutcomeCertainColor = "#5bed2a";
+exports.OutcomeLikelyColor = "#beee40";
+exports.OutcomeUncertainColor = "#f0e100";
+exports.OutcomeUnlikelyColor = "#f49600";
+exports.OutcomeNoneColor = "#f4743b";
+exports.OutcomeNotImplementedColor = "#999";
 
 
 /***/ }),
@@ -1326,7 +1332,7 @@ var _prodInvariant = __webpack_require__(4),
 var CallbackQueue = __webpack_require__(80);
 var PooledClass = __webpack_require__(21);
 var ReactFeatureFlags = __webpack_require__(81);
-var ReactReconciler = __webpack_require__(27);
+var ReactReconciler = __webpack_require__(28);
 var Transaction = __webpack_require__(40);
 
 var invariant = __webpack_require__(1);
@@ -3121,6 +3127,26 @@ exports.default = ScoreType;
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
+var SuccessChance;
+(function (SuccessChance) {
+    SuccessChance[SuccessChance["CERTAIN"] = 5] = "CERTAIN";
+    SuccessChance[SuccessChance["LIKELY"] = 4] = "LIKELY";
+    SuccessChance[SuccessChance["UNCERTAIN"] = 3] = "UNCERTAIN";
+    SuccessChance[SuccessChance["UNLIKELY"] = 2] = "UNLIKELY";
+    SuccessChance[SuccessChance["NONE"] = 1] = "NONE";
+    SuccessChance[SuccessChance["NOTIMPLEMENTED"] = 0] = "NOTIMPLEMENTED";
+})(SuccessChance || (SuccessChance = {}));
+;
+exports.default = SuccessChance;
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3184,7 +3210,7 @@ exports.default = NumberField;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3210,7 +3236,7 @@ exports.default = between;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3348,7 +3374,7 @@ module.exports = React;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3392,7 +3418,7 @@ function reactProdInvariant(code) {
 module.exports = reactProdInvariant;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3564,7 +3590,7 @@ module.exports = ReactReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3685,26 +3711,6 @@ DOMLazyTree.queueHTML = queueHTML;
 DOMLazyTree.queueText = queueText;
 
 module.exports = DOMLazyTree;
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SuccessChance;
-(function (SuccessChance) {
-    SuccessChance[SuccessChance["CERTAIN"] = 5] = "CERTAIN";
-    SuccessChance[SuccessChance["LIKELY"] = 4] = "LIKELY";
-    SuccessChance[SuccessChance["UNCERTAIN"] = 3] = "UNCERTAIN";
-    SuccessChance[SuccessChance["UNLIKELY"] = 2] = "UNLIKELY";
-    SuccessChance[SuccessChance["NONE"] = 1] = "NONE";
-    SuccessChance[SuccessChance["NOTIMPLEMENTED"] = 0] = "NOTIMPLEMENTED";
-})(SuccessChance || (SuccessChance = {}));
-;
-exports.default = SuccessChance;
-
 
 /***/ }),
 /* 30 */
@@ -6146,7 +6152,7 @@ module.exports = getEventModifierState;
 
 
 
-var DOMLazyTree = __webpack_require__(28);
+var DOMLazyTree = __webpack_require__(29);
 var Danger = __webpack_require__(153);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(10);
@@ -6445,7 +6451,7 @@ var _prodInvariant = __webpack_require__(4);
 var ReactPropTypesSecret = __webpack_require__(89);
 var propTypesFactory = __webpack_require__(74);
 
-var React = __webpack_require__(25);
+var React = __webpack_require__(26);
 var PropTypes = propTypesFactory(React.isValidElement);
 
 var invariant = __webpack_require__(1);
@@ -7738,7 +7744,7 @@ function createStructuredSelector(selectors) {
 
 
 
-var _prodInvariant = __webpack_require__(26),
+var _prodInvariant = __webpack_require__(27),
     _assign = __webpack_require__(5);
 
 var ReactNoopUpdateQueue = __webpack_require__(70);
@@ -10250,7 +10256,7 @@ module.exports = instantiateReactComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var React = __webpack_require__(25);
+var React = __webpack_require__(26);
 
 var invariant = __webpack_require__(1);
 
@@ -10848,9 +10854,9 @@ module.exports = getActiveElement;
 
 var _prodInvariant = __webpack_require__(4);
 
-var DOMLazyTree = __webpack_require__(28);
+var DOMLazyTree = __webpack_require__(29);
 var DOMProperty = __webpack_require__(19);
-var React = __webpack_require__(25);
+var React = __webpack_require__(26);
 var ReactBrowserEventEmitter = __webpack_require__(44);
 var ReactCurrentOwner = __webpack_require__(13);
 var ReactDOMComponentTree = __webpack_require__(6);
@@ -10860,7 +10866,7 @@ var ReactFeatureFlags = __webpack_require__(81);
 var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactMarkupChecksum = __webpack_require__(211);
-var ReactReconciler = __webpack_require__(27);
+var ReactReconciler = __webpack_require__(28);
 var ReactUpdateQueue = __webpack_require__(62);
 var ReactUpdates = __webpack_require__(14);
 
@@ -17754,7 +17760,7 @@ module.exports = ReactChildren;
 
 
 
-var _prodInvariant = __webpack_require__(26);
+var _prodInvariant = __webpack_require__(27);
 
 var invariant = __webpack_require__(1);
 
@@ -17871,7 +17877,7 @@ module.exports = PooledClass;
 
 
 
-var _prodInvariant = __webpack_require__(26);
+var _prodInvariant = __webpack_require__(27);
 
 var ReactCurrentOwner = __webpack_require__(13);
 var REACT_ELEMENT_TYPE = __webpack_require__(71);
@@ -18292,7 +18298,7 @@ module.exports = ReactDOMFactories;
 
 
 
-var _prodInvariant = __webpack_require__(26);
+var _prodInvariant = __webpack_require__(27);
 
 var ReactPropTypeLocationNames = __webpack_require__(125);
 var ReactPropTypesSecret = __webpack_require__(126);
@@ -19457,7 +19463,7 @@ module.exports = factory;
  */
 
 
-var _prodInvariant = __webpack_require__(26);
+var _prodInvariant = __webpack_require__(27);
 
 var ReactElement = __webpack_require__(20);
 
@@ -19517,7 +19523,7 @@ module.exports = __webpack_require__(134);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDefaultInjection = __webpack_require__(135);
 var ReactMount = __webpack_require__(99);
-var ReactReconciler = __webpack_require__(27);
+var ReactReconciler = __webpack_require__(28);
 var ReactUpdates = __webpack_require__(14);
 var ReactVersion = __webpack_require__(213);
 
@@ -21807,7 +21813,7 @@ module.exports = ReactComponentBrowserEnvironment;
 
 var _prodInvariant = __webpack_require__(4);
 
-var DOMLazyTree = __webpack_require__(28);
+var DOMLazyTree = __webpack_require__(29);
 var ExecutionEnvironment = __webpack_require__(7);
 
 var createNodesFromMarkup = __webpack_require__(154);
@@ -22226,7 +22232,7 @@ var _prodInvariant = __webpack_require__(4),
 
 var AutoFocusUtils = __webpack_require__(159);
 var CSSPropertyOperations = __webpack_require__(160);
-var DOMLazyTree = __webpack_require__(28);
+var DOMLazyTree = __webpack_require__(29);
 var DOMNamespaces = __webpack_require__(55);
 var DOMProperty = __webpack_require__(19);
 var DOMPropertyOperations = __webpack_require__(88);
@@ -24238,7 +24244,7 @@ module.exports = ReactDOMInput;
 
 var _assign = __webpack_require__(5);
 
-var React = __webpack_require__(25);
+var React = __webpack_require__(26);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMSelect = __webpack_require__(90);
 
@@ -24537,7 +24543,7 @@ var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(10);
 
 var ReactCurrentOwner = __webpack_require__(13);
-var ReactReconciler = __webpack_require__(27);
+var ReactReconciler = __webpack_require__(28);
 var ReactChildReconciler = __webpack_require__(174);
 
 var emptyFunction = __webpack_require__(9);
@@ -24982,7 +24988,7 @@ module.exports = ReactMultiChild;
 
 
 
-var ReactReconciler = __webpack_require__(27);
+var ReactReconciler = __webpack_require__(28);
 
 var instantiateReactComponent = __webpack_require__(91);
 var KeyEscapeUtils = __webpack_require__(61);
@@ -25144,14 +25150,14 @@ module.exports = ReactChildReconciler;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var React = __webpack_require__(25);
+var React = __webpack_require__(26);
 var ReactComponentEnvironment = __webpack_require__(58);
 var ReactCurrentOwner = __webpack_require__(13);
 var ReactErrorUtils = __webpack_require__(50);
 var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactNodeTypes = __webpack_require__(92);
-var ReactReconciler = __webpack_require__(27);
+var ReactReconciler = __webpack_require__(28);
 
 if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(176);
@@ -26593,7 +26599,7 @@ module.exports = ReactServerUpdateQueue;
 
 var _assign = __webpack_require__(5);
 
-var DOMLazyTree = __webpack_require__(28);
+var DOMLazyTree = __webpack_require__(29);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 var ReactDOMEmptyComponent = function (instantiate) {
@@ -26802,7 +26808,7 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var DOMChildrenOperations = __webpack_require__(54);
-var DOMLazyTree = __webpack_require__(28);
+var DOMLazyTree = __webpack_require__(29);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 var escapeTextContentForBrowser = __webpack_require__(43);
@@ -30338,7 +30344,7 @@ exports.default = calculateGPA;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var hs_req_fns_ts_1 = __webpack_require__(236);
-var success_chance_1 = __webpack_require__(29);
+var success_chance_1 = __webpack_require__(23);
 var getReqFns = function (program) {
     var applFnID = program.Application_Requirements_Fn;
     var selFnID = program.Program_Selections_Fn;
@@ -30374,7 +30380,7 @@ exports.default = getReqFns;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var gender_1 = __webpack_require__(66);
-var success_chance_ts_1 = __webpack_require__(29);
+var success_chance_ts_1 = __webpack_require__(23);
 var hs_calc_utils_1 = __webpack_require__(237);
 var seCutoffTable = {
     "609726": {
@@ -34005,7 +34011,7 @@ exports.default = initialState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var success_chance_1 = __webpack_require__(29);
+var success_chance_1 = __webpack_require__(23);
 var is_hs_program_1 = __webpack_require__(110);
 var is_es_program_1 = __webpack_require__(111);
 var denormalize_1 = __webpack_require__(241);
@@ -56977,9 +56983,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var react_redux_1 = __webpack_require__(12);
 var actions_1 = __webpack_require__(17);
-var number_field_1 = __webpack_require__(23);
+var number_field_1 = __webpack_require__(24);
 var constants_1 = __webpack_require__(11);
-var between_1 = __webpack_require__(24);
+var between_1 = __webpack_require__(25);
 var Field = function (props) { return (React.createElement(number_field_1.default, { label: "Your 7th grade attendance percentage", value: props.attendancePercentage, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME })); };
 var mapStateToProps = function (state) {
     return {
@@ -57204,10 +57210,10 @@ exports.default = MultiSelectField;
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
-var between_1 = __webpack_require__(24);
+var between_1 = __webpack_require__(25);
 var score_type_1 = __webpack_require__(22);
 var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(23);
+var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "NWEA Math percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
@@ -57223,10 +57229,10 @@ exports.default = connect_score_type_1.default(score_type_1.default.nweaPercenti
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
-var between_1 = __webpack_require__(24);
+var between_1 = __webpack_require__(25);
 var score_type_1 = __webpack_require__(22);
 var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(23);
+var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "NWEA Reading percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
@@ -57242,10 +57248,10 @@ exports.default = connect_score_type_1.default(score_type_1.default.nweaPercenti
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
-var between_1 = __webpack_require__(24);
+var between_1 = __webpack_require__(25);
 var score_type_1 = __webpack_require__(22);
 var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(23);
+var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "Math Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
@@ -57261,10 +57267,10 @@ exports.default = connect_score_type_1.default(score_type_1.default.subjGradeMat
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
-var between_1 = __webpack_require__(24);
+var between_1 = __webpack_require__(25);
 var score_type_1 = __webpack_require__(22);
 var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(23);
+var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "Reading Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
@@ -57280,10 +57286,10 @@ exports.default = connect_score_type_1.default(score_type_1.default.subjGradeRea
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
-var between_1 = __webpack_require__(24);
+var between_1 = __webpack_require__(25);
 var score_type_1 = __webpack_require__(22);
 var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(23);
+var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "Science Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
@@ -57299,10 +57305,10 @@ exports.default = connect_score_type_1.default(score_type_1.default.subjGradeSci
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
-var between_1 = __webpack_require__(24);
+var between_1 = __webpack_require__(25);
 var score_type_1 = __webpack_require__(22);
 var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(23);
+var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "Social Studies Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
@@ -57492,27 +57498,108 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var get_combined_success_chance_1 = __webpack_require__(308);
+var success_chance_1 = __webpack_require__(23);
+var outcome_certain_1 = __webpack_require__(318);
+var outcome_likely_1 = __webpack_require__(319);
+var outcome_uncertain_1 = __webpack_require__(320);
+var outcome_unlikely_1 = __webpack_require__(321);
+var outcome_none_1 = __webpack_require__(322);
+var outcome_notimplemented_1 = __webpack_require__(323);
+var constants_1 = __webpack_require__(11);
 var hs_program_element_1 = __webpack_require__(309);
 __webpack_require__(316);
 var HSGroup = (function (_super) {
     __extends(HSGroup, _super);
     function HSGroup(props) {
         var _this = _super.call(this, props) || this;
+        _this.getProgramCounts = function (programs) {
+            var counts = {
+                all: 0,
+                certain: 0,
+                likely: 0,
+                uncertain: 0,
+                unlikely: 0,
+                none: 0,
+                notImplemented: 0
+            };
+            programs.forEach(function (program) {
+                counts.all += 1;
+                var outcome = get_combined_success_chance_1.default(program.applicationOutcome, program.selectionOutcome);
+                switch (outcome) {
+                    case success_chance_1.default.CERTAIN:
+                        counts.certain += 1;
+                        break;
+                    case success_chance_1.default.LIKELY:
+                        counts.likely += 1;
+                        break;
+                    case success_chance_1.default.UNCERTAIN:
+                        counts.uncertain += 1;
+                        break;
+                    case success_chance_1.default.UNLIKELY:
+                        counts.unlikely += 1;
+                        break;
+                    case success_chance_1.default.NONE:
+                        counts.none += 1;
+                        break;
+                    case success_chance_1.default.NOTIMPLEMENTED:
+                        counts.notImplemented += 1;
+                        break;
+                    default:
+                        console.warn("Unrecognized SuccessChance for program " + program.id);
+                        break;
+                }
+            });
+            return counts;
+        };
         _this.sortByOutcome = function (a, b) {
             var aOutcome = get_combined_success_chance_1.default(a.applicationOutcome, a.selectionOutcome);
             var bOutcome = get_combined_success_chance_1.default(b.applicationOutcome, b.selectionOutcome);
             return bOutcome - aOutcome;
         };
         _this.state = {
-            collapsed: false
+            collapsed: false,
+            programCounts: _this.getProgramCounts(props.programs)
         };
         return _this;
     }
+    HSGroup.prototype.componentWillReceiveProps = function (nextProps) {
+        this.setState({
+            programCounts: this.getProgramCounts(nextProps.programs)
+        });
+    };
     HSGroup.prototype.render = function () {
         var _this = this;
+        var ICONSIZE = "18px";
         return (React.createElement("div", { className: "hs-category-container " + (this.state.collapsed ? "collapsed" : "") },
             React.createElement("div", { className: "hs-category-header" },
-                React.createElement("div", { className: "hs-category-title" }, this.props.title),
+                React.createElement("div", { className: "hs-category-info-container" },
+                    React.createElement("div", { className: "hs-category-title" }, this.props.title),
+                    React.createElement("div", { className: "hs-program-outcome-counts" },
+                        React.createElement("div", { className: "count-all" },
+                            React.createElement("span", { className: "count-all-number" }, this.state.programCounts.all),
+                            " ",
+                            React.createElement("span", { className: "count-all-desc" },
+                                "program",
+                                this.state.programCounts.all !== 1 && "s")),
+                        React.createElement("div", { className: "outcome-counts-wrapper" },
+                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.certain > 0 ? "count-certain" : "count-empty") },
+                                React.createElement(outcome_certain_1.default, { color: constants_1.OutcomeCertainColor, width: ICONSIZE, height: ICONSIZE }),
+                                this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"),
+                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.likely > 0 ? "count-likely" : "count-empty") },
+                                React.createElement(outcome_likely_1.default, { color: constants_1.OutcomeLikelyColor, width: ICONSIZE, height: ICONSIZE }),
+                                this.state.programCounts.likely > 0 ? this.state.programCounts.likely : "·"),
+                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.uncertain > 0 ? "count-uncertain" : "count-empty") },
+                                React.createElement(outcome_uncertain_1.default, { color: constants_1.OutcomeUncertainColor, width: ICONSIZE, height: ICONSIZE }),
+                                this.state.programCounts.uncertain > 0 ? this.state.programCounts.uncertain : "·"),
+                            React.createElement("div", { className: "outcome-count  " + (this.state.programCounts.unlikely > 0 ? "count-unlikely" : "count-empty") },
+                                React.createElement(outcome_unlikely_1.default, { color: constants_1.OutcomeUnlikelyColor, width: ICONSIZE, height: ICONSIZE }),
+                                this.state.programCounts.unlikely > 0 ? this.state.programCounts.unlikely : "·"),
+                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.none > 0 ? "count-none" : "count-empty") },
+                                React.createElement(outcome_none_1.default, { color: constants_1.OutcomeNoneColor, width: ICONSIZE, height: ICONSIZE }),
+                                this.state.programCounts.none > 0 ? this.state.programCounts.none : "·"),
+                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.notImplemented > 0 ? "count-notimplemented" : "count-empty") },
+                                React.createElement(outcome_notimplemented_1.default, { color: constants_1.OutcomeNotImplementedColor, width: ICONSIZE, height: ICONSIZE }),
+                                this.state.programCounts.notImplemented > 0 ? this.state.programCounts.notImplemented : "·")))),
                 React.createElement("button", { className: "hs-category-collapse-button " + (this.state.collapsed ? "collapsed" : ""), onClick: function (ev) { return _this.setState({ collapsed: !_this.state.collapsed }); } },
                     React.createElement("div", { className: "hs-category-collapse-button-icon" }, "<"))),
             React.createElement("div", { className: "hs-list" }, this.props.programs.sort(this.sortByOutcome).map(function (hs) {
@@ -57532,7 +57619,7 @@ exports.default = HSGroup;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var success_chance_1 = __webpack_require__(29);
+var success_chance_1 = __webpack_require__(23);
 var getCombinedSuccessChance = function (application, selection) {
     if (application === success_chance_1.default.CERTAIN || application === success_chance_1.default.LIKELY) {
         return selection;
@@ -57562,7 +57649,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var success_chance_1 = __webpack_require__(29);
+var success_chance_1 = __webpack_require__(23);
 var hs_program_info_card_1 = __webpack_require__(310);
 __webpack_require__(313);
 var HSProgramElement = (function (_super) {
@@ -57634,7 +57721,7 @@ exports.default = HSProgramElement;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var success_chance_1 = __webpack_require__(29);
+var success_chance_1 = __webpack_require__(23);
 __webpack_require__(311);
 var HSProgramInfoCard = function (props) {
     var toMessage = function (success) {
@@ -57788,7 +57875,7 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".hs-list-element {\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  background-size: 470px 470px;\n  background: url(" + __webpack_require__(315) + "); }\n\n.hs-list-element-icon.succ-certain {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #feee7e; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background: none;\n  border: 2px dashed #999; }\n", ""]);
+exports.push([module.i, ".hs-list-element {\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  background-size: 470px 470px;\n  background: url(" + __webpack_require__(315) + "); }\n\n.hs-list-element-icon.succ-certain {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #fff124; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background: none;\n  border: 2px dashed #999; }\n", ""]);
 
 // exports
 
@@ -57839,9 +57926,105 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  margin-bottom: 2em; }\n\n.hs-category-container.collapsed {\n  height: 50px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 50px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #cacaca;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-category-title {\n  line-height: 40px;\n  font-size: 130%; }\n\n.hs-category-collapse-button {\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  border-radius: 100%;\n  border: 2px solid #9e9e9e;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
+exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  margin-bottom: 2em; }\n\n.hs-category-container.collapsed {\n  height: 75px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #cacaca;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n\n.hs-category-title {\n  max-width: 100%;\n  font-size: 140%;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n\n.count-all {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 6em;\n          flex: 0 0 6em; }\n\n.count-all-number {\n  color: #333;\n  font-size: 1.25em;\n  font-weight: bold;\n  line-height: 36px; }\n\n.count-all-desc {\n  color: #666;\n  font-size: 90%;\n  line-height: 36px; }\n\n.hs-program-outcome-counts {\n  font-size: 95%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n\n.outcome-counts-wrapper {\n  height: 36px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  background-color: #fafafa;\n  border-radius: 12px; }\n\n.outcome-count {\n  width: 20px;\n  margin: 0 5px;\n  line-height: 16px;\n  font-size: 1.25em;\n  text-align: center;\n  font-weight: bold; }\n\n.outcome-count.count-empty {\n  color: #a6a6a6;\n  font-weight: normal; }\n\n.outcome-count.count-certain {\n  color: #5bed2a; }\n\n.outcome-count.count-likely {\n  color: #b6ec29; }\n\n.outcome-count.count-uncertain {\n  color: #ccc000; }\n\n.outcome-count.count-unlikely {\n  color: #f49600; }\n\n.outcome-count.count-none {\n  color: #f4743b; }\n\n.outcome-count.count-notimplemented {\n  color: #999; }\n\n.hs-category-collapse-button {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 40px;\n          flex: 0 0 40px;\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  -ms-flex-item-align: center;\n      align-self: center;\n  border-radius: 100%;\n  border: 2px solid #9e9e9e;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
 
 // exports
+
+
+/***/ }),
+/* 318 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(3);
+var OutcomeCertainIcon = function (props) {
+    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
+        React.createElement("path", { d: "M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" })));
+};
+exports.default = OutcomeCertainIcon;
+
+
+/***/ }),
+/* 319 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(3);
+var OutcomeLikelyIcon = function (props) {
+    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
+        React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
+};
+exports.default = OutcomeLikelyIcon;
+
+
+/***/ }),
+/* 320 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(3);
+var OutcomeUncertainIcon = function (props) {
+    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
+        React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
+};
+exports.default = OutcomeUncertainIcon;
+
+
+/***/ }),
+/* 321 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(3);
+var OutcomeUnlikelyIcon = function (props) {
+    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
+        React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
+};
+exports.default = OutcomeUnlikelyIcon;
+
+
+/***/ }),
+/* 322 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(3);
+var OutcomeNoneIcon = function (props) {
+    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" }),
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" })));
+};
+exports.default = OutcomeNoneIcon;
+
+
+/***/ }),
+/* 323 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __webpack_require__(3);
+var OutcomeNotImplementedIcon = function (props) {
+    return (React.createElement("svg", { fill: props.color, width: props.width, height: props.height, viewBox: "0 0 40 40", xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("g", { transform: "translate(-8)" },
+            React.createElement("path", { d: "M29.898 26.5722l-4.3921 0c-0.0118,-0.635 -0.0177,-1.0172 -0.0177,-1.1583 0,-1.4229 0.2352,-2.5929 0.7056,-3.5102 0.4704,-0.9231 1.417,-1.952 2.8281,-3.1044 1.4111,-1.1465 2.2578,-1.8991 2.5282,-2.2578 0.4292,-0.5585 0.6409,-1.1818 0.6409,-1.8579 0,-0.9408 -0.3763,-1.7463 -1.1289,-2.4224 -0.7526,-0.6703 -1.7639,-1.0054 -3.0397,-1.0054 -1.2289,0 -2.2578,0.3527 -3.0868,1.0524 -0.8232,0.6997 -1.3935,1.7698 -1.7051,3.2044l-4.4391 -0.5527c0.1234,-2.0578 0.9995,-3.8041 2.6223,-5.2387 1.6286,-1.4346 3.757,-2.152 6.4029,-2.152 2.7752,0 4.9859,0.7291 6.6322,2.1814 1.6404,1.4522 2.4635,3.1397 2.4635,5.0741 0,1.0642 -0.3057,2.0755 -0.9054,3.028 -0.6056,0.9525 -1.8933,2.2519 -3.8688,3.8923 -1.0231,0.8525 -1.6581,1.5346 -1.905,2.052 -0.2469,0.5174 -0.3587,1.4405 -0.3351,2.7752zm-4.3921 6.5087l0 -4.8389 4.8389 0 0 4.8389 -4.8389 0z" }))));
+};
+exports.default = OutcomeNotImplementedIcon;
 
 
 /***/ })

@@ -1,5 +1,5 @@
 $border-radius-sm: 6px;
-$border-radius-med:  12px;
+$border-radius-med: 12px;
 $border-radius-lg: 20px;
 
 $col-app-neutral: #fafafd;
@@ -9,9 +9,17 @@ $col-app-gray: #9e9e9e;
 $col-app-1: #95e57a;
 $col-app-2: #dbdb74;
 
+$col-succ-certain: #5bed2a;
+$col-succ-likely: #beee40;
+$col-succ-uncertain: #f0e100;
+$col-succ-unlikely: #f49600;
+$col-succ-none: #f4743b;
+$col-succ-not-implemented: #999;
+
 $text-black: #111;
-$text-gray: #777;
-$text-light-gray: #AAA;
+$text-dark-gray: #333;
+$text-gray: #666;
+$text-light-gray: #999;
 
 $margin-xs: 5px;
 $margin-sm: 10px;
@@ -32,3 +40,7 @@ $font-size-lg: 125%;
 $font-size-xl: 175%;
 
 $border-light: 1px solid $col-app-gray-light;
+
+$hs-list-element-icon-size: 470px 470px;
+
+$hs-list-element-width: 45px;
