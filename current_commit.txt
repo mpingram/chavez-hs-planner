@@ -1,3 +1,5 @@
-Restyle HSProgramElement to indicate clickable
+Make HSGroup collapsible
 
+* add collapse button to HSGroup
+* write collapsing styles
 

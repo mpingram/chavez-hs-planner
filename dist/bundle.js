@@ -57479,17 +57479,43 @@ exports.default = HSProgramList;
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var hs_program_element_1 = __webpack_require__(308);
 __webpack_require__(315);
-var HSGroup = function (props) {
-    return (React.createElement("div", { className: "hs-category-container" },
-        React.createElement("div", { className: "hs-category-title" }, props.title),
-        React.createElement("div", { className: "hs-list" }, props.programs.map(function (hs) {
-            return (React.createElement(hs_program_element_1.default, { key: hs.id, program: hs, selected: hs.id === props.selectedProgramID, onSelect: function (newID) { return props.onSelectedProgramIDChange(newID); } }));
-        }))));
-};
+var HSGroup = (function (_super) {
+    __extends(HSGroup, _super);
+    function HSGroup(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            collapsed: false
+        };
+        return _this;
+    }
+    HSGroup.prototype.render = function () {
+        var _this = this;
+        return (React.createElement("div", { className: "hs-category-container " + (this.state.collapsed ? "collapsed" : "") },
+            React.createElement("div", { className: "hs-category-header" },
+                React.createElement("div", { className: "hs-category-title" }, this.props.title),
+                React.createElement("button", { className: "hs-category-collapse-button " + (this.state.collapsed ? "collapsed" : ""), onClick: function (ev) { return _this.setState({ collapsed: !_this.state.collapsed }); } },
+                    React.createElement("div", { className: "hs-category-collapse-button-icon" }, "<"))),
+            React.createElement("div", { className: "hs-list" }, this.props.programs.map(function (hs) {
+                return (React.createElement(hs_program_element_1.default, { key: hs.id, program: hs, selected: hs.id === _this.props.selectedProgramID, onSelect: function (newID) { return _this.props.onSelectedProgramIDChange(newID); } }));
+            }))));
+    };
+    return HSGroup;
+}(React.PureComponent));
+;
 exports.default = HSGroup;
 
 
@@ -57788,7 +57814,7 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  margin-bottom: 2em; }\n\n.hs-category-title {\n  width: 100%;\n  height: 40px;\n  line-height: 40px;\n  font-size: 130%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #cacaca; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
+exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  margin-bottom: 2em; }\n\n.hs-category-container.collapsed {\n  height: 50px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 50px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #cacaca;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-category-title {\n  line-height: 40px;\n  font-size: 130%; }\n\n.hs-category-collapse-button {\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  border-radius: 100%;\n  border: 2px solid #9e9e9e;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
 
 // exports
 
