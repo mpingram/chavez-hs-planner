@@ -1,0 +1,113 @@
+@import "../../../shared/styles/variables";
+
+$col-succ-certain: #5bed2a;
+$col-succ-likely: #beee40;
+$col-succ-uncertain: #fde74c;
+$col-succ-unlikely: #f4743b;
+$col-succ-none: #eee;
+$col-succ-not-implemented: #eee;
+
+$hs-list-element-icon-size: 470px 470px;
+
+$hs-list-element-width: 45px;
+.hs-list-element {
+  width: 45px;
+  height: 80px;
+  margin: 0 0.5em;
+}
+
+.hs-list-element-icon {
+
+  position: relative;
+
+  width: 45px;
+  height: 45px;
+  padding-top: 2px;
+  margin-bottom: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid $col-app-gray; 
+  border-radius: 100%;
+
+  background-size: $hs-list-element-icon-size;
+  background: url("../../../shared/images/school.svg");
+
+  box-shadow: $box-shadow-z1;
+
+  z-index: 1;
+  transition: transform 200ms ease;
+  transform-style: preserve-3d;
+  transform: scale(1);
+}
+
+.hs-list-element-icon.focus {
+  transform: scale(1.1);
+}
+
+.hs-list-element-icon.focus:before {
+  transform: translateZ(-1em);
+  position: absolute;
+  content: "";
+  z-index: -1;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #adadad;
+  border-radius: 20px 20px 0px 0;
+  background-color: $col-app-neutral;
+}
+
+// Certain success
+.hs-list-element-icon.succ-certain {
+  transform: scale(1.1);
+  background-color: lighten($col-succ-certain, 10%);
+  border: 5px solid $col-succ-certain;
+}
+
+// Likely success
+.hs-list-element-icon.succ-likely {
+  background-color: lighten($col-succ-likely, 10%);
+  border: 3px solid $col-succ-likely;
+}
+
+// Uncertain success
+.hs-list-element-icon.succ-uncertain {
+  background-color: lighten($col-succ-uncertain, 10%);
+  border: 2px solid $col-succ-uncertain;
+}
+
+// Unlikely success
+.hs-list-element-icon.succ-unlikely {
+  background-color: lighten($col-succ-unlikely, 10%);
+  border: 1px solid $col-succ-unlikely;
+}
+
+// No chance of success
+.hs-list-element-icon.succ-none {
+  background-color: lighten($col-succ-none, 10%);
+  border: 2px dashed $col-succ-none; 
+  box-shadow: $box-shadow-none;
+  //color: $col-app-gray;
+}
+
+// Not implemented
+.hs-list-element-icon.succ-not-implemented {
+  //color: #aaa;
+  background: none;
+  box-shadow: $box-shadow-none;
+  border: 2px dashed #999;
+}
+
+
+.hs-list-element-shortname {
+  width: 45px;
+  height: 30px;
+  font-size: 70%;
+  text-align: center;
+  word-wrap: normal; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
