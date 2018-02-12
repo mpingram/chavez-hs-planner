@@ -1,6 +1,8 @@
 import * as React from "react";
 
+import getCombinedSuccessChance from "shared/util/get-combined-success-chance";
 import HSProgram from "shared/types/hs-program";
+import SuccessChance from "shared/enums/success-chance";
 
 import HSProgramElement from "./hs-program-element";
 
@@ -25,6 +27,12 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
     }
   }
 
+  private sortByOutcome = (a: HSProgram, b: HSProgram): number => {
+    const aOutcome = getCombinedSuccessChance(a.applicationOutcome, a.selectionOutcome);
+    const bOutcome = getCombinedSuccessChance(b.applicationOutcome, b.selectionOutcome);
+    return bOutcome - aOutcome;
+  }
+
   render() {
     return (
       <div className={`hs-category-container ${this.state.collapsed ? "collapsed" : ""}`}>
@@ -43,7 +51,7 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
         </div>
         <div className="hs-list">
           { 
-            this.props.programs.map( (hs: HSProgram) => {
+            this.props.programs.sort( this.sortByOutcome ).map( (hs: HSProgram) => {
               return (
                 <HSProgramElement 
                   key={hs.id} 

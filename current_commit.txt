@@ -1,7 +1,16 @@
-Sort HSGroups alphabetically
+Sort HSPrograms in HSGroup by outcome
 
-* TODO IN FUTURE sort function runs, at minimal cost, every
-  time state is updated. Probably not even worth optimizing,
-  though.
-
-
+* rewrite getCombinedSuccessChance to only operate
+  on success chances and not silently call requirement
+  functions
+* edit SuccessChance enum so that higher success
+  chances are assigned to higher integers, enabling
+  fast and easy comparison of success chances.
+  ** NOTE this introduces a tight coupling between HSGroup
+    and SuccessChance, but benefits me in that I
+    don't need to write arduous code to compare SuccessChances
+    when I'm trying to sort by them. It will be worthwhile
+    to remember this choice and see if it comes back to bite
+    me somehow -- that could be a valuable lesson in what
+    the true costs and benefits are of bending the rules
+    like this.

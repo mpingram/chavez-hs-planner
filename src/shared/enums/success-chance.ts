@@ -1,10 +1,10 @@
 enum SuccessChance {
-  CERTAIN,
-  LIKELY,
-  UNCERTAIN,
-  UNLIKELY,
-  NONE,
-  NOTIMPLEMENTED
+  CERTAIN = 5,
+  LIKELY = 4,
+  UNCERTAIN = 3,
+  UNLIKELY = 2,
+  NONE = 1,
+  NOTIMPLEMENTED = 0
 };
 
 export default SuccessChance;

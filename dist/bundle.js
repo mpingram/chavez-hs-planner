@@ -3133,7 +3133,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var field_validation_state_1 = __webpack_require__(29);
+var field_validation_state_1 = __webpack_require__(30);
 var field_container_1 = __webpack_require__(36);
 var debounce_1 = __webpack_require__(46);
 var NumberField = (function (_super) {
@@ -3693,6 +3693,26 @@ module.exports = DOMLazyTree;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var SuccessChance;
+(function (SuccessChance) {
+    SuccessChance[SuccessChance["CERTAIN"] = 5] = "CERTAIN";
+    SuccessChance[SuccessChance["LIKELY"] = 4] = "LIKELY";
+    SuccessChance[SuccessChance["UNCERTAIN"] = 3] = "UNCERTAIN";
+    SuccessChance[SuccessChance["UNLIKELY"] = 2] = "UNLIKELY";
+    SuccessChance[SuccessChance["NONE"] = 1] = "NONE";
+    SuccessChance[SuccessChance["NOTIMPLEMENTED"] = 0] = "NOTIMPLEMENTED";
+})(SuccessChance || (SuccessChance = {}));
+;
+exports.default = SuccessChance;
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 var FieldValidationState;
 (function (FieldValidationState) {
     FieldValidationState["SUCCESS"] = "field-validation-success";
@@ -3704,7 +3724,7 @@ exports.default = FieldValidationState;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3729,7 +3749,7 @@ exports.default = connectScoreType;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3745,7 +3765,7 @@ exports.default = connectScoreType;
 
 
 
-var EventPluginHub = __webpack_require__(32);
+var EventPluginHub = __webpack_require__(33);
 var EventPluginUtils = __webpack_require__(49);
 
 var accumulateInto = __webpack_require__(77);
@@ -3869,7 +3889,7 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4149,7 +4169,7 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4213,7 +4233,7 @@ SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 module.exports = SyntheticUIEvent;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4262,26 +4282,6 @@ var ReactInstanceMap = {
 };
 
 module.exports = ReactInstanceMap;
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SuccessChance;
-(function (SuccessChance) {
-    SuccessChance[SuccessChance["CERTAIN"] = 0] = "CERTAIN";
-    SuccessChance[SuccessChance["LIKELY"] = 1] = "LIKELY";
-    SuccessChance[SuccessChance["UNCERTAIN"] = 2] = "UNCERTAIN";
-    SuccessChance[SuccessChance["UNLIKELY"] = 3] = "UNLIKELY";
-    SuccessChance[SuccessChance["NONE"] = 4] = "NONE";
-    SuccessChance[SuccessChance["NOTIMPLEMENTED"] = 5] = "NOTIMPLEMENTED";
-})(SuccessChance || (SuccessChance = {}));
-;
-exports.default = SuccessChance;
-
 
 /***/ }),
 /* 36 */
@@ -4868,7 +4868,7 @@ module.exports = TransactionImpl;
 
 
 
-var SyntheticUIEvent = __webpack_require__(33);
+var SyntheticUIEvent = __webpack_require__(34);
 var ViewportMetrics = __webpack_require__(84);
 
 var getEventModifierState = __webpack_require__(53);
@@ -5505,7 +5505,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var field_validation_state_1 = __webpack_require__(29);
+var field_validation_state_1 = __webpack_require__(30);
 var field_container_1 = __webpack_require__(36);
 var debounce_1 = __webpack_require__(46);
 var DropdownField = (function (_super) {
@@ -6821,7 +6821,7 @@ module.exports = KeyEscapeUtils;
 var _prodInvariant = __webpack_require__(4);
 
 var ReactCurrentOwner = __webpack_require__(13);
-var ReactInstanceMap = __webpack_require__(34);
+var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactUpdates = __webpack_require__(14);
 
@@ -10857,7 +10857,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMContainerInfo = __webpack_require__(209);
 var ReactDOMFeatureFlags = __webpack_require__(210);
 var ReactFeatureFlags = __webpack_require__(81);
-var ReactInstanceMap = __webpack_require__(34);
+var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactMarkupChecksum = __webpack_require__(211);
 var ReactReconciler = __webpack_require__(27);
@@ -17464,7 +17464,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var field_validation_state_1 = __webpack_require__(29);
+var field_validation_state_1 = __webpack_require__(30);
 var field_container_1 = __webpack_require__(36);
 var list_box_1 = __webpack_require__(292);
 var debounce_1 = __webpack_require__(46);
@@ -19799,7 +19799,7 @@ module.exports = ARIADOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(31);
+var EventPropagators = __webpack_require__(32);
 var ExecutionEnvironment = __webpack_require__(7);
 var FallbackCompositionState = __webpack_require__(138);
 var SyntheticCompositionEvent = __webpack_require__(139);
@@ -20371,8 +20371,8 @@ module.exports = SyntheticInputEvent;
 
 
 
-var EventPluginHub = __webpack_require__(32);
-var EventPropagators = __webpack_require__(31);
+var EventPluginHub = __webpack_require__(33);
+var EventPropagators = __webpack_require__(32);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(14);
@@ -21428,7 +21428,7 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventPropagators = __webpack_require__(31);
+var EventPropagators = __webpack_require__(32);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticMouseEvent = __webpack_require__(41);
 
@@ -22230,7 +22230,7 @@ var DOMLazyTree = __webpack_require__(28);
 var DOMNamespaces = __webpack_require__(55);
 var DOMProperty = __webpack_require__(19);
 var DOMPropertyOperations = __webpack_require__(88);
-var EventPluginHub = __webpack_require__(32);
+var EventPluginHub = __webpack_require__(33);
 var EventPluginRegistry = __webpack_require__(39);
 var ReactBrowserEventEmitter = __webpack_require__(44);
 var ReactDOMComponentFlags = __webpack_require__(76);
@@ -23800,7 +23800,7 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var EventPluginHub = __webpack_require__(32);
+var EventPluginHub = __webpack_require__(33);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -24533,7 +24533,7 @@ module.exports = ReactDOMTextarea;
 var _prodInvariant = __webpack_require__(4);
 
 var ReactComponentEnvironment = __webpack_require__(58);
-var ReactInstanceMap = __webpack_require__(34);
+var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(10);
 
 var ReactCurrentOwner = __webpack_require__(13);
@@ -25148,7 +25148,7 @@ var React = __webpack_require__(25);
 var ReactComponentEnvironment = __webpack_require__(58);
 var ReactCurrentOwner = __webpack_require__(13);
 var ReactErrorUtils = __webpack_require__(50);
-var ReactInstanceMap = __webpack_require__(34);
+var ReactInstanceMap = __webpack_require__(35);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactNodeTypes = __webpack_require__(92);
 var ReactReconciler = __webpack_require__(27);
@@ -27244,7 +27244,7 @@ module.exports = getUnboundedScrollPosition;
 
 
 var DOMProperty = __webpack_require__(19);
-var EventPluginHub = __webpack_require__(32);
+var EventPluginHub = __webpack_require__(33);
 var EventPluginUtils = __webpack_require__(49);
 var ReactComponentEnvironment = __webpack_require__(58);
 var ReactEmptyComponent = __webpack_require__(93);
@@ -28174,7 +28174,7 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(31);
+var EventPropagators = __webpack_require__(32);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInputSelection = __webpack_require__(97);
@@ -28371,7 +28371,7 @@ module.exports = SelectEventPlugin;
 var _prodInvariant = __webpack_require__(4);
 
 var EventListener = __webpack_require__(96);
-var EventPropagators = __webpack_require__(31);
+var EventPropagators = __webpack_require__(32);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticAnimationEvent = __webpack_require__(200);
 var SyntheticClipboardEvent = __webpack_require__(201);
@@ -28382,7 +28382,7 @@ var SyntheticMouseEvent = __webpack_require__(41);
 var SyntheticDragEvent = __webpack_require__(205);
 var SyntheticTouchEvent = __webpack_require__(206);
 var SyntheticTransitionEvent = __webpack_require__(207);
-var SyntheticUIEvent = __webpack_require__(33);
+var SyntheticUIEvent = __webpack_require__(34);
 var SyntheticWheelEvent = __webpack_require__(208);
 
 var emptyFunction = __webpack_require__(9);
@@ -28686,7 +28686,7 @@ module.exports = SyntheticClipboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(33);
+var SyntheticUIEvent = __webpack_require__(34);
 
 /**
  * @interface FocusEvent
@@ -28727,7 +28727,7 @@ module.exports = SyntheticFocusEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(33);
+var SyntheticUIEvent = __webpack_require__(34);
 
 var getEventCharCode = __webpack_require__(64);
 var getEventKey = __webpack_require__(204);
@@ -28974,7 +28974,7 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(33);
+var SyntheticUIEvent = __webpack_require__(34);
 
 var getEventModifierState = __webpack_require__(53);
 
@@ -29314,7 +29314,7 @@ var _prodInvariant = __webpack_require__(4);
 
 var ReactCurrentOwner = __webpack_require__(13);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInstanceMap = __webpack_require__(34);
+var ReactInstanceMap = __webpack_require__(35);
 
 var getHostComponentFromComposite = __webpack_require__(100);
 var invariant = __webpack_require__(1);
@@ -30338,7 +30338,7 @@ exports.default = calculateGPA;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var hs_req_fns_ts_1 = __webpack_require__(236);
-var success_chance_1 = __webpack_require__(35);
+var success_chance_1 = __webpack_require__(29);
 var getReqFns = function (program) {
     var applFnID = program.Application_Requirements_Fn;
     var selFnID = program.Program_Selections_Fn;
@@ -30374,7 +30374,7 @@ exports.default = getReqFns;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var gender_1 = __webpack_require__(66);
-var success_chance_ts_1 = __webpack_require__(35);
+var success_chance_ts_1 = __webpack_require__(29);
 var hs_calc_utils_1 = __webpack_require__(237);
 var seCutoffTable = {
     "609726": {
@@ -34005,7 +34005,7 @@ exports.default = initialState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var success_chance_1 = __webpack_require__(35);
+var success_chance_1 = __webpack_require__(29);
 var is_hs_program_1 = __webpack_require__(110);
 var is_es_program_1 = __webpack_require__(111);
 var denormalize_1 = __webpack_require__(241);
@@ -56403,7 +56403,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
 var timeout_1 = __webpack_require__(279);
 var text_field_1 = __webpack_require__(280);
-var field_validation_state_1 = __webpack_require__(29);
+var field_validation_state_1 = __webpack_require__(30);
 var get_tier_1 = __webpack_require__(281);
 __webpack_require__(287);
 var AddressTierCalculator = (function (_super) {
@@ -56567,7 +56567,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var field_validation_state_1 = __webpack_require__(29);
+var field_validation_state_1 = __webpack_require__(30);
 var field_container_1 = __webpack_require__(36);
 var debounce_1 = __webpack_require__(46);
 var TextField = (function (_super) {
@@ -57144,7 +57144,7 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fie
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var field_validation_state_1 = __webpack_require__(29);
+var field_validation_state_1 = __webpack_require__(30);
 var field_container_1 = __webpack_require__(36);
 var combo_box_field_1 = __webpack_require__(117);
 var MultiSelectField = function (props) {
@@ -57206,7 +57206,7 @@ var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
 var between_1 = __webpack_require__(24);
 var score_type_1 = __webpack_require__(22);
-var connect_score_type_1 = __webpack_require__(30);
+var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(23);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "NWEA Math percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
@@ -57225,7 +57225,7 @@ var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
 var between_1 = __webpack_require__(24);
 var score_type_1 = __webpack_require__(22);
-var connect_score_type_1 = __webpack_require__(30);
+var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(23);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "NWEA Reading percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
@@ -57244,7 +57244,7 @@ var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
 var between_1 = __webpack_require__(24);
 var score_type_1 = __webpack_require__(22);
-var connect_score_type_1 = __webpack_require__(30);
+var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(23);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "Math Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
@@ -57263,7 +57263,7 @@ var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
 var between_1 = __webpack_require__(24);
 var score_type_1 = __webpack_require__(22);
-var connect_score_type_1 = __webpack_require__(30);
+var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(23);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "Reading Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
@@ -57282,7 +57282,7 @@ var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
 var between_1 = __webpack_require__(24);
 var score_type_1 = __webpack_require__(22);
-var connect_score_type_1 = __webpack_require__(30);
+var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(23);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "Science Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
@@ -57301,7 +57301,7 @@ var React = __webpack_require__(3);
 var constants_1 = __webpack_require__(11);
 var between_1 = __webpack_require__(24);
 var score_type_1 = __webpack_require__(22);
-var connect_score_type_1 = __webpack_require__(30);
+var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(23);
 var Field = function (props) {
     return React.createElement(number_field_1.default, { label: "Social Studies Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
@@ -57491,12 +57491,18 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var hs_program_element_1 = __webpack_require__(308);
-__webpack_require__(315);
+var get_combined_success_chance_1 = __webpack_require__(308);
+var hs_program_element_1 = __webpack_require__(309);
+__webpack_require__(316);
 var HSGroup = (function (_super) {
     __extends(HSGroup, _super);
     function HSGroup(props) {
         var _this = _super.call(this, props) || this;
+        _this.sortByOutcome = function (a, b) {
+            var aOutcome = get_combined_success_chance_1.default(a.applicationOutcome, a.selectionOutcome);
+            var bOutcome = get_combined_success_chance_1.default(b.applicationOutcome, b.selectionOutcome);
+            return bOutcome - aOutcome;
+        };
         _this.state = {
             collapsed: false
         };
@@ -57509,7 +57515,7 @@ var HSGroup = (function (_super) {
                 React.createElement("div", { className: "hs-category-title" }, this.props.title),
                 React.createElement("button", { className: "hs-category-collapse-button " + (this.state.collapsed ? "collapsed" : ""), onClick: function (ev) { return _this.setState({ collapsed: !_this.state.collapsed }); } },
                     React.createElement("div", { className: "hs-category-collapse-button-icon" }, "<"))),
-            React.createElement("div", { className: "hs-list" }, this.props.programs.map(function (hs) {
+            React.createElement("div", { className: "hs-list" }, this.props.programs.sort(this.sortByOutcome).map(function (hs) {
                 return (React.createElement(hs_program_element_1.default, { key: hs.id, program: hs, selected: hs.id === _this.props.selectedProgramID, onSelect: function (newID) { return _this.props.onSelectedProgramIDChange(newID); } }));
             }))));
     };
@@ -57521,6 +57527,25 @@ exports.default = HSGroup;
 
 /***/ }),
 /* 308 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var success_chance_1 = __webpack_require__(29);
+var getCombinedSuccessChance = function (application, selection) {
+    if (application === success_chance_1.default.CERTAIN || application === success_chance_1.default.LIKELY) {
+        return selection;
+    }
+    else {
+        return application;
+    }
+};
+exports.default = getCombinedSuccessChance;
+
+
+/***/ }),
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57537,9 +57562,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var success_chance_1 = __webpack_require__(35);
-var hs_program_info_card_1 = __webpack_require__(309);
-__webpack_require__(312);
+var success_chance_1 = __webpack_require__(29);
+var hs_program_info_card_1 = __webpack_require__(310);
+__webpack_require__(313);
 var HSProgramElement = (function (_super) {
     __extends(HSProgramElement, _super);
     function HSProgramElement(props) {
@@ -57602,15 +57627,15 @@ exports.default = HSProgramElement;
 
 
 /***/ }),
-/* 309 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(3);
-var success_chance_1 = __webpack_require__(35);
-__webpack_require__(310);
+var success_chance_1 = __webpack_require__(29);
+__webpack_require__(311);
 var HSProgramInfoCard = function (props) {
     var toMessage = function (success) {
         var msg;
@@ -57679,13 +57704,13 @@ exports.default = HSProgramInfoCard;
 
 
 /***/ }),
-/* 310 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(311);
+var content = __webpack_require__(312);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -57710,7 +57735,7 @@ if(false) {
 }
 
 /***/ }),
-/* 311 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -57724,13 +57749,13 @@ exports.push([module.i, ".hs-info-card-container {\n  display: none;\n  position
 
 
 /***/ }),
-/* 312 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(313);
+var content = __webpack_require__(314);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -57755,7 +57780,7 @@ if(false) {
 }
 
 /***/ }),
-/* 313 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -57763,25 +57788,25 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".hs-list-element {\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  background-size: 470px 470px;\n  background: url(" + __webpack_require__(314) + "); }\n\n.hs-list-element-icon.succ-certain {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #feee7e; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background: none;\n  border: 2px dashed #999; }\n", ""]);
+exports.push([module.i, ".hs-list-element {\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  background-size: 470px 470px;\n  background: url(" + __webpack_require__(315) + "); }\n\n.hs-list-element-icon.succ-certain {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #feee7e; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background: none;\n  border: 2px dashed #999; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 314 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "74a558d502f83dd3d4dd265aebb0a5c3.svg";
 
 /***/ }),
-/* 315 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(316);
+var content = __webpack_require__(317);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -57806,7 +57831,7 @@ if(false) {
 }
 
 /***/ }),
-/* 316 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
