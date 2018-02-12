@@ -12,6 +12,10 @@
   z-index: 99;
 }
 
+.hs-info-card-container.visible {
+  display: block;
+}
+
 .hs-info-card-close-button {
   font-size: 150%;
   width: 48px;
@@ -31,10 +35,6 @@
 
 .hs-info-card-close-button:active {
   transform: scale(0.9);
-}
-
-.hs-info-card-container.visible {
-  display: block;
 }
 
 .hs-info-card {

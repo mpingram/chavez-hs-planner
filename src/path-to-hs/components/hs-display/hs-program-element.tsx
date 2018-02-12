@@ -35,30 +35,34 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
   }
 
   render() {
-    const className = "hs-list-element-icon " + 
-      (this.state.showHSPreview ? "focus " : "") + 
-      this.outcomeToClassName(
-        this.getCombinedSuccessChance(this.props.program.applicationOutcome, this.props.program.selectionOutcome)
-      )
 
     return (
-      <div 
-        className="hs-list-element"
-        ref={ ref => {
-          if (ref) { 
-            this.setState({pxFromTop: ref.offsetTop + 50 });
-          }
-        } }
-      >
+      <div>
         <button 
-          className={className}
+          className={"hs-list-element" + " " + (this.props.selected ? "selected" : "")}
+          ref={ ref => {
+            if (ref) { 
+              this.setState({pxFromTop: ref.offsetTop + 60 });
+            }
+          } }
           onClick={(ev) => {
             this.props.onSelect(this.props.program.id);
           } }
-        />
-        <div className="hs-list-element-shortname">
-          {this.props.program.shortname}
-        </div>
+        >
+          <div
+            className={"hs-list-element-icon " + 
+              this.outcomeToClassName(
+                this.getCombinedSuccessChance(
+                  this.props.program.applicationOutcome, 
+                  this.props.program.selectionOutcome
+                )
+              )
+            }
+          />
+          <div className="hs-list-element-shortname">
+            {this.props.program.shortname}
+          </div>
+        </button>
         <HSProgramInfoCard 
           visible={this.state.showHSPreview} 
           program={this.props.program}
