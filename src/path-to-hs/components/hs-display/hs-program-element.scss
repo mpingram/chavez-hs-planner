@@ -64,14 +64,12 @@
 
   border-radius: 100%;
 
-  background-size: $hs-list-element-icon-size;
-  background: url("../../../shared/images/school.svg");
+  overflow: hidden;
 }
 
 
 // Certain success
 .hs-list-element-icon.succ-certain {
-  transform: scale(1.1);
   background-color: lighten($col-succ-certain, 10%);
 }
 

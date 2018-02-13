@@ -2,6 +2,7 @@ import * as React from "react";
 
 import HSProgram from "shared/types/hs-program";
 import SuccessChance from "shared/enums/success-chance";
+import SchoolIcon from "shared/components/icons/school";
 
 import HSProgramInfoCard from "./hs-program-info-card";
 
@@ -14,6 +15,7 @@ interface HSProgramElemProps {
 interface HSProgramElemState {
   showHSPreview: boolean
   pxFromTop: number
+  combinedSuccessChance: SuccessChance
 }
 
 import "./hs-program-element.scss";
@@ -23,6 +25,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
   constructor(props) {
     super(props);
     this.state = { 
+      combinedSuccessChance: this.getCombinedSuccessChance(props.program),
       showHSPreview: props.selected,
       pxFromTop: 0
     };
@@ -30,12 +33,13 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      showHSPreview: nextProps.selected
+      showHSPreview: nextProps.selected,
+      combinedSuccessChance: this.getCombinedSuccessChance(nextProps.program)
     });
   }
 
   render() {
-
+    const IconClassName = `hs-list-element-icon ${this.outcomeToClassName(this.state.combinedSuccessChance)}`;
     return (
       <div>
         <button 
@@ -49,16 +53,11 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
             this.props.onSelect(this.props.program.id);
           } }
         >
-          <div
-            className={"hs-list-element-icon " + 
-              this.outcomeToClassName(
-                this.getCombinedSuccessChance(
-                  this.props.program.applicationOutcome, 
-                  this.props.program.selectionOutcome
-                )
-              )
+          <div className={IconClassName}>
+            { this.state.combinedSuccessChance !== SuccessChance.NOTIMPLEMENTED &&
+            <SchoolIcon width="45px" height="45px" color="#000"/>
             }
-          />
+          </div>
           <div className="hs-list-element-shortname">
             {this.props.program.shortname}
           </div>
@@ -73,11 +72,12 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
     )
   }
 
-  private getCombinedSuccessChance = (application: SuccessChance, selection: SuccessChance) => {
-    if (application === SuccessChance.CERTAIN || application === SuccessChance.LIKELY) {
-      return selection;
+  private getCombinedSuccessChance = (program: HSProgram) => {
+    if (program.applicationOutcome === SuccessChance.CERTAIN || 
+      program.applicationOutcome === SuccessChance.LIKELY) {
+      return program.selectionOutcome;
     } else {
-      return application;
+      return program.applicationOutcome;
     }
   }
 
