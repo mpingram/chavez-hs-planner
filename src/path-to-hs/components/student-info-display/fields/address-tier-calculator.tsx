@@ -4,7 +4,7 @@ import Timeout from "shared/util/timeout";
 import StudentLocation from "shared/types/student-location";
 import TextField from "shared/components/ui/fields/text-field";
 import FieldValidationState from "shared/components/ui/fields/field-validation-state";
-import {getTier, GetTierError} from "shared/util/get-tier";
+import {getTierAndGeo, GetTierError} from "shared/util/get-tier-and-geo";
 
 import "./address-tier-calculator.scss";
 
@@ -71,7 +71,7 @@ export default class AddressTierCalculator extends React.Component<AddrTierCalcP
 
       // if address passes basic validation
       if (validate(address)) {
-        getTier(address).then( ({tier, geo}) => {
+        getTierAndGeo(address).then( ({tier, geo}) => {
           this.setState({
             tier: tier,
             geo: geo,
@@ -114,35 +114,25 @@ export default class AddressTierCalculator extends React.Component<AddrTierCalcP
     });
   }
 
-  private displayStatusMessage(state: string): string {
-    if (state === "warning") {
-      return "Your address is right, but it doesn't seem to be in the Chicago Public Schools boundary. Are you sure you used the right address?"
-    } else if (state === "error") {
-      return "We can't find your address -- are you sure you entered it correctly?";
-    } else {
-      return "No errors"
-    }
-  }
-
   render() {
     return <div className="address-tier-calculator">
       <TextField
         label="Your street address"
-        value={this.state.address ? this.state.address : " " }
+        value={this.state.address ? this.state.address : "" }
+        validator={ () => this.state.addressValidationState }
         onChange={this.handleAddressChange}
       />
-      <div className="tier-display">
-        { this.state.requestInProgress 
-              ? <div className="spinning-load-icon">Loading...</div>
-              : (this.state.tier ? this.state.tier : "")
-        }
+      <div className="tier-display-container">
+        <div className="tier-display-label">
+          Your CPS Tier
+        </div>
+        <div className="tier-display">
+          { this.state.requestInProgress 
+                ? <div className="spinning-load-icon"></div>
+                : (this.state.tier ? this.state.tier : "")
+          }
+        </div>
       </div>
-      { this.state.addressValidationState !== FieldValidationState.SUCCESS &&
-        this.state.addressValidationState !== FieldValidationState.NEUTRAL &&
-          <div className="address-status-message">
-            {this.displayStatusMessage(this.state.addressValidationState)}
-          </div>
-      }
     </div>
   }
 }

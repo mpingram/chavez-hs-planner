@@ -8,12 +8,12 @@ export const GetTierError = {
   RequestFailedErr: new Error("Request Failed"),
 };
 
-export interface GetTierResponse {
+export interface TierAndGeoResponse {
   tier: string
   geo: {latitude: number, longitude: number}
 };
 
-export const getTier = (address: string): Promise<GetTierResponse> => {
+export const getTierAndGeo = (address: string): Promise<TierAndGeoResponse> => {
 
   return new Promise((resolve, reject) => {
     getTractAndGeo(address).then( ({tract, geo}) => {

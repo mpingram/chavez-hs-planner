@@ -1,7 +1,0 @@
-[WIP] Add hs programs summary to HSGroup
-
-* move success chance color variables from hs-program-
-  element.scss to shared/variables
-* change uncertain success chance color to be more vibrant
-* update gray text styles in shared/varibles for increased
-  readability

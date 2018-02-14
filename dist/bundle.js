@@ -56410,7 +56410,7 @@ var React = __webpack_require__(1);
 var timeout_1 = __webpack_require__(279);
 var text_field_1 = __webpack_require__(280);
 var field_validation_state_1 = __webpack_require__(30);
-var get_tier_1 = __webpack_require__(281);
+var get_tier_and_geo_1 = __webpack_require__(324);
 __webpack_require__(287);
 var AddressTierCalculator = (function (_super) {
     __extends(AddressTierCalculator, _super);
@@ -56436,7 +56436,7 @@ var AddressTierCalculator = (function (_super) {
             var newTimeout = new timeout_1.default(function () {
                 _this.setRequestInProgress(true);
                 if (validate(address)) {
-                    get_tier_1.getTier(address).then(function (_a) {
+                    get_tier_and_geo_1.getTierAndGeo(address).then(function (_a) {
                         var tier = _a.tier, geo = _a.geo;
                         _this.setState({
                             tier: tier,
@@ -56450,19 +56450,19 @@ var AddressTierCalculator = (function (_super) {
                             geo: geo
                         });
                     }).catch(function (err) {
-                        if (err === get_tier_1.GetTierError.InvalidAddressErr) {
+                        if (err === get_tier_and_geo_1.GetTierError.InvalidAddressErr) {
                             _this.setState({
                                 addressValidationState: field_validation_state_1.default.FAILURE
                             });
                             _this.setRequestInProgress(false);
                         }
-                        else if (err === get_tier_1.GetTierError.NoTierFoundErr) {
+                        else if (err === get_tier_and_geo_1.GetTierError.NoTierFoundErr) {
                             _this.setState({
                                 addressValidationState: field_validation_state_1.default.WARNING
                             });
                             _this.setRequestInProgress(false);
                         }
-                        else if (err === get_tier_1.GetTierError.RequestFailedErr) {
+                        else if (err === get_tier_and_geo_1.GetTierError.RequestFailedErr) {
                             _this.setState({
                                 addressValidationState: field_validation_state_1.default.WARNING
                             });
@@ -56492,26 +56492,15 @@ var AddressTierCalculator = (function (_super) {
     AddressTierCalculator.prototype.now = function () {
         return new Date().valueOf();
     };
-    AddressTierCalculator.prototype.displayStatusMessage = function (state) {
-        if (state === "warning") {
-            return "Your address is right, but it doesn't seem to be in the Chicago Public Schools boundary. Are you sure you used the right address?";
-        }
-        else if (state === "error") {
-            return "We can't find your address -- are you sure you entered it correctly?";
-        }
-        else {
-            return "No errors";
-        }
-    };
     AddressTierCalculator.prototype.render = function () {
+        var _this = this;
         return React.createElement("div", { className: "address-tier-calculator" },
-            React.createElement(text_field_1.default, { label: "Your street address", value: this.state.address ? this.state.address : " ", onChange: this.handleAddressChange }),
-            React.createElement("div", { className: "tier-display" }, this.state.requestInProgress
-                ? React.createElement("div", { className: "spinning-load-icon" }, "Loading...")
-                : (this.state.tier ? this.state.tier : "")),
-            this.state.addressValidationState !== field_validation_state_1.default.SUCCESS &&
-                this.state.addressValidationState !== field_validation_state_1.default.NEUTRAL &&
-                React.createElement("div", { className: "address-status-message" }, this.displayStatusMessage(this.state.addressValidationState)));
+            React.createElement(text_field_1.default, { label: "Your street address", value: this.state.address ? this.state.address : "", validator: function () { return _this.state.addressValidationState; }, onChange: this.handleAddressChange }),
+            React.createElement("div", { className: "tier-display-container" },
+                React.createElement("div", { className: "tier-display-label" }, "Your CPS Tier"),
+                React.createElement("div", { className: "tier-display" }, this.state.requestInProgress
+                    ? React.createElement("div", { className: "spinning-load-icon" })
+                    : (this.state.tier ? this.state.tier : ""))));
     };
     return AddressTierCalculator;
 }(React.Component));
@@ -56623,88 +56612,7 @@ exports.default = TextField;
 
 
 /***/ }),
-/* 281 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tract_tier_table_1 = __webpack_require__(282);
-var JSONP = __webpack_require__(283);
-exports.GetTierError = {
-    InvalidAddressErr: new Error("Invalid address"),
-    NoTierFoundErr: new Error("No CPS tier found for this address"),
-    RequestFailedErr: new Error("Request Failed"),
-};
-;
-exports.getTier = function (address) {
-    return new Promise(function (resolve, reject) {
-        getTractAndGeo(address).then(function (_a) {
-            var tract = _a.tract, geo = _a.geo;
-            lookupTierFromTract(tract).then(function (tier) {
-                resolve({ tier: tier, geo: geo });
-            }).catch(function (err) { return reject(exports.GetTierError.NoTierFoundErr); });
-        }).catch(function (err) {
-            if (err === exports.GetTierError.RequestFailedErr) {
-                reject(exports.GetTierError.RequestFailedErr);
-            }
-            else {
-                reject(exports.GetTierError.InvalidAddressErr);
-            }
-        });
-    });
-};
-;
-var getTractAndGeo = function (address) {
-    var API_BASE_URL = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress";
-    var apiParams = {
-        address: address,
-        format: "jsonp",
-        benchmark: "Public_AR_Current",
-        vintage: "Current_Current",
-        layers: "Census Tracts",
-    };
-    var sendRequest = function (baseUrl, params) {
-        return new Promise(function (resolve, reject) {
-            JSONP({
-                url: baseUrl,
-                data: params,
-                success: function (data) { return resolve(data); },
-                error: function (err) {
-                    reject(exports.GetTierError.RequestFailedErr);
-                }
-            });
-        });
-    };
-    var extractTract = function (response) {
-        return response.result.addressMatches[0].geographies["Census Tracts"][0].BASENAME;
-    };
-    var extractGeo = function (response) {
-        var coords = response.result.addressMatches[0].coordinates;
-        return { latitude: coords.y, longitude: coords.x };
-    };
-    return new Promise(function (resolve, reject) {
-        sendRequest(API_BASE_URL, apiParams).then(function (res) {
-            var tract = extractTract(res);
-            var geo = extractGeo(res);
-            resolve({ tract: tract, geo: geo });
-        }).catch(function (e) { return reject(e); });
-    });
-};
-var lookupTierFromTract = function (tract) {
-    return new Promise(function (resolve, reject) {
-        var tier = tract_tier_table_1.default[tract];
-        if (tier === undefined) {
-            reject(exports.GetTierError.NoTierFoundErr);
-        }
-        else {
-            resolve(tier);
-        }
-    });
-};
-
-
-/***/ }),
+/* 281 */,
 /* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -56938,7 +56846,7 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  border-radius: 50%;\n  width: 2em;\n  height: 2em; }\n\n.spinning-load-icon {\n  font-size: 10px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 4px solid #95e57a;\n  border-right: 4px solid #95e57a;\n  border-bottom: 4px solid #95e57a;\n  border-left: 2px solid #ffffff;\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear; }\n\n@-webkit-keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; }\n  50% {\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    border-top: 4px solid #dbdb74;\n    border-right: 4px solid #dbdb74;\n    border-bottom: 4px solid #dbdb74; }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; } }\n\n@keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; }\n  50% {\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    border-top: 4px solid #dbdb74;\n    border-right: 4px solid #dbdb74;\n    border-bottom: 4px solid #dbdb74; }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; } }\n\n.address-tier-calculator {\n  margin-top: 10px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: baseline;\n      -ms-flex-align: baseline;\n          align-items: baseline; }\n\n.address-field-wrapper {\n  -webkit-box-flex: 3;\n      -ms-flex: 3 0 auto;\n          flex: 3 0 auto;\n  position: relative; }\n\n.tier-display-wrapper {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 auto;\n          flex: 1 0 auto; }\n\n.address-status-message {\n  position: absolute;\n  color: #9e9e9e;\n  font-size: 90%;\n  font-style: italic; }\n\n.tier-display {\n  padding: 6px 10px;\n  border: 1px dotted #9e9e9e;\n  border-radius: 6px;\n  text-align: center;\n  font-size: 125%; }\n", ""]);
+exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  border-radius: 50%;\n  width: 2em;\n  height: 2em;\n  margin: 0 auto; }\n\n.spinning-load-icon {\n  font-size: 10px;\n  position: relative;\n  border-top: 4px solid #95e57a;\n  border-right: 4px solid #95e57a;\n  border-bottom: 4px solid #95e57a;\n  border-left: 2px solid #ffffff;\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear; }\n\n@-webkit-keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; }\n  50% {\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    border-top: 4px solid #dbdb74;\n    border-right: 4px solid #dbdb74;\n    border-bottom: 4px solid #dbdb74; }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; } }\n\n@keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; }\n  50% {\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    border-top: 4px solid #dbdb74;\n    border-right: 4px solid #dbdb74;\n    border-bottom: 4px solid #dbdb74; }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; } }\n\n.address-tier-calculator {\n  margin-top: 10px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: baseline;\n      -ms-flex-align: baseline;\n          align-items: baseline; }\n\n.address-field-wrapper {\n  -webkit-box-flex: 3;\n      -ms-flex: 3 0 auto;\n          flex: 3 0 auto;\n  position: relative; }\n\n.tier-display-wrapper {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 auto;\n          flex: 1 0 auto; }\n\n.address-status-message {\n  position: absolute;\n  color: #9e9e9e;\n  font-size: 90%;\n  font-style: italic; }\n\n.tier-display-container {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto; }\n\n.tier-display-label {\n  font-size: 90%;\n  color: #444; }\n\n.tier-display {\n  width: 2em;\n  height: 30px;\n  padding: 5px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n  text-align: center;\n  font-size: 125%; }\n", ""]);
 
 // exports
 
@@ -58042,6 +57950,88 @@ exports = module.exports = __webpack_require__(15)(undefined);
 exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  margin-bottom: 2em; }\n\n.hs-category-container.collapsed {\n  height: 75px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #cacaca;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n\n.hs-category-title {\n  max-width: 100%;\n  font-size: 140%;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n\n.count-all {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 6em;\n          flex: 0 0 6em; }\n\n.count-all-number {\n  color: #333;\n  font-size: 1.25em;\n  font-weight: bold;\n  line-height: 36px; }\n\n.count-all-desc {\n  color: #666;\n  font-size: 90%;\n  line-height: 36px; }\n\n.hs-program-outcome-counts {\n  font-size: 95%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n\n.outcome-counts-wrapper {\n  height: 36px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  background-color: #fafafa;\n  border-radius: 12px; }\n\n.outcome-count {\n  width: 20px;\n  margin: 0 5px;\n  line-height: 16px;\n  font-size: 1.25em;\n  text-align: center;\n  font-weight: bold; }\n\n.outcome-count.count-empty {\n  color: #a6a6a6;\n  font-weight: normal; }\n\n.outcome-count.count-certain {\n  color: #5bed2a; }\n\n.outcome-count.count-likely {\n  color: #b6ec29; }\n\n.outcome-count.count-uncertain {\n  color: #ccc000; }\n\n.outcome-count.count-unlikely {\n  color: #f49600; }\n\n.outcome-count.count-none {\n  color: #f4743b; }\n\n.outcome-count.count-notimplemented {\n  color: #999; }\n\n.hs-category-collapse-button {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 40px;\n          flex: 0 0 40px;\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  -ms-flex-item-align: center;\n      align-self: center;\n  border-radius: 100%;\n  border: 2px solid #9e9e9e;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
 
 // exports
+
+
+/***/ }),
+/* 324 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tract_tier_table_1 = __webpack_require__(282);
+var JSONP = __webpack_require__(283);
+exports.GetTierError = {
+    InvalidAddressErr: new Error("Invalid address"),
+    NoTierFoundErr: new Error("No CPS tier found for this address"),
+    RequestFailedErr: new Error("Request Failed"),
+};
+;
+exports.getTierAndGeo = function (address) {
+    return new Promise(function (resolve, reject) {
+        getTractAndGeo(address).then(function (_a) {
+            var tract = _a.tract, geo = _a.geo;
+            lookupTierFromTract(tract).then(function (tier) {
+                resolve({ tier: tier, geo: geo });
+            }).catch(function (err) { return reject(exports.GetTierError.NoTierFoundErr); });
+        }).catch(function (err) {
+            if (err === exports.GetTierError.RequestFailedErr) {
+                reject(exports.GetTierError.RequestFailedErr);
+            }
+            else {
+                reject(exports.GetTierError.InvalidAddressErr);
+            }
+        });
+    });
+};
+;
+var getTractAndGeo = function (address) {
+    var API_BASE_URL = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress";
+    var apiParams = {
+        address: address,
+        format: "jsonp",
+        benchmark: "Public_AR_Current",
+        vintage: "Current_Current",
+        layers: "Census Tracts",
+    };
+    var sendRequest = function (baseUrl, params) {
+        return new Promise(function (resolve, reject) {
+            JSONP({
+                url: baseUrl,
+                data: params,
+                success: function (data) { return resolve(data); },
+                error: function (err) {
+                    reject(exports.GetTierError.RequestFailedErr);
+                }
+            });
+        });
+    };
+    var extractTract = function (response) {
+        return response.result.addressMatches[0].geographies["Census Tracts"][0].BASENAME;
+    };
+    var extractGeo = function (response) {
+        var coords = response.result.addressMatches[0].coordinates;
+        return { latitude: coords.y, longitude: coords.x };
+    };
+    return new Promise(function (resolve, reject) {
+        sendRequest(API_BASE_URL, apiParams).then(function (res) {
+            var tract = extractTract(res);
+            var geo = extractGeo(res);
+            resolve({ tract: tract, geo: geo });
+        }).catch(function (e) { return reject(e); });
+    });
+};
+var lookupTierFromTract = function (tract) {
+    return new Promise(function (resolve, reject) {
+        var tier = tract_tier_table_1.default[tract];
+        if (tier === undefined) {
+            reject(exports.GetTierError.NoTierFoundErr);
+        }
+        else {
+            resolve(tier);
+        }
+    });
+};
 
 
 /***/ })

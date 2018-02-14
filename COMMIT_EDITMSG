@@ -1,0 +1,9 @@
+Refactor AddressTierCalculator
+
+* DONE fix visual bug in spinning load icon
+  ** bug caused -99999em indented text to 
+    be rendered in flow of page, causing pretty intense reflows
+* DONE rename shared/util/getTier -> getTierAndGeo, because it
+  does both
+* DONE add label to CPS Tier display
+* DONE style CPS Tier display to always have same height

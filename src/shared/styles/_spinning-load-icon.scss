@@ -5,11 +5,11 @@
   border-radius: 50%;
   width: 2em;
   height: 2em;
+  margin: 0 auto;
 }
 .spinning-load-icon {
   font-size: 10px;
   position: relative;
-  text-indent: -9999em;
   border-top: 4px solid $col-app-1;
   border-right: 4px solid $col-app-1;
   border-bottom: 4px solid $col-app-1;

@@ -25,10 +25,22 @@
   font-style: italic;
 }
 
+.tier-display-container {
+  flex: 0 0 auto;
+}
+
+.tier-display-label {
+  font-size: 90%;
+  color: #444;
+}
+
 .tier-display {
-  padding: 6px 10px;
-  border: 1px dotted $col-app-gray;
-  border-radius: 6px;
+  width: 2em;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
   text-align: center;
   font-size: 125%;
 }
+
