@@ -1,7 +1,7 @@
 {
-  "name": "ontrack-client",
+  "name": "path-to-hs",
   "version": "0.0.1",
-  "description": "Frontend for ontrack web app",
+  "description": "A website that calculates a student's chances of getting into different Chicago Public Schools high schools.",
   "main": " ",
   "scripts": {
     "test": "karma start karma.conf.js",
@@ -13,24 +13,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nanselmo/ontrack.git"
+    "url": "git+https://github.com/mpingram/path-to-hs.git"
   },
   "keywords": [
     "education",
     "school",
-    "CPS",
     "Chicago",
-    "Public",
-    "Schools",
+    "CPS",
+    "Chicago Public Schools",
     "principal",
-    "teacher"
+    "teacher",
+    "counselor",
+    "high school"
   ],
   "author": "Michael Ingram",
-  "license": "UNLICENSED",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/nanselmo/ontrack/issues"
+    "url": "https://github.com/mpingram/path-to-hs/issues"
   },
-  "homepage": "https://github.com/nanselmo/ontrack#readme",
+  "homepage": "https://github.com/mpingram/path-to-hs#readme",
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
@@ -65,7 +66,6 @@
     "sinon": "^4.0.1",
     "style-loader": "^0.18.2",
     "typescript": "^2.6.2",
-    "typings-for-css-modules-loader": "^1.5.0",
     "webpack": "^3.1.0"
   },
   "dependencies": {

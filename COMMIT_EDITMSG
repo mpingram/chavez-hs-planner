@@ -1,8 +1,5 @@
-Remove dead code
+Update package.json
 
-* remove shared/util/clone
-* remove shared/types/additional-requirements
-* remove icon types in shared/types/
-* remove circled up/down arrows in shared/components/icons
-* combine ScoreType enum and ScoreType type
-* remove empty folder shared/images/
+* update package name, description, github link
+* update license field with project license (GNU GPLv3)
+* remove unused package typings-for-css-modules-loader from devDependencies
