@@ -4,7 +4,6 @@ import HSRequirementFunction from "shared/types/hs-requirement-function";
 import SuccessChance from "shared/enums/success-chance";
 import isHSProgram from "shared/util/is-hs-program";
 import isESProgram from "shared/util/is-es-program";
-import denormalize from "shared/util/denormalize";
 
 type Outcome = {application: SuccessChance, selection: SuccessChance};
 type ReqFnLookup = (program: CPSProgram) => {application: HSRequirementFunction, selection: HSRequirementFunction};
@@ -42,7 +41,7 @@ export const getHSProgramIDsByType = (programs: CPSProgram[]): {[type: string]: 
   let hsProgramIDsByType = {};
   for (let i=0; i<hsProgramIDs.length; i++) {
     const id = hsProgramIDs[i];
-    const program = denormalize(id, programs, index);
+    const program = programs[index[id]];
     const type = program.Program_Type;
     if (!hsProgramIDsByType[type]) {
       hsProgramIDsByType[type] = [];
