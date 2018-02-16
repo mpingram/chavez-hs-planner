@@ -7,9 +7,9 @@ import {NWEATestingSession,
 
 /**
  * NOTE
- * These tests is based on the NWEA 2015 norms. If new norms are released,
+ * These tests are based on the NWEA 2015 norms. If new norms are released,
  * replace norm data in shared/data/rit-percentile-lookup.ts and update
- * these tests.
+ * these tests, which test against the NWEA 2015 norms.
  */
 
 describe("percentileToRit", () => {

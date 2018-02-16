@@ -3,12 +3,14 @@ import {expect} from "chai";
 
 xdescribe("getTier", function() {
 
+  const getTier = getTierAndGeo;
+
   // the census API seems to be slow; set timeout to 4s
   this.timeout(6000);
 
   it("should throw INVALID_ADDRESS for correct addresses", function(done) {
     const address = "awdkjawkdljawlkfjewflkrejf";
-    getTierAndGeo(address).then( res => {
+    getTier(address).then( res => {
       // expect this not to be called
       done(new Error(`getTier should have thrown with address ${address}`));
     }).catch( err => {
@@ -19,7 +21,7 @@ xdescribe("getTier", function() {
 
   it("should throw NO_TIER_FOUND for addresses outside CPS boundaries", function(done) {
     const address = "524 West 4th Avenue, Anchorage, Alaska";
-    getTierAndGeo(address).then( res => {
+    getTier(address).then( res => {
       // expect this not to be called
       done(new Error(`getTier should have thrown with address ${address}`));
     }).catch( err => {
@@ -31,8 +33,8 @@ xdescribe("getTier", function() {
   it("should get correct tier for Chavez' full address", function(done) {
     const address = "4747 S Marshield Av., Chicago IL 60609";
     const expectedTier = "1";
-    getTierAndGeo(address).then( res => {
-      expect(res.tier).to.equal(expectedTier);
+    getTier(address).then( res => {
+      expect(res).to.equal(expectedTier);
       done();
     }).catch( err => done(err));
   });
@@ -40,8 +42,8 @@ xdescribe("getTier", function() {
   it("should get correct tier for this random tier 3 address", function(done) {
     const address = "2929 W Cullom Av., Chicago IL 60618";
     const expectedTier = "3";
-    getTierAndGeo(address).then( res => {
-      expect(res.tier).to.equal(expectedTier);
+    getTier(address).then( res => {
+      expect(res).to.equal(expectedTier);
       done();
     }).catch( err => done(err));
   });
@@ -49,8 +51,8 @@ xdescribe("getTier", function() {
   it("should get correct tier for this random tier 1 address", function(done) {
     const address = "4720 S Ellis Ave, Chicago, IL 60615";
     const expectedTier = "1";
-    getTierAndGeo(address).then( res => {
-      expect(res.tier).to.equal(expectedTier);
+    getTier(address).then( res => {
+      expect(res).to.equal(expectedTier);
       done();
     }).catch( err => done(err));
   });
@@ -58,8 +60,8 @@ xdescribe("getTier", function() {
   it("should get correct tier for the turtle racing bar's address", function(done) {
     const address = "1818 W Foster Ave, Chicago, IL 60640";
     const expectedTier = "4";
-    getTierAndGeo(address).then( res => {
-      expect(res.tier).to.equal(expectedTier);
+    getTier(address).then( res => {
+      expect(res).to.equal(expectedTier);
       done();
     }).catch( err => done(err));
   });
@@ -67,8 +69,8 @@ xdescribe("getTier", function() {
   it("should get correct tier for addresses with extra whitespace", function(done) {
     const address = "     4747   S Marshield Av.       , Chicago IL 60609";
     const expectedTier = "1";
-    getTierAndGeo(address).then( res => {
-      expect(res.tier).to.equal(expectedTier);
+    getTier(address).then( res => {
+      expect(res).to.equal(expectedTier);
       done();
     }).catch( err => done(err));
   });
@@ -76,8 +78,8 @@ xdescribe("getTier", function() {
   xit("should get correct tier for addresses with only street and numbers", function(done) {
     const address = "4747 S Marshield Av,";
     const expectedTier = "1";
-    getTierAndGeo(address).then( res => {
-      expect(res.tier).to.equal(expectedTier);
+    getTier(address).then( res => {
+      expect(res).to.equal(expectedTier);
       done();
     }).catch( err => done(err));
   });
@@ -85,8 +87,8 @@ xdescribe("getTier", function() {
   xit("should get correct tier for addresses with apartment numbers added on", function(done) {
     const address = "4720 S Ellis, Apt 1";
     const expectedTier = "2";
-    getTierAndGeo(address).then( res => {
-      expect(res.tier).to.equal(expectedTier);
+    getTier(address).then( res => {
+      expect(res).to.equal(expectedTier);
       done();
     }).catch( err => done(err));
   });

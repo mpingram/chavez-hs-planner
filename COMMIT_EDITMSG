@@ -1,5 +1,7 @@
-Update package.json
+Update tests in spec/
 
-* update package name, description, github link
-* update license field with project license (GNU GPLv3)
-* remove unused package typings-for-css-modules-loader from devDependencies
+* update get-tier.spec.ts -> get-tier-and-geo.spec.ts
+* remove tests for removed methods in grade-convert.spec.ts
+* update test StudentData in hs-calc-utils.spec.ts
+* remove unused score-projection-utils.spec.ts
+

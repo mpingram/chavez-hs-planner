@@ -11,40 +11,6 @@ export const GradeConvertErrors = {
   BadPercentile: new Error("Bad percentile passed to GradeConvert method")
 };
 
-// export const scoreToPercentile = (score: StudentScore, scoreType: ScoreType, gradeLevel: number): number => {
-//   switch(scoreType) {
-//     case ScoreType.nweaMath:
-//       return ritToPercentile(score, NWEATestType.Math, gradeLevel);
-//     case ScoreType.nweaRead:
-//       return ritToPercentile(score, NWEATestType.Reading, gradeLevel);
-//     case ScoreType.subjGradeMath:
-//     case ScoreType.subjGradeRead:
-//     case ScoreType.subjGradeSci:
-//     case ScoreType.subjGradeSocStudies:
-//       return numberGradeToPercentile(score);
-//     default:
-//       throw GradeConvertErrors.BadScoreType;
-//   }
-// };
-
-// export const percentileToScore = (percentile: number, scoreType: ScoreType, gradeLevel: number): StudentScore => {
-//   if(!(percentile >= 1 && percentile <= 99)) {
-//     throw GradeConvertErrors.BadPercentile;
-//   }
-//   switch(scoreType) {
-//     case ScoreType.nweaPercentileMath:
-//       return percentileToRit(percentile, NWEATestType.Math, gradeLevel);
-//     case ScoreType.nweaPercentileRead:
-//       return percentileToRit(percentile, NWEATestType.Reading, gradeLevel);
-//     case ScoreType.subjGradeMath:
-//     case ScoreType.subjGradeRead:
-//     case ScoreType.subjGradeSci:
-//     case ScoreType.subjGradeSocStudies:
-//       return gradePercentileToNumberGrade(percentile);
-//     default:
-//       throw GradeConvertErrors.BadScoreType;
-//   }
-// };
 
 export const scoreToString = (score, scoreType: ScoreType): string => {
   if (scoreType in ScoreType) {
