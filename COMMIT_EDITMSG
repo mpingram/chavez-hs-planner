@@ -1,4 +1,1 @@
-Refactor spec/shared/util/grade-util
-
-* Rewrite tests to adapt to changed api -- use toLetterGrade
-  method instead of toString
+Write tests for shared/util/timeout
