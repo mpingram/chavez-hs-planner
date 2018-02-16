@@ -1,15 +1,21 @@
 export default class Timeout {
 
   public start(): void {
-    this.timerInstance = setTimeout(this.callback, this.delay);
+    if (!this.started && !this.cancelled) {
+      this.started = true;
+      this.timerInstance = setTimeout(this.callback, this.delay);
+    }
+    // else do nothing
   }
   public cancel(): void {
-    if (this.hasStarted()) {
+    this.cancelled = true;
+    if (this.timerInstance !== undefined) {
       clearTimeout(this.timerInstance);
+      this.timerInstance = undefined;
     }
   }
   public hasStarted(): boolean {
-    return this.timerInstance !== null;
+    return this.started;
   }
   public hasFinished(): boolean {
     return this.callbackExecuted;
@@ -23,9 +29,11 @@ export default class Timeout {
     this.delay = delay;
   }
 
-  private timerInstance: any = null;
+  private timerInstance: any = undefined;
   private callback: Function;
   private delay: number;
   private callbackExecuted: boolean = false;
+  private started: boolean = false;
+  private cancelled: boolean = false;
 
 }
