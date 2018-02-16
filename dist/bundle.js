@@ -1330,7 +1330,7 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(80);
-var PooledClass = __webpack_require__(21);
+var PooledClass = __webpack_require__(22);
 var ReactFeatureFlags = __webpack_require__(81);
 var ReactReconciler = __webpack_require__(28);
 var Transaction = __webpack_require__(40);
@@ -2015,6 +2015,7 @@ function updateLink (link, options, obj) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var action_type_1 = __webpack_require__(108);
+var score_type_1 = __webpack_require__(20);
 exports.selectHSProgram = function (newValue) {
     return {
         type: action_type_1.default.SelectHSProgram,
@@ -2120,25 +2121,25 @@ exports.updateStudentSETestPercentile = function (newValue) {
 exports.updateStudentScore = function (scoreType, newValue) {
     var actionType;
     switch (scoreType) {
-        case "nweaPercentileMath":
+        case score_type_1.default.nweaPercentileMath:
             actionType = action_type_1.default.UpdateStudentNWEAPercentileMath;
             break;
-        case "nweaPercentileRead":
+        case score_type_1.default.nweaPercentileRead:
             actionType = action_type_1.default.UpdateStudentNWEAPercentileRead;
             break;
-        case "subjGradeMath":
+        case score_type_1.default.subjGradeMath:
             actionType = action_type_1.default.UpdateStudentSubjGradeMath;
             break;
-        case "subjGradeRead":
+        case score_type_1.default.subjGradeRead:
             actionType = action_type_1.default.UpdateStudentSubjGradeRead;
             break;
-        case "subjGradeSci":
+        case score_type_1.default.subjGradeSci:
             actionType = action_type_1.default.UpdateStudentSubjGradeSci;
             break;
-        case "subjGradeSocStudies":
+        case score_type_1.default.subjGradeSocStudies:
             actionType = action_type_1.default.UpdateStudentSubjGradeSocStudies;
             break;
-        case "seTestPercentile":
+        case score_type_1.default.seTestPercentile:
             actionType = action_type_1.default.UpdateStudentSETestPercentile;
         default:
             throw new Error("Unrecognized ScoreType: " + scoreType);
@@ -2169,7 +2170,7 @@ exports.updateStudentScore = function (scoreType, newValue) {
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(21);
+var PooledClass = __webpack_require__(22);
 
 var emptyFunction = __webpack_require__(10);
 var warning = __webpack_require__(3);
@@ -2642,6 +2643,26 @@ module.exports = DOMProperty;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ScoreType;
+(function (ScoreType) {
+    ScoreType["nweaPercentileMath"] = "nweaPercentileMath";
+    ScoreType["nweaPercentileRead"] = "nweaPercentileRead";
+    ScoreType["subjGradeMath"] = "subjGradeMath";
+    ScoreType["subjGradeRead"] = "subjGradeRead";
+    ScoreType["subjGradeSci"] = "subjGradeSci";
+    ScoreType["subjGradeSocStudies"] = "subjGradeSocStudies";
+    ScoreType["seTestPercentile"] = "seTestPercentile";
+})(ScoreType || (ScoreType = {}));
+exports.default = ScoreType;
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -2985,7 +3006,7 @@ module.exports = ReactElement;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3101,25 +3122,6 @@ var PooledClass = {
 
 module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ScoreType;
-(function (ScoreType) {
-    ScoreType["nweaPercentileMath"] = "nweaPercentileMath";
-    ScoreType["nweaPercentileRead"] = "nweaPercentileRead";
-    ScoreType["subjGradeMath"] = "subjGradeMath";
-    ScoreType["subjGradeRead"] = "subjGradeRead";
-    ScoreType["subjGradeSci"] = "subjGradeSci";
-    ScoreType["subjGradeSocStudies"] = "subjGradeSocStudies";
-})(ScoreType || (ScoreType = {}));
-exports.default = ScoreType;
-
 
 /***/ }),
 /* 23 */
@@ -3257,7 +3259,7 @@ var _assign = __webpack_require__(5);
 var ReactBaseClasses = __webpack_require__(69);
 var ReactChildren = __webpack_require__(119);
 var ReactDOMFactories = __webpack_require__(123);
-var ReactElement = __webpack_require__(20);
+var ReactElement = __webpack_require__(21);
 var ReactPropTypes = __webpack_require__(127);
 var ReactVersion = __webpack_require__(129);
 
@@ -8074,7 +8076,7 @@ module.exports = getIteratorFn;
 
 var ReactCurrentOwner = __webpack_require__(13);
 var ReactComponentTreeHook = __webpack_require__(8);
-var ReactElement = __webpack_require__(20);
+var ReactElement = __webpack_require__(21);
 
 var checkReactTypeSpec = __webpack_require__(124);
 
@@ -9040,7 +9042,7 @@ var _prodInvariant = __webpack_require__(4);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var PooledClass = __webpack_require__(21);
+var PooledClass = __webpack_require__(22);
 
 var invariant = __webpack_require__(2);
 
@@ -16836,7 +16838,7 @@ exports.default = ActionType;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var score_type_1 = __webpack_require__(22);
+var score_type_1 = __webpack_require__(20);
 exports.GradeConvertErrors = {
     BadScoreType: new Error("Incorrect ScoreType passed to GradeConvert method"),
     BadScore: new Error("Bad score passed to GradeConvert method"),
@@ -17564,7 +17566,7 @@ react_dom_1.render((React.createElement(react_redux_1.Provider, { store: redux_1
 
 
 var PooledClass = __webpack_require__(120);
-var ReactElement = __webpack_require__(20);
+var ReactElement = __webpack_require__(21);
 
 var emptyFunction = __webpack_require__(10);
 var traverseAllChildren = __webpack_require__(121);
@@ -18123,7 +18125,7 @@ module.exports = KeyEscapeUtils;
 
 
 
-var ReactElement = __webpack_require__(20);
+var ReactElement = __webpack_require__(21);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -18444,7 +18446,7 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var _require = __webpack_require__(20),
+var _require = __webpack_require__(21),
     isValidElement = _require.isValidElement;
 
 var factory = __webpack_require__(74);
@@ -18559,7 +18561,7 @@ module.exports = '15.6.1';
 var _require = __webpack_require__(69),
     Component = _require.Component;
 
-var _require2 = __webpack_require__(20),
+var _require2 = __webpack_require__(21),
     isValidElement = _require2.isValidElement;
 
 var ReactNoopUpdateQueue = __webpack_require__(70);
@@ -19465,7 +19467,7 @@ module.exports = factory;
 
 var _prodInvariant = __webpack_require__(27);
 
-var ReactElement = __webpack_require__(20);
+var ReactElement = __webpack_require__(21);
 
 var invariant = __webpack_require__(2);
 
@@ -20196,7 +20198,7 @@ module.exports = BeforeInputEventPlugin;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(21);
+var PooledClass = __webpack_require__(22);
 
 var getTextContentAccessor = __webpack_require__(79);
 
@@ -26358,7 +26360,7 @@ module.exports = flattenChildren;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(21);
+var PooledClass = __webpack_require__(22);
 var Transaction = __webpack_require__(40);
 var ReactInstrumentation = __webpack_require__(11);
 var ReactServerUpdateQueue = __webpack_require__(183);
@@ -27049,7 +27051,7 @@ var _assign = __webpack_require__(5);
 
 var EventListener = __webpack_require__(96);
 var ExecutionEnvironment = __webpack_require__(7);
-var PooledClass = __webpack_require__(21);
+var PooledClass = __webpack_require__(22);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(14);
 
@@ -27291,7 +27293,7 @@ module.exports = ReactInjection;
 var _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(80);
-var PooledClass = __webpack_require__(21);
+var PooledClass = __webpack_require__(22);
 var ReactBrowserEventEmitter = __webpack_require__(44);
 var ReactInputSelection = __webpack_require__(97);
 var ReactInstrumentation = __webpack_require__(11);
@@ -56410,7 +56412,7 @@ var React = __webpack_require__(1);
 var timeout_1 = __webpack_require__(279);
 var text_field_1 = __webpack_require__(280);
 var field_validation_state_1 = __webpack_require__(30);
-var get_tier_and_geo_1 = __webpack_require__(324);
+var get_tier_and_geo_1 = __webpack_require__(281);
 __webpack_require__(287);
 var AddressTierCalculator = (function (_super) {
     __extends(AddressTierCalculator, _super);
@@ -56612,7 +56614,88 @@ exports.default = TextField;
 
 
 /***/ }),
-/* 281 */,
+/* 281 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tract_tier_table_1 = __webpack_require__(282);
+var JSONP = __webpack_require__(283);
+exports.GetTierError = {
+    InvalidAddressErr: new Error("Invalid address"),
+    NoTierFoundErr: new Error("No CPS tier found for this address"),
+    RequestFailedErr: new Error("Request Failed"),
+};
+;
+exports.getTierAndGeo = function (address) {
+    return new Promise(function (resolve, reject) {
+        getTractAndGeo(address).then(function (_a) {
+            var tract = _a.tract, geo = _a.geo;
+            lookupTierFromTract(tract).then(function (tier) {
+                resolve({ tier: tier, geo: geo });
+            }).catch(function (err) { return reject(exports.GetTierError.NoTierFoundErr); });
+        }).catch(function (err) {
+            if (err === exports.GetTierError.RequestFailedErr) {
+                reject(exports.GetTierError.RequestFailedErr);
+            }
+            else {
+                reject(exports.GetTierError.InvalidAddressErr);
+            }
+        });
+    });
+};
+;
+var getTractAndGeo = function (address) {
+    var API_BASE_URL = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress";
+    var apiParams = {
+        address: address,
+        format: "jsonp",
+        benchmark: "Public_AR_Current",
+        vintage: "Current_Current",
+        layers: "Census Tracts",
+    };
+    var sendRequest = function (baseUrl, params) {
+        return new Promise(function (resolve, reject) {
+            JSONP({
+                url: baseUrl,
+                data: params,
+                success: function (data) { return resolve(data); },
+                error: function (err) {
+                    reject(exports.GetTierError.RequestFailedErr);
+                }
+            });
+        });
+    };
+    var extractTract = function (response) {
+        return response.result.addressMatches[0].geographies["Census Tracts"][0].BASENAME;
+    };
+    var extractGeo = function (response) {
+        var coords = response.result.addressMatches[0].coordinates;
+        return { latitude: coords.y, longitude: coords.x };
+    };
+    return new Promise(function (resolve, reject) {
+        sendRequest(API_BASE_URL, apiParams).then(function (res) {
+            var tract = extractTract(res);
+            var geo = extractGeo(res);
+            resolve({ tract: tract, geo: geo });
+        }).catch(function (e) { return reject(e); });
+    });
+};
+var lookupTierFromTract = function (tract) {
+    return new Promise(function (resolve, reject) {
+        var tier = tract_tier_table_1.default[tract];
+        if (tier === undefined) {
+            reject(exports.GetTierError.NoTierFoundErr);
+        }
+        else {
+            resolve(tier);
+        }
+    });
+};
+
+
+/***/ }),
 /* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -57119,7 +57202,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(1);
 var constants_1 = __webpack_require__(9);
 var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(22);
+var score_type_1 = __webpack_require__(20);
 var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
@@ -57138,7 +57221,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(1);
 var constants_1 = __webpack_require__(9);
 var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(22);
+var score_type_1 = __webpack_require__(20);
 var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
@@ -57157,7 +57240,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(1);
 var constants_1 = __webpack_require__(9);
 var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(22);
+var score_type_1 = __webpack_require__(20);
 var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
@@ -57176,7 +57259,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(1);
 var constants_1 = __webpack_require__(9);
 var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(22);
+var score_type_1 = __webpack_require__(20);
 var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
@@ -57195,7 +57278,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(1);
 var constants_1 = __webpack_require__(9);
 var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(22);
+var score_type_1 = __webpack_require__(20);
 var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
@@ -57214,7 +57297,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(1);
 var constants_1 = __webpack_require__(9);
 var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(22);
+var score_type_1 = __webpack_require__(20);
 var connect_score_type_1 = __webpack_require__(31);
 var number_field_1 = __webpack_require__(24);
 var Field = function (props) {
@@ -57950,88 +58033,6 @@ exports = module.exports = __webpack_require__(15)(undefined);
 exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  margin-bottom: 2em; }\n\n.hs-category-container.collapsed {\n  height: 75px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #cacaca;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n\n.hs-category-title {\n  max-width: 100%;\n  font-size: 140%;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n\n.count-all {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 6em;\n          flex: 0 0 6em; }\n\n.count-all-number {\n  color: #333;\n  font-size: 1.25em;\n  font-weight: bold;\n  line-height: 36px; }\n\n.count-all-desc {\n  color: #666;\n  font-size: 90%;\n  line-height: 36px; }\n\n.hs-program-outcome-counts {\n  font-size: 95%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n\n.outcome-counts-wrapper {\n  height: 36px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  background-color: #fafafa;\n  border-radius: 12px; }\n\n.outcome-count {\n  width: 20px;\n  margin: 0 5px;\n  line-height: 16px;\n  font-size: 1.25em;\n  text-align: center;\n  font-weight: bold; }\n\n.outcome-count.count-empty {\n  color: #a6a6a6;\n  font-weight: normal; }\n\n.outcome-count.count-certain {\n  color: #5bed2a; }\n\n.outcome-count.count-likely {\n  color: #b6ec29; }\n\n.outcome-count.count-uncertain {\n  color: #ccc000; }\n\n.outcome-count.count-unlikely {\n  color: #f49600; }\n\n.outcome-count.count-none {\n  color: #f4743b; }\n\n.outcome-count.count-notimplemented {\n  color: #999; }\n\n.hs-category-collapse-button {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 40px;\n          flex: 0 0 40px;\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  -ms-flex-item-align: center;\n      align-self: center;\n  border-radius: 100%;\n  border: 2px solid #9e9e9e;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
 
 // exports
-
-
-/***/ }),
-/* 324 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tract_tier_table_1 = __webpack_require__(282);
-var JSONP = __webpack_require__(283);
-exports.GetTierError = {
-    InvalidAddressErr: new Error("Invalid address"),
-    NoTierFoundErr: new Error("No CPS tier found for this address"),
-    RequestFailedErr: new Error("Request Failed"),
-};
-;
-exports.getTierAndGeo = function (address) {
-    return new Promise(function (resolve, reject) {
-        getTractAndGeo(address).then(function (_a) {
-            var tract = _a.tract, geo = _a.geo;
-            lookupTierFromTract(tract).then(function (tier) {
-                resolve({ tier: tier, geo: geo });
-            }).catch(function (err) { return reject(exports.GetTierError.NoTierFoundErr); });
-        }).catch(function (err) {
-            if (err === exports.GetTierError.RequestFailedErr) {
-                reject(exports.GetTierError.RequestFailedErr);
-            }
-            else {
-                reject(exports.GetTierError.InvalidAddressErr);
-            }
-        });
-    });
-};
-;
-var getTractAndGeo = function (address) {
-    var API_BASE_URL = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress";
-    var apiParams = {
-        address: address,
-        format: "jsonp",
-        benchmark: "Public_AR_Current",
-        vintage: "Current_Current",
-        layers: "Census Tracts",
-    };
-    var sendRequest = function (baseUrl, params) {
-        return new Promise(function (resolve, reject) {
-            JSONP({
-                url: baseUrl,
-                data: params,
-                success: function (data) { return resolve(data); },
-                error: function (err) {
-                    reject(exports.GetTierError.RequestFailedErr);
-                }
-            });
-        });
-    };
-    var extractTract = function (response) {
-        return response.result.addressMatches[0].geographies["Census Tracts"][0].BASENAME;
-    };
-    var extractGeo = function (response) {
-        var coords = response.result.addressMatches[0].coordinates;
-        return { latitude: coords.y, longitude: coords.x };
-    };
-    return new Promise(function (resolve, reject) {
-        sendRequest(API_BASE_URL, apiParams).then(function (res) {
-            var tract = extractTract(res);
-            var geo = extractGeo(res);
-            resolve({ tract: tract, geo: geo });
-        }).catch(function (e) { return reject(e); });
-    });
-};
-var lookupTierFromTract = function (tract) {
-    return new Promise(function (resolve, reject) {
-        var tier = tract_tier_table_1.default[tract];
-        if (tier === undefined) {
-            reject(exports.GetTierError.NoTierFoundErr);
-        }
-        else {
-            resolve(tier);
-        }
-    });
-};
 
 
 /***/ })

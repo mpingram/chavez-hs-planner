@@ -5,6 +5,7 @@ enum ScoreType {
   subjGradeRead = "subjGradeRead", 
   subjGradeSci = "subjGradeSci", 
   subjGradeSocStudies = "subjGradeSocStudies",
+  seTestPercentile = "seTestPercentile"
 }
 
 export default ScoreType;
