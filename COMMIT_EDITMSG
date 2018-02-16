@@ -1,7 +1,4 @@
-Update tests in spec/
+Refactor spec/shared/util/grade-util
 
-* update get-tier.spec.ts -> get-tier-and-geo.spec.ts
-* remove tests for removed methods in grade-convert.spec.ts
-* update test StudentData in hs-calc-utils.spec.ts
-* remove unused score-projection-utils.spec.ts
-
+* Rewrite tests to adapt to changed api -- use toLetterGrade
+  method instead of toString
