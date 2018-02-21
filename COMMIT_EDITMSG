@@ -1,4 +1,7 @@
-Refactor SuccessChanceKey
+Add Outcome icons to HSProgramElement
 
-* rename HSProgramsSuccessChanceKey -> SuccessChanceKey
-* replace HS Program icons with Success Chance icons
+* add outcome icons to top right of each HSProgramElement
+* refactor Outcome icons to display matching outcome colors
+  if color not specified
+* refactor Outcome icons to have outlines for readability
+

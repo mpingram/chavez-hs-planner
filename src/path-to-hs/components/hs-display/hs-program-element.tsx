@@ -3,6 +3,12 @@ import * as React from "react";
 import HSProgram from "shared/types/hs-program";
 import SuccessChance from "shared/enums/success-chance";
 import SchoolIcon from "shared/components/icons/school";
+import OutcomeCertainIcon from "shared/components/icons/outcome-certain";
+import OutcomeLikelyIcon from "shared/components/icons/outcome-likely";
+import OutcomeUncertainIcon from "shared/components/icons/outcome-uncertain";
+import OutcomeUnlikelyIcon from "shared/components/icons/outcome-unlikely";
+import OutcomeNoneIcon from "shared/components/icons/outcome-none";
+import OutcomeNotImplementedIcon from "shared/components/icons/outcome-notimplemented";
 
 import HSProgramInfoCard from "./hs-program-info-card";
 
@@ -27,7 +33,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
     this.state = { 
       combinedSuccessChance: this.getCombinedSuccessChance(props.program),
       showHSPreview: props.selected,
-      pxFromTop: 0
+      pxFromTop: 0,
     };
   }
 
@@ -38,6 +44,25 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
     });
   }
 
+  getIcon(outcome: SuccessChance) {
+    const width="24px";
+    const height="24px";
+    switch(outcome) {
+      case SuccessChance.CERTAIN:
+        return <OutcomeCertainIcon width={width} height={height}/>;
+      case SuccessChance.LIKELY:
+        return <OutcomeLikelyIcon width={width} height={height}/>;
+      case SuccessChance.UNCERTAIN:
+        return <OutcomeUncertainIcon width={width} height={height}/>;
+      case SuccessChance.UNLIKELY:
+        return <OutcomeUnlikelyIcon width={width} height={height}/>;
+      case SuccessChance.NONE:
+        return <OutcomeNoneIcon width={width} height={height}/>;
+      case SuccessChance.NOTIMPLEMENTED:
+        return <OutcomeNotImplementedIcon width={width} height={height}/>;
+    }
+  }
+
   render() {
     const IconClassName = `hs-list-element-icon ${this.outcomeToClassName(this.state.combinedSuccessChance)}`;
     return (
@@ -46,13 +71,16 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
           className={"hs-list-element" + " " + (this.props.selected ? "selected" : "")}
           ref={ ref => {
             if (ref) { 
-              this.setState({pxFromTop: ref.offsetTop + 60 });
+              this.setState({ pxFromTop: ref.offsetTop + 60 });
             }
           } }
           onClick={(ev) => {
             this.props.onSelect(this.props.program.id);
           } }
         >
+          <div className="outcome-icon-container">
+            { this.getIcon(this.state.combinedSuccessChance) }
+          </div>
           <div className={IconClassName}>
             { this.state.combinedSuccessChance !== SuccessChance.NOTIMPLEMENTED &&
             <SchoolIcon width="45px" height="45px" color="#000"/>

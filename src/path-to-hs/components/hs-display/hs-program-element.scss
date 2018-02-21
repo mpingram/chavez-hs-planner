@@ -2,6 +2,7 @@
 
 
 .hs-list-element {
+  position: relative;
   font-size: 100%;
   width: 80px;
   height: 100px;
@@ -67,6 +68,16 @@
   overflow: hidden;
 }
 
+.outcome-icon-container {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  border-radius: 100%;
+  background-color: $col-app-neutral;
+  padding: 1px;
+}
+
 
 // Certain success
 .hs-list-element-icon.succ-certain {
@@ -96,7 +107,7 @@
 
 // Not implemented
 .hs-list-element-icon.succ-not-implemented {
-  background: none;
+  background-color: inherit;
   border: 2px dashed #999;
 }
 
