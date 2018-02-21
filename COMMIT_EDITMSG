@@ -1,2 +1,7 @@
-Remove Gender form field from StudentDataForm
+Replace current grade dropdown with skipped 7th grade dropdown
 
+* DONE rename currGradeField -> skippedGradeField
+* DONE refactor reducer logic to convert 'skipped 7th grade or
+  repeated 8th grade' answer to currGrade / prevGrade numbers
+  ** if 'no', currGrade is 8, prevGrade is 7
+  ** if 'yes', currGrade is 8, prevGrade is 8

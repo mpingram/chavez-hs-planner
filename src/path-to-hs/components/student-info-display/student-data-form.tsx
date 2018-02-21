@@ -6,7 +6,7 @@ import SubForm from "shared/components/layout/sub-form";
 import IEPField from "./fields/iep-field";
 import ELLField from "./fields/ell-field";
 import LocationField from "./fields/location-field";
-import GradeLevelField from "./fields/grade-level-field";
+import SkippedGradeField from "./fields/skipped-grade-field";
 import AttendPercentageField from "./fields/attend-percentage-field";
 import CurrESProgramField from "./fields/curr-es-program-field";
 import SiblingHSProgramField from "./fields/sibling-hs-program-field";
@@ -26,7 +26,7 @@ const StudentDataForm = (props) => {
       <SubForm label="Your student information">
         <IEPField/>
         <ELLField/>
-        <GradeLevelField/>
+        <SkippedGradeField/>
         <LocationField/>
         <AttendPercentageField/>
         <CurrESProgramField/>
