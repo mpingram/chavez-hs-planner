@@ -1,8 +1,4 @@
-Fix ComboBox dropdown styling
+Refactor SuccessChanceKey
 
-* NOTE ComboBox dropdown element appeared on top of input element
-  -- this was caused by hard-coded offset from top/left of input
-  element, which wasn't updated to keep up with input element. (hiss)
-
-* Wrap ComboBox input in a div, and wrap ComboBox dropdown in another
-  div, so that dropdown always appears directly below ComboBox input
+* rename HSProgramsSuccessChanceKey -> SuccessChanceKey
+* replace HS Program icons with Success Chance icons

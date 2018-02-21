@@ -3,7 +3,7 @@ import * as React from "react";
 import Page from "shared/components/layout/page";
 import Box from "shared/components/layout/box";
 import StudentDataForm from "./components/student-info-display/student-data-form";
-import HSProgramSuccessChanceKey from "./components/hs-display/hs-program-success-chance-key";
+import SuccessChanceKey from "./components/hs-display/success-chance-key";
 import HSProgramsContainer from "./components/hs-display/hs-programs-container";
 
 const PathToHS: React.SFC<any> = (props) => {
@@ -25,7 +25,7 @@ const PathToHS: React.SFC<any> = (props) => {
         height="full" 
         responsiveBehavior={{mobile: "fullscreen"}}
       >
-        <HSProgramSuccessChanceKey/>
+        <SuccessChanceKey/>
         <HSProgramsContainer/>
       </Box>
     </Page>
