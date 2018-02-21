@@ -56847,6 +56847,12 @@ const selectESPrograms = reselect_1.createSelector([getESProgramIDs, getPrograms
         const program = programs.get(i);
         esPrograms.push(program);
     });
+    const OtherProgram = {
+        ID: "OTHER",
+        Short_Name: "Other",
+        Program_Type: "Non-CPS, Homeschool, etc.",
+    };
+    esPrograms.unshift(OtherProgram);
     return esPrograms;
 });
 const selectCurrESProgram = reselect_1.createSelector([getCurrESProgramID, getPrograms, getProgramIndex], (id, programs, index) => {

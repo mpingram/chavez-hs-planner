@@ -44,6 +44,15 @@ const selectESPrograms = createSelector(
       const program = programs.get(i);
       esPrograms.push(program);
     });
+
+    // add an 'Other' option
+    const OtherProgram: CPSProgram = {
+      ID: "OTHER",
+      Short_Name: "Other",
+      Program_Type: "Non-CPS, Homeschool, etc.",
+    } as CPSProgram;
+    esPrograms.unshift(OtherProgram);
+
     return esPrograms;
   }
 );
