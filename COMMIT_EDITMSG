@@ -1,7 +1,2 @@
-Refactor shared/timeout to fix bug in cancel() method
+Remove Gender form field from StudentDataForm
 
-* cancel method didn't correctly cancel timers
-  ** NOTE this was as much due to the fact that I didn't think
-    through the details of the implmentation and the edge cases
-    until I actually had to write the tests. Another reason
-    to write them first, huh.

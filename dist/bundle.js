@@ -342,7 +342,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -559,7 +559,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var _prodInvariant = __webpack_require__(4);
 
 var DOMProperty = __webpack_require__(19);
-var ReactDOMComponentFlags = __webpack_require__(76);
+var ReactDOMComponentFlags = __webpack_require__(75);
 
 var invariant = __webpack_require__(2);
 
@@ -801,7 +801,7 @@ module.exports = ExecutionEnvironment;
 
 var _prodInvariant = __webpack_require__(27);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(12);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -1172,22 +1172,6 @@ module.exports = ReactComponentTreeHook;
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.INPUT_DEBOUNCE_TIME = 250;
-exports.OutcomeCertainColor = "#5bed2a";
-exports.OutcomeLikelyColor = "#beee40";
-exports.OutcomeUncertainColor = "#f0e100";
-exports.OutcomeUnlikelyColor = "#f49600";
-exports.OutcomeNoneColor = "#f4743b";
-exports.OutcomeNotImplementedColor = "#999";
-
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -1227,7 +1211,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1257,26 +1241,23 @@ module.exports = { debugTool: debugTool };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(244);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(249);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
 
-
-
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.INPUT_DEBOUNCE_TIME = 250;
+exports.OutcomeCertainColor = "#5bed2a";
+exports.OutcomeLikelyColor = "#beee40";
+exports.OutcomeUncertainColor = "#f0e100";
+exports.OutcomeUnlikelyColor = "#f49600";
+exports.OutcomeNoneColor = "#f4743b";
+exports.OutcomeNotImplementedColor = "#999";
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1310,7 +1291,7 @@ var ReactCurrentOwner = {
 module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1329,9 +1310,9 @@ module.exports = ReactCurrentOwner;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var CallbackQueue = __webpack_require__(80);
+var CallbackQueue = __webpack_require__(79);
 var PooledClass = __webpack_require__(22);
-var ReactFeatureFlags = __webpack_require__(81);
+var ReactFeatureFlags = __webpack_require__(80);
 var ReactReconciler = __webpack_require__(28);
 var Transaction = __webpack_require__(40);
 
@@ -1567,6 +1548,25 @@ module.exports = ReactUpdates;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(248);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
+
+
+
+
+
+
+/***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
@@ -1695,7 +1695,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(260);
+var	fixUrls = __webpack_require__(259);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -2012,150 +2012,6 @@ function updateLink (link, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var action_type_1 = __webpack_require__(108);
-var score_type_1 = __webpack_require__(20);
-exports.selectHSProgram = function (newValue) {
-    return {
-        type: action_type_1.default.SelectHSProgram,
-        payload: newValue
-    };
-};
-exports.updateStudentAttendPercentage = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentAttendPercentage,
-        payload: newValue
-    };
-};
-exports.updateStudentELLStatus = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentELLStatus,
-        payload: newValue
-    };
-};
-exports.updateStudentGender = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentGender,
-        payload: newValue
-    };
-};
-exports.updateStudentGradeLevel = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentGradeLevel,
-        payload: newValue
-    };
-};
-exports.updateStudentPrevGradeLevel = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentPrevGradeLevel,
-        payload: newValue
-    };
-};
-exports.updateStudentIEPStatus = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentIEPStatus,
-        payload: newValue
-    };
-};
-exports.updateStudentLocation = function (location) {
-    return {
-        type: action_type_1.default.UpdateStudentLocation,
-        payload: location
-    };
-};
-exports.updateStudentCurrESProgram = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentCurrESProgram,
-        payload: newValue
-    };
-};
-exports.updateStudentSiblingHSPrograms = function (newValues) {
-    return {
-        type: action_type_1.default.UpdateStudentSiblingHSPrograms,
-        payload: newValues
-    };
-};
-exports.updateStudentNWEAPercentileMath = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentNWEAPercentileMath,
-        payload: newValue
-    };
-};
-exports.updateStudentNWEAPercentileRead = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentNWEAPercentileRead,
-        payload: newValue
-    };
-};
-exports.updateStudentSubjGradeMath = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentSubjGradeMath,
-        payload: newValue
-    };
-};
-exports.updateStudentSubjGradeRead = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentSubjGradeRead,
-        payload: newValue
-    };
-};
-exports.updateStudentSubjGradeSci = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentSubjGradeSci,
-        payload: newValue
-    };
-};
-exports.updateStudentSubjGradeSocStudies = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentSubjGradeSocStudies,
-        payload: newValue
-    };
-};
-exports.updateStudentSETestPercentile = function (newValue) {
-    return {
-        type: action_type_1.default.UpdateStudentSETestPercentile,
-        payload: newValue
-    };
-};
-exports.updateStudentScore = function (scoreType, newValue) {
-    var actionType;
-    switch (scoreType) {
-        case score_type_1.default.nweaPercentileMath:
-            actionType = action_type_1.default.UpdateStudentNWEAPercentileMath;
-            break;
-        case score_type_1.default.nweaPercentileRead:
-            actionType = action_type_1.default.UpdateStudentNWEAPercentileRead;
-            break;
-        case score_type_1.default.subjGradeMath:
-            actionType = action_type_1.default.UpdateStudentSubjGradeMath;
-            break;
-        case score_type_1.default.subjGradeRead:
-            actionType = action_type_1.default.UpdateStudentSubjGradeRead;
-            break;
-        case score_type_1.default.subjGradeSci:
-            actionType = action_type_1.default.UpdateStudentSubjGradeSci;
-            break;
-        case score_type_1.default.subjGradeSocStudies:
-            actionType = action_type_1.default.UpdateStudentSubjGradeSocStudies;
-            break;
-        case score_type_1.default.seTestPercentile:
-            actionType = action_type_1.default.UpdateStudentSETestPercentile;
-        default:
-            throw new Error("Unrecognized ScoreType: " + scoreType);
-    }
-    return {
-        type: actionType,
-        payload: newValue
-    };
-};
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2172,7 +2028,7 @@ var _assign = __webpack_require__(5);
 
 var PooledClass = __webpack_require__(22);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 var warning = __webpack_require__(3);
 
 var didWarnForAddedNewProperty = false;
@@ -2422,6 +2278,150 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
   }
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const action_type_1 = __webpack_require__(107);
+const score_type_1 = __webpack_require__(20);
+exports.selectHSProgram = (newValue) => {
+    return {
+        type: action_type_1.default.SelectHSProgram,
+        payload: newValue
+    };
+};
+exports.updateStudentAttendPercentage = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentAttendPercentage,
+        payload: newValue
+    };
+};
+exports.updateStudentELLStatus = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentELLStatus,
+        payload: newValue
+    };
+};
+exports.updateStudentGender = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentGender,
+        payload: newValue
+    };
+};
+exports.updateStudentGradeLevel = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentGradeLevel,
+        payload: newValue
+    };
+};
+exports.updateStudentPrevGradeLevel = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentPrevGradeLevel,
+        payload: newValue
+    };
+};
+exports.updateStudentIEPStatus = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentIEPStatus,
+        payload: newValue
+    };
+};
+exports.updateStudentLocation = (location) => {
+    return {
+        type: action_type_1.default.UpdateStudentLocation,
+        payload: location
+    };
+};
+exports.updateStudentCurrESProgram = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentCurrESProgram,
+        payload: newValue
+    };
+};
+exports.updateStudentSiblingHSPrograms = (newValues) => {
+    return {
+        type: action_type_1.default.UpdateStudentSiblingHSPrograms,
+        payload: newValues
+    };
+};
+exports.updateStudentNWEAPercentileMath = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentNWEAPercentileMath,
+        payload: newValue
+    };
+};
+exports.updateStudentNWEAPercentileRead = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentNWEAPercentileRead,
+        payload: newValue
+    };
+};
+exports.updateStudentSubjGradeMath = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentSubjGradeMath,
+        payload: newValue
+    };
+};
+exports.updateStudentSubjGradeRead = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentSubjGradeRead,
+        payload: newValue
+    };
+};
+exports.updateStudentSubjGradeSci = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentSubjGradeSci,
+        payload: newValue
+    };
+};
+exports.updateStudentSubjGradeSocStudies = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentSubjGradeSocStudies,
+        payload: newValue
+    };
+};
+exports.updateStudentSETestPercentile = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentSETestPercentile,
+        payload: newValue
+    };
+};
+exports.updateStudentScore = (scoreType, newValue) => {
+    let actionType;
+    switch (scoreType) {
+        case score_type_1.default.nweaPercentileMath:
+            actionType = action_type_1.default.UpdateStudentNWEAPercentileMath;
+            break;
+        case score_type_1.default.nweaPercentileRead:
+            actionType = action_type_1.default.UpdateStudentNWEAPercentileRead;
+            break;
+        case score_type_1.default.subjGradeMath:
+            actionType = action_type_1.default.UpdateStudentSubjGradeMath;
+            break;
+        case score_type_1.default.subjGradeRead:
+            actionType = action_type_1.default.UpdateStudentSubjGradeRead;
+            break;
+        case score_type_1.default.subjGradeSci:
+            actionType = action_type_1.default.UpdateStudentSubjGradeSci;
+            break;
+        case score_type_1.default.subjGradeSocStudies:
+            actionType = action_type_1.default.UpdateStudentSubjGradeSocStudies;
+            break;
+        case score_type_1.default.seTestPercentile:
+            actionType = action_type_1.default.UpdateStudentSETestPercentile;
+        default:
+            throw new Error(`Unrecognized ScoreType: ${scoreType}`);
+    }
+    return {
+        type: actionType,
+        payload: newValue
+    };
+};
+
 
 /***/ }),
 /* 19 */
@@ -2677,13 +2677,13 @@ exports.default = ScoreType;
 
 var _assign = __webpack_require__(5);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(12);
 
 var warning = __webpack_require__(3);
 var canDefineProperty = __webpack_require__(37);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(71);
+var REACT_ELEMENT_TYPE = __webpack_require__(70);
 
 var RESERVED_PROPS = {
   key: true,
@@ -3149,64 +3149,50 @@ exports.default = SuccessChance;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var field_validation_state_1 = __webpack_require__(30);
-var field_container_1 = __webpack_require__(36);
-var debounce_1 = __webpack_require__(46);
-var NumberField = (function (_super) {
-    __extends(NumberField, _super);
-    function NumberField(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
+const React = __webpack_require__(1);
+const field_validation_state_1 = __webpack_require__(30);
+const field_container_1 = __webpack_require__(36);
+const debounce_1 = __webpack_require__(45);
+class NumberField extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
             localValue: props.value ? props.value : ""
         };
-        _this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
-        return _this;
+        this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
     }
-    NumberField.prototype.componentWillReceiveProps = function (nextProps) {
+    componentWillReceiveProps(nextProps) {
         if (this.state.localValue !== "") {
             this.setState({ localValue: nextProps.value ? nextProps.value : "" });
         }
         this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
-    };
-    NumberField.prototype.render = function () {
-        var _this = this;
-        var handleChange = function (ev) {
+    }
+    render() {
+        const handleChange = (ev) => {
             if (ev.currentTarget.value === "") {
-                _this.setState({ localValue: "" });
+                this.setState({ localValue: "" });
                 return false;
             }
             else {
-                var currValue = _this.props.value;
-                var nextValue = ev.currentTarget.valueAsNumber;
-                _this.setState({ localValue: nextValue });
-                if (_this.props.limiter) {
-                    _this.onChange(_this.props.limiter(currValue, nextValue));
+                const currValue = this.props.value;
+                const nextValue = ev.currentTarget.valueAsNumber;
+                this.setState({ localValue: nextValue });
+                if (this.props.limiter) {
+                    this.onChange(this.props.limiter(currValue, nextValue));
                 }
                 else {
-                    _this.onChange(nextValue);
+                    this.onChange(nextValue);
                 }
                 return true;
             }
         };
-        var validation = this.props.validator && this.state.localValue !== "" ? this.props.validator(this.state.localValue)
+        const validation = this.props.validator && this.state.localValue !== "" ? this.props.validator(this.state.localValue)
             : field_validation_state_1.default.NEUTRAL;
         return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
             React.createElement("input", { value: this.state.localValue, type: "number", className: "field-input-element", onChange: handleChange })));
-    };
-    return NumberField;
-}(React.PureComponent));
+    }
+}
 ;
 exports.default = NumberField;
 
@@ -3218,8 +3204,8 @@ exports.default = NumberField;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var between = function (min, max) {
-    return function (curr, next) {
+const between = (min, max) => {
+    return (curr, next) => {
         if (Number.isNaN(next)) {
             return curr;
         }
@@ -3256,7 +3242,7 @@ exports.default = between;
 
 var _assign = __webpack_require__(5);
 
-var ReactBaseClasses = __webpack_require__(69);
+var ReactBaseClasses = __webpack_require__(68);
 var ReactChildren = __webpack_require__(119);
 var ReactDOMFactories = __webpack_require__(123);
 var ReactElement = __webpack_require__(21);
@@ -3271,9 +3257,9 @@ var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var lowPriorityWarning = __webpack_require__(47);
+  var lowPriorityWarning = __webpack_require__(46);
   var canDefineProperty = __webpack_require__(37);
-  var ReactElementValidator = __webpack_require__(73);
+  var ReactElementValidator = __webpack_require__(72);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -3437,7 +3423,7 @@ module.exports = reactProdInvariant;
 
 
 var ReactRef = __webpack_require__(142);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInstrumentation = __webpack_require__(10);
 
 var warning = __webpack_require__(3);
 
@@ -3608,11 +3594,11 @@ module.exports = ReactReconciler;
 
 
 
-var DOMNamespaces = __webpack_require__(55);
+var DOMNamespaces = __webpack_require__(54);
 var setInnerHTML = __webpack_require__(42);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(56);
-var setTextContent = __webpack_require__(85);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(55);
+var setTextContent = __webpack_require__(84);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -3738,21 +3724,21 @@ exports.default = FieldValidationState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_redux_1 = __webpack_require__(12);
-var actions_1 = __webpack_require__(17);
-var mapStateScore = function (scoreType) { return function (state) {
+const react_redux_1 = __webpack_require__(14);
+const actions_1 = __webpack_require__(18);
+const mapStateScore = (scoreType) => (state) => {
     return {
         value: state.getIn(['studentData', scoreType])
     };
-}; };
-var mapDispatchScore = function (scoreType) { return function (dispatch) {
+};
+const mapDispatchScore = (scoreType) => (dispatch) => {
     return {
-        onChange: function (value) { return dispatch(actions_1.updateStudentScore(scoreType, value)); }
+        onChange: (value) => dispatch(actions_1.updateStudentScore(scoreType, value))
     };
-}; };
-var connectScoreType = function (scoreType) { return function (elem) {
+};
+const connectScoreType = (scoreType) => (elem) => {
     return react_redux_1.connect(mapStateScore(scoreType), mapDispatchScore(scoreType))(elem);
-}; };
+};
 exports.default = connectScoreType;
 
 
@@ -3774,10 +3760,10 @@ exports.default = connectScoreType;
 
 
 var EventPluginHub = __webpack_require__(33);
-var EventPluginUtils = __webpack_require__(49);
+var EventPluginUtils = __webpack_require__(48);
 
-var accumulateInto = __webpack_require__(77);
-var forEachAccumulated = __webpack_require__(78);
+var accumulateInto = __webpack_require__(76);
+var forEachAccumulated = __webpack_require__(77);
 var warning = __webpack_require__(3);
 
 var getListener = EventPluginHub.getListener;
@@ -3916,11 +3902,11 @@ module.exports = EventPropagators;
 var _prodInvariant = __webpack_require__(4);
 
 var EventPluginRegistry = __webpack_require__(39);
-var EventPluginUtils = __webpack_require__(49);
-var ReactErrorUtils = __webpack_require__(50);
+var EventPluginUtils = __webpack_require__(48);
+var ReactErrorUtils = __webpack_require__(49);
 
-var accumulateInto = __webpack_require__(77);
-var forEachAccumulated = __webpack_require__(78);
+var accumulateInto = __webpack_require__(76);
+var forEachAccumulated = __webpack_require__(77);
 var invariant = __webpack_require__(2);
 
 /**
@@ -4193,9 +4179,9 @@ module.exports = EventPluginHub;
 
 
 
-var SyntheticEvent = __webpack_require__(18);
+var SyntheticEvent = __webpack_require__(17);
 
-var getEventTarget = __webpack_require__(51);
+var getEventTarget = __webpack_require__(50);
 
 /**
  * @interface UIEvent
@@ -4298,13 +4284,13 @@ module.exports = ReactInstanceMap;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-__webpack_require__(272);
-var field_label_1 = __webpack_require__(274);
-var FieldContainer = function (props) { return (React.createElement("div", { className: "field-container" + " " + props.className },
+const React = __webpack_require__(1);
+__webpack_require__(271);
+const field_label_1 = __webpack_require__(273);
+const FieldContainer = (props) => (React.createElement("div", { className: "field-container" + " " + props.className },
     props.label &&
         React.createElement(field_label_1.default, null, props.label),
-    props.children)); };
+    props.children));
 exports.default = FieldContainer;
 
 
@@ -4877,9 +4863,9 @@ module.exports = TransactionImpl;
 
 
 var SyntheticUIEvent = __webpack_require__(34);
-var ViewportMetrics = __webpack_require__(84);
+var ViewportMetrics = __webpack_require__(83);
 
-var getEventModifierState = __webpack_require__(53);
+var getEventModifierState = __webpack_require__(52);
 
 /**
  * @interface MouseEvent
@@ -4954,12 +4940,12 @@ module.exports = SyntheticMouseEvent;
 
 
 var ExecutionEnvironment = __webpack_require__(7);
-var DOMNamespaces = __webpack_require__(55);
+var DOMNamespaces = __webpack_require__(54);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(56);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(55);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -5187,10 +5173,10 @@ var _assign = __webpack_require__(5);
 
 var EventPluginRegistry = __webpack_require__(39);
 var ReactEventEmitterMixin = __webpack_require__(168);
-var ViewportMetrics = __webpack_require__(84);
+var ViewportMetrics = __webpack_require__(83);
 
 var getVendorPrefixedEventName = __webpack_require__(169);
-var isEventSupported = __webpack_require__(52);
+var isEventSupported = __webpack_require__(51);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -5501,73 +5487,18 @@ module.exports = ReactBrowserEventEmitter;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var field_validation_state_1 = __webpack_require__(30);
-var field_container_1 = __webpack_require__(36);
-var debounce_1 = __webpack_require__(46);
-var DropdownField = (function (_super) {
-    __extends(DropdownField, _super);
-    function DropdownField(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            localValue: props.value ? props.value : ""
-        };
-        _this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
-        return _this;
-    }
-    DropdownField.prototype.componentWillReceiveProps = function (nextProps) {
-        this.setState({ localValue: nextProps.value });
-        this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
-    };
-    DropdownField.prototype.render = function () {
-        var _this = this;
-        var validation = this.props.validator ? this.props.validator(this.state.localValue)
-            : field_validation_state_1.default.NEUTRAL;
-        var handleChange = function (ev) {
-            var newValue = ev.currentTarget.value;
-            var shouldUpdate = _this.props.restrictor ? _this.props.restrictor(newValue)
-                : true;
-            if (shouldUpdate) {
-                _this.onChange(newValue);
-            }
-        };
-        return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
-            React.createElement("select", { className: "field-input-element", onChange: handleChange }, this.props.children)));
-    };
-    return DropdownField;
-}(React.PureComponent));
-exports.default = DropdownField;
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 Object.defineProperty(exports, "__esModule", { value: true });
 function debounce(func, wait, immediate) {
     var timeout;
     return function () {
-        var context = this;
-        var args = arguments;
-        var later = function () {
+        const context = this;
+        const args = arguments;
+        const later = function () {
             timeout = null;
             if (!immediate)
                 func.apply(context, args);
         };
-        var callNow = immediate && !timeout;
+        const callNow = immediate && !timeout;
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
         if (callNow)
@@ -5579,7 +5510,7 @@ exports.default = debounce;
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5650,7 +5581,7 @@ module.exports = lowPriorityWarning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5671,7 +5602,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5689,7 +5620,7 @@ module.exports = ReactPropTypesSecret;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactErrorUtils = __webpack_require__(50);
+var ReactErrorUtils = __webpack_require__(49);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -5903,7 +5834,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5985,7 +5916,7 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6025,7 +5956,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6090,7 +6021,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6138,7 +6069,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6157,11 +6088,11 @@ module.exports = getEventModifierState;
 var DOMLazyTree = __webpack_require__(29);
 var Danger = __webpack_require__(153);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInstrumentation = __webpack_require__(10);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(56);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(55);
 var setInnerHTML = __webpack_require__(42);
-var setTextContent = __webpack_require__(85);
+var setTextContent = __webpack_require__(84);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -6370,7 +6301,7 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6395,7 +6326,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6432,7 +6363,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6450,8 +6381,8 @@ module.exports = createMicrosoftUnsafeLocalFunction;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactPropTypesSecret = __webpack_require__(89);
-var propTypesFactory = __webpack_require__(74);
+var ReactPropTypesSecret = __webpack_require__(88);
+var propTypesFactory = __webpack_require__(73);
 
 var React = __webpack_require__(26);
 var PropTypes = propTypesFactory(React.isValidElement);
@@ -6576,7 +6507,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6626,7 +6557,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6699,7 +6630,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6746,7 +6677,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6810,7 +6741,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6828,10 +6759,10 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(12);
 var ReactInstanceMap = __webpack_require__(35);
-var ReactInstrumentation = __webpack_require__(11);
-var ReactUpdates = __webpack_require__(14);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactUpdates = __webpack_require__(13);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -7050,7 +6981,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7068,7 +6999,7 @@ module.exports = ReactUpdateQueue;
 
 var _assign = __webpack_require__(5);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 var warning = __webpack_require__(3);
 
 var validateDOMNesting = emptyFunction;
@@ -7427,7 +7358,7 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7482,7 +7413,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7554,24 +7485,7 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Gender;
-(function (Gender) {
-    Gender[Gender["MALE"] = 0] = "MALE";
-    Gender[Gender["FEMALE"] = 1] = "FEMALE";
-    Gender[Gender["OTHER"] = 2] = "OTHER";
-    Gender[Gender["NOANSWER"] = 3] = "NOANSWER";
-})(Gender || (Gender = {}));
-exports.default = Gender;
-
-
-/***/ }),
-/* 67 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7599,7 +7513,48 @@ function warning(message) {
 }
 
 /***/ }),
-/* 68 */
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const field_validation_state_1 = __webpack_require__(30);
+const field_container_1 = __webpack_require__(36);
+const debounce_1 = __webpack_require__(45);
+class DropdownField extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            localValue: props.value ? props.value : ""
+        };
+        this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({ localValue: nextProps.value });
+        this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
+    }
+    render() {
+        const validation = this.props.validator ? this.props.validator(this.state.localValue)
+            : field_validation_state_1.default.NEUTRAL;
+        const handleChange = (ev) => {
+            const newValue = ev.currentTarget.value;
+            const shouldUpdate = this.props.restrictor ? this.props.restrictor(newValue)
+                : true;
+            if (shouldUpdate) {
+                this.onChange(newValue);
+            }
+        };
+        return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
+            React.createElement("select", { className: "field-input-element", onChange: handleChange }, this.props.children)));
+    }
+}
+exports.default = DropdownField;
+
+
+/***/ }),
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7730,7 +7685,7 @@ function createStructuredSelector(selectors) {
 }
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7749,12 +7704,12 @@ function createStructuredSelector(selectors) {
 var _prodInvariant = __webpack_require__(27),
     _assign = __webpack_require__(5);
 
-var ReactNoopUpdateQueue = __webpack_require__(70);
+var ReactNoopUpdateQueue = __webpack_require__(69);
 
 var canDefineProperty = __webpack_require__(37);
 var emptyObject = __webpack_require__(38);
 var invariant = __webpack_require__(2);
-var lowPriorityWarning = __webpack_require__(47);
+var lowPriorityWarning = __webpack_require__(46);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -7879,7 +7834,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7980,7 +7935,7 @@ module.exports = ReactNoopUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8005,7 +7960,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8051,7 +8006,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8074,16 +8029,16 @@ module.exports = getIteratorFn;
 
 
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(12);
 var ReactComponentTreeHook = __webpack_require__(8);
 var ReactElement = __webpack_require__(21);
 
 var checkReactTypeSpec = __webpack_require__(124);
 
 var canDefineProperty = __webpack_require__(37);
-var getIteratorFn = __webpack_require__(72);
+var getIteratorFn = __webpack_require__(71);
 var warning = __webpack_require__(3);
-var lowPriorityWarning = __webpack_require__(47);
+var lowPriorityWarning = __webpack_require__(46);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -8312,7 +8267,7 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8331,7 +8286,7 @@ module.exports = ReactElementValidator;
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
 // `index.js` entry point, and it will branch depending on the environment.
-var factory = __webpack_require__(75);
+var factory = __webpack_require__(74);
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
   var throwOnDirectAccess = false;
@@ -8340,7 +8295,7 @@ module.exports = function(isValidElement) {
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8355,11 +8310,11 @@ module.exports = function(isValidElement) {
 
 
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
-var ReactPropTypesSecret = __webpack_require__(48);
+var ReactPropTypesSecret = __webpack_require__(47);
 var checkPropTypes = __webpack_require__(128);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
@@ -8860,7 +8815,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8883,7 +8838,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8947,7 +8902,7 @@ module.exports = accumulateInto;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8983,7 +8938,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9021,7 +8976,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9146,7 +9101,7 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9173,7 +9128,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9301,7 +9256,7 @@ var inputValueTracking = {
 module.exports = inputValueTracking;
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9357,7 +9312,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9387,7 +9342,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9444,7 +9399,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9476,7 +9431,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9635,7 +9590,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9653,7 +9608,7 @@ module.exports = CSSProperty;
 
 var DOMProperty = __webpack_require__(19);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInstrumentation = __webpack_require__(10);
 
 var quoteAttributeValueForBrowser = __webpack_require__(167);
 var warning = __webpack_require__(3);
@@ -9876,7 +9831,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9898,7 +9853,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9916,9 +9871,9 @@ module.exports = ReactPropTypesSecret;
 
 var _assign = __webpack_require__(5);
 
-var LinkedValueUtils = __webpack_require__(57);
+var LinkedValueUtils = __webpack_require__(56);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(13);
 
 var warning = __webpack_require__(3);
 
@@ -10104,7 +10059,7 @@ module.exports = ReactDOMSelect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10124,8 +10079,8 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var ReactCompositeComponent = __webpack_require__(175);
-var ReactEmptyComponent = __webpack_require__(93);
-var ReactHostComponent = __webpack_require__(94);
+var ReactEmptyComponent = __webpack_require__(92);
+var ReactHostComponent = __webpack_require__(93);
 
 var getNextDebugID = __webpack_require__(178);
 var invariant = __webpack_require__(2);
@@ -10239,7 +10194,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10285,7 +10240,7 @@ module.exports = ReactNodeTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10320,7 +10275,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10394,7 +10349,7 @@ module.exports = ReactHostComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10412,12 +10367,12 @@ module.exports = ReactHostComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(12);
 var REACT_ELEMENT_TYPE = __webpack_require__(179);
 
 var getIteratorFn = __webpack_require__(180);
 var invariant = __webpack_require__(2);
-var KeyEscapeUtils = __webpack_require__(61);
+var KeyEscapeUtils = __webpack_require__(60);
 var warning = __webpack_require__(3);
 
 var SEPARATOR = '.';
@@ -10576,7 +10531,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10600,7 +10555,7 @@ module.exports = traverseAllChildren;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -10666,7 +10621,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10685,8 +10640,8 @@ module.exports = EventListener;
 var ReactDOMSelection = __webpack_require__(192);
 
 var containsNode = __webpack_require__(194);
-var focusNode = __webpack_require__(86);
-var getActiveElement = __webpack_require__(98);
+var focusNode = __webpack_require__(85);
+var getActiveElement = __webpack_require__(97);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -10794,7 +10749,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10838,7 +10793,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10860,23 +10815,23 @@ var DOMLazyTree = __webpack_require__(29);
 var DOMProperty = __webpack_require__(19);
 var React = __webpack_require__(26);
 var ReactBrowserEventEmitter = __webpack_require__(44);
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(12);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMContainerInfo = __webpack_require__(209);
 var ReactDOMFeatureFlags = __webpack_require__(210);
-var ReactFeatureFlags = __webpack_require__(81);
+var ReactFeatureFlags = __webpack_require__(80);
 var ReactInstanceMap = __webpack_require__(35);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInstrumentation = __webpack_require__(10);
 var ReactMarkupChecksum = __webpack_require__(211);
 var ReactReconciler = __webpack_require__(28);
-var ReactUpdateQueue = __webpack_require__(62);
-var ReactUpdates = __webpack_require__(14);
+var ReactUpdateQueue = __webpack_require__(61);
+var ReactUpdates = __webpack_require__(13);
 
 var emptyObject = __webpack_require__(38);
-var instantiateReactComponent = __webpack_require__(91);
+var instantiateReactComponent = __webpack_require__(90);
 var invariant = __webpack_require__(2);
 var setInnerHTML = __webpack_require__(42);
-var shouldUpdateReactComponent = __webpack_require__(60);
+var shouldUpdateReactComponent = __webpack_require__(59);
 var warning = __webpack_require__(3);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -11382,7 +11337,7 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11398,7 +11353,7 @@ module.exports = ReactMount;
 
 
 
-var ReactNodeTypes = __webpack_require__(92);
+var ReactNodeTypes = __webpack_require__(91);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -11417,17 +11372,17 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(102);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(232);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(104);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
@@ -11454,13 +11409,13 @@ if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActionTypes; });
 /* harmony export (immutable) */ __webpack_exports__["b"] = createStore;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(227);
 
 
@@ -11712,7 +11667,7 @@ var ActionTypes = {
 }
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11726,7 +11681,7 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11753,7 +11708,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11781,7 +11736,7 @@ function warning(message) {
 }
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11820,7 +11775,7 @@ function compose() {
 }
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -16802,7 +16757,7 @@ function compose() {
 }));
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16832,19 +16787,19 @@ exports.default = ActionType;
 
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var score_type_1 = __webpack_require__(20);
+const score_type_1 = __webpack_require__(20);
 exports.GradeConvertErrors = {
     BadScoreType: new Error("Incorrect ScoreType passed to GradeConvert method"),
     BadScore: new Error("Bad score passed to GradeConvert method"),
     BadPercentile: new Error("Bad percentile passed to GradeConvert method")
 };
-exports.scoreToString = function (score, scoreType) {
+exports.scoreToString = (score, scoreType) => {
     if (scoreType in score_type_1.default) {
         return score.toString(10);
     }
@@ -16852,9 +16807,9 @@ exports.scoreToString = function (score, scoreType) {
         throw exports.GradeConvertErrors.BadScoreType;
     }
 };
-exports.tryParseScore = function (str, scoreType) {
+exports.tryParseScore = (str, scoreType) => {
     if (scoreType in score_type_1.default) {
-        var score = Number.parseInt(str, 10);
+        const score = Number.parseInt(str, 10);
         if (Number.isNaN(score)) {
             return [false, null];
         }
@@ -16866,9 +16821,9 @@ exports.tryParseScore = function (str, scoreType) {
         throw exports.GradeConvertErrors.BadScoreType;
     }
 };
-exports.toGPA = function (scores) {
-    var toPoints = function (score) {
-        var letterGrade = exports.toLetterGrade(score);
+exports.toGPA = (scores) => {
+    const toPoints = (score) => {
+        const letterGrade = exports.toLetterGrade(score);
         switch (letterGrade) {
             case "A":
                 return 4;
@@ -16882,19 +16837,19 @@ exports.toGPA = function (scores) {
                 return 0;
         }
     };
-    var numGrades = scores.length;
-    var gradePointSum = scores.map(toPoints).reduce(function (a, b) { return a + b; });
+    const numGrades = scores.length;
+    const gradePointSum = scores.map(toPoints).reduce((a, b) => a + b);
     return gradePointSum / numGrades;
 };
-var letterGradeHighScores = {
+const letterGradeHighScores = {
     A: 100,
     B: 89,
     C: 79,
     D: 69,
     F: 59
 };
-var isLetterGrade = function (strScore) {
-    var letterGrades = ["A", "B", "C", "D", "F"];
+const isLetterGrade = (strScore) => {
+    const letterGrades = ["A", "B", "C", "D", "F"];
     if (letterGrades.indexOf(strScore.toUpperCase()) !== -1) {
         return true;
     }
@@ -16902,9 +16857,9 @@ var isLetterGrade = function (strScore) {
         return false;
     }
 };
-var isNumberGrade = function (strScore) {
-    var intScore = Number.parseInt(strScore, 10);
-    var parseSuccessful = !Number.isNaN(intScore);
+const isNumberGrade = (strScore) => {
+    const intScore = Number.parseInt(strScore, 10);
+    const parseSuccessful = !Number.isNaN(intScore);
     if (parseSuccessful) {
         if (intScore >= 0 && intScore <= 100) {
             return true;
@@ -16914,7 +16869,7 @@ var isNumberGrade = function (strScore) {
         return false;
     }
 };
-var toNumberGrade = function (strScore) {
+const toNumberGrade = (strScore) => {
     if (isLetterGrade(strScore)) {
         return Number.parseInt(strScore);
     }
@@ -16922,10 +16877,10 @@ var toNumberGrade = function (strScore) {
         return letterGradeHighScores[strScore];
     }
     else {
-        throw new Error("toNumberGrade parse failed with " + strScore);
+        throw new Error(`toNumberGrade parse failed with ${strScore}`);
     }
 };
-exports.toLetterGrade = function (grade) {
+exports.toLetterGrade = (grade) => {
     if (grade <= letterGradeHighScores["F"]) {
         return "F";
     }
@@ -16945,13 +16900,30 @@ exports.toLetterGrade = function (grade) {
 
 
 /***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Gender;
+(function (Gender) {
+    Gender[Gender["MALE"] = 0] = "MALE";
+    Gender[Gender["FEMALE"] = 1] = "FEMALE";
+    Gender[Gender["OTHER"] = 2] = "OTHER";
+    Gender[Gender["NOANSWER"] = 3] = "NOANSWER";
+})(Gender || (Gender = {}));
+exports.default = Gender;
+
+
+/***/ }),
 /* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var isHSProgram = function (program) {
+const isHSProgram = (program) => {
     if (program.Primary_Category === "HS") {
         if (program.Program_Type === "Academic Center") {
             return false;
@@ -16974,7 +16946,7 @@ exports.default = isHSProgram;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var isESProgram = function (program) {
+const isESProgram = (program) => {
     if (program.Primary_Category === "ES") {
         return true;
     }
@@ -17021,11 +16993,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(75)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(74)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(245)();
+  module.exports = __webpack_require__(244)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -17060,13 +17032,13 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(245);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(246);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(247);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(113);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -17443,8 +17415,8 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifyPlainObject;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(65);
 
 
 
@@ -17460,31 +17432,20 @@ function verifyPlainObject(value, displayName, methodName) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var field_validation_state_1 = __webpack_require__(30);
-var field_container_1 = __webpack_require__(36);
-var list_box_1 = __webpack_require__(292);
-var debounce_1 = __webpack_require__(46);
-var ComboBoxField = (function (_super) {
-    __extends(ComboBoxField, _super);
-    function ComboBoxField(props) {
-        var _this = _super.call(this, props) || this;
-        _this.filter = function (data, filterString) {
-            var filteredRecords = data.records.filter(function (x) {
-                var displayText = data.getDisplayText(x);
-                var re = new RegExp(filterString, "i");
-                var containsSearchString = re.test(displayText);
+const React = __webpack_require__(1);
+const field_validation_state_1 = __webpack_require__(30);
+const field_container_1 = __webpack_require__(36);
+const list_box_1 = __webpack_require__(290);
+const debounce_1 = __webpack_require__(45);
+class ComboBoxField extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.filter = (data, filterString) => {
+            const filteredRecords = data.records.filter(x => {
+                const displayText = data.getDisplayText(x);
+                const re = new RegExp(filterString, "i");
+                const containsSearchString = re.test(displayText);
                 return containsSearchString;
             });
             return {
@@ -17493,40 +17454,37 @@ var ComboBoxField = (function (_super) {
                 getDisplayText: data.getDisplayText,
             };
         };
-        _this.state = {
+        this.state = {
             searchString: props.value ? props.data.getDisplayText(props.value) : "",
             listBoxVisible: false
         };
-        _this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
-        return _this;
+        this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
     }
-    ComboBoxField.prototype.componentWillReceiveProps = function (nextProps) {
+    componentWillReceiveProps(nextProps) {
         this.setState({
             searchString: nextProps.value ? nextProps.data.getDisplayText(nextProps.value) : "",
         });
         this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
-    };
-    ComboBoxField.prototype.render = function () {
-        var _this = this;
-        var validation = this.props.validator ? this.props.validator(this.props.value)
+    }
+    render() {
+        const validation = this.props.validator ? this.props.validator(this.props.value)
             : field_validation_state_1.default.NEUTRAL;
         return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
             React.createElement("div", { style: { position: "relative" } },
-                React.createElement("input", { className: "field-input-element", style: { width: "100%", height: "20px" }, type: "text", value: this.state.searchString, onChange: function (ev) { return _this.setState({ searchString: ev.currentTarget.value }); }, onFocus: function () {
-                        _this.setState({ listBoxVisible: true });
-                    }, onBlur: function () {
-                        _this.setState({ listBoxVisible: false });
+                React.createElement("input", { className: "field-input-element", style: { width: "100%", height: "20px" }, type: "text", value: this.state.searchString, onChange: ev => this.setState({ searchString: ev.currentTarget.value }), onFocus: () => {
+                        this.setState({ listBoxVisible: true });
+                    }, onBlur: () => {
+                        this.setState({ listBoxVisible: false });
                     } }),
-                React.createElement(list_box_1.default, { visible: this.state.listBoxVisible, data: this.filter(this.props.data, this.state.searchString), selected: this.props.value, searchString: this.state.searchString, onChange: function (record) {
-                        _this.setState({
+                React.createElement(list_box_1.default, { visible: this.state.listBoxVisible, data: this.filter(this.props.data, this.state.searchString), selected: this.props.value, searchString: this.state.searchString, onChange: (record) => {
+                        this.setState({
                             listBoxVisible: false,
-                            searchString: _this.props.data.getDisplayText(record)
+                            searchString: this.props.data.getDisplayText(record)
                         });
-                        _this.onChange(record);
+                        this.onChange(record);
                     } }))));
-    };
-    return ComboBoxField;
-}(React.PureComponent));
+    }
+}
 ;
 exports.default = ComboBoxField;
 
@@ -17538,12 +17496,12 @@ exports.default = ComboBoxField;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_dom_1 = __webpack_require__(133);
-var redux_1 = __webpack_require__(101);
-var reducers_1 = __webpack_require__(233);
-var react_redux_1 = __webpack_require__(12);
-var path_to_hs_1 = __webpack_require__(256);
+const React = __webpack_require__(1);
+const react_dom_1 = __webpack_require__(133);
+const redux_1 = __webpack_require__(100);
+const reducers_1 = __webpack_require__(233);
+const react_redux_1 = __webpack_require__(14);
+const path_to_hs_1 = __webpack_require__(255);
 react_dom_1.render((React.createElement(react_redux_1.Provider, { store: redux_1.createStore(reducers_1.default) },
     React.createElement(path_to_hs_1.default, null))), document.getElementById("root"));
 
@@ -17568,7 +17526,7 @@ react_dom_1.render((React.createElement(react_redux_1.Provider, { store: redux_1
 var PooledClass = __webpack_require__(120);
 var ReactElement = __webpack_require__(21);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 var traverseAllChildren = __webpack_require__(121);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -17881,10 +17839,10 @@ module.exports = PooledClass;
 
 var _prodInvariant = __webpack_require__(27);
 
-var ReactCurrentOwner = __webpack_require__(13);
-var REACT_ELEMENT_TYPE = __webpack_require__(71);
+var ReactCurrentOwner = __webpack_require__(12);
+var REACT_ELEMENT_TYPE = __webpack_require__(70);
 
-var getIteratorFn = __webpack_require__(72);
+var getIteratorFn = __webpack_require__(71);
 var invariant = __webpack_require__(2);
 var KeyEscapeUtils = __webpack_require__(122);
 var warning = __webpack_require__(3);
@@ -18134,7 +18092,7 @@ var ReactElement = __webpack_require__(21);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(73);
+  var ReactElementValidator = __webpack_require__(72);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -18449,7 +18407,7 @@ module.exports = ReactPropTypesSecret;
 var _require = __webpack_require__(21),
     isValidElement = _require.isValidElement;
 
-var factory = __webpack_require__(74);
+var factory = __webpack_require__(73);
 
 module.exports = factory(isValidElement);
 
@@ -18472,7 +18430,7 @@ module.exports = factory(isValidElement);
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(2);
   var warning = __webpack_require__(3);
-  var ReactPropTypesSecret = __webpack_require__(48);
+  var ReactPropTypesSecret = __webpack_require__(47);
   var loggedTypeFailures = {};
 }
 
@@ -18558,13 +18516,13 @@ module.exports = '15.6.1';
 
 
 
-var _require = __webpack_require__(69),
+var _require = __webpack_require__(68),
     Component = _require.Component;
 
 var _require2 = __webpack_require__(21),
     isValidElement = _require2.isValidElement;
 
-var ReactNoopUpdateQueue = __webpack_require__(70);
+var ReactNoopUpdateQueue = __webpack_require__(69);
 var factory = __webpack_require__(131);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
@@ -19524,13 +19482,13 @@ module.exports = __webpack_require__(134);
 
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDefaultInjection = __webpack_require__(135);
-var ReactMount = __webpack_require__(99);
+var ReactMount = __webpack_require__(98);
 var ReactReconciler = __webpack_require__(28);
-var ReactUpdates = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(13);
 var ReactVersion = __webpack_require__(213);
 
 var findDOMNode = __webpack_require__(214);
-var getHostComponentFromComposite = __webpack_require__(100);
+var getHostComponentFromComposite = __webpack_require__(99);
 var renderSubtreeIntoContainer = __webpack_require__(215);
 var warning = __webpack_require__(3);
 
@@ -19607,7 +19565,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactInstrumentation = __webpack_require__(11);
+  var ReactInstrumentation = __webpack_require__(10);
   var ReactDOMUnknownPropertyHook = __webpack_require__(216);
   var ReactDOMNullInputValuePropHook = __webpack_require__(217);
   var ReactDOMInvalidARIAHook = __webpack_require__(218);
@@ -20200,7 +20158,7 @@ var _assign = __webpack_require__(5);
 
 var PooledClass = __webpack_require__(22);
 
-var getTextContentAccessor = __webpack_require__(79);
+var getTextContentAccessor = __webpack_require__(78);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -20296,7 +20254,7 @@ module.exports = FallbackCompositionState;
 
 
 
-var SyntheticEvent = __webpack_require__(18);
+var SyntheticEvent = __webpack_require__(17);
 
 /**
  * @interface Event
@@ -20337,7 +20295,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(18);
+var SyntheticEvent = __webpack_require__(17);
 
 /**
  * @interface Event
@@ -20383,13 +20341,13 @@ var EventPluginHub = __webpack_require__(33);
 var EventPropagators = __webpack_require__(32);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(14);
-var SyntheticEvent = __webpack_require__(18);
+var ReactUpdates = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(17);
 
-var inputValueTracking = __webpack_require__(82);
-var getEventTarget = __webpack_require__(51);
-var isEventSupported = __webpack_require__(52);
-var isTextInputElement = __webpack_require__(83);
+var inputValueTracking = __webpack_require__(81);
+var getEventTarget = __webpack_require__(50);
+var isEventSupported = __webpack_require__(51);
+var isTextInputElement = __webpack_require__(82);
 
 var eventTypes = {
   change: {
@@ -21780,7 +21738,7 @@ module.exports = HTMLDOMPropertyConfig;
 
 
 
-var DOMChildrenOperations = __webpack_require__(54);
+var DOMChildrenOperations = __webpack_require__(53);
 var ReactDOMIDOperations = __webpack_require__(157);
 
 /**
@@ -21819,7 +21777,7 @@ var DOMLazyTree = __webpack_require__(29);
 var ExecutionEnvironment = __webpack_require__(7);
 
 var createNodesFromMarkup = __webpack_require__(154);
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(2);
 
 var Danger = {
@@ -22189,7 +22147,7 @@ module.exports = getMarkupWrap;
 
 
 
-var DOMChildrenOperations = __webpack_require__(54);
+var DOMChildrenOperations = __webpack_require__(53);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 /**
@@ -22235,29 +22193,29 @@ var _prodInvariant = __webpack_require__(4),
 var AutoFocusUtils = __webpack_require__(159);
 var CSSPropertyOperations = __webpack_require__(160);
 var DOMLazyTree = __webpack_require__(29);
-var DOMNamespaces = __webpack_require__(55);
+var DOMNamespaces = __webpack_require__(54);
 var DOMProperty = __webpack_require__(19);
-var DOMPropertyOperations = __webpack_require__(88);
+var DOMPropertyOperations = __webpack_require__(87);
 var EventPluginHub = __webpack_require__(33);
 var EventPluginRegistry = __webpack_require__(39);
 var ReactBrowserEventEmitter = __webpack_require__(44);
-var ReactDOMComponentFlags = __webpack_require__(76);
+var ReactDOMComponentFlags = __webpack_require__(75);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMInput = __webpack_require__(170);
 var ReactDOMOption = __webpack_require__(171);
-var ReactDOMSelect = __webpack_require__(90);
+var ReactDOMSelect = __webpack_require__(89);
 var ReactDOMTextarea = __webpack_require__(172);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInstrumentation = __webpack_require__(10);
 var ReactMultiChild = __webpack_require__(173);
 var ReactServerRenderingTransaction = __webpack_require__(182);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 var escapeTextContentForBrowser = __webpack_require__(43);
 var invariant = __webpack_require__(2);
-var isEventSupported = __webpack_require__(52);
-var shallowEqual = __webpack_require__(59);
-var inputValueTracking = __webpack_require__(82);
-var validateDOMNesting = __webpack_require__(63);
+var isEventSupported = __webpack_require__(51);
+var shallowEqual = __webpack_require__(58);
+var inputValueTracking = __webpack_require__(81);
+var validateDOMNesting = __webpack_require__(62);
 var warning = __webpack_require__(3);
 
 var Flags = ReactDOMComponentFlags;
@@ -23245,7 +23203,7 @@ module.exports = ReactDOMComponent;
 
 var ReactDOMComponentTree = __webpack_require__(6);
 
-var focusNode = __webpack_require__(86);
+var focusNode = __webpack_require__(85);
 
 var AutoFocusUtils = {
   focusDOMComponent: function () {
@@ -23272,9 +23230,9 @@ module.exports = AutoFocusUtils;
 
 
 
-var CSSProperty = __webpack_require__(87);
+var CSSProperty = __webpack_require__(86);
 var ExecutionEnvironment = __webpack_require__(7);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInstrumentation = __webpack_require__(10);
 
 var camelizeStyleName = __webpack_require__(161);
 var dangerousStyleValue = __webpack_require__(163);
@@ -23575,7 +23533,7 @@ module.exports = camelize;
 
 
 
-var CSSProperty = __webpack_require__(87);
+var CSSProperty = __webpack_require__(86);
 var warning = __webpack_require__(3);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -23954,10 +23912,10 @@ module.exports = getVendorPrefixedEventName;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var DOMPropertyOperations = __webpack_require__(88);
-var LinkedValueUtils = __webpack_require__(57);
+var DOMPropertyOperations = __webpack_require__(87);
+var LinkedValueUtils = __webpack_require__(56);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(13);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -24248,7 +24206,7 @@ var _assign = __webpack_require__(5);
 
 var React = __webpack_require__(26);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMSelect = __webpack_require__(90);
+var ReactDOMSelect = __webpack_require__(89);
 
 var warning = __webpack_require__(3);
 var didWarnInvalidOptionChildren = false;
@@ -24375,9 +24333,9 @@ module.exports = ReactDOMOption;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var LinkedValueUtils = __webpack_require__(57);
+var LinkedValueUtils = __webpack_require__(56);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(13);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -24540,15 +24498,15 @@ module.exports = ReactDOMTextarea;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactComponentEnvironment = __webpack_require__(58);
+var ReactComponentEnvironment = __webpack_require__(57);
 var ReactInstanceMap = __webpack_require__(35);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInstrumentation = __webpack_require__(10);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(12);
 var ReactReconciler = __webpack_require__(28);
 var ReactChildReconciler = __webpack_require__(174);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 var flattenChildren = __webpack_require__(181);
 var invariant = __webpack_require__(2);
 
@@ -24992,10 +24950,10 @@ module.exports = ReactMultiChild;
 
 var ReactReconciler = __webpack_require__(28);
 
-var instantiateReactComponent = __webpack_require__(91);
-var KeyEscapeUtils = __webpack_require__(61);
-var shouldUpdateReactComponent = __webpack_require__(60);
-var traverseAllChildren = __webpack_require__(95);
+var instantiateReactComponent = __webpack_require__(90);
+var KeyEscapeUtils = __webpack_require__(60);
+var shouldUpdateReactComponent = __webpack_require__(59);
+var traverseAllChildren = __webpack_require__(94);
 var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
@@ -25153,12 +25111,12 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var React = __webpack_require__(26);
-var ReactComponentEnvironment = __webpack_require__(58);
-var ReactCurrentOwner = __webpack_require__(13);
-var ReactErrorUtils = __webpack_require__(50);
+var ReactComponentEnvironment = __webpack_require__(57);
+var ReactCurrentOwner = __webpack_require__(12);
+var ReactErrorUtils = __webpack_require__(49);
 var ReactInstanceMap = __webpack_require__(35);
-var ReactInstrumentation = __webpack_require__(11);
-var ReactNodeTypes = __webpack_require__(92);
+var ReactInstrumentation = __webpack_require__(10);
+var ReactNodeTypes = __webpack_require__(91);
 var ReactReconciler = __webpack_require__(28);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -25167,8 +25125,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 var emptyObject = __webpack_require__(38);
 var invariant = __webpack_require__(2);
-var shallowEqual = __webpack_require__(59);
-var shouldUpdateReactComponent = __webpack_require__(60);
+var shallowEqual = __webpack_require__(58);
+var shouldUpdateReactComponent = __webpack_require__(59);
 var warning = __webpack_require__(3);
 
 var CompositeTypes = {
@@ -26058,7 +26016,7 @@ module.exports = ReactCompositeComponent;
 var _prodInvariant = __webpack_require__(4);
 
 var ReactPropTypeLocationNames = __webpack_require__(177);
-var ReactPropTypesSecret = __webpack_require__(89);
+var ReactPropTypesSecret = __webpack_require__(88);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -26277,8 +26235,8 @@ module.exports = getIteratorFn;
 
 
 
-var KeyEscapeUtils = __webpack_require__(61);
-var traverseAllChildren = __webpack_require__(95);
+var KeyEscapeUtils = __webpack_require__(60);
+var traverseAllChildren = __webpack_require__(94);
 var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
@@ -26362,7 +26320,7 @@ var _assign = __webpack_require__(5);
 
 var PooledClass = __webpack_require__(22);
 var Transaction = __webpack_require__(40);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInstrumentation = __webpack_require__(10);
 var ReactServerUpdateQueue = __webpack_require__(183);
 
 /**
@@ -26457,7 +26415,7 @@ module.exports = ReactServerRenderingTransaction;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ReactUpdateQueue = __webpack_require__(62);
+var ReactUpdateQueue = __webpack_require__(61);
 
 var warning = __webpack_require__(3);
 
@@ -26809,13 +26767,13 @@ module.exports = {
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var DOMChildrenOperations = __webpack_require__(54);
+var DOMChildrenOperations = __webpack_require__(53);
 var DOMLazyTree = __webpack_require__(29);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 var escapeTextContentForBrowser = __webpack_require__(43);
 var invariant = __webpack_require__(2);
-var validateDOMNesting = __webpack_require__(63);
+var validateDOMNesting = __webpack_require__(62);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -26976,10 +26934,10 @@ module.exports = ReactDOMTextComponent;
 
 var _assign = __webpack_require__(5);
 
-var ReactUpdates = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(13);
 var Transaction = __webpack_require__(40);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 
 var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
@@ -27049,13 +27007,13 @@ module.exports = ReactDefaultBatchingStrategy;
 
 var _assign = __webpack_require__(5);
 
-var EventListener = __webpack_require__(96);
+var EventListener = __webpack_require__(95);
 var ExecutionEnvironment = __webpack_require__(7);
 var PooledClass = __webpack_require__(22);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(13);
 
-var getEventTarget = __webpack_require__(51);
+var getEventTarget = __webpack_require__(50);
 var getUnboundedScrollPosition = __webpack_require__(189);
 
 /**
@@ -27253,12 +27211,12 @@ module.exports = getUnboundedScrollPosition;
 
 var DOMProperty = __webpack_require__(19);
 var EventPluginHub = __webpack_require__(33);
-var EventPluginUtils = __webpack_require__(49);
-var ReactComponentEnvironment = __webpack_require__(58);
-var ReactEmptyComponent = __webpack_require__(93);
+var EventPluginUtils = __webpack_require__(48);
+var ReactComponentEnvironment = __webpack_require__(57);
+var ReactEmptyComponent = __webpack_require__(92);
 var ReactBrowserEventEmitter = __webpack_require__(44);
-var ReactHostComponent = __webpack_require__(94);
-var ReactUpdates = __webpack_require__(14);
+var ReactHostComponent = __webpack_require__(93);
+var ReactUpdates = __webpack_require__(13);
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -27292,13 +27250,13 @@ module.exports = ReactInjection;
 
 var _assign = __webpack_require__(5);
 
-var CallbackQueue = __webpack_require__(80);
+var CallbackQueue = __webpack_require__(79);
 var PooledClass = __webpack_require__(22);
 var ReactBrowserEventEmitter = __webpack_require__(44);
-var ReactInputSelection = __webpack_require__(97);
-var ReactInstrumentation = __webpack_require__(11);
+var ReactInputSelection = __webpack_require__(96);
+var ReactInstrumentation = __webpack_require__(10);
 var Transaction = __webpack_require__(40);
-var ReactUpdateQueue = __webpack_require__(62);
+var ReactUpdateQueue = __webpack_require__(61);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -27477,7 +27435,7 @@ module.exports = ReactReconcileTransaction;
 var ExecutionEnvironment = __webpack_require__(7);
 
 var getNodeForCharacterOffset = __webpack_require__(193);
-var getTextContentAccessor = __webpack_require__(79);
+var getTextContentAccessor = __webpack_require__(78);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -28185,12 +28143,12 @@ module.exports = SVGDOMPropertyConfig;
 var EventPropagators = __webpack_require__(32);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInputSelection = __webpack_require__(97);
-var SyntheticEvent = __webpack_require__(18);
+var ReactInputSelection = __webpack_require__(96);
+var SyntheticEvent = __webpack_require__(17);
 
-var getActiveElement = __webpack_require__(98);
-var isTextInputElement = __webpack_require__(83);
-var shallowEqual = __webpack_require__(59);
+var getActiveElement = __webpack_require__(97);
+var isTextInputElement = __webpack_require__(82);
+var shallowEqual = __webpack_require__(58);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -28378,12 +28336,12 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(4);
 
-var EventListener = __webpack_require__(96);
+var EventListener = __webpack_require__(95);
 var EventPropagators = __webpack_require__(32);
 var ReactDOMComponentTree = __webpack_require__(6);
 var SyntheticAnimationEvent = __webpack_require__(200);
 var SyntheticClipboardEvent = __webpack_require__(201);
-var SyntheticEvent = __webpack_require__(18);
+var SyntheticEvent = __webpack_require__(17);
 var SyntheticFocusEvent = __webpack_require__(202);
 var SyntheticKeyboardEvent = __webpack_require__(203);
 var SyntheticMouseEvent = __webpack_require__(41);
@@ -28393,8 +28351,8 @@ var SyntheticTransitionEvent = __webpack_require__(207);
 var SyntheticUIEvent = __webpack_require__(34);
 var SyntheticWheelEvent = __webpack_require__(208);
 
-var emptyFunction = __webpack_require__(10);
-var getEventCharCode = __webpack_require__(64);
+var emptyFunction = __webpack_require__(9);
+var getEventCharCode = __webpack_require__(63);
 var invariant = __webpack_require__(2);
 
 /**
@@ -28607,7 +28565,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(18);
+var SyntheticEvent = __webpack_require__(17);
 
 /**
  * @interface Event
@@ -28651,7 +28609,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(18);
+var SyntheticEvent = __webpack_require__(17);
 
 /**
  * @interface Event
@@ -28737,9 +28695,9 @@ module.exports = SyntheticFocusEvent;
 
 var SyntheticUIEvent = __webpack_require__(34);
 
-var getEventCharCode = __webpack_require__(64);
+var getEventCharCode = __webpack_require__(63);
 var getEventKey = __webpack_require__(204);
-var getEventModifierState = __webpack_require__(53);
+var getEventModifierState = __webpack_require__(52);
 
 /**
  * @interface KeyboardEvent
@@ -28824,7 +28782,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var getEventCharCode = __webpack_require__(64);
+var getEventCharCode = __webpack_require__(63);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -28984,7 +28942,7 @@ module.exports = SyntheticDragEvent;
 
 var SyntheticUIEvent = __webpack_require__(34);
 
-var getEventModifierState = __webpack_require__(53);
+var getEventModifierState = __webpack_require__(52);
 
 /**
  * @interface TouchEvent
@@ -29032,7 +28990,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(18);
+var SyntheticEvent = __webpack_require__(17);
 
 /**
  * @interface Event
@@ -29132,7 +29090,7 @@ module.exports = SyntheticWheelEvent;
 
 
 
-var validateDOMNesting = __webpack_require__(63);
+var validateDOMNesting = __webpack_require__(62);
 
 var DOC_NODE_TYPE = 9;
 
@@ -29320,11 +29278,11 @@ module.exports = '15.6.1';
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(12);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstanceMap = __webpack_require__(35);
 
-var getHostComponentFromComposite = __webpack_require__(100);
+var getHostComponentFromComposite = __webpack_require__(99);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
@@ -29384,7 +29342,7 @@ module.exports = findDOMNode;
 
 
 
-var ReactMount = __webpack_require__(99);
+var ReactMount = __webpack_require__(98);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
@@ -29659,7 +29617,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(223);
 
@@ -29719,14 +29677,14 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 
 /* harmony default export */ __webpack_exports__["a"] = (freeGlobal);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(104)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(103)))
 
 /***/ }),
 /* 222 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(102);
 
 
 /** Used for built-in method references. */
@@ -29902,7 +29860,7 @@ if (typeof self !== 'undefined') {
 var result = __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__["a" /* default */](root);
 /* harmony default export */ __webpack_exports__["a"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(104), __webpack_require__(228)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(103), __webpack_require__(228)(module)))
 
 /***/ }),
 /* 228 */
@@ -29965,9 +29923,9 @@ function symbolObservablePonyfill(root) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(104);
 
 
 
@@ -30160,7 +30118,7 @@ function bindActionCreators(actionCreators, dispatch) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(105);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -30217,24 +30175,24 @@ function applyMiddleware() {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var immutable_1 = __webpack_require__(107);
-var action_type_1 = __webpack_require__(108);
-var calculate_gpa_1 = __webpack_require__(234);
-var get_req_fns_1 = __webpack_require__(235);
-var select_program_1 = __webpack_require__(238);
-var initial_state_1 = __webpack_require__(239);
-var updateOutcomes = function (state, reqFnSelector) {
-    var outcomes = immutable_1.Map();
-    var hsProgramIDs = state.getIn(['hsData', 'hsProgramIDs']);
-    var allPrograms = state.getIn(['hsData', 'programs']);
-    var index = state.getIn(['hsData', 'index']);
-    var studentData = state.get('studentData').toJS();
-    var prevOutcomes = state.getIn(['hsData', 'outcomes']);
-    return prevOutcomes.map(function (prevOutcome, programID) {
+const immutable_1 = __webpack_require__(106);
+const action_type_1 = __webpack_require__(107);
+const calculate_gpa_1 = __webpack_require__(234);
+const get_req_fns_1 = __webpack_require__(235);
+const select_program_1 = __webpack_require__(238);
+const initial_state_1 = __webpack_require__(239);
+const updateOutcomes = (state, reqFnSelector) => {
+    let outcomes = immutable_1.Map();
+    const hsProgramIDs = state.getIn(['hsData', 'hsProgramIDs']);
+    const allPrograms = state.getIn(['hsData', 'programs']);
+    const index = state.getIn(['hsData', 'index']);
+    const studentData = state.get('studentData').toJS();
+    const prevOutcomes = state.getIn(['hsData', 'outcomes']);
+    return prevOutcomes.map((prevOutcome, programID) => {
         if (hsProgramIDs.includes(programID)) {
-            var program = select_program_1.default(programID, allPrograms, index);
-            var reqFns = reqFnSelector(program);
-            var newOutcome = immutable_1.Map({
+            const program = select_program_1.default(programID, allPrograms, index);
+            const reqFns = reqFnSelector(program);
+            const newOutcome = immutable_1.Map({
                 application: reqFns.application(studentData, program).outcome,
                 selection: reqFns.selection(studentData, program).outcome
             });
@@ -30245,18 +30203,17 @@ var updateOutcomes = function (state, reqFnSelector) {
         }
     });
 };
-var updateDependentProperties = function (state) {
-    var mathGrade = state.getIn(['studentData', 'subjGradeMath']);
-    var readGrade = state.getIn(['studentData', 'subjGradeRead']);
-    var sciGrade = state.getIn(['studentData', 'subjGradeSci']);
-    var socStudiesGrade = state.getIn(['studentData', 'subjGradeSocStudies']);
-    var gpa = calculate_gpa_1.default(mathGrade, readGrade, sciGrade, socStudiesGrade);
-    var outcomes = updateOutcomes(state, get_req_fns_1.default);
+const updateDependentProperties = (state) => {
+    const mathGrade = state.getIn(['studentData', 'subjGradeMath']);
+    const readGrade = state.getIn(['studentData', 'subjGradeRead']);
+    const sciGrade = state.getIn(['studentData', 'subjGradeSci']);
+    const socStudiesGrade = state.getIn(['studentData', 'subjGradeSocStudies']);
+    const gpa = calculate_gpa_1.default(mathGrade, readGrade, sciGrade, socStudiesGrade);
+    const outcomes = updateOutcomes(state, get_req_fns_1.default);
     return state.setIn(['studentData', 'gpa'], gpa).setIn(['hsData', 'outcomes'], outcomes);
 };
-var rootReducer = function (state, action) {
-    if (state === void 0) { state = initial_state_1.default; }
-    var nextState;
+const rootReducer = (state = initial_state_1.default, action) => {
+    let nextState;
     switch (action.type) {
         case action_type_1.default.UpdateStudentGender:
             nextState = state.setIn(['studentData', 'gender'], action.payload);
@@ -30310,10 +30267,10 @@ var rootReducer = function (state, action) {
             nextState = state.set('selectedHSProgramID', action.payload);
             break;
         default:
-            console.warn("No reducer for actiontype " + action.type);
+            console.warn(`No reducer for actiontype ${action.type}`);
             nextState = state;
     }
-    var updatedState = updateDependentProperties(nextState);
+    const updatedState = updateDependentProperties(nextState);
     console.log(updatedState.toJS());
     return updatedState;
 };
@@ -30327,13 +30284,9 @@ exports.default = rootReducer;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var grade_convert_1 = __webpack_require__(109);
-var calculateGPA = function () {
-    var grades = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        grades[_i] = arguments[_i];
-    }
-    return grade_convert_1.toGPA(grades.slice());
+const grade_convert_1 = __webpack_require__(108);
+const calculateGPA = (...grades) => {
+    return grade_convert_1.toGPA([...grades]);
 };
 exports.default = calculateGPA;
 
@@ -30345,28 +30298,28 @@ exports.default = calculateGPA;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var hs_req_fns_ts_1 = __webpack_require__(236);
-var success_chance_1 = __webpack_require__(23);
-var getReqFns = function (program) {
-    var applFnID = program.Application_Requirements_Fn;
-    var selFnID = program.Program_Selections_Fn;
-    var defaultReqFn = function (student, program) {
+const hs_req_fns_ts_1 = __webpack_require__(236);
+const success_chance_1 = __webpack_require__(23);
+const getReqFns = (program) => {
+    const applFnID = program.Application_Requirements_Fn;
+    const selFnID = program.Program_Selections_Fn;
+    const defaultReqFn = (student, program) => {
         return { outcome: success_chance_1.default.NOTIMPLEMENTED };
     };
-    var applicationReqFn;
-    var selectionReqFn;
+    let applicationReqFn;
+    let selectionReqFn;
     if (hs_req_fns_ts_1.default[applFnID]) {
         applicationReqFn = hs_req_fns_ts_1.default[applFnID].fn;
     }
     else {
-        console.warn("Cannot locate application requirement for " + (program.Short_Name + " - " + program.Program_Type));
+        console.warn(`Cannot locate application requirement for ${program.Short_Name + " - " + program.Program_Type}`);
         applicationReqFn = defaultReqFn;
     }
     if (hs_req_fns_ts_1.default[selFnID]) {
         selectionReqFn = hs_req_fns_ts_1.default[selFnID].fn;
     }
     else {
-        console.warn("Cannot locate selection requirement for " + (program.Short_Name + " - " + program.Program_Type));
+        console.warn(`Cannot locate selection requirement for ${program.Short_Name + " - " + program.Program_Type}`);
         selectionReqFn = defaultReqFn;
     }
     return { application: applicationReqFn, selection: selectionReqFn };
@@ -30381,10 +30334,10 @@ exports.default = getReqFns;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var gender_1 = __webpack_require__(66);
-var success_chance_ts_1 = __webpack_require__(23);
-var hs_calc_utils_1 = __webpack_require__(237);
-var seCutoffTable = {
+const gender_1 = __webpack_require__(109);
+const success_chance_ts_1 = __webpack_require__(23);
+const hs_calc_utils_1 = __webpack_require__(237);
+const seCutoffTable = {
     "609726": {
         rank: { avg: 834.15, min: 799, max: 897 },
         tier1: { avg: 700.76, min: 652, max: 796 },
@@ -30463,7 +30416,7 @@ var seCutoffTable = {
         tier4: { avg: 877.46, min: 874, max: 882 },
     }
 };
-var ibCutoffTable = {
+const ibCutoffTable = {
     "609695": { min: 600 },
     "610563": { min: 609 },
     "609698": { min: 350 },
@@ -30487,10 +30440,10 @@ var ibCutoffTable = {
     "609734": { min: 836 },
     "609739": { min: 640 },
 };
-var getSECutoff = function (student, school) {
-    var cutoff = seCutoffTable[school.School_ID];
+const getSECutoff = (student, school) => {
+    const cutoff = seCutoffTable[school.School_ID];
     if (cutoff === undefined) {
-        throw new Error("School " + school.Long_Name + " not found in SE Cutoff scores");
+        throw new Error(`School ${school.Long_Name} not found in SE Cutoff scores`);
     }
     switch (student.location.tier) {
         case '1':
@@ -30505,15 +30458,15 @@ var getSECutoff = function (student, school) {
             throw new Error("No tier");
     }
 };
-var getIBCutoff = function (student, school) {
-    var cutoff = ibCutoffTable[school.School_ID];
+const getIBCutoff = (student, school) => {
+    const cutoff = ibCutoffTable[school.School_ID];
     if (cutoff === undefined) {
-        throw new Error("School " + school.Long_Name + " not found in IB Cutoff scores");
+        throw new Error(`School ${school.Long_Name} not found in IB Cutoff scores`);
     }
     return cutoff;
 };
-var getPointsFromCutoff = function (score, cutoff) {
-    var diff = cutoff - score;
+const getPointsFromCutoff = (score, cutoff) => {
+    const diff = cutoff - score;
     if (diff <= 0) {
         return 0;
     }
@@ -30521,44 +30474,40 @@ var getPointsFromCutoff = function (score, cutoff) {
         return diff;
     }
 };
-var average = function () {
-    var nums = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        nums[_i] = arguments[_i];
-    }
-    var count = nums.length;
-    var sum = nums.reduce(function (a, b) { return a + b; });
+const average = (...nums) => {
+    const count = nums.length;
+    const sum = nums.reduce((a, b) => a + b);
     return sum / count;
 };
-var norm = function (value, max, min) {
+const norm = (value, max, min) => {
     return ((value - min) / (max - min)) * 100;
 };
-var inAttendanceBound = function (student, school) {
-    var ATTEND_RADIUS_MI = 2.5;
-    var tryParseFloat = function (str) {
-        var num = parseFloat(str);
+const inAttendanceBound = (student, school) => {
+    const ATTEND_RADIUS_MI = 2.5;
+    const tryParseFloat = (str) => {
+        const num = parseFloat(str);
         if (isNaN(num)) {
-            throw new Error("inAttendanceBound: Cannot parse '" + str + "' as float");
+            throw new Error(`inAttendanceBound: Cannot parse '${str}' as float`);
         }
         return num;
     };
-    var studentLat = student.location.geo.latitude;
-    var studentLong = student.location.geo.longitude;
-    var schoolLat = tryParseFloat(school.School_Latitude);
-    var schoolLong = tryParseFloat(school.School_Longitude);
-    var studentLatRad = Math.PI * studentLat / 180;
-    var schoolLatRad = Math.PI * schoolLat / 180;
-    var theta = studentLong - schoolLong;
-    var thetaRad = Math.PI * theta / 180;
-    var dist = Math.sin(studentLatRad) * Math.sin(schoolLatRad) * Math.cos(studentLatRad) * Math.cos(schoolLatRad) * Math.cos(thetaRad);
+    const studentLat = student.location.geo.latitude;
+    const studentLong = student.location.geo.longitude;
+    const schoolLat = tryParseFloat(school.School_Latitude);
+    const schoolLong = tryParseFloat(school.School_Longitude);
+    const studentLatRad = Math.PI * studentLat / 180;
+    const schoolLatRad = Math.PI * schoolLat / 180;
+    const theta = studentLong - schoolLong;
+    const thetaRad = Math.PI * theta / 180;
+    let dist = Math.sin(studentLatRad) * Math.sin(schoolLatRad) * Math.cos(studentLatRad) * Math.cos(schoolLatRad) * Math.cos(thetaRad);
     dist = Math.acos(dist);
     dist = dist * 180 / Math.PI;
     dist = dist * 60 * 1.1515;
-    var isInBound = dist < ATTEND_RADIUS_MI;
+    const isInBound = dist < ATTEND_RADIUS_MI;
     return isInBound;
 };
-var hasSiblingInProgram = function (student, program) {
-    var siblingAttends = student.siblingHSProgramIDs.some(function (siblingProgramID) { return siblingProgramID === program.ID; });
+const hasSiblingInProgram = (student, program) => {
+    const siblingAttends = student.siblingHSProgramIDs.some(siblingProgramID => siblingProgramID === program.ID);
     if (siblingAttends) {
         return true;
     }
@@ -30566,7 +30515,7 @@ var hasSiblingInProgram = function (student, program) {
         return false;
     }
 };
-var HSReqFns = {
+const HSReqFns = {
     "6adf97f83acf6453d4a6a4b1070f3754": {
         "desc": "None",
         "programs": [
@@ -30801,7 +30750,7 @@ var HSReqFns = {
         "programs": [
             "FOUNDATIONS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -30823,7 +30772,7 @@ var HSReqFns = {
             "CURIE HS - Fine Arts & Technology - NEIGHBORHOOD - Selection",
             "SENN HS - General Education - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -30837,7 +30786,7 @@ var HSReqFns = {
         "programs": [
             "CHICAGO VIRTUAL - Charter - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -30851,7 +30800,7 @@ var HSReqFns = {
         "programs": [
             "CICS - LONGWOOD - Charter - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -30880,7 +30829,7 @@ var HSReqFns = {
             "INFINITY HS - Science/Technology/Engineering/Math - Selection",
             "MARSHALL HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -30894,11 +30843,11 @@ var HSReqFns = {
         "programs": [
             "SOLORIO HS - Double Honors/Scholars - Application"
         ],
-        "fn": function (studentData, schoolData) {
-            var NWEA_MATH_CUTOFF = 75;
-            var NWEA_READ_CUTOFF = 75;
-            var ATTEND_CUTOFF = 95;
-            var progress = {
+        "fn": (studentData, schoolData) => {
+            const NWEA_MATH_CUTOFF = 75;
+            const NWEA_READ_CUTOFF = 75;
+            const ATTEND_CUTOFF = 95;
+            const progress = {
                 threshold_certain: 100,
                 value: 100 - average(getPointsFromCutoff(studentData.nweaPercentileMath, NWEA_MATH_CUTOFF), getPointsFromCutoff(studentData.nweaPercentileRead, NWEA_READ_CUTOFF), getPointsFromCutoff(studentData.attendancePercentage, ATTEND_CUTOFF)),
             };
@@ -30919,7 +30868,7 @@ var HSReqFns = {
             "CHICAGO ACADEMY HS - Scholars - Selection",
             "CHICAGO ACADEMY HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school) ||
                 hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
@@ -30935,10 +30884,10 @@ var HSReqFns = {
             "FARRAGUT HS - JROTC - Application",
             "SCHURZ HS - AVID - Application"
         ],
-        "fn": function (studentData, schoolData) {
-            var GPA_CUTOFF = 2.0;
-            var ATTEND_CUTOFF = 85;
-            var progress = {
+        "fn": (studentData, schoolData) => {
+            const GPA_CUTOFF = 2.0;
+            const ATTEND_CUTOFF = 85;
+            const progress = {
                 threshold_certain: 100,
                 value: average(norm(getPointsFromCutoff(studentData.gpa, GPA_CUTOFF), 4.0, 0.0), getPointsFromCutoff(studentData.attendancePercentage, ATTEND_CUTOFF))
             };
@@ -30959,7 +30908,7 @@ var HSReqFns = {
             "SCHURZ HS - AVID - Selection",
             "PROSSER HS - Career Academy - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -30985,7 +30934,7 @@ var HSReqFns = {
             "CHICAGO VOCATIONAL HS - Medical Assisting - Selection",
             "SCHURZ HS - Pre-Engineering - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -30996,7 +30945,7 @@ var HSReqFns = {
             "DYETT ARTS HS - Visual Arts - Application",
             "DYETT ARTS HS - Dance - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if (studentData.nweaPercentileMath >= 50 &&
                     studentData.nweaPercentileRead >= 50 &&
@@ -31026,7 +30975,7 @@ var HSReqFns = {
             "DYETT ARTS HS - Visual Arts - Selection",
             "DYETT ARTS HS - Dance - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31096,7 +31045,7 @@ var HSReqFns = {
             "MARSHALL HS - Agricultural Sciences - Selection",
             "MARSHALL HS - Culinary Arts - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -31123,7 +31072,7 @@ var HSReqFns = {
             "SCHURZ HS - General Education - Selection",
             "STEINMETZ HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31146,7 +31095,7 @@ var HSReqFns = {
             "CARVER MILITARY HS - Service Learning Academies (Military) - Application",
             "CHICAGO MILITARY HS - Service Learning Academies (Military) - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileMath + studentData.nweaPercentileRead >= 48) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31161,7 +31110,7 @@ var HSReqFns = {
         "programs": [
             "AIR FORCE HS - Service Learning Academies (Military) - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31171,7 +31120,7 @@ var HSReqFns = {
         "programs": [
             "JUAREZ HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31189,7 +31138,7 @@ var HSReqFns = {
         "programs": [
             "KELLY HS - Digital Media - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31203,7 +31152,7 @@ var HSReqFns = {
             "SOLORIO HS - General Education - Selection",
             "MATHER HS - General Education - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31224,7 +31173,7 @@ var HSReqFns = {
             "LINDBLOM HS - Academic Center - Application",
             "YOUNG HS - Academic Center - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31240,7 +31189,7 @@ var HSReqFns = {
             "LINDBLOM HS - Academic Center - Selection",
             "YOUNG HS - Academic Center - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31250,7 +31199,7 @@ var HSReqFns = {
         "programs": [
             "STEINMETZ HS - JROTC - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if (studentData.nweaPercentileMath >= 45 &&
                     studentData.nweaPercentileRead >= 45 &&
@@ -31278,7 +31227,7 @@ var HSReqFns = {
         "programs": [
             "STEINMETZ HS - JROTC - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -31292,7 +31241,7 @@ var HSReqFns = {
             "NORTH LAWNDALE - CHRISTIANA HS - General Education - Selection",
             "NORTH LAWNDALE - COLLINS HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school) ||
                 hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
@@ -31310,7 +31259,7 @@ var HSReqFns = {
             "CURIE HS - Music - Application",
             "CURIE HS - Visual Arts - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -31341,7 +31290,7 @@ var HSReqFns = {
             "SENN HS - Theatre - Selection",
             "CURIE HS - Visual Arts - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31351,7 +31300,7 @@ var HSReqFns = {
         "programs": [
             "WESTINGHOUSE HS - Career Academy - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48 &&
                     studentData.gpa >= 3.0 &&
@@ -31381,7 +31330,7 @@ var HSReqFns = {
         "programs": [
             "WESTINGHOUSE HS - Career Academy - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -31396,7 +31345,7 @@ var HSReqFns = {
         "programs": [
             "LAKE VIEW HS - General Education - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -31424,7 +31373,7 @@ var HSReqFns = {
             "WASHINGTON HS - International Baccalaureate (IB) - Application",
             "SCHURZ HS - International Baccalaureate (IB) - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48 &&
                     studentData.gpa >= 2.5) {
@@ -31454,12 +31403,12 @@ var HSReqFns = {
             "BACK OF THE YARDS HS - International Baccalaureate (IB) - Selection",
             "JUAREZ HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -31487,7 +31436,7 @@ var HSReqFns = {
             "CARVER MILITARY HS - Service Learning Academies (Military) - Selection",
             "CHICAGO MILITARY HS - Service Learning Academies (Military) - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31505,7 +31454,7 @@ var HSReqFns = {
             "CLARK HS - Early College STEM - Application",
             "DISNEY II HS - Fine Arts & Technology - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -31531,7 +31480,7 @@ var HSReqFns = {
         "programs": [
             "JONES HS - Pre-Engineering - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31549,12 +31498,12 @@ var HSReqFns = {
             "WASHINGTON HS - International Baccalaureate (IB) - Selection",
             "SCHURZ HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -31584,7 +31533,7 @@ var HSReqFns = {
             "MATHER HS - Pre-Law - Selection",
             "ROOSEVELT HS - Cisco Networking - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31595,7 +31544,7 @@ var HSReqFns = {
             "SCHURZ HS - Dual Language - Application",
             "BACK OF THE YARDS HS - Dual Language - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31606,7 +31555,7 @@ var HSReqFns = {
             "SCHURZ HS - Dual Language - Selection",
             "BACK OF THE YARDS HS - Dual Language - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -31622,7 +31571,7 @@ var HSReqFns = {
             "CHICAGO MATH & SCIENCE HS - General Education - Selection",
             "CICS - CHICAGOQUEST HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -31637,7 +31586,7 @@ var HSReqFns = {
         "programs": [
             "CHICAGO ACADEMY HS - Scholars - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileMath >= 70 &&
                 studentData.nweaPercentileRead >= 70 &&
                 studentData.gpa >= 3.0 &&
@@ -31655,7 +31604,7 @@ var HSReqFns = {
         "programs": [
             "MULTICULTURAL HS - Fine and Performing Arts - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31677,7 +31626,7 @@ var HSReqFns = {
             "CLEMENTE HS - General Education - Selection",
             "PHILLIPS HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31695,7 +31644,7 @@ var HSReqFns = {
         "programs": [
             "CLEMENTE HS - General Education - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31720,7 +31669,7 @@ var HSReqFns = {
             "BRONZEVILLE HS - International Baccalaureate (IB) - Application",
             "HYDE PARK HS - International Baccalaureate (IB) - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48 &&
                     studentData.gpa >= 2.5) {
@@ -31757,7 +31706,7 @@ var HSReqFns = {
             "PAYTON HS - Selective Enrollment High School - Application",
             "JONES HS - Selective Enrollment High School - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
@@ -31792,10 +31741,10 @@ var HSReqFns = {
             "KING HS - Selective Enrollment High School - Selection",
             "JONES HS - Selective Enrollment High School - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateSEPoints(student);
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateSEPoints(student);
             try {
-                var cutoff = getSECutoff(student, school);
+                const cutoff = getSECutoff(student, school);
                 if (score >= cutoff.max) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -31820,7 +31769,7 @@ var HSReqFns = {
         "programs": [
             "TAFT HS - NJROTC - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileMath >= 24 &&
                 studentData.nweaPercentileRead >= 24) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
@@ -31836,7 +31785,7 @@ var HSReqFns = {
         "programs": [
             "TAFT HS - NJROTC - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -31846,7 +31795,7 @@ var HSReqFns = {
         "programs": [
             "LINCOLN PARK HS - Vocal Music - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31869,7 +31818,7 @@ var HSReqFns = {
             "LINCOLN PARK HS - Vocal Music - Selection",
             "LINCOLN PARK HS - Instrumental Music - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31884,7 +31833,7 @@ var HSReqFns = {
         "programs": [
             "PHILLIPS HS - General Education - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -31921,7 +31870,7 @@ var HSReqFns = {
             "CLARK HS - Early College STEM - Selection",
             "DISNEY II HS - Fine Arts & Technology - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school) ||
                 hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
@@ -31937,7 +31886,7 @@ var HSReqFns = {
         "programs": [
             "SULLIVAN HS - Accounting - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -31974,7 +31923,7 @@ var HSReqFns = {
         "programs": [
             "FENGER HS - Honors - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileMath >= 50 &&
                 studentData.nweaPercentileRead >= 50 &&
                 studentData.gpa >= 2.0) {
@@ -31999,7 +31948,7 @@ var HSReqFns = {
             "MORGAN PARK HS - World Language and International Studies - Selection",
             "CHICAGO TECH HS - Science/Technology/Engineering/Math - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -32009,12 +31958,12 @@ var HSReqFns = {
         "programs": [
             "PROSSER HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -32038,7 +31987,7 @@ var HSReqFns = {
         "programs": [
             "SPRY HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -32053,7 +32002,7 @@ var HSReqFns = {
         "programs": [
             "KELLY HS - AVID - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileRead >= 50 &&
                 studentData.gpa >= 2.0 &&
                 studentData.attendancePercentage >= 80) {
@@ -32070,7 +32019,7 @@ var HSReqFns = {
         "programs": [
             "KELLY HS - AVID - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -32080,7 +32029,7 @@ var HSReqFns = {
         "programs": [
             "NORTHSIDE PREP HS - Selective Enrollment High School - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -32107,7 +32056,7 @@ var HSReqFns = {
             "HANCOCK HS - Pre-Law - Selection",
             "HANCOCK HS - Pre-Engineering - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -32117,7 +32066,7 @@ var HSReqFns = {
         "programs": [
             "KENWOOD HS - Honors - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileMath >= 75 &&
                 studentData.nweaPercentileRead >= 75 &&
                 studentData.gpa >= 3.5 &&
@@ -32135,7 +32084,7 @@ var HSReqFns = {
         "programs": [
             "SIMEON HS - Career Academy - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) > 30 &&
                     studentData.attendancePercentage >= 90) {
@@ -32164,7 +32113,7 @@ var HSReqFns = {
             "SIMEON HS - Career Academy - Selection",
             "SIMEON HS - Honors - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -32174,7 +32123,7 @@ var HSReqFns = {
         "programs": [
             "HARLAN HS - General Education - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32207,7 +32156,7 @@ var HSReqFns = {
         "programs": [
             "HARLAN HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32225,7 +32174,7 @@ var HSReqFns = {
         "programs": [
             "SIMEON HS - Honors - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileMath >= 50 &&
                 studentData.nweaPercentileRead >= 50 &&
                 studentData.gpa >= 3.0 &&
@@ -32243,7 +32192,7 @@ var HSReqFns = {
         "programs": [
             "LINCOLN PARK HS - Honors/Double Honors - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32264,7 +32213,7 @@ var HSReqFns = {
         "programs": [
             "LINCOLN PARK HS - Honors/Double Honors - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32279,7 +32228,7 @@ var HSReqFns = {
         "programs": [
             "CHICAGO AGRICULTURE HS - Scholars - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileMath >= 80 &&
                 studentData.nweaPercentileRead >= 80 &&
                 studentData.gpa >= 3.5) {
@@ -32298,7 +32247,7 @@ var HSReqFns = {
             "HARLAN HS - Pre-Engineering - Selection",
             "CHICAGO AGRICULTURE HS - Honors - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -32313,7 +32262,7 @@ var HSReqFns = {
         "programs": [
             "GOODE HS - Early College STEM - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -32323,7 +32272,7 @@ var HSReqFns = {
         "programs": [
             "GOODE HS - Early College STEM - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -32340,7 +32289,7 @@ var HSReqFns = {
             "SENN HS - Music - Application",
             "SENN HS - Theatre - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -32366,7 +32315,7 @@ var HSReqFns = {
         "programs": [
             "ROBESON HS - Allied Health - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.gpa >= 2.5) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32381,12 +32330,12 @@ var HSReqFns = {
         "programs": [
             "MORGAN PARK HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -32410,7 +32359,7 @@ var HSReqFns = {
         "programs": [
             "UPLIFT HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -32425,7 +32374,7 @@ var HSReqFns = {
         "programs": [
             "U OF C - WOODLAWN HS - General Education - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData) ||
                 hasSiblingInProgram(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
@@ -32441,7 +32390,7 @@ var HSReqFns = {
         "programs": [
             "COLLINS HS - Scholars - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.nweaPercentileMath >= 40 &&
                 studentData.nweaPercentileRead >= 40 &&
                 studentData.gpa >= 2.8 &&
@@ -32459,7 +32408,7 @@ var HSReqFns = {
         "programs": [
             "COLLINS HS - Scholars - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -32469,7 +32418,7 @@ var HSReqFns = {
         "programs": [
             "TEAM HS - General Education - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32491,7 +32440,7 @@ var HSReqFns = {
         "programs": [
             "TEAM HS - General Education - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.gpa >= 2.5) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -32506,7 +32455,7 @@ var HSReqFns = {
         "programs": [
             "TAFT HS - General Education - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32521,7 +32470,7 @@ var HSReqFns = {
         "programs": [
             "MORGAN PARK HS - General Education - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (inAttendanceBound(studentData, schoolData)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32539,7 +32488,7 @@ var HSReqFns = {
         "programs": [
             "WILLIAMS HS - General Education - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48 &&
                     studentData.attendancePercentage >= 85) {
@@ -32567,7 +32516,7 @@ var HSReqFns = {
         "programs": [
             "HUBBARD HS - University Scholars - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48 &&
                     studentData.gpa >= 2.5 &&
@@ -32597,7 +32546,7 @@ var HSReqFns = {
         "programs": [
             "SENN HS - Digital Journalism - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48 &&
                     studentData.attendancePercentage >= 90) {
@@ -32626,7 +32575,7 @@ var HSReqFns = {
         "programs": [
             "BOGAN HS - Accounting - Selection"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -32659,7 +32608,7 @@ var HSReqFns = {
             "YOUNG WOMENS HS - General Education - Selection",
             "INSTITUTO - HEALTH - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -32674,7 +32623,7 @@ var HSReqFns = {
         "programs": [
             "KENWOOD HS - Magnet Program - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.nweaPercentileMath >= 60 &&
                 student.nweaPercentileRead >= 60 &&
                 student.gpa >= 3.0 &&
@@ -32692,7 +32641,7 @@ var HSReqFns = {
         "programs": [
             "KENWOOD HS - Magnet Program - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -32702,12 +32651,12 @@ var HSReqFns = {
         "programs": [
             "CURIE HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -32731,7 +32680,7 @@ var HSReqFns = {
         "programs": [
             "CORLISS HS - Early College STEM - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32749,12 +32698,12 @@ var HSReqFns = {
         "programs": [
             "TAFT HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -32778,7 +32727,7 @@ var HSReqFns = {
         "programs": [
             "HYDE PARK HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32796,7 +32745,7 @@ var HSReqFns = {
         "programs": [
             "LINCOLN PARK HS - Instrumental Music - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32818,7 +32767,7 @@ var HSReqFns = {
         "programs": [
             "ALCOTT HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -32833,7 +32782,7 @@ var HSReqFns = {
         "programs": [
             "LINCOLN PARK HS - Drama - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.nweaPercentileMath >= 60 &&
                 student.nweaPercentileRead >= 60 &&
                 student.gpa >= 2.75) {
@@ -32850,7 +32799,7 @@ var HSReqFns = {
         "programs": [
             "LINCOLN PARK HS - Drama - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -32860,7 +32809,7 @@ var HSReqFns = {
         "programs": [
             "HARLAN HS - Pre-Engineering - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
@@ -32886,7 +32835,7 @@ var HSReqFns = {
         "programs": [
             "SENN HS - Visual Arts - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
@@ -32912,7 +32861,7 @@ var HSReqFns = {
         "programs": [
             "SENN HS - Visual Arts - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -32922,7 +32871,7 @@ var HSReqFns = {
         "programs": [
             "AMUNDSEN HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32937,7 +32886,7 @@ var HSReqFns = {
         "programs": [
             "KELVYN PARK HS - General Education - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32958,7 +32907,7 @@ var HSReqFns = {
         "programs": [
             "KELVYN PARK HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -32973,7 +32922,7 @@ var HSReqFns = {
         "programs": [
             "HUBBARD HS - International Baccalaureate (IB) - Application"
         ],
-        "fn": function (studentData, schoolData) {
+        "fn": (studentData, schoolData) => {
             if (studentData.iep || studentData.ell) {
                 if ((studentData.nweaPercentileMath + studentData.nweaPercentileRead) >= 48 &&
                     studentData.gpa >= 2.5) {
@@ -33001,7 +32950,7 @@ var HSReqFns = {
         "programs": [
             "JONES HS - Pre-Law - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -33011,7 +32960,7 @@ var HSReqFns = {
         "programs": [
             "CHICAGO AGRICULTURE HS - Honors - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.nweaPercentileMath >= 50 &&
                 student.nweaPercentileRead >= 50 &&
                 student.gpa >= 3.0) {
@@ -33028,12 +32977,12 @@ var HSReqFns = {
         "programs": [
             "FARRAGUT HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -33057,7 +33006,7 @@ var HSReqFns = {
         "programs": [
             "CHICAGO COLLEGIATE - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school) ||
                 hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
@@ -33073,7 +33022,7 @@ var HSReqFns = {
         "programs": [
             "BACK OF THE YARDS HS - General Education - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.CERTAIN };
         }
     },
@@ -33083,7 +33032,7 @@ var HSReqFns = {
         "programs": [
             "BACK OF THE YARDS HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -33093,7 +33042,7 @@ var HSReqFns = {
         "programs": [
             "WELLS HS - General Education - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -33121,12 +33070,12 @@ var HSReqFns = {
         "programs": [
             "WELLS HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
             else {
-                var scoredAboveThreshold = student.nweaPercentileMath >= 60 &&
+                const scoredAboveThreshold = student.nweaPercentileMath >= 60 &&
                     student.nweaPercentileRead >= 60;
                 if (scoredAboveThreshold || hasSiblingInProgram(student, school)) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -33143,7 +33092,7 @@ var HSReqFns = {
         "programs": [
             "COLLINS HS - General Education - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 24 &&
                     student.attendancePercentage >= 85) {
@@ -33164,7 +33113,7 @@ var HSReqFns = {
         "programs": [
             "COLLINS HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -33179,12 +33128,12 @@ var HSReqFns = {
         "programs": [
             "OGDEN HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -33208,7 +33157,7 @@ var HSReqFns = {
         "programs": [
             "DYETT ARTS HS - Digital Media - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -33240,7 +33189,7 @@ var HSReqFns = {
         "programs": [
             "SENN HS - International Baccalaureate (IB) - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48 &&
                     student.gpa >= 2.5) {
@@ -33268,12 +33217,12 @@ var HSReqFns = {
         "programs": [
             "SENN HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -33297,7 +33246,7 @@ var HSReqFns = {
         "programs": [
             "BRONZEVILLE HS - Honors - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 100 &&
                     student.gpa >= 2.5) {
@@ -33325,7 +33274,7 @@ var HSReqFns = {
         "programs": [
             "LINCOLN PARK HS - International Baccalaureate (IB) - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48 &&
                     student.gpa >= 2.5) {
@@ -33353,12 +33302,12 @@ var HSReqFns = {
         "programs": [
             "LINCOLN PARK HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -33382,12 +33331,12 @@ var HSReqFns = {
         "programs": [
             "AMUNDSEN HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -33411,7 +33360,7 @@ var HSReqFns = {
         "programs": [
             "WORLD LANGUAGE HS - General Education - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -33431,7 +33380,7 @@ var HSReqFns = {
         "programs": [
             "WORLD LANGUAGE HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -33449,7 +33398,7 @@ var HSReqFns = {
         "programs": [
             "LAKE VIEW HS - Early College STEM - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -33459,7 +33408,7 @@ var HSReqFns = {
         "programs": [
             "CHICAGO VOCATIONAL HS - Cosmetology - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48) {
                     return { outcome: success_chance_ts_1.default.LIKELY };
@@ -33485,7 +33434,7 @@ var HSReqFns = {
         "programs": [
             "SOCIAL JUSTICE HS - General Education - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -33500,7 +33449,7 @@ var HSReqFns = {
         "programs": [
             "SOCIAL JUSTICE HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -33515,12 +33464,12 @@ var HSReqFns = {
         "programs": [
             "HYDE PARK HS - International Baccalaureate (IB) - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateIBPoints(student);
-            var cutoff = getIBCutoff(student, school).min;
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateIBPoints(student);
+            const cutoff = getIBCutoff(student, school).min;
             if (inAttendanceBound(student, school)) {
-                var bonusPoints = 50;
-                var adjustedCutoff = cutoff + bonusPoints;
+                const bonusPoints = 50;
+                const adjustedCutoff = cutoff + bonusPoints;
                 if (score >= adjustedCutoff) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -33544,7 +33493,7 @@ var HSReqFns = {
         "programs": [
             "KENWOOD HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
             }
@@ -33559,7 +33508,7 @@ var HSReqFns = {
         "programs": [
             "AUSTIN CCA HS - Pre-Engineering - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -33569,7 +33518,7 @@ var HSReqFns = {
         "programs": [
             "CHICAGO ACADEMY HS - General Education - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 50 &&
                     student.attendancePercentage >= 85) {
@@ -33597,7 +33546,7 @@ var HSReqFns = {
         "programs": [
             "SULLIVAN HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (inAttendanceBound(student, school) ||
                 hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.CERTAIN };
@@ -33613,10 +33562,10 @@ var HSReqFns = {
         "programs": [
             "PAYTON HS - Selective Enrollment High School - Selection"
         ],
-        "fn": function (student, school) {
-            var score = hs_calc_utils_1.calculateSEPoints(student);
+        "fn": (student, school) => {
+            const score = hs_calc_utils_1.calculateSEPoints(student);
             try {
-                var cutoff = getSECutoff(student, school);
+                const cutoff = getSECutoff(student, school);
                 if (score >= cutoff.max) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
                 }
@@ -33641,7 +33590,7 @@ var HSReqFns = {
         "programs": [
             "LEGAL PREP HS - General Education - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (hasSiblingInProgram(student, school)) {
                 return { outcome: success_chance_ts_1.default.LIKELY };
             }
@@ -33656,7 +33605,7 @@ var HSReqFns = {
         "programs": [
             "YOUNG WOMENS HS - General Education - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.gradeLevel === 8) {
                 if (student.gender === gender_1.default.FEMALE) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
@@ -33683,7 +33632,7 @@ var HSReqFns = {
         "programs": [
             "MORGAN PARK HS - World Language and International Studies - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 60) {
                     return { outcome: success_chance_ts_1.default.CERTAIN };
@@ -33710,7 +33659,7 @@ var HSReqFns = {
         "programs": [
             "VON STEUBEN HS - Scholars - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.nweaPercentileMath >= 60 &&
                 student.nweaPercentileRead >= 60 &&
                 student.gpa >= 3.0) {
@@ -33727,7 +33676,7 @@ var HSReqFns = {
         "programs": [
             "VON STEUBEN HS - Scholars - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.NOTIMPLEMENTED };
         }
     },
@@ -33740,7 +33689,7 @@ var HSReqFns = {
             "CHIARTS HS - Music - Instumental - Application",
             "CHIARTS HS - Dance - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48 &&
                     student.attendancePercentage >= 92) {
@@ -33772,7 +33721,7 @@ var HSReqFns = {
             "CHIARTS HS - Dance - Selection",
             "CHIARTS HS - Musical Theatre - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -33782,7 +33731,7 @@ var HSReqFns = {
         "programs": [
             "CHIARTS HS - Creative Writing - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48 &&
                     student.attendancePercentage >= 92) {
@@ -33810,7 +33759,7 @@ var HSReqFns = {
         "programs": [
             "CHIARTS HS - Creative Writing - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -33820,7 +33769,7 @@ var HSReqFns = {
         "programs": [
             "CHIARTS HS - Visual Arts - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48 &&
                     student.attendancePercentage >= 92) {
@@ -33848,7 +33797,7 @@ var HSReqFns = {
         "programs": [
             "CHIARTS HS - Visual Arts - Selection"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             return { outcome: success_chance_ts_1.default.UNCERTAIN };
         }
     },
@@ -33858,7 +33807,7 @@ var HSReqFns = {
         "programs": [
             "CHIARTS HS - Musical Theatre - Application"
         ],
-        "fn": function (student, school) {
+        "fn": (student, school) => {
             if (student.iep || student.ell) {
                 if ((student.nweaPercentileMath + student.nweaPercentileRead) >= 48 &&
                     student.attendancePercentage >= 92) {
@@ -33891,25 +33840,25 @@ exports.default = HSReqFns;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var grade_convert_1 = __webpack_require__(109);
-exports.calculateSEPoints = function (student) {
-    var NWEA_SCORE_CONSTANT = 1.515;
-    var nweaMathPoints = Math.round(student.nweaPercentileMath * NWEA_SCORE_CONSTANT);
-    var nweaReadPoints = Math.round(student.nweaPercentileRead * NWEA_SCORE_CONSTANT);
-    var gradePointsLookup = {
+const grade_convert_1 = __webpack_require__(108);
+exports.calculateSEPoints = (student) => {
+    const NWEA_SCORE_CONSTANT = 1.515;
+    const nweaMathPoints = Math.round(student.nweaPercentileMath * NWEA_SCORE_CONSTANT);
+    const nweaReadPoints = Math.round(student.nweaPercentileRead * NWEA_SCORE_CONSTANT);
+    const gradePointsLookup = {
         "A": 75,
         "B": 50,
         "C": 25,
         "D": 0,
         "F": 0,
     };
-    var subjGradeMathPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeMath)];
-    var subjGradeReadPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeRead)];
-    var subjGradeSciPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeSci)];
-    var subjGradeSocStudiesPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeSocStudies)];
-    var SE_TEST_PERCENTILE_CONSTANT = 3.03;
-    var seTestPoints = Math.round(student.seTestPercentile * SE_TEST_PERCENTILE_CONSTANT);
-    var sePoints = nweaMathPoints +
+    const subjGradeMathPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeMath)];
+    const subjGradeReadPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeRead)];
+    const subjGradeSciPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeSci)];
+    const subjGradeSocStudiesPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeSocStudies)];
+    const SE_TEST_PERCENTILE_CONSTANT = 3.03;
+    const seTestPoints = Math.round(student.seTestPercentile * SE_TEST_PERCENTILE_CONSTANT);
+    const sePoints = nweaMathPoints +
         nweaReadPoints +
         subjGradeMathPoints +
         subjGradeReadPoints +
@@ -33918,22 +33867,22 @@ exports.calculateSEPoints = function (student) {
         seTestPoints;
     return sePoints;
 };
-exports.calculateIBPoints = function (student) {
-    var NWEA_SCORE_CONSTANT = 2.2727;
-    var nweaMathPoints = Math.round(student.nweaPercentileMath * NWEA_SCORE_CONSTANT);
-    var nweaReadPoints = Math.round(student.nweaPercentileRead * NWEA_SCORE_CONSTANT);
-    var gradePointsLookup = {
+exports.calculateIBPoints = (student) => {
+    const NWEA_SCORE_CONSTANT = 2.2727;
+    const nweaMathPoints = Math.round(student.nweaPercentileMath * NWEA_SCORE_CONSTANT);
+    const nweaReadPoints = Math.round(student.nweaPercentileRead * NWEA_SCORE_CONSTANT);
+    const gradePointsLookup = {
         "A": 112.5,
         "B": 75,
         "C": 38,
         "D": 0,
         "F": 0,
     };
-    var subjGradeMathPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeMath)];
-    var subjGradeReadPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeRead)];
-    var subjGradeSciPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeSci)];
-    var subjGradeSocStudiesPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeSocStudies)];
-    var ibPoints = nweaMathPoints +
+    const subjGradeMathPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeMath)];
+    const subjGradeReadPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeRead)];
+    const subjGradeSciPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeSci)];
+    const subjGradeSocStudiesPoints = gradePointsLookup[grade_convert_1.toLetterGrade(student.subjGradeSocStudies)];
+    const ibPoints = nweaMathPoints +
         nweaReadPoints +
         subjGradeMathPoints +
         subjGradeReadPoints +
@@ -33950,8 +33899,8 @@ exports.calculateIBPoints = function (student) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var selectProgram = function (id, allPrograms, index) {
-    var i = index.get(id);
+const selectProgram = (id, allPrograms, index) => {
+    const i = index.get(id);
     return allPrograms.get(i);
 };
 exports.default = selectProgram;
@@ -33964,12 +33913,12 @@ exports.default = selectProgram;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var gender_1 = __webpack_require__(66);
-var immutable_1 = __webpack_require__(107);
-var reducer_utils_1 = __webpack_require__(240);
-var data_access_1 = __webpack_require__(242);
-var allPrograms = data_access_1.getAllPrograms();
-var initialState = immutable_1.fromJS({
+const gender_1 = __webpack_require__(109);
+const immutable_1 = __webpack_require__(106);
+const reducer_utils_1 = __webpack_require__(240);
+const data_access_1 = __webpack_require__(241);
+const allPrograms = data_access_1.getAllPrograms();
+let initialState = immutable_1.fromJS({
     studentData: {
         gender: gender_1.default.NOANSWER,
         location: {
@@ -34013,19 +33962,18 @@ exports.default = initialState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var success_chance_1 = __webpack_require__(23);
-var is_hs_program_1 = __webpack_require__(110);
-var is_es_program_1 = __webpack_require__(111);
-var denormalize_1 = __webpack_require__(241);
-exports.createIndexByID = function (programs) {
-    var idx = {};
-    for (var i = 0; i < programs.length; i++) {
-        var program = programs[i];
+const success_chance_1 = __webpack_require__(23);
+const is_hs_program_1 = __webpack_require__(110);
+const is_es_program_1 = __webpack_require__(111);
+exports.createIndexByID = (programs) => {
+    let idx = {};
+    for (let i = 0; i < programs.length; i++) {
+        const program = programs[i];
         idx[program.ID] = i;
     }
     return idx;
 };
-var alphaSortPrograms = function (a, b) {
+const alphaSortPrograms = (a, b) => {
     if (a.Short_Name < b.Short_Name) {
         return -1;
     }
@@ -34036,20 +33984,20 @@ var alphaSortPrograms = function (a, b) {
         return 1;
     }
 };
-exports.getHSProgramIDs = function (programs) {
-    return programs.filter(is_hs_program_1.default).sort(alphaSortPrograms).map(function (program) { return program.ID; });
+exports.getHSProgramIDs = (programs) => {
+    return programs.filter(is_hs_program_1.default).sort(alphaSortPrograms).map(program => program.ID);
 };
-exports.getESProgramIDs = function (programs) {
-    return programs.filter(is_es_program_1.default).sort(alphaSortPrograms).map(function (program) { return program.ID; });
+exports.getESProgramIDs = (programs) => {
+    return programs.filter(is_es_program_1.default).sort(alphaSortPrograms).map(program => program.ID);
 };
-exports.getHSProgramIDsByType = function (programs) {
-    var index = exports.createIndexByID(programs);
-    var hsProgramIDs = exports.getHSProgramIDs(programs);
-    var hsProgramIDsByType = {};
-    for (var i = 0; i < hsProgramIDs.length; i++) {
-        var id = hsProgramIDs[i];
-        var program = denormalize_1.default(id, programs, index);
-        var type = program.Program_Type;
+exports.getHSProgramIDsByType = (programs) => {
+    const index = exports.createIndexByID(programs);
+    const hsProgramIDs = exports.getHSProgramIDs(programs);
+    let hsProgramIDsByType = {};
+    for (let i = 0; i < hsProgramIDs.length; i++) {
+        const id = hsProgramIDs[i];
+        const program = programs[index[id]];
+        const type = program.Program_Type;
         if (!hsProgramIDsByType[type]) {
             hsProgramIDsByType[type] = [];
         }
@@ -34057,11 +34005,11 @@ exports.getHSProgramIDsByType = function (programs) {
     }
     return hsProgramIDsByType;
 };
-exports.initializeOutcomes = function (programs) {
-    var outcomes = {};
-    for (var i = 0; i < programs.length; i++) {
-        var program = programs[i];
-        var id = program.ID;
+exports.initializeOutcomes = (programs) => {
+    let outcomes = {};
+    for (let i = 0; i < programs.length; i++) {
+        const program = programs[i];
+        const id = program.ID;
         outcomes[id] = {
             application: success_chance_1.default.NOTIMPLEMENTED,
             selection: success_chance_1.default.NOTIMPLEMENTED
@@ -34069,12 +34017,12 @@ exports.initializeOutcomes = function (programs) {
     }
     return outcomes;
 };
-exports.calculateOutcomes = function (programs, studentData, reqFnLookup) {
-    var outcomes = {};
-    for (var i = 0; i < programs.length; i++) {
-        var program = programs[i];
-        var id = program.ID;
-        var reqFns = reqFnLookup(program);
+exports.calculateOutcomes = (programs, studentData, reqFnLookup) => {
+    let outcomes = {};
+    for (let i = 0; i < programs.length; i++) {
+        const program = programs[i];
+        const id = program.ID;
+        const reqFns = reqFnLookup(program);
         try {
             outcomes[id] = {
                 application: reqFns.application(studentData, program).outcome,
@@ -34098,51 +34046,33 @@ exports.calculateOutcomes = function (programs, studentData, reqFnLookup) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var denormalize = function (id, records, index) {
-    try {
-        return records[index[id]];
-    }
-    catch (e) {
-        return null;
-    }
-};
-exports.default = denormalize;
-
-
-/***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var is_es_program_1 = __webpack_require__(111);
-var is_hs_program_1 = __webpack_require__(110);
-var cpsPrograms = __webpack_require__(243);
-exports.getAllPrograms = function () {
+const is_es_program_1 = __webpack_require__(111);
+const is_hs_program_1 = __webpack_require__(110);
+const cpsPrograms = __webpack_require__(242);
+exports.getAllPrograms = () => {
     return cpsPrograms;
 };
-exports.getAllProgramsByProgramType = function () {
-    var programs = groupByProgramType(cpsPrograms);
+exports.getAllProgramsByProgramType = () => {
+    const programs = groupByProgramType(cpsPrograms);
     return programs;
 };
-exports.getHSPrograms = function () {
-    var programs = cpsPrograms.filter(is_hs_program_1.default);
+exports.getHSPrograms = () => {
+    const programs = cpsPrograms.filter(is_hs_program_1.default);
     return programs;
 };
-exports.getHSProgramsByType = function () {
-    var programs = groupByProgramType(cpsPrograms.filter(is_hs_program_1.default));
+exports.getHSProgramsByType = () => {
+    const programs = groupByProgramType(cpsPrograms.filter(is_hs_program_1.default));
     return programs;
 };
-exports.getESPrograms = function () {
-    var programs = cpsPrograms.filter(is_es_program_1.default);
+exports.getESPrograms = () => {
+    const programs = cpsPrograms.filter(is_es_program_1.default);
     return programs;
 };
-var groupByProgramType = function (allPrograms) {
-    var programs = {};
-    for (var i = 0; i < allPrograms.length; i++) {
-        var program = allPrograms[i];
-        var programType = program.Program_Type;
+const groupByProgramType = (allPrograms) => {
+    let programs = {};
+    for (let i = 0; i < allPrograms.length; i++) {
+        const program = allPrograms[i];
+        const programType = program.Program_Type;
         if (!programs[programType]) {
             programs[programType] = [];
         }
@@ -34153,7 +34083,7 @@ var groupByProgramType = function (allPrograms) {
 
 
 /***/ }),
-/* 243 */
+/* 242 */
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -55004,7 +54934,7 @@ module.exports = [
 ];
 
 /***/ }),
-/* 244 */
+/* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55014,7 +54944,7 @@ module.exports = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(65);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -55090,7 +55020,7 @@ function createProvider() {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 245 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55105,9 +55035,9 @@ function createProvider() {
 
 
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(9);
 var invariant = __webpack_require__(2);
-var ReactPropTypesSecret = __webpack_require__(48);
+var ReactPropTypesSecret = __webpack_require__(47);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -55156,7 +55086,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 246 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55228,7 +55158,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 /***/ }),
-/* 247 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55287,7 +55217,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 248 */
+/* 247 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55386,17 +55316,17 @@ var Subscription = function () {
 
 
 /***/ }),
-/* 249 */
+/* 248 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createConnect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(251);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(252);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(253);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -55502,7 +55432,7 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
-/* 250 */
+/* 249 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55539,14 +55469,14 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 251 */
+/* 250 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export whenMapDispatchToPropsIsFunction */
 /* unused harmony export whenMapDispatchToPropsIsMissing */
 /* unused harmony export whenMapDispatchToPropsIsObject */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(115);
 
 
@@ -55570,7 +55500,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
 
 /***/ }),
-/* 252 */
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55592,7 +55522,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
 
 /***/ }),
-/* 253 */
+/* 252 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55649,14 +55579,14 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 254 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(254);
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 
@@ -55762,12 +55692,12 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 255 */
+/* 254 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifySubselectors;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warning__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warning__ = __webpack_require__(65);
 
 
 function verify(selector, methodName, displayName) {
@@ -55787,19 +55717,19 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 256 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var page_1 = __webpack_require__(257);
-var box_1 = __webpack_require__(261);
-var student_data_form_1 = __webpack_require__(264);
-var hs_program_success_chance_key_1 = __webpack_require__(302);
-var hs_programs_container_1 = __webpack_require__(305);
-var PathToHS = function (props) {
+const React = __webpack_require__(1);
+const page_1 = __webpack_require__(256);
+const box_1 = __webpack_require__(260);
+const student_data_form_1 = __webpack_require__(263);
+const hs_program_success_chance_key_1 = __webpack_require__(300);
+const hs_programs_container_1 = __webpack_require__(303);
+const PathToHS = (props) => {
     return (React.createElement(page_1.default, null,
         React.createElement(box_1.default, { width: "half", height: "full", flex: {
                 flexDirection: "column",
@@ -55815,28 +55745,28 @@ exports.default = PathToHS;
 
 
 /***/ }),
-/* 257 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-__webpack_require__(258);
-var Page = function (props) {
+const React = __webpack_require__(1);
+__webpack_require__(257);
+const Page = (props) => {
     return (React.createElement("div", { className: "page" }, props.children));
 };
 exports.default = Page;
 
 
 /***/ }),
-/* 258 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(259);
+var content = __webpack_require__(258);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -55861,7 +55791,7 @@ if(false) {
 }
 
 /***/ }),
-/* 259 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -55875,7 +55805,7 @@ exports.push([module.i, ".page {\n  height: 100vh;\n  width: 100vw;\n  display: 
 
 
 /***/ }),
-/* 260 */
+/* 259 */
 /***/ (function(module, exports) {
 
 
@@ -55970,39 +55900,39 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 261 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-__webpack_require__(262);
-var Box = function (props) {
-    var widthClass = "width-" + props.width;
-    var heightClass = "height-" + props.height;
-    var zLevelClass = "";
+const React = __webpack_require__(1);
+__webpack_require__(261);
+const Box = (props) => {
+    const widthClass = "width-" + props.width;
+    const heightClass = "height-" + props.height;
+    let zLevelClass = "";
     if (props.zLevel) {
         zLevelClass = "zlevel-" + props.zLevel;
     }
-    var responsiveMobileClass = "";
+    let responsiveMobileClass = "";
     if (props.responsiveBehavior && props.responsiveBehavior.mobile) {
         responsiveMobileClass = "mobile-" + props.responsiveBehavior.mobile;
     }
-    var className = "box " + widthClass + " " + heightClass + " " + zLevelClass + " " + responsiveMobileClass;
+    const className = `box ${widthClass} ${heightClass} ${zLevelClass} ${responsiveMobileClass}`;
     return (React.createElement("div", { className: className, style: props.flex }, props.children));
 };
 exports.default = Box;
 
 
 /***/ }),
-/* 262 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(263);
+var content = __webpack_require__(262);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -56027,7 +55957,7 @@ if(false) {
 }
 
 /***/ }),
-/* 263 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -56041,33 +55971,31 @@ exports.push([module.i, ".box {\n  border: 2px solid #9e9e9e;\n  padding: 0.25em
 
 
 /***/ }),
-/* 264 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var form_1 = __webpack_require__(265);
-var sub_form_1 = __webpack_require__(268);
-var gender_field_1 = __webpack_require__(271);
-var iep_field_1 = __webpack_require__(275);
-var ell_field_1 = __webpack_require__(276);
-var location_field_1 = __webpack_require__(277);
-var grade_level_field_1 = __webpack_require__(289);
-var attend_percentage_field_1 = __webpack_require__(290);
-var curr_es_program_field_1 = __webpack_require__(291);
-var sibling_hs_program_field_1 = __webpack_require__(294);
-var nwea_math_field_1 = __webpack_require__(296);
-var nwea_read_field_1 = __webpack_require__(297);
-var subj_grade_math_field_1 = __webpack_require__(298);
-var subj_grade_read_field_1 = __webpack_require__(299);
-var subj_grade_sci_field_1 = __webpack_require__(300);
-var subj_grade_soc_studies_field_1 = __webpack_require__(301);
-var StudentDataForm = function (props) {
+const React = __webpack_require__(1);
+const form_1 = __webpack_require__(264);
+const sub_form_1 = __webpack_require__(267);
+const iep_field_1 = __webpack_require__(270);
+const ell_field_1 = __webpack_require__(274);
+const location_field_1 = __webpack_require__(275);
+const grade_level_field_1 = __webpack_require__(287);
+const attend_percentage_field_1 = __webpack_require__(288);
+const curr_es_program_field_1 = __webpack_require__(289);
+const sibling_hs_program_field_1 = __webpack_require__(292);
+const nwea_math_field_1 = __webpack_require__(294);
+const nwea_read_field_1 = __webpack_require__(295);
+const subj_grade_math_field_1 = __webpack_require__(296);
+const subj_grade_read_field_1 = __webpack_require__(297);
+const subj_grade_sci_field_1 = __webpack_require__(298);
+const subj_grade_soc_studies_field_1 = __webpack_require__(299);
+const StudentDataForm = (props) => {
     return (React.createElement(form_1.default, null,
         React.createElement(sub_form_1.default, { label: "Your student information" },
-            React.createElement(gender_field_1.default, null),
             React.createElement(iep_field_1.default, null),
             React.createElement(ell_field_1.default, null),
             React.createElement(grade_level_field_1.default, null),
@@ -56087,26 +56015,26 @@ exports.default = StudentDataForm;
 
 
 /***/ }),
-/* 265 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-__webpack_require__(266);
-var Form = function (props) { return (React.createElement("div", { className: "form" }, props.children)); };
+const React = __webpack_require__(1);
+__webpack_require__(265);
+const Form = (props) => (React.createElement("div", { className: "form" }, props.children));
 exports.default = Form;
 
 
 /***/ }),
-/* 266 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(267);
+var content = __webpack_require__(266);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -56131,7 +56059,7 @@ if(false) {
 }
 
 /***/ }),
-/* 267 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -56145,28 +56073,28 @@ exports.push([module.i, ".form {\n  width: 100%;\n  overflow-y: auto; }\n", ""])
 
 
 /***/ }),
-/* 268 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-__webpack_require__(269);
-var SubForm = function (props) { return (React.createElement("div", { className: "form-subform" },
+const React = __webpack_require__(1);
+__webpack_require__(268);
+const SubForm = (props) => (React.createElement("div", { className: "form-subform" },
     React.createElement("div", { className: "form-subheader" }, props.label),
-    props.children)); };
+    props.children));
 exports.default = SubForm;
 
 
 /***/ }),
-/* 269 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(270);
+var content = __webpack_require__(269);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -56191,7 +56119,7 @@ if(false) {
 }
 
 /***/ }),
-/* 270 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -56205,62 +56133,41 @@ exports.push([module.i, ".form-subform {\n  display: -webkit-box;\n  display: -m
 
 
 /***/ }),
-/* 271 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_redux_1 = __webpack_require__(12);
-var actions_1 = __webpack_require__(17);
-var gender_1 = __webpack_require__(66);
-var dropdown_field_1 = __webpack_require__(45);
-var constants_1 = __webpack_require__(9);
-var Field = function (props) { return (React.createElement(dropdown_field_1.default, { label: "What's your gender?", value: props.gender && props.gender.toString(), onChange: function (gender) {
-        switch (gender) {
-            case "male":
-                props.onChange(gender_1.default.MALE);
-                break;
-            case "female":
-                props.onChange(gender_1.default.FEMALE);
-                break;
-            case "other":
-                props.onChange(gender_1.default.OTHER);
-                break;
-            case "noanswer":
-                props.onChange(gender_1.default.NOANSWER);
-                break;
-            default:
-                console.warn("unrecognized gender: " + gender);
-                break;
-        }
-    }, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
-    React.createElement("option", { value: "male" }, "Boy"),
-    React.createElement("option", { value: "female" }, "Girl"),
-    React.createElement("option", { value: "other" }, "Other"),
-    React.createElement("option", { value: "noanswer" }, "Prefer not to answer"))); };
-var mapStateToProps = function (state) {
+const React = __webpack_require__(1);
+const react_redux_1 = __webpack_require__(14);
+const actions_1 = __webpack_require__(18);
+const dropdown_field_1 = __webpack_require__(66);
+const constants_1 = __webpack_require__(11);
+const Field = (props) => (React.createElement(dropdown_field_1.default, { label: "Do you have an IEP?", value: props.iep ? "true" : "false", onChange: iep => props.onChange(iep === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
+    React.createElement("option", { value: "true" }, "Yes"),
+    React.createElement("option", { value: "false" }, "No")));
+const mapStateToProps = (state) => {
     return {
-        gender: state.getIn(['studentData', 'gender'])
+        iep: state.getIn(['studentData', 'iep'])
     };
 };
-var mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
-        onChange: function (gender) { return dispatch(actions_1.updateStudentGender(gender)); }
+        onChange: iep => dispatch(actions_1.updateStudentIEPStatus(iep))
     };
 };
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
 
 
 /***/ }),
-/* 272 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(273);
+var content = __webpack_require__(272);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -56285,7 +56192,7 @@ if(false) {
 }
 
 /***/ }),
-/* 273 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -56299,15 +56206,43 @@ exports.push([module.i, "/* ----------------------------------------------------
 
 
 /***/ }),
+/* 273 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const FieldLabel = (props) => React.createElement("div", { className: "field-label" }, props.children);
+exports.default = FieldLabel;
+
+
+/***/ }),
 /* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var FieldLabel = function (props) { return React.createElement("div", { className: "field-label" }, props.children); };
-exports.default = FieldLabel;
+const React = __webpack_require__(1);
+const react_redux_1 = __webpack_require__(14);
+const actions_1 = __webpack_require__(18);
+const dropdown_field_1 = __webpack_require__(66);
+const constants_1 = __webpack_require__(11);
+const Field = (props) => (React.createElement(dropdown_field_1.default, { label: "Are you an English Language Learner?", value: props.ell ? "true" : "false", onChange: ell => props.onChange(ell === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
+    React.createElement("option", { value: "true" }, "Yes"),
+    React.createElement("option", { value: "false" }, "No")));
+const mapStateToProps = (state) => {
+    return {
+        ell: state.getIn(['studentData', 'ell'])
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChange: ell => dispatch(actions_1.updateStudentELLStatus(ell))
+    };
+};
+exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
 
 
 /***/ }),
@@ -56317,22 +56252,19 @@ exports.default = FieldLabel;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_redux_1 = __webpack_require__(12);
-var actions_1 = __webpack_require__(17);
-var dropdown_field_1 = __webpack_require__(45);
-var constants_1 = __webpack_require__(9);
-var Field = function (props) { return (React.createElement(dropdown_field_1.default, { label: "Do you have an IEP?", value: props.iep ? "true" : "false", onChange: function (iep) { return props.onChange(iep === "true" ? true : false); }, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
-    React.createElement("option", { value: "true" }, "Yes"),
-    React.createElement("option", { value: "false" }, "No"))); };
-var mapStateToProps = function (state) {
+const React = __webpack_require__(1);
+const react_redux_1 = __webpack_require__(14);
+const actions_1 = __webpack_require__(18);
+const address_tier_calculator_1 = __webpack_require__(276);
+const Field = (props) => (React.createElement(address_tier_calculator_1.default, { location: props.location, onLocationChange: props.onChange }));
+const mapStateToProps = (state) => {
     return {
-        iep: state.getIn(['studentData', 'iep'])
+        location: state.getIn(['studentData', 'location'])
     };
 };
-var mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
-        onChange: function (iep) { return dispatch(actions_1.updateStudentIEPStatus(iep)); }
+        onChange: location => dispatch(actions_1.updateStudentLocation(location))
     };
 };
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
@@ -56345,25 +56277,100 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fie
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_redux_1 = __webpack_require__(12);
-var actions_1 = __webpack_require__(17);
-var dropdown_field_1 = __webpack_require__(45);
-var constants_1 = __webpack_require__(9);
-var Field = function (props) { return (React.createElement(dropdown_field_1.default, { label: "Are you an English Language Learner?", value: props.ell ? "true" : "false", onChange: function (ell) { return props.onChange(ell === "true" ? true : false); }, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
-    React.createElement("option", { value: "true" }, "Yes"),
-    React.createElement("option", { value: "false" }, "No"))); };
-var mapStateToProps = function (state) {
-    return {
-        ell: state.getIn(['studentData', 'ell'])
-    };
-};
-var mapDispatchToProps = function (dispatch) {
-    return {
-        onChange: function (ell) { return dispatch(actions_1.updateStudentELLStatus(ell)); }
-    };
-};
-exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
+const React = __webpack_require__(1);
+const timeout_1 = __webpack_require__(277);
+const text_field_1 = __webpack_require__(278);
+const field_validation_state_1 = __webpack_require__(30);
+const get_tier_and_geo_1 = __webpack_require__(279);
+__webpack_require__(285);
+class AddressTierCalculator extends React.Component {
+    constructor(props) {
+        super(props);
+        this.setRequestInProgress = (isInProgress) => {
+            if (isInProgress !== this.state.requestInProgress) {
+                this.setState({
+                    requestInProgress: isInProgress
+                });
+            }
+        };
+        this.handleAddressChange = (address) => {
+            const TIMEOUT_DELAY = 1000;
+            this.setState({
+                address: address,
+                addressValidationState: field_validation_state_1.default.NEUTRAL,
+                tier: null
+            });
+            const validate = (address) => {
+                return address && address.length > 5;
+            };
+            const newTimeout = new timeout_1.default(() => {
+                this.setRequestInProgress(true);
+                if (validate(address)) {
+                    get_tier_and_geo_1.getTierAndGeo(address).then(({ tier, geo }) => {
+                        this.setState({
+                            tier: tier,
+                            geo: geo,
+                            addressValidationState: field_validation_state_1.default.SUCCESS
+                        });
+                        this.setRequestInProgress(false);
+                        this.props.onLocationChange({
+                            address: address.trim(),
+                            tier: tier,
+                            geo: geo
+                        });
+                    }).catch(err => {
+                        if (err === get_tier_and_geo_1.GetTierError.InvalidAddressErr) {
+                            this.setState({
+                                addressValidationState: field_validation_state_1.default.FAILURE
+                            });
+                            this.setRequestInProgress(false);
+                        }
+                        else if (err === get_tier_and_geo_1.GetTierError.NoTierFoundErr) {
+                            this.setState({
+                                addressValidationState: field_validation_state_1.default.WARNING
+                            });
+                            this.setRequestInProgress(false);
+                        }
+                        else if (err === get_tier_and_geo_1.GetTierError.RequestFailedErr) {
+                            this.setState({
+                                addressValidationState: field_validation_state_1.default.WARNING
+                            });
+                            this.setRequestInProgress(false);
+                        }
+                    });
+                }
+            }, TIMEOUT_DELAY);
+            if (this.state.timeoutInstance !== null) {
+                this.state.timeoutInstance.cancel();
+            }
+            newTimeout.start();
+            this.setState({
+                timeoutInstance: newTimeout
+            });
+        };
+        this.state = {
+            address: props.address ? props.address : "",
+            tier: props.tier ? props.tier : "",
+            geo: props.geolocation ? props.geolocation : { latitude: 0, longitude: 0 },
+            timeoutInstance: null,
+            requestInProgress: false,
+            addressValidationState: field_validation_state_1.default.NEUTRAL
+        };
+    }
+    now() {
+        return new Date().valueOf();
+    }
+    render() {
+        return React.createElement("div", { className: "address-tier-calculator" },
+            React.createElement(text_field_1.default, { label: "Your street address", value: this.state.address ? this.state.address : "", validator: () => this.state.addressValidationState, onChange: this.handleAddressChange }),
+            React.createElement("div", { className: "tier-display-container" },
+                React.createElement("div", { className: "tier-display-label" }, "Your CPS Tier"),
+                React.createElement("div", { className: "tier-display" }, this.state.requestInProgress
+                    ? React.createElement("div", { className: "spinning-load-icon" })
+                    : (this.state.tier ? this.state.tier : ""))));
+    }
+}
+exports.default = AddressTierCalculator;
 
 
 /***/ }),
@@ -56373,22 +56380,39 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fie
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_redux_1 = __webpack_require__(12);
-var actions_1 = __webpack_require__(17);
-var address_tier_calculator_1 = __webpack_require__(278);
-var Field = function (props) { return (React.createElement(address_tier_calculator_1.default, { location: props.location, onLocationChange: props.onChange })); };
-var mapStateToProps = function (state) {
-    return {
-        location: state.getIn(['studentData', 'location'])
-    };
-};
-var mapDispatchToProps = function (dispatch) {
-    return {
-        onChange: function (location) { return dispatch(actions_1.updateStudentLocation(location)); }
-    };
-};
-exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
+class Timeout {
+    constructor(callback, delay) {
+        this.timerInstance = undefined;
+        this.callbackExecuted = false;
+        this.started = false;
+        this.cancelled = false;
+        this.callback = () => {
+            this.callbackExecuted = true;
+            callback();
+        };
+        this.delay = delay;
+    }
+    start() {
+        if (!this.started && !this.cancelled) {
+            this.started = true;
+            this.timerInstance = setTimeout(this.callback, this.delay);
+        }
+    }
+    cancel() {
+        this.cancelled = true;
+        if (this.timerInstance !== undefined) {
+            clearTimeout(this.timerInstance);
+            this.timerInstance = undefined;
+        }
+    }
+    hasStarted() {
+        return this.started;
+    }
+    hasFinished() {
+        return this.callbackExecuted;
+    }
+}
+exports.default = Timeout;
 
 
 /***/ }),
@@ -56397,116 +56421,51 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fie
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var timeout_1 = __webpack_require__(279);
-var text_field_1 = __webpack_require__(280);
-var field_validation_state_1 = __webpack_require__(30);
-var get_tier_and_geo_1 = __webpack_require__(281);
-__webpack_require__(287);
-var AddressTierCalculator = (function (_super) {
-    __extends(AddressTierCalculator, _super);
-    function AddressTierCalculator(props) {
-        var _this = _super.call(this, props) || this;
-        _this.setRequestInProgress = function (isInProgress) {
-            if (isInProgress !== _this.state.requestInProgress) {
-                _this.setState({
-                    requestInProgress: isInProgress
-                });
-            }
+const React = __webpack_require__(1);
+const field_validation_state_1 = __webpack_require__(30);
+const field_container_1 = __webpack_require__(36);
+const debounce_1 = __webpack_require__(45);
+class TextField extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            localValue: props.value ? props.value : ""
         };
-        _this.handleAddressChange = function (address) {
-            var TIMEOUT_DELAY = 1000;
-            _this.setState({
-                address: address,
-                addressValidationState: field_validation_state_1.default.NEUTRAL,
-                tier: null
-            });
-            var validate = function (address) {
-                return address && address.length > 5;
-            };
-            var newTimeout = new timeout_1.default(function () {
-                _this.setRequestInProgress(true);
-                if (validate(address)) {
-                    get_tier_and_geo_1.getTierAndGeo(address).then(function (_a) {
-                        var tier = _a.tier, geo = _a.geo;
-                        _this.setState({
-                            tier: tier,
-                            geo: geo,
-                            addressValidationState: field_validation_state_1.default.SUCCESS
-                        });
-                        _this.setRequestInProgress(false);
-                        _this.props.onLocationChange({
-                            address: address.trim(),
-                            tier: tier,
-                            geo: geo
-                        });
-                    }).catch(function (err) {
-                        if (err === get_tier_and_geo_1.GetTierError.InvalidAddressErr) {
-                            _this.setState({
-                                addressValidationState: field_validation_state_1.default.FAILURE
-                            });
-                            _this.setRequestInProgress(false);
-                        }
-                        else if (err === get_tier_and_geo_1.GetTierError.NoTierFoundErr) {
-                            _this.setState({
-                                addressValidationState: field_validation_state_1.default.WARNING
-                            });
-                            _this.setRequestInProgress(false);
-                        }
-                        else if (err === get_tier_and_geo_1.GetTierError.RequestFailedErr) {
-                            _this.setState({
-                                addressValidationState: field_validation_state_1.default.WARNING
-                            });
-                            _this.setRequestInProgress(false);
-                        }
-                    });
-                }
-            }, TIMEOUT_DELAY);
-            if (_this.state.timeoutInstance !== null) {
-                _this.state.timeoutInstance.cancel();
-            }
-            newTimeout.start();
-            _this.setState({
-                timeoutInstance: newTimeout
-            });
-        };
-        _this.state = {
-            address: props.address ? props.address : "",
-            tier: props.tier ? props.tier : "",
-            geo: props.geolocation ? props.geolocation : { latitude: 0, longitude: 0 },
-            timeoutInstance: null,
-            requestInProgress: false,
-            addressValidationState: field_validation_state_1.default.NEUTRAL
-        };
-        return _this;
+        this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
     }
-    AddressTierCalculator.prototype.now = function () {
-        return new Date().valueOf();
-    };
-    AddressTierCalculator.prototype.render = function () {
-        var _this = this;
-        return React.createElement("div", { className: "address-tier-calculator" },
-            React.createElement(text_field_1.default, { label: "Your street address", value: this.state.address ? this.state.address : "", validator: function () { return _this.state.addressValidationState; }, onChange: this.handleAddressChange }),
-            React.createElement("div", { className: "tier-display-container" },
-                React.createElement("div", { className: "tier-display-label" }, "Your CPS Tier"),
-                React.createElement("div", { className: "tier-display" }, this.state.requestInProgress
-                    ? React.createElement("div", { className: "spinning-load-icon" })
-                    : (this.state.tier ? this.state.tier : ""))));
-    };
-    return AddressTierCalculator;
-}(React.Component));
-exports.default = AddressTierCalculator;
+    componentWillReceiveProps(nextProps) {
+        if (this.state.localValue !== "") {
+            this.setState({ localValue: nextProps.value ? nextProps.value : "" });
+        }
+        this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
+    }
+    render() {
+        const validation = this.props.validator ? this.props.validator(this.state.localValue)
+            : field_validation_state_1.default.NEUTRAL;
+        const handleChange = (ev) => {
+            if (ev.currentTarget.value === "") {
+                this.setState({ localValue: "" });
+                return false;
+            }
+            else {
+                const currValue = this.props.value;
+                const nextValue = ev.currentTarget.value;
+                this.setState({ localValue: nextValue });
+                if (this.props.limiter) {
+                    this.onChange(this.props.limiter(currValue, nextValue));
+                }
+                else {
+                    this.onChange(nextValue);
+                }
+                return true;
+            }
+        };
+        return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
+            React.createElement("input", { value: this.state.localValue, type: "text", className: "field-input-element", onChange: handleChange })));
+    }
+}
+exports.default = TextField;
 
 
 /***/ }),
@@ -56516,126 +56475,21 @@ exports.default = AddressTierCalculator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Timeout = (function () {
-    function Timeout(callback, delay) {
-        var _this = this;
-        this.timerInstance = null;
-        this.callbackExecuted = false;
-        this.callback = function () {
-            _this.callbackExecuted = true;
-            callback();
-        };
-        this.delay = delay;
-    }
-    Timeout.prototype.start = function () {
-        this.timerInstance = setTimeout(this.callback, this.delay);
-    };
-    Timeout.prototype.cancel = function () {
-        if (this.hasStarted()) {
-            clearTimeout(this.timerInstance);
-        }
-    };
-    Timeout.prototype.hasStarted = function () {
-        return this.timerInstance !== null;
-    };
-    Timeout.prototype.hasFinished = function () {
-        return this.callbackExecuted;
-    };
-    return Timeout;
-}());
-exports.default = Timeout;
-
-
-/***/ }),
-/* 280 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var field_validation_state_1 = __webpack_require__(30);
-var field_container_1 = __webpack_require__(36);
-var debounce_1 = __webpack_require__(46);
-var TextField = (function (_super) {
-    __extends(TextField, _super);
-    function TextField(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            localValue: props.value ? props.value : ""
-        };
-        _this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
-        return _this;
-    }
-    TextField.prototype.componentWillReceiveProps = function (nextProps) {
-        if (this.state.localValue !== "") {
-            this.setState({ localValue: nextProps.value ? nextProps.value : "" });
-        }
-        this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
-    };
-    TextField.prototype.render = function () {
-        var _this = this;
-        var validation = this.props.validator ? this.props.validator(this.state.localValue)
-            : field_validation_state_1.default.NEUTRAL;
-        var handleChange = function (ev) {
-            if (ev.currentTarget.value === "") {
-                _this.setState({ localValue: "" });
-                return false;
-            }
-            else {
-                var currValue = _this.props.value;
-                var nextValue = ev.currentTarget.value;
-                _this.setState({ localValue: nextValue });
-                if (_this.props.limiter) {
-                    _this.onChange(_this.props.limiter(currValue, nextValue));
-                }
-                else {
-                    _this.onChange(nextValue);
-                }
-                return true;
-            }
-        };
-        return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
-            React.createElement("input", { value: this.state.localValue, type: "text", className: "field-input-element", onChange: handleChange })));
-    };
-    return TextField;
-}(React.PureComponent));
-exports.default = TextField;
-
-
-/***/ }),
-/* 281 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tract_tier_table_1 = __webpack_require__(282);
-var JSONP = __webpack_require__(283);
+const tract_tier_table_1 = __webpack_require__(280);
+const JSONP = __webpack_require__(281);
 exports.GetTierError = {
     InvalidAddressErr: new Error("Invalid address"),
     NoTierFoundErr: new Error("No CPS tier found for this address"),
     RequestFailedErr: new Error("Request Failed"),
 };
 ;
-exports.getTierAndGeo = function (address) {
-    return new Promise(function (resolve, reject) {
-        getTractAndGeo(address).then(function (_a) {
-            var tract = _a.tract, geo = _a.geo;
-            lookupTierFromTract(tract).then(function (tier) {
-                resolve({ tier: tier, geo: geo });
-            }).catch(function (err) { return reject(exports.GetTierError.NoTierFoundErr); });
-        }).catch(function (err) {
+exports.getTierAndGeo = (address) => {
+    return new Promise((resolve, reject) => {
+        getTractAndGeo(address).then(({ tract, geo }) => {
+            lookupTierFromTract(tract).then(tier => {
+                resolve({ tier, geo });
+            }).catch(err => reject(exports.GetTierError.NoTierFoundErr));
+        }).catch(err => {
             if (err === exports.GetTierError.RequestFailedErr) {
                 reject(exports.GetTierError.RequestFailedErr);
             }
@@ -56646,45 +56500,45 @@ exports.getTierAndGeo = function (address) {
     });
 };
 ;
-var getTractAndGeo = function (address) {
-    var API_BASE_URL = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress";
-    var apiParams = {
+const getTractAndGeo = (address) => {
+    const API_BASE_URL = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress";
+    const apiParams = {
         address: address,
         format: "jsonp",
         benchmark: "Public_AR_Current",
         vintage: "Current_Current",
         layers: "Census Tracts",
     };
-    var sendRequest = function (baseUrl, params) {
-        return new Promise(function (resolve, reject) {
+    const sendRequest = (baseUrl, params) => {
+        return new Promise((resolve, reject) => {
             JSONP({
                 url: baseUrl,
                 data: params,
-                success: function (data) { return resolve(data); },
-                error: function (err) {
+                success: (data) => resolve(data),
+                error: (err) => {
                     reject(exports.GetTierError.RequestFailedErr);
                 }
             });
         });
     };
-    var extractTract = function (response) {
+    const extractTract = (response) => {
         return response.result.addressMatches[0].geographies["Census Tracts"][0].BASENAME;
     };
-    var extractGeo = function (response) {
-        var coords = response.result.addressMatches[0].coordinates;
+    const extractGeo = (response) => {
+        const coords = response.result.addressMatches[0].coordinates;
         return { latitude: coords.y, longitude: coords.x };
     };
-    return new Promise(function (resolve, reject) {
-        sendRequest(API_BASE_URL, apiParams).then(function (res) {
-            var tract = extractTract(res);
-            var geo = extractGeo(res);
-            resolve({ tract: tract, geo: geo });
-        }).catch(function (e) { return reject(e); });
+    return new Promise((resolve, reject) => {
+        sendRequest(API_BASE_URL, apiParams).then(res => {
+            const tract = extractTract(res);
+            const geo = extractGeo(res);
+            resolve({ tract, geo });
+        }).catch(e => reject(e));
     });
 };
-var lookupTierFromTract = function (tract) {
-    return new Promise(function (resolve, reject) {
-        var tier = tract_tier_table_1.default[tract];
+const lookupTierFromTract = (tract) => {
+    return new Promise((resolve, reject) => {
+        const tier = tract_tier_table_1.default[tract];
         if (tier === undefined) {
             reject(exports.GetTierError.NoTierFoundErr);
         }
@@ -56696,18 +56550,18 @@ var lookupTierFromTract = function (tract) {
 
 
 /***/ }),
-/* 282 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var TractTierTable = { "101": "2", "102.01": "3", "102.02": "2", "103": "2", "104": "3", "105.01": "3", "105.02": "2", "105.03": "2", "106": "3", "107.01": "3", "107.02": "2", "201": "3", "202": "4", "203.01": "4", "203.02": "4", "204": "4", "205": "3", "206.01": "3", "206.02": "3", "207.01": "4", "207.02": "3", "208.01": "3", "208.02": "3", "209.01": "3", "209.02": "4", "301.01": "3", "301.02": "4", "301.03": "3", "301.04": "3", "302": "4", "303": "3", "304": "3", "305": "4", "306.01": "3", "306.03": "2", "306.04": "3", "307.01": "3", "307.02": "4", "307.03": "3", "307.06": "4", "308": "4", "309": "4", "310": "4", "311": "3", "312": "3", "313": "3", "314": "4", "315.01": "3", "315.02": "2", "317": "3", "318": "4", "319": "4", "321": "3", "401": "4", "402.01": "4", "402.02": "3", "403": "4", "404.01": "4", "404.02": "3", "406": "4", "407": "4", "408": "4", "409": "4", "501": "4", "502": "4", "503": "4", "505": "4", "506": "4", "507": "4", "508": "4", "509": "4", "510": "4", "511": "4", "512": "4", "513": "4", "514": "4", "601": "4", "602": "4", "603": "4", "604": "4", "605": "4", "608": "4", "609": "4", "610": "4", "611": "4", "612": "4", "615": "4", "618": "3", "619.01": "4", "619.02": "4", "620": "4", "621": "4", "622": "4", "623": "4", "624": "4", "625": "4", "626": "4", "627": "4", "628": "4", "629": "4", "630": "4", "631": "4", "632": "4", "633.01": "4", "633.02": "4", "633.03": "4", "634": "4", "701.01": "4", "701.02": "4", "701.03": "4", "702": "4", "703": "4", "704": "4", "705": "4", "706": "4", "707": "4", "710": "4", "711": "4", "712": "4", "713": "4", "714": "4", "715": "4", "716": "4", "717": "4", "718": "4", "801": "4", "802.01": "4", "802.02": "4", "803": "4", "804": "2", "810": "3", "811": "4", "812.01": "4", "812.02": "4", "813": "4", "814.01": "4", "814.02": "4", "814.03": "4", "815": "4", "816": "4", "817": "4", "818": "4", "819": "3", "901": "4", "902": "4", "903": "4", "1001": "4", "1002": "4", "1003": "4", "1004": "4", "1005": "4", "1006": "4", "1007": "4", "1101": "4", "1102": "3", "1103": "4", "1104": "4", "1105.01": "4", "1105.02": "4", "1201": "4", "1202": "4", "1203": "4", "1204": "4", "1301": "4", "1302": "4", "1303": "4", "1401": "1", "1402": "2", "1403.01": "2", "1403.02": "3", "1404": "4", "1405": "3", "1406.01": "2", "1406.02": "2", "1407.01": "3", "1407.02": "2", "1408": "4", "1502": "3", "1503": "3", "1504.01": "4", "1504.02": "3", "1505.01": "4", "1505.02": "3", "1506": "4", "1507": "3", "1508": "3", "1510.01": "2", "1510.02": "2", "1511": "3", "1512": "3", "1601": "3", "1602": "4", "1603": "3", "1604": "3", "1605.01": "3", "1605.02": "3", "1606.01": "3", "1606.02": "3", "1607": "3", "1608": "3", "1609": "4", "1610": "4", "1611": "4", "1612": "3", "1613": "2", "1701": "4", "1702": "4", "1703": "4", "1704": "4", "1705": "4", "1706": "4", "1707": "4", "1708": "4", "1709": "4", "1710": "4", "1711": "3", "1801": "3", "1901": "1", "1902": "2", "1903": "2", "1904.01": "3", "1904.02": "2", "1906.01": "2", "1906.02": "2", "1907.01": "2", "1907.02": "1", "1908": "2", "1909": "2", "1910": "2", "1911": "2", "1912": "2", "1913.01": "2", "1913.02": "2", "2001": "2", "2002": "1", "2003": "1", "2004.01": "1", "2004.02": "1", "2101": "4", "2104": "2", "2105.01": "2", "2105.02": "2", "2106.01": "3", "2106.02": "2", "2107": "3", "2108": "3", "2109": "3", "2203": "4", "2204": "4", "2205": "3", "2206.01": "3", "2206.02": "3", "2207.01": "2", "2207.02": "2", "2209.01": "1", "2209.02": "2", "2210": "2", "2211": "2", "2212": "3", "2213": "3", "2214": "3", "2215": "3", "2216": "4", "2222": "4", "2225": "2", "2226": "2", "2227": "2", "2228": "1", "2229": "2", "2301": "2", "2302": "1", "2303": "1", "2304": "2", "2305": "1", "2306": "1", "2307": "1", "2308": "3", "2309": "1", "2311": "3", "2312": "1", "2315": "1", "2402": "4", "2403": "4", "2405": "4", "2406": "4", "2407": "3", "2408": "2", "2409": "3", "2410": "1", "2411": "2", "2412": "3", "2413": "3", "2414": "4", "2415": "4", "2416": "4", "2420": "3", "2421": "4", "2422": "4", "2423": "4", "2424": "3", "2425": "2", "2426": "3", "2427": "1", "2428": "3", "2429": "4", "2430": "4", "2431": "3", "2432": "4", "2433": "3", "2434": "3", "2435": "4", "2502": "2", "2503": "1", "2504": "2", "2505": "4", "2506": "3", "2507": "1", "2508": "2", "2510": "1", "2511": "1", "2512": "2", "2513": "2", "2514": "2", "2515": "1", "2516": "2", "2517": "2", "2518": "1", "2519": "1", "2520": "1", "2521.01": "1", "2521.02": "1", "2522.01": "2", "2522.02": "1", "2601": "1", "2602": "1", "2603": "1", "2604": "1", "2605": "2", "2606": "3", "2607": "1", "2608": "1", "2609": "1", "2610": "2", "2705": "1", "2712": "2", "2713": "2", "2714": "2", "2715": "2", "2718": "1", "2801": "4", "2804": "1", "2808": "2", "2809": "1", "2819": "4", "2827": "2", "2828": "4", "2831": "2", "2832": "3", "2838": "3", "2909": "1", "2912": "1", "2916": "1", "2922": "1", "2924": "2", "2925": "2", "3005": "1", "3006": "2", "3007": "1", "3008": "1", "3009": "1", "3011": "1", "3012": "1", "3016": "1", "3017.01": "1", "3017.02": "1", "3018.01": "2", "3018.02": "1", "3018.03": "1", "3102": "3", "3103": "2", "3104": "2", "3105": "1", "3106": "2", "3107": "1", "3108": "1", "3109": "1", "3201": "4", "3204": "4", "3206": "4", "3301": "4", "3302": "4", "3403": "3", "3404": "3", "3405": "3", "3406": "1", "3501": "2", "3504": "1", "3510": "2", "3511": "1", "3514": "1", "3515": "2", "3602": "1", "3801": "2", "3802": "2", "3805": "1", "3807": "2", "3812": "2", "3814": "2", "3815": "2", "3818": "1", "3819": "2", "3901": "3", "3902": "3", "3903": "1", "3904": "1", "3905": "3", "3906": "4", "3907": "4", "4003": "2", "4004": "1", "4005": "1", "4008": "1", "4101": "3", "4102": "3", "4105": "3", "4106": "3", "4107": "3", "4108": "3", "4109": "4", "4110": "4", "4111": "4", "4112": "4", "4201": "2", "4202": "2", "4203": "2", "4204": "2", "4205": "1", "4206": "1", "4207": "1", "4208": "1", "4212": "2", "4301.01": "2", "4301.02": "2", "4302": "2", "4303": "2", "4304": "2", "4305": "2", "4306": "3", "4307": "1", "4308": "3", "4309": "2", "4312": "3", "4313.01": "1", "4313.02": "1", "4314": "1", "4401.01": "1", "4401.02": "1", "4402.01": "3", "4402.02": "3", "4403": "3", "4406": "4", "4407": "3", "4408": "1", "4409": "3", "4503": "3", "4601": "2", "4602": "1", "4603.01": "2", "4603.02": "1", "4604": "3", "4605": "3", "4606": "1", "4607": "1", "4610": "1", "4701": "2", "4801": "4", "4802": "3", "4803": "3", "4804": "4", "4805": "3", "4903": "4", "4904": "4", "4905": "3", "4906": "4", "4907": "3", "4908": "3", "4909.01": "3", "4909.02": "4", "4910": "2", "4911": "4", "4912": "3", "4913": "2", "4914": "2", "5001": "3", "5002": "2", "5003": "2", "5101": "2", "5102": "3", "5103": "3", "5201": "2", "5202": "1", "5203": "3", "5204": "3", "5205": "4", "5206": "3", "5301": "1", "5302": "2", "5303": "4", "5304": "3", "5305.01": "3", "5305.02": "3", "5305.03": "3", "5306": "2", "5401.01": "1", "5401.02": "1", "5501": "3", "5502": "4", "5601": "2", "5602": "3", "5603": "3", "5604": "3", "5607": "3", "5608": "4", "5609": "4", "5610": "4", "5611": "4", "5701": "3", "5702": "3", "5703": "2", "5704": "2", "5705": "2", "5801": "3", "5802": "2", "5803": "1", "5804": "2", "5805.01": "1", "5805.02": "2", "5806": "1", "5807": "2", "5808": "1", "5905": "3", "5906": "3", "5907": "2", "6004": "2", "6006": "2", "6007": "3", "6009": "3", "6103": "1", "6104": "1", "6108": "4", "6110": "1", "6111": "1", "6112": "1", "6113": "1", "6114": "1", "6115": "1", "6116": "1", "6117": "1", "6118": "1", "6119": "1", "6120": "1", "6121": "2", "6201": "3", "6202": "2", "6203": "3", "6204": "3", "6301": "1", "6302": "2", "6303": "2", "6304": "1", "6305": "2", "6308": "2", "6309": "2", "6401": "3", "6403": "4", "6404": "4", "6405": "4", "6406": "3", "6407": "4", "6408": "3", "6501": "2", "6502": "3", "6503.01": "3", "6503.02": "3", "6504": "3", "6505": "3", "6603.01": "1", "6603.02": "2", "6604": "2", "6605": "2", "6606": "1", "6607": "2", "6608": "1", "6609": "1", "6610": "2", "6611": "3", "6701": "1", "6702": "1", "6703": "2", "6704": "2", "6705": "2", "6706": "1", "6707": "1", "6708": "1", "6709": "2", "6711": "1", "6712": "1", "6713": "2", "6714": "2", "6715": "1", "6716": "1", "6718": "1", "6719": "2", "6720": "2", "6805": "1", "6806": "1", "6809": "1", "6810": "1", "6811": "1", "6812": "1", "6813": "1", "6814": "1", "6903": "1", "6904": "1", "6905": "2", "6909": "2", "6910": "3", "6911": "1", "6912": "1", "6913": "3", "6914": "2", "6915": "1", "7001": "3", "7002": "3", "7003.01": "3", "7003.02": "4", "7004.01": "4", "7004.02": "4", "7005.01": "4", "7005.02": "4", "7101": "1", "7102": "1", "7103": "1", "7104": "3", "7105": "2", "7106": "2", "7107": "2", "7108": "2", "7109": "2", "7110": "2", "7111": "3", "7112": "3", "7113": "3", "7114": "2", "7115": "3", "7201": "4", "7202": "4", "7203": "4", "7204": "4", "7205": "4", "7206": "4", "7207": "4", "7301": "3", "7302.01": "2", "7302.02": "3", "7303": "3", "7304": "4", "7305": "4", "7306": "3", "7307": "3", "7401": "4", "7402": "4", "7403": "4", "7404": "4", "7501": "3", "7502": "4", "7503": "4", "7504": "4", "7505": "3", "7506": "4", "7608.01": "3", "7608.02": "4", "7608.03": "4", "7709.02": "4", "8104": "4", "8214.02": "3", "8233.04": "3", "8305": "2", "8306": "3", "8307": "3", "8308": "4", "8309": "4", "8310": "4", "8311": "3", "8312": "1", "8313": "1", "8314": "2", "8315": "3", "8316": "3", "8317": "3", "8318": "4", "8319": "4", "8320": "4", "8321": "3", "8322": "4", "8323": "4", "8324": "4", "8325": "4", "8326": "4", "8329": "3", "8330": "4", "8331": "4", "8333": "3", "8339": "1", "8340": "2", "8342": "2", "8343": "3", "8344": "3", "8345": "1", "8346": "2", "8347": "1", "8348": "1", "8349": "1", "8350": "1", "8351": "2", "8352": "3", "8355": "2", "8356": "2", "8358": "2", "8359": "1", "8360": "3", "8361": "1", "8362": "4", "8363": "3", "8364": "2", "8365": "1", "8366": "2", "8367": "1", "8368": "1", "8369": "2", "8370": "1", "8371": "2", "8373": "2", "8374": "2", "8378": "2", "8380": "2", "8381": "2", "8382": "3", "8383": "2", "8386": "1", "8387": "1", "8388": "1", "8390": "4", "8391": "4", "8392": "2", "8395": "3", "8396": "3", "8397": "3", "8398": "4", "8399": "4", "8400": "4", "8401": "3", "8402": "3", "8403": "2", "8404": "3", "8407": "1", "8408": "1", "8410": "3", "8411": "2", "8412": "1", "8413": "1", "8414": "1", "8415": "1", "8416": "1", "8417": "1", "8418": "2", "8419": "4", "8420": "4", "8421": "1", "8422": "3", "8423": "4", "8424": "3", "8425": "1", "8426": "3", "8428": "2", "8429": "1", "8430": "1", "8431": "2", "8432": "1", "8433": "1", "8434": "2", "8435": "1", "8436": "2", "8437": "4", "8438": "2", "8439": "2", "9801": "0", "3817": "0", "8357": "0", };
+const TractTierTable = { "101": "2", "102.01": "3", "102.02": "2", "103": "2", "104": "3", "105.01": "3", "105.02": "2", "105.03": "2", "106": "3", "107.01": "3", "107.02": "2", "201": "3", "202": "4", "203.01": "4", "203.02": "4", "204": "4", "205": "3", "206.01": "3", "206.02": "3", "207.01": "4", "207.02": "3", "208.01": "3", "208.02": "3", "209.01": "3", "209.02": "4", "301.01": "3", "301.02": "4", "301.03": "3", "301.04": "3", "302": "4", "303": "3", "304": "3", "305": "4", "306.01": "3", "306.03": "2", "306.04": "3", "307.01": "3", "307.02": "4", "307.03": "3", "307.06": "4", "308": "4", "309": "4", "310": "4", "311": "3", "312": "3", "313": "3", "314": "4", "315.01": "3", "315.02": "2", "317": "3", "318": "4", "319": "4", "321": "3", "401": "4", "402.01": "4", "402.02": "3", "403": "4", "404.01": "4", "404.02": "3", "406": "4", "407": "4", "408": "4", "409": "4", "501": "4", "502": "4", "503": "4", "505": "4", "506": "4", "507": "4", "508": "4", "509": "4", "510": "4", "511": "4", "512": "4", "513": "4", "514": "4", "601": "4", "602": "4", "603": "4", "604": "4", "605": "4", "608": "4", "609": "4", "610": "4", "611": "4", "612": "4", "615": "4", "618": "3", "619.01": "4", "619.02": "4", "620": "4", "621": "4", "622": "4", "623": "4", "624": "4", "625": "4", "626": "4", "627": "4", "628": "4", "629": "4", "630": "4", "631": "4", "632": "4", "633.01": "4", "633.02": "4", "633.03": "4", "634": "4", "701.01": "4", "701.02": "4", "701.03": "4", "702": "4", "703": "4", "704": "4", "705": "4", "706": "4", "707": "4", "710": "4", "711": "4", "712": "4", "713": "4", "714": "4", "715": "4", "716": "4", "717": "4", "718": "4", "801": "4", "802.01": "4", "802.02": "4", "803": "4", "804": "2", "810": "3", "811": "4", "812.01": "4", "812.02": "4", "813": "4", "814.01": "4", "814.02": "4", "814.03": "4", "815": "4", "816": "4", "817": "4", "818": "4", "819": "3", "901": "4", "902": "4", "903": "4", "1001": "4", "1002": "4", "1003": "4", "1004": "4", "1005": "4", "1006": "4", "1007": "4", "1101": "4", "1102": "3", "1103": "4", "1104": "4", "1105.01": "4", "1105.02": "4", "1201": "4", "1202": "4", "1203": "4", "1204": "4", "1301": "4", "1302": "4", "1303": "4", "1401": "1", "1402": "2", "1403.01": "2", "1403.02": "3", "1404": "4", "1405": "3", "1406.01": "2", "1406.02": "2", "1407.01": "3", "1407.02": "2", "1408": "4", "1502": "3", "1503": "3", "1504.01": "4", "1504.02": "3", "1505.01": "4", "1505.02": "3", "1506": "4", "1507": "3", "1508": "3", "1510.01": "2", "1510.02": "2", "1511": "3", "1512": "3", "1601": "3", "1602": "4", "1603": "3", "1604": "3", "1605.01": "3", "1605.02": "3", "1606.01": "3", "1606.02": "3", "1607": "3", "1608": "3", "1609": "4", "1610": "4", "1611": "4", "1612": "3", "1613": "2", "1701": "4", "1702": "4", "1703": "4", "1704": "4", "1705": "4", "1706": "4", "1707": "4", "1708": "4", "1709": "4", "1710": "4", "1711": "3", "1801": "3", "1901": "1", "1902": "2", "1903": "2", "1904.01": "3", "1904.02": "2", "1906.01": "2", "1906.02": "2", "1907.01": "2", "1907.02": "1", "1908": "2", "1909": "2", "1910": "2", "1911": "2", "1912": "2", "1913.01": "2", "1913.02": "2", "2001": "2", "2002": "1", "2003": "1", "2004.01": "1", "2004.02": "1", "2101": "4", "2104": "2", "2105.01": "2", "2105.02": "2", "2106.01": "3", "2106.02": "2", "2107": "3", "2108": "3", "2109": "3", "2203": "4", "2204": "4", "2205": "3", "2206.01": "3", "2206.02": "3", "2207.01": "2", "2207.02": "2", "2209.01": "1", "2209.02": "2", "2210": "2", "2211": "2", "2212": "3", "2213": "3", "2214": "3", "2215": "3", "2216": "4", "2222": "4", "2225": "2", "2226": "2", "2227": "2", "2228": "1", "2229": "2", "2301": "2", "2302": "1", "2303": "1", "2304": "2", "2305": "1", "2306": "1", "2307": "1", "2308": "3", "2309": "1", "2311": "3", "2312": "1", "2315": "1", "2402": "4", "2403": "4", "2405": "4", "2406": "4", "2407": "3", "2408": "2", "2409": "3", "2410": "1", "2411": "2", "2412": "3", "2413": "3", "2414": "4", "2415": "4", "2416": "4", "2420": "3", "2421": "4", "2422": "4", "2423": "4", "2424": "3", "2425": "2", "2426": "3", "2427": "1", "2428": "3", "2429": "4", "2430": "4", "2431": "3", "2432": "4", "2433": "3", "2434": "3", "2435": "4", "2502": "2", "2503": "1", "2504": "2", "2505": "4", "2506": "3", "2507": "1", "2508": "2", "2510": "1", "2511": "1", "2512": "2", "2513": "2", "2514": "2", "2515": "1", "2516": "2", "2517": "2", "2518": "1", "2519": "1", "2520": "1", "2521.01": "1", "2521.02": "1", "2522.01": "2", "2522.02": "1", "2601": "1", "2602": "1", "2603": "1", "2604": "1", "2605": "2", "2606": "3", "2607": "1", "2608": "1", "2609": "1", "2610": "2", "2705": "1", "2712": "2", "2713": "2", "2714": "2", "2715": "2", "2718": "1", "2801": "4", "2804": "1", "2808": "2", "2809": "1", "2819": "4", "2827": "2", "2828": "4", "2831": "2", "2832": "3", "2838": "3", "2909": "1", "2912": "1", "2916": "1", "2922": "1", "2924": "2", "2925": "2", "3005": "1", "3006": "2", "3007": "1", "3008": "1", "3009": "1", "3011": "1", "3012": "1", "3016": "1", "3017.01": "1", "3017.02": "1", "3018.01": "2", "3018.02": "1", "3018.03": "1", "3102": "3", "3103": "2", "3104": "2", "3105": "1", "3106": "2", "3107": "1", "3108": "1", "3109": "1", "3201": "4", "3204": "4", "3206": "4", "3301": "4", "3302": "4", "3403": "3", "3404": "3", "3405": "3", "3406": "1", "3501": "2", "3504": "1", "3510": "2", "3511": "1", "3514": "1", "3515": "2", "3602": "1", "3801": "2", "3802": "2", "3805": "1", "3807": "2", "3812": "2", "3814": "2", "3815": "2", "3818": "1", "3819": "2", "3901": "3", "3902": "3", "3903": "1", "3904": "1", "3905": "3", "3906": "4", "3907": "4", "4003": "2", "4004": "1", "4005": "1", "4008": "1", "4101": "3", "4102": "3", "4105": "3", "4106": "3", "4107": "3", "4108": "3", "4109": "4", "4110": "4", "4111": "4", "4112": "4", "4201": "2", "4202": "2", "4203": "2", "4204": "2", "4205": "1", "4206": "1", "4207": "1", "4208": "1", "4212": "2", "4301.01": "2", "4301.02": "2", "4302": "2", "4303": "2", "4304": "2", "4305": "2", "4306": "3", "4307": "1", "4308": "3", "4309": "2", "4312": "3", "4313.01": "1", "4313.02": "1", "4314": "1", "4401.01": "1", "4401.02": "1", "4402.01": "3", "4402.02": "3", "4403": "3", "4406": "4", "4407": "3", "4408": "1", "4409": "3", "4503": "3", "4601": "2", "4602": "1", "4603.01": "2", "4603.02": "1", "4604": "3", "4605": "3", "4606": "1", "4607": "1", "4610": "1", "4701": "2", "4801": "4", "4802": "3", "4803": "3", "4804": "4", "4805": "3", "4903": "4", "4904": "4", "4905": "3", "4906": "4", "4907": "3", "4908": "3", "4909.01": "3", "4909.02": "4", "4910": "2", "4911": "4", "4912": "3", "4913": "2", "4914": "2", "5001": "3", "5002": "2", "5003": "2", "5101": "2", "5102": "3", "5103": "3", "5201": "2", "5202": "1", "5203": "3", "5204": "3", "5205": "4", "5206": "3", "5301": "1", "5302": "2", "5303": "4", "5304": "3", "5305.01": "3", "5305.02": "3", "5305.03": "3", "5306": "2", "5401.01": "1", "5401.02": "1", "5501": "3", "5502": "4", "5601": "2", "5602": "3", "5603": "3", "5604": "3", "5607": "3", "5608": "4", "5609": "4", "5610": "4", "5611": "4", "5701": "3", "5702": "3", "5703": "2", "5704": "2", "5705": "2", "5801": "3", "5802": "2", "5803": "1", "5804": "2", "5805.01": "1", "5805.02": "2", "5806": "1", "5807": "2", "5808": "1", "5905": "3", "5906": "3", "5907": "2", "6004": "2", "6006": "2", "6007": "3", "6009": "3", "6103": "1", "6104": "1", "6108": "4", "6110": "1", "6111": "1", "6112": "1", "6113": "1", "6114": "1", "6115": "1", "6116": "1", "6117": "1", "6118": "1", "6119": "1", "6120": "1", "6121": "2", "6201": "3", "6202": "2", "6203": "3", "6204": "3", "6301": "1", "6302": "2", "6303": "2", "6304": "1", "6305": "2", "6308": "2", "6309": "2", "6401": "3", "6403": "4", "6404": "4", "6405": "4", "6406": "3", "6407": "4", "6408": "3", "6501": "2", "6502": "3", "6503.01": "3", "6503.02": "3", "6504": "3", "6505": "3", "6603.01": "1", "6603.02": "2", "6604": "2", "6605": "2", "6606": "1", "6607": "2", "6608": "1", "6609": "1", "6610": "2", "6611": "3", "6701": "1", "6702": "1", "6703": "2", "6704": "2", "6705": "2", "6706": "1", "6707": "1", "6708": "1", "6709": "2", "6711": "1", "6712": "1", "6713": "2", "6714": "2", "6715": "1", "6716": "1", "6718": "1", "6719": "2", "6720": "2", "6805": "1", "6806": "1", "6809": "1", "6810": "1", "6811": "1", "6812": "1", "6813": "1", "6814": "1", "6903": "1", "6904": "1", "6905": "2", "6909": "2", "6910": "3", "6911": "1", "6912": "1", "6913": "3", "6914": "2", "6915": "1", "7001": "3", "7002": "3", "7003.01": "3", "7003.02": "4", "7004.01": "4", "7004.02": "4", "7005.01": "4", "7005.02": "4", "7101": "1", "7102": "1", "7103": "1", "7104": "3", "7105": "2", "7106": "2", "7107": "2", "7108": "2", "7109": "2", "7110": "2", "7111": "3", "7112": "3", "7113": "3", "7114": "2", "7115": "3", "7201": "4", "7202": "4", "7203": "4", "7204": "4", "7205": "4", "7206": "4", "7207": "4", "7301": "3", "7302.01": "2", "7302.02": "3", "7303": "3", "7304": "4", "7305": "4", "7306": "3", "7307": "3", "7401": "4", "7402": "4", "7403": "4", "7404": "4", "7501": "3", "7502": "4", "7503": "4", "7504": "4", "7505": "3", "7506": "4", "7608.01": "3", "7608.02": "4", "7608.03": "4", "7709.02": "4", "8104": "4", "8214.02": "3", "8233.04": "3", "8305": "2", "8306": "3", "8307": "3", "8308": "4", "8309": "4", "8310": "4", "8311": "3", "8312": "1", "8313": "1", "8314": "2", "8315": "3", "8316": "3", "8317": "3", "8318": "4", "8319": "4", "8320": "4", "8321": "3", "8322": "4", "8323": "4", "8324": "4", "8325": "4", "8326": "4", "8329": "3", "8330": "4", "8331": "4", "8333": "3", "8339": "1", "8340": "2", "8342": "2", "8343": "3", "8344": "3", "8345": "1", "8346": "2", "8347": "1", "8348": "1", "8349": "1", "8350": "1", "8351": "2", "8352": "3", "8355": "2", "8356": "2", "8358": "2", "8359": "1", "8360": "3", "8361": "1", "8362": "4", "8363": "3", "8364": "2", "8365": "1", "8366": "2", "8367": "1", "8368": "1", "8369": "2", "8370": "1", "8371": "2", "8373": "2", "8374": "2", "8378": "2", "8380": "2", "8381": "2", "8382": "3", "8383": "2", "8386": "1", "8387": "1", "8388": "1", "8390": "4", "8391": "4", "8392": "2", "8395": "3", "8396": "3", "8397": "3", "8398": "4", "8399": "4", "8400": "4", "8401": "3", "8402": "3", "8403": "2", "8404": "3", "8407": "1", "8408": "1", "8410": "3", "8411": "2", "8412": "1", "8413": "1", "8414": "1", "8415": "1", "8416": "1", "8417": "1", "8418": "2", "8419": "4", "8420": "4", "8421": "1", "8422": "3", "8423": "4", "8424": "3", "8425": "1", "8426": "3", "8428": "2", "8429": "1", "8430": "1", "8431": "2", "8432": "1", "8433": "1", "8434": "2", "8435": "1", "8436": "2", "8437": "4", "8438": "2", "8439": "2", "9801": "0", "3817": "0", "8357": "0", };
 exports.default = TractTierTable;
 
 
 /***/ }),
-/* 283 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;(function() {
@@ -56828,7 +56682,7 @@ exports.default = TractTierTable;
     return data.join('&');
   };
 
-  if ("function" !== "undefined" && __webpack_require__(285) !== null ? __webpack_require__(286) : void 0) {
+  if ("function" !== "undefined" && __webpack_require__(283) !== null ? __webpack_require__(284) : void 0) {
     !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
       return JSONP;
     }.call(exports, __webpack_require__, exports, module),
@@ -56841,10 +56695,10 @@ exports.default = TractTierTable;
 
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(284)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(282)(module)))
 
 /***/ }),
-/* 284 */
+/* 282 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -56872,7 +56726,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 285 */
+/* 283 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -56881,7 +56735,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 286 */
+/* 284 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -56890,13 +56744,13 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 287 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(288);
+var content = __webpack_require__(286);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -56921,7 +56775,7 @@ if(false) {
 }
 
 /***/ }),
-/* 288 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -56935,30 +56789,111 @@ exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  bor
 
 
 /***/ }),
+/* 287 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const react_redux_1 = __webpack_require__(14);
+const actions_1 = __webpack_require__(18);
+const dropdown_field_1 = __webpack_require__(66);
+const Field = (props) => React.createElement(dropdown_field_1.default, { label: "What grade are you in?", value: props.gradeLevel && props.gradeLevel.toString(), onChange: (gradeStr) => props.onChange(parseInt(gradeStr)), debounceTime: props.debounceTime },
+    React.createElement("option", { value: "4" }, "4th grade"),
+    React.createElement("option", { value: "5" }, "5th grade"),
+    React.createElement("option", { value: "6" }, "6th grade"),
+    React.createElement("option", { value: "7" }, "7th grade"),
+    React.createElement("option", { value: "8" }, "8th grade"));
+const mapStateToProps = (state) => {
+    return {
+        gradeLevel: state.getIn(['studentData', 'gradeLevel'])
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChange: gradeLevel => dispatch(actions_1.updateStudentGradeLevel(gradeLevel))
+    };
+};
+exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
+
+
+/***/ }),
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const react_redux_1 = __webpack_require__(14);
+const actions_1 = __webpack_require__(18);
+const number_field_1 = __webpack_require__(24);
+const constants_1 = __webpack_require__(11);
+const between_1 = __webpack_require__(25);
+const Field = (props) => (React.createElement(number_field_1.default, { label: "Your 7th grade attendance percentage", value: props.attendancePercentage, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
+const mapStateToProps = (state) => {
+    return {
+        attendancePercentage: state.getIn(['studentData', 'attendancePercentage'])
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChange: location => dispatch(actions_1.updateStudentAttendPercentage(location))
+    };
+};
+exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
+
+
+/***/ }),
 /* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_redux_1 = __webpack_require__(12);
-var actions_1 = __webpack_require__(17);
-var dropdown_field_1 = __webpack_require__(45);
-var Field = function (props) { return React.createElement(dropdown_field_1.default, { label: "What grade are you in?", value: props.gradeLevel && props.gradeLevel.toString(), onChange: function (gradeStr) { return props.onChange(parseInt(gradeStr)); }, debounceTime: props.debounceTime },
-    React.createElement("option", { value: "4" }, "4th grade"),
-    React.createElement("option", { value: "5" }, "5th grade"),
-    React.createElement("option", { value: "6" }, "6th grade"),
-    React.createElement("option", { value: "7" }, "7th grade"),
-    React.createElement("option", { value: "8" }, "8th grade")); };
-var mapStateToProps = function (state) {
+const React = __webpack_require__(1);
+const react_redux_1 = __webpack_require__(14);
+const reselect_1 = __webpack_require__(67);
+const actions_1 = __webpack_require__(18);
+const combo_box_field_1 = __webpack_require__(117);
+const constants_1 = __webpack_require__(11);
+const Field = (props) => (React.createElement(combo_box_field_1.default, { label: "What elementary school program are you in now?", value: props.currESProgram, data: {
+        records: props.esPrograms,
+        getKey: (program) => program.ID,
+        getDisplayText: (program) => {
+            return program.Short_Name + " - " + program.Program_Type;
+        }
+    }, onChange: (program) => props.onChange(program.ID), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
+const getPrograms = (state) => state.getIn(['hsData', 'programs']);
+const getProgramIndex = (state) => state.getIn(['hsData', 'index']);
+const getESProgramIDs = (state) => state.getIn(['hsData', 'esProgramIDs']);
+const getCurrESProgramID = (state) => state.getIn(['studentData', 'currESProgramID']);
+const selectESPrograms = reselect_1.createSelector([getESProgramIDs, getPrograms, getProgramIndex], (ids, programs, index) => {
+    let esPrograms = [];
+    ids.forEach(id => {
+        const i = index.get(id);
+        const program = programs.get(i);
+        esPrograms.push(program);
+    });
+    return esPrograms;
+});
+const selectCurrESProgram = reselect_1.createSelector([getCurrESProgramID, getPrograms, getProgramIndex], (id, programs, index) => {
+    const i = index.get(id);
+    const program = programs.get(i);
+    return program;
+});
+const mapStateToProps = (state) => {
     return {
-        gradeLevel: state.getIn(['studentData', 'gradeLevel'])
+        currESProgram: selectCurrESProgram(state),
+        esPrograms: selectESPrograms(state),
     };
 };
-var mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
-        onChange: function (gradeLevel) { return dispatch(actions_1.updateStudentGradeLevel(gradeLevel)); }
+        onChange: programID => {
+            dispatch(actions_1.updateStudentCurrESProgram(programID));
+        }
     };
 };
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
@@ -56971,24 +56906,16 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fie
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_redux_1 = __webpack_require__(12);
-var actions_1 = __webpack_require__(17);
-var number_field_1 = __webpack_require__(24);
-var constants_1 = __webpack_require__(9);
-var between_1 = __webpack_require__(25);
-var Field = function (props) { return (React.createElement(number_field_1.default, { label: "Your 7th grade attendance percentage", value: props.attendancePercentage, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME })); };
-var mapStateToProps = function (state) {
-    return {
-        attendancePercentage: state.getIn(['studentData', 'attendancePercentage'])
-    };
+const React = __webpack_require__(1);
+const list_box_element_1 = __webpack_require__(291);
+const ListBox = (props) => {
+    const className = "list-box " + (props.visible ? "visible" : "");
+    return (React.createElement("ul", { className: className }, props.data.records.map(opt => React.createElement(list_box_element_1.default, { key: props.data.getKey(opt), value: props.data.getKey(opt), selected: props.selected === props.data.getKey(opt), onSelect: ev => {
+            props.selected === props.data.getKey(opt) ? props.onChange(null)
+                : props.onChange(opt);
+        } }, props.data.getDisplayText(opt)))));
 };
-var mapDispatchToProps = function (dispatch) {
-    return {
-        onChange: function (location) { return dispatch(actions_1.updateStudentAttendPercentage(location)); }
-    };
-};
-exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
+exports.default = ListBox;
 
 
 /***/ }),
@@ -56998,51 +56925,14 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fie
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_redux_1 = __webpack_require__(12);
-var reselect_1 = __webpack_require__(68);
-var actions_1 = __webpack_require__(17);
-var combo_box_field_1 = __webpack_require__(117);
-var constants_1 = __webpack_require__(9);
-var Field = function (props) { return (React.createElement(combo_box_field_1.default, { label: "What elementary school program are you in now?", value: props.currESProgram, data: {
-        records: props.esPrograms,
-        getKey: function (program) { return program.ID; },
-        getDisplayText: function (program) {
-            return program.Short_Name + " - " + program.Program_Type;
-        }
-    }, onChange: function (program) { return props.onChange(program.ID); }, debounceTime: constants_1.INPUT_DEBOUNCE_TIME })); };
-var getPrograms = function (state) { return state.getIn(['hsData', 'programs']); };
-var getProgramIndex = function (state) { return state.getIn(['hsData', 'index']); };
-var getESProgramIDs = function (state) { return state.getIn(['hsData', 'esProgramIDs']); };
-var getCurrESProgramID = function (state) { return state.getIn(['studentData', 'currESProgramID']); };
-var selectESPrograms = reselect_1.createSelector([getESProgramIDs, getPrograms, getProgramIndex], function (ids, programs, index) {
-    var esPrograms = [];
-    ids.forEach(function (id) {
-        var i = index.get(id);
-        var program = programs.get(i);
-        esPrograms.push(program);
-    });
-    return esPrograms;
-});
-var selectCurrESProgram = reselect_1.createSelector([getCurrESProgramID, getPrograms, getProgramIndex], function (id, programs, index) {
-    var i = index.get(id);
-    var program = programs.get(i);
-    return program;
-});
-var mapStateToProps = function (state) {
-    return {
-        currESProgram: selectCurrESProgram(state),
-        esPrograms: selectESPrograms(state),
-    };
+const React = __webpack_require__(1);
+const ListBoxElement = (props) => {
+    return (React.createElement("li", { className: "list-box-element", onMouseDown: ev => {
+            ev.stopPropagation();
+            props.onSelect(ev);
+        } }, props.children));
 };
-var mapDispatchToProps = function (dispatch) {
-    return {
-        onChange: function (programID) {
-            dispatch(actions_1.updateStudentCurrESProgram(programID));
-        }
-    };
-};
-exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
+exports.default = ListBoxElement;
 
 
 /***/ }),
@@ -57052,79 +56942,43 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fie
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var list_box_element_1 = __webpack_require__(293);
-var ListBox = function (props) {
-    var className = "list-box " + (props.visible ? "visible" : "");
-    return (React.createElement("ul", { className: className }, props.data.records.map(function (opt) { return React.createElement(list_box_element_1.default, { key: props.data.getKey(opt), value: props.data.getKey(opt), selected: props.selected === props.data.getKey(opt), onSelect: function (ev) {
-            props.selected === props.data.getKey(opt) ? props.onChange(null)
-                : props.onChange(opt);
-        } }, props.data.getDisplayText(opt)); })));
-};
-exports.default = ListBox;
-
-
-/***/ }),
-/* 293 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var ListBoxElement = function (props) {
-    return (React.createElement("li", { className: "list-box-element", onMouseDown: function (ev) {
-            ev.stopPropagation();
-            props.onSelect(ev);
-        } }, props.children));
-};
-exports.default = ListBoxElement;
-
-
-/***/ }),
-/* 294 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var react_redux_1 = __webpack_require__(12);
-var reselect_1 = __webpack_require__(68);
-var actions_1 = __webpack_require__(17);
-var multi_select_field_1 = __webpack_require__(295);
-var constants_1 = __webpack_require__(9);
-var Field = function (props) { return (React.createElement(multi_select_field_1.default, { label: "Do you have a sibling in high school? If so, which school?", values: props.siblingHSPrograms, data: {
+const React = __webpack_require__(1);
+const react_redux_1 = __webpack_require__(14);
+const reselect_1 = __webpack_require__(67);
+const actions_1 = __webpack_require__(18);
+const multi_select_field_1 = __webpack_require__(293);
+const constants_1 = __webpack_require__(11);
+const Field = (props) => (React.createElement(multi_select_field_1.default, { label: "Do you have a sibling in high school? If so, which school?", values: props.siblingHSPrograms, data: {
         records: props.hsPrograms,
-        getKey: function (program) { return program.ID; },
-        getDisplayText: function (program) {
+        getKey: (program) => program.ID,
+        getDisplayText: (program) => {
             return program.Short_Name + " - " + program.Program_Type;
         }
-    }, onChange: function (programs) { return props.onChange(programs.map(function (program) { return program.ID; })); }, debounceTime: constants_1.INPUT_DEBOUNCE_TIME })); };
-var getPrograms = function (state) { return state.getIn(['hsData', 'programs']); };
-var getProgramIndex = function (state) { return state.getIn(['hsData', 'index']); };
-var getHSProgramIDs = function (state) { return state.getIn(['hsData', 'hsProgramIDs']); };
-var getSiblingHSProgramIDs = function (state) { return state.getIn(['studentData', 'siblingHSProgramIDs']); };
-var selectPrograms = function (ids, allPrograms, index) {
-    var selectedPrograms = [];
-    ids.forEach(function (id) {
-        var i = index.get(id);
-        var program = allPrograms.get(i);
+    }, onChange: (programs) => props.onChange(programs.map(program => program.ID)), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
+const getPrograms = (state) => state.getIn(['hsData', 'programs']);
+const getProgramIndex = (state) => state.getIn(['hsData', 'index']);
+const getHSProgramIDs = (state) => state.getIn(['hsData', 'hsProgramIDs']);
+const getSiblingHSProgramIDs = (state) => state.getIn(['studentData', 'siblingHSProgramIDs']);
+const selectPrograms = (ids, allPrograms, index) => {
+    let selectedPrograms = [];
+    ids.forEach(id => {
+        const i = index.get(id);
+        const program = allPrograms.get(i);
         selectedPrograms.push(program);
     });
     return selectedPrograms;
 };
-var selectHSPrograms = reselect_1.createSelector([getHSProgramIDs, getPrograms, getProgramIndex], selectPrograms);
-var selectSiblingHSPrograms = reselect_1.createSelector([getSiblingHSProgramIDs, getPrograms, getProgramIndex], selectPrograms);
-var mapStateToProps = function (state) {
+const selectHSPrograms = reselect_1.createSelector([getHSProgramIDs, getPrograms, getProgramIndex], selectPrograms);
+const selectSiblingHSPrograms = reselect_1.createSelector([getSiblingHSProgramIDs, getPrograms, getProgramIndex], selectPrograms);
+const mapStateToProps = (state) => {
     return {
         siblingHSPrograms: selectSiblingHSPrograms(state),
         hsPrograms: selectHSPrograms(state)
     };
 };
-var mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
-        onChange: function (programIDs) {
+        onChange: programIDs => {
             console.log(programIDs);
             dispatch(actions_1.updateStudentSiblingHSPrograms(programIDs));
         }
@@ -57134,37 +56988,37 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fie
 
 
 /***/ }),
-/* 295 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var field_validation_state_1 = __webpack_require__(30);
-var field_container_1 = __webpack_require__(36);
-var combo_box_field_1 = __webpack_require__(117);
-var MultiSelectField = function (props) {
-    var createOnChangeHandler = function (index) {
-        return function (newValue) {
-            var leftHalf = props.values.slice(0, index);
-            var rightHalf = props.values.slice(index);
-            var newValues = leftHalf.concat(newValue, rightHalf);
+const React = __webpack_require__(1);
+const field_validation_state_1 = __webpack_require__(30);
+const field_container_1 = __webpack_require__(36);
+const combo_box_field_1 = __webpack_require__(117);
+const MultiSelectField = (props) => {
+    const createOnChangeHandler = (index) => {
+        return (newValue) => {
+            const leftHalf = props.values.slice(0, index);
+            const rightHalf = props.values.slice(index);
+            const newValues = leftHalf.concat(newValue, rightHalf);
             props.onChange(newValues);
         };
     };
-    var removeFromListData = function (data, elementsToRemove) {
-        var keysToRemove = elementsToRemove ? elementsToRemove.map(data.getKey) : [];
-        var isNotElementToRemove = function (elem) { return keysToRemove.indexOf(data.getKey(elem)) === -1; };
-        var newRecords = data.records.filter(isNotElementToRemove);
+    const removeFromListData = (data, elementsToRemove) => {
+        const keysToRemove = elementsToRemove ? elementsToRemove.map(data.getKey) : [];
+        const isNotElementToRemove = elem => keysToRemove.indexOf(data.getKey(elem)) === -1;
+        const newRecords = data.records.filter(isNotElementToRemove);
         return {
             records: newRecords,
             getDisplayText: data.getDisplayText,
             getKey: data.getKey,
         };
     };
-    var data = removeFromListData(props.data, props.values);
-    var removeElemAtIndex = function (arr, i) {
+    const data = removeFromListData(props.data, props.values);
+    const removeElemAtIndex = (arr, i) => {
         if (arr.length === 0) {
             return [];
         }
@@ -57176,20 +57030,58 @@ var MultiSelectField = function (props) {
         }
     };
     return (React.createElement(field_container_1.default, { label: props.label, validation: field_validation_state_1.default.NEUTRAL },
-        props.values && props.values.map(function (value, i) {
+        props.values && props.values.map((value, i) => {
             return (React.createElement("div", { key: props.data.getKey(value), style: { width: "100%", display: "flex", flexDirection: "row", alignItems: "center" } },
                 React.createElement(combo_box_field_1.default, { value: value, onChange: createOnChangeHandler(i), data: data, debounceTime: props.debounceTime }),
-                React.createElement("button", { style: { width: "32px", height: "32px", backgroundColor: "#dfdfdf", border: "1px solid #acacac", borderRadius: "100%", margin: "0 1em", boxShadow: "0px 2px 2px #999" }, onClick: function () {
+                React.createElement("button", { style: { width: "32px", height: "32px", backgroundColor: "#dfdfdf", border: "1px solid #acacac", borderRadius: "100%", margin: "0 1em", boxShadow: "0px 2px 2px #999" }, onClick: () => {
                         props.onChange(removeElemAtIndex(props.values, i));
                     } }, "X")));
         }),
-        React.createElement(combo_box_field_1.default, { value: null, onChange: function (newValue) {
-                var newValues = props.values ? props.values.concat(newValue)
+        React.createElement(combo_box_field_1.default, { value: null, onChange: newValue => {
+                const newValues = props.values ? props.values.concat(newValue)
                     : [newValue];
                 props.onChange(newValues);
             }, data: data, debounceTime: props.debounceTime })));
 };
 exports.default = MultiSelectField;
+
+
+/***/ }),
+/* 294 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(11);
+const between_1 = __webpack_require__(25);
+const score_type_1 = __webpack_require__(20);
+const connect_score_type_1 = __webpack_require__(31);
+const number_field_1 = __webpack_require__(24);
+const Field = (props) => {
+    return React.createElement(number_field_1.default, { label: "NWEA Math percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
+};
+exports.default = connect_score_type_1.default(score_type_1.default.nweaPercentileMath)(Field);
+
+
+/***/ }),
+/* 295 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(11);
+const between_1 = __webpack_require__(25);
+const score_type_1 = __webpack_require__(20);
+const connect_score_type_1 = __webpack_require__(31);
+const number_field_1 = __webpack_require__(24);
+const Field = (props) => {
+    return React.createElement(number_field_1.default, { label: "NWEA Reading percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
+};
+exports.default = connect_score_type_1.default(score_type_1.default.nweaPercentileRead)(Field);
 
 
 /***/ }),
@@ -57199,16 +57091,16 @@ exports.default = MultiSelectField;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var constants_1 = __webpack_require__(9);
-var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(20);
-var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(24);
-var Field = function (props) {
-    return React.createElement(number_field_1.default, { label: "NWEA Math percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(11);
+const between_1 = __webpack_require__(25);
+const score_type_1 = __webpack_require__(20);
+const connect_score_type_1 = __webpack_require__(31);
+const number_field_1 = __webpack_require__(24);
+const Field = (props) => {
+    return React.createElement(number_field_1.default, { label: "Math Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
-exports.default = connect_score_type_1.default(score_type_1.default.nweaPercentileMath)(Field);
+exports.default = connect_score_type_1.default(score_type_1.default.subjGradeMath)(Field);
 
 
 /***/ }),
@@ -57218,16 +57110,16 @@ exports.default = connect_score_type_1.default(score_type_1.default.nweaPercenti
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var constants_1 = __webpack_require__(9);
-var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(20);
-var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(24);
-var Field = function (props) {
-    return React.createElement(number_field_1.default, { label: "NWEA Reading percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(11);
+const between_1 = __webpack_require__(25);
+const score_type_1 = __webpack_require__(20);
+const connect_score_type_1 = __webpack_require__(31);
+const number_field_1 = __webpack_require__(24);
+const Field = (props) => {
+    return React.createElement(number_field_1.default, { label: "Reading Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
-exports.default = connect_score_type_1.default(score_type_1.default.nweaPercentileRead)(Field);
+exports.default = connect_score_type_1.default(score_type_1.default.subjGradeRead)(Field);
 
 
 /***/ }),
@@ -57237,16 +57129,16 @@ exports.default = connect_score_type_1.default(score_type_1.default.nweaPercenti
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var constants_1 = __webpack_require__(9);
-var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(20);
-var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(24);
-var Field = function (props) {
-    return React.createElement(number_field_1.default, { label: "Math Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(11);
+const between_1 = __webpack_require__(25);
+const score_type_1 = __webpack_require__(20);
+const connect_score_type_1 = __webpack_require__(31);
+const number_field_1 = __webpack_require__(24);
+const Field = (props) => {
+    return React.createElement(number_field_1.default, { label: "Science Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
-exports.default = connect_score_type_1.default(score_type_1.default.subjGradeMath)(Field);
+exports.default = connect_score_type_1.default(score_type_1.default.subjGradeSci)(Field);
 
 
 /***/ }),
@@ -57256,16 +57148,16 @@ exports.default = connect_score_type_1.default(score_type_1.default.subjGradeMat
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var constants_1 = __webpack_require__(9);
-var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(20);
-var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(24);
-var Field = function (props) {
-    return React.createElement(number_field_1.default, { label: "Reading Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(11);
+const between_1 = __webpack_require__(25);
+const score_type_1 = __webpack_require__(20);
+const connect_score_type_1 = __webpack_require__(31);
+const number_field_1 = __webpack_require__(24);
+const Field = (props) => {
+    return React.createElement(number_field_1.default, { label: "Social Studies Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
-exports.default = connect_score_type_1.default(score_type_1.default.subjGradeRead)(Field);
+exports.default = connect_score_type_1.default(score_type_1.default.subjGradeSocStudies)(Field);
 
 
 /***/ }),
@@ -57275,47 +57167,9 @@ exports.default = connect_score_type_1.default(score_type_1.default.subjGradeRea
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var constants_1 = __webpack_require__(9);
-var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(20);
-var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(24);
-var Field = function (props) {
-    return React.createElement(number_field_1.default, { label: "Science Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
-};
-exports.default = connect_score_type_1.default(score_type_1.default.subjGradeSci)(Field);
-
-
-/***/ }),
-/* 301 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var constants_1 = __webpack_require__(9);
-var between_1 = __webpack_require__(25);
-var score_type_1 = __webpack_require__(20);
-var connect_score_type_1 = __webpack_require__(31);
-var number_field_1 = __webpack_require__(24);
-var Field = function (props) {
-    return React.createElement(number_field_1.default, { label: "Social Studies Grade", value: props.value, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
-};
-exports.default = connect_score_type_1.default(score_type_1.default.subjGradeSocStudies)(Field);
-
-
-/***/ }),
-/* 302 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-__webpack_require__(303);
-var HSProgramSuccessChanceKey = function (props) {
+const React = __webpack_require__(1);
+__webpack_require__(301);
+const HSProgramSuccessChanceKey = (props) => {
     return (React.createElement("div", { className: "hs-program-success-chance-key" },
         React.createElement("div", { className: "hs-program-success-chance-example" },
             "You will almost certainly be accepted.",
@@ -57337,13 +57191,13 @@ exports.default = HSProgramSuccessChanceKey;
 
 
 /***/ }),
-/* 303 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(304);
+var content = __webpack_require__(302);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -57368,7 +57222,7 @@ if(false) {
 }
 
 /***/ }),
-/* 304 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -57382,22 +57236,22 @@ exports.push([module.i, ".hs-program-success-chance-key {\n  width: 100%;\n  hei
 
 
 /***/ }),
-/* 305 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_redux_1 = __webpack_require__(12);
-var reselect_1 = __webpack_require__(68);
-var hs_program_list_1 = __webpack_require__(306);
-var actions_1 = __webpack_require__(17);
-var getPrograms = function (state) { return state.getIn(['hsData', 'programs']); };
-var getProgramIndex = function (state) { return state.getIn(['hsData', 'index']); };
-var getHSProgramIDsByType = function (state) { return state.getIn(['hsData', 'hsProgramIDsByType']); };
-var getOutcomes = function (state) { return state.getIn(['hsData', 'outcomes']); };
-var toHSPrograms = function (cpsPrograms, outcomes) {
-    return cpsPrograms.map(function (cpsProgram) {
+const react_redux_1 = __webpack_require__(14);
+const reselect_1 = __webpack_require__(67);
+const hs_program_list_1 = __webpack_require__(304);
+const actions_1 = __webpack_require__(18);
+const getPrograms = (state) => state.getIn(['hsData', 'programs']);
+const getProgramIndex = (state) => state.getIn(['hsData', 'index']);
+const getHSProgramIDsByType = (state) => state.getIn(['hsData', 'hsProgramIDsByType']);
+const getOutcomes = (state) => state.getIn(['hsData', 'outcomes']);
+const toHSPrograms = (cpsPrograms, outcomes) => {
+    return cpsPrograms.map(cpsProgram => {
         return {
             id: cpsProgram.ID,
             longname: cpsProgram.Long_Name,
@@ -57413,98 +57267,87 @@ var toHSPrograms = function (cpsPrograms, outcomes) {
         };
     });
 };
-var selectPrograms = function (ids, allPrograms, index) {
-    var selectedPrograms = [];
-    ids.forEach(function (id) {
-        var i = index.get(id);
-        var program = allPrograms.get(i);
+const selectPrograms = (ids, allPrograms, index) => {
+    let selectedPrograms = [];
+    ids.forEach(id => {
+        const i = index.get(id);
+        const program = allPrograms.get(i);
         selectedPrograms.push(program);
     });
     return selectedPrograms;
 };
-var selectHSProgramsByType = reselect_1.createSelector([getHSProgramIDsByType, getPrograms, getProgramIndex, getOutcomes], function (idsByType, allPrograms, index, outcomes) {
-    var hsProgramsByType = {};
-    idsByType.forEach(function (ids, programType) {
-        var cpsPrograms = selectPrograms(ids, allPrograms, index);
-        var hsPrograms = toHSPrograms(cpsPrograms, outcomes);
+const selectHSProgramsByType = reselect_1.createSelector([getHSProgramIDsByType, getPrograms, getProgramIndex, getOutcomes], (idsByType, allPrograms, index, outcomes) => {
+    let hsProgramsByType = {};
+    idsByType.forEach((ids, programType) => {
+        const cpsPrograms = selectPrograms(ids, allPrograms, index);
+        const hsPrograms = toHSPrograms(cpsPrograms, outcomes);
         hsProgramsByType[programType] = hsPrograms;
     });
     return hsProgramsByType;
 });
-var mapStateToProps = function (state) {
+const mapStateToProps = (state) => {
     return {
         hsProgramsByType: selectHSProgramsByType(state),
         selectedProgramID: state.get('selectedHSProgramID')
     };
 };
-var mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
-        onSelectedProgramIDChange: function (newID) { return dispatch(actions_1.selectHSProgram(newID)); }
+        onSelectedProgramIDChange: (newID) => dispatch(actions_1.selectHSProgram(newID))
     };
 };
-var HSProgramsContainer = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(hs_program_list_1.default);
+const HSProgramsContainer = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(hs_program_list_1.default);
 exports.default = HSProgramsContainer;
 
 
 /***/ }),
-/* 306 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var hs_group_1 = __webpack_require__(307);
-var HSProgramList = function (props) {
+const React = __webpack_require__(1);
+const hs_group_1 = __webpack_require__(305);
+const HSProgramList = (props) => {
     return (React.createElement("div", { style: {
             width: "100%",
             height: "100%",
             overflowY: "auto",
             overflowX: "hidden",
             position: "relative"
-        } }, Object.keys(props.hsProgramsByType).sort().map(function (programType) {
-        var programs = props.hsProgramsByType[programType];
-        return (React.createElement(hs_group_1.default, { key: programType, title: programType, programs: programs, selectedProgramID: props.selectedProgramID, onSelectedProgramIDChange: function (id) { return props.onSelectedProgramIDChange(id); } }));
+        } }, Object.keys(props.hsProgramsByType).sort().map(programType => {
+        const programs = props.hsProgramsByType[programType];
+        return (React.createElement(hs_group_1.default, { key: programType, title: programType, programs: programs, selectedProgramID: props.selectedProgramID, onSelectedProgramIDChange: id => props.onSelectedProgramIDChange(id) }));
     })));
 };
 exports.default = HSProgramList;
 
 
 /***/ }),
-/* 307 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var get_combined_success_chance_1 = __webpack_require__(308);
-var success_chance_1 = __webpack_require__(23);
-var outcome_certain_1 = __webpack_require__(309);
-var outcome_likely_1 = __webpack_require__(310);
-var outcome_uncertain_1 = __webpack_require__(311);
-var outcome_unlikely_1 = __webpack_require__(312);
-var outcome_none_1 = __webpack_require__(313);
-var outcome_notimplemented_1 = __webpack_require__(314);
-var constants_1 = __webpack_require__(9);
-var hs_program_element_1 = __webpack_require__(315);
-__webpack_require__(322);
-var HSGroup = (function (_super) {
-    __extends(HSGroup, _super);
-    function HSGroup(props) {
-        var _this = _super.call(this, props) || this;
-        _this.getProgramCounts = function (programs) {
-            var counts = {
+const React = __webpack_require__(1);
+const get_combined_success_chance_1 = __webpack_require__(306);
+const success_chance_1 = __webpack_require__(23);
+const outcome_certain_1 = __webpack_require__(307);
+const outcome_likely_1 = __webpack_require__(308);
+const outcome_uncertain_1 = __webpack_require__(309);
+const outcome_unlikely_1 = __webpack_require__(310);
+const outcome_none_1 = __webpack_require__(311);
+const outcome_notimplemented_1 = __webpack_require__(312);
+const constants_1 = __webpack_require__(11);
+const hs_program_element_1 = __webpack_require__(313);
+__webpack_require__(320);
+class HSGroup extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.getProgramCounts = (programs) => {
+            let counts = {
                 all: 0,
                 certain: 0,
                 likely: 0,
@@ -57513,9 +57356,9 @@ var HSGroup = (function (_super) {
                 none: 0,
                 notImplemented: 0
             };
-            programs.forEach(function (program) {
+            programs.forEach(program => {
                 counts.all += 1;
-                var outcome = get_combined_success_chance_1.default(program.applicationOutcome, program.selectionOutcome);
+                const outcome = get_combined_success_chance_1.default(program.applicationOutcome, program.selectionOutcome);
                 switch (outcome) {
                     case success_chance_1.default.CERTAIN:
                         counts.certain += 1;
@@ -57542,26 +57385,24 @@ var HSGroup = (function (_super) {
             });
             return counts;
         };
-        _this.sortByOutcome = function (a, b) {
-            var aOutcome = get_combined_success_chance_1.default(a.applicationOutcome, a.selectionOutcome);
-            var bOutcome = get_combined_success_chance_1.default(b.applicationOutcome, b.selectionOutcome);
+        this.sortByOutcome = (a, b) => {
+            const aOutcome = get_combined_success_chance_1.default(a.applicationOutcome, a.selectionOutcome);
+            const bOutcome = get_combined_success_chance_1.default(b.applicationOutcome, b.selectionOutcome);
             return bOutcome - aOutcome;
         };
-        _this.state = {
+        this.state = {
             collapsed: false,
-            programCounts: _this.getProgramCounts(props.programs)
+            programCounts: this.getProgramCounts(props.programs)
         };
-        return _this;
     }
-    HSGroup.prototype.componentWillReceiveProps = function (nextProps) {
+    componentWillReceiveProps(nextProps) {
         this.setState({
             programCounts: this.getProgramCounts(nextProps.programs)
         });
-    };
-    HSGroup.prototype.render = function () {
-        var _this = this;
-        var ICONSIZE = "18px";
-        return (React.createElement("div", { className: "hs-category-container " + (this.state.collapsed ? "collapsed" : "") },
+    }
+    render() {
+        const ICONSIZE = "18px";
+        return (React.createElement("div", { className: `hs-category-container ${this.state.collapsed ? "collapsed" : ""}` },
             React.createElement("div", { className: "hs-category-header" },
                 React.createElement("div", { className: "hs-category-info-container" },
                     React.createElement("div", { className: "hs-category-title" }, this.props.title),
@@ -57573,45 +57414,44 @@ var HSGroup = (function (_super) {
                                 "program",
                                 this.state.programCounts.all !== 1 && "s")),
                         React.createElement("div", { className: "outcome-counts-wrapper" },
-                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.certain > 0 ? "count-certain" : "count-empty") },
+                            React.createElement("div", { className: `outcome-count ${this.state.programCounts.certain > 0 ? "count-certain" : "count-empty"}` },
                                 React.createElement(outcome_certain_1.default, { color: constants_1.OutcomeCertainColor, width: ICONSIZE, height: ICONSIZE }),
                                 this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"),
-                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.likely > 0 ? "count-likely" : "count-empty") },
+                            React.createElement("div", { className: `outcome-count ${this.state.programCounts.likely > 0 ? "count-likely" : "count-empty"}` },
                                 React.createElement(outcome_likely_1.default, { color: constants_1.OutcomeLikelyColor, width: ICONSIZE, height: ICONSIZE }),
                                 this.state.programCounts.likely > 0 ? this.state.programCounts.likely : "·"),
-                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.uncertain > 0 ? "count-uncertain" : "count-empty") },
+                            React.createElement("div", { className: `outcome-count ${this.state.programCounts.uncertain > 0 ? "count-uncertain" : "count-empty"}` },
                                 React.createElement(outcome_uncertain_1.default, { color: constants_1.OutcomeUncertainColor, width: ICONSIZE, height: ICONSIZE }),
                                 this.state.programCounts.uncertain > 0 ? this.state.programCounts.uncertain : "·"),
-                            React.createElement("div", { className: "outcome-count  " + (this.state.programCounts.unlikely > 0 ? "count-unlikely" : "count-empty") },
+                            React.createElement("div", { className: `outcome-count  ${this.state.programCounts.unlikely > 0 ? "count-unlikely" : "count-empty"}` },
                                 React.createElement(outcome_unlikely_1.default, { color: constants_1.OutcomeUnlikelyColor, width: ICONSIZE, height: ICONSIZE }),
                                 this.state.programCounts.unlikely > 0 ? this.state.programCounts.unlikely : "·"),
-                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.none > 0 ? "count-none" : "count-empty") },
+                            React.createElement("div", { className: `outcome-count ${this.state.programCounts.none > 0 ? "count-none" : "count-empty"}` },
                                 React.createElement(outcome_none_1.default, { color: constants_1.OutcomeNoneColor, width: ICONSIZE, height: ICONSIZE }),
                                 this.state.programCounts.none > 0 ? this.state.programCounts.none : "·"),
-                            React.createElement("div", { className: "outcome-count " + (this.state.programCounts.notImplemented > 0 ? "count-notimplemented" : "count-empty") },
+                            React.createElement("div", { className: `outcome-count ${this.state.programCounts.notImplemented > 0 ? "count-notimplemented" : "count-empty"}` },
                                 React.createElement(outcome_notimplemented_1.default, { color: constants_1.OutcomeNotImplementedColor, width: ICONSIZE, height: ICONSIZE }),
                                 this.state.programCounts.notImplemented > 0 ? this.state.programCounts.notImplemented : "·")))),
-                React.createElement("button", { className: "hs-category-collapse-button " + (this.state.collapsed ? "collapsed" : ""), onClick: function (ev) { return _this.setState({ collapsed: !_this.state.collapsed }); } },
+                React.createElement("button", { className: `hs-category-collapse-button ${this.state.collapsed ? "collapsed" : ""}`, onClick: ev => this.setState({ collapsed: !this.state.collapsed }) },
                     React.createElement("div", { className: "hs-category-collapse-button-icon" }, "<"))),
-            React.createElement("div", { className: "hs-list" }, this.props.programs.sort(this.sortByOutcome).map(function (hs) {
-                return (React.createElement(hs_program_element_1.default, { key: hs.id, program: hs, selected: hs.id === _this.props.selectedProgramID, onSelect: function (newID) { return _this.props.onSelectedProgramIDChange(newID); } }));
+            React.createElement("div", { className: "hs-list" }, this.props.programs.sort(this.sortByOutcome).map((hs) => {
+                return (React.createElement(hs_program_element_1.default, { key: hs.id, program: hs, selected: hs.id === this.props.selectedProgramID, onSelect: newID => this.props.onSelectedProgramIDChange(newID) }));
             }))));
-    };
-    return HSGroup;
-}(React.PureComponent));
+    }
+}
 ;
 exports.default = HSGroup;
 
 
 /***/ }),
-/* 308 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var success_chance_1 = __webpack_require__(23);
-var getCombinedSuccessChance = function (application, selection) {
+const success_chance_1 = __webpack_require__(23);
+const getCombinedSuccessChance = (application, selection) => {
     if (application === success_chance_1.default.CERTAIN || application === success_chance_1.default.LIKELY) {
         return selection;
     }
@@ -57623,19 +57463,50 @@ exports.default = getCombinedSuccessChance;
 
 
 /***/ }),
+/* 307 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const OutcomeCertainIcon = (props) => {
+    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
+        React.createElement("path", { d: "M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" })));
+};
+exports.default = OutcomeCertainIcon;
+
+
+/***/ }),
+/* 308 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const OutcomeLikelyIcon = (props) => {
+    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
+        React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
+};
+exports.default = OutcomeLikelyIcon;
+
+
+/***/ }),
 /* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var OutcomeCertainIcon = function (props) {
-    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
-        React.createElement("path", { d: "M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" })));
+const React = __webpack_require__(1);
+const OutcomeUncertainIcon = (props) => {
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: props.width, height: props.height, fill: props.color, viewBox: "-0.5 -0.303 427 427" },
+        React.createElement("path", { d: "M 129.9,189.5 C 103.9,189.5 88.7,205.42 63.5,238.06 L 33.1,217.1 C 47.9,195.5 57.9,182.62 75.5,169.18 C 91.427778,157.15296 111.9,145.02 135.101,145.02 C 172.276,145.02 192.278,161.973 223.101,185.82 C 253.501,209.34 274.702,219.421 293.901,219.421 C 302.301,219.421 317.28256,215.01581 327.102,207.101 C 340.22141,197.96521 349.502,185.981 363.502,163.42 L 394.302,187.26 C 377.902,212.22 367.102,224.3 353.902,235.82 C 333.502,254.06 314.702,264.381 288.702,264.381 C 218.652,264.38 187.714,189.5 129.9,189.5 z " })));
 };
-exports.default = OutcomeCertainIcon;
+exports.default = OutcomeUncertainIcon;
 
 
 /***/ }),
@@ -57645,13 +57516,12 @@ exports.default = OutcomeCertainIcon;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var OutcomeLikelyIcon = function (props) {
-    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
-        React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
+const React = __webpack_require__(1);
+const OutcomeUnlikelyIcon = (props) => {
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: props.color, width: props.width, height: props.height, viewBox: "0 0 750 750" },
+        React.createElement("rect", { y: "350", x: "125", height: "75", width: "500" })));
 };
-exports.default = OutcomeLikelyIcon;
+exports.default = OutcomeUnlikelyIcon;
 
 
 /***/ }),
@@ -57661,12 +57531,13 @@ exports.default = OutcomeLikelyIcon;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var OutcomeUncertainIcon = function (props) {
-    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: props.width, height: props.height, fill: props.color, viewBox: "-0.5 -0.303 427 427" },
-        React.createElement("path", { d: "M 129.9,189.5 C 103.9,189.5 88.7,205.42 63.5,238.06 L 33.1,217.1 C 47.9,195.5 57.9,182.62 75.5,169.18 C 91.427778,157.15296 111.9,145.02 135.101,145.02 C 172.276,145.02 192.278,161.973 223.101,185.82 C 253.501,209.34 274.702,219.421 293.901,219.421 C 302.301,219.421 317.28256,215.01581 327.102,207.101 C 340.22141,197.96521 349.502,185.981 363.502,163.42 L 394.302,187.26 C 377.902,212.22 367.102,224.3 353.902,235.82 C 333.502,254.06 314.702,264.381 288.702,264.381 C 218.652,264.38 187.714,189.5 129.9,189.5 z " })));
+const React = __webpack_require__(1);
+const OutcomeNoneIcon = (props) => {
+    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" }),
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" })));
 };
-exports.default = OutcomeUncertainIcon;
+exports.default = OutcomeNoneIcon;
 
 
 /***/ }),
@@ -57676,12 +57547,13 @@ exports.default = OutcomeUncertainIcon;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var OutcomeUnlikelyIcon = function (props) {
-    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: props.color, width: props.width, height: props.height, viewBox: "0 0 750 750" },
-        React.createElement("rect", { y: "350", x: "125", height: "75", width: "500" })));
+const React = __webpack_require__(1);
+const OutcomeNotImplementedIcon = (props) => {
+    return (React.createElement("svg", { fill: props.color, width: props.width, height: props.height, viewBox: "0 0 40 40", xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("g", { transform: "translate(-8)" },
+            React.createElement("path", { d: "M29.898 26.5722l-4.3921 0c-0.0118,-0.635 -0.0177,-1.0172 -0.0177,-1.1583 0,-1.4229 0.2352,-2.5929 0.7056,-3.5102 0.4704,-0.9231 1.417,-1.952 2.8281,-3.1044 1.4111,-1.1465 2.2578,-1.8991 2.5282,-2.2578 0.4292,-0.5585 0.6409,-1.1818 0.6409,-1.8579 0,-0.9408 -0.3763,-1.7463 -1.1289,-2.4224 -0.7526,-0.6703 -1.7639,-1.0054 -3.0397,-1.0054 -1.2289,0 -2.2578,0.3527 -3.0868,1.0524 -0.8232,0.6997 -1.3935,1.7698 -1.7051,3.2044l-4.4391 -0.5527c0.1234,-2.0578 0.9995,-3.8041 2.6223,-5.2387 1.6286,-1.4346 3.757,-2.152 6.4029,-2.152 2.7752,0 4.9859,0.7291 6.6322,2.1814 1.6404,1.4522 2.4635,3.1397 2.4635,5.0741 0,1.0642 -0.3057,2.0755 -0.9054,3.028 -0.6056,0.9525 -1.8933,2.2519 -3.8688,3.8923 -1.0231,0.8525 -1.6581,1.5346 -1.905,2.052 -0.2469,0.5174 -0.3587,1.4405 -0.3351,2.7752zm-4.3921 6.5087l0 -4.8389 4.8389 0 0 4.8389 -4.8389 0z" }))));
 };
-exports.default = OutcomeUnlikelyIcon;
+exports.default = OutcomeNotImplementedIcon;
 
 
 /***/ }),
@@ -57691,58 +57563,15 @@ exports.default = OutcomeUnlikelyIcon;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var OutcomeNoneIcon = function (props) {
-    return (React.createElement("svg", { fill: props.color, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" }),
-        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" })));
-};
-exports.default = OutcomeNoneIcon;
-
-
-/***/ }),
-/* 314 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var OutcomeNotImplementedIcon = function (props) {
-    return (React.createElement("svg", { fill: props.color, width: props.width, height: props.height, viewBox: "0 0 40 40", xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("g", { transform: "translate(-8)" },
-            React.createElement("path", { d: "M29.898 26.5722l-4.3921 0c-0.0118,-0.635 -0.0177,-1.0172 -0.0177,-1.1583 0,-1.4229 0.2352,-2.5929 0.7056,-3.5102 0.4704,-0.9231 1.417,-1.952 2.8281,-3.1044 1.4111,-1.1465 2.2578,-1.8991 2.5282,-2.2578 0.4292,-0.5585 0.6409,-1.1818 0.6409,-1.8579 0,-0.9408 -0.3763,-1.7463 -1.1289,-2.4224 -0.7526,-0.6703 -1.7639,-1.0054 -3.0397,-1.0054 -1.2289,0 -2.2578,0.3527 -3.0868,1.0524 -0.8232,0.6997 -1.3935,1.7698 -1.7051,3.2044l-4.4391 -0.5527c0.1234,-2.0578 0.9995,-3.8041 2.6223,-5.2387 1.6286,-1.4346 3.757,-2.152 6.4029,-2.152 2.7752,0 4.9859,0.7291 6.6322,2.1814 1.6404,1.4522 2.4635,3.1397 2.4635,5.0741 0,1.0642 -0.3057,2.0755 -0.9054,3.028 -0.6056,0.9525 -1.8933,2.2519 -3.8688,3.8923 -1.0231,0.8525 -1.6581,1.5346 -1.905,2.052 -0.2469,0.5174 -0.3587,1.4405 -0.3351,2.7752zm-4.3921 6.5087l0 -4.8389 4.8389 0 0 4.8389 -4.8389 0z" }))));
-};
-exports.default = OutcomeNotImplementedIcon;
-
-
-/***/ }),
-/* 315 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var success_chance_1 = __webpack_require__(23);
-var school_1 = __webpack_require__(316);
-var hs_program_info_card_1 = __webpack_require__(317);
-__webpack_require__(320);
-var HSProgramElement = (function (_super) {
-    __extends(HSProgramElement, _super);
-    function HSProgramElement(props) {
-        var _this = _super.call(this, props) || this;
-        _this.getCombinedSuccessChance = function (program) {
+const React = __webpack_require__(1);
+const success_chance_1 = __webpack_require__(23);
+const school_1 = __webpack_require__(314);
+const hs_program_info_card_1 = __webpack_require__(315);
+__webpack_require__(318);
+class HSProgramElement extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.getCombinedSuccessChance = (program) => {
             if (program.applicationOutcome === success_chance_1.default.CERTAIN ||
                 program.applicationOutcome === success_chance_1.default.LIKELY) {
                 return program.selectionOutcome;
@@ -57751,7 +57580,7 @@ var HSProgramElement = (function (_super) {
                 return program.applicationOutcome;
             }
         };
-        _this.outcomeToClassName = function (outcome) {
+        this.outcomeToClassName = (outcome) => {
             switch (outcome) {
                 case success_chance_1.default.CERTAIN:
                     return "succ-certain";
@@ -57769,49 +57598,46 @@ var HSProgramElement = (function (_super) {
                     return "succ-not-implemented";
             }
         };
-        _this.state = {
-            combinedSuccessChance: _this.getCombinedSuccessChance(props.program),
+        this.state = {
+            combinedSuccessChance: this.getCombinedSuccessChance(props.program),
             showHSPreview: props.selected,
             pxFromTop: 0
         };
-        return _this;
     }
-    HSProgramElement.prototype.componentWillReceiveProps = function (nextProps) {
+    componentWillReceiveProps(nextProps) {
         this.setState({
             showHSPreview: nextProps.selected,
             combinedSuccessChance: this.getCombinedSuccessChance(nextProps.program)
         });
-    };
-    HSProgramElement.prototype.render = function () {
-        var _this = this;
-        var IconClassName = "hs-list-element-icon " + this.outcomeToClassName(this.state.combinedSuccessChance);
+    }
+    render() {
+        const IconClassName = `hs-list-element-icon ${this.outcomeToClassName(this.state.combinedSuccessChance)}`;
         return (React.createElement("div", null,
-            React.createElement("button", { className: "hs-list-element" + " " + (this.props.selected ? "selected" : ""), ref: function (ref) {
+            React.createElement("button", { className: "hs-list-element" + " " + (this.props.selected ? "selected" : ""), ref: ref => {
                     if (ref) {
-                        _this.setState({ pxFromTop: ref.offsetTop + 60 });
+                        this.setState({ pxFromTop: ref.offsetTop + 60 });
                     }
-                }, onClick: function (ev) {
-                    _this.props.onSelect(_this.props.program.id);
+                }, onClick: (ev) => {
+                    this.props.onSelect(this.props.program.id);
                 } },
                 React.createElement("div", { className: IconClassName }, this.state.combinedSuccessChance !== success_chance_1.default.NOTIMPLEMENTED &&
                     React.createElement(school_1.default, { width: "45px", height: "45px", color: "#000" })),
                 React.createElement("div", { className: "hs-list-element-shortname" }, this.props.program.shortname)),
-            React.createElement(hs_program_info_card_1.default, { visible: this.state.showHSPreview, program: this.props.program, style: { top: this.state.pxFromTop }, onCloseButtonClick: function (ev) { return _this.props.onSelect(null); } })));
-    };
-    return HSProgramElement;
-}(React.PureComponent));
+            React.createElement(hs_program_info_card_1.default, { visible: this.state.showHSPreview, program: this.props.program, style: { top: this.state.pxFromTop }, onCloseButtonClick: ev => this.props.onSelect(null) })));
+    }
+}
 exports.default = HSProgramElement;
 
 
 /***/ }),
-/* 316 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var SchoolIcon = function (props) {
+const React = __webpack_require__(1);
+const SchoolIcon = (props) => {
     return (React.createElement("svg", { width: props.width, height: props.height, fill: props.color, xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 470 470" },
         React.createElement("path", { d: "M462.5,240H360v-53.5c0-0.277-0.017-0.55-0.047-0.819c-0.007-0.067-0.021-0.132-0.03-0.198 c-0.028-0.204-0.06-0.407-0.104-0.606c-0.017-0.075-0.038-0.148-0.057-0.222c-0.048-0.188-0.1-0.374-0.162-0.557 c-0.026-0.077-0.055-0.152-0.083-0.227c-0.066-0.176-0.137-0.348-0.215-0.517c-0.036-0.077-0.072-0.153-0.11-0.228 c-0.083-0.164-0.172-0.323-0.266-0.48c-0.044-0.073-0.087-0.147-0.133-0.219c-0.104-0.16-0.215-0.313-0.33-0.464 c-0.046-0.061-0.089-0.124-0.137-0.183c-0.166-0.205-0.341-0.402-0.527-0.588c-0.018-0.018-0.039-0.034-0.058-0.052 c-0.171-0.168-0.35-0.327-0.537-0.477c-0.017-0.014-0.031-0.03-0.049-0.043L242.5,89.871V15H308v28h-43c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5h50.5c4.142,0,7.5-3.358,7.5-7.5v-43c0-4.142-3.358-7.5-7.5-7.5H235c-4.142,0-7.5,3.358-7.5,7.5v82.371 l-114.655,90.748c-0.017,0.013-0.032,0.029-0.049,0.043c-0.187,0.151-0.366,0.31-0.537,0.477c-0.018,0.018-0.039,0.034-0.058,0.052 c-0.186,0.186-0.361,0.383-0.527,0.588c-0.048,0.059-0.091,0.122-0.137,0.183c-0.115,0.151-0.226,0.304-0.33,0.464 c-0.047,0.072-0.089,0.146-0.133,0.219c-0.094,0.157-0.183,0.316-0.266,0.48c-0.038,0.076-0.074,0.151-0.11,0.228 c-0.078,0.169-0.15,0.341-0.215,0.517c-0.028,0.076-0.057,0.151-0.083,0.227c-0.062,0.182-0.114,0.368-0.162,0.557 c-0.019,0.074-0.04,0.147-0.057,0.222c-0.044,0.199-0.076,0.401-0.104,0.606c-0.009,0.066-0.023,0.132-0.03,0.198 c-0.029,0.269-0.047,0.542-0.047,0.819V240H7.5c-4.142,0-7.5,3.358-7.5,7.5v215c0,4.142,3.358,7.5,7.5,7.5h455 c4.142,0,7.5-3.358,7.5-7.5v-215C470,243.358,466.642,240,462.5,240z M455,255v25h-95v-25H455z M110,255v25H15v-25H110z M295,331.667V425h-52.5v-93.333H295z M227.5,425H175v-93.333h52.5V425z M175,440h120v15H175V440z M310,455V324.167 c0-4.142-3.358-7.5-7.5-7.5h-135c-4.142,0-7.5,3.358-7.5,7.5V455H15V295h95v137.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V194 h137.5c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H139.061L235,103.065L330.939,179H292.5c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5H345v238.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V295h95v160H310z" }),
         React.createElement("path", { d: "M44.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C51.667,320.025,48.309,316.667,44.167,316.667z" }),
@@ -57824,18 +57650,18 @@ exports.default = SchoolIcon;
 
 
 /***/ }),
-/* 317 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __webpack_require__(1);
-var success_chance_1 = __webpack_require__(23);
-__webpack_require__(318);
-var HSProgramInfoCard = function (props) {
-    var toMessage = function (success) {
-        var msg;
+const React = __webpack_require__(1);
+const success_chance_1 = __webpack_require__(23);
+__webpack_require__(316);
+const HSProgramInfoCard = (props) => {
+    const toMessage = (success) => {
+        let msg;
         switch (success) {
             case success_chance_1.default.CERTAIN:
                 msg = "You meet this requirement.";
@@ -57858,16 +57684,16 @@ var HSProgramInfoCard = function (props) {
         }
         return msg;
     };
-    var createHSBoundLink = function (name) {
-        var words = name.split(" ");
-        var lastWord = words[words.length - 1];
+    const createHSBoundLink = (name) => {
+        let words = name.split(" ");
+        const lastWord = words[words.length - 1];
         if (lastWord === "HS") {
             words.pop();
         }
-        var capitalizedWords = ["TEAM", "UIC", "CCA",];
-        var titleCaseWords = words.map(function (word) {
+        const capitalizedWords = ["TEAM", "UIC", "CCA",];
+        const titleCaseWords = words.map(word => {
             if (capitalizedWords.indexOf(word) === -1) {
-                var letters = word.toLowerCase().split("");
+                const letters = word.toLowerCase().split("");
                 letters[0] = letters[0].toUpperCase();
                 return letters.join("");
             }
@@ -57875,13 +57701,13 @@ var HSProgramInfoCard = function (props) {
                 return word;
             }
         });
-        var schoolName = titleCaseWords.join("-");
-        return "https://hsbound.org/school/" + schoolName;
+        const schoolName = titleCaseWords.join("-");
+        return `https://hsbound.org/school/${schoolName}`;
     };
-    return (React.createElement("div", { style: props.style, className: "hs-info-card-container " + (props.visible ? "visible" : "") },
+    return (React.createElement("div", { style: props.style, className: `hs-info-card-container ${props.visible ? "visible" : ""}` },
         React.createElement("div", { className: "hs-info-card" },
             React.createElement("button", { className: "hs-info-card-close-button", onClick: props.onCloseButtonClick }, "X"),
-            React.createElement("div", { className: "hs-info-card-program-name" }, props.program.shortname + " - " + props.program.programType + " Program"),
+            React.createElement("div", { className: "hs-info-card-program-name" }, `${props.program.shortname} - ${props.program.programType} Program`),
             React.createElement("div", { className: "hs-info-card-requirement-container" },
                 React.createElement("div", { className: "hs-info-card-requirement" },
                     React.createElement("div", { className: "hs-info-card-req-desc-container" },
@@ -57901,13 +57727,13 @@ exports.default = HSProgramInfoCard;
 
 
 /***/ }),
-/* 318 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(319);
+var content = __webpack_require__(317);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -57932,7 +57758,7 @@ if(false) {
 }
 
 /***/ }),
-/* 319 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);
@@ -57941,6 +57767,51 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 // module
 exports.push([module.i, ".hs-info-card-container {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: auto;\n  z-index: 99; }\n\n.hs-info-card-container.visible {\n  display: block; }\n\n.hs-info-card-close-button {\n  font-size: 150%;\n  width: 48px;\n  height: 48px;\n  background-color: #fafafd;\n  border: 2px solid grey;\n  border-radius: 100%;\n  z-index: 2;\n  position: absolute;\n  right: 0;\n  -webkit-transition: -webkit-transform 150ms ease;\n  transition: -webkit-transform 150ms ease;\n  transition: transform 150ms ease;\n  transition: transform 150ms ease, -webkit-transform 150ms ease; }\n\n.hs-info-card-close-button:hover {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2); }\n\n.hs-info-card-close-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9); }\n\n.hs-info-card {\n  padding: 0.5em;\n  width: 100%;\n  height: 100%;\n  background: #fafafd;\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start; }\n\n.hs-info-card-program-name {\n  font-size: 115%;\n  font-weight: bold;\n  width: 100%;\n  text-align: center; }\n\n.hs-info-card-requirement-container {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n\n.hs-info-card-requirement {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row; }\n\n.hs-info-card-req-desc-container {\n  width: 50%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-bottom: 0.5em; }\n\n.hs-info-card-req-type {\n  width: 90px;\n  margin-right: 0.5em; }\n\n.hs-info-card-req-desc {\n  width: 200px;\n  font-size: 80%;\n  padding: 0.5em;\n  background: #e8e8f6;\n  border-radius: 5px;\n  border: 1px solid #eee;\n  margin-right: 0.5em; }\n\n.hs-links-container {\n  width: 100%; }\n\n.hs-link {\n  margin: 1em;\n  padding: 0.5em;\n  color: #fafafd;\n  background-color: #4747b1;\n  border-radius: 7px;\n  -webkit-transition: background-color 200ms ease;\n  transition: background-color 200ms ease; }\n\n.hs-link:hover {\n  color: #fafafd;\n  background-color: #6868c3; }\n\n.hs-link:active {\n  color: #fafafd;\n  background-color: #38388d; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 318 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(319);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(16)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 319 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(15)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".hs-list-element {\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  overflow: hidden; }\n\n.hs-list-element-icon.succ-certain {\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #fff124; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background: none;\n  border: 2px dashed #999; }\n", ""]);
 
 // exports
 
@@ -57966,51 +57837,6 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 321 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(15)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".hs-list-element {\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  overflow: hidden; }\n\n.hs-list-element-icon.succ-certain {\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #fff124; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background: none;\n  border: 2px dashed #999; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 322 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(323);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(16)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
 		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-group.scss", function() {
 			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-group.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
@@ -58022,7 +57848,7 @@ if(false) {
 }
 
 /***/ }),
-/* 323 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(undefined);

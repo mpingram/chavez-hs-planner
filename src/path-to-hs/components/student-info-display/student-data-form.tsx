@@ -3,7 +3,6 @@ import * as React from "react"
 import Form from "shared/components/layout/form";
 import SubForm from "shared/components/layout/sub-form";
 
-import GenderField from "./fields/gender-field";
 import IEPField from "./fields/iep-field";
 import ELLField from "./fields/ell-field";
 import LocationField from "./fields/location-field";
@@ -25,7 +24,6 @@ const StudentDataForm = (props) => {
   return (
     <Form>
       <SubForm label="Your student information">
-        <GenderField/>
         <IEPField/>
         <ELLField/>
         <GradeLevelField/>
