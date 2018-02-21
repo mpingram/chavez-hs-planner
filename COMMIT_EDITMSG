@@ -1,1 +1,8 @@
-Add 'Other' option to CurrESProgram dropdown
+Fix ComboBox dropdown styling
+
+* NOTE ComboBox dropdown element appeared on top of input element
+  -- this was caused by hard-coded offset from top/left of input
+  element, which wasn't updated to keep up with input element. (hiss)
+
+* Wrap ComboBox input in a div, and wrap ComboBox dropdown in another
+  div, so that dropdown always appears directly below ComboBox input

@@ -74,8 +74,7 @@ $colo-valid-fail: red;
   width: 100%; 
   overflow-y: auto; 
   position: absolute; 
-  // todo we need to figure out a better way to position list elem in right place
-  top: 20px; 
+  top: 0px; 
   left: 0;
   z-index: 9;
   list-style: none;

@@ -5,7 +5,6 @@ import ListData from "./list-data";
 import FieldContainer from "./field-container";
 import ListBox from "./list-box";
 
-// TODO remove dependency
 import debounce from "shared/util/debounce";
 
 interface CboProps<T> {
@@ -80,32 +79,36 @@ class ComboBoxField extends React.PureComponent<CboProps<any>, CboState> {
       <div 
         style={{position: "relative"}}
         >
-          <input 
-            className="field-input-element" 
-            style={{width: "100%", height: "20px"}}
-            type="text" 
-            value={this.state.searchString}
-            onChange={ ev => this.setState({searchString: ev.currentTarget.value}) }
-            onFocus={ () => {
-              this.setState({listBoxVisible: true});
-            } } 
-            onBlur={ () => {
-              this.setState({listBoxVisible: false});
-            } }
-          />
-          <ListBox 
-            visible={this.state.listBoxVisible} 
-            data={this.filter(this.props.data, this.state.searchString)} 
-            selected={this.props.value}
-            searchString={this.state.searchString} 
-            onChange={ (record: any) => {
-              this.setState({
-                listBoxVisible: false,
-                searchString: this.props.data.getDisplayText(record)
-              });
-              this.onChange(record)
-            } }
+          <div>
+            <input 
+              className="field-input-element" 
+              style={{width: "100%", height: "20px"}}
+              type="text" 
+              value={this.state.searchString}
+              onChange={ ev => this.setState({searchString: ev.currentTarget.value}) }
+              onFocus={ () => {
+                this.setState({listBoxVisible: true});
+              } } 
+              onBlur={ () => {
+                this.setState({listBoxVisible: false});
+              } }
             />
+          </div>
+          <div style={{position: "relative"}}>
+            <ListBox 
+              visible={this.state.listBoxVisible} 
+              data={this.filter(this.props.data, this.state.searchString)} 
+              selected={this.props.value}
+              searchString={this.state.searchString} 
+              onChange={ (record: any) => {
+                this.setState({
+                  listBoxVisible: false,
+                  searchString: this.props.data.getDisplayText(record)
+                });
+                this.onChange(record)
+              } }
+            />
+          </div>
         </div>
       </FieldContainer>
     );
