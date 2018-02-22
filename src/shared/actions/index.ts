@@ -146,6 +146,7 @@ export const updateStudentScore = (scoreType: ScoreType, newValue: number) => {
       break;
     case ScoreType.seTestPercentile:
       actionType = ActionType.UpdateStudentSETestPercentile;
+      break;
     default:
       throw new Error(`Unrecognized ScoreType: ${scoreType}`);
   }

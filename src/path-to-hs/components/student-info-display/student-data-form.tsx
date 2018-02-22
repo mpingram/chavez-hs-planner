@@ -17,6 +17,7 @@ import SubjGradeMathField from "./fields/subj-grade-math-field";
 import SubjGradeReadField from "./fields/subj-grade-read-field";
 import SubjGradeSciField from "./fields/subj-grade-sci-field";
 import SubjGradeSocStudiesField from "./fields/subj-grade-soc-studies-field";
+import SETestScoreField from "./fields/se-test-score-field";
 
 
 const StudentDataForm = (props) => {
@@ -39,6 +40,7 @@ const StudentDataForm = (props) => {
         <SubjGradeReadField/>
         <SubjGradeSciField/>
         <SubjGradeSocStudiesField/>
+        <SETestScoreField/>
       </SubForm>
     </Form>
   );
