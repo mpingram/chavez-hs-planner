@@ -30371,7 +30371,6 @@ const rootReducer = (state = initial_state_1.default, action) => {
             nextState = state;
     }
     const updatedState = updateDependentProperties(nextState);
-    console.log(updatedState.toJS());
     return updatedState;
 };
 exports.default = rootReducer;

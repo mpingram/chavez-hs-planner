@@ -139,7 +139,7 @@ const rootReducer = (state: AppState = initialState, action: Redux.AnyAction): A
   }
 
   const updatedState = updateDependentProperties(nextState);
-  console.log(updatedState.toJS());
+  //console.log(updatedState.toJS());
   return updatedState;
   
 };
