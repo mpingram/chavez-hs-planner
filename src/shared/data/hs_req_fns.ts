@@ -4,6 +4,9 @@ import HSRequirementFunction from "shared/types/hs-requirement-function";
 import SuccessChance from "shared/enums/success-chance.ts";
 import CPSProgram from "shared/types/cps-program";
 import {calculateSEPoints, calculateIBPoints} from "shared/util/hs-calc-utils";
+import pointInPolygon from "shared/util/point-in-polygon";
+import getSchoolAttendBound from "shared/util/get-school-attend-bound";
+
 
 interface SECutoff {
   avg: number
@@ -215,38 +218,16 @@ const norm = (value: number, max: number, min: number) => {
   return ((value - min) / (max - min)) * 100;
 };
 
-const inAttendanceBound = (student: StudentData, school: CPSProgram): boolean => {
-  // TODO: this is a little bit of a stopgap considering that it accepts all students
-  // within a certain radius of the school. Need to consider a better alternative -- one
-  // that also doesn't introduce performance problems? Hard problemo my friendo.
-  const ATTEND_RADIUS_MI = 2.5 // approximate distance from school that attend bound covers, in miles
-
-  const tryParseFloat = (str: string): number => {
-    const num = parseFloat(str);
-    if (isNaN(num)){
-      throw new Error(`inAttendanceBound: Cannot parse '${str}' as float`);
-    }
-    return num;
-  };
-
-  const studentLat = student.location.geo.latitude;
-  const studentLong = student.location.geo.longitude;
-  const schoolLat = tryParseFloat(school.School_Latitude);
-  const schoolLong = tryParseFloat(school.School_Longitude);
-
-  // calculate approximate distance between student latlong and school latlong
-  const studentLatRad = Math.PI * studentLat / 180;
-  const schoolLatRad = Math.PI * schoolLat / 180;
-  const theta = studentLong - schoolLong;
-  const thetaRad = Math.PI * theta / 180;
-  let dist = Math.sin(studentLatRad) * Math.sin(schoolLatRad) * Math.cos(studentLatRad) * Math.cos(schoolLatRad) * Math.cos(thetaRad);
-  dist = Math.acos(dist);
-  dist = dist * 180 / Math.PI;
-  // convert to miles
-  dist = dist * 60 * 1.1515;
-
-  const isInBound = dist < ATTEND_RADIUS_MI;
-  return isInBound; 
+const inAttendanceBound = (student: StudentData, program: CPSProgram): boolean => {
+  const point: [number, number] = [student.location.geo.longitude, student.location.geo.latitude];
+  const polygon = getSchoolAttendBound(program.School_ID);
+  if (polygon === undefined) {
+    console.error(`No polygon found for program ${program.Short_Name + " - " + program.Program_Type}, school id ${program.School_ID}`);
+    return false;
+  } else {
+    console.log(`polygon found for ${program.Short_Name}`);
+    return pointInPolygon(point, polygon);
+  }
 };
 
 const hasSiblingInProgram = (student: StudentData, program: CPSProgram) => {
@@ -3220,6 +3201,8 @@ const HSReqFns: ReqFnTable = {
         ],
         "fn": (student, school) => {
           // TODO add prev school to studentData
+          console.log(student.location);
+          console.log(inAttendanceBound(student, school));
           if (inAttendanceBound(student, school)) {
             return {outcome: SuccessChance.CERTAIN};
           } else {
