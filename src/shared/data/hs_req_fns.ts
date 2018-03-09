@@ -27,7 +27,16 @@ import {
   conditional,
   ibPointSystem,
   sePointSystem,
-} from "./req-fn-factories";
+} from "./req-fn-builders";
+
+import {
+  everyone,
+  ifSiblingAttends, 
+  ifStudentAttends, 
+  ifHasGrades,
+  ifInAttendBound,
+  combine,
+} from "./req-fn-builders/req-fn-filters";
 
 interface SECutoff {
   avg: number
