@@ -2,29 +2,50 @@ import HSRequirementFunction from "shared/types/hs-requirement-function";
 import SuccessChance from "shared/enums/success-chance";
 import HSReqFilter from "./hs-req-filter";
 
-export const all: HSReqFilter = (student, program) => true;
-export const none: HSReqFilter = (student, program) => false;
-export const siblingAttends: HSReqFilter = (student, program) => {
+const PROXIMITY_RADIUS_MI = 0.5; // distance that student must live from school to be in proximity lottery
+
+export const accept = (filter: HSReqFilter): HSRequirementFunction => {
+  return (student, program) => {
+    if (filter(student, program)) {
+      return {outcome: SuccessChance.CERTAIN};
+    } else {
+      return {outcome: SuccessChance.NONE};
+    }
+  }
+}
+export const everyone: HSReqFilter = (student, program) => true;
+
+export const combine = (...filters: HSReqFilter[]): HSReqFilter => {
+  return (student, program) => {
+    return filters.every( filter => filter(student, program) );
+  }
+};
+
+export const ifSiblingAttends: HSReqFilter = (student, program) => {
   // TODO replace hsprogramIds with hsschoolIds
   const siblingSchools = student.siblingHSProgramIDs;
   const thisSchool = program.School_ID;
   return siblingSchools.some( school => school === thisSchool );
 };
-export const studentAttends = (...programIDs): HSReqFilter => {
+export const ifStudentAttends = (...programIDs): HSReqFilter => {
   return (student, program) => {
     return programIDs.some( programID => programID === student.currESProgramID );
   }
 };
+export const ifInAttendBound: HSReqFilter = (student, program) => {
+  // TODO implement / copy
+  return true;
+};
 
 interface StudentGrades {
-  nweaMath: number
-  nweaRead: number
-  nweaBoth: number
-  nweaCombined: number
-  gpa: number
-  attendance: number
+  nweaMath?: number
+  nweaRead?: number
+  nweaBoth?: number
+  nweaCombined?: number
+  gpa?: number
+  attendance?: number
 }
-export const hasGrades = (studentGrades: StudentGrades): HSReqFilter => {
+export const ifHasGrades = (studentGrades: StudentGrades): HSReqFilter => {
   // check to make sure we didn't get a combination of
   // 'bothNWEA', 'nweaMath' or 'nweaRead', 'combinedNWEA'
   return (student, program) => {
@@ -34,7 +55,14 @@ export const hasGrades = (studentGrades: StudentGrades): HSReqFilter => {
   }
 };
 
-enum LotteryStageSize {
+// TODO implement
+const getDistanceBetween = (student, program): number => 0;
+
+export const ifInProximityOfSchool: HSReqFilter = (student, program) => {
+  return getDistanceBetween(student, program) <= PROXIMITY_RADIUS_MI;
+};
+
+export enum LotteryStageSize {
   SMALL,
   LARGE
 }
@@ -44,13 +72,19 @@ interface LotteryStage {
   size: LotteryStageSize
 }
 
+export const PROXIMITY_LOTTERY_STAGE = {
+  // TODO confirm that this is how this works
+  filter: ifInProximityOfSchool,
+  size: LotteryStageSize.LARGE
+};
+
 export const SIBLING_LOTTERY_STAGE = {
-  filter: siblingAttends,
+  filter: ifSiblingAttends,
   size: LotteryStageSize.SMALL
 };
 
 export const GENERAL_LOTTERY_STAGE = {
-  filter: all,
+  filter: everyone,
   size: LotteryStageSize.LARGE
 };
 

@@ -5,6 +5,30 @@ import SuccessChance from "shared/enums/success-chance.ts";
 import CPSProgram from "shared/types/cps-program";
 import {calculateSEPoints, calculateIBPoints} from "shared/util/hs-calc-utils";
 
+const FOUNDATIONS_COLLEGE_PREP = "FIXME"; // TODO replace with something that works
+const CHICAGO_VIRTUAL_ES = "FIXME";
+const AUSL_SCHOOLS_ES = "FIXME";
+
+import {
+  everyone,
+  ifSiblingAttends, 
+  ifStudentAttends, 
+  ifHasGrades,
+  ifInAttendBound,
+
+  combine,
+
+  accept, 
+  lottery,
+  SIBLING_LOTTERY_STAGE,
+  PROXIMITY_LOTTERY_STAGE,
+  GENERAL_LOTTERY_STAGE,
+  LotteryStageSize,
+  conditional,
+  ibPointSystem,
+  sePointSystem,
+} from "./req-fn-factories";
+
 interface SECutoff {
   avg: number
   min: number
@@ -452,9 +476,7 @@ const HSReqFns: ReqFnTable = {
             "MARSHALL HS - Agricultural Sciences - Application",
             "MARSHALL HS - Culinary Arts - Application"
         ],
-        "fn": function noReq(studentData, schoolData) {
-          return {outcome: SuccessChance.CERTAIN}
-        }
+      "fn": accept(everyone)
     },
     "f1a0a3737e921ccaf4617c5eafab5f53": {
         "desc": "Students are randomly selected by computerized lottery. Contact the school for additional information.",
@@ -492,23 +514,21 @@ const HSReqFns: ReqFnTable = {
             "NOBLE - BUTLER HS - General Education - Selection",
             "NOBLE - ACADEMY HS - General Education - Selection"
         ],
-        "fn": function random(studentData, schoolData){
-          return {outcome: SuccessChance.UNCERTAIN}
-        }
+      "fn": lottery(GENERAL_LOTTERY_STAGE)
     },
     "ea7a8ea4de4f5cdcc8bc6e7aab6a7962": {
         "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled at Foundations College Prep, isibling, general.",
         "programs": [
             "FOUNDATIONS - General Education - Selection"
         ],
-        "fn": (student, school) => {
-          // TODO write currently enrolled requirement -- also why are students applying if already currently enrolled?
-          if (hasSiblingInProgram(student, school)) {
-            return {outcome: SuccessChance.LIKELY};
-          } else {
-            return {outcome: SuccessChance.UNCERTAIN} 
-          }
-        }
+      "fn": lottery(
+        {
+          filter: ifStudentAttends(FOUNDATIONS_COLLEGE_PREP),
+          size: LotteryStageSize.LARGE
+        },
+        SIBLING_LOTTERY_STAGE,
+        GENERAL_LOTTERY_STAGE
+      )
     },
     "783216956d119ad64639725fa9f4d44b": {
         "desc": "Students who live within the school's attendance boundary can be admitted automatically. This program only accepts students who live within the school's attendance boundary.",
@@ -523,41 +543,33 @@ const HSReqFns: ReqFnTable = {
             "CURIE HS - Fine Arts & Technology - NEIGHBORHOOD - Selection",
             "SENN HS - General Education - Selection"
         ],
-        "fn": (studentData, schoolData) => {
-          if (inAttendanceBound(studentData, schoolData)) {
-            return {outcome: SuccessChance.CERTAIN}
-          } else {
-            return {outcome: SuccessChance.NONE}
-          }
-        }
+      "fn": accept(ifInAttendBound)
     },
     "240970c398eb1cf1d65952b71e811d58": {
         "desc": "If the school receives more applications than there are seats available, students are randomly selected through a computerized lottery.  Priority is given to students currently enrolled in the school and to siblings of students enrolled in the campus.",
         "programs": [
             "CHICAGO VIRTUAL - Charter - Selection"
         ],
-        "fn": (student, school) => {
-          // TODO: write currently enrolled requirement (also, why are students applying if already enrolled? Elementary school?)
-          if (hasSiblingInProgram(student, school)) {
-            return {outcome: SuccessChance.LIKELY};
-          } else {
-            return {outcome: SuccessChance.UNCERTAIN}
-          }
-        }
+      "fn": lottery(
+        {
+          filter: combine(ifSiblingAttends, ifStudentAttends(CHICAGO_VIRTUAL)),
+          size: LotteryStageSize.LARGE
+        },
+        GENERAL_LOTTERY_STAGE
+      )
     },
     "01a561f658ea66df980a6e77eae83235": {
         "desc": "If the school receives more applications than there are seats available, students are randomly selected through a computerized lottery.  Priority is given to students currently enrolled in the school who wish to continue and to siblings of students enrolled in the campus.",
         "programs": [
             "CICS - LONGWOOD - Charter - Selection"
         ],
-        "fn": (student, school) => {
-          // TODO: write currently enrolled requirement (also, why are students applying if already enrolled? Elementary school?)
-          if (hasSiblingInProgram(student, school)) {
-            return {outcome: SuccessChance.LIKELY};
-          } else {
-            return {outcome: SuccessChance.UNCERTAIN}
-          }
-        }
+        "fn": lottery(
+          {
+            filter: combine(ifSiblingAttends, ifStudentAttends(THIS_PROGRAM)),
+            size: LotteryStageSize.LARGE
+          },
+          GENERAL_LOTTERY_STAGE
+        )
     },
     "8c431d51587c33009ee9b67a566c042e": {
         "desc": "Students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
@@ -579,43 +591,30 @@ const HSReqFns: ReqFnTable = {
             "INFINITY HS - Science/Technology/Engineering/Math - Selection",
             "MARSHALL HS - General Education - Selection"
         ],
-        "fn": (student, school) => {
-          if (hasSiblingInProgram(student, school)) {
-            return {outcome: SuccessChance.LIKELY};
-          } else {
-            return {outcome: SuccessChance.UNCERTAIN}
-          }
+      "fn": conditional(
+        {
+          filter: ifInAttendBound,
+          fn: accept(everyone)
+        },
+        {
+          filter: everyone,
+          fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+          )
         }
+      )
     },
     "6fddb8b397a12770dbed5afff360213b": {
         "desc": "Minimum percentile of 75 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, and minimum attendance percentage of 95.",
         "programs": [
             "SOLORIO HS - Double Honors/Scholars - Application"
         ],
-        "fn": (studentData, schoolData) => {
-          const NWEA_MATH_CUTOFF = 75;
-          const NWEA_READ_CUTOFF = 75;
-          const ATTEND_CUTOFF = 95;
-
-          const progress = {
-            threshold_certain: 100,
-            // value is the threshold minus the  average distance from the 
-            // cutoff scores for nwea scores and attend percentile
-            value: 100 - average(
-              getPointsFromCutoff(studentData.nweaPercentileMath, NWEA_MATH_CUTOFF),
-              getPointsFromCutoff(studentData.nweaPercentileRead, NWEA_READ_CUTOFF),
-              getPointsFromCutoff(studentData.attendancePercentage, ATTEND_CUTOFF)
-            ),
-          };
-
-          if (studentData.nweaPercentileMath >= NWEA_MATH_CUTOFF &&
-                      studentData.nweaPercentileRead >= NWEA_READ_CUTOFF &&
-                      studentData.attendancePercentage >= ATTEND_CUTOFF) {
-            return {outcome: SuccessChance.CERTAIN, progress: progress}
-          } else {
-            return {outcome: SuccessChance.NONE, progress: progress}
-          }
-        }
+      "fn": accept(ifHasGrades({
+        nweaBoth: 75,
+        gpa: 3.0,
+        attendance: 95
+      }))
     },
     "218f3d334a0ceaa37bb7ce57bec10e96": {
         "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, proximity, students enrolled in AUSL schools, general.",
@@ -624,16 +623,15 @@ const HSReqFns: ReqFnTable = {
             "CHICAGO ACADEMY HS - Scholars - Selection",
             "CHICAGO ACADEMY HS - General Education - Selection"
         ],
-        "fn": (student, school) => {
-          // TODO 'students enrolled in AUSL schools' requirement -- what are AUSL schools?
-          if (inAttendanceBound(student, school) || 
-            hasSiblingInProgram(student, school)) {
-
-            return {outcome: SuccessChance.LIKELY};
-          } else {
-            return {outcome: SuccessChance.UNCERTAIN};
-          }
-        }
+      "fn": lottery(
+        SIBLING_LOTTERY_STAGE,
+        PROXIMITY_LOTTERY_STAGE,
+        {
+          filter: ifStudentAttends(AUSL_SCHOOLS_ES),
+          size: LotteryStageSize.LARGE
+        },
+        GENERAL_LOTTERY_STAGE
+      )
     },
     "3086b8e507b2f64e53b85b8ad808e66d": {
         "desc": "Minimum 2.0 GPA in 7th grade and minimum attendance percentage of 85.",
@@ -641,25 +639,10 @@ const HSReqFns: ReqFnTable = {
             "FARRAGUT HS - JROTC - Application",
             "SCHURZ HS - AVID - Application"
         ],
-        "fn": (studentData, schoolData) => {
-          const GPA_CUTOFF = 2.0;
-          const ATTEND_CUTOFF = 85;
-
-          const progress = {
-            threshold_certain: 100,
-            // I know "build then improve" but this is pretty hard to understand
-            value: average(
-              norm(getPointsFromCutoff(studentData.gpa, GPA_CUTOFF), 4.0, 0.0),
-              getPointsFromCutoff(studentData.attendancePercentage, ATTEND_CUTOFF)
-            )
-          };
-
-          if (studentData.gpa >= GPA_CUTOFF && studentData.attendancePercentage >= ATTEND_CUTOFF) {
-            return {outcome: SuccessChance.CERTAIN, progress: progress}
-          } else {
-            return {outcome: SuccessChance.NONE, progress: progress}
-          }
-        }
+      "fn": accept(ifHasGrades({
+        gpa: 2.0,
+        attendance: 85
+      }))
     },
     "d3ddea21fb0e360b470bf095ce6bdfef": {
         "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: proximity, general.",

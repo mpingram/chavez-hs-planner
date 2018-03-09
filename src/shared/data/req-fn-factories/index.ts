@@ -1,13 +1,4 @@
-export {
-  siblingAttends,
-  studentAttends,
-  all,
-  none,
-  hasGrades,
-
-  lottery,
-  conditional,
-} from "./req-fn-factories";
+export * from "./req-fn-factories";
 
 export {
   sePointSystem,
