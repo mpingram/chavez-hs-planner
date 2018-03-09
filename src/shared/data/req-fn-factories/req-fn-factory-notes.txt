@@ -1,0 +1,128 @@
+fn: (student, program) => {
+  const AUSL_SCHOOLS = [30403, 303030, 303030];
+  const THIS_SCHOOL = program.School_ID;
+
+  return lottery(
+    siblingAttends(THIS_SCHOOL),
+    attends(AUSL_SCHOOLS),
+    general
+  )(student, program);
+}
+
+fn: (student, program) => {
+  onlyIf(attends(AUSL_SCHOOLS));
+}
+
+fn: onlyIf(attends(AUSL_SCHOOLS))
+
+
+fn: lottery(
+  siblingAttends(THIS_SCHOOL),
+  attends(AUSL_SCHOOLS),
+  general
+)
+
+fn: lottery(
+  { 
+    stageType: StageType.SIBLING,
+    filter: siblingAttends(THIS_SCHOOL),
+    stageSize: StageSize.SMALL
+  }
+
+);
+
+fn: lottery(
+  SIBLING_LOTTERY_STAGE,
+  customLotteryStage({ 
+    filter: studentAttends( AUSL_SCHOOLS ),
+    stageSize: StageSize.LARGE
+  }),
+  GENERAL_LOTTERY_STAGE
+)
+
+gradeReq({
+  nweaMathPercentile: 94,
+  nweaReadPercentile: 94,
+  combinedNWEAPercentile: 94,
+  gpa: 3.4,
+  attendPct: 95
+});
+
+
+
+
+
+
+// refocus on your goal here
+// there's a lot of shared code: how can we duplicate it without 
+// obfusticating it too far
+
+
+// spoiler: writing a dsl via method chaining is obfusticating it too far
+
+// hardest example: PHILLIPS HS - Gen ed
+conditionalRequirements( 
+  {
+    condition: inAttendBound,
+    fn: always
+  },
+  {
+    condition: iepOrEl,
+    fn: grades({
+      combinedNWEA: 24,
+      attendance: 90
+    })
+  },
+  {
+    condition: genEd,
+    fn: grades({
+      bothNWEA: 24,
+      gpa: 2.5,
+      attendance: 90
+    })
+  } 
+)
+
+
+At the cost of increased complexity -- this will work to reduce the amount of typing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
