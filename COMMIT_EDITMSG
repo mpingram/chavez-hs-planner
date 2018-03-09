@@ -1,7 +1,9 @@
 [WIP] Refactor requirement functions
 
-* replace individual functions with higher-order-functions
-
-* write selective enrollment requirement function factory
-
-* Michael, this was a mistake.
+  ** DONE continue to draft design of requirement function dsl
+  ** TODO try to write some of the hardest cases with dsl
+  ** TODO refactor / clean up requirement functions
+    *** TODO clean up code if necessary
+    *** TODO split into own files
+    *** TODO redo folder structure 
+  ** TODO write unit tests for dsl functions

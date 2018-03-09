@@ -41,31 +41,71 @@ enum LotteryStageSize {
 
 interface LotteryStage {
   filter: HSReqFilter
-  stageSize: LotteryStageSize
+  size: LotteryStageSize
 }
 
 export const SIBLING_LOTTERY_STAGE = {
   filter: siblingAttends,
-  stageSize: LotteryStageSize.SMALL
+  size: LotteryStageSize.SMALL
 };
 
 export const GENERAL_LOTTERY_STAGE = {
   filter: all,
-  stageSize: LotteryStageSize.LARGE
+  size: LotteryStageSize.LARGE
 };
 
-export const lottery = (...stages: LotteryStage[]) => {
-  stages.forEach( (stage, i) => {
-
-
-  });
-};
-
-export const conditional = (...conditions: {condition: HSReqFilter, fn: HSRequirementFunction}[]): HSRequirementFunction => {
-  // iterate through conditions
-  // find first condition that student matches
-  // return reqFn for that condition
+export const lottery = (...stages: LotteryStage[]): HSRequirementFunction => {
+  // stage logic:
+  // SMALL stage and no previous LARGE stages => LIKELY.
+  // SMALL stage and prev LARGE stage => UNLIKELY
+  // LARGE stage and no previous LARGE stages => UNCERTAIN;
+  // LARGE stage and prev LARGE stage => UNLIKELY
+  
   return (student, program) => {
-    return {outcome: SuccessChance.NOTIMPLEMENTED};
+    let prevLargeStage = false;
+    for (let i=0; i<stages.length; i++) {
+
+      // if student matches this stage, determine
+      // how likely the student is to be accepted
+      // based on how large the previous lottery stages were.
+      const stage = stages[i];
+      if (stage.filter(student, program)) {
+        if (prevLargeStage) {
+          return {outcome: SuccessChance.UNLIKELY};
+        } else {
+          if (stage.size === LotteryStageSize.SMALL) {
+            return {outcome: SuccessChance.LIKELY};
+          } else if (stage.size === LotteryStageSize.LARGE) {
+            return {outcome: SuccessChance.UNCERTAIN};
+          }
+        }
+      }
+      // if student does not match this stage, record if
+      // this stage was LARGE.
+      if (stage.size === LotteryStageSize.LARGE) {
+        prevLargeStage = true;
+      }
+    }
+
+    // if student does not match any stage of lottery, return NONE
+    return {outcome: SuccessChance.NONE};
+  }
+};
+
+interface Condition {
+  filter: HSReqFilter
+  fn: HSRequirementFunction
+}
+export const conditional = (...conditions: Condition[]): HSRequirementFunction => {
+  return (student, program) => {
+    for (let i=0; i<conditions.length; i++) {
+      const c = conditions[i];
+      if (c.filter(student, program)) {
+        return c.fn(student, program);
+      }
+    }
+
+    // if student does not match any conditional, return NONE
+    return {outcome: SuccessChance.NONE};
   };
 };

@@ -3,7 +3,6 @@ import SuccessChance from "shared/enums/success-chance";
 
 
 type PointCalculator = (student, program) => number;
-// TODO CutoffLookup is too simple to handle SE 'cutoffs'.
 type CutoffLookup = (student, program) => number;
 type PointSystemReqFnFactory = (PointCalculator, CutoffLookup) => HSRequirementFunction;
 
@@ -12,7 +11,7 @@ const ibCutoffLookup = (student, program) => 0;
 
 const IB_POINTS_UNCERTAINTY_THRESHOLD = 2;
 
-export const ibPointSystem = (ibPointCalc, ibCutoffLookup) => {
+export const ibPointSystem = (ibPointCalc, ibCutoffLookup): HSRequirementFunction => {
   return (student, program) => {
 
     const points = ibPointCalc(student, program);
@@ -22,15 +21,15 @@ export const ibPointSystem = (ibPointCalc, ibCutoffLookup) => {
     // handle failure by returning NOTIMPLEMENTED
     // rather than give inaccurate prediction
     if (isNaN(points) || isNaN(cutoff)) {
-      return SuccessChance.NOTIMPLEMENTED;
+      return {outcome: SuccessChance.NOTIMPLEMENTED};
     }
 
     if (pointsFromCutoff < 0) {
-      return SuccessChance.NONE;
+      return {outcome: SuccessChance.NONE};
     } else if (pointsFromCutoff <= IB_POINTS_UNCERTAINTY_THRESHOLD) {
-      return SuccessChance.LIKELY;
+      return {outcome: SuccessChance.LIKELY};
     } else {
-      return SuccessChance.CERTAIN;
+      return {outcome: SuccessChance.CERTAIN};
     }
   }
 };
@@ -47,10 +46,22 @@ export const sePointSystem = (sePointCalc, seCutoffLookup) => {
     const prevScores = sePrevScoresLookup(student, program);
 
     if (isNaN(points)) {
-      console.log("received NaN for sePointCalc");
-      return SuccessChance.NOTIMPLEMENTED;
+      console.error("received NaN for sePointCalc");
+      return {outcome: SuccessChance.NOTIMPLEMENTED};
+    }
+    if (isNaN(prevScores.min) || isNaN(prevScores.avg) || isNaN(prevScores.max)) {
+      console.error("received NaN for seCutoffLookup");
+      return {outcome: SuccessChance.NOTIMPLEMENTED};
     }
 
-    if (points < prevScores
+    if (points >= prevScores.max) {
+      return {outcome: SuccessChance.CERTAIN};
+    } else if (points >= prevScores.avg) {
+      return {outcome: SuccessChance.LIKELY};
+    } else if (points >= prevScores.min) {
+      return {outcome: SuccessChance.UNCERTAIN}; 
+    } else {
+      return {outcome: SuccessChance.NONE};
+    }
   }
 };
