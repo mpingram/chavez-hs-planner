@@ -2,7 +2,7 @@
 
   ** DONE continue to draft design of requirement function dsl
   ** DONE try to write some of the hardest cases with dsl
-  ** TODO consider importing a geo library?
+  ** TODO import geolib library
   ** TODO refactor / clean up requirement functions
     *** DONE split into own files
     *** DONE redo folder structure 
@@ -17,3 +17,6 @@
 
     *** TODO IN FUTURE write unit tests for ifInProximityOf
     *** TODO IN FUTURE write unit tests for ifInAttendanceBoundOf
+
+  ** NOTE / something to be proud of -- I think you can safely memoize
+    many of the filters you're writing.
