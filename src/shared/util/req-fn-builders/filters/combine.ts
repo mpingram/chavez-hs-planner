@@ -1,4 +1,4 @@
-import HSReqFilter from "shared/types/hs-req-filter;
+import HSReqFilter from "shared/types/hs-req-filter";
 
 export const combine = (...filters: HSReqFilter[]): HSReqFilter => {
   return (student, program) => {
