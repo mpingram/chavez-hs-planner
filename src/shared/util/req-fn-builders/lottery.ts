@@ -1,5 +1,5 @@
 import {
-  ifInProximityOfSchool,
+  ifInProximity,
   ifSiblingAttends,
   everyone,
 } from "./filters";
@@ -20,7 +20,7 @@ interface LotteryStage {
 
 export const PROXIMITY_LOTTERY_STAGE = {
   // TODO confirm that this is how this works
-  filter: ifInProximityOfSchool,
+  filter: ifInProximity,
   size: LotteryStageSize.LARGE
 };
 
