@@ -52,6 +52,7 @@
     "css-loader": "^0.28.4",
     "file-loader": "^1.1.5",
     "geojson-precision": "^0.4.0",
+    "geolib": "^2.0.24",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
@@ -71,7 +72,6 @@
   },
   "dependencies": {
     "browser-jsonp": "^1.1.5",
-    "geolib": "^2.0.24",
     "immutable": "^3.8.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.5",
