@@ -1,6 +1,10 @@
-Implement pointSystem, ibPointSystem, and sePointSystem req fn builders
+Implement remaining hs req fn filters
 
-* new file ib-cutoffs.json with ib cutoff scores
-* new file se-prevyear-scores.json with se previous year accepted scores
-
-
+* DONE implement ifHasGrades
+* DONE implement ifInAttendBound
+* DONE implement ifInAttednBoundOf
+* DONE implement ifInProximity
+* DONE add isUninitialized helper fn to shared/utils
+* DONE move geolib to devDependencies
+* DONE add util function for calculating the distance between two
+  latlong points
