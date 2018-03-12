@@ -5,7 +5,7 @@ const PROXIMITY_RADIUS_MI = 0.5; // distance that student must live from school 
 // TODO implement
 const getDistanceBetween = (student, program): number => 0;
 
-export const ifInProximityOfSchool: HSReqFilter = (student, program) => {
+export const ifInProximity: HSReqFilter = (student, program) => {
   return getDistanceBetween(student, program) <= PROXIMITY_RADIUS_MI;
 };
 

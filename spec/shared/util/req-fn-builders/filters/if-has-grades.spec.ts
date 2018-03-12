@@ -102,22 +102,57 @@ describe("ifHasGrades hsReqFilter", () => {
     expect(gradeFilterGreaterThan(s,p)).to.equal(false);
   });
 
-  it("should return false if any of the student grades are less than or equal to the specified grades", () => {
+  it("should return false if the student's grades compared to are  NaN", () => {
+    s.nweaPercentileMath = NaN;
+    s.nweaPercentileRead = 40;
 
+    const gradeFilterRead = ifHasGrades({nweaRead: 40});
+    const gradeFilterMath = ifHasGrades({nweaMath: 40});
+    const gradeFilterBoth = ifHasGrades({nweaBoth: 40});
+    const gradeFilterCombined = ifHasGrades({nweaCombined: 40});
+
+    expect(gradeFilterRead(s,p)).to.equal(true);
+    expect(gradeFilterMath(s,p)).to.equal(false);
+    expect(gradeFilterBoth(s,p)).to.equal(false);
+    expect(gradeFilterCombined(s,p)).to.equal(false);
   });
 
-  it("should return false if any of the properties are undefined on the studentData object", () => {
+  it("should return false if the student's grades compared to are undefined", () => {
+    s.nweaPercentileMath = undefined;
+    s.nweaPercentileRead = 40;
 
+    const gradeFilterRead = ifHasGrades({nweaRead: 40});
+    const gradeFilterMath = ifHasGrades({nweaMath: 40});
+    const gradeFilterBoth = ifHasGrades({nweaBoth: 40});
+    const gradeFilterCombined = ifHasGrades({nweaCombined: 40});
+
+    expect(gradeFilterRead(s,p)).to.equal(true);
+    expect(gradeFilterMath(s,p)).to.equal(false);
+    expect(gradeFilterBoth(s,p)).to.equal(false);
+    expect(gradeFilterCombined(s,p)).to.equal(false);
   });
 
   it("should throw an error if any combination of the 'nweaBoth', ('nweaMath' or 'nweaRead'), or 'nweaCombined' properties are set in the specified grades", () => {
 
+    expect(ifHasGrades({nweaMath: 40, nweaRead: 40})).not.to.throw();
+    expect(ifHasGrades({nweaBoth: 40})).not.to.throw();
+    expect(ifHasGrades({nweaMath: 40, nweaBoth: 40})).to.throw();
+    expect(ifHasGrades({nweaMath: 20, nweaRead: 20, nweaCombined: 40})).to.throw();
+    expect(ifHasGrades({nweaBoth: 40, nweaCombined: 80})).to.throw();
+
   });
 
-
   it("should throw an error if any of the specified grades have unexpected values", () => {
+    expect(ifHasGrades({attendance: 50})).not.to.throw();
+    expect(ifHasGrades({attendance: -1})).to.throw();
+    expect(ifHasGrades({attendance: 101})).to.throw();
+    expect(ifHasGrades({attendance: NaN})).to.throw();
 
+    expect(ifHasGrades({nweaMath: 100})).to.throw();
+    expect(ifHasGrades({nweaCombined: 200})).to.throw();
+    expect(ifHasGrades({nweaCombined: NaN})).to.throw();
   });
 
 
 });
+

@@ -2,8 +2,18 @@
 
   ** DONE continue to draft design of requirement function dsl
   ** DONE try to write some of the hardest cases with dsl
+  ** TODO consider importing a geo library?
   ** TODO refactor / clean up requirement functions
-    *** TODO clean up code if necessary
     *** DONE split into own files
     *** DONE redo folder structure 
+    *** DONE add CPS_PROXIMITY_LOTTERY_RADIUS to consts
   ** WIP write unit tests for req fn filters
+    *** DONE write unit tests for ifHasGrades
+    *** DONE write unit tests for ifInAttendanceBound
+    *** TODO write unit tests for ifInProximity
+    *** TODO write unit tests for ifSiblingAttends
+    *** TODO write unit tests for ifStudentAttends
+    *** TODO write unit tests for ifStudentAttendsOneOf
+
+    *** TODO IN FUTURE write unit tests for ifInProximityOf
+    *** TODO IN FUTURE write unit tests for ifInAttendanceBoundOf
