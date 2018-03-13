@@ -67,7 +67,12 @@ const seLookup: PrevYearAcceptanceLookup = (student, school)  => {
 
 export const sePointSystem = (student, program) => {
   const points = sePointCalc(student, program);
-  const prevScores = seLookup(student, program);
+  let prevScores;
+  try {
+    prevScores = seLookup(student, program);
+  } catch(e) {
+    return {outcome: SuccessChance.NOTIMPLEMENTED};
+  }
 
   if (isNaN(points)) {
     console.error("received NaN for sePointCalc");

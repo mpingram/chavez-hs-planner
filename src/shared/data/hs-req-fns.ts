@@ -23,38 +23,42 @@ import {
   ifSkipped7OrRepeated8
 } from "shared/util/req-fn-builders/filters";
 
-// TODO replace with program ids
-const FOUNDATIONS_COLLEGE_PREP_ES_PROGRAMS = "FIXME";
-const CHICAGO_VIRTUAL_ES_PROGRAM = "FIXME";
-const AUSL_ES_PROGRAMS = "FIXME";
-const CICS_LONGWOOD_ES_PROGRAM = "";
-const GROW_COMMUNITY_SCHOOL_ES_PROGRAMS = "";
-const CPS_DUAL_LANGUAGE_WORLD_LANGUAGE_ES_PROGRAMS = "";
-const CICS_CHICAGOQUEST_EIGHTH_GRADE_PROGRAMS = "";
-const CHICAGO_MATH_AND_SCIENCE_HS_EIGHTH_GRADE_PROGRAM = "";
-const BRENNEMANN_ES_PROGRAMS = "";
-const COURTENAY_ES_PROGRAMS = "";
-const MCCUTCHEON_ES_PROGRAMS = "";
-const U_OF_C_WOODLAWN_ES_PROGRAMS = "";
-const CHALMERS_ES_PROGRAMS = "";
-const DVORAK_ES_PROGRAMS = "";
-const HERZL_ES_PROGRAMS = "";
-const JOHNSON_ES_PROGRAMS = "";
-const MORTON_ES_PROGRAMS = "";
-const TAFT_ACADEMIC_CENTER_PROGRAM = "";
-const MORGAN_PARK_ACADEMIC_CENTER_PROGRAM = "";
-const KENWOOD_ACADEMIC_CENTER_PROGRAM = "";
-const CARNEGIE_ES_PROGRAMS = "";
-const ALCOTT_ES_PROGRAMS = "";
-const CHICAGO_COLLEGIATE_CHARTER_SCHOOL_ES_PROGRAMS = "";
-const BOONE_ES_PROGRAMS = "";
-const FIELD_ES_PROGRAMS = "";
-const GALE_ES_PROGRAMS = "";
-const HAYT_ES_PROGRAMS = "";
-const JORDAN_ES_PROGRAMS = "";
-const KILMER_ES_PROGRAMS = "";
-const MCPHERSON_ES_PROGRAMS = "";
-const WEST_RIDGE_ES_PROGRAMS = "";
+import {
+  AUSL_ES_PROGRAMS,
+  GROW_COMMUNITY_SCHOOL_ES_PROGRAMS,
+
+  FOUNDATIONS_COLLEGE_PREP_JOINT_ES_HS_PROGRAM,
+  CHICAGO_VIRTUAL_CHARTER_JOINT_ES_HS_PROGRAM,
+  CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+  CICS_LONGWOOD_CHARTER_JOINT_ES_HS_PROGRAM,
+  CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+  CICS_CHICAGOQUEST_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+  CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+  U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+  CHICAGO_COLLEGIATE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+
+  BRENNEMANN_ES_PROGRAM,
+  COURTENAY_ES_PROGRAM,
+  MCCUTCHEON_ES_PROGRAM,
+  CHALMERS_ES_PROGRAM,
+  DVORAK_ES_PROGRAM,
+  HERZL_ES_PROGRAM,
+  JOHNSON_ES_PROGRAM,
+  MORTON_ES_PROGRAM,
+  TAFT_ACADEMIC_CENTER_PROGRAM,
+  MORGAN_PARK_ACADEMIC_CENTER_PROGRAM,
+  KENWOOD_ACADEMIC_CENTER_PROGRAM,
+  CARNEGIE_ES_PROGRAMS,
+  ALCOTT_ES_PROGRAM,
+  BOONE_ES_PROGRAM,
+  FIELD_ES_PROGRAM,
+  GALE_ES_PROGRAM,
+  HAYT_ES_PROGRAM,
+  JORDAN_ES_PROGRAM,
+  KILMER_ES_PROGRAM,
+  MCPHERSON_ES_PROGRAM,
+  WEST_RIDGE_ES_PROGRAM,
+} from "shared/constants";
 
 
 interface ReqFnTable {
@@ -298,7 +302,7 @@ const HSReqFns: ReqFnTable = {
         ],
       "fn": lottery(
         {
-          filter: ifStudentAttendsOneOf(FOUNDATIONS_COLLEGE_PREP_ES_PROGRAMS),
+          filter: ifStudentAttendsOneOf(FOUNDATIONS_COLLEGE_PREP_JOINT_ES_HS_PROGRAM),
           size: LotteryStageSize.LARGE
         },
         SIBLING_LOTTERY_STAGE,
@@ -327,7 +331,13 @@ const HSReqFns: ReqFnTable = {
         ],
       "fn": lottery(
         {
-          filter: either(ifSiblingAttends, ifStudentAttendsOneOf(CHICAGO_VIRTUAL_ES_PROGRAM)),
+          filter: either(
+            ifSiblingAttends, 
+            ifStudentAttendsOneOf(
+              CHICAGO_VIRTUAL_CHARTER_JOINT_ES_HS_PROGRAM, 
+              CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM
+            )
+          ),
           size: LotteryStageSize.LARGE
         },
         GENERAL_LOTTERY_STAGE
@@ -340,7 +350,12 @@ const HSReqFns: ReqFnTable = {
         ],
         "fn": lottery(
           {
-            filter: either(ifSiblingAttends, ifStudentAttendsOneOf(CICS_LONGWOOD_ES_PROGRAM)),
+            filter: either(
+              ifSiblingAttends, 
+              ifStudentAttendsOneOf(
+                CICS_LONGWOOD_CHARTER_JOINT_ES_HS_PROGRAM,
+                CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM
+              )),
             size: LotteryStageSize.LARGE
           },
           GENERAL_LOTTERY_STAGE
@@ -402,7 +417,7 @@ const HSReqFns: ReqFnTable = {
         SIBLING_LOTTERY_STAGE,
         PROXIMITY_LOTTERY_STAGE,
         {
-          filter: ifStudentAttendsOneOf(AUSL_ES_PROGRAMS),
+          filter: ifStudentAttendsOneOf(...AUSL_ES_PROGRAMS),
           size: LotteryStageSize.LARGE
         },
         GENERAL_LOTTERY_STAGE
@@ -850,7 +865,7 @@ const HSReqFns: ReqFnTable = {
         ],
       "fn": lottery(
         {
-          filter: either(ifInAttendBound, ifStudentAttendsOneOf(GROW_COMMUNITY_SCHOOL_ES_PROGRAMS)),
+          filter: either(ifInAttendBound, ifStudentAttendsOneOf(...GROW_COMMUNITY_SCHOOL_ES_PROGRAMS)),
           size: LotteryStageSize.LARGE
         }
       )
@@ -996,12 +1011,13 @@ const HSReqFns: ReqFnTable = {
             "SCHURZ HS - Dual Language - Selection",
             "BACK OF THE YARDS HS - Dual Language - Selection"
         ],
+      // TODO -- if/when application stage is sorted out, find lists of cps schools with dual language and world language programs
       "fn": lottery(
         SIBLING_LOTTERY_STAGE,
-        {
+        /*{
           filter: ifStudentAttendsOneOf(CPS_DUAL_LANGUAGE_WORLD_LANGUAGE_ES_PROGRAMS),
           size: LotteryStageSize.LARGE,
-        },
+        },*/
         GENERAL_LOTTERY_STAGE
       )
     },
@@ -1013,7 +1029,7 @@ const HSReqFns: ReqFnTable = {
         ],
       "fn": conditional(
         {
-          filter: ifStudentAttendsOneOf(CHICAGO_MATH_AND_SCIENCE_HS_EIGHTH_GRADE_PROGRAM),
+          filter: ifStudentAttendsOneOf(CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
           fn: accept(everyone)
           
         },
@@ -1036,7 +1052,9 @@ const HSReqFns: ReqFnTable = {
       //  -- was changed because both it and CHICAGO MATH & SCIENCE HS had identical req fn descriptions referring to 'this school'
       "fn": conditional(
         {
-          filter: ifStudentAttendsOneOf(CICS_CHICAGOQUEST_EIGHTH_GRADE_PROGRAMS),
+          filter: ifStudentAttendsOneOf(
+            CICS_CHICAGOQUEST_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM
+          ),
           fn: accept(everyone)
         },
         {
@@ -1631,7 +1649,11 @@ const HSReqFns: ReqFnTable = {
       "fn": lottery(
         SIBLING_LOTTERY_STAGE,
         {
-          filter: ifStudentAttendsOneOf(BRENNEMANN_ES_PROGRAMS, COURTENAY_ES_PROGRAMS, MCCUTCHEON_ES_PROGRAMS),
+          filter: ifStudentAttendsOneOf(
+            BRENNEMANN_ES_PROGRAM, 
+            COURTENAY_ES_PROGRAM, 
+            MCCUTCHEON_ES_PROGRAM
+          ),
           size: LotteryStageSize.LARGE
         },
         GENERAL_LOTTERY_STAGE
@@ -1645,7 +1667,9 @@ const HSReqFns: ReqFnTable = {
         ],
       "fn": lottery(
         {
-          filter: ifStudentAttendsOneOf(U_OF_C_WOODLAWN_ES_PROGRAMS),
+          filter: ifStudentAttendsOneOf(
+            U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM
+          ),
           size: LotteryStageSize.LARGE
         },
         SIBLING_LOTTERY_STAGE,
@@ -1674,11 +1698,11 @@ const HSReqFns: ReqFnTable = {
       "fn": lottery(
         {
           filter: ifStudentAttendsOneOf(
-            CHALMERS_ES_PROGRAMS, 
-            DVORAK_ES_PROGRAMS, 
-            HERZL_ES_PROGRAMS, 
-            JOHNSON_ES_PROGRAMS, 
-            MORTON_ES_PROGRAMS
+            CHALMERS_ES_PROGRAM, 
+            DVORAK_ES_PROGRAM, 
+            HERZL_ES_PROGRAM, 
+            JOHNSON_ES_PROGRAM, 
+            MORTON_ES_PROGRAM
           ),
           size: LotteryStageSize.LARGE
         },
@@ -1958,7 +1982,7 @@ const HSReqFns: ReqFnTable = {
         ],
       "fn": lottery(
         {
-          filter: ifStudentAttendsOneOf(ALCOTT_ES_PROGRAMS),
+          filter: ifStudentAttendsOneOf(ALCOTT_ES_PROGRAM),
           size: LotteryStageSize.LARGE
         },
         SIBLING_LOTTERY_STAGE,
@@ -2044,7 +2068,7 @@ const HSReqFns: ReqFnTable = {
       "fn": accept(
         either(
           ifInAttendBound,
-          ifStudentAttendsOneOf(GROW_COMMUNITY_SCHOOL_ES_PROGRAMS)
+          ifStudentAttendsOneOf(...GROW_COMMUNITY_SCHOOL_ES_PROGRAMS)
         )
       )
     },
@@ -2128,7 +2152,7 @@ const HSReqFns: ReqFnTable = {
         ],
         "fn": lottery(
           {
-            filter: ifStudentAttendsOneOf(CHICAGO_COLLEGIATE_CHARTER_SCHOOL_ES_PROGRAMS),
+            filter: ifStudentAttendsOneOf(CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
             size: LotteryStageSize.LARGE
           },
           SIBLING_LOTTERY_STAGE,
@@ -2237,11 +2261,11 @@ const HSReqFns: ReqFnTable = {
         "fn": lottery(
           {
             filter: ifStudentAttendsOneOf(
-              CHALMERS_ES_PROGRAMS, 
-              DVORAK_ES_PROGRAMS,
-              HERZL_ES_PROGRAMS,
-              JOHNSON_ES_PROGRAMS,
-              MORTON_ES_PROGRAMS
+              CHALMERS_ES_PROGRAM, 
+              DVORAK_ES_PROGRAM,
+              HERZL_ES_PROGRAM,
+              JOHNSON_ES_PROGRAM,
+              MORTON_ES_PROGRAM
             ),
             size: LotteryStageSize.LARGE
           },
@@ -2488,15 +2512,15 @@ const HSReqFns: ReqFnTable = {
             fn: lottery(
               {
                 filter: ifStudentAttendsOneOf(
-                  BOONE_ES_PROGRAMS,
-                  FIELD_ES_PROGRAMS,
-                  GALE_ES_PROGRAMS,
-                  HAYT_ES_PROGRAMS,
-                  JORDAN_ES_PROGRAMS,
-                  KILMER_ES_PROGRAMS,
-                  MCCUTCHEON_ES_PROGRAMS,
-                  MCPHERSON_ES_PROGRAMS,
-                  WEST_RIDGE_ES_PROGRAMS
+                  BOONE_ES_PROGRAM,
+                  FIELD_ES_PROGRAM,
+                  GALE_ES_PROGRAM,
+                  HAYT_ES_PROGRAM,
+                  JORDAN_ES_PROGRAM,
+                  KILMER_ES_PROGRAM,
+                  MCCUTCHEON_ES_PROGRAM,
+                  MCPHERSON_ES_PROGRAM,
+                  WEST_RIDGE_ES_PROGRAM
                 ),
                 size: LotteryStageSize.LARGE
               },
