@@ -32075,7 +32075,7 @@ const HSReqFns = {
         ],
         "fn": req_fn_builders_1.lottery({
             filter: filters_1.ifStudentAttendsOneOf(constants_1.KENWOOD_ACADEMIC_CENTER_PROGRAM),
-            size: req_fn_builders_1.LotteryStageSize.LARGE
+            size: req_fn_builders_1.LotteryStageSize.SMALL
         }, req_fn_builders_1.GENERAL_LOTTERY_STAGE)
     },
     "0df5dab7dc2c1e8d8947d27287872269": {

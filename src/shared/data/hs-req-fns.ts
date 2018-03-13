@@ -1888,7 +1888,7 @@ const HSReqFns: ReqFnTable = {
       "fn": lottery(
         {
           filter: ifStudentAttendsOneOf(KENWOOD_ACADEMIC_CENTER_PROGRAM),
-          size: LotteryStageSize.LARGE
+          size: LotteryStageSize.SMALL
         },
         GENERAL_LOTTERY_STAGE
       )
