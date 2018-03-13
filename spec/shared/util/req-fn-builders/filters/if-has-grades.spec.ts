@@ -30,7 +30,7 @@ describe("ifHasGrades hsReqFilter", () => {
       subjGradeMath: 0,
       subjGradeRead: 0,
       subjGradeSocStudies: 0
-    };
+    } as StudentData;
     p = {} as CPSProgram;
   });
 
@@ -102,7 +102,7 @@ describe("ifHasGrades hsReqFilter", () => {
     expect(gradeFilterGreaterThan(s,p)).to.equal(false);
   });
 
-  it("should return false if the student's grades compared to are  NaN", () => {
+  it("should return false if the student's grades compared to are NaN", () => {
     s.nweaPercentileMath = NaN;
     s.nweaPercentileRead = 40;
 
@@ -134,23 +134,22 @@ describe("ifHasGrades hsReqFilter", () => {
 
   it("should throw an error if any combination of the 'nweaBoth', ('nweaMath' or 'nweaRead'), or 'nweaCombined' properties are set in the specified grades", () => {
 
-    expect(ifHasGrades({nweaMath: 40, nweaRead: 40})).not.to.throw();
-    expect(ifHasGrades({nweaBoth: 40})).not.to.throw();
-    expect(ifHasGrades({nweaMath: 40, nweaBoth: 40})).to.throw();
-    expect(ifHasGrades({nweaMath: 20, nweaRead: 20, nweaCombined: 40})).to.throw();
-    expect(ifHasGrades({nweaBoth: 40, nweaCombined: 80})).to.throw();
-
+    expect( () => ifHasGrades({nweaMath: 40, nweaRead: 40})).not.to.throw();
+    expect( () =>  ifHasGrades({nweaBoth: 40})).not.to.throw();
+    expect( () => ifHasGrades({nweaMath: 40, nweaBoth: 40})).to.throw();
+    expect( () => ifHasGrades({nweaMath: 20, nweaRead: 20, nweaCombined: 40})).to.throw();
+    expect( () => ifHasGrades({nweaBoth: 40, nweaCombined: 80})).to.throw();
   });
 
   it("should throw an error if any of the specified grades have unexpected values", () => {
-    expect(ifHasGrades({attendance: 50})).not.to.throw();
-    expect(ifHasGrades({attendance: -1})).to.throw();
-    expect(ifHasGrades({attendance: 101})).to.throw();
-    expect(ifHasGrades({attendance: NaN})).to.throw();
+    expect(() => ifHasGrades({attendance: 50})).not.to.throw();
+    expect(() => ifHasGrades({attendance: -1})).to.throw();
+    expect(() => ifHasGrades({attendance: 101})).to.throw();
+    expect(() => ifHasGrades({attendance: NaN})).to.throw();
 
-    expect(ifHasGrades({nweaMath: 100})).to.throw();
-    expect(ifHasGrades({nweaCombined: 200})).to.throw();
-    expect(ifHasGrades({nweaCombined: NaN})).to.throw();
+    expect(() => ifHasGrades({nweaMath: 100})).to.throw();
+    expect(() => ifHasGrades({nweaCombined: 200})).to.throw();
+    expect(() => ifHasGrades({nweaCombined: NaN})).to.throw();
   });
 
 

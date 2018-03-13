@@ -97,6 +97,8 @@ describe("inAttendBound hsReqFilter", () => {
   describe("error checking and unexpected inputs", () => {
     it("should return false if passed a student with an uninitialized location property", () => {
       // KENWOOD HS
+      p.Short_Name = "Test";
+      p.Program_Type = "Test";
       p.School_ID = "609746";
 
       s.location = undefined;
@@ -112,8 +114,7 @@ describe("inAttendBound hsReqFilter", () => {
       expect(ifInAttendBound(s,p)).to.equal(false);
     });
 
-    // TODO or should throw?
-    it("should return false if called with a program that does not have attendance bounds or does not have attendance bounds on record", () => {
+    it("should throw if called with a program that does not have attendance bounds or does not have attendance bounds on record", () => {
       // geolocation of address near 50th St & Woodlawn
       s.location.geo = {
         latitude: 41.804759,
@@ -122,7 +123,7 @@ describe("inAttendBound hsReqFilter", () => {
       // school id of PERSPECTIVES HS, which does not have attendance boundaries
       p.School_ID = "400066";
 
-      expect(ifInAttendBound(s,p)).to.equal(false);
+      expect(() => ifInAttendBound(s,p)).to.throw();
     });
 
   });

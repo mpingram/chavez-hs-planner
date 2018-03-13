@@ -1,7 +1,8 @@
 const isUninitialized = (value): boolean => {
   const isUndefined = value === undefined;
-  const isnan = isNaN(value);
-  return isUndefined || isnan;
+  const isNull = value === null;
+  const isnan = Number.isNaN(value);
+  return isUndefined || isNull || isnan;
 }
 
 export default isUninitialized;

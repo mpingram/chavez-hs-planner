@@ -1,4 +1,11 @@
 import HSReqFilter from "shared/types/hs-req-filter";
+import isUninitialized from "shared/util/is-uninitialized";
+import {
+  isValidNwea, 
+  isValidCombinedNwea, 
+  isValidGPA, 
+  isValidAttendance
+} from "shared/util/grade-validate";
 
 interface StudentGrades {
   nweaMath?: number
@@ -7,11 +14,6 @@ interface StudentGrades {
   nweaCombined?: number
   gpa?: number
   attendance?: number
-}
-
-const isUninitialized = (property) => {
-  const isUndefined = property === undefined;
-  const isnan = isNaN(property);
 }
 
 export const ifHasGrades = (grades: StudentGrades): HSReqFilter => {
@@ -34,7 +36,39 @@ export const ifHasGrades = (grades: StudentGrades): HSReqFilter => {
   // check to make sure grades isn't missing all properties
   const hasAny = hasNweaMath || hasNweaRead || hasNweaBoth || hasNweaCombined || hasGpa || hasAttendance;
   if (!hasAny) {
-    throw new Error("ifHasGrades: no grade thresholds found in grades argument.");
+    throw new Error("No grade thresholds found in grades argument.");
+  }
+
+  // check to make sure passed grades are valid 
+  if (hasNweaMath) {
+    if (!isValidNwea(grades.nweaMath)) {
+      throw new Error("Invalid value for nweaMath");
+    }
+  }
+  if (hasNweaRead) {
+    if (!isValidNwea(grades.nweaRead)) {
+      throw new Error("Invalid value for nweaRead");
+    }
+  }
+  if (hasNweaBoth) {
+    if (!isValidNwea(grades.nweaBoth)) {
+      throw new Error("Invalid value for nweaBoth");
+    }
+  }
+  if (hasNweaCombined) {
+    if (!isValidCombinedNwea(grades.nweaCombined)) {
+      throw new Error("Invalid value for nweaCombined");
+    }
+  }
+  if (hasGpa) {
+    if (!isValidGPA(grades.gpa)) {
+      throw new Error("Invalid value for gpa");
+    }
+  }
+  if (hasAttendance) {
+    if(!isValidAttendance(grades.attendance)) {
+      throw new Error("Invalid value for attendance");
+    }
   }
 
   return (student, program) => {
