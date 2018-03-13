@@ -74,6 +74,13 @@ export const updateStudentSiblingHSPrograms = (newValues: string[]) => {
   }
 };
 
+export const updateStudentSkip7OrRepeated8 = (newValue: boolean) => {
+  return {
+    type: ActionType.UpdateStudentSkip7OrRepeated8,
+    payload: newValue
+  }
+};
+
 export const updateStudentNWEAPercentileMath = (newValue: number) => {
   return {
     type: ActionType.UpdateStudentNWEAPercentileMath,

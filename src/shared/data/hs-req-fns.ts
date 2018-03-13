@@ -1,4 +1,5 @@
 import HSRequirementFunction from "shared/types/hs-requirement-function";
+import SuccessChance from "shared/enums/success-chance";
 import {
   accept, 
   lottery,
@@ -572,44 +573,29 @@ const HSReqFns: ReqFnTable = {
             "DYETT ARTS HS - Digital Media - Selection",
             "CHICAGO VOCATIONAL HS - Cosmetology - Selection"
         ],
-      "fn": conditional(
-        {
-          filter: ifInAttendBound,
-          fn: accept(everyone)
-        },
-        {
-          filter: ifIEPorEL,
-          fn: lottery(
-            {
-              filter: ifHasGrades({
-                nweaCombined: 48
-              }),
-              size: LotteryStageSize.LARGE
-            },
-            GENERAL_LOTTERY_STAGE,
-            {
-              filter: ifSkipped7OrRepeated8,
-              size: LotteryStageSize.SMALL
-            }
-          )
-        },
-        {
-          filter: everyone,
-          fn: lottery(
-            {
-              filter: ifHasGrades({
-                nweaBoth: 24
-              }),
-              size: LotteryStageSize.LARGE
-            },
-            GENERAL_LOTTERY_STAGE,
-            {
-              filter: ifSkipped7OrRepeated8,
-              size: LotteryStageSize.SMALL
-            }
-          )
+      // custom req fn -- req fn builders a little ungainly for handling
+      // this kind of branching.
+      "fn": (s, p) => {
+
+        console.log(ifSkipped7OrRepeated8(s,p));
+        if( ifSkipped7OrRepeated8(s,p) ) {
+          return {outcome: SuccessChance.UNLIKELY}
+
+        } else if ( ifIEPorEL(s,p) ) {
+          if( ifHasGrades({nweaCombined: 48}) ) { 
+            return {outcome: SuccessChance.LIKELY};
+          } else {
+            return {outcome: SuccessChance.UNCERTAIN};
+          }
+
+        } else {
+          if ( ifHasGrades({nweaBoth: 24}) ) {
+            return {outcome: SuccessChance.LIKELY};
+          } else {
+            return {outcome: SuccessChance.UNCERTAIN};
+          }
         }
-      )
+      }
     },
     "4ab864cc8934557f435c392c96e5cfc1": {
         "name": "",

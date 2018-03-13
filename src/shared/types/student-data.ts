@@ -7,6 +7,7 @@ export default interface StudentData {
     location: StudentLocation
     gradeLevel: number
     prevGradeLevel: number
+    skippedGrade7OrRepeatedGrade8: boolean
     currESProgramID: string
     ell: boolean
     iep: boolean
