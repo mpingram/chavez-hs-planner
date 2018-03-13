@@ -2398,6 +2398,12 @@ exports.updateStudentSiblingHSPrograms = (newValues) => {
         payload: newValues
     };
 };
+exports.updateStudentSkip7OrRepeated8 = (newValue) => {
+    return {
+        type: action_type_1.default.UpdateStudentSkip7OrRepeated8,
+        payload: newValue
+    };
+};
 exports.updateStudentNWEAPercentileMath = (newValue) => {
     return {
         type: action_type_1.default.UpdateStudentNWEAPercentileMath,
@@ -17028,19 +17034,20 @@ var ActionType;
     ActionType[ActionType["UpdateStudentLocation"] = 1] = "UpdateStudentLocation";
     ActionType[ActionType["UpdateStudentGradeLevel"] = 2] = "UpdateStudentGradeLevel";
     ActionType[ActionType["UpdateStudentPrevGradeLevel"] = 3] = "UpdateStudentPrevGradeLevel";
-    ActionType[ActionType["UpdateStudentELLStatus"] = 4] = "UpdateStudentELLStatus";
-    ActionType[ActionType["UpdateStudentIEPStatus"] = 5] = "UpdateStudentIEPStatus";
-    ActionType[ActionType["UpdateStudentAttendPercentage"] = 6] = "UpdateStudentAttendPercentage";
-    ActionType[ActionType["UpdateStudentCurrESProgram"] = 7] = "UpdateStudentCurrESProgram";
-    ActionType[ActionType["UpdateStudentSiblingHSPrograms"] = 8] = "UpdateStudentSiblingHSPrograms";
-    ActionType[ActionType["UpdateStudentNWEAPercentileMath"] = 9] = "UpdateStudentNWEAPercentileMath";
-    ActionType[ActionType["UpdateStudentNWEAPercentileRead"] = 10] = "UpdateStudentNWEAPercentileRead";
-    ActionType[ActionType["UpdateStudentSubjGradeMath"] = 11] = "UpdateStudentSubjGradeMath";
-    ActionType[ActionType["UpdateStudentSubjGradeRead"] = 12] = "UpdateStudentSubjGradeRead";
-    ActionType[ActionType["UpdateStudentSubjGradeSci"] = 13] = "UpdateStudentSubjGradeSci";
-    ActionType[ActionType["UpdateStudentSubjGradeSocStudies"] = 14] = "UpdateStudentSubjGradeSocStudies";
-    ActionType[ActionType["UpdateStudentSETestPercentile"] = 15] = "UpdateStudentSETestPercentile";
-    ActionType[ActionType["SelectHSProgram"] = 16] = "SelectHSProgram";
+    ActionType[ActionType["UpdateStudentSkip7OrRepeated8"] = 4] = "UpdateStudentSkip7OrRepeated8";
+    ActionType[ActionType["UpdateStudentELLStatus"] = 5] = "UpdateStudentELLStatus";
+    ActionType[ActionType["UpdateStudentIEPStatus"] = 6] = "UpdateStudentIEPStatus";
+    ActionType[ActionType["UpdateStudentAttendPercentage"] = 7] = "UpdateStudentAttendPercentage";
+    ActionType[ActionType["UpdateStudentCurrESProgram"] = 8] = "UpdateStudentCurrESProgram";
+    ActionType[ActionType["UpdateStudentSiblingHSPrograms"] = 9] = "UpdateStudentSiblingHSPrograms";
+    ActionType[ActionType["UpdateStudentNWEAPercentileMath"] = 10] = "UpdateStudentNWEAPercentileMath";
+    ActionType[ActionType["UpdateStudentNWEAPercentileRead"] = 11] = "UpdateStudentNWEAPercentileRead";
+    ActionType[ActionType["UpdateStudentSubjGradeMath"] = 12] = "UpdateStudentSubjGradeMath";
+    ActionType[ActionType["UpdateStudentSubjGradeRead"] = 13] = "UpdateStudentSubjGradeRead";
+    ActionType[ActionType["UpdateStudentSubjGradeSci"] = 14] = "UpdateStudentSubjGradeSci";
+    ActionType[ActionType["UpdateStudentSubjGradeSocStudies"] = 15] = "UpdateStudentSubjGradeSocStudies";
+    ActionType[ActionType["UpdateStudentSETestPercentile"] = 16] = "UpdateStudentSETestPercentile";
+    ActionType[ActionType["SelectHSProgram"] = 17] = "SelectHSProgram";
 })(ActionType || (ActionType = {}));
 exports.default = ActionType;
 
@@ -30408,6 +30415,9 @@ const rootReducer = (state = initial_state_1.default, action) => {
         case action_type_1.default.UpdateStudentCurrESProgram:
             nextState = state.setIn(['studentData', 'currESProgramID'], action.payload);
             break;
+        case action_type_1.default.UpdateStudentSkip7OrRepeated8:
+            nextState = state.setIn(['studentData', 'skippedGrade7OrRepeatedGrade8'], action.payload);
+            break;
         case action_type_1.default.UpdateStudentSiblingHSPrograms:
             nextState = state.setIn(['studentData', 'siblingHSProgramIDs'], action.payload);
             break;
@@ -30502,6 +30512,7 @@ exports.default = getReqFns;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const success_chance_1 = __webpack_require__(12);
 const req_fn_builders_1 = __webpack_require__(245);
 const filters_1 = __webpack_require__(67);
 const constants_1 = __webpack_require__(5);
@@ -30969,32 +30980,29 @@ const HSReqFns = {
             "DYETT ARTS HS - Digital Media - Selection",
             "CHICAGO VOCATIONAL HS - Cosmetology - Selection"
         ],
-        "fn": req_fn_builders_1.conditional({
-            filter: filters_1.ifInAttendBound,
-            fn: req_fn_builders_1.accept(filters_1.everyone)
-        }, {
-            filter: filters_1.ifIEPorEL,
-            fn: req_fn_builders_1.lottery({
-                filter: filters_1.ifHasGrades({
-                    nweaCombined: 48
-                }),
-                size: req_fn_builders_1.LotteryStageSize.LARGE
-            }, req_fn_builders_1.GENERAL_LOTTERY_STAGE, {
-                filter: filters_1.ifSkipped7OrRepeated8,
-                size: req_fn_builders_1.LotteryStageSize.SMALL
-            })
-        }, {
-            filter: filters_1.everyone,
-            fn: req_fn_builders_1.lottery({
-                filter: filters_1.ifHasGrades({
-                    nweaBoth: 24
-                }),
-                size: req_fn_builders_1.LotteryStageSize.LARGE
-            }, req_fn_builders_1.GENERAL_LOTTERY_STAGE, {
-                filter: filters_1.ifSkipped7OrRepeated8,
-                size: req_fn_builders_1.LotteryStageSize.SMALL
-            })
-        })
+        "fn": (s, p) => {
+            if (filters_1.ifSkipped7OrRepeated8(s, p)) {
+                return { outcome: success_chance_1.default.UNLIKELY };
+            }
+            else if (filters_1.ifIEPorEL(s, p)) {
+                const passesGrades = filters_1.ifHasGrades({ nweaCombined: 48 })(s, p);
+                if (passesGrades) {
+                    return { outcome: success_chance_1.default.LIKELY };
+                }
+                else {
+                    return { outcome: success_chance_1.default.UNCERTAIN };
+                }
+            }
+            else {
+                const passesGrades = filters_1.ifHasGrades({ nweaBoth: 24 })(s, p);
+                if (passesGrades) {
+                    return { outcome: success_chance_1.default.LIKELY };
+                }
+                else {
+                    return { outcome: success_chance_1.default.UNCERTAIN };
+                }
+            }
+        }
     },
     "4ab864cc8934557f435c392c96e5cfc1": {
         "name": "",
@@ -221153,11 +221161,11 @@ exports.ifIEPorEL = (student, program) => {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ifSkipped7OrRepeated8 = (student, program) => {
-    if (student.gradeLevel === 8 && student.prevGradeLevel !== 7) {
-        return false;
+    if (student.skippedGrade7OrRepeatedGrade8) {
+        return true;
     }
     else {
-        return true;
+        return false;
     }
 };
 
@@ -221710,6 +221718,7 @@ let initialState = immutable_1.fromJS({
         ell: false,
         attendancePercentage: 0,
         gpa: 0,
+        skippedGrade7OrRepeatedGrade8: false,
         currESProgramID: undefined,
         siblingHSProgramIDs: [],
         seTestPercentile: 0,
@@ -244596,26 +244605,17 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(15);
 const actions_1 = __webpack_require__(20);
 const dropdown_field_1 = __webpack_require__(69);
-const Field = (props) => React.createElement(dropdown_field_1.default, { label: "Did you skip 7th grade or repeat 8th grade?", value: props.gradeLevel && props.gradeLevel.toString(), onChange: (value) => props.onChange(value === "true" ? true : false), debounceTime: props.debounceTime },
+const Field = (props) => React.createElement(dropdown_field_1.default, { label: "Did you skip 7th grade or repeat 8th grade?", value: props.didSkip7OrRepeat8, onChange: (value) => props.onChange(value === "true" ? true : false), debounceTime: props.debounceTime },
     React.createElement("option", { value: "true" }, "Yes"),
     React.createElement("option", { value: "false" }, "No"));
 const mapStateToProps = (state) => {
     return {
-        gradeLevel: state.getIn(['studentData', 'gradeLevel'])
+        didSkip7OrRepeat8: state.getIn(['studentData', 'skippedGrade7OrRepeatedGrade8'])
     };
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        onChange: didSkipGrade => {
-            if (didSkipGrade) {
-                dispatch(actions_1.updateStudentGradeLevel(8));
-                dispatch(actions_1.updateStudentPrevGradeLevel(6));
-            }
-            else {
-                dispatch(actions_1.updateStudentGradeLevel(8));
-                dispatch(actions_1.updateStudentPrevGradeLevel(7));
-            }
-        }
+        onChange: didSkipGrade => dispatch(actions_1.updateStudentSkip7OrRepeated8(didSkipGrade))
     };
 };
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);

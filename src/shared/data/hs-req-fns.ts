@@ -576,20 +576,20 @@ const HSReqFns: ReqFnTable = {
       // custom req fn -- req fn builders a little ungainly for handling
       // this kind of branching.
       "fn": (s, p) => {
-
-        console.log(ifSkipped7OrRepeated8(s,p));
         if( ifSkipped7OrRepeated8(s,p) ) {
           return {outcome: SuccessChance.UNLIKELY}
 
         } else if ( ifIEPorEL(s,p) ) {
-          if( ifHasGrades({nweaCombined: 48}) ) { 
+          const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
+          if( passesGrades ) { 
             return {outcome: SuccessChance.LIKELY};
           } else {
             return {outcome: SuccessChance.UNCERTAIN};
           }
 
         } else {
-          if ( ifHasGrades({nweaBoth: 24}) ) {
+          const passesGrades = ifHasGrades({nweaBoth: 24})(s, p);
+          if ( passesGrades ) {
             return {outcome: SuccessChance.LIKELY};
           } else {
             return {outcome: SuccessChance.UNCERTAIN};
