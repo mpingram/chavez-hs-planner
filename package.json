@@ -9,7 +9,8 @@
     "build": "npm run move-index && webpack --config webpack.config.js",
     "start": "npm run move-index && concurrently \"webpack\" \"browser-sync start -s 'dist' --files 'dist' \"",
     "start:windows": "concurrently \"webpack\" \"browser-sync start -s dist --files dist \"",
-    "aws-sync": "aws s3 sync dist/ s3://path-to-hs"
+    "aws-sync:production": "aws s3 sync dist/ s3://path-to-hs",
+    "aws-sync:dev": "aws s3 sync dist/ s3://path-to-hs-dev"
   },
   "repository": {
     "type": "git",
