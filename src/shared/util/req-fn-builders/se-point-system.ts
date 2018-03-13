@@ -65,30 +65,28 @@ const seLookup: PrevYearAcceptanceLookup = (student, school)  => {
   }
 };
 
-export const sePointSystem = () => {
-  return (student, program) => {
-    const points = sePointCalc(student, program);
-    const prevScores = seLookup(student, program);
+export const sePointSystem = (student, program) => {
+  const points = sePointCalc(student, program);
+  const prevScores = seLookup(student, program);
 
-    if (isNaN(points)) {
-      console.error("received NaN for sePointCalc");
-      return {outcome: SuccessChance.NOTIMPLEMENTED};
-    }
-    if (isNaN(prevScores.min) || isNaN(prevScores.avg) || isNaN(prevScores.max)) {
-      console.error("received NaN for seCutoffLookup");
-      return {outcome: SuccessChance.NOTIMPLEMENTED};
-    }
-
-    if (points >= prevScores.max) {
-      return {outcome: SuccessChance.CERTAIN};
-    } else if (points >= prevScores.avg) {
-      return {outcome: SuccessChance.LIKELY};
-    } else if (points >= prevScores.min) {
-      return {outcome: SuccessChance.UNCERTAIN}; 
-    } else {
-      return {outcome: SuccessChance.NONE};
-    }
+  if (isNaN(points)) {
+    console.error("received NaN for sePointCalc");
+    return {outcome: SuccessChance.NOTIMPLEMENTED};
   }
-};
+  if (isNaN(prevScores.min) || isNaN(prevScores.avg) || isNaN(prevScores.max)) {
+    console.error("received NaN for seCutoffLookup");
+    return {outcome: SuccessChance.NOTIMPLEMENTED};
+  }
+
+  if (points >= prevScores.max) {
+    return {outcome: SuccessChance.CERTAIN};
+  } else if (points >= prevScores.avg) {
+    return {outcome: SuccessChance.LIKELY};
+  } else if (points >= prevScores.min) {
+    return {outcome: SuccessChance.UNCERTAIN}; 
+  } else {
+    return {outcome: SuccessChance.NONE};
+  }
+}
 
 export default sePointSystem;
