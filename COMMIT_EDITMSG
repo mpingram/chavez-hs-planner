@@ -1,5 +1,24 @@
-[WIP] rewrite HS req fns with hs req fn builders
+Rewrite HS req fns with hs req fn builders
 
 * add notimplemented req fn builder
 * add ifIEPorEL req fn filter
 * add ifSkipped7OrRepeated8 filter
+* rename hs_req_fns.ts -> hs-req-fns.ts
+* manually separate CHICAGO MATH & SCIENCE HS - General Education -
+Selection and CICS - CHICAGOQUEST HS - General Education - Selection
+  because requiremnent functions are identically worded but make
+  reference to 'this school'.
+  ** manually link CICS - CHICAGOQUEST HS 'Program_Selections_Fn' property
+  to new req fn
+* remove SULLIVAN HS - Accounting - Selection req fn -- seems to have
+been created by inadvertent typo
+* manually combine 
+  BOGAN HS - Accounting - Selection 
+  DYETT ARTS HS - Digital Media - Selection 
+  CHICAGO VOCATIONAL HS - Cosmetology - Selection
+  req fns with req fn id 7672890f5b16cd8f5c0cae20d58d1888 
+  ** same requirements, differences seem to be caused by typos. (!)
+  ** manually link 'Program_Selections_Fn' property for these programs
+    to correct req fn id 
+
+* TODO IN FUTURE fill out ProgramIDs of constants at top of file

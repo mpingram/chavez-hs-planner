@@ -8,7 +8,6 @@ import {ifInAttendBound} from "./filters";
 
 declare const require: any;
 const ibCutoffTable = require("../../data/ib-cutoffs.json");
-const ibSchoolsWithAttendanceBonuses = require("../../data/ib-schools-with-attend-bound-bonuses");
 
 const ibPointCalc = (student: StudentData, program: CPSProgram): number => {
   const IB_NWEA_SCORE_CONSTANT = 2.2727;
