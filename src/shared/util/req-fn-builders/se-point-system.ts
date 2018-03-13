@@ -65,7 +65,7 @@ const seLookup: PrevYearAcceptanceLookup = (student, school)  => {
   }
 };
 
-const sePointSystem = () => {
+export const sePointSystem = () => {
   return (student, program) => {
     const points = sePointCalc(student, program);
     const prevScores = seLookup(student, program);

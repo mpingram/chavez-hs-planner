@@ -1,24 +1,5 @@
-Fix bugs in hs req builders and hs req builders spec
+[WIP] rewrite HS req fns with hs req fn builders
 
-spec errors
-* add typescript type assertions to mock objects in testing code
-  to prevent typescript compilation errors
-* use lambda functions when calling expect(fn).to.throw()
-* change ifInAttendBound spec to throw on failed attend bound lookup
-* fix boolean error in ifStudentAttendsOneOf spec
-
-code errors
-* fix ifHasGrades returning true with NaN grades
-  ** had used locally defined (and incorrect) uninitialized checker 
-    instead of importing isUninitialized shared/util method
-* check ifHasGrades target grades properties for validity
-* fix ifInAttendBound latitude / longitude incorrect order
-* fix lack of null checking in isUninitialized 
-* fix shortsighted use of global isNaN in isUninitialized, which
-  was causing unexpected values to return 'true' as uninitialized
-  due to number type coercion. Replaced with Number.isNaN
-* ifInAttendBound throws on failed attend bound lookup
-* ifSiblingAttends - handle uninitialized studentData properties
-* ifStudentAttendsOneOf throws on no programIDs passed to higher
-  order function that creates filter
-
+* add notimplemented req fn builder
+* add ifIEPorEL req fn filter
+* add ifSkipped7OrRepeated8 filter

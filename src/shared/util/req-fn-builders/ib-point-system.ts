@@ -53,8 +53,7 @@ const ibCutoffLookup = (student, school): number => {
   return cutoff;
 };
 
-const ibPointSystem = (): HSRequirementFunction => {
+export const ibPointSystem = (): HSRequirementFunction => {
   return pointSystem(ibPointCalc, ibCutoffLookup);
 }
 
-export default ibPointSystem;
