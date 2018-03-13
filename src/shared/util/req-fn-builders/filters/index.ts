@@ -6,5 +6,6 @@ export * from "./if-sibling-attends";
 export * from "./if-student-attends-one-of";
 export * from "./if-iep-or-el";
 export * from "./if-skipped-7-or-repeated-8";
-export * from "./combine";
+export * from "./both";
+export * from "./either";
 
