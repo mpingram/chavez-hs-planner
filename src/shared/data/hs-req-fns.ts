@@ -818,7 +818,6 @@ const HSReqFns: ReqFnTable = {
             "SENN HS - Theatre - Selection",
             "CURIE HS - Visual Arts - Selection"
         ],
-        // TODO: wow I didn't even know about this. find the cutoff scores
       "fn": notImplemented
     },
     "0514de51e21823dae4f43b085538f9e6": {
@@ -2174,8 +2173,10 @@ const HSReqFns: ReqFnTable = {
         "programs": [
             "BACK OF THE YARDS HS - General Education - Selection"
         ],
-        // TODO write inAttendBoundOf(...programs) filter
-        "fn": notImplemented
+        // TODO find attendance bound geometries for these schools
+        "fn": lottery(
+          GENERAL_LOTTERY_STAGE
+        )
     },
     "763686fddcad223e9a51aebaac42b61c": {
         "name": "",

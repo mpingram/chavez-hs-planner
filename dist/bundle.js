@@ -32315,7 +32315,7 @@ const HSReqFns = {
         "programs": [
             "BACK OF THE YARDS HS - General Education - Selection"
         ],
-        "fn": req_fn_builders_1.notImplemented
+        "fn": req_fn_builders_1.lottery(req_fn_builders_1.GENERAL_LOTTERY_STAGE)
     },
     "763686fddcad223e9a51aebaac42b61c": {
         "name": "",
@@ -33056,7 +33056,7 @@ exports.ifInAttendBound = (student, program) => {
     const polygon = schoolAttendBoundTable[program.School_ID];
     if (polygon === undefined) {
         console.warn(`No attend bound found for ${program.Short_Name + ' - ' + program.Program_Type}`);
-        throw new Error(`No polygon found for ${program.School_ID}`);
+        return false;
     }
     return point_in_polygon_1.default(point, polygon);
 };
