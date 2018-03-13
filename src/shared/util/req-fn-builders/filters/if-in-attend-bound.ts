@@ -20,9 +20,9 @@ export const ifInAttendBound: HSReqFilter = (student, program) => {
   // get geometry from schoolAttendBoundTable by looking up thru ID
   const polygon = schoolAttendBoundTable[program.School_ID];
   if (polygon === undefined) {
-    // throw error
     console.warn(`No attend bound found for ${program.Short_Name + ' - ' + program.Program_Type}`);
-    throw new Error(`No polygon found for ${program.School_ID}`);
+    //throw new Error(`No polygon found for ${program.School_ID}`);
+    return false
   }
 
   return pointInPolygon(point, polygon);
