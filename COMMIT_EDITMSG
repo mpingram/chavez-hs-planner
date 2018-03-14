@@ -1,1 +1,5 @@
-Extend shared TextField component with editable property
+Fix bug in TextField willReceiveProps
+
+* NOTE for some reason, logic in componentWillReceiveProps didn't change
+  anything if local value of TextField was empty. Not sure what the
+  reasoning there was.

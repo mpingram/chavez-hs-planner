@@ -44,18 +44,17 @@ class TextField extends React.PureComponent<TextFieldProps, TextFieldState> {
   private onChange: Function;
 
   componentWillReceiveProps(nextProps) {
-    if (this.state.localValue !== "") {
-      this.setState({localValue: nextProps.value ? nextProps.value : ""});
-    }
+    this.setState({localValue: nextProps.value ? nextProps.value : ""});
     this.onChange = nextProps.debounceTime ? debounce(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange
   }
 
   render() {
+    const notEditable = this.props.editable === false;
+
     const validation = this.props.validator ? this.props.validator(this.state.localValue) 
                                        : FieldValidationState.NEUTRAL;
 
     const handleChange = (ev) : boolean => {
-      const notEditable = this.props.editable === false;
       // if this is not an editable field, do nothing
       if (notEditable) {
         return false;
@@ -84,7 +83,7 @@ class TextField extends React.PureComponent<TextFieldProps, TextFieldState> {
 
     return (
       <FieldContainer className={this.props.className} label={this.props.label} validation={validation}>
-        <input value={this.state.localValue} type="text" className={inputClassName} onChange={handleChange}/>
+        <input readOnly={notEditable} value={this.state.localValue} type="text" className={inputClassName} onChange={handleChange}/>
       </FieldContainer>
     );
   }
