@@ -13,6 +13,7 @@ import {
   SiblingHSProgramField,
   NWEAMathField,
   NWEAReadField,
+  GPADisplay,
   SubjGradeMathField,
   SubjGradeReadField,
   SubjGradeSciField,
@@ -42,6 +43,7 @@ const StudentDataForm = (props) => {
         <SubjGradeSciField/>
         <SubjGradeSocStudiesField/>
         <SETestScoreField/>
+        <GPADisplay/>
       </SubForm>
     </Form>
   );
