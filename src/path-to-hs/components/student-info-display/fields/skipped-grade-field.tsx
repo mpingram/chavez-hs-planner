@@ -29,4 +29,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Field);
+export const SkippedGradeField = connect(mapStateToProps, mapDispatchToProps)(Field);

@@ -4,7 +4,7 @@ import Timeout from "shared/util/timeout";
 import StudentLocation from "shared/types/student-location";
 import TextField from "shared/components/ui/fields/text-field";
 import FieldValidationState from "shared/components/ui/fields/field-validation-state";
-import {getTierAndGeo, GetTierError} from "shared/util/get-tier-and-geo";
+import { getTierAndGeo, GetTierError } from "shared/util/get-tier-and-geo";
 
 import "./address-tier-calculator.scss";
 
@@ -23,7 +23,7 @@ interface AddrTierCalcState {
   addressValidationState: FieldValidationState
 }
 
-export default class AddressTierCalculator extends React.Component<AddrTierCalcProps, AddrTierCalcState> {
+export class AddressTierCalculator extends React.Component<AddrTierCalcProps, AddrTierCalcState> {
 
   constructor(props){
     super(props);

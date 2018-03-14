@@ -15,11 +15,10 @@ const mapDispatchScore = (scoreType: ScoreType) => (dispatch) => {
   }
 };
 
-const connectScoreType = (scoreType: ScoreType) => (elem) => {
+export const connectScoreType = (scoreType: ScoreType) => (elem) => {
   return connect(
     mapStateScore(scoreType),
     mapDispatchScore(scoreType)
   )(elem);
 }
 
-export default connectScoreType;

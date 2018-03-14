@@ -32,4 +32,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Field);
+export const IEPField = connect(mapStateToProps, mapDispatchToProps)(Field);

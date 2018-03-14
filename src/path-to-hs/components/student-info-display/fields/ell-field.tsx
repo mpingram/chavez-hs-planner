@@ -32,4 +32,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Field);
+export const ELLField = connect(mapStateToProps, mapDispatchToProps)(Field);

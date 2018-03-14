@@ -1,17 +1,5 @@
-Fix another logic error in CTE selection function
+Change student data form fields to export named constants
 
-* NOTE debug notes:
-  ** behavior: functions were always outputting 'LIKELY', as though
-    the student had passed requirements, even when student hadn't.
-  ** cause: requirement function filter higher order functions were not being
-    called when included in if-statements, but the functions themselves
-    were truthy, so if-statements always succeeded.
-    *** e.g: it was:              
-        'if ( ifHasGrades({nweaMath: 40}) ) {`
-    *** it should have been:  
-        'if ( ifHasGrades({nweaMath: 40})(student, program) ) {
+* NOTE previously all form fields had anonymous default exports -- that
+    seemed like it might get confusing in the future.
 
-* NOTE the requirement function filters tripped me up -- another good example
-  of benefits of keeping things simple instead of clever. (I think the
-  performance/speed benefits of the new clever requirement functions
-  still outweigh the negatives, though.)

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { updateStudentLocation } from "shared/actions";
 import AppState from "shared/types/app-state";
-import AddressTierCalculator from "./address-tier-calculator";
+import {AddressTierCalculator} from "./address-tier-calculator";
 
 const Field = (props) => (
   <AddressTierCalculator
@@ -24,4 +24,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Field);
+export const LocationField = connect(mapStateToProps, mapDispatchToProps)(Field);

@@ -73,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Field);
+export const SiblingHSProgramField = connect(mapStateToProps, mapDispatchToProps)(Field);
