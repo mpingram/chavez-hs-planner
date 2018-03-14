@@ -1,5 +1,1 @@
-Change student data form fields to export named constants
-
-* NOTE previously all form fields had anonymous default exports -- that
-    seemed like it might get confusing in the future.
-
+Extend shared TextField component with editable property

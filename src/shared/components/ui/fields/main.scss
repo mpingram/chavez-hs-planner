@@ -64,7 +64,11 @@ $colo-valid-fail: red;
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 2px;
+}
 
+.field-input-element.no-edit {
+  background-color: #efefef;
+  user-select: none;
 }
 
 .list-box {

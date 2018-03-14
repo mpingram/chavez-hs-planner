@@ -11,6 +11,7 @@ interface TextFieldProps {
   // base
   onChange: (newValue: string) => any
   value: string 
+  editable?: boolean
 
   // extensions
   validator?: (nextValue: string) => FieldValidationState
@@ -35,7 +36,7 @@ class TextField extends React.PureComponent<TextFieldProps, TextFieldState> {
   constructor(props) {
     super(props);
     this.state = {
-      localValue: props.value ? props.value : ""
+      localValue: props.value ? props.value : "",
     }
     this.onChange = props.debounceTime ? debounce(props.onChange, props.debounceTime) : props.onChange
   }
@@ -54,11 +55,18 @@ class TextField extends React.PureComponent<TextFieldProps, TextFieldState> {
                                        : FieldValidationState.NEUTRAL;
 
     const handleChange = (ev) : boolean => {
+      const notEditable = this.props.editable === false;
+      // if this is not an editable field, do nothing
+      if (notEditable) {
+        return false;
+      }
+
       // special case: if input is blank, show
       // blank input but do not pass value up to parent
       if (ev.currentTarget.value === "") {
         this.setState({localValue: ""});
         return false;
+
       } else {
         const currValue = this.props.value;
         const nextValue = ev.currentTarget.value;
@@ -72,9 +80,11 @@ class TextField extends React.PureComponent<TextFieldProps, TextFieldState> {
       }
     };
 
+    const inputClassName = "field-input-element " + (this.props.editable === false ? "no-edit" : "");
+
     return (
       <FieldContainer className={this.props.className} label={this.props.label} validation={validation}>
-        <input value={this.state.localValue} type="text" className="field-input-element" onChange={handleChange}/>
+        <input value={this.state.localValue} type="text" className={inputClassName} onChange={handleChange}/>
       </FieldContainer>
     );
   }
