@@ -1,4 +1,9 @@
 import CPSProgram from "shared/types/cps-program";
+import {CPS_JOINT_ES_AND_HS_PROGRAM_IDS} from "shared/constants";
+
+const isJointHSAndES = (program: CPSProgram) => {
+  return CPS_JOINT_ES_AND_HS_PROGRAM_IDS.some( id => id === program.ID );
+}
 
 const isESProgram = (program: CPSProgram): boolean => {
   if (program.Primary_Category === "ES") {
@@ -9,6 +14,10 @@ const isESProgram = (program: CPSProgram): boolean => {
     // because their school is a high school even though the programs
     // are ES programs.
     if (program.Program_Type === "Academic Center") {
+      return true;
+      // some programs are labeled as 'HS' but really span
+      // 6th grade -> 10th grade, etc.
+    } else if (isJointHSAndES(program)) {
       return true;
     } else {
       return false;

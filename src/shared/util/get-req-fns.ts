@@ -1,6 +1,6 @@
 import HSRequirementFunction from "shared/types/hs-requirement-function";
 import CPSProgram from "shared/types/cps-program";
-import HSReqFns from "shared/data/hs_req_fns.ts";
+import HSReqFns from "shared/data/hs-req-fns";
 import SuccessChance from "shared/enums/success-chance";
 
 

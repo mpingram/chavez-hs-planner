@@ -1,23 +1,17 @@
-Implement accurate inAttendBound function
+Fix another logic error in CTE selection function
 
-* add sy1718 attend bound geojson to config/data
-* write a script in config/build to convert geojson
-  data to json object of geometries keyed by school id
-* add geojson-precision npm dep to devDependencies
-* reduce resolution of school geometries file using
-  geojson-precision
-* copy reduced resolution school geometries to src/shared/data
-* write an implementation of point-in-polygon in shared/util
-* write inAttendBound function
+* NOTE debug notes:
+  ** behavior: functions were always outputting 'LIKELY', as though
+    the student had passed requirements, even when student hadn't.
+  ** cause: requirement function filter higher order functions were not being
+    called when included in if-statements, but the functions themselves
+    were truthy, so if-statements always succeeded.
+    *** e.g: it was:              
+        'if ( ifHasGrades({nweaMath: 40}) ) {`
+    *** it should have been:  
+        'if ( ifHasGrades({nweaMath: 40})(student, program) ) {
 
-* NOTE many schools whose requirements say that the student
-  must live within attendance boundaries do not have attendance
-  boundaries
-  ** also, two of the school IDs that are missing and SHOULD have
-    attendance boundaries are numbers that show up repeated many,
-    many times in the fractional parts of the latlong for school
-    attendance bounds. What the hell?
-  ** IMPORTANT it looks like a 'proximity' lottery is different from
-    a 'in attendance bound' lottery. wwhhhhhaaw that's important.
-
-* TODO IN FUTURE memoize inAttendBound function
+* NOTE the requirement function filters tripped me up -- another good example
+  of benefits of keeping things simple instead of clever. (I think the
+  performance/speed benefits of the new clever requirement functions
+  still outweigh the negatives, though.)
