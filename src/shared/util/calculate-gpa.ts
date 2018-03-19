@@ -1,5 +1,3 @@
-import {toGPA} from "shared/util/grade-convert";
-
 const toPoints = (letterGrade): number | null => {
   switch(letterGrade){
     case "A":
