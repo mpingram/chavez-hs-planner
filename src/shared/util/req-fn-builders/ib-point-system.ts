@@ -2,7 +2,6 @@ import HSRequirementFunction from "shared/types/hs-requirement-function";
 import StudentData from "shared/types/student-data";
 import CPSProgram from "shared/types/cps-program";
 import pointSystem from "./point-system";
-import {toLetterGrade} from "shared/util/grade-convert";
 
 import {ifInAttendBound} from "./filters";
 
@@ -25,10 +24,10 @@ const ibPointCalc = (student: StudentData, program: CPSProgram): number => {
     "D": 0,
     "F": 0,
   }
-  const subjGradeMathPoints = gradePointsLookup[toLetterGrade(student.subjGradeMath)];
-  const subjGradeReadPoints = gradePointsLookup[toLetterGrade(student.subjGradeRead)];
-  const subjGradeSciPoints = gradePointsLookup[toLetterGrade(student.subjGradeSci)];
-  const subjGradeSocStudiesPoints = gradePointsLookup[toLetterGrade(student.subjGradeSocStudies)];
+  const subjGradeMathPoints = gradePointsLookup[student.subjGradeMath];
+  const subjGradeReadPoints = gradePointsLookup[student.subjGradeRead];
+  const subjGradeSciPoints = gradePointsLookup[student.subjGradeSci];
+  const subjGradeSocStudiesPoints = gradePointsLookup[student.subjGradeSocStudies];
   
   // if student is in attendance bound of the IB program's school, the student gets a bonus
   // TODO figure out what to do for schools without attendance bounds, like BACK OF THE YARDS HS

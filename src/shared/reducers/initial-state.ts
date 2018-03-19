@@ -26,7 +26,7 @@ let initialState: AppState = fromJS({
     iep: false,
     ell: false,
     attendancePercentage: 0,
-    gpa: 0,
+    gpa: null,
     skippedGrade7OrRepeatedGrade8: false,
 
     currESProgramID: undefined,
@@ -34,10 +34,10 @@ let initialState: AppState = fromJS({
     seTestPercentile: 0,
     nweaPercentileMath: 0,
     nweaPercentileRead: 0,
-    subjGradeMath: 0,
-    subjGradeRead: 0,
-    subjGradeSci: 0,
-    subjGradeSocStudies: 0,
+    subjGradeMath: null,
+    subjGradeRead: null,
+    subjGradeSci: null,
+    subjGradeSocStudies: null,
   },
 
   selectedHSProgramID: null,

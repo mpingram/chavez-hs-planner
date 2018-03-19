@@ -1,20 +1,24 @@
 import * as React from "react";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
-import between from "shared/util/limiters/between";
 import ScoreType from "shared/enums/score-type";
 import { connectScoreType } from "./connect-score-type";
 
-import NumberField from "shared/components/ui/fields/number-field";
+import DropdownField from "shared/components/ui/fields/dropdown-field";
 
 const Field = (props) => {
-  return <NumberField
+  return <DropdownField
     label="Reading Grade"
     value={props.value}
     onChange={props.onChange}
-    limiter={between(0, 100)}
     debounceTime={INPUT_DEBOUNCE_TIME}
-  />
+  >
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+    <option value="F">F</option>
+  </DropdownField>
 }
 
 export const SubjGradeReadField = connectScoreType(ScoreType.subjGradeRead)(Field);

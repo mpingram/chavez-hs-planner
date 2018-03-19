@@ -2,7 +2,6 @@ import HSRequirementFunction from "shared/types/hs-requirement-function";
 import StudentData from "shared/types/student-data";
 import CPSProgram from "shared/types/cps-program";
 import SuccessChance from "shared/enums/success-chance";
-import {toLetterGrade} from "shared/util/grade-convert";
 
 declare const require: any;
 const sePrevScores = require("../../data/se-prevyear-accepted-scores.json");
@@ -23,10 +22,10 @@ const sePointCalc = (student: StudentData, program: CPSProgram): number => {
     "D": 0,
     "F": 0,
   }
-  const subjGradeMathPoints = gradePointsLookup[toLetterGrade(student.subjGradeMath)];
-  const subjGradeReadPoints = gradePointsLookup[toLetterGrade(student.subjGradeRead)];
-  const subjGradeSciPoints = gradePointsLookup[toLetterGrade(student.subjGradeSci)];
-  const subjGradeSocStudiesPoints = gradePointsLookup[toLetterGrade(student.subjGradeSocStudies)];
+  const subjGradeMathPoints = gradePointsLookup[student.subjGradeMath];
+  const subjGradeReadPoints = gradePointsLookup[student.subjGradeRead];
+  const subjGradeSciPoints = gradePointsLookup[student.subjGradeSci];
+  const subjGradeSocStudiesPoints = gradePointsLookup[student.subjGradeSocStudies];
 
   // calculate score component for SE Test percentile 
   const SE_TEST_PERCENTILE_CONSTANT = 3.03; 

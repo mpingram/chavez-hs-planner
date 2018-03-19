@@ -4,6 +4,7 @@ import AppState from "shared/types/app-state";
 import ScoreType from "shared/enums/score-type";
 import { updateStudentScore } from "shared/actions";
 
+
 const mapStateScore = (scoreType: ScoreType) => (state: AppState) => {
   return { 
     value: state.getIn(['studentData', scoreType]) 

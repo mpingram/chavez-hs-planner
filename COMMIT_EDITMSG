@@ -1,1 +1,5 @@
-Add GPA field to student data form
+Change subject grades to letter grades
+
+* convert app state to store letter grades instead of student grades
+* remove dead code converting number grades to letter grades etc
+

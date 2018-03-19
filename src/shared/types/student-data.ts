@@ -2,6 +2,8 @@ import Gender from "shared/enums/gender";
 import GradeLevel from "shared/types/grade-level";
 import StudentLocation from "shared/types/student-location";
 
+type LetterGrade = "A" | "B" | "C" | "D" | "F";
+
 export default interface StudentData {
     gender: Gender
     location: StudentLocation
@@ -17,8 +19,8 @@ export default interface StudentData {
     seTestPercentile: number
     nweaPercentileMath: number
     nweaPercentileRead: number
-    subjGradeMath: number 
-    subjGradeRead: number
-    subjGradeSci: number
-    subjGradeSocStudies: number
+    subjGradeMath: LetterGrade
+    subjGradeRead: LetterGrade
+    subjGradeSci: LetterGrade
+    subjGradeSocStudies: LetterGrade
 }
