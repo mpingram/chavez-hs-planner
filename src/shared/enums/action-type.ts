@@ -4,6 +4,7 @@ enum ActionType {
 
   UpdateStudentGradeLevel,
   UpdateStudentPrevGradeLevel,
+  UpdateStudentSkip7OrRepeated8,
   UpdateStudentELLStatus,
   UpdateStudentIEPStatus,
   UpdateStudentAttendPercentage,
