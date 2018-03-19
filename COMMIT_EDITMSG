@@ -1,1 +1,16 @@
-Add blank default option to DropdownField
+DRAFT Add RIT input to NWEA score fields
+
+* Add student grade field to student data form  -- we need
+  to know student's grade to give meaningful rit scores.
+* Change initial app state to set nwea percentiles as null
+* Change code that operate on app nwea percentile to gracefully
+  handle null values
+* Change initial app state to set grade level as null
+* Change code that operates on grade level to gracefully handle
+  null values
+* Fix bug in which grade level was stored as string by reducer
+* Remove behavior in NumberField in which state was not updated
+  if field's value was empty string
+
+* TODO IN FUTURE confusing behavior resulting from lack of synchrony
+  between fields. 

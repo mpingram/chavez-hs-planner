@@ -47,22 +47,15 @@ class NumberField extends React.PureComponent<NumberFieldProps, NumberFieldState
 
   render() {
     const handleChange = (ev): boolean => {
-      // special case: if input is blank, show
-      // blank input but do not pass value up to parent
-      if (ev.currentTarget.value === "") {
-        this.setState({localValue: ""});
-        return false;
+      const currValue = this.props.value;
+      const nextValue = ev.currentTarget.valueAsNumber;
+      this.setState({localValue: nextValue});
+      if (this.props.limiter) {
+        this.onChange(this.props.limiter(currValue, nextValue));
       } else {
-        const currValue = this.props.value;
-        const nextValue = ev.currentTarget.valueAsNumber;
-        this.setState({localValue: nextValue});
-        if (this.props.limiter) {
-          this.onChange(this.props.limiter(currValue, nextValue));
-        } else {
-          this.onChange(nextValue);
-        }
-        return true;
+        this.onChange(nextValue);
       }
+      return true;
     };
 
     const validation = this.props.validator && this.state.localValue !== "" ? this.props.validator(this.state.localValue) 

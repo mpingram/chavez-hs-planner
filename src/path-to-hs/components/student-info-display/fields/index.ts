@@ -16,3 +16,4 @@ export * from "./subj-grade-read-field";
 export * from "./subj-grade-sci-field";
 export * from "./subj-grade-soc-studies-field";
 export * from "./gpa-display";
+export * from "./grade-level-field";
