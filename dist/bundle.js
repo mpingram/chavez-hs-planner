@@ -584,7 +584,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var _prodInvariant = __webpack_require__(4);
 
-var DOMProperty = __webpack_require__(21);
+var DOMProperty = __webpack_require__(20);
 var ReactDOMComponentFlags = __webpack_require__(83);
 
 var invariant = __webpack_require__(2);
@@ -2316,28 +2316,8 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ScoreType;
-(function (ScoreType) {
-    ScoreType["nweaPercentileMath"] = "nweaPercentileMath";
-    ScoreType["nweaPercentileRead"] = "nweaPercentileRead";
-    ScoreType["subjGradeMath"] = "subjGradeMath";
-    ScoreType["subjGradeRead"] = "subjGradeRead";
-    ScoreType["subjGradeSci"] = "subjGradeSci";
-    ScoreType["subjGradeSocStudies"] = "subjGradeSocStudies";
-    ScoreType["seTestPercentile"] = "seTestPercentile";
-})(ScoreType || (ScoreType = {}));
-exports.default = ScoreType;
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
 const action_type_1 = __webpack_require__(115);
-const score_type_1 = __webpack_require__(19);
+const score_type_1 = __webpack_require__(22);
 exports.selectHSProgram = (newValue) => {
     return {
         type: action_type_1.default.SelectHSProgram,
@@ -2481,7 +2461,7 @@ exports.updateStudentScore = (scoreType, newValue) => {
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2696,28 +2676,18 @@ module.exports = DOMProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_redux_1 = __webpack_require__(13);
-const score_type_1 = __webpack_require__(19);
-const actions_1 = __webpack_require__(20);
+const actions_1 = __webpack_require__(19);
 const mapStateScore = (scoreType) => (state) => {
-    switch (scoreType) {
-        case score_type_1.default.nweaPercentileMath:
-        case score_type_1.default.nweaPercentileRead:
-            return {
-                value: state.getIn(['studentData', scoreType]),
-                gradeLevel: state.getIn(['studentData', 'gradeLevel'])
-            };
-        default:
-            return {
-                value: state.getIn(['studentData', scoreType])
-            };
-    }
+    return {
+        value: state.getIn(['studentData', scoreType])
+    };
 };
 const mapDispatchScore = (scoreType) => (dispatch) => {
     return {
@@ -2727,6 +2697,26 @@ const mapDispatchScore = (scoreType) => (dispatch) => {
 exports.connectScoreType = (scoreType) => (elem) => {
     return react_redux_1.connect(mapStateScore(scoreType), mapDispatchScore(scoreType))(elem);
 };
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ScoreType;
+(function (ScoreType) {
+    ScoreType["nweaPercentileMath"] = "nweaPercentileMath";
+    ScoreType["nweaPercentileRead"] = "nweaPercentileRead";
+    ScoreType["subjGradeMath"] = "subjGradeMath";
+    ScoreType["subjGradeRead"] = "subjGradeRead";
+    ScoreType["subjGradeSci"] = "subjGradeSci";
+    ScoreType["subjGradeSocStudies"] = "subjGradeSocStudies";
+    ScoreType["seTestPercentile"] = "seTestPercentile";
+})(ScoreType || (ScoreType = {}));
+exports.default = ScoreType;
 
 
 /***/ }),
@@ -5541,16 +5531,22 @@ class NumberField extends React.PureComponent {
     }
     render() {
         const handleChange = (ev) => {
-            const currValue = this.props.value;
-            const nextValue = ev.currentTarget.valueAsNumber;
-            this.setState({ localValue: nextValue });
-            if (this.props.limiter) {
-                this.onChange(this.props.limiter(currValue, nextValue));
+            if (ev.currentTarget.value === "") {
+                this.setState({ localValue: "" });
+                return false;
             }
             else {
-                this.onChange(nextValue);
+                const currValue = this.props.value;
+                const nextValue = ev.currentTarget.valueAsNumber;
+                this.setState({ localValue: nextValue });
+                if (this.props.limiter) {
+                    this.onChange(this.props.limiter(currValue, nextValue));
+                }
+                else {
+                    this.onChange(nextValue);
+                }
+                return true;
             }
-            return true;
         };
         const validation = this.props.validator && this.state.localValue !== "" ? this.props.validator(this.state.localValue)
             : field_validation_state_1.default.NEUTRAL;
@@ -9763,7 +9759,7 @@ module.exports = CSSProperty;
 
 
 
-var DOMProperty = __webpack_require__(21);
+var DOMProperty = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(7);
 var ReactInstrumentation = __webpack_require__(12);
 
@@ -10969,7 +10965,7 @@ module.exports = getActiveElement;
 var _prodInvariant = __webpack_require__(4);
 
 var DOMLazyTree = __webpack_require__(29);
-var DOMProperty = __webpack_require__(21);
+var DOMProperty = __webpack_require__(20);
 var React = __webpack_require__(26);
 var ReactBrowserEventEmitter = __webpack_require__(43);
 var ReactCurrentOwner = __webpack_require__(14);
@@ -21726,7 +21722,7 @@ module.exports = EnterLeaveEventPlugin;
 
 
 
-var DOMProperty = __webpack_require__(21);
+var DOMProperty = __webpack_require__(20);
 
 var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
 var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
@@ -22423,7 +22419,7 @@ var AutoFocusUtils = __webpack_require__(168);
 var CSSPropertyOperations = __webpack_require__(169);
 var DOMLazyTree = __webpack_require__(29);
 var DOMNamespaces = __webpack_require__(56);
-var DOMProperty = __webpack_require__(21);
+var DOMProperty = __webpack_require__(20);
 var DOMPropertyOperations = __webpack_require__(95);
 var EventPluginHub = __webpack_require__(32);
 var EventPluginRegistry = __webpack_require__(38);
@@ -27438,7 +27434,7 @@ module.exports = getUnboundedScrollPosition;
 
 
 
-var DOMProperty = __webpack_require__(21);
+var DOMProperty = __webpack_require__(20);
 var EventPluginHub = __webpack_require__(32);
 var EventPluginUtils = __webpack_require__(50);
 var ReactComponentEnvironment = __webpack_require__(59);
@@ -29592,7 +29588,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 
-var DOMProperty = __webpack_require__(21);
+var DOMProperty = __webpack_require__(20);
 var EventPluginRegistry = __webpack_require__(38);
 var ReactComponentTreeHook = __webpack_require__(9);
 
@@ -29759,7 +29755,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 
 
-var DOMProperty = __webpack_require__(21);
+var DOMProperty = __webpack_require__(20);
 var ReactComponentTreeHook = __webpack_require__(9);
 
 var warning = __webpack_require__(3);
@@ -221791,7 +221787,8 @@ let initialState = immutable_1.fromJS({
             tier: "",
             geo: { latitude: 0, longitude: 0 },
         },
-        gradeLevel: null,
+        gradeLevel: 0,
+        prevGradeLevel: 0,
         iep: false,
         ell: false,
         attendancePercentage: 0,
@@ -221800,8 +221797,8 @@ let initialState = immutable_1.fromJS({
         currESProgramID: undefined,
         siblingHSProgramIDs: [],
         seTestPercentile: 0,
-        nweaPercentileMath: null,
-        nweaPercentileRead: null,
+        nweaPercentileMath: 0,
+        nweaPercentileRead: 0,
         subjGradeMath: null,
         subjGradeRead: null,
         subjGradeSci: null,
@@ -243609,8 +243606,8 @@ const React = __webpack_require__(1);
 const page_1 = __webpack_require__(289);
 const box_1 = __webpack_require__(293);
 const student_data_form_1 = __webpack_require__(296);
-const success_chance_key_1 = __webpack_require__(336);
-const hs_programs_container_1 = __webpack_require__(339);
+const success_chance_key_1 = __webpack_require__(334);
+const hs_programs_container_1 = __webpack_require__(337);
 const PathToHS = (props) => {
     return (React.createElement(page_1.default, null,
         React.createElement(box_1.default, { width: "half", height: "full", flex: {
@@ -243866,7 +243863,6 @@ const fields_1 = __webpack_require__(303);
 const StudentDataForm = (props) => {
     return (React.createElement(form_1.default, null,
         React.createElement(sub_form_1.default, { label: "Your student information" },
-            React.createElement(fields_1.GradeLevelField, null),
             React.createElement(fields_1.IEPField, null),
             React.createElement(fields_1.ELLField, null),
             React.createElement(fields_1.SkippedGradeField, null),
@@ -244015,7 +244011,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(22));
+__export(__webpack_require__(21));
 __export(__webpack_require__(124));
 __export(__webpack_require__(316));
 __export(__webpack_require__(317));
@@ -244023,16 +244019,15 @@ __export(__webpack_require__(320));
 __export(__webpack_require__(321));
 __export(__webpack_require__(322));
 __export(__webpack_require__(323));
+__export(__webpack_require__(324));
+__export(__webpack_require__(325));
 __export(__webpack_require__(326));
-__export(__webpack_require__(327));
 __export(__webpack_require__(328));
+__export(__webpack_require__(329));
 __export(__webpack_require__(330));
 __export(__webpack_require__(331));
 __export(__webpack_require__(332));
 __export(__webpack_require__(333));
-__export(__webpack_require__(334));
-__export(__webpack_require__(335));
-__export(__webpack_require__(352));
 
 
 /***/ }),
@@ -244463,7 +244458,7 @@ exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  bor
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
-const actions_1 = __webpack_require__(20);
+const actions_1 = __webpack_require__(19);
 const number_field_1 = __webpack_require__(46);
 const constants_1 = __webpack_require__(5);
 const between_1 = __webpack_require__(47);
@@ -244491,7 +244486,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(69);
-const actions_1 = __webpack_require__(20);
+const actions_1 = __webpack_require__(19);
 const combo_box_field_1 = __webpack_require__(126);
 const constants_1 = __webpack_require__(5);
 const Field = (props) => (React.createElement(combo_box_field_1.default, { label: "What elementary school program are you in now?", value: props.currESProgram, data: {
@@ -244586,7 +244581,7 @@ exports.default = ListBoxElement;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
-const actions_1 = __webpack_require__(20);
+const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(25);
 const constants_1 = __webpack_require__(5);
 const Field = (props) => (React.createElement(dropdown_field_1.default, { label: "Are you an English Language Learner?", value: props.ell ? "true" : "false", onChange: ell => props.onChange(ell === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
@@ -244614,7 +244609,7 @@ exports.ELLField = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fi
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
-const actions_1 = __webpack_require__(20);
+const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(25);
 const constants_1 = __webpack_require__(5);
 const Field = (props) => (React.createElement(dropdown_field_1.default, { label: "Do you have an IEP?", value: props.iep ? "true" : "false", onChange: iep => props.onChange(iep === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
@@ -244642,7 +244637,7 @@ exports.IEPField = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Fi
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
-const actions_1 = __webpack_require__(20);
+const actions_1 = __webpack_require__(19);
 const address_tier_calculator_1 = __webpack_require__(124);
 const Field = (props) => (React.createElement(address_tier_calculator_1.AddressTierCalculator, { location: props.location, onLocationChange: props.onChange }));
 const mapStateToProps = (state) => {
@@ -244668,15 +244663,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
 const between_1 = __webpack_require__(47);
-const score_type_1 = __webpack_require__(19);
-const connect_score_type_1 = __webpack_require__(22);
-const nwea_convert_1 = __webpack_require__(324);
+const score_type_1 = __webpack_require__(22);
+const connect_score_type_1 = __webpack_require__(21);
 const number_field_1 = __webpack_require__(46);
-const toPercentile = (val) => 1;
 const Field = (props) => {
-    return (React.createElement("div", null,
-        React.createElement(number_field_1.default, { label: "NWEA Math percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }),
-        React.createElement(number_field_1.default, { label: "NWEA Math RIT score", value: nwea_convert_1.percentileToRit(props.value, nwea_convert_1.NWEATestType.Math, props.gradeLevel), onChange: value => props.onChange(nwea_convert_1.ritToPercentile(value, nwea_convert_1.NWEATestType.Math, props.gradeLevel)), limiter: between_1.default(1, 350), debounceTime: constants_1.INPUT_DEBOUNCE_TIME })));
+    return React.createElement(number_field_1.default, { label: "NWEA Math percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
 exports.NWEAMathField = connect_score_type_1.connectScoreType(score_type_1.default.nweaPercentileMath)(Field);
 
@@ -244688,111 +244679,16 @@ exports.NWEAMathField = connect_score_type_1.connectScoreType(score_type_1.defau
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const percentile_rit_lookup_1 = __webpack_require__(325);
-var NWEATestingSession;
-(function (NWEATestingSession) {
-    NWEATestingSession["Spring"] = "Spring";
-    NWEATestingSession["Winter"] = "Winter";
-    NWEATestingSession["Fall"] = "Fall";
-})(NWEATestingSession = exports.NWEATestingSession || (exports.NWEATestingSession = {}));
-;
-var NWEATestType;
-(function (NWEATestType) {
-    NWEATestType["Math"] = "Mathematics";
-    NWEATestType["Reading"] = "Reading";
-})(NWEATestType = exports.NWEATestType || (exports.NWEATestType = {}));
-;
-exports.NWEAConvertErrors = {
-    BadPercentile: pct => new Error(`Percentile ${pct} not in 1-99`),
-    BadGradeLevel: new Error("Grade level not in 2-8"),
-    BadRitScore: new Error("Rit score is NaN or negative"),
-    BadTestType: new Error("Unknown test type"),
-    TestingSessionNotImplemented: new Error("No records for this testing session."),
-    PercentileLookupError: new Error("RIT score matching percentile not found.")
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(5);
+const between_1 = __webpack_require__(47);
+const score_type_1 = __webpack_require__(22);
+const connect_score_type_1 = __webpack_require__(21);
+const number_field_1 = __webpack_require__(46);
+const Field = (props) => {
+    return React.createElement(number_field_1.default, { label: "NWEA Reading percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
-exports.percentileToRit = (percentile, testType, gradeLevel, testSession = NWEATestingSession.Spring) => {
-    if (percentile === null || gradeLevel === null) {
-        return null;
-    }
-    if (!(percentile >= 1 && percentile <= 99)) {
-        throw exports.NWEAConvertErrors.BadPercentile(percentile);
-    }
-    if (!(gradeLevel >= 2 && gradeLevel <= 8)) {
-        throw exports.NWEAConvertErrors.BadGradeLevel;
-    }
-    if (testType !== NWEATestType.Math && testType !== NWEATestType.Reading) {
-        throw exports.NWEAConvertErrors.BadTestType;
-    }
-    if (testSession !== NWEATestingSession.Spring) {
-        throw exports.NWEAConvertErrors.TestingSessionNotImplemented;
-    }
-    switch (testType) {
-        case NWEATestType.Math:
-            return findRit(percentile_rit_lookup_1.MathPercentileRitLookup[gradeLevel], percentile);
-        case NWEATestType.Reading:
-            return findRit(percentile_rit_lookup_1.ReadPercentileRitLookup[gradeLevel], percentile);
-        default:
-            throw exports.NWEAConvertErrors.PercentileLookupError;
-    }
-};
-exports.ritToPercentile = (rit, testType, gradeLevel, testSession = NWEATestingSession.Spring) => {
-    if (rit === null || gradeLevel === null) {
-        return null;
-    }
-    if (!(gradeLevel >= 2 && gradeLevel <= 8)) {
-        throw exports.NWEAConvertErrors.BadGradeLevel;
-    }
-    if (testType !== NWEATestType.Math && testType !== NWEATestType.Reading) {
-        throw exports.NWEAConvertErrors.BadTestType;
-    }
-    if (testSession !== NWEATestingSession.Spring) {
-        throw exports.NWEAConvertErrors.TestingSessionNotImplemented;
-    }
-    if (!(rit > 0)) {
-        throw exports.NWEAConvertErrors.BadRitScore;
-    }
-    switch (testType) {
-        case NWEATestType.Math:
-            return findPercentile(percentile_rit_lookup_1.MathPercentileRitLookup[gradeLevel], rit);
-        case NWEATestType.Reading:
-            return findPercentile(percentile_rit_lookup_1.ReadPercentileRitLookup[gradeLevel], rit);
-    }
-};
-const findPercentile = (ritByPercentile, targetRit) => {
-    for (let i = 0; i < ritByPercentile.length; i++) {
-        const currRit = ritByPercentile[i];
-        const nextRit = ritByPercentile[i + 1];
-        const percentile = i + 1;
-        if (i === 0) {
-            if (targetRit < nextRit) {
-                return percentile;
-            }
-        }
-        else if (i === ritByPercentile.length - 1) {
-            if (targetRit >= currRit) {
-                return percentile;
-            }
-        }
-        else {
-            if (targetRit === currRit && targetRit === nextRit) {
-                return percentile;
-            }
-            else if (targetRit >= currRit && targetRit < nextRit) {
-                return percentile;
-            }
-        }
-    }
-};
-const findRit = (percentileArray, percentile) => {
-    const index = percentile - 1;
-    const rit = percentileArray[index];
-    if (rit === undefined) {
-        throw exports.NWEAConvertErrors.PercentileLookupError;
-    }
-    else {
-        return rit;
-    }
-};
+exports.NWEAReadField = connect_score_type_1.connectScoreType(score_type_1.default.nweaPercentileRead)(Field);
 
 
 /***/ }),
@@ -244802,36 +244698,16 @@ const findRit = (percentileArray, percentile) => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MathPercentileRitLookup = {
-    "Pct": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99],
-    "K": [127, 131, 133, 135, 137, 138, 139, 140, 141, 142, 142, 143, 144, 144, 145, 146, 146, 147, 147, 148, 148, 149, 149, 149, 150, 150, 151, 151, 152, 152, 152, 153, 153, 153, 154, 154, 155, 155, 155, 156, 156, 156, 157, 157, 157, 158, 158, 158, 159, 159, 159, 160, 160, 161, 161, 161, 162, 162, 162, 163, 163, 163, 164, 164, 164, 165, 165, 166, 166, 166, 167, 167, 168, 168, 168, 169, 169, 170, 170, 171, 171, 172, 172, 173, 173, 174, 175, 175, 176, 177, 177, 178, 179, 180, 182, 183, 185, 187, 191],
-    "1": [149, 153, 155, 157, 158, 160, 161, 162, 163, 163, 164, 165, 165, 166, 167, 167, 168, 168, 169, 169, 170, 170, 171, 171, 172, 172, 172, 173, 173, 174, 174, 174, 175, 175, 176, 176, 176, 177, 177, 177, 178, 178, 178, 179, 179, 179, 180, 180, 180, 181, 181, 181, 182, 182, 183, 183, 183, 184, 184, 184, 185, 185, 185, 186, 186, 186, 187, 187, 188, 188, 188, 189, 189, 190, 190, 190, 191, 191, 192, 192, 193, 193, 194, 194, 195, 196, 196, 197, 198, 198, 199, 200, 201, 202, 203, 205, 206, 209, 213],
-    "2": [161, 164, 167, 168, 170, 171, 172, 173, 174, 175, 175, 176, 177, 177, 178, 179, 179, 180, 180, 181, 181, 182, 182, 183, 183, 183, 184, 184, 185, 185, 185, 186, 186, 187, 187, 187, 188, 188, 188, 189, 189, 189, 190, 190, 190, 191, 191, 191, 192, 192, 192, 193, 193, 193, 194, 194, 194, 195, 195, 196, 196, 196, 197, 197, 197, 198, 198, 198, 199, 199, 200, 200, 200, 201, 201, 202, 202, 203, 203, 204, 204, 205, 205, 206, 206, 207, 207, 208, 209, 209, 210, 211, 212, 213, 214, 216, 218, 220, 224],
-    "3": [171, 175, 177, 179, 181, 182, 183, 184, 185, 186, 186, 187, 188, 188, 189, 190, 190, 191, 191, 192, 192, 193, 193, 194, 194, 195, 195, 195, 196, 196, 197, 197, 197, 198, 198, 198, 199, 199, 200, 200, 200, 201, 201, 201, 202, 202, 202, 203, 203, 203, 204, 204, 204, 205, 205, 205, 206, 206, 207, 207, 207, 208, 208, 208, 209, 209, 209, 210, 210, 211, 211, 211, 212, 212, 213, 213, 214, 214, 215, 215, 216, 216, 217, 217, 218, 218, 219, 220, 220, 221, 222, 223, 224, 225, 226, 228, 229, 232, 236],
-    "4": [179, 183, 185, 187, 189, 190, 191, 192, 193, 194, 195, 196, 197, 197, 198, 199, 199, 200, 200, 201, 201, 202, 202, 203, 203, 204, 204, 205, 205, 206, 206, 206, 207, 207, 208, 208, 209, 209, 209, 210, 210, 210, 211, 211, 212, 212, 212, 213, 213, 213, 214, 214, 215, 215, 215, 216, 216, 217, 217, 217, 218, 218, 218, 219, 219, 220, 220, 220, 221, 221, 222, 222, 223, 223, 224, 224, 225, 225, 226, 226, 227, 227, 228, 228, 229, 230, 230, 231, 232, 233, 234, 235, 236, 237, 238, 240, 242, 244, 248],
-    "5": [184, 188, 191, 193, 195, 196, 197, 199, 200, 201, 202, 202, 203, 204, 205, 205, 206, 207, 207, 208, 208, 209, 209, 210, 210, 211, 211, 212, 212, 213, 213, 214, 214, 215, 215, 216, 216, 216, 217, 217, 218, 218, 219, 219, 219, 220, 220, 221, 221, 221, 222, 222, 223, 223, 223, 224, 224, 225, 225, 225, 226, 226, 227, 227, 228, 228, 228, 229, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 236, 236, 237, 237, 238, 239, 240, 240, 241, 242, 243, 244, 245, 247, 248, 250, 252, 255, 259],
-    "6": [186, 191, 194, 196, 198, 199, 201, 202, 203, 204, 205, 206, 207, 207, 208, 209, 209, 210, 211, 211, 212, 212, 213, 214, 214, 215, 215, 216, 216, 217, 217, 218, 218, 218, 219, 219, 220, 220, 221, 221, 222, 222, 222, 223, 223, 224, 224, 224, 225, 225, 226, 226, 227, 227, 227, 228, 228, 229, 229, 230, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 235, 236, 236, 237, 237, 238, 238, 239, 239, 240, 241, 241, 242, 243, 243, 244, 245, 246, 247, 248, 249, 250, 251, 253, 255, 257, 260, 264],
-    "7": [187, 192, 195, 198, 199, 201, 202, 204, 205, 206, 207, 208, 209, 209, 210, 211, 212, 212, 213, 214, 214, 215, 216, 216, 217, 217, 218, 218, 219, 219, 220, 220, 221, 221, 222, 222, 223, 223, 224, 224, 225, 225, 225, 226, 226, 227, 227, 228, 228, 229, 229, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 234, 235, 235, 236, 236, 237, 237, 238, 238, 239, 239, 240, 241, 241, 242, 242, 243, 244, 244, 245, 245, 246, 247, 248, 249, 249, 250, 251, 252, 253, 255, 256, 258, 260, 262, 265, 270],
-    "8": [186, 192, 195, 197, 199, 201, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 213, 214, 215, 216, 216, 217, 217, 218, 219, 219, 220, 220, 221, 221, 222, 223, 223, 224, 224, 225, 225, 226, 226, 227, 227, 228, 228, 229, 229, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 235, 236, 236, 237, 237, 238, 238, 239, 239, 240, 240, 241, 242, 242, 243, 243, 244, 244, 245, 246, 246, 247, 248, 248, 249, 250, 251, 252, 252, 253, 254, 255, 257, 258, 259, 261, 262, 264, 267, 270, 275],
-    "9": [188, 193, 197, 199, 201, 203, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 216, 217, 218, 218, 219, 220, 220, 221, 221, 222, 223, 223, 224, 224, 225, 225, 226, 226, 227, 227, 228, 228, 229, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 235, 236, 236, 237, 237, 238, 238, 239, 239, 240, 240, 241, 241, 242, 243, 243, 244, 244, 245, 245, 246, 247, 247, 248, 248, 249, 250, 251, 251, 252, 253, 254, 254, 255, 256, 257, 258, 260, 261, 262, 264, 266, 268, 270, 273, 279],
-    "10": [184, 189, 193, 196, 198, 200, 201, 203, 204, 206, 207, 208, 209, 210, 211, 212, 212, 213, 214, 215, 215, 216, 217, 218, 218, 219, 220, 220, 221, 221, 222, 223, 223, 224, 224, 225, 225, 226, 227, 227, 228, 228, 229, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 236, 236, 237, 237, 238, 238, 239, 239, 240, 240, 241, 242, 242, 243, 243, 244, 245, 245, 246, 246, 247, 248, 249, 249, 250, 251, 252, 252, 253, 254, 255, 256, 257, 258, 259, 260, 262, 263, 265, 267, 269, 272, 275, 281],
-    "11": [185, 191, 195, 198, 200, 202, 204, 205, 206, 208, 209, 210, 211, 212, 213, 214, 215, 215, 216, 217, 218, 219, 219, 220, 221, 221, 222, 223, 223, 224, 224, 225, 226, 226, 227, 227, 228, 228, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 236, 236, 237, 237, 238, 238, 239, 239, 240, 240, 241, 241, 242, 243, 243, 244, 244, 245, 246, 246, 247, 247, 248, 249, 249, 250, 251, 251, 252, 253, 254, 254, 255, 256, 257, 258, 259, 260, 261, 262, 264, 265, 266, 268, 270, 272, 275, 279, 285]
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(5);
+const between_1 = __webpack_require__(47);
+const score_type_1 = __webpack_require__(22);
+const connect_score_type_1 = __webpack_require__(21);
+const number_field_1 = __webpack_require__(46);
+const Field = (props) => {
+    return React.createElement(number_field_1.default, { label: "Selective Enrollment Test Percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
-exports.ReadPercentileRitLookup = {
-    "Pct": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99],
-    "K": [128, 132, 134, 136, 137, 138, 139, 140, 141, 142, 142, 143, 144, 144, 145, 145, 146, 146, 147, 147, 148, 148, 149, 149, 149, 150, 150, 151, 151, 151, 152, 152, 152, 153, 153, 154, 154, 154, 155, 155, 155, 156, 156, 156, 157, 157, 157, 158, 158, 158, 158, 159, 159, 159, 160, 160, 160, 161, 161, 161, 162, 162, 162, 163, 163, 163, 164, 164, 165, 165, 165, 166, 166, 166, 167, 167, 168, 168, 169, 169, 169, 170, 170, 171, 171, 172, 173, 173, 174, 175, 175, 176, 177, 178, 179, 181, 182, 185, 188],
-    "1": [144, 148, 150, 152, 154, 155, 156, 157, 158, 159, 160, 160, 161, 162, 162, 163, 164, 164, 165, 165, 166, 166, 167, 167, 168, 168, 169, 169, 169, 170, 170, 171, 171, 172, 172, 172, 173, 173, 173, 174, 174, 175, 175, 175, 176, 176, 176, 177, 177, 178, 178, 178, 179, 179, 179, 180, 180, 180, 181, 181, 182, 182, 182, 183, 183, 184, 184, 184, 185, 185, 186, 186, 186, 187, 187, 188, 188, 189, 189, 190, 190, 191, 191, 192, 193, 193, 194, 195, 195, 196, 197, 198, 199, 200, 201, 203, 205, 207, 211],
-    "2": [153, 157, 160, 162, 164, 165, 166, 167, 168, 169, 170, 171, 172, 172, 173, 174, 174, 175, 175, 176, 176, 177, 177, 178, 178, 179, 179, 180, 180, 181, 181, 182, 182, 182, 183, 183, 184, 184, 184, 185, 185, 186, 186, 186, 187, 187, 188, 188, 188, 189, 189, 189, 190, 190, 191, 191, 191, 192, 192, 193, 193, 193, 194, 194, 195, 195, 195, 196, 196, 197, 197, 198, 198, 198, 199, 199, 200, 200, 201, 201, 202, 203, 203, 204, 204, 205, 206, 207, 207, 208, 209, 210, 211, 212, 214, 215, 217, 220, 224],
-    "3": [164, 168, 170, 172, 174, 175, 176, 177, 178, 179, 180, 181, 182, 182, 183, 184, 184, 185, 185, 186, 186, 187, 187, 188, 188, 189, 189, 190, 190, 191, 191, 192, 192, 192, 193, 193, 194, 194, 194, 195, 195, 196, 196, 196, 197, 197, 197, 198, 198, 199, 199, 199, 200, 200, 201, 201, 201, 202, 202, 202, 203, 203, 204, 204, 204, 205, 205, 206, 206, 207, 207, 207, 208, 208, 209, 209, 210, 210, 211, 211, 212, 212, 213, 214, 214, 215, 216, 216, 217, 218, 219, 220, 221, 222, 223, 225, 227, 230, 234],
-    "4": [171, 175, 178, 180, 181, 183, 184, 185, 186, 187, 188, 188, 189, 190, 190, 191, 192, 192, 193, 193, 194, 194, 195, 195, 196, 196, 197, 197, 198, 198, 199, 199, 199, 200, 200, 201, 201, 201, 202, 202, 203, 203, 203, 204, 204, 204, 205, 205, 206, 206, 206, 207, 207, 207, 208, 208, 209, 209, 209, 210, 210, 210, 211, 211, 212, 212, 212, 213, 213, 214, 214, 215, 215, 216, 216, 216, 217, 217, 218, 218, 219, 220, 220, 221, 221, 222, 223, 223, 224, 225, 226, 227, 228, 229, 230, 232, 234, 237, 241],
-    "5": [178, 182, 184, 186, 188, 189, 190, 191, 192, 193, 194, 194, 195, 196, 197, 197, 198, 198, 199, 199, 200, 200, 201, 201, 202, 202, 203, 203, 204, 204, 204, 205, 205, 206, 206, 207, 207, 207, 208, 208, 208, 209, 209, 210, 210, 210, 211, 211, 211, 212, 212, 213, 213, 213, 214, 214, 214, 215, 215, 216, 216, 216, 217, 217, 217, 218, 218, 219, 219, 220, 220, 220, 221, 221, 222, 222, 223, 223, 224, 224, 225, 225, 226, 226, 227, 228, 228, 229, 230, 231, 232, 232, 234, 235, 236, 238, 239, 242, 246],
-    "6": [182, 186, 188, 190, 192, 193, 194, 195, 196, 197, 198, 199, 199, 200, 201, 201, 202, 202, 203, 203, 204, 204, 205, 205, 206, 206, 207, 207, 208, 208, 208, 209, 209, 210, 210, 210, 211, 211, 212, 212, 212, 213, 213, 214, 214, 214, 215, 215, 215, 216, 216, 216, 217, 217, 218, 218, 218, 219, 219, 219, 220, 220, 221, 221, 221, 222, 222, 223, 223, 223, 224, 224, 225, 225, 226, 226, 227, 227, 228, 228, 229, 229, 230, 230, 231, 232, 232, 233, 234, 235, 235, 236, 237, 239, 240, 241, 243, 246, 250],
-    "7": [183, 187, 190, 192, 193, 195, 196, 197, 198, 199, 200, 200, 201, 202, 202, 203, 204, 204, 205, 205, 206, 206, 207, 207, 208, 208, 209, 209, 210, 210, 211, 211, 211, 212, 212, 213, 213, 214, 214, 214, 215, 215, 215, 216, 216, 217, 217, 217, 218, 218, 219, 219, 219, 220, 220, 220, 221, 221, 222, 222, 222, 223, 223, 224, 224, 224, 225, 225, 226, 226, 227, 227, 227, 228, 228, 229, 229, 230, 230, 231, 231, 232, 233, 233, 234, 235, 235, 236, 237, 238, 238, 239, 241, 242, 243, 245, 247, 249, 253],
-    "8": [183, 188, 190, 193, 194, 196, 197, 198, 199, 200, 201, 202, 202, 203, 204, 204, 205, 206, 206, 207, 207, 208, 208, 209, 209, 210, 210, 211, 211, 212, 212, 213, 213, 214, 214, 214, 215, 215, 216, 216, 216, 217, 217, 218, 218, 218, 219, 219, 220, 220, 220, 221, 221, 222, 222, 222, 223, 223, 224, 224, 224, 225, 225, 226, 226, 227, 227, 227, 228, 228, 229, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 236, 236, 237, 238, 239, 239, 240, 241, 242, 243, 245, 246, 248, 250, 252, 257],
-    "9": [184, 189, 191, 193, 195, 197, 198, 199, 200, 201, 202, 203, 204, 204, 205, 206, 206, 207, 208, 208, 209, 209, 210, 210, 211, 211, 212, 212, 213, 213, 214, 214, 215, 215, 216, 216, 216, 217, 217, 218, 218, 219, 219, 219, 220, 220, 221, 221, 221, 222, 222, 223, 223, 223, 224, 224, 225, 225, 226, 226, 226, 227, 227, 228, 228, 229, 229, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 236, 236, 237, 237, 238, 239, 239, 240, 241, 242, 243, 244, 245, 246, 247, 249, 250, 252, 255, 260],
-    "10": [181, 185, 188, 191, 192, 194, 195, 197, 198, 199, 200, 201, 201, 202, 203, 204, 205, 205, 206, 206, 207, 208, 208, 209, 209, 210, 210, 211, 212, 212, 213, 213, 213, 214, 214, 215, 215, 216, 216, 217, 217, 218, 218, 219, 219, 219, 220, 220, 221, 221, 222, 222, 222, 223, 223, 224, 224, 225, 225, 226, 226, 227, 227, 227, 228, 228, 229, 229, 230, 230, 231, 231, 232, 232, 233, 234, 234, 235, 235, 236, 237, 237, 238, 239, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 250, 252, 254, 257, 262],
-    "11": [181, 186, 189, 191, 193, 195, 196, 197, 199, 200, 201, 202, 202, 203, 204, 205, 205, 206, 207, 207, 208, 209, 209, 210, 210, 211, 211, 212, 213, 213, 214, 214, 215, 215, 216, 216, 216, 217, 217, 218, 218, 219, 219, 220, 220, 221, 221, 221, 222, 222, 223, 223, 224, 224, 225, 225, 225, 226, 226, 227, 227, 228, 228, 229, 229, 230, 230, 231, 231, 232, 232, 233, 233, 234, 234, 235, 235, 236, 237, 237, 238, 239, 239, 240, 241, 241, 242, 243, 244, 245, 246, 247, 248, 250, 251, 253, 256, 259, 263]
-};
+exports.SETestScoreField = connect_score_type_1.connectScoreType(score_type_1.default.seTestPercentile)(Field);
 
 
 /***/ }),
@@ -244842,52 +244718,10 @@ exports.ReadPercentileRitLookup = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(5);
-const between_1 = __webpack_require__(47);
-const score_type_1 = __webpack_require__(19);
-const connect_score_type_1 = __webpack_require__(22);
-const nwea_convert_1 = __webpack_require__(324);
-const number_field_1 = __webpack_require__(46);
-const toPercentile = (val) => 1;
-const Field = (props) => {
-    return (React.createElement("div", null,
-        React.createElement(number_field_1.default, { label: "NWEA Reading percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }),
-        React.createElement(number_field_1.default, { label: "NWEA Reading RIT score", value: nwea_convert_1.percentileToRit(props.value, nwea_convert_1.NWEATestType.Reading, props.gradeLevel), onChange: value => props.onChange(nwea_convert_1.ritToPercentile(value, nwea_convert_1.NWEATestType.Reading, props.gradeLevel)), limiter: between_1.default(1, 350), debounceTime: constants_1.INPUT_DEBOUNCE_TIME })));
-};
-exports.NWEAReadField = connect_score_type_1.connectScoreType(score_type_1.default.nweaPercentileRead)(Field);
-
-
-/***/ }),
-/* 327 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(5);
-const between_1 = __webpack_require__(47);
-const score_type_1 = __webpack_require__(19);
-const connect_score_type_1 = __webpack_require__(22);
-const number_field_1 = __webpack_require__(46);
-const Field = (props) => {
-    return React.createElement(number_field_1.default, { label: "Selective Enrollment Test Percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
-};
-exports.SETestScoreField = connect_score_type_1.connectScoreType(score_type_1.default.seTestPercentile)(Field);
-
-
-/***/ }),
-/* 328 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(69);
-const actions_1 = __webpack_require__(20);
-const multi_select_field_1 = __webpack_require__(329);
+const actions_1 = __webpack_require__(19);
+const multi_select_field_1 = __webpack_require__(327);
 const constants_1 = __webpack_require__(5);
 const Field = (props) => (React.createElement(multi_select_field_1.default, { label: "Do you have a sibling in high school? If so, which school?", values: props.siblingHSPrograms, data: {
         records: props.hsPrograms,
@@ -244929,7 +244763,7 @@ exports.SiblingHSProgramField = react_redux_1.connect(mapStateToProps, mapDispat
 
 
 /***/ }),
-/* 329 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -244988,7 +244822,7 @@ exports.default = MultiSelectField;
 
 
 /***/ }),
-/* 330 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -244996,7 +244830,7 @@ exports.default = MultiSelectField;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
-const actions_1 = __webpack_require__(20);
+const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(25);
 const Field = (props) => React.createElement(dropdown_field_1.default, { label: "Did you skip 7th grade or repeat 8th grade?", value: props.didSkip7OrRepeat8, onChange: (value) => props.onChange(value === "true" ? true : false), debounceTime: props.debounceTime },
     React.createElement("option", { value: "true" }, "Yes"),
@@ -245015,7 +244849,7 @@ exports.SkippedGradeField = react_redux_1.connect(mapStateToProps, mapDispatchTo
 
 
 /***/ }),
-/* 331 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245023,8 +244857,8 @@ exports.SkippedGradeField = react_redux_1.connect(mapStateToProps, mapDispatchTo
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
-const score_type_1 = __webpack_require__(19);
-const connect_score_type_1 = __webpack_require__(22);
+const score_type_1 = __webpack_require__(22);
+const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(25);
 const Field = (props) => {
     return React.createElement(dropdown_field_1.default, { label: "Math Grade", value: props.value, onChange: props.onChange, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
@@ -245038,7 +244872,7 @@ exports.SubjGradeMathField = connect_score_type_1.connectScoreType(score_type_1.
 
 
 /***/ }),
-/* 332 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245046,8 +244880,8 @@ exports.SubjGradeMathField = connect_score_type_1.connectScoreType(score_type_1.
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
-const score_type_1 = __webpack_require__(19);
-const connect_score_type_1 = __webpack_require__(22);
+const score_type_1 = __webpack_require__(22);
+const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(25);
 const Field = (props) => {
     return React.createElement(dropdown_field_1.default, { label: "Reading Grade", value: props.value, onChange: props.onChange, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
@@ -245061,7 +244895,7 @@ exports.SubjGradeReadField = connect_score_type_1.connectScoreType(score_type_1.
 
 
 /***/ }),
-/* 333 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245069,8 +244903,8 @@ exports.SubjGradeReadField = connect_score_type_1.connectScoreType(score_type_1.
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
-const score_type_1 = __webpack_require__(19);
-const connect_score_type_1 = __webpack_require__(22);
+const score_type_1 = __webpack_require__(22);
+const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(25);
 const Field = (props) => {
     return React.createElement(dropdown_field_1.default, { label: "Science Grade", value: props.value, onChange: props.onChange, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
@@ -245084,7 +244918,7 @@ exports.SubjGradeSciField = connect_score_type_1.connectScoreType(score_type_1.d
 
 
 /***/ }),
-/* 334 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245092,8 +244926,8 @@ exports.SubjGradeSciField = connect_score_type_1.connectScoreType(score_type_1.d
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
-const score_type_1 = __webpack_require__(19);
-const connect_score_type_1 = __webpack_require__(22);
+const score_type_1 = __webpack_require__(22);
+const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(25);
 const Field = (props) => {
     return React.createElement(dropdown_field_1.default, { label: "Social Studies Grade", value: props.value, onChange: props.onChange, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
@@ -245107,7 +244941,7 @@ exports.SubjGradeSocStudiesField = connect_score_type_1.connectScoreType(score_t
 
 
 /***/ }),
-/* 335 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245130,7 +244964,7 @@ exports.GPADisplay = react_redux_1.connect(mapStateToProps)(Field);
 
 
 /***/ }),
-/* 336 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245144,7 +244978,7 @@ const outcome_unlikely_1 = __webpack_require__(73);
 const outcome_none_1 = __webpack_require__(74);
 const outcome_notimplemented_1 = __webpack_require__(75);
 const constants_1 = __webpack_require__(5);
-__webpack_require__(337);
+__webpack_require__(335);
 const SuccessChanceKey = (props) => {
     return (React.createElement("div", { className: "hs-program-success-chance-key" },
         React.createElement("div", { className: "hs-program-success-chance-example" },
@@ -245170,13 +245004,13 @@ exports.default = SuccessChanceKey;
 
 
 /***/ }),
-/* 337 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(338);
+var content = __webpack_require__(336);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -245201,7 +245035,7 @@ if(false) {
 }
 
 /***/ }),
-/* 338 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -245215,7 +245049,7 @@ exports.push([module.i, ".hs-program-success-chance-key {\n  width: 100%;\n  hei
 
 
 /***/ }),
-/* 339 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245223,8 +245057,8 @@ exports.push([module.i, ".hs-program-success-chance-key {\n  width: 100%;\n  hei
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(69);
-const hs_program_list_1 = __webpack_require__(340);
-const actions_1 = __webpack_require__(20);
+const hs_program_list_1 = __webpack_require__(338);
+const actions_1 = __webpack_require__(19);
 const getPrograms = (state) => state.getIn(['hsData', 'programs']);
 const getProgramIndex = (state) => state.getIn(['hsData', 'index']);
 const getHSProgramIDsByType = (state) => state.getIn(['hsData', 'hsProgramIDsByType']);
@@ -245280,14 +245114,14 @@ exports.default = HSProgramsContainer;
 
 
 /***/ }),
-/* 340 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const hs_group_1 = __webpack_require__(341);
+const hs_group_1 = __webpack_require__(339);
 const HSProgramList = (props) => {
     return (React.createElement("div", { style: {
             width: "100%",
@@ -245304,14 +245138,14 @@ exports.default = HSProgramList;
 
 
 /***/ }),
-/* 341 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const get_combined_success_chance_1 = __webpack_require__(342);
+const get_combined_success_chance_1 = __webpack_require__(340);
 const success_chance_1 = __webpack_require__(10);
 const outcome_certain_1 = __webpack_require__(70);
 const outcome_likely_1 = __webpack_require__(71);
@@ -245320,8 +245154,8 @@ const outcome_unlikely_1 = __webpack_require__(73);
 const outcome_none_1 = __webpack_require__(74);
 const outcome_notimplemented_1 = __webpack_require__(75);
 const constants_1 = __webpack_require__(5);
-const hs_program_element_1 = __webpack_require__(343);
-__webpack_require__(350);
+const hs_program_element_1 = __webpack_require__(341);
+__webpack_require__(348);
 class HSGroup extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -245423,7 +245257,7 @@ exports.default = HSGroup;
 
 
 /***/ }),
-/* 342 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245442,7 +245276,7 @@ exports.default = getCombinedSuccessChance;
 
 
 /***/ }),
-/* 343 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245450,15 +245284,15 @@ exports.default = getCombinedSuccessChance;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const success_chance_1 = __webpack_require__(10);
-const school_1 = __webpack_require__(344);
+const school_1 = __webpack_require__(342);
 const outcome_certain_1 = __webpack_require__(70);
 const outcome_likely_1 = __webpack_require__(71);
 const outcome_uncertain_1 = __webpack_require__(72);
 const outcome_unlikely_1 = __webpack_require__(73);
 const outcome_none_1 = __webpack_require__(74);
 const outcome_notimplemented_1 = __webpack_require__(75);
-const hs_program_info_card_1 = __webpack_require__(345);
-__webpack_require__(348);
+const hs_program_info_card_1 = __webpack_require__(343);
+__webpack_require__(346);
 class HSProgramElement extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -245540,7 +245374,7 @@ exports.default = HSProgramElement;
 
 
 /***/ }),
-/* 344 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245560,7 +245394,7 @@ exports.default = SchoolIcon;
 
 
 /***/ }),
-/* 345 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245568,7 +245402,7 @@ exports.default = SchoolIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const success_chance_1 = __webpack_require__(10);
-__webpack_require__(346);
+__webpack_require__(344);
 const HSProgramInfoCard = (props) => {
     const toMessage = (success) => {
         let msg;
@@ -245637,13 +245471,13 @@ exports.default = HSProgramInfoCard;
 
 
 /***/ }),
-/* 346 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(347);
+var content = __webpack_require__(345);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -245668,7 +245502,7 @@ if(false) {
 }
 
 /***/ }),
-/* 347 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -245677,6 +245511,51 @@ exports = module.exports = __webpack_require__(16)(undefined);
 
 // module
 exports.push([module.i, ".hs-info-card-container {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: auto;\n  z-index: 99; }\n\n.hs-info-card-container.visible {\n  display: block; }\n\n.hs-info-card-close-button {\n  font-size: 150%;\n  width: 48px;\n  height: 48px;\n  background-color: #fafafd;\n  border: 2px solid grey;\n  border-radius: 100%;\n  z-index: 2;\n  position: absolute;\n  right: 0;\n  -webkit-transition: -webkit-transform 150ms ease;\n  transition: -webkit-transform 150ms ease;\n  transition: transform 150ms ease;\n  transition: transform 150ms ease, -webkit-transform 150ms ease; }\n\n.hs-info-card-close-button:hover {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2); }\n\n.hs-info-card-close-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9); }\n\n.hs-info-card {\n  padding: 0.5em;\n  width: 100%;\n  height: 100%;\n  background: #fafafd;\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start; }\n\n.hs-info-card-program-name {\n  font-size: 115%;\n  font-weight: bold;\n  width: 100%;\n  text-align: center; }\n\n.hs-info-card-requirement-container {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n\n.hs-info-card-requirement {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row; }\n\n.hs-info-card-req-desc-container {\n  width: 50%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-bottom: 0.5em; }\n\n.hs-info-card-req-type {\n  width: 90px;\n  margin-right: 0.5em; }\n\n.hs-info-card-req-desc {\n  width: 200px;\n  font-size: 80%;\n  padding: 0.5em;\n  background: #e8e8f6;\n  border-radius: 5px;\n  border: 1px solid #eee;\n  margin-right: 0.5em; }\n\n.hs-links-container {\n  width: 100%; }\n\n.hs-link {\n  margin: 1em;\n  padding: 0.5em;\n  color: #fafafd;\n  background-color: #4747b1;\n  border-radius: 7px;\n  -webkit-transition: background-color 200ms ease;\n  transition: background-color 200ms ease; }\n\n.hs-link:hover {\n  color: #fafafd;\n  background-color: #6868c3; }\n\n.hs-link:active {\n  color: #fafafd;\n  background-color: #38388d; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 346 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(347);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(17)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 347 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(16)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".hs-list-element {\n  position: relative;\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  overflow: hidden; }\n\n.outcome-icon-container {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  border-radius: 100%;\n  background-color: #fafafd;\n  padding: 1px; }\n\n.hs-list-element-icon.succ-certain {\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #fff124; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background-color: inherit;\n  border: 2px dashed #999; }\n", ""]);
 
 // exports
 
@@ -245702,8 +245581,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-group.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-group.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -245721,86 +245600,9 @@ exports = module.exports = __webpack_require__(16)(undefined);
 
 
 // module
-exports.push([module.i, ".hs-list-element {\n  position: relative;\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  overflow: hidden; }\n\n.outcome-icon-container {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  border-radius: 100%;\n  background-color: #fafafd;\n  padding: 1px; }\n\n.hs-list-element-icon.succ-certain {\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #fff124; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background-color: inherit;\n  border: 2px dashed #999; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 350 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(351);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(17)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-group.scss", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-group.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 351 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(16)(undefined);
-// imports
-
-
-// module
 exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  margin-bottom: 2em; }\n\n.hs-category-container.collapsed {\n  height: 75px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #cacaca;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n\n.hs-category-title {\n  max-width: 100%;\n  font-size: 140%;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n\n.count-all {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 6em;\n          flex: 0 0 6em; }\n\n.count-all-number {\n  color: #333;\n  font-size: 1.25em;\n  font-weight: bold;\n  line-height: 36px; }\n\n.count-all-desc {\n  color: #666;\n  font-size: 90%;\n  line-height: 36px; }\n\n.hs-program-outcome-counts {\n  font-size: 95%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n\n.outcome-counts-wrapper {\n  height: 36px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  background-color: #fafafa;\n  border-radius: 12px; }\n\n.outcome-count {\n  width: 20px;\n  margin: 0 5px;\n  line-height: 16px;\n  font-size: 1.25em;\n  text-align: center;\n  font-weight: bold; }\n\n.outcome-count.count-empty {\n  color: #a6a6a6;\n  font-weight: normal; }\n\n.outcome-count.count-certain {\n  color: #5bed2a; }\n\n.outcome-count.count-likely {\n  color: #b6ec29; }\n\n.outcome-count.count-uncertain {\n  color: #ccc000; }\n\n.outcome-count.count-unlikely {\n  color: #f49600; }\n\n.outcome-count.count-none {\n  color: #f4743b; }\n\n.outcome-count.count-notimplemented {\n  color: #999; }\n\n.hs-category-collapse-button {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 40px;\n          flex: 0 0 40px;\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  -ms-flex-item-align: center;\n      align-self: center;\n  border-radius: 100%;\n  border: 2px solid #9e9e9e;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
 
 // exports
-
-
-/***/ }),
-/* 352 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const react_redux_1 = __webpack_require__(13);
-const actions_1 = __webpack_require__(20);
-const dropdown_field_1 = __webpack_require__(25);
-const constants_1 = __webpack_require__(5);
-const Field = (props) => (React.createElement(dropdown_field_1.default, { label: "What grade are you in?", value: props.value, onChange: str => props.onChange(parseInt(str)), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
-    React.createElement("option", { value: "3" }, "3rd grade"),
-    React.createElement("option", { value: "4" }, "4th grade"),
-    React.createElement("option", { value: "5" }, "5th grade"),
-    React.createElement("option", { value: "6" }, "6th grade"),
-    React.createElement("option", { value: "7" }, "7th grade"),
-    React.createElement("option", { value: "8" }, "8th grade")));
-const mapStateToProps = (state) => {
-    return {
-        gradeLevel: state.getIn(['studentData', 'gradeLevel'])
-    };
-};
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onChange: gradeLevel => dispatch(actions_1.updateStudentGradeLevel(gradeLevel))
-    };
-};
-exports.GradeLevelField = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
 
 
 /***/ })

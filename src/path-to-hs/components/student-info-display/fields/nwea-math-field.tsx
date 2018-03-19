@@ -5,39 +5,17 @@ import between from "shared/util/limiters/between";
 import ScoreType from "shared/enums/score-type";
 import {connectScoreType} from "./connect-score-type";
 
-import {percentileToRit, ritToPercentile, NWEATestType} from "shared/util/nwea-convert"; 
 import NumberField from "shared/components/ui/fields/number-field";
 
-const toPercentile = (val) => 1;
-
 const Field = (props) => {
-  return (
-  <div>
-    <NumberField
-      label="NWEA Math percentile"
-      value={props.value}
-      onChange={props.onChange}
-      limiter={between(1, 99)}
-      debounceTime={INPUT_DEBOUNCE_TIME}
-    />
-    <NumberField
-      label="NWEA Math RIT score"
-      value={percentileToRit(
-        props.value,
-        NWEATestType.Math,
-        props.gradeLevel
-      )}
-      onChange={ value => props.onChange(ritToPercentile(
-        value,
-        NWEATestType.Math,
-        props.gradeLevel
-      ))}
-      limiter={between(1, 350)}
-      debounceTime={INPUT_DEBOUNCE_TIME}
-    />
-  </div>
-  );
-};
+  return <NumberField
+    label="NWEA Math percentile"
+    value={props.value}
+    onChange={props.onChange}
+    limiter={between(1, 99)}
+    debounceTime={INPUT_DEBOUNCE_TIME}
+  />
+}
 
 export const NWEAMathField = connectScoreType(ScoreType.nweaPercentileMath)(Field);
 

@@ -6,7 +6,6 @@ import SubForm from "shared/components/layout/sub-form";
 import {
   IEPField,
   ELLField,
-  GradeLevelField,
   LocationField,
   SkippedGradeField,
   AttendPercentageField,
@@ -28,7 +27,6 @@ const StudentDataForm = (props) => {
   return (
     <Form>
       <SubForm label="Your student information">
-        <GradeLevelField/>
         <IEPField/>
         <ELLField/>
         <SkippedGradeField/>

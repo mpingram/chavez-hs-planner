@@ -12,7 +12,7 @@ export enum NWEATestType {
 };
 
 export const NWEAConvertErrors = {
-  BadPercentile: pct => new Error(`Percentile ${pct} not in 1-99`),
+  BadPercentile: new Error("Percentile not in 1-99"),
   BadGradeLevel: new Error("Grade level not in 2-8"),
   BadRitScore: new Error("Rit score is NaN or negative"),
   BadTestType: new Error("Unknown test type"),
@@ -20,18 +20,13 @@ export const NWEAConvertErrors = {
   PercentileLookupError: new Error("RIT score matching percentile not found.")
 };
 
-export const percentileToRit = (percentile: number | null, 
+export const percentileToRit = (percentile: number, 
       testType: NWEATestType, 
-      gradeLevel: number | null,
-      testSession: NWEATestingSession = NWEATestingSession.Spring): number | null => {
-
-  // pass along null values without throwing an error
-  if (percentile === null || gradeLevel === null) {
-    return null;
-  }
+      gradeLevel: number,
+      testSession: NWEATestingSession = NWEATestingSession.Spring): number => {
 
   if (!(percentile >= 1 && percentile <= 99)) {
-    throw NWEAConvertErrors.BadPercentile(percentile);
+    throw NWEAConvertErrors.BadPercentile;
   }
   if (!(gradeLevel >= 2 && gradeLevel <= 8)) {
     throw NWEAConvertErrors.BadGradeLevel;
@@ -47,20 +42,13 @@ export const percentileToRit = (percentile: number | null,
         return findRit(MathPercentileRitLookup[gradeLevel], percentile);
     case NWEATestType.Reading: 
         return findRit(ReadPercentileRitLookup[gradeLevel], percentile);
-    default:
-        throw NWEAConvertErrors.PercentileLookupError; 
   }
 };
 
-export const ritToPercentile = (rit: number | null, 
+export const ritToPercentile = (rit: number, 
       testType: NWEATestType, 
-      gradeLevel: number | null,
-  testSession: NWEATestingSession = NWEATestingSession.Spring): number | null => {
-
-  // pass along null values without throwing an error
-  if (rit === null || gradeLevel === null) {
-    return null;
-  }
+      gradeLevel: number,
+      testSession: NWEATestingSession = NWEATestingSession.Spring): number => {
 
   if (!(gradeLevel >= 2 && gradeLevel <= 8)) {
     throw NWEAConvertErrors.BadGradeLevel;
