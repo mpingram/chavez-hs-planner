@@ -3219,7 +3219,9 @@ class DropdownField extends React.PureComponent {
             }
         };
         return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
-            React.createElement("select", { className: "field-input-element", onChange: handleChange }, this.props.children)));
+            React.createElement("select", { defaultValue: "", className: "field-input-element", onChange: handleChange },
+                React.createElement("option", { disabled: true, value: "" }),
+                this.props.children)));
     }
 }
 exports.default = DropdownField;

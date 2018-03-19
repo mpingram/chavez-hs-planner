@@ -56,7 +56,8 @@ class DropdownField extends React.PureComponent<DropdownFieldProps, DropdownFiel
 
     return (
       <FieldContainer className={this.props.className} label={this.props.label} validation={validation}>
-        <select className="field-input-element" onChange={handleChange}>
+        <select defaultValue="" className="field-input-element" onChange={handleChange}>
+          <option disabled value=""></option>
           {this.props.children}
         </select>
       </FieldContainer>
