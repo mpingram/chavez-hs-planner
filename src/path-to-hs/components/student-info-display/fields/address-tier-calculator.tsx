@@ -49,17 +49,20 @@ export class AddressTierCalculator extends React.Component<AddrTierCalcProps, Ad
     }
   }
 
-  private handleAddressChange = (address: string): void => {
+  private handleAddressChange = (streetAddress: string): void => {
     const TIMEOUT_DELAY = 1000; // ms
 
+    // append Chicago to end of all addresses
+    const fullAddress = streetAddress + ", Chicago, IL";
+
     this.setState({
-      address: address,
+      address: streetAddress,
       addressValidationState: FieldValidationState.NEUTRAL,
       tier: null
     });
 
-    const validate = (address: string) => {
-      return address && address.length > 5;
+    const validate = (addr: string) => {
+      return addr && addr.length > 5;
     };
 
     // after a timeout (to make sure that we don't send a ton of requests)
@@ -70,8 +73,8 @@ export class AddressTierCalculator extends React.Component<AddrTierCalcProps, Ad
       this.setRequestInProgress(true);
 
       // if address passes basic validation
-      if (validate(address)) {
-        getTierAndGeo(address).then( ({tier, geo}) => {
+      if (validate(fullAddress)) {
+        getTierAndGeo(fullAddress).then( ({tier, geo}) => {
           this.setState({
             tier: tier,
             geo: geo,
@@ -79,7 +82,7 @@ export class AddressTierCalculator extends React.Component<AddrTierCalcProps, Ad
           });
           this.setRequestInProgress(false);
           this.props.onLocationChange({
-            address: address.trim(),
+            address: streetAddress,
             tier: tier,
             geo: geo
           });
@@ -122,6 +125,9 @@ export class AddressTierCalculator extends React.Component<AddrTierCalcProps, Ad
         validator={ () => this.state.addressValidationState }
         onChange={this.handleAddressChange}
       />
+      <div className="address-suffix">
+      , Chicago, IL
+      </div>
       <div className="tier-display-container">
         <div className="tier-display-label">
           Your CPS Tier
@@ -129,7 +135,7 @@ export class AddressTierCalculator extends React.Component<AddrTierCalcProps, Ad
         <div className="tier-display">
           { this.state.requestInProgress 
                 ? <div className="spinning-load-icon"></div>
-                : (this.state.tier ? this.state.tier : "")
+                : (this.state.tier ? this.state.tier : "n/a")
           }
         </div>
       </div>

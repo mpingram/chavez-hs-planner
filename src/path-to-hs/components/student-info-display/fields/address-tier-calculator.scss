@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: baseline;
+  align-items: flex-end;
 }
 
 .address-field-wrapper {
@@ -35,12 +35,22 @@
 }
 
 .tier-display {
+  margin: 0.5em;
+  padding: 5px;
+  line-height: 1em;
+  background-color: #efefef;
+
   width: 2em;
   height: 30px;
-  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 2px;
   text-align: center;
   font-size: 125%;
 }
 
+.address-suffix {
+  padding: 0.5em 0.5em 0.5em 0;
+  margin: 0.5em 0.5em 0.5em 0;
+  color: #666;
+  margin-right: 0.5em;
+}

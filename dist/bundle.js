@@ -17515,20 +17515,21 @@ class AddressTierCalculator extends React.Component {
                 });
             }
         };
-        this.handleAddressChange = (address) => {
+        this.handleAddressChange = (streetAddress) => {
             const TIMEOUT_DELAY = 1000;
+            const fullAddress = streetAddress + ", Chicago, IL";
             this.setState({
-                address: address,
+                address: streetAddress,
                 addressValidationState: field_validation_state_1.default.NEUTRAL,
                 tier: null
             });
-            const validate = (address) => {
-                return address && address.length > 5;
+            const validate = (addr) => {
+                return addr && addr.length > 5;
             };
             const newTimeout = new timeout_1.default(() => {
                 this.setRequestInProgress(true);
-                if (validate(address)) {
-                    get_tier_and_geo_1.getTierAndGeo(address).then(({ tier, geo }) => {
+                if (validate(fullAddress)) {
+                    get_tier_and_geo_1.getTierAndGeo(fullAddress).then(({ tier, geo }) => {
                         this.setState({
                             tier: tier,
                             geo: geo,
@@ -17536,7 +17537,7 @@ class AddressTierCalculator extends React.Component {
                         });
                         this.setRequestInProgress(false);
                         this.props.onLocationChange({
-                            address: address.trim(),
+                            address: streetAddress,
                             tier: tier,
                             geo: geo
                         });
@@ -17585,11 +17586,12 @@ class AddressTierCalculator extends React.Component {
     render() {
         return React.createElement("div", { className: "address-tier-calculator" },
             React.createElement(text_field_1.default, { label: "Your street address", value: this.state.address ? this.state.address : "", validator: () => this.state.addressValidationState, onChange: this.handleAddressChange }),
+            React.createElement("div", { className: "address-suffix" }, ", Chicago, IL"),
             React.createElement("div", { className: "tier-display-container" },
                 React.createElement("div", { className: "tier-display-label" }, "Your CPS Tier"),
                 React.createElement("div", { className: "tier-display" }, this.state.requestInProgress
                     ? React.createElement("div", { className: "spinning-load-icon" })
-                    : (this.state.tier ? this.state.tier : ""))));
+                    : (this.state.tier ? this.state.tier : "n/a"))));
     }
 }
 exports.AddressTierCalculator = AddressTierCalculator;
@@ -244447,7 +244449,7 @@ exports = module.exports = __webpack_require__(16)(undefined);
 
 
 // module
-exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  border-radius: 50%;\n  width: 2em;\n  height: 2em;\n  margin: 0 auto; }\n\n.spinning-load-icon {\n  font-size: 10px;\n  position: relative;\n  border-top: 4px solid #95e57a;\n  border-right: 4px solid #95e57a;\n  border-bottom: 4px solid #95e57a;\n  border-left: 2px solid #ffffff;\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear; }\n\n@-webkit-keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; }\n  50% {\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    border-top: 4px solid #dbdb74;\n    border-right: 4px solid #dbdb74;\n    border-bottom: 4px solid #dbdb74; }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; } }\n\n@keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; }\n  50% {\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    border-top: 4px solid #dbdb74;\n    border-right: 4px solid #dbdb74;\n    border-bottom: 4px solid #dbdb74; }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; } }\n\n.address-tier-calculator {\n  margin-top: 10px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: baseline;\n      -ms-flex-align: baseline;\n          align-items: baseline; }\n\n.address-field-wrapper {\n  -webkit-box-flex: 3;\n      -ms-flex: 3 0 auto;\n          flex: 3 0 auto;\n  position: relative; }\n\n.tier-display-wrapper {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 auto;\n          flex: 1 0 auto; }\n\n.address-status-message {\n  position: absolute;\n  color: #9e9e9e;\n  font-size: 90%;\n  font-style: italic; }\n\n.tier-display-container {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto; }\n\n.tier-display-label {\n  font-size: 90%;\n  color: #444; }\n\n.tier-display {\n  width: 2em;\n  height: 30px;\n  padding: 5px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n  text-align: center;\n  font-size: 125%; }\n", ""]);
+exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  border-radius: 50%;\n  width: 2em;\n  height: 2em;\n  margin: 0 auto; }\n\n.spinning-load-icon {\n  font-size: 10px;\n  position: relative;\n  border-top: 4px solid #95e57a;\n  border-right: 4px solid #95e57a;\n  border-bottom: 4px solid #95e57a;\n  border-left: 2px solid #ffffff;\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear; }\n\n@-webkit-keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; }\n  50% {\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    border-top: 4px solid #dbdb74;\n    border-right: 4px solid #dbdb74;\n    border-bottom: 4px solid #dbdb74; }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; } }\n\n@keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; }\n  50% {\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    border-top: 4px solid #dbdb74;\n    border-right: 4px solid #dbdb74;\n    border-bottom: 4px solid #dbdb74; }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n    border-top: 4px solid #95e57a;\n    border-right: 4px solid #95e57a;\n    border-bottom: 4px solid #95e57a; } }\n\n.address-tier-calculator {\n  margin-top: 10px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n\n.address-field-wrapper {\n  -webkit-box-flex: 3;\n      -ms-flex: 3 0 auto;\n          flex: 3 0 auto;\n  position: relative; }\n\n.tier-display-wrapper {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 auto;\n          flex: 1 0 auto; }\n\n.address-status-message {\n  position: absolute;\n  color: #9e9e9e;\n  font-size: 90%;\n  font-style: italic; }\n\n.tier-display-container {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto; }\n\n.tier-display-label {\n  font-size: 90%;\n  color: #444; }\n\n.tier-display {\n  margin: 0.5em;\n  padding: 5px;\n  line-height: 1em;\n  background-color: #efefef;\n  width: 2em;\n  height: 30px;\n  border: 1px solid #ddd;\n  border-radius: 2px;\n  text-align: center;\n  font-size: 125%; }\n\n.address-suffix {\n  padding: 0.5em 0.5em 0.5em 0;\n  margin: 0.5em 0.5em 0.5em 0;\n  color: #666;\n  margin-right: 0.5em; }\n", ""]);
 
 // exports
 
