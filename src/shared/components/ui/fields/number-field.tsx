@@ -19,7 +19,7 @@ interface NumberFieldProps {
   debounceTime?: number
 
   className?: string
-  style?: React.StyleHTMLAttributes<HTMLInputElement>
+  style?: Object
 }
 
 interface NumberFieldState {
@@ -69,7 +69,7 @@ class NumberField extends React.PureComponent<NumberFieldProps, NumberFieldState
                                        : FieldValidationState.NEUTRAL;
 
     return (
-      <FieldContainer className={this.props.className} label={this.props.label} validation={validation}>
+      <FieldContainer style={this.props.style} className={this.props.className} label={this.props.label} validation={validation}>
         <input value={this.state.localValue} type="number" className="field-input-element" onChange={handleChange}/>
       </FieldContainer>
     );

@@ -10,6 +10,7 @@ import NumberField from "shared/components/ui/fields/number-field";
 const Field = (props) => {
   return <NumberField
     label="NWEA Reading percentile"
+    style={{width: "4em"}}
     value={props.value}
     onChange={props.onChange}
     limiter={between(1, 99)}

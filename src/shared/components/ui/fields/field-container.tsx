@@ -10,10 +10,11 @@ interface FieldContainerProps {
   children?: any
   label?: string
   validation?: FieldValidationState;
+  style?: Object
 }
 
 const FieldContainer = (props: FieldContainerProps) => (
-  <div className={"field-container" + " " + props.className}>
+  <div style={props.style} className={"field-container" + " " + props.className}>
     {
     props.label &&
     <FieldLabel>

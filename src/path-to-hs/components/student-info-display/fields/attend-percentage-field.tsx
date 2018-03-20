@@ -12,6 +12,7 @@ import between from "shared/util/limiters/between";
 const Field = (props) => (
   <NumberField
     label="Your 7th grade attendance percentage"
+    style={{width: "6em"}}
     value={props.attendancePercentage}
     onChange={props.onChange}
     limiter={between(0, 100)}

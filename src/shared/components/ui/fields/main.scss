@@ -5,6 +5,7 @@ $colo-valid-warn: yellow;
 $colo-valid-fail: red;
 
 .field-container {
+  width: inherit;
   max-width: 100%;
   padding: 0.5em;
   margin: 0.25em;
@@ -60,6 +61,7 @@ $colo-valid-fail: red;
 }
 
 .field-input-element {
+  width: inherit;
   font-size: 100%;
   padding: 5px;
   border: 1px solid #ddd;

@@ -24,7 +24,7 @@ interface TextFieldProps {
 
   // styling
   className?: string
-  style?: React.StyleHTMLAttributes<HTMLInputElement>
+  style?: Object
 }
 
 interface TextFieldState {
@@ -82,7 +82,7 @@ class TextField extends React.PureComponent<TextFieldProps, TextFieldState> {
     const inputClassName = "field-input-element " + (this.props.editable === false ? "no-edit" : "");
 
     return (
-      <FieldContainer className={this.props.className} label={this.props.label} validation={validation}>
+      <FieldContainer style={this.props.style} className={this.props.className} label={this.props.label} validation={validation}>
         <input readOnly={notEditable} value={this.state.localValue} type="text" className={inputClassName} onChange={handleChange}/>
       </FieldContainer>
     );

@@ -8,13 +8,16 @@ import {connectScoreType} from "./connect-score-type";
 import NumberField from "shared/components/ui/fields/number-field";
 
 const Field = (props) => {
-  return <NumberField
-    label="NWEA Math percentile"
-    value={props.value}
-    onChange={props.onChange}
-    limiter={between(1, 99)}
-    debounceTime={INPUT_DEBOUNCE_TIME}
-  />
+  return (
+      <NumberField
+        label="NWEA Math percentile"
+        style={{width: "4em"}}
+        value={props.value}
+        onChange={props.onChange}
+        limiter={between(1, 99)}
+        debounceTime={INPUT_DEBOUNCE_TIME}
+      />
+  )
 }
 
 export const NWEAMathField = connectScoreType(ScoreType.nweaPercentileMath)(Field);
