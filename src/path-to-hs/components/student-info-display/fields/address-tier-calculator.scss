@@ -2,6 +2,7 @@
 @import "../../../../shared/styles/spinning-load-icon";
 
 .address-tier-calculator {
+  position: relative;
   margin-top: $margin-sm;
   display: flex;
   flex-direction: row;
@@ -16,13 +17,6 @@
 
 .tier-display-wrapper {
   flex: 1 0 auto;
-}
-
-.address-status-message {
-  position: absolute;
-  color: $col-app-gray;
-  font-size: 90%;
-  font-style: italic;
 }
 
 .tier-display-container {
@@ -53,4 +47,21 @@
   margin: 0.5em 0.5em 0.5em 0;
   color: #666;
   margin-right: 0.5em;
+}
+
+
+.tier-calc-error-display {
+  position: absolute;
+  bottom: -5px;
+  left: 10px;
+  
+  color: #555;
+  font-size: 90%;
+  font-style: italic;
+  transform: translateX(0);
+  transition: transform 25ms ease;
+}
+
+.tier-calc-error-display.no-err {
+  transform: translateX(-100%);
 }

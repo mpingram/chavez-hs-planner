@@ -21,6 +21,7 @@ interface AddrTierCalcState {
   timeoutInstance?: Timeout | null
   requestInProgress: boolean
   addressValidationState: FieldValidationState
+  errMsg: string | null
 }
 
 export class AddressTierCalculator extends React.Component<AddrTierCalcProps, AddrTierCalcState> {
@@ -33,7 +34,8 @@ export class AddressTierCalculator extends React.Component<AddrTierCalcProps, Ad
       geo: props.geolocation ? props.geolocation : {latitude: 0, longitude: 0},
       timeoutInstance: null,
       requestInProgress: false,
-      addressValidationState: FieldValidationState.NEUTRAL
+      addressValidationState: FieldValidationState.NEUTRAL,
+      errMsg: null
     };
   } 
 
@@ -89,17 +91,20 @@ export class AddressTierCalculator extends React.Component<AddrTierCalcProps, Ad
         }).catch( err => {
           if (err === GetTierError.InvalidAddressErr) {
             this.setState({
-              addressValidationState: FieldValidationState.FAILURE
+              addressValidationState: FieldValidationState.FAILURE,
+              errMsg: "No address found!"
             });
             this.setRequestInProgress(false);
           } else if (err === GetTierError.NoTierFoundErr) {
             this.setState({
-              addressValidationState: FieldValidationState.WARNING
+              addressValidationState: FieldValidationState.WARNING,
+              errMsg: "No CPS Tier found for this address."
             });
             this.setRequestInProgress(false);
           } else if (err === GetTierError.RequestFailedErr) {
             this.setState({
-              addressValidationState: FieldValidationState.WARNING
+              addressValidationState: FieldValidationState.WARNING,
+              errMsg: "Connection error. Try again!"
             });
             this.setRequestInProgress(false);
           }
@@ -138,6 +143,9 @@ export class AddressTierCalculator extends React.Component<AddrTierCalcProps, Ad
                 : (this.state.tier ? this.state.tier : "n/a")
           }
         </div>
+      </div>
+      <div className={`tier-calc-error-display ${this.state.errMsg ? "" : "no-err"}` }>
+        {this.state.errMsg}
       </div>
     </div>
   }
