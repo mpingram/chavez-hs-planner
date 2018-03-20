@@ -244727,14 +244727,42 @@ const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(69);
 const actions_1 = __webpack_require__(19);
 const multi_select_field_1 = __webpack_require__(327);
+const dropdown_field_1 = __webpack_require__(25);
 const constants_1 = __webpack_require__(5);
-const Field = (props) => (React.createElement(multi_select_field_1.default, { label: "Do you have a sibling in high school? If so, which school?", values: props.siblingHSPrograms, data: {
-        records: props.hsPrograms,
-        getKey: (program) => program.ID,
-        getDisplayText: (program) => {
-            return program.Short_Name + " - " + program.Program_Type;
-        }
-    }, onChange: (programs) => props.onChange(programs.map(program => program.ID)), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
+class SiblingHSProgramInput extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            hasSibling: false
+        };
+    }
+    render() {
+        return (React.createElement("div", null,
+            React.createElement(dropdown_field_1.default, { value: this.state.hasSibling ? "true" : "false", label: "Does your brother or sister go to a CPS High School?", onChange: val => {
+                    if (val === "true") {
+                        this.setState({
+                            hasSibling: true
+                        });
+                    }
+                    else {
+                        this.setState({
+                            hasSibling: false
+                        });
+                        this.props.onChange([]);
+                    }
+                } },
+                React.createElement("option", { value: "true" }, "Yes"),
+                React.createElement("option", { value: "false" }, "No")),
+            this.state.hasSibling &&
+                React.createElement(multi_select_field_1.default, { label: "Which schools do your brother or sister go to?", values: this.props.siblingHSPrograms, data: {
+                        records: this.props.hsPrograms,
+                        getKey: (program) => program.ID,
+                        getDisplayText: (program) => {
+                            return program.Short_Name + " - " + program.Program_Type;
+                        }
+                    }, onChange: (programs) => this.props.onChange(programs.map(program => program.ID)), debounceTime: constants_1.INPUT_DEBOUNCE_TIME })));
+    }
+}
 const getPrograms = (state) => state.getIn(['hsData', 'programs']);
 const getProgramIndex = (state) => state.getIn(['hsData', 'index']);
 const getHSProgramIDs = (state) => state.getIn(['hsData', 'hsProgramIDs']);
@@ -244764,7 +244792,7 @@ const mapDispatchToProps = (dispatch) => {
         }
     };
 };
-exports.SiblingHSProgramField = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Field);
+exports.SiblingHSProgramField = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(SiblingHSProgramInput);
 
 
 /***/ }),
