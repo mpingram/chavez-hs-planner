@@ -10,7 +10,7 @@
         "Fine and Performing Arts",
         "Instrumental Music",
         "Music",
-        "Music - Instrumental",
+        "Music - Instumental",
         "Music - Vocal",
         "Musical Theatre",
         "Theatre",
@@ -121,7 +121,7 @@
     "groupDesc": "",
     "includes": {
       "programTypes": [
-        "Selective Enrollment"
+        "Selective Enrollment High School"
       ]
     }
   }

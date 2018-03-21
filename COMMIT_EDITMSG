@@ -1,1 +1,11 @@
-Debug hs groups build script
+Implement new hs group system in app
+
+* create hs group json file in shared/data from script in config/build
+* refactor hs grouping function in shared/reducers/reducer-utils to
+  use hs group config 
+
+* write default grouping logic in hs grouping function in event a
+cps program is not specified in the hs group config
+  ** log a warning to console if a group is not matched
+
+

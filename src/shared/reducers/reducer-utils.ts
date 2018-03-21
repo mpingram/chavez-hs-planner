@@ -5,6 +5,9 @@ import SuccessChance from "shared/enums/success-chance";
 import isHSProgram from "shared/util/is-hs-program";
 import isESProgram from "shared/util/is-es-program";
 
+declare const require: any;
+const hsProgramGroups = require("../../../src/shared/data/hs_groups.json");
+
 type Outcome = {application: SuccessChance, selection: SuccessChance};
 type ReqFnLookup = (program: CPSProgram) => {application: HSRequirementFunction, selection: HSRequirementFunction};
 
@@ -36,18 +39,33 @@ export const getESProgramIDs = (programs: CPSProgram[]): string[] => {
 };
 
 export const getHSProgramIDsByType = (programs: CPSProgram[]): {[type: string]: string[]} => {
-  const index = createIndexByID(programs);
-  const hsProgramIDs = getHSProgramIDs(programs);
+
+  const hsPrograms = programs.filter( isHSProgram );
+
   let hsProgramIDsByType = {};
-  for (let i=0; i<hsProgramIDs.length; i++) {
-    const id = hsProgramIDs[i];
-    const program = programs[index[id]];
-    const type = program.Program_Type;
-    if (!hsProgramIDsByType[type]) {
-      hsProgramIDsByType[type] = [];
-    }
-    hsProgramIDsByType[type].push(id);
+  let allProgramIDs = [];
+  for (let i=0; i<hsProgramGroups.length; i++) {
+    const group = hsProgramGroups[i];
+    hsProgramIDsByType[group.groupName] = group.programIDs;
+
+    allProgramIDs.push(...group.programIDs);
   }
+
+  // find all programs that weren't specified in config and add them
+  // with a default group 
+  const missingPrograms = hsPrograms.filter( program => ! allProgramIDs.some( id => id === program.ID ) );
+
+  for (let i=0; i<missingPrograms.length; i++) {
+    const missingProgram = missingPrograms[i];
+    const programType = missingProgram.Program_Type;
+    const programID = missingProgram.ID;
+
+    if (!hsProgramIDsByType[programType]) {
+      hsProgramIDsByType[programType] = [];
+    } 
+    hsProgramIDsByType[programType].push(programID);
+  }
+
   return hsProgramIDsByType;
 };
 
