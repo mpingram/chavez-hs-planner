@@ -1360,7 +1360,7 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(6);
 
 var CallbackQueue = __webpack_require__(87);
-var PooledClass = __webpack_require__(24);
+var PooledClass = __webpack_require__(25);
 var ReactFeatureFlags = __webpack_require__(88);
 var ReactReconciler = __webpack_require__(28);
 var Transaction = __webpack_require__(39);
@@ -2056,7 +2056,7 @@ function updateLink (link, options, obj) {
 
 var _assign = __webpack_require__(6);
 
-var PooledClass = __webpack_require__(24);
+var PooledClass = __webpack_require__(25);
 
 var emptyFunction = __webpack_require__(11);
 var warning = __webpack_require__(3);
@@ -2724,6 +2724,49 @@ exports.default = ScoreType;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const field_validation_state_1 = __webpack_require__(30);
+const field_container_1 = __webpack_require__(35);
+const debounce_1 = __webpack_require__(45);
+class DropdownField extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            localValue: props.value ? props.value : ""
+        };
+        this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({ localValue: nextProps.value });
+        this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
+    }
+    render() {
+        const validation = this.props.validator ? this.props.validator(this.state.localValue)
+            : field_validation_state_1.default.NEUTRAL;
+        const handleChange = (ev) => {
+            const newValue = ev.currentTarget.value;
+            const shouldUpdate = this.props.restrictor ? this.props.restrictor(newValue)
+                : true;
+            if (shouldUpdate) {
+                this.onChange(newValue);
+            }
+        };
+        return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
+            React.createElement("select", { defaultValue: "", className: "field-input-element", onChange: handleChange },
+                React.createElement("option", { disabled: true, value: "" }),
+                this.props.children)));
+    }
+}
+exports.default = DropdownField;
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -3067,7 +3110,7 @@ module.exports = ReactElement;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3185,49 +3228,6 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const field_validation_state_1 = __webpack_require__(30);
-const field_container_1 = __webpack_require__(35);
-const debounce_1 = __webpack_require__(45);
-class DropdownField extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            localValue: props.value ? props.value : ""
-        };
-        this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({ localValue: nextProps.value });
-        this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
-    }
-    render() {
-        const validation = this.props.validator ? this.props.validator(this.state.localValue)
-            : field_validation_state_1.default.NEUTRAL;
-        const handleChange = (ev) => {
-            const newValue = ev.currentTarget.value;
-            const shouldUpdate = this.props.restrictor ? this.props.restrictor(newValue)
-                : true;
-            if (shouldUpdate) {
-                this.onChange(newValue);
-            }
-        };
-        return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
-            React.createElement("select", { defaultValue: "", className: "field-input-element", onChange: handleChange },
-                React.createElement("option", { disabled: true, value: "" }),
-                this.props.children)));
-    }
-}
-exports.default = DropdownField;
-
-
-/***/ }),
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3249,7 +3249,7 @@ var _assign = __webpack_require__(6);
 var ReactBaseClasses = __webpack_require__(76);
 var ReactChildren = __webpack_require__(128);
 var ReactDOMFactories = __webpack_require__(132);
-var ReactElement = __webpack_require__(23);
+var ReactElement = __webpack_require__(24);
 var ReactPropTypes = __webpack_require__(136);
 var ReactVersion = __webpack_require__(138);
 
@@ -8184,7 +8184,7 @@ module.exports = getIteratorFn;
 
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(9);
-var ReactElement = __webpack_require__(23);
+var ReactElement = __webpack_require__(24);
 
 var checkReactTypeSpec = __webpack_require__(133);
 
@@ -9150,7 +9150,7 @@ var _prodInvariant = __webpack_require__(4);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var PooledClass = __webpack_require__(24);
+var PooledClass = __webpack_require__(25);
 
 var invariant = __webpack_require__(2);
 
@@ -17754,7 +17754,7 @@ react_dom_1.render((React.createElement(react_redux_1.Provider, { store: redux_1
 
 
 var PooledClass = __webpack_require__(129);
-var ReactElement = __webpack_require__(23);
+var ReactElement = __webpack_require__(24);
 
 var emptyFunction = __webpack_require__(11);
 var traverseAllChildren = __webpack_require__(130);
@@ -18313,7 +18313,7 @@ module.exports = KeyEscapeUtils;
 
 
 
-var ReactElement = __webpack_require__(23);
+var ReactElement = __webpack_require__(24);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -18634,7 +18634,7 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var _require = __webpack_require__(23),
+var _require = __webpack_require__(24),
     isValidElement = _require.isValidElement;
 
 var factory = __webpack_require__(81);
@@ -18749,7 +18749,7 @@ module.exports = '15.6.1';
 var _require = __webpack_require__(76),
     Component = _require.Component;
 
-var _require2 = __webpack_require__(23),
+var _require2 = __webpack_require__(24),
     isValidElement = _require2.isValidElement;
 
 var ReactNoopUpdateQueue = __webpack_require__(77);
@@ -19655,7 +19655,7 @@ module.exports = factory;
 
 var _prodInvariant = __webpack_require__(27);
 
-var ReactElement = __webpack_require__(23);
+var ReactElement = __webpack_require__(24);
 
 var invariant = __webpack_require__(2);
 
@@ -20386,7 +20386,7 @@ module.exports = BeforeInputEventPlugin;
 
 var _assign = __webpack_require__(6);
 
-var PooledClass = __webpack_require__(24);
+var PooledClass = __webpack_require__(25);
 
 var getTextContentAccessor = __webpack_require__(86);
 
@@ -26548,7 +26548,7 @@ module.exports = flattenChildren;
 
 var _assign = __webpack_require__(6);
 
-var PooledClass = __webpack_require__(24);
+var PooledClass = __webpack_require__(25);
 var Transaction = __webpack_require__(39);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactServerUpdateQueue = __webpack_require__(192);
@@ -27239,7 +27239,7 @@ var _assign = __webpack_require__(6);
 
 var EventListener = __webpack_require__(103);
 var ExecutionEnvironment = __webpack_require__(8);
-var PooledClass = __webpack_require__(24);
+var PooledClass = __webpack_require__(25);
 var ReactDOMComponentTree = __webpack_require__(7);
 var ReactUpdates = __webpack_require__(15);
 
@@ -27481,7 +27481,7 @@ module.exports = ReactInjection;
 var _assign = __webpack_require__(6);
 
 var CallbackQueue = __webpack_require__(87);
-var PooledClass = __webpack_require__(24);
+var PooledClass = __webpack_require__(25);
 var ReactBrowserEventEmitter = __webpack_require__(43);
 var ReactInputSelection = __webpack_require__(104);
 var ReactInstrumentation = __webpack_require__(12);
@@ -244587,7 +244587,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
-const dropdown_field_1 = __webpack_require__(25);
+const dropdown_field_1 = __webpack_require__(23);
 const constants_1 = __webpack_require__(5);
 const Field = (props) => (React.createElement(dropdown_field_1.default, { label: "Are you an English Language Learner?", value: props.ell ? "true" : "false", onChange: ell => props.onChange(ell === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
     React.createElement("option", { value: "true" }, "Yes"),
@@ -244615,7 +244615,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
-const dropdown_field_1 = __webpack_require__(25);
+const dropdown_field_1 = __webpack_require__(23);
 const constants_1 = __webpack_require__(5);
 const Field = (props) => (React.createElement(dropdown_field_1.default, { label: "Do you have an IEP?", value: props.iep ? "true" : "false", onChange: iep => props.onChange(iep === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
     React.createElement("option", { value: "true" }, "Yes"),
@@ -244727,7 +244727,7 @@ const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(69);
 const actions_1 = __webpack_require__(19);
 const multi_select_field_1 = __webpack_require__(327);
-const dropdown_field_1 = __webpack_require__(25);
+const dropdown_field_1 = __webpack_require__(23);
 const constants_1 = __webpack_require__(5);
 class SiblingHSProgramInput extends React.PureComponent {
     constructor(props) {
@@ -244864,7 +244864,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
-const dropdown_field_1 = __webpack_require__(25);
+const dropdown_field_1 = __webpack_require__(23);
 const Field = (props) => React.createElement(dropdown_field_1.default, { label: "Did you skip 7th grade or repeat 8th grade?", value: props.didSkip7OrRepeat8, onChange: (value) => props.onChange(value === "true" ? true : false), debounceTime: props.debounceTime },
     React.createElement("option", { value: "true" }, "Yes"),
     React.createElement("option", { value: "false" }, "No"));
@@ -244892,7 +244892,7 @@ const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
 const score_type_1 = __webpack_require__(22);
 const connect_score_type_1 = __webpack_require__(21);
-const dropdown_field_1 = __webpack_require__(25);
+const dropdown_field_1 = __webpack_require__(23);
 const Field = (props) => {
     return React.createElement(dropdown_field_1.default, { label: "Math Grade", value: props.value, onChange: props.onChange, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
         React.createElement("option", { value: "A" }, "A"),
@@ -244915,7 +244915,7 @@ const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
 const score_type_1 = __webpack_require__(22);
 const connect_score_type_1 = __webpack_require__(21);
-const dropdown_field_1 = __webpack_require__(25);
+const dropdown_field_1 = __webpack_require__(23);
 const Field = (props) => {
     return React.createElement(dropdown_field_1.default, { label: "Reading Grade", value: props.value, onChange: props.onChange, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
         React.createElement("option", { value: "A" }, "A"),
@@ -244938,7 +244938,7 @@ const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
 const score_type_1 = __webpack_require__(22);
 const connect_score_type_1 = __webpack_require__(21);
-const dropdown_field_1 = __webpack_require__(25);
+const dropdown_field_1 = __webpack_require__(23);
 const Field = (props) => {
     return React.createElement(dropdown_field_1.default, { label: "Science Grade", value: props.value, onChange: props.onChange, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
         React.createElement("option", { value: "A" }, "A"),
@@ -244961,7 +244961,7 @@ const React = __webpack_require__(1);
 const constants_1 = __webpack_require__(5);
 const score_type_1 = __webpack_require__(22);
 const connect_score_type_1 = __webpack_require__(21);
-const dropdown_field_1 = __webpack_require__(25);
+const dropdown_field_1 = __webpack_require__(23);
 const Field = (props) => {
     return React.createElement(dropdown_field_1.default, { label: "Social Studies Grade", value: props.value, onChange: props.onChange, debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
         React.createElement("option", { value: "A" }, "A"),
