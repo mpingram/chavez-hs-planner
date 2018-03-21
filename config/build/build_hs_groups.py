@@ -76,10 +76,10 @@ if __name__ == "__main__":
     path_to_cps_program = sys.argv[2]
     path_to_output = sys.argv[3]
 
-    with open(path_to_conf, 'r') as conf_f:
+    with open(path_to_config, 'r') as conf_f:
         with open(path_to_cps_program, 'r') as cps_programs_f:
 
-            hs_group_config = json.load(input_f)
+            hs_group_config = json.load(conf_f)
             cps_programs = json.load(cps_programs_f)
             groups = make_hs_program_groups(hs_group_config, cps_programs)
 
