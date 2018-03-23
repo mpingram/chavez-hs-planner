@@ -1363,7 +1363,7 @@ var CallbackQueue = __webpack_require__(82);
 var PooledClass = __webpack_require__(25);
 var ReactFeatureFlags = __webpack_require__(83);
 var ReactReconciler = __webpack_require__(28);
-var Transaction = __webpack_require__(39);
+var Transaction = __webpack_require__(40);
 
 var invariant = __webpack_require__(2);
 
@@ -1598,278 +1598,6 @@ module.exports = ReactUpdates;
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-var _assign = __webpack_require__(6);
-
-var PooledClass = __webpack_require__(25);
-
-var emptyFunction = __webpack_require__(11);
-var warning = __webpack_require__(3);
-
-var didWarnForAddedNewProperty = false;
-var isProxySupported = typeof Proxy === 'function';
-
-var shouldBeReleasedProperties = ['dispatchConfig', '_targetInst', 'nativeEvent', 'isDefaultPrevented', 'isPropagationStopped', '_dispatchListeners', '_dispatchInstances'];
-
-/**
- * @interface Event
- * @see http://www.w3.org/TR/DOM-Level-3-Events/
- */
-var EventInterface = {
-  type: null,
-  target: null,
-  // currentTarget is set when dispatching; no use in copying it here
-  currentTarget: emptyFunction.thatReturnsNull,
-  eventPhase: null,
-  bubbles: null,
-  cancelable: null,
-  timeStamp: function (event) {
-    return event.timeStamp || Date.now();
-  },
-  defaultPrevented: null,
-  isTrusted: null
-};
-
-/**
- * Synthetic events are dispatched by event plugins, typically in response to a
- * top-level event delegation handler.
- *
- * These systems should generally use pooling to reduce the frequency of garbage
- * collection. The system should check `isPersistent` to determine whether the
- * event should be released into the pool after being dispatched. Users that
- * need a persisted event should invoke `persist`.
- *
- * Synthetic events (and subclasses) implement the DOM Level 3 Events API by
- * normalizing browser quirks. Subclasses do not necessarily have to implement a
- * DOM interface; custom application-specific events can also subclass this.
- *
- * @param {object} dispatchConfig Configuration used to dispatch this event.
- * @param {*} targetInst Marker identifying the event target.
- * @param {object} nativeEvent Native browser event.
- * @param {DOMEventTarget} nativeEventTarget Target node.
- */
-function SyntheticEvent(dispatchConfig, targetInst, nativeEvent, nativeEventTarget) {
-  if (process.env.NODE_ENV !== 'production') {
-    // these have a getter/setter for warnings
-    delete this.nativeEvent;
-    delete this.preventDefault;
-    delete this.stopPropagation;
-  }
-
-  this.dispatchConfig = dispatchConfig;
-  this._targetInst = targetInst;
-  this.nativeEvent = nativeEvent;
-
-  var Interface = this.constructor.Interface;
-  for (var propName in Interface) {
-    if (!Interface.hasOwnProperty(propName)) {
-      continue;
-    }
-    if (process.env.NODE_ENV !== 'production') {
-      delete this[propName]; // this has a getter/setter for warnings
-    }
-    var normalize = Interface[propName];
-    if (normalize) {
-      this[propName] = normalize(nativeEvent);
-    } else {
-      if (propName === 'target') {
-        this.target = nativeEventTarget;
-      } else {
-        this[propName] = nativeEvent[propName];
-      }
-    }
-  }
-
-  var defaultPrevented = nativeEvent.defaultPrevented != null ? nativeEvent.defaultPrevented : nativeEvent.returnValue === false;
-  if (defaultPrevented) {
-    this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
-  } else {
-    this.isDefaultPrevented = emptyFunction.thatReturnsFalse;
-  }
-  this.isPropagationStopped = emptyFunction.thatReturnsFalse;
-  return this;
-}
-
-_assign(SyntheticEvent.prototype, {
-  preventDefault: function () {
-    this.defaultPrevented = true;
-    var event = this.nativeEvent;
-    if (!event) {
-      return;
-    }
-
-    if (event.preventDefault) {
-      event.preventDefault();
-      // eslint-disable-next-line valid-typeof
-    } else if (typeof event.returnValue !== 'unknown') {
-      event.returnValue = false;
-    }
-    this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
-  },
-
-  stopPropagation: function () {
-    var event = this.nativeEvent;
-    if (!event) {
-      return;
-    }
-
-    if (event.stopPropagation) {
-      event.stopPropagation();
-      // eslint-disable-next-line valid-typeof
-    } else if (typeof event.cancelBubble !== 'unknown') {
-      // The ChangeEventPlugin registers a "propertychange" event for
-      // IE. This event does not support bubbling or cancelling, and
-      // any references to cancelBubble throw "Member not found".  A
-      // typeof check of "unknown" circumvents this issue (and is also
-      // IE specific).
-      event.cancelBubble = true;
-    }
-
-    this.isPropagationStopped = emptyFunction.thatReturnsTrue;
-  },
-
-  /**
-   * We release all dispatched `SyntheticEvent`s after each event loop, adding
-   * them back into the pool. This allows a way to hold onto a reference that
-   * won't be added back into the pool.
-   */
-  persist: function () {
-    this.isPersistent = emptyFunction.thatReturnsTrue;
-  },
-
-  /**
-   * Checks if this event should be released back into the pool.
-   *
-   * @return {boolean} True if this should not be released, false otherwise.
-   */
-  isPersistent: emptyFunction.thatReturnsFalse,
-
-  /**
-   * `PooledClass` looks for `destructor` on each instance it releases.
-   */
-  destructor: function () {
-    var Interface = this.constructor.Interface;
-    for (var propName in Interface) {
-      if (process.env.NODE_ENV !== 'production') {
-        Object.defineProperty(this, propName, getPooledWarningPropertyDefinition(propName, Interface[propName]));
-      } else {
-        this[propName] = null;
-      }
-    }
-    for (var i = 0; i < shouldBeReleasedProperties.length; i++) {
-      this[shouldBeReleasedProperties[i]] = null;
-    }
-    if (process.env.NODE_ENV !== 'production') {
-      Object.defineProperty(this, 'nativeEvent', getPooledWarningPropertyDefinition('nativeEvent', null));
-      Object.defineProperty(this, 'preventDefault', getPooledWarningPropertyDefinition('preventDefault', emptyFunction));
-      Object.defineProperty(this, 'stopPropagation', getPooledWarningPropertyDefinition('stopPropagation', emptyFunction));
-    }
-  }
-});
-
-SyntheticEvent.Interface = EventInterface;
-
-if (process.env.NODE_ENV !== 'production') {
-  if (isProxySupported) {
-    /*eslint-disable no-func-assign */
-    SyntheticEvent = new Proxy(SyntheticEvent, {
-      construct: function (target, args) {
-        return this.apply(target, Object.create(target.prototype), args);
-      },
-      apply: function (constructor, that, args) {
-        return new Proxy(constructor.apply(that, args), {
-          set: function (target, prop, value) {
-            if (prop !== 'isPersistent' && !target.constructor.Interface.hasOwnProperty(prop) && shouldBeReleasedProperties.indexOf(prop) === -1) {
-              process.env.NODE_ENV !== 'production' ? warning(didWarnForAddedNewProperty || target.isPersistent(), "This synthetic event is reused for performance reasons. If you're " + "seeing this, you're adding a new property in the synthetic event object. " + 'The property is never released. See ' + 'https://fb.me/react-event-pooling for more information.') : void 0;
-              didWarnForAddedNewProperty = true;
-            }
-            target[prop] = value;
-            return true;
-          }
-        });
-      }
-    });
-    /*eslint-enable no-func-assign */
-  }
-}
-/**
- * Helper to reduce boilerplate when creating subclasses.
- *
- * @param {function} Class
- * @param {?object} Interface
- */
-SyntheticEvent.augmentClass = function (Class, Interface) {
-  var Super = this;
-
-  var E = function () {};
-  E.prototype = Super.prototype;
-  var prototype = new E();
-
-  _assign(prototype, Class.prototype);
-  Class.prototype = prototype;
-  Class.prototype.constructor = Class;
-
-  Class.Interface = _assign({}, Super.Interface, Interface);
-  Class.augmentClass = Super.augmentClass;
-
-  PooledClass.addPoolingTo(Class, PooledClass.fourArgumentPooler);
-};
-
-PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
-
-module.exports = SyntheticEvent;
-
-/**
-  * Helper to nullify syntheticEvent instance properties when destructing
-  *
-  * @param {object} SyntheticEvent
-  * @param {String} propName
-  * @return {object} defineProperty object
-  */
-function getPooledWarningPropertyDefinition(propName, getVal) {
-  var isFunction = typeof getVal === 'function';
-  return {
-    configurable: true,
-    set: set,
-    get: get
-  };
-
-  function set(val) {
-    var action = isFunction ? 'setting the method' : 'setting the property';
-    warn(action, 'This is effectively a no-op');
-    return val;
-  }
-
-  function get() {
-    var action = isFunction ? 'accessing the method' : 'accessing the property';
-    var result = isFunction ? 'This is a no-op function' : 'This is set to null';
-    warn(action, result);
-    return getVal;
-  }
-
-  function warn(action, result) {
-    var warningCondition = false;
-    process.env.NODE_ENV !== 'production' ? warning(warningCondition, "This synthetic event is reused for performance reasons. If you're seeing this, " + "you're %s `%s` on a released/nullified synthetic event. %s. " + 'If you must keep the original synthetic event around, use event.persist(). ' + 'See https://fb.me/react-event-pooling for more information.', action, propName, result) : void 0;
-  }
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 17 */
 /***/ (function(module, exports) {
 
 /*
@@ -1951,7 +1679,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -2308,6 +2036,278 @@ function updateLink (link, options, obj) {
 	if(oldSrc) URL.revokeObjectURL(oldSrc);
 }
 
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+var _assign = __webpack_require__(6);
+
+var PooledClass = __webpack_require__(25);
+
+var emptyFunction = __webpack_require__(11);
+var warning = __webpack_require__(3);
+
+var didWarnForAddedNewProperty = false;
+var isProxySupported = typeof Proxy === 'function';
+
+var shouldBeReleasedProperties = ['dispatchConfig', '_targetInst', 'nativeEvent', 'isDefaultPrevented', 'isPropagationStopped', '_dispatchListeners', '_dispatchInstances'];
+
+/**
+ * @interface Event
+ * @see http://www.w3.org/TR/DOM-Level-3-Events/
+ */
+var EventInterface = {
+  type: null,
+  target: null,
+  // currentTarget is set when dispatching; no use in copying it here
+  currentTarget: emptyFunction.thatReturnsNull,
+  eventPhase: null,
+  bubbles: null,
+  cancelable: null,
+  timeStamp: function (event) {
+    return event.timeStamp || Date.now();
+  },
+  defaultPrevented: null,
+  isTrusted: null
+};
+
+/**
+ * Synthetic events are dispatched by event plugins, typically in response to a
+ * top-level event delegation handler.
+ *
+ * These systems should generally use pooling to reduce the frequency of garbage
+ * collection. The system should check `isPersistent` to determine whether the
+ * event should be released into the pool after being dispatched. Users that
+ * need a persisted event should invoke `persist`.
+ *
+ * Synthetic events (and subclasses) implement the DOM Level 3 Events API by
+ * normalizing browser quirks. Subclasses do not necessarily have to implement a
+ * DOM interface; custom application-specific events can also subclass this.
+ *
+ * @param {object} dispatchConfig Configuration used to dispatch this event.
+ * @param {*} targetInst Marker identifying the event target.
+ * @param {object} nativeEvent Native browser event.
+ * @param {DOMEventTarget} nativeEventTarget Target node.
+ */
+function SyntheticEvent(dispatchConfig, targetInst, nativeEvent, nativeEventTarget) {
+  if (process.env.NODE_ENV !== 'production') {
+    // these have a getter/setter for warnings
+    delete this.nativeEvent;
+    delete this.preventDefault;
+    delete this.stopPropagation;
+  }
+
+  this.dispatchConfig = dispatchConfig;
+  this._targetInst = targetInst;
+  this.nativeEvent = nativeEvent;
+
+  var Interface = this.constructor.Interface;
+  for (var propName in Interface) {
+    if (!Interface.hasOwnProperty(propName)) {
+      continue;
+    }
+    if (process.env.NODE_ENV !== 'production') {
+      delete this[propName]; // this has a getter/setter for warnings
+    }
+    var normalize = Interface[propName];
+    if (normalize) {
+      this[propName] = normalize(nativeEvent);
+    } else {
+      if (propName === 'target') {
+        this.target = nativeEventTarget;
+      } else {
+        this[propName] = nativeEvent[propName];
+      }
+    }
+  }
+
+  var defaultPrevented = nativeEvent.defaultPrevented != null ? nativeEvent.defaultPrevented : nativeEvent.returnValue === false;
+  if (defaultPrevented) {
+    this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
+  } else {
+    this.isDefaultPrevented = emptyFunction.thatReturnsFalse;
+  }
+  this.isPropagationStopped = emptyFunction.thatReturnsFalse;
+  return this;
+}
+
+_assign(SyntheticEvent.prototype, {
+  preventDefault: function () {
+    this.defaultPrevented = true;
+    var event = this.nativeEvent;
+    if (!event) {
+      return;
+    }
+
+    if (event.preventDefault) {
+      event.preventDefault();
+      // eslint-disable-next-line valid-typeof
+    } else if (typeof event.returnValue !== 'unknown') {
+      event.returnValue = false;
+    }
+    this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
+  },
+
+  stopPropagation: function () {
+    var event = this.nativeEvent;
+    if (!event) {
+      return;
+    }
+
+    if (event.stopPropagation) {
+      event.stopPropagation();
+      // eslint-disable-next-line valid-typeof
+    } else if (typeof event.cancelBubble !== 'unknown') {
+      // The ChangeEventPlugin registers a "propertychange" event for
+      // IE. This event does not support bubbling or cancelling, and
+      // any references to cancelBubble throw "Member not found".  A
+      // typeof check of "unknown" circumvents this issue (and is also
+      // IE specific).
+      event.cancelBubble = true;
+    }
+
+    this.isPropagationStopped = emptyFunction.thatReturnsTrue;
+  },
+
+  /**
+   * We release all dispatched `SyntheticEvent`s after each event loop, adding
+   * them back into the pool. This allows a way to hold onto a reference that
+   * won't be added back into the pool.
+   */
+  persist: function () {
+    this.isPersistent = emptyFunction.thatReturnsTrue;
+  },
+
+  /**
+   * Checks if this event should be released back into the pool.
+   *
+   * @return {boolean} True if this should not be released, false otherwise.
+   */
+  isPersistent: emptyFunction.thatReturnsFalse,
+
+  /**
+   * `PooledClass` looks for `destructor` on each instance it releases.
+   */
+  destructor: function () {
+    var Interface = this.constructor.Interface;
+    for (var propName in Interface) {
+      if (process.env.NODE_ENV !== 'production') {
+        Object.defineProperty(this, propName, getPooledWarningPropertyDefinition(propName, Interface[propName]));
+      } else {
+        this[propName] = null;
+      }
+    }
+    for (var i = 0; i < shouldBeReleasedProperties.length; i++) {
+      this[shouldBeReleasedProperties[i]] = null;
+    }
+    if (process.env.NODE_ENV !== 'production') {
+      Object.defineProperty(this, 'nativeEvent', getPooledWarningPropertyDefinition('nativeEvent', null));
+      Object.defineProperty(this, 'preventDefault', getPooledWarningPropertyDefinition('preventDefault', emptyFunction));
+      Object.defineProperty(this, 'stopPropagation', getPooledWarningPropertyDefinition('stopPropagation', emptyFunction));
+    }
+  }
+});
+
+SyntheticEvent.Interface = EventInterface;
+
+if (process.env.NODE_ENV !== 'production') {
+  if (isProxySupported) {
+    /*eslint-disable no-func-assign */
+    SyntheticEvent = new Proxy(SyntheticEvent, {
+      construct: function (target, args) {
+        return this.apply(target, Object.create(target.prototype), args);
+      },
+      apply: function (constructor, that, args) {
+        return new Proxy(constructor.apply(that, args), {
+          set: function (target, prop, value) {
+            if (prop !== 'isPersistent' && !target.constructor.Interface.hasOwnProperty(prop) && shouldBeReleasedProperties.indexOf(prop) === -1) {
+              process.env.NODE_ENV !== 'production' ? warning(didWarnForAddedNewProperty || target.isPersistent(), "This synthetic event is reused for performance reasons. If you're " + "seeing this, you're adding a new property in the synthetic event object. " + 'The property is never released. See ' + 'https://fb.me/react-event-pooling for more information.') : void 0;
+              didWarnForAddedNewProperty = true;
+            }
+            target[prop] = value;
+            return true;
+          }
+        });
+      }
+    });
+    /*eslint-enable no-func-assign */
+  }
+}
+/**
+ * Helper to reduce boilerplate when creating subclasses.
+ *
+ * @param {function} Class
+ * @param {?object} Interface
+ */
+SyntheticEvent.augmentClass = function (Class, Interface) {
+  var Super = this;
+
+  var E = function () {};
+  E.prototype = Super.prototype;
+  var prototype = new E();
+
+  _assign(prototype, Class.prototype);
+  Class.prototype = prototype;
+  Class.prototype.constructor = Class;
+
+  Class.Interface = _assign({}, Super.Interface, Interface);
+  Class.augmentClass = Super.augmentClass;
+
+  PooledClass.addPoolingTo(Class, PooledClass.fourArgumentPooler);
+};
+
+PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
+
+module.exports = SyntheticEvent;
+
+/**
+  * Helper to nullify syntheticEvent instance properties when destructing
+  *
+  * @param {object} SyntheticEvent
+  * @param {String} propName
+  * @return {object} defineProperty object
+  */
+function getPooledWarningPropertyDefinition(propName, getVal) {
+  var isFunction = typeof getVal === 'function';
+  return {
+    configurable: true,
+    set: set,
+    get: get
+  };
+
+  function set(val) {
+    var action = isFunction ? 'setting the method' : 'setting the property';
+    warn(action, 'This is effectively a no-op');
+    return val;
+  }
+
+  function get() {
+    var action = isFunction ? 'accessing the method' : 'accessing the property';
+    var result = isFunction ? 'This is a no-op function' : 'This is set to null';
+    warn(action, result);
+    return getVal;
+  }
+
+  function warn(action, result) {
+    var warningCondition = false;
+    process.env.NODE_ENV !== 'production' ? warning(warningCondition, "This synthetic event is reused for performance reasons. If you're seeing this, " + "you're %s `%s` on a released/nullified synthetic event. %s. " + 'If you must keep the original synthetic event around, use event.persist(). ' + 'See https://fb.me/react-event-pooling for more information.', action, propName, result) : void 0;
+  }
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 19 */
@@ -2729,7 +2729,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(30);
 const field_container_1 = __webpack_require__(35);
-const debounce_1 = __webpack_require__(45);
+const debounce_1 = __webpack_require__(36);
 class DropdownField extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -2784,7 +2784,7 @@ var _assign = __webpack_require__(6);
 var ReactCurrentOwner = __webpack_require__(14);
 
 var warning = __webpack_require__(3);
-var canDefineProperty = __webpack_require__(36);
+var canDefineProperty = __webpack_require__(37);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(73);
@@ -3262,7 +3262,7 @@ var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
   var lowPriorityWarning = __webpack_require__(48);
-  var canDefineProperty = __webpack_require__(36);
+  var canDefineProperty = __webpack_require__(37);
   var ReactElementValidator = __webpack_require__(75);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
@@ -3599,7 +3599,7 @@ module.exports = ReactReconciler;
 
 
 var DOMNamespaces = __webpack_require__(56);
-var setInnerHTML = __webpack_require__(41);
+var setInnerHTML = __webpack_require__(42);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(57);
 var setTextContent = __webpack_require__(87);
@@ -3880,7 +3880,7 @@ module.exports = EventPropagators;
 
 var _prodInvariant = __webpack_require__(4);
 
-var EventPluginRegistry = __webpack_require__(38);
+var EventPluginRegistry = __webpack_require__(39);
 var EventPluginUtils = __webpack_require__(50);
 var ReactErrorUtils = __webpack_require__(51);
 
@@ -4158,7 +4158,7 @@ module.exports = EventPluginHub;
 
 
 
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 
 var getEventTarget = __webpack_require__(52);
 
@@ -4278,6 +4278,34 @@ exports.default = FieldContainer;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        const context = this;
+        const args = arguments;
+        const later = function () {
+            timeout = null;
+            if (!immediate)
+                func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow)
+            func.apply(context, args);
+    };
+}
+;
+exports.default = debounce;
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -4306,7 +4334,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4332,7 +4360,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4591,7 +4619,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4825,7 +4853,7 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4902,7 +4930,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5005,7 +5033,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5132,7 +5160,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5150,7 +5178,7 @@ module.exports = escapeTextContentForBrowser;
 
 var _assign = __webpack_require__(6);
 
-var EventPluginRegistry = __webpack_require__(38);
+var EventPluginRegistry = __webpack_require__(39);
 var ReactEventEmitterMixin = __webpack_require__(177);
 var ViewportMetrics = __webpack_require__(86);
 
@@ -5461,7 +5489,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5477,34 +5505,6 @@ exports.default = isUninitialized;
 
 
 /***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-function debounce(func, wait, immediate) {
-    var timeout;
-    return function () {
-        const context = this;
-        const args = arguments;
-        const later = function () {
-            timeout = null;
-            if (!immediate)
-                func.apply(context, args);
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow)
-            func.apply(context, args);
-    };
-}
-;
-exports.default = debounce;
-
-
-/***/ }),
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5514,7 +5514,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(30);
 const field_container_1 = __webpack_require__(35);
-const debounce_1 = __webpack_require__(45);
+const debounce_1 = __webpack_require__(36);
 class NumberField extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -6166,7 +6166,7 @@ var ReactDOMComponentTree = __webpack_require__(7);
 var ReactInstrumentation = __webpack_require__(12);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(57);
-var setInnerHTML = __webpack_require__(41);
+var setInnerHTML = __webpack_require__(42);
 var setTextContent = __webpack_require__(87);
 
 function getNodeAfter(parentNode, node) {
@@ -12744,8 +12744,8 @@ var _prodInvariant = __webpack_require__(27),
 
 var ReactNoopUpdateQueue = __webpack_require__(72);
 
-var canDefineProperty = __webpack_require__(36);
-var emptyObject = __webpack_require__(37);
+var canDefineProperty = __webpack_require__(37);
+var emptyObject = __webpack_require__(38);
 var invariant = __webpack_require__(2);
 var lowPriorityWarning = __webpack_require__(48);
 
@@ -13073,7 +13073,7 @@ var ReactElement = __webpack_require__(24);
 
 var checkReactTypeSpec = __webpack_require__(133);
 
-var canDefineProperty = __webpack_require__(36);
+var canDefineProperty = __webpack_require__(37);
 var getIteratorFn = __webpack_require__(74);
 var warning = __webpack_require__(3);
 var lowPriorityWarning = __webpack_require__(48);
@@ -14397,8 +14397,8 @@ module.exports = ViewportMetrics;
 
 
 var ExecutionEnvironment = __webpack_require__(8);
-var escapeTextContentForBrowser = __webpack_require__(42);
-var setInnerHTML = __webpack_require__(41);
+var escapeTextContentForBrowser = __webpack_require__(43);
+var setInnerHTML = __webpack_require__(42);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -15852,7 +15852,7 @@ var _prodInvariant = __webpack_require__(4);
 var DOMLazyTree = __webpack_require__(29);
 var DOMProperty = __webpack_require__(20);
 var React = __webpack_require__(26);
-var ReactBrowserEventEmitter = __webpack_require__(43);
+var ReactBrowserEventEmitter = __webpack_require__(44);
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(7);
 var ReactDOMContainerInfo = __webpack_require__(218);
@@ -15865,10 +15865,10 @@ var ReactReconciler = __webpack_require__(28);
 var ReactUpdateQueue = __webpack_require__(63);
 var ReactUpdates = __webpack_require__(15);
 
-var emptyObject = __webpack_require__(37);
+var emptyObject = __webpack_require__(38);
 var instantiateReactComponent = __webpack_require__(93);
 var invariant = __webpack_require__(2);
-var setInnerHTML = __webpack_require__(41);
+var setInnerHTML = __webpack_require__(42);
 var shouldUpdateReactComponent = __webpack_require__(61);
 var warning = __webpack_require__(3);
 
@@ -17511,7 +17511,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(30);
 const field_container_1 = __webpack_require__(35);
-const debounce_1 = __webpack_require__(45);
+const debounce_1 = __webpack_require__(36);
 class TextField extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -17568,7 +17568,7 @@ const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(30);
 const field_container_1 = __webpack_require__(35);
 const list_box_1 = __webpack_require__(319);
-const debounce_1 = __webpack_require__(45);
+const debounce_1 = __webpack_require__(36);
 class ComboBoxField extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -18776,7 +18776,7 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 var _assign = __webpack_require__(6);
 
-var emptyObject = __webpack_require__(37);
+var emptyObject = __webpack_require__(38);
 var _invariant = __webpack_require__(2);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -20484,7 +20484,7 @@ module.exports = FallbackCompositionState;
 
 
 
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -20525,7 +20525,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -20572,7 +20572,7 @@ var EventPropagators = __webpack_require__(31);
 var ExecutionEnvironment = __webpack_require__(8);
 var ReactDOMComponentTree = __webpack_require__(7);
 var ReactUpdates = __webpack_require__(15);
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 
 var inputValueTracking = __webpack_require__(84);
 var getEventTarget = __webpack_require__(52);
@@ -21626,7 +21626,7 @@ module.exports = DefaultEventPluginOrder;
 
 var EventPropagators = __webpack_require__(31);
 var ReactDOMComponentTree = __webpack_require__(7);
-var SyntheticMouseEvent = __webpack_require__(40);
+var SyntheticMouseEvent = __webpack_require__(41);
 
 var eventTypes = {
   mouseEnter: {
@@ -22427,8 +22427,8 @@ var DOMNamespaces = __webpack_require__(56);
 var DOMProperty = __webpack_require__(20);
 var DOMPropertyOperations = __webpack_require__(90);
 var EventPluginHub = __webpack_require__(32);
-var EventPluginRegistry = __webpack_require__(38);
-var ReactBrowserEventEmitter = __webpack_require__(43);
+var EventPluginRegistry = __webpack_require__(39);
+var ReactBrowserEventEmitter = __webpack_require__(44);
 var ReactDOMComponentFlags = __webpack_require__(78);
 var ReactDOMComponentTree = __webpack_require__(7);
 var ReactDOMInput = __webpack_require__(179);
@@ -22440,7 +22440,7 @@ var ReactMultiChild = __webpack_require__(182);
 var ReactServerRenderingTransaction = __webpack_require__(191);
 
 var emptyFunction = __webpack_require__(11);
-var escapeTextContentForBrowser = __webpack_require__(42);
+var escapeTextContentForBrowser = __webpack_require__(43);
 var invariant = __webpack_require__(2);
 var isEventSupported = __webpack_require__(53);
 var shallowEqual = __webpack_require__(60);
@@ -23965,7 +23965,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(42);
+var escapeTextContentForBrowser = __webpack_require__(43);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -25353,7 +25353,7 @@ if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(185);
 }
 
-var emptyObject = __webpack_require__(37);
+var emptyObject = __webpack_require__(38);
 var invariant = __webpack_require__(2);
 var shallowEqual = __webpack_require__(60);
 var shouldUpdateReactComponent = __webpack_require__(61);
@@ -26549,7 +26549,7 @@ module.exports = flattenChildren;
 var _assign = __webpack_require__(6);
 
 var PooledClass = __webpack_require__(25);
-var Transaction = __webpack_require__(39);
+var Transaction = __webpack_require__(40);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactServerUpdateQueue = __webpack_require__(192);
 
@@ -27001,7 +27001,7 @@ var DOMChildrenOperations = __webpack_require__(55);
 var DOMLazyTree = __webpack_require__(29);
 var ReactDOMComponentTree = __webpack_require__(7);
 
-var escapeTextContentForBrowser = __webpack_require__(42);
+var escapeTextContentForBrowser = __webpack_require__(43);
 var invariant = __webpack_require__(2);
 var validateDOMNesting = __webpack_require__(64);
 
@@ -27165,7 +27165,7 @@ module.exports = ReactDOMTextComponent;
 var _assign = __webpack_require__(6);
 
 var ReactUpdates = __webpack_require__(15);
-var Transaction = __webpack_require__(39);
+var Transaction = __webpack_require__(40);
 
 var emptyFunction = __webpack_require__(11);
 
@@ -27444,7 +27444,7 @@ var EventPluginHub = __webpack_require__(32);
 var EventPluginUtils = __webpack_require__(50);
 var ReactComponentEnvironment = __webpack_require__(59);
 var ReactEmptyComponent = __webpack_require__(95);
-var ReactBrowserEventEmitter = __webpack_require__(43);
+var ReactBrowserEventEmitter = __webpack_require__(44);
 var ReactHostComponent = __webpack_require__(96);
 var ReactUpdates = __webpack_require__(15);
 
@@ -27482,10 +27482,10 @@ var _assign = __webpack_require__(6);
 
 var CallbackQueue = __webpack_require__(82);
 var PooledClass = __webpack_require__(25);
-var ReactBrowserEventEmitter = __webpack_require__(43);
+var ReactBrowserEventEmitter = __webpack_require__(44);
 var ReactInputSelection = __webpack_require__(99);
 var ReactInstrumentation = __webpack_require__(12);
-var Transaction = __webpack_require__(39);
+var Transaction = __webpack_require__(40);
 var ReactUpdateQueue = __webpack_require__(63);
 
 /**
@@ -28374,7 +28374,7 @@ var EventPropagators = __webpack_require__(31);
 var ExecutionEnvironment = __webpack_require__(8);
 var ReactDOMComponentTree = __webpack_require__(7);
 var ReactInputSelection = __webpack_require__(99);
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 
 var getActiveElement = __webpack_require__(100);
 var isTextInputElement = __webpack_require__(85);
@@ -28571,10 +28571,10 @@ var EventPropagators = __webpack_require__(31);
 var ReactDOMComponentTree = __webpack_require__(7);
 var SyntheticAnimationEvent = __webpack_require__(209);
 var SyntheticClipboardEvent = __webpack_require__(210);
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 var SyntheticFocusEvent = __webpack_require__(211);
 var SyntheticKeyboardEvent = __webpack_require__(212);
-var SyntheticMouseEvent = __webpack_require__(40);
+var SyntheticMouseEvent = __webpack_require__(41);
 var SyntheticDragEvent = __webpack_require__(214);
 var SyntheticTouchEvent = __webpack_require__(215);
 var SyntheticTransitionEvent = __webpack_require__(216);
@@ -28795,7 +28795,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -28839,7 +28839,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -29129,7 +29129,7 @@ module.exports = getEventKey;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(40);
+var SyntheticMouseEvent = __webpack_require__(41);
 
 /**
  * @interface DragEvent
@@ -29220,7 +29220,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(16);
+var SyntheticEvent = __webpack_require__(18);
 
 /**
  * @interface Event
@@ -29264,7 +29264,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(40);
+var SyntheticMouseEvent = __webpack_require__(41);
 
 /**
  * @interface WheelEvent
@@ -29594,7 +29594,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 var DOMProperty = __webpack_require__(20);
-var EventPluginRegistry = __webpack_require__(38);
+var EventPluginRegistry = __webpack_require__(39);
 var ReactComponentTreeHook = __webpack_require__(9);
 
 var warning = __webpack_require__(3);
@@ -32997,7 +32997,7 @@ exports.everyone = (student, program) => true;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const is_uninitialized_1 = __webpack_require__(44);
+const is_uninitialized_1 = __webpack_require__(45);
 const grade_validate_1 = __webpack_require__(252);
 exports.ifHasGrades = (grades) => {
     const hasNweaMath = grades.nweaMath !== undefined;
@@ -33129,7 +33129,7 @@ exports.isValidAttendance = (value) => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const is_uninitialized_1 = __webpack_require__(44);
+const is_uninitialized_1 = __webpack_require__(45);
 const point_in_polygon_1 = __webpack_require__(254);
 const schoolAttendBoundTable = __webpack_require__(255);
 exports.ifInAttendBound = (student, program) => {
@@ -220993,7 +220993,7 @@ module.exports = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const is_uninitialized_1 = __webpack_require__(44);
+const is_uninitialized_1 = __webpack_require__(45);
 const distance_between_coords_1 = __webpack_require__(257);
 const constants_1 = __webpack_require__(5);
 exports.ifInProximity = (student, program) => {
@@ -221190,7 +221190,7 @@ exports.AUSL_ES_PROGRAMS = [
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const is_uninitialized_1 = __webpack_require__(44);
+const is_uninitialized_1 = __webpack_require__(45);
 exports.ifSiblingAttends = (student, program) => {
     const siblingSchools = student.siblingHSSchoolIDs;
     if (is_uninitialized_1.default(siblingSchools)) {
@@ -244016,7 +244016,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -244036,7 +244036,7 @@ if(false) {
 /* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
@@ -244182,7 +244182,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -244202,7 +244202,7 @@ if(false) {
 /* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
@@ -244274,7 +244274,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -244294,7 +244294,7 @@ if(false) {
 /* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
@@ -244334,7 +244334,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -244354,7 +244354,7 @@ if(false) {
 /* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
@@ -244450,7 +244450,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -244470,7 +244470,7 @@ if(false) {
 /* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
@@ -244782,7 +244782,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -244802,7 +244802,7 @@ if(false) {
 /* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
@@ -245435,19 +245435,52 @@ exports.default = HSProgramsContainer;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const hs_group_1 = __webpack_require__(337);
-const HSProgramList = (props) => {
-    return (React.createElement("div", { style: {
-            width: "100%",
-            height: "100%",
-            overflowY: "auto",
-            overflowX: "hidden",
-            position: "relative"
-        } }, Object.keys(props.hsProgramsByType).sort().map(programType => {
-        const programs = props.hsProgramsByType[programType];
-        return (React.createElement(hs_group_1.default, { key: programType, title: programType, programs: programs, selectedProgramID: props.selectedProgramID, onSelectedProgramIDChange: id => props.onSelectedProgramIDChange(id) }));
-    })));
-};
+const search_bar_1 = __webpack_require__(337);
+const hs_group_1 = __webpack_require__(341);
+const constants_1 = __webpack_require__(5);
+class HSProgramList extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.filterBySearchTerm = (programs, searchTerm) => {
+            if (searchTerm.trim() === "") {
+                return programs;
+            }
+            const term = searchTerm.trim().toLowerCase();
+            const hasTerm = (text) => {
+                return text.toLowerCase().indexOf(term) != -1;
+            };
+            return programs.filter(program => {
+                return hasTerm(program.shortname) || hasTerm(program.programType);
+            });
+        };
+        this.state = {
+            searchTerm: ""
+        };
+    }
+    render() {
+        return (React.createElement("div", { style: {
+                width: "100%",
+                height: "100%",
+                overflowX: "hidden",
+                overflowY: "hidden"
+            } },
+            React.createElement(search_bar_1.default, { value: this.state.searchTerm, onChange: value => this.setState({ searchTerm: value }), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }),
+            React.createElement("div", { style: {
+                    width: "100%",
+                    height: "100%",
+                    overflowY: "auto",
+                    overflowX: "hidden",
+                    position: "relative"
+                } }, Object.keys(this.props.hsProgramsByType).sort().map(programType => {
+                const programs = this.props.hsProgramsByType[programType];
+                const filteredPrograms = this.filterBySearchTerm(programs, this.state.searchTerm);
+                if (filteredPrograms.length > 0) {
+                    return (React.createElement(hs_group_1.default, { key: programType, title: programType, programs: filteredPrograms, selectedProgramID: this.props.selectedProgramID, onSelectedProgramIDChange: id => this.props.onSelectedProgramIDChange(id) }));
+                }
+            }))));
+    }
+}
+;
 exports.default = HSProgramList;
 
 
@@ -245459,7 +245492,115 @@ exports.default = HSProgramList;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const get_combined_success_chance_1 = __webpack_require__(338);
+const search_1 = __webpack_require__(338);
+const debounce_1 = __webpack_require__(36);
+__webpack_require__(339);
+class SearchBar extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            localValue: props.value
+        };
+        const handleChange = value => props.onChange(value);
+        if (props.debounceTime) {
+            this.handleChange = debounce_1.default(handleChange, props.debounceTime);
+        }
+        else {
+            this.handleChange = handleChange;
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.value);
+        this.setState({
+            localValue: nextProps.value
+        });
+    }
+    render() {
+        return (React.createElement("div", { className: "search-bar-container" },
+            React.createElement("div", { className: "search-bar" },
+                React.createElement(search_1.default, { width: "24px", height: "24px" }),
+                React.createElement("input", { className: "search-bar-input", type: "text", value: this.state.localValue ? this.state.localValue : " ", onChange: ev => {
+                        const value = ev.currentTarget.value;
+                        this.setState({ localValue: value });
+                        this.handleChange(value);
+                    } }))));
+    }
+    ;
+}
+;
+exports.default = SearchBar;
+
+
+/***/ }),
+/* 338 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const SearchIcon = (props) => {
+    return (React.createElement("svg", { width: props.width, height: props.height, fill: props.color, xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 24 24" },
+        React.createElement("path", { d: "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" }),
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" })));
+};
+exports.default = SearchIcon;
+
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(340);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(17)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./search-bar.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./search-bar.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(16)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".search-bar-container {\n  width: 100%;\n  padding: 0.5em;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  background-color: #cacaca; }\n\n.search-bar {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: #fafafd;\n  padding: 10px;\n  border-radius: 6px; }\n\n.search-bar-icon {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  margin: 0.5em; }\n\n.search-bar-input {\n  line-height: 24px;\n  font-size: 115%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const get_combined_success_chance_1 = __webpack_require__(342);
 const success_chance_1 = __webpack_require__(10);
 const outcome_certain_1 = __webpack_require__(121);
 const outcome_likely_1 = __webpack_require__(122);
@@ -245468,8 +245609,8 @@ const outcome_unlikely_1 = __webpack_require__(124);
 const outcome_none_1 = __webpack_require__(125);
 const outcome_notimplemented_1 = __webpack_require__(126);
 const constants_1 = __webpack_require__(5);
-const hs_program_element_1 = __webpack_require__(339);
-__webpack_require__(346);
+const hs_program_element_1 = __webpack_require__(343);
+__webpack_require__(350);
 class HSGroup extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -245571,7 +245712,7 @@ exports.default = HSGroup;
 
 
 /***/ }),
-/* 338 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245590,7 +245731,7 @@ exports.default = getCombinedSuccessChance;
 
 
 /***/ }),
-/* 339 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245598,15 +245739,15 @@ exports.default = getCombinedSuccessChance;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const success_chance_1 = __webpack_require__(10);
-const school_1 = __webpack_require__(340);
+const school_1 = __webpack_require__(344);
 const outcome_certain_1 = __webpack_require__(121);
 const outcome_likely_1 = __webpack_require__(122);
 const outcome_uncertain_1 = __webpack_require__(123);
 const outcome_unlikely_1 = __webpack_require__(124);
 const outcome_none_1 = __webpack_require__(125);
 const outcome_notimplemented_1 = __webpack_require__(126);
-const hs_program_info_card_1 = __webpack_require__(341);
-__webpack_require__(344);
+const hs_program_info_card_1 = __webpack_require__(345);
+__webpack_require__(348);
 class HSProgramElement extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -245688,7 +245829,7 @@ exports.default = HSProgramElement;
 
 
 /***/ }),
-/* 340 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245708,7 +245849,7 @@ exports.default = SchoolIcon;
 
 
 /***/ }),
-/* 341 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -245716,7 +245857,7 @@ exports.default = SchoolIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const success_chance_1 = __webpack_require__(10);
-__webpack_require__(342);
+__webpack_require__(346);
 const HSProgramInfoCard = (props) => {
     const toMessage = (success) => {
         let msg;
@@ -245785,13 +245926,13 @@ exports.default = HSProgramInfoCard;
 
 
 /***/ }),
-/* 342 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(343);
+var content = __webpack_require__(347);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -245799,7 +245940,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -245816,10 +245957,10 @@ if(false) {
 }
 
 /***/ }),
-/* 343 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
@@ -245830,13 +245971,13 @@ exports.push([module.i, ".hs-info-card-container {\n  display: none;\n  position
 
 
 /***/ }),
-/* 344 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(345);
+var content = __webpack_require__(349);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -245844,7 +245985,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -245861,10 +246002,10 @@ if(false) {
 }
 
 /***/ }),
-/* 345 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
@@ -245875,13 +246016,13 @@ exports.push([module.i, ".hs-list-element {\n  position: relative;\n  font-size:
 
 
 /***/ }),
-/* 346 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(347);
+var content = __webpack_require__(351);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -245889,7 +246030,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(18)(content, options);
+var update = __webpack_require__(17)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -245906,10 +246047,10 @@ if(false) {
 }
 
 /***/ }),
-/* 347 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(17)(undefined);
+exports = module.exports = __webpack_require__(16)(undefined);
 // imports
 
 
