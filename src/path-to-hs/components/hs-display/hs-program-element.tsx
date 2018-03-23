@@ -10,6 +10,8 @@ import OutcomeUnlikelyIcon from "shared/components/icons/outcome-unlikely";
 import OutcomeNoneIcon from "shared/components/icons/outcome-none";
 import OutcomeNotImplementedIcon from "shared/components/icons/outcome-notimplemented";
 
+import HorizontalMoreIcon from "shared/components/icons/horizontal-more";
+
 import HSProgramInfoCard from "./hs-program-info-card";
 
 interface HSProgramElemProps {
@@ -89,6 +91,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
           <div className="hs-list-element-shortname">
             {this.props.program.shortname}
           </div>
+          <HorizontalMoreIcon width="24px" height="18px" color="#999"/>
         </button>
         <HSProgramInfoCard 
           visible={this.state.showHSPreview} 

@@ -245610,7 +245610,7 @@ const outcome_none_1 = __webpack_require__(125);
 const outcome_notimplemented_1 = __webpack_require__(126);
 const constants_1 = __webpack_require__(5);
 const hs_program_element_1 = __webpack_require__(343);
-__webpack_require__(350);
+__webpack_require__(351);
 class HSGroup extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -245746,8 +245746,9 @@ const outcome_uncertain_1 = __webpack_require__(123);
 const outcome_unlikely_1 = __webpack_require__(124);
 const outcome_none_1 = __webpack_require__(125);
 const outcome_notimplemented_1 = __webpack_require__(126);
-const hs_program_info_card_1 = __webpack_require__(345);
-__webpack_require__(348);
+const horizontal_more_1 = __webpack_require__(345);
+const hs_program_info_card_1 = __webpack_require__(346);
+__webpack_require__(349);
 class HSProgramElement extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -245821,7 +245822,8 @@ class HSProgramElement extends React.PureComponent {
                 React.createElement("div", { className: "outcome-icon-container" }, this.getIcon(this.state.combinedSuccessChance)),
                 React.createElement("div", { className: IconClassName }, this.state.combinedSuccessChance !== success_chance_1.default.NOTIMPLEMENTED &&
                     React.createElement(school_1.default, { width: "45px", height: "45px", color: "#000" })),
-                React.createElement("div", { className: "hs-list-element-shortname" }, this.props.program.shortname)),
+                React.createElement("div", { className: "hs-list-element-shortname" }, this.props.program.shortname),
+                React.createElement(horizontal_more_1.default, { width: "24px", height: "18px", color: "#999" })),
             React.createElement(hs_program_info_card_1.default, { visible: this.state.showHSPreview, program: this.props.program, style: { top: this.state.pxFromTop }, onCloseButtonClick: ev => this.props.onSelect(null) })));
     }
 }
@@ -245856,8 +245858,24 @@ exports.default = SchoolIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
+const HorizontalMoreIcon = (props) => {
+    return (React.createElement("svg", { width: props.width, height: props.height, fill: props.color, xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 24 24" },
+        React.createElement("path", { d: "M0 0h24v24H0z", fill: "none" }),
+        React.createElement("path", { d: "M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" })));
+};
+exports.default = HorizontalMoreIcon;
+
+
+/***/ }),
+/* 346 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
 const success_chance_1 = __webpack_require__(10);
-__webpack_require__(346);
+__webpack_require__(347);
 const HSProgramInfoCard = (props) => {
     const toMessage = (success) => {
         let msg;
@@ -245926,13 +245944,13 @@ exports.default = HSProgramInfoCard;
 
 
 /***/ }),
-/* 346 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(347);
+var content = __webpack_require__(348);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -245957,7 +245975,7 @@ if(false) {
 }
 
 /***/ }),
-/* 347 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -245971,13 +245989,13 @@ exports.push([module.i, ".hs-info-card-container {\n  display: none;\n  position
 
 
 /***/ }),
-/* 348 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(349);
+var content = __webpack_require__(350);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -246002,7 +246020,7 @@ if(false) {
 }
 
 /***/ }),
-/* 349 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -246010,19 +246028,19 @@ exports = module.exports = __webpack_require__(16)(undefined);
 
 
 // module
-exports.push([module.i, ".hs-list-element {\n  position: relative;\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 3em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  overflow: hidden; }\n\n.outcome-icon-container {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  border-radius: 100%;\n  background-color: #fafafd;\n  padding: 1px; }\n\n.hs-list-element-icon.succ-certain {\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #fff124; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background-color: inherit;\n  border: 2px dashed #999; }\n", ""]);
+exports.push([module.i, ".hs-list-element {\n  position: relative;\n  font-size: 100%;\n  width: 80px;\n  height: 100px;\n  margin: 0.5em;\n  padding: 0.5em;\n  border-radius: 12px;\n  background-color: #ededed;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: -webkit-transform 200ms ease;\n  transition: -webkit-transform 200ms ease;\n  transition: transform 200ms ease;\n  transition: transform 200ms ease, -webkit-transform 200ms ease; }\n\n.hs-list-element.selected {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element:hover > .hs-list-element-shortname {\n  word-wrap: break-word; }\n\n.hs-list-element:focus {\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n\n.hs-list-element-shortname {\n  width: 100%;\n  line-height: 1em;\n  height: 2em;\n  font-size: 70%;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis; }\n\n.hs-list-element-icon {\n  position: relative;\n  width: 45px;\n  height: 45px;\n  padding-top: 2px;\n  margin: 5px auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  overflow: hidden; }\n\n.outcome-icon-container {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  border-radius: 100%;\n  background-color: #fafafd;\n  padding: 1px; }\n\n.hs-list-element-icon.succ-certain {\n  background-color: #7ff159; }\n\n.hs-list-element-icon.succ-likely {\n  background-color: #cef26f; }\n\n.hs-list-element-icon.succ-uncertain {\n  background-color: #fff124; }\n\n.hs-list-element-icon.succ-unlikely {\n  background-color: #ffac28; }\n\n.hs-list-element-icon.succ-none {\n  background-color: #f7966b; }\n\n.hs-list-element-icon.succ-not-implemented {\n  background-color: inherit;\n  border: 2px dashed #999; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 350 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(351);
+var content = __webpack_require__(352);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -246047,7 +246065,7 @@ if(false) {
 }
 
 /***/ }),
-/* 351 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
