@@ -49,7 +49,7 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false,
+      collapsed: true,
       programCounts: this.getProgramCounts(props.programs)
     }
   }

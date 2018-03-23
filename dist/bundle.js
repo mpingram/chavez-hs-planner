@@ -245659,7 +245659,7 @@ class HSGroup extends React.PureComponent {
             return bOutcome - aOutcome;
         };
         this.state = {
-            collapsed: false,
+            collapsed: true,
             programCounts: this.getProgramCounts(props.programs)
         };
     }
