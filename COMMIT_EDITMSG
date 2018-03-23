@@ -1,9 +1,3 @@
-Refactor app to use school id for sibling attendance
+Temporarily remove SuccessChanceKey
 
-* NOTE previously app used program id for sibling attendance -- this is
-  inaccurate.
-* rename siblingHSProgramIDs -> siblingHSSchoolIDs
-* add string -> string map of SchoolID -> SchoolName to app state
-* write HS Schools map creating function in reducer-utils 
-* write HS Schools selector in sibling-hs-progams field
 
