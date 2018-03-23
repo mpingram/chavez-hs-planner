@@ -25,7 +25,6 @@ const PathToHS: React.SFC<any> = (props) => {
         height="full" 
         responsiveBehavior={{mobile: "fullscreen"}}
       >
-        <SuccessChanceKey/>
         <HSProgramsContainer/>
       </Box>
     </Page>
