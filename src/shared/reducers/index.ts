@@ -100,8 +100,8 @@ const rootReducer = (state: AppState = initialState, action: Redux.AnyAction): A
       nextState = state.setIn(['studentData', 'skippedGrade7OrRepeatedGrade8'], action.payload);
       break;
 
-    case ActionType.UpdateStudentSiblingHSPrograms:
-      nextState = state.setIn(['studentData', 'siblingHSProgramIDs'], action.payload);
+    case ActionType.UpdateStudentSiblingHSSchools:
+      nextState = state.setIn(['studentData', 'siblingHSSchoolIDs'], action.payload);
       break;
 
     case ActionType.UpdateStudentSETestPercentile:

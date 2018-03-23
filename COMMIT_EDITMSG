@@ -1,11 +1,9 @@
-Implement new hs group system in app
+Refactor app to use school id for sibling attendance
 
-* create hs group json file in shared/data from script in config/build
-* refactor hs grouping function in shared/reducers/reducer-utils to
-  use hs group config 
-
-* write default grouping logic in hs grouping function in event a
-cps program is not specified in the hs group config
-  ** log a warning to console if a group is not matched
-
+* NOTE previously app used program id for sibling attendance -- this is
+  inaccurate.
+* rename siblingHSProgramIDs -> siblingHSSchoolIDs
+* add string -> string map of SchoolID -> SchoolName to app state
+* write HS Schools map creating function in reducer-utils 
+* write HS Schools selector in sibling-hs-progams field
 

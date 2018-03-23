@@ -12,6 +12,7 @@ interface AppStateShape {
   hsData: ImmutableMap<{
     programs: CPSProgram[]
     index: {[id: string]: number}
+    hsSchools: {[schoolID: string]: string}
     hsProgramIDs: string[]
     esProgramIDs: string[]
     hsProgramIDsByType: {[type: string]: string[]}

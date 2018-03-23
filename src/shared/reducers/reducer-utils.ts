@@ -38,6 +38,7 @@ export const getESProgramIDs = (programs: CPSProgram[]): string[] => {
   return programs.filter( isESProgram ).sort( alphaSortPrograms ).map( program => program.ID );
 };
 
+
 export const getHSProgramIDsByType = (programs: CPSProgram[]): {[type: string]: string[]} => {
 
   const hsPrograms = programs.filter( isHSProgram );
@@ -68,6 +69,18 @@ export const getHSProgramIDsByType = (programs: CPSProgram[]): {[type: string]: 
 
   return hsProgramIDsByType;
 };
+
+export const getHSSchools = (programs: CPSProgram[]): {[schoolID: string]: string} => {
+  let hsSchools = {};
+  programs.forEach( program => {
+    if (isHSProgram(program)) {
+      const schoolID = program.School_ID;
+      hsSchools[schoolID] = program.Short_Name;
+    }
+  });
+  return hsSchools;
+};
+
 
 export const initializeOutcomes = (programs: CPSProgram[]): {[id: string]: Outcome} => {
   let outcomes = {};

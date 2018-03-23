@@ -4,6 +4,7 @@ import { fromJS, List } from  "immutable";
 
 import { 
   createIndexByID, 
+  getHSSchools,
   getHSProgramIDs, 
   getESProgramIDs, 
   getHSProgramIDsByType,
@@ -30,7 +31,7 @@ let initialState: AppState = fromJS({
     skippedGrade7OrRepeatedGrade8: false,
 
     currESProgramID: undefined,
-    siblingHSProgramIDs: [],
+    siblingHSSchoolIDs: [],
     seTestPercentile: 0,
     nweaPercentileMath: 0,
     nweaPercentileRead: 0,
@@ -45,6 +46,7 @@ let initialState: AppState = fromJS({
   hsData: {
     programs: List(allPrograms), 
     index: createIndexByID(allPrograms),
+    hsSchools: getHSSchools(allPrograms),
     hsProgramIDs: getHSProgramIDs(allPrograms),
     esProgramIDs: getESProgramIDs(allPrograms),
     hsProgramIDsByType: getHSProgramIDsByType(allPrograms),

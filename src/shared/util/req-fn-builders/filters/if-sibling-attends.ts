@@ -2,8 +2,7 @@ import HSReqFilter from "shared/types/hs-req-filter";
 import isUninitialized from "shared/util/is-uninitialized";
 
 export const ifSiblingAttends: HSReqFilter = (student, program) => {
-  // TODO replace hsprogramIds with hsschoolIds
-  const siblingSchools = student.siblingHSProgramIDs;
+  const siblingSchools = student.siblingHSSchoolIDs;
   if (isUninitialized(siblingSchools)) {
     return false;
   }

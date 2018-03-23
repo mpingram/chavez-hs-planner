@@ -67,9 +67,9 @@ export const updateStudentCurrESProgram = (newValue: string) => {
   }
 };
 
-export const updateStudentSiblingHSPrograms = (newValues: string[]) => {
+export const updateStudentSiblingHSSchools = (newValues: string[]) => {
   return {
-    type: ActionType.UpdateStudentSiblingHSPrograms,
+    type: ActionType.UpdateStudentSiblingHSSchools,
     payload: newValues
   }
 };

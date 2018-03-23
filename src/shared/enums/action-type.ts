@@ -9,7 +9,7 @@ enum ActionType {
   UpdateStudentIEPStatus,
   UpdateStudentAttendPercentage,
   UpdateStudentCurrESProgram,
-  UpdateStudentSiblingHSPrograms,
+  UpdateStudentSiblingHSSchools,
 
   UpdateStudentNWEAPercentileMath,
   UpdateStudentNWEAPercentileRead,

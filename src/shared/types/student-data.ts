@@ -15,7 +15,7 @@ export default interface StudentData {
     iep: boolean
     attendancePercentage: number
     gpa: number
-    siblingHSProgramIDs: string[]
+    siblingHSSchoolIDs: string[]
     seTestPercentile: number
     nweaPercentileMath: number
     nweaPercentileRead: number

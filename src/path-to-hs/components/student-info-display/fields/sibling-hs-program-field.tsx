@@ -1,22 +1,32 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { List, Map } from "immutable";
+import { List, Map, fromJS } from "immutable";
 import { createSelector } from "reselect";
 
-import { updateStudentSiblingHSPrograms } from "shared/actions";
+import { updateStudentSiblingHSSchools } from "shared/actions";
 import AppState from "shared/types/app-state";
-import CPSProgram from "shared/types/cps-program";
 
 import MultiSelectField from "shared/components/ui/fields/multi-select-field";
 import DropdownField from "shared/components/ui/fields/dropdown-field";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
+interface CPSSchool {
+  School_ID: string
+  Short_Name: string
+}
+
+interface SiblingHSFieldProps {
+  hsSchools: CPSSchool[]
+  siblingHSSchools: CPSSchool[]
+  onChange: (newSiblingSchools: CPSSchool[]) => any
+}
+
 interface SiblingHSFieldState {
   hasSibling: boolean
 }
 
-class SiblingHSProgramInput extends React.PureComponent<any, SiblingHSFieldState> { 
+class SiblingHSProgramInput extends React.PureComponent<SiblingHSFieldProps, SiblingHSFieldState> { 
   constructor(props) {
     super(props);
     this.state = {
@@ -51,17 +61,18 @@ class SiblingHSProgramInput extends React.PureComponent<any, SiblingHSFieldState
         { this.state.hasSibling && 
           <MultiSelectField
             label="Which schools do your brother or sister go to?"
-            values={this.props.siblingHSPrograms}
+            values={this.props.siblingHSSchools}
             data={
               {
-                records: this.props.hsPrograms, 
-                getKey: (program) => program.ID, 
-                getDisplayText: (program) => {
-                  return program.Short_Name + " - " + program.Program_Type;
-                }
+                records: this.props.hsSchools, 
+                getKey: (program) => program.School_ID, 
+                getDisplayText: (program) => program.Short_Name
               }
             }
-            onChange={ (programs: CPSProgram[]) => this.props.onChange(programs.map( program => program.ID ) )}
+            onChange={ (programs: CPSSchool[]) => {
+              console.log(programs);
+              return this.props.onChange(programs) 
+            } }
             debounceTime={INPUT_DEBOUNCE_TIME}
           /> 
         }
@@ -70,48 +81,51 @@ class SiblingHSProgramInput extends React.PureComponent<any, SiblingHSFieldState
   }
 }
 
-const getPrograms = (state: AppState): List<CPSProgram> => state.getIn(['hsData', 'programs']);
-const getProgramIndex = (state: AppState): Map<string, number> => state.getIn(['hsData', 'index']);
-const getHSProgramIDs = (state: AppState): List<string> => state.getIn(['hsData', 'hsProgramIDs']);
-const getSiblingHSProgramIDs = (state: AppState): List<string> => state.getIn(['studentData', 'siblingHSProgramIDs']);
 
+const getHSSchools = (state: AppState): Map<string, string> => state.getIn(['hsData', 'hsSchools']);
+const getSiblingHSSchoolIDs = (state: AppState): List<string> => state.getIn(['studentData', 'siblingHSSchoolIDs']);
 
-const selectPrograms = (ids, allPrograms, index): CPSProgram[] => {
-    let selectedPrograms = [];
-    ids.forEach( id => {
-      // use index to find cps program corresponding to id
-      const i = index.get(id);
-      const program = allPrograms.get(i);
-      selectedPrograms.push(program);
+const selectHSSchools = createSelector( 
+  [getHSSchools], 
+  (hsSchools: Map<string, string>): CPSSchool[] => {
+    const hsSchoolList = hsSchools.map( (schoolName, schoolID) => {
+      return {
+        School_ID: schoolID,
+        Short_Name: schoolName
+      };
     });
-    return selectedPrograms;
-};
-
-const selectHSPrograms = createSelector( 
-  [getHSProgramIDs, getPrograms, getProgramIndex], 
-  selectPrograms
+    return hsSchoolList.toArray().sort( (a,b) => a.Short_Name.localeCompare(b.Short_Name) );
+  }
 );
 
-const selectSiblingHSPrograms = createSelector(
-  [getSiblingHSProgramIDs, getPrograms, getProgramIndex],
-  selectPrograms
+const selectSiblingHSSchools = createSelector(
+  [getSiblingHSSchoolIDs, getHSSchools],
+  (siblingSchoolIDs: List<string>, hsSchools: Map<string, string>): CPSSchool[] => {
+    const schoolIDs = siblingSchoolIDs.toJS();
+    return schoolIDs.map( schoolID => {
+      return {
+        School_ID: schoolID,
+        Short_Name: hsSchools.get(schoolID)
+      };
+    });
+  }
 );
 
 const mapStateToProps = (state: AppState) => {
   return {
-    siblingHSPrograms: selectSiblingHSPrograms(state),
-    hsPrograms: selectHSPrograms(state)
+    siblingHSSchools: selectSiblingHSSchools(state),
+    hsSchools: selectHSSchools(state)
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChange: programIDs => {
-      console.log(programIDs);
-      dispatch(updateStudentSiblingHSPrograms(programIDs))
+    onChange: siblingSchools => {
+      const schoolIDs = siblingSchools.map( school => school.School_ID );
+      const immutableSchoolIDs = fromJS(schoolIDs);
+      dispatch(updateStudentSiblingHSSchools(immutableSchoolIDs))
     }
-  }
+  };
 };
-
 
 export const SiblingHSProgramField = connect(mapStateToProps, mapDispatchToProps)(SiblingHSProgramInput);
