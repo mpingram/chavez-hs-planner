@@ -1,6 +1,12 @@
 [WIP] Unify CPSProgram and HSProgram types into Program
 
 * DONE remove unused types CPSPrograms
+* DONE rename CPSProgram -> CPSProgramRawData
 * DONE rename HSRequirementFunction -> ProgramRequirementFunction
 
-* TODO store programs in redux store as Program
+* DONE remove state.hsData.outcomes - calculate these in components
+* DONE store programs in redux store as Program
+
+* DONE convert CPSProgramRawData to Program in shared/util/data-access
+* DONE remove most methods from shared/util/data-access
+* DONE move shared/util/is-es-program and is-hs-program to data-access

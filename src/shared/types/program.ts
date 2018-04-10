@@ -2,13 +2,22 @@ import ProgramRequirementFunction from "shared/types/program-requirement-functio
 
 interface Program {
   id: string
-  shortname: string
-  longname: string
-  programType: string
 
-  cpsLink: string
-  hsBoundLink: string
-  schoolPageLink: string
+  schoolNameShort: string
+  schoolNameLong: string
+  schoolID: string
+  schoolLocation: {
+    latitude: number,
+    longitude: number
+  }
+
+  programName: string
+  programType: string
+  category: string
+
+  cpsPageURL: string
+  hsBoundURL: string
+  schoolPageURL: string
 
   applicationReqDescription: string
   selectionReqDescription: string
