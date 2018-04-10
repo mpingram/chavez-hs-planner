@@ -1,12 +1,6 @@
-Add highschool search bar to HSDisplay
+[WIP] Unify CPSProgram and HSProgram types into Program
 
-* DONE add search bar component to shared/components
-* DONE style search bar component
-* DONE integrate search bar into HSProgramList
-  ** use local state for searching, rather than redux
-* DONE filter list of high schools in HSDisplay by
-  HSSearchTerm
-* DONE add logic to HSDisplay to not display HSGroup if 
-  no programs in it
+* DONE remove unused types CPSPrograms
+* DONE rename HSRequirementFunction -> ProgramRequirementFunction
 
-
+* TODO store programs in redux store as Program
