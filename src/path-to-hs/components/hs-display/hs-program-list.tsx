@@ -1,12 +1,15 @@
 import * as React from "react";
 
-import HSProgram from "shared/types/hs-program";
+import Program from "shared/types/program";
+import ProgramGroup from "shared/types/program-group";
+
 import SearchBar from "shared/components/ui/search-bar";
 
 import HSGroup from "./hs-group";
 
 interface HSProgramListProps {
-  hsProgramsByType: {[type: string]: HSProgram[]}
+  programs: Program[]
+  groups: ProgramGroup[]
   selectedProgramID: string
   onSelectedProgramIDChange: (id: string) => any
 }
@@ -26,7 +29,8 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
     };
   }
 
-  private filterBySearchTerm = (programs: HSProgram[], searchTerm: string): HSProgram[] => {
+
+  private filterBySearchTerm = (programs: Program[], searchTerm: string): Program[] => {
 
     if (searchTerm.trim() === "") {
       return programs;
@@ -38,7 +42,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
     };
 
     return programs.filter( program => {
-      return hasTerm(program.shortname) || hasTerm(program.programType);
+      return hasTerm(program.programName);
     });
   }
 
@@ -67,19 +71,18 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
           }}
         >
           {
-          Object.keys(this.props.hsProgramsByType).sort().map( programType => {
-              const programs = this.props.hsProgramsByType[programType];
-              const filteredPrograms = this.filterBySearchTerm(programs, this.state.searchTerm);
-              if (filteredPrograms.length > 0 ) {
-                return (<HSGroup 
-                  key={programType}
-                  title={programType}
-                  programs={filteredPrograms}
-                  selectedProgramID={this.props.selectedProgramID}
-                  onSelectedProgramIDChange={ id => this.props.onSelectedProgramIDChange(id) }
-                />)
-              }
-            })
+          this.props.groups.map( group => {
+            const programs = group.programIDs.map( programID => this.props.programs[programID] );
+            const filteredPrograms = this.filterBySearchTerm(programs, this.state.searchTerm);
+            if (filteredPrograms.length > 0) {
+              return (
+                <div
+                  key={group.groupName}
+                >
+                </div>
+              )
+            }
+          })
           }
         </div>
       </div>

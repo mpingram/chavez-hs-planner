@@ -10,3 +10,6 @@
 * DONE convert CPSProgramRawData to Program in shared/util/data-access
 * DONE remove most methods from shared/util/data-access
 * DONE move shared/util/is-es-program and is-hs-program to data-access
+
+* TODO separate HSGroup into presentational-only component
+* TODO incorporate changes into HSProgamList
