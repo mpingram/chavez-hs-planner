@@ -12,7 +12,7 @@ const fail: HSReqFilter = (student, program) => false;
 const s = {} as StudentData;
 const p = {} as CPSProgram;
 
-describe("both filter composer", () => {
+describe("combine filters function", () => {
   it("should create a filter that only returns true if all filters return true", () => {
     const combined = both(succeed, succeed, succeed);
     expect(combined(s,p)).to.equal(true);

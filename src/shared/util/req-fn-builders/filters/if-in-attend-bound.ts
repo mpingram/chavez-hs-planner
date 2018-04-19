@@ -4,7 +4,7 @@ import isUninitialized from "shared/util/is-uninitialized";
 import pointInPolygon from "shared/util/point-in-polygon";
 
 declare const require: any;
-const schoolAttendBoundTable = require("../../../data/school_geometry_table.json");
+const schoolAttendBoundTable = require("../../../data/school-geometry-table.json");
 
 export const ifInAttendBound: HSReqFilter = (student, program) => {
   // return false immediately if student properties are uninitialized

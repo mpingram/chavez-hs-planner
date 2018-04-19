@@ -17,19 +17,20 @@ describe("ifHasGrades hsReqFilter", () => {
       gender: 0,
       gradeLevel: 8,
       prevGradeLevel: 7,
+      skippedGrade7OrRepeatedGrade8: false,
       location: {},
       currESProgramID: "",
-      siblingHSProgramIDs: [],
+      siblingHSSchoolIDs: [],
 
       gpa: 0,
       attendancePercentage: 0,
       nweaPercentileMath: 0,
       nweaPercentileRead: 0,
       seTestPercentile: 1,
-      subjGradeSci: 0,
-      subjGradeMath: 0,
-      subjGradeRead: 0,
-      subjGradeSocStudies: 0
+      subjGradeSci: 'A',
+      subjGradeMath: 'B',
+      subjGradeRead: 'C',
+      subjGradeSocStudies: 'D' 
     } as StudentData;
     p = {} as CPSProgram;
   });

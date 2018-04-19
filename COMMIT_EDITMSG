@@ -1,11 +1,4 @@
-Add elementary school attendance bound geojson to shared/data
+Update tests in spec/
 
-* rename config/build/build_attendance_bound_geojson.py ->
-  config/build/make_school_geometry_table.py
-* rewrite make_school_geometry_table.py to use elementary
-  school and hs geojson
-* add es geojson data to config/data
-* run script with new data, put data in src/shared/data
-
-* TODO IN FUTURE redesign config system and src/shared/data
-
+* TODO remove tests that reference deleted code
+* TODO update tests to accomodate api changes
