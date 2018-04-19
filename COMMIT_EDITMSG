@@ -1,12 +1,11 @@
-Add highschool search bar to HSDisplay
+Add elementary school attendance bound geojson to shared/data
 
-* DONE add search bar component to shared/components
-* DONE style search bar component
-* DONE integrate search bar into HSProgramList
-  ** use local state for searching, rather than redux
-* DONE filter list of high schools in HSDisplay by
-  HSSearchTerm
-* DONE add logic to HSDisplay to not display HSGroup if 
-  no programs in it
+* rename config/build/build_attendance_bound_geojson.py ->
+  config/build/make_school_geometry_table.py
+* rewrite make_school_geometry_table.py to use elementary
+  school and hs geojson
+* add es geojson data to config/data
+* run script with new data, put data in src/shared/data
 
+* TODO IN FUTURE redesign config system and src/shared/data
 
