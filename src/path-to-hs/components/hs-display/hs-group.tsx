@@ -30,7 +30,6 @@ interface HSGroupProps {
 }
 
 interface ProgramCounts {
-  all: number
   certain: number
   likely: number
   uncertain: number
@@ -56,7 +55,6 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
 
   private getProgramCounts = (programs: HSProgram[]): ProgramCounts => {
     let counts: ProgramCounts = {
-      all: 0,
       certain: 0,
       likely: 0,
       uncertain: 0,
@@ -65,7 +63,6 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
       notImplemented: 0
     };
     programs.forEach( program => {
-      counts.all += 1;
       const outcome = getCombinedSuccessChance(program.applicationOutcome, program.selectionOutcome);
       switch(outcome){
         case SuccessChance.CERTAIN:
@@ -116,9 +113,6 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
               {this.props.title}
             </div>
             <div className="hs-program-outcome-counts">
-              <div className="count-all">
-                <span className="count-all-number">{this.state.programCounts.all}</span> <span className="count-all-desc">program{this.state.programCounts.all !== 1 && "s"}</span>
-              </div>
               <div className="outcome-counts-wrapper">
                 <div className={`outcome-count ${this.state.programCounts.certain > 0 ? "count-certain" : "count-empty"}`}  >
                   <OutcomeCertainIcon color={OutcomeCertainColor} width={ICONSIZE} height={ICONSIZE}/>{this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"}
