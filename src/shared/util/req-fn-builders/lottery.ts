@@ -5,7 +5,7 @@ import {
 } from "./filters";
 
 import HSReqFilter from "shared/types/hs-req-filter";
-import HSRequirementFunction from "shared/types/hs-requirement-function";
+import ProgramRequirementFunction from "shared/types/program-requirement-function";
 import SuccessChance from "shared/enums/success-chance";
 
 export enum LotteryStageSize {
@@ -34,14 +34,14 @@ export const GENERAL_LOTTERY_STAGE = {
   size: LotteryStageSize.LARGE
 };
 
-export const lottery = (...stages: LotteryStage[]): HSRequirementFunction => {
+export const lottery = (...stages: LotteryStage[]): ProgramRequirementFunction => {
   // stage logic:
   // SMALL stage and no previous LARGE stages => LIKELY.
   // SMALL stage and prev LARGE stage => UNLIKELY
   // LARGE stage and no previous LARGE stages => UNCERTAIN;
   // LARGE stage and prev LARGE stage => UNLIKELY
   
-  return (student, program) => {
+  return (student: StudentData, program: Program) => {
     let prevLargeStage = false;
     for (let i=0; i<stages.length; i++) {
 
@@ -54,9 +54,9 @@ export const lottery = (...stages: LotteryStage[]): HSRequirementFunction => {
           return {outcome: SuccessChance.UNLIKELY};
         } else {
           if (stage.size === LotteryStageSize.SMALL) {
-            return {outcome: SuccessChance.LIKELY};
+            return SuccessChance.LIKELY;
           } else if (stage.size === LotteryStageSize.LARGE) {
-            return {outcome: SuccessChance.UNCERTAIN};
+            return SuccessChance.UNCERTAIN;
           }
         }
       }
@@ -68,6 +68,6 @@ export const lottery = (...stages: LotteryStage[]): HSRequirementFunction => {
     }
 
     // if student does not match any stage of lottery, return NONE
-    return {outcome: SuccessChance.NONE};
+    return SuccessChance.NONE;
   }
 };

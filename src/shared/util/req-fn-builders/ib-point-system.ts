@@ -1,6 +1,6 @@
-import HSRequirementFunction from "shared/types/hs-requirement-function";
+import ProgramRequirementFunction from "shared/types/program-requirement-function";
 import StudentData from "shared/types/student-data";
-import CPSProgram from "shared/types/cps-program";
+import Program from "shared/types/program";
 import pointSystem from "./point-system";
 
 import {ifInAttendBound} from "./filters";
@@ -8,7 +8,7 @@ import {ifInAttendBound} from "./filters";
 declare const require: any;
 const ibCutoffTable = require("../../data/ib-cutoffs.json");
 
-const ibPointCalc = (student: StudentData, program: CPSProgram): number => {
+const ibPointCalc = (student: StudentData, program: Program): number => {
   const IB_NWEA_SCORE_CONSTANT = 2.2727;
   const IB_ATTEND_BOUND_BONUS_PTS = 50;
 
@@ -43,13 +43,14 @@ const ibPointCalc = (student: StudentData, program: CPSProgram): number => {
 
   return ibPoints;
 };  
-const ibCutoffLookup = (student, school): number => {
-  const cutoff = ibCutoffTable[school.School_ID];
+
+const ibCutoffLookup = (student: StudentData, program: Program): number => {
+  const cutoff = ibCutoffTable[program.schoolID];
   if (cutoff === undefined) {
-    throw new Error(`School ${school.Long_Name} not found in IB Cutoff scores`); 
+    throw new Error(`School ${program.schoolNameLong} not found in IB Cutoff scores`); 
   }
   return cutoff;
 };
 
-export const ibPointSystem: HSRequirementFunction = pointSystem(ibPointCalc, ibCutoffLookup);
+export const ibPointSystem: ProgramRequirementFunction = pointSystem(ibPointCalc, ibCutoffLookup);
 

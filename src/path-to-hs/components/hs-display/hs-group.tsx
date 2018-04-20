@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import getCombinedSuccessChance from "shared/util/get-combined-success-chance";
-import HSProgram from "shared/types/hs-program";
+import Program from "shared/types/program";
 import SuccessChance from "shared/enums/success-chance";
 
 import OutcomeCertainIcon from "shared/components/icons/outcome-certain";
@@ -24,7 +24,7 @@ import "./hs-group.scss";
 
 interface HSGroupProps {
   title: string
-  programs: HSProgram[]
+  programs: Program[]
   selectedProgramID: string
   onSelectedProgramIDChange: (newID: string) => any
 }
@@ -53,7 +53,7 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
     }
   }
 
-  private getProgramCounts = (programs: HSProgram[]): ProgramCounts => {
+  private getProgramCounts = (programs: Program[]): ProgramCounts => {
     let counts: ProgramCounts = {
       certain: 0,
       likely: 0,

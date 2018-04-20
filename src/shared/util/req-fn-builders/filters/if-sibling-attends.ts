@@ -6,6 +6,6 @@ export const ifSiblingAttends: HSReqFilter = (student, program) => {
   if (isUninitialized(siblingSchools)) {
     return false;
   }
-  const thisSchool = program.School_ID;
+  const thisSchool = program.schoolID;
   return siblingSchools.some( school => school === thisSchool );
 };

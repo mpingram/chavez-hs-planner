@@ -1,6 +1,6 @@
-import HSRequirementFunction from "shared/types/hs-requirement-function";
+import ProgramRequirementFunction from "shared/types/program-requirement-function";
 import StudentData from "shared/types/student-data";
-import CPSProgram from "shared/types/cps-program";
+import Program from "shared/types/program";
 import SuccessChance from "shared/enums/success-chance";
 
 declare const require: any;
@@ -8,7 +8,7 @@ const sePrevScores = require("../../data/se-prevyear-accepted-scores.json");
 
 type PrevYearAcceptanceLookup = (student, program) => {min: number, avg: number, max: number}
 
-const sePointCalc = (student: StudentData, program: CPSProgram): number => {
+const sePointCalc = (student: StudentData, program: Program): number => {
   // calculate points for NWEA scores
   const NWEA_SCORE_CONSTANT = 1.515;
   const nweaMathPoints = Math.round(student.nweaPercentileMath * NWEA_SCORE_CONSTANT);
@@ -64,33 +64,33 @@ const seLookup: PrevYearAcceptanceLookup = (student, school)  => {
   }
 };
 
-export const sePointSystem = (student, program) => {
+export const sePointSystem: ProgramRequirementFunction = (student, program)  => {
   const points = sePointCalc(student, program);
   let prevScores;
   try {
     prevScores = seLookup(student, program);
   } catch(e) {
-    return {outcome: SuccessChance.NOTIMPLEMENTED};
+    return SuccessChance.NOTIMPLEMENTED;
   }
 
   if (isNaN(points)) {
     console.error("received NaN for sePointCalc");
-    return {outcome: SuccessChance.NOTIMPLEMENTED};
+    return SuccessChance.NOTIMPLEMENTED;
   }
   if (isNaN(prevScores.min) || isNaN(prevScores.avg) || isNaN(prevScores.max)) {
     console.error("received NaN for seCutoffLookup");
-    return {outcome: SuccessChance.NOTIMPLEMENTED};
+    return SuccessChance.NOTIMPLEMENTED;
   }
 
   if (points >= prevScores.max) {
-    return {outcome: SuccessChance.CERTAIN};
+    return SuccessChance.CERTAIN;
   } else if (points >= prevScores.avg) {
-    return {outcome: SuccessChance.LIKELY};
+    return SuccessChance.LIKELY;
   } else if (points >= prevScores.min) {
-    return {outcome: SuccessChance.UNCERTAIN}; 
+    return SuccessChance.UNCERTAIN; 
   } else {
-    return {outcome: SuccessChance.NONE};
+    return SuccessChance.NONE;
   }
-}
+};
 
 export default sePointSystem;

@@ -1,6 +1,6 @@
 import StudentData from "shared/types/student-data";
-import CPSProgram from "shared/types/cps-program";
+import Program from "shared/types/program";
 
-type HSReqFilter = (student: StudentData, program: CPSProgram) => boolean;
+type HSReqFilter = (student: StudentData, program: Program) => boolean;
 
 export default HSReqFilter;

@@ -1,6 +1,6 @@
 import StudentData from "shared/types/student-data";
 import ProgramDictionary from "shared/types/program-dictionary";
-import HSGroup from "shared/types/hs-group";
+import ProgramGroup from "shared/types/program-group";
 
 import ImmutableMap from "shared/types/immutable-map";
 
@@ -12,7 +12,7 @@ interface AppStateShape {
     hsPrograms: ProgramDictionary,
     esPrograms: ProgramDictionary,
     hsSchoolNames: {[schoolID: string]: string}
-    hsGroups: HSGroup[]
+    hsGroups: ProgramGroup[]
   }>
 
   // HS list

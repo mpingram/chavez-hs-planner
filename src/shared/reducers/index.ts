@@ -27,7 +27,12 @@ const updateDependentProperties = (state: AppState): AppState => {
   const sciGrade = state.getIn(['studentData', 'subjGradeSci']);
   const socStudiesGrade = state.getIn(['studentData', 'subjGradeSocStudies']);
   const gpa = calculateGPA(mathGrade, readGrade, sciGrade, socStudiesGrade);
-  return state.setIn(['studentData', 'gpa'], gpa);
+
+  // update outcomes
+  // if student data has changed,
+  // iterate through 
+
+  return state.setIn(['studentData', 'gpa'], gpa).setIn(['hsData', 'programOutcomes'], outcomes);
 };
 
 const rootReducer = (state: AppState = initialState, action: Redux.AnyAction): AppState => {

@@ -15,6 +15,7 @@ import { selectHSProgram } from "shared/actions";
 const mapStateToProps = (state: AppState) => {
   return {
     programs: state.getIn(['hsData', 'hsPrograms']),
+    outcomes: state.getIn(['hsData', 'programOutcomes']),
     groups: state.getIn(['hsData', 'hsGroups']),
     selectedProgramID: state.get('selectedHSProgramID')
   }

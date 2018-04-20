@@ -1,11 +1,13 @@
-import HSRequirementFunction from "shared/types/hs-requirement-function";
+import ProgramRequirementFunction from "shared/types/program-requirement-function";
 import SuccessChance from "shared/enums/success-chance";
 import {POINT_SYSTEM_UNCERTAINTY_THRESHOLD} from "shared/constants";
+import StudentData from "shared/types/student-data";
+import Program from "shared/types/program";
 
-type PointCalculator = (StudentData, CPSProgram) => number;
-type PointCutoffLookup = (StudentData, CPSProgram) => number;
+type PointCalculator = (student: StudentData, program: Program) => number;
+type PointCutoffLookup = (student: StudentData, program: Program) => number;
 
-type PointSystemFn = (calc: PointCalculator, lookup: PointCutoffLookup) => HSRequirementFunction;
+type PointSystemFn = (calc: PointCalculator, lookup: PointCutoffLookup) => ProgramRequirementFunction;
 
 
 const pointSystem: PointSystemFn = (calc, lookup) => {
@@ -18,15 +20,15 @@ const pointSystem: PointSystemFn = (calc, lookup) => {
     // handle failure by returning NOTIMPLEMENTED
     // rather than give inaccurate prediction
     if (isNaN(points) || isNaN(cutoff)) {
-      return {outcome: SuccessChance.NOTIMPLEMENTED};
+      return SuccessChance.NOTIMPLEMENTED;
     }
 
     if (pointsFromCutoff < 0) {
-      return {outcome: SuccessChance.NONE};
+      return SuccessChance.NONE;
     } else if (pointsFromCutoff <= POINT_SYSTEM_UNCERTAINTY_THRESHOLD) {
-      return {outcome: SuccessChance.LIKELY};
+      return SuccessChance.LIKELY;
     } else {
-      return {outcome: SuccessChance.CERTAIN};
+      return SuccessChance.CERTAIN;
     }
   }
 };

@@ -16,13 +16,7 @@ export const ifInProximity: HSReqFilter = (student, program) => {
   }
 
   const studentCoords = student.location.geo;
-  const schoolCoords = {
-    latitude: parseFloat(program.School_Latitude),
-    longitude: parseFloat(program.School_Longitude)
-  };
-  if (isNaN(schoolCoords.latitude) || isNaN(schoolCoords.longitude)) {
-    throw new Error (`error parsing coordinates for school ${program.Short_Name}: (${program.School_Latitude}, ${program.School_Longitude})`);
-  }
+  const schoolCoords = program.schoolLocation;
   const distance = distanceBetweenCoords(studentCoords, schoolCoords);
   return distance <= CPS_PROXIMITY_LOTTERY_RADIUS_MI;
 };
