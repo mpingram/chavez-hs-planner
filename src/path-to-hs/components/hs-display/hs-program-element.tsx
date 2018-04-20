@@ -20,6 +20,7 @@ interface HSProgramElemProps {
 
 interface HSProgramElemState {
   showHSPreview: boolean
+  visited: boolean
   pxFromTop: number
   combinedSuccessChance: SuccessChance
 }
@@ -31,6 +32,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
   constructor(props) {
     super(props);
     this.state = { 
+      visited: false,
       combinedSuccessChance: this.getCombinedSuccessChance(props.program),
       showHSPreview: props.selected,
       pxFromTop: 0,
@@ -75,7 +77,9 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
             }
           } }
           onClick={(ev) => {
+            this.setState({visited: true});
             this.props.onSelect(this.props.program.id);
+            console.log(this.state);
           } }
         >
           <div className="outcome-icon-container">
@@ -86,7 +90,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
             <SchoolIcon width="45px" height="45px" color="#000"/>
             }
           </div>
-          <div className="hs-list-element-shortname">
+          <div className={`hs-list-element-shortname ${this.state.visited ? "visited" : ""}`}>
             {this.props.program.shortname}
           </div>
         </button>

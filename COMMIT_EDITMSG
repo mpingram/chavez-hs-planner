@@ -1,1 +1,6 @@
-Add 'don't know' option to IEP and ELL dropdowns
+Add clickable indicators to HS program elements
+
+* add cursor: pointer to hs program
+* add link style to hs names
+* add 'visited' styling to distinguish programs user has
+  already clicked on
