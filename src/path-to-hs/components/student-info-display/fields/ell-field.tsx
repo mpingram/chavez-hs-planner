@@ -9,15 +9,16 @@ import DropdownField from "shared/components/ui/fields/dropdown-field";
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
 const Field = (props) => (
-<DropdownField
-  label="Are you an English Language Learner?"
-  value={props.ell ? "true" : "false"}
-  onChange={ ell => props.onChange(ell === "true" ? true : false) }
-  debounceTime={INPUT_DEBOUNCE_TIME}
+  <DropdownField
+    label="Are you an English Language Learner?"
+    value={props.ell ? "true" : "false"}
+    onChange={ ell => props.onChange(ell === "true" ? true : false) }
+    debounceTime={INPUT_DEBOUNCE_TIME}
   >
-  <option value="true">Yes</option>
-  <option value="false">No</option>
-</DropdownField>
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+    <option value="false">I don't know</option>
+  </DropdownField>
 );
 
 const mapStateToProps = (state: AppState) => {

@@ -17,6 +17,7 @@ const Field = (props) => (
     >
     <option value="true">Yes</option>
     <option value="false">No</option>
+    <option value="false">I don't know</option>
   </DropdownField>
 );
 
