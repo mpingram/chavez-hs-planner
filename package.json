@@ -10,7 +10,7 @@
     "build-gz": "npm build && gzip dist/bundle.min.js",
     "start": "npm run move-index && concurrently \"webpack\" \"browser-sync start -s 'dist' --files 'dist' \"",
     "start:windows": "concurrently \"webpack\" \"browser-sync start -s dist --files dist \"",
-    "aws-sync:production": "aws s3 sync dist/ s3://path-to-hs",
+    "aws-sync:production": "aws s3 sync dist/ s3://chavez-hs-planner.com",
     "aws-sync:dev": "aws s3 sync dist/ s3://path-to-hs-dev"
   },
   "repository": {
