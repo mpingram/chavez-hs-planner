@@ -4,4 +4,4 @@ interface ProgramGroup {
   subGroups: ProgramGroup[]
 }
 
-export default ProgramGroup;
+export {ProgramGroup};

@@ -1,4 +1,4 @@
-import ProgramRequirementFunction from "shared/types/program-requirement-function";
+import {RequirementFunction} from "shared/types";
 
 interface Program {
   id: string
@@ -26,4 +26,4 @@ interface Program {
   selectionReqFn: ProgramRequirementFunction
 }
 
-export default Program;
+export {Program};

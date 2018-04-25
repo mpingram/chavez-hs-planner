@@ -24,4 +24,4 @@ enum ActionType {
   SelectHSProgram
 }
 
-export default ActionType;
+export {ActionType};

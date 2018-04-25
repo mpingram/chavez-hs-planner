@@ -1,0 +1,9 @@
+export const GEO_APPROX_DEG_KM_CONVERSION_FACTOR = 110.25;
+export const GEO_APPROX_DEG_MI_CONVERSION_FACTOR = 68.5061739;
+export const MILE_METER_CONVERSION_FACTOR = 1609.344; // there are this many meters in one mile
+export const CPS_PROXIMITY_LOTTERY_RADIUS_MI = 2.5; // miles
+export const CPS_PROXIMITY_LOTTERY_RADIUS_METERS = CPS_PROXIMITY_LOTTERY_RADIUS_MI * MILE_METER_CONVERSION_FACTOR;
+export const POINT_SYSTEM_UNCERTAINTY_THRESHOLD = 2;
+
+export * from "./cps-es-program-ids";
+

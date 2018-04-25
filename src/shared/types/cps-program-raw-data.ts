@@ -1,4 +1,4 @@
-interface CPSProgram {
+interface CPSProgramRawData {
         "ID": string
         "School_ID": string
         "Short_Name": string
@@ -24,4 +24,4 @@ interface CPSProgram {
         "Program_Selections_Fn": string
 };
 
-export default CPSProgram;
+export {CPSProgramRawData};

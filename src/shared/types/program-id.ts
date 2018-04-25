@@ -1,2 +1,2 @@
 type ProgramID = string;
-export default ProgramID;
+export {ProgramID};

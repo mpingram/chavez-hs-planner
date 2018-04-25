@@ -1,17 +1,23 @@
 {
   "name": "path-to-hs",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "A website that calculates a student's chances of getting into different Chicago Public Schools high schools.",
   "main": " ",
   "scripts": {
     "test": "karma start karma.conf.js",
     "move-index": "cp src/index.html dist/index.html",
-    "build": "npm run move-index && webpack -p --config webpack.config.prod.js",
-    "build-gz": "npm build && gzip dist/bundle.min.js",
+    "build": "npm run build-site && npm run build-config",
+    "build-site": "npm run move-index && webpack -p --config webpack.config.prod.js",
     "start": "npm run move-index && concurrently \"webpack\" \"browser-sync start -s 'dist' --files 'dist' \"",
     "start:windows": "concurrently \"webpack\" \"browser-sync start -s dist --files dist \"",
+
     "aws-sync:production": "aws s3 sync dist/ s3://path-to-hs",
-    "aws-sync:dev": "aws s3 sync dist/ s3://path-to-hs-dev"
+    "aws-sync:dev": "aws s3 sync dist/ s3://path-to-hs-dev",
+
+    "update-program-data": "",
+    "diff-requirement-functions": "./build-scripts/diff-req-fns.js --req-fns xxx --program-data xxx",
+    "create-empty-requirement-functions": "",
+    "build-config": "./build-scripts/main.js",
   },
   "repository": {
     "type": "git",

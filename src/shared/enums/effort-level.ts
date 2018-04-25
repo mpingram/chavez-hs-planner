@@ -6,4 +6,4 @@ enum EffortLevel {
   EXTREME = 5
 }
 
-export default EffortLevel;
+export {EffortLevel};

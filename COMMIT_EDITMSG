@@ -1,26 +1,24 @@
-[WIP] Unify CPSProgram and HSProgram types into Program
+Restructure config system 
 
-* DONE remove unused types CPSPrograms
-* DONE rename CPSProgram -> CPSProgramRawData
-* DONE rename HSRequirementFunction -> ProgramRequirementFunction
+* DONE move all data out of app bundle
+  ** DONE move all files out of src/shared/data
+  ** DONE remove data-related constants out of
+    src/shared/constants
+  ** DONE move requirement function code to
+    config/ folder
 
-* DONE remove state.hsData.outcomes - calculate these in components
-* DONE store programs in redux store as Program
+* WIP reorganize config/ folder
 
-* DONE convert CPSProgramRawData to Program in shared/util/data-access
-* DONE remove most methods from shared/util/data-access
-* DONE move shared/util/is-es-program and is-hs-program to data-access
+* TODO move all python scripts in config/build to
+  build-scripts/.
+  ** CONSIDER rewriting python scripts in node js
 
-* DONE change function signature of program requirement functions
-* DONE add ProgramOutcome data type
-* DONE add programOutcomes property to redux state
-  ** TODO write code that updates programOutcomes on student data change
+* TODO rewrite build scripts to take 
+  configuration files as input and produce the
+  same files previously located in src/shared/data
+  as output, saving those files in dist/data.
 
-* TODO remove immutablejs dependency
-
-* TODO refactor app to work with data changes
-  ** TODO change app to separate programs and outcomes
-  ** TODO change all references to CPS and HS Programs to Program
-  ** TODO refactor app's components into presentational and containers
-    to minimize impact of data changes like this in the future.
+* TODO rewrite app data access scripts to load data
+  via ajax request from ./data/
+  
 

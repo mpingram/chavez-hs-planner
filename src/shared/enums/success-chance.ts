@@ -7,4 +7,4 @@ enum SuccessChance {
   NOTIMPLEMENTED = 0
 };
 
-export default SuccessChance;
+export {SuccessChance};

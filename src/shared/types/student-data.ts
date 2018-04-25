@@ -1,10 +1,9 @@
-import Gender from "shared/enums/gender";
-import GradeLevel from "shared/types/grade-level";
-import StudentLocation from "shared/types/student-location";
+import { Gender } from "shared/enums";
+import { GradeLevel, StudentLocation } from "shared/types";
 
 type LetterGrade = "A" | "B" | "C" | "D" | "F";
 
-export default interface StudentData {
+export interface StudentData {
     gender: Gender
     location: StudentLocation
     gradeLevel: number

@@ -1,5 +1,5 @@
-import SuccessChance from "shared/enums/success-chance";
-import ProgramID from "shared/types/program-id";
+import { SuccessChance } from "shared/enums";
+import { ProgramID } from "shared/types";
 
 interface ProgramOutcome {
   programID: ProgramID,
@@ -9,4 +9,4 @@ interface ProgramOutcome {
   distance: number
 }
 
-export default ProgramOutcome;
+export {ProgramOutcome};

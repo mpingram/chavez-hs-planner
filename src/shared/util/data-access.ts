@@ -8,6 +8,7 @@ import {
   CPS_JOINT_ES_AND_HS_PROGRAM_IDS
 } from "shared/constants";
 
+// TODO change this to a web request
 declare const require:any;
 const cpsProgramsRaw: CPSProgramRawData[] = require("../../shared/data/cps_programs.json");
 

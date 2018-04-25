@@ -1,8 +1,6 @@
 /* 
  * This is not a list of *all* cps es programs -- this is just a list of
- * the CPS ES Programs that the program needs to refer to in order to
- * either calculate a requirement function or distinguish between
- * ES and HS Programs.
+ * the CPS ES Programs that the requirement functions refer to.
  * */
 
 // purely ES programs
@@ -86,6 +84,9 @@ export const CICS_CHICAGOQUEST_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM = "907f1e67
 export const TAFT_ACADEMIC_CENTER_PROGRAM = "d710b9e4a67a2e743004bc24d45ea06d";
 export const MORGAN_PARK_ACADEMIC_CENTER_PROGRAM = "ffc3245a3f26842473a79b895bf40550";
 export const KENWOOD_ACADEMIC_CENTER_PROGRAM = "25654136f313f9b48c0ffa93987dc7e5";
+
+
+
 
 // Groups of programs
 // ============================================
