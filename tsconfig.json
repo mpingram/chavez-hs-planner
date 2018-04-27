@@ -13,12 +13,12 @@
     }
   },
   "include": [
+    "config/data/requirement-functions/**/*",
     "src/**/*",
     "typings.d.ts"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useCache": true

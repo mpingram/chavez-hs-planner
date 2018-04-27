@@ -7,16 +7,14 @@ Restructure config system
   ** DONE move requirement function code to
     config/ folder
 
-* WIP reorganize config/ folder
+* DONE reorganize config/ folder
 
-* TODO move all python scripts in config/build to
+* DONE move requirement-functions into own top-level folder
+* TODO use webpack multiple entry points to enforce a little
+  distinction between the parts
+
+* TODO rewrite python scripts in config/build as js files in  
   build-scripts/.
-  ** CONSIDER rewriting python scripts in node js
-
-* TODO rewrite build scripts to take 
-  configuration files as input and produce the
-  same files previously located in src/shared/data
-  as output, saving those files in dist/data.
 
 * TODO rewrite app data access scripts to load data
   via ajax request from ./data/
