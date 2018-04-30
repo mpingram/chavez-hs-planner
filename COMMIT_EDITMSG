@@ -1,22 +1,7 @@
-Restructure config system 
+Rewrite build scripts in js
 
-* DONE move all data out of app bundle
-  ** DONE move all files out of src/shared/data
-  ** DONE remove data-related constants out of
-    src/shared/constants
-  ** DONE move requirement function code to
-    config/ folder
-
-* DONE reorganize config/ folder
-
-* DONE move requirement-functions into own top-level folder
-* TODO use webpack multiple entry points to enforce a little
-  distinction between the parts
-
-* TODO rewrite python scripts in config/build as js files in  
-  build-scripts/.
-
-* TODO rewrite app data access scripts to load data
-  via ajax request from ./data/
-  
+* rewrite python build scripts in javascript
+* split up each build script function into separate module
+* refactor each build script to accept objects as parameters,
+  rather than filenames.
 

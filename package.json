@@ -10,14 +10,12 @@
     "build-site": "npm run move-index && webpack -p --config webpack.config.prod.js",
     "start": "npm run move-index && concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
     "start:windows": "concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s dist --files dist \"",
-
     "aws-sync:production": "aws s3 sync dist/ s3://path-to-hs",
     "aws-sync:dev": "aws s3 sync dist/ s3://path-to-hs-dev",
-
     "update-program-data": "",
     "diff-requirement-functions": "./build-scripts/diff-req-fns.js --req-fns xxx --program-data xxx",
     "create-empty-requirement-functions": "",
-    "build-config": "./build-scripts/main.js",
+    "build-config": "./build-scripts/main.js"
   },
   "repository": {
     "type": "git",
@@ -62,6 +60,7 @@
     "file-loader": "^1.1.5",
     "geojson-precision": "^0.4.0",
     "geolib": "^2.0.24",
+    "json2csv": "^4.1.2",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",

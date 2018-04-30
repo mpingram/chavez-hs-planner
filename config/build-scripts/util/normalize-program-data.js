@@ -81,34 +81,56 @@ const getHSBoundURL = (rawProgramData): string => {
   return HS_BOUND_BASE_URL + schoolName;
 };
 
+function sanitizeRequirementDescriptions(rawProgramData) {
+  
+  let sanitizedProgramData = Object.assign({}, rawProgramData);
+
+  function sanitize(string) {
+    string = replaceNonBreakingSpaces(string);
+    string = string.strip();
+    return string;
+  }
+
+  function replaceNonBreakingSpaces(string) {
+    return string.replace("\u00a0", " "); 
+  }
+  
+  sanitizedProgramData.Application_Requirements = sanitize(rawProgramData.Application_Requirements);
+  sanitizedProgramData.Program_Selections = sanitize(rawProgramData.Program_Selections);
+
+  return sanitizedProgramData;
+}
+
 const normalizeProgramData = (rawProgramData) => {
 
-  const programName = `${rawProgramData.Short_Name}: ${rawProgramData.Program_Type}`;
+  const p = sanitizeRequirementDescriptions(rawProgramData);
+
+  const programName = `${p.Short_Name}: ${p.Program_Type}`;
 
   return {
     id: uniqueIDFrom(programName)
     programName: programName,
-    programType: rawProgramData.Program_Type,
+    programType: p.Program_Type,
 
-    schoolNameShort: rawProgramData.Short_Name,
-    schoolNameLong: rawProgramData.Long_Name,
-    schoolID: rawProgramData.School_ID,
+    schoolNameShort: p.Short_Name,
+    schoolNameLong: p.Long_Name,
+    schoolID: p.School_ID,
     schoolLocation: {
-      latitude: Number.parseFloat(rawProgramData.School_Latitude),
-      longitude: Number.parseFloat(rawProgramData.School_Longitude)
+      latitude: Number.parseFloat(p.School_Latitude),
+      longitude: Number.parseFloat(p.School_Longitude)
     },
 
-    category: getCategory(rawProgramData),
+    category: getCategory(p),
 
-    cpsPageURL: rawProgramData.CPS_School_Profile,
-    hsBoundURL: getHSBoundURL(rawProgramData),
-    schoolPageURL: rawProgramData.Website,
+    cpsPageURL: p.CPS_School_Profile,
+    hsBoundURL: getHSBoundURL(p),
+    schoolPageURL: p.Website,
 
-    applicationReqDescription: rawProgramData.Application_Requirements,
-    selectionReqDescription: rawProgramData.Program_Selections,
+    applicationReqDescription: p.Application_Requirements,
+    selectionReqDescription: p.Program_Selections,
 
-    applicationReqFn: uniqueIDFrom(rawProgramData.Application_Requirements),
-    selectionReqFn: uniqueIDFrom(rawProgramData.Program_Selections)
+    applicationReqFnID: uniqueIDFrom(p.Application_Requirements),
+    selectionReqFnID: uniqueIDFrom(p.Program_Selections)
   };
 };
 
