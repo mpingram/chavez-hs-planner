@@ -1,7 +1,4 @@
-Rewrite build scripts in js
+Add json schema to config/ folder
 
-* rewrite python build scripts in javascript
-* split up each build script function into separate module
-* refactor each build script to accept objects as parameters,
-  rather than filenames.
-
+* add validation checks to buildAll() function in
+  config/build-scripts/main.js

@@ -17,7 +17,7 @@ const fs = require("fs");
  * The array of number pairs represents the geometry of the school's attendance
  * boundary.
  * */
-function buildSchoolAttendanceBoundTable(attendBoundGeojson, coordinatePrecision) {
+function buildSchoolAttendanceBoundaryTable(attendBoundGeojson, coordinatePrecision) {
   // if coordinate precision is specified, reduce precision of coordinates
   // of each geojson object
   if (coordinatePrecision !== undefined) {
@@ -74,4 +74,4 @@ function reduceGeojsonPrecision(geojson, decimalPrecision) {
   });
 }
 
-module.exports = buildSchoolAttendanceBoundTable;
+module.exports = buildSchoolAttendanceBoundaryTable;
