@@ -1,0 +1,67 @@
+{
+  "id": "/historicalCutoffScoresSchema",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "programID": {"type": "string"},
+      "programName": {"type": "string"},
+      "date": {"type": "string"},
+      "cutoffScore": {
+        "type": "object",
+        "properties": {
+          "min": {"type": "number"},
+          "avg": {"type": "number"},
+          "max": {"type": "number"},
+        }
+      },
+      "tieredCutoffScores": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"},
+            }
+          },
+          "tier1": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"},
+            }
+          },
+          "tier2": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"},
+            }
+          },
+          "tier3": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"},
+            }
+          },
+          "tier4": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"},
+            }
+          }
+        } 
+      }
+    }
+  }
+}
+
