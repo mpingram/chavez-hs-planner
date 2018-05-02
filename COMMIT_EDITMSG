@@ -13,7 +13,7 @@
 * DONE add program-types.json to config/data
   ** DONE filled in with programs according to September 2017 data
 * DONE add program-types json schema to config/schema
-* TODO write new build_scripts util getProgramTypeID(programType)
+* DONE write new build_scripts util getProgramTypeID(programType)
 * TODO change build-scripts/util/normalize-program-data to create
   stable program ID from school ID and program type ID.
   ** TODO have normalize-program-data throw if program type not found
