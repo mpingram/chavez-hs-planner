@@ -1,24 +1,20 @@
-Move cutoff scores to config/data
+[WIP] Make program IDs stable
 
-* DONE come up with a consistent schema for cutoff scores.
-  ** NOTE the most consistent thing may be to separate SE
-  cutoff scores from non-SE cutoff scores, under the assumption
-  that no other school will do the tier thing.
-* add historical cutoff scores json to config/data
-* add historical cutoff scores json schema to config/schema
-* write cutoff scores processing script
-  ** validate schema in processing script
+* NOTE programIDs now use a combination of the stable school ID
+  and a new, stable program type ID. The program type ID is configured
+  by a new data dependency, program-types.json. This commit adds a system
+  for building program-types.json and using program-types.json to create
+  stable program IDs.
 
-* NOTE IMPORTANT cutoff scores are NOT currently linked to
-  programs via program IDs. 
-  ** The reason is that I'm considering a change to the program ID 
-  approach that will be less likely to change over time. Currently, 
-  programIDs are created by hashing two properties of the raw program 
-  data -- the school name and the program type. This means that small
-  changes in the formatting of school names and program types 
-  (like capitalization changes, etc) result in completely different
-  programIDs, even though they're describing the 'same' program.
-  ** What I'm considering instead is to make the programID of the 
-  form <schoolID>-<programTypeID>, where schoolID is the standard
-  CPS school ID and programTypeID is an ID the app comes up with by
-  normalizing program types.
+* NOTE cutoff scores and requirement function constansts, and anywhere
+  else the old unstable programIDs have been used, have not been updated
+  with the new stable programIDs.
+
+* DONE add program-types.json to config/data
+  ** DONE filled in with programs according to September 2017 data
+* DONE add program-types json schema to config/schema
+* TODO write new build_scripts util getProgramTypeID(programType)
+* TODO change build-scripts/util/normalize-program-data to create
+  stable program ID from school ID and program type ID.
+  ** TODO have normalize-program-data throw if program type not found
+  in program-types.json.

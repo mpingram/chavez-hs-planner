@@ -1,0 +1,19 @@
+{
+  "id": "/programTypesSchema",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "programTypeID": {"type": "number"},
+      "name": {"type": "string"},
+      "alternateNames": {
+        {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}
+
