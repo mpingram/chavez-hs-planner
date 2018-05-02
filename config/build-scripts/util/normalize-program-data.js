@@ -1,4 +1,5 @@
 const uniqueIDFrom = require("./unique-id-from");
+const getProgramTypeID = require("./get-program-type-id");
 
 const getCategory = (rawProgramData): string => {
   if (isHSProgram(p)) {
@@ -107,10 +108,16 @@ const normalizeProgramData = (rawProgramData) => {
 
   const programName = `${p.Short_Name}: ${p.Program_Type}`;
 
+  const programTypeID = getProgramTypeID(p.Program_Type);
+  if (programTypeID === undefined) {
+    throw new Error(`Cannot find ID for program type: ${p.Program_Type}.\nYou will need to add a new program type ID to the config file at config/data/program-type-ids/program-type-ids.config.js, or add an alternate name to one of the existing program type IDs. See config/README#program-type-id-config for more information.`);
+  }
+
   return {
-    id: uniqueIDFrom(programName)
+    id: `${p.School_ID}-${programTypeID}`,
     programName: programName,
     programType: p.Program_Type,
+    programTypeID: programTypeID,
 
     schoolNameShort: p.Short_Name,
     schoolNameLong: p.Long_Name,

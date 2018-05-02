@@ -10,11 +10,13 @@
   else the old unstable programIDs have been used, have not been updated
   with the new stable programIDs.
 
-* DONE add program-types.json to config/data
-  ** DONE filled in with programs according to September 2017 data
-* DONE add program-types json schema to config/schema
-* DONE write new build_scripts util getProgramTypeID(programType)
-* TODO change build-scripts/util/normalize-program-data to create
+* add program-types.json to config/data
+  ** filled in with programs according to September 2017 data
+* add program-types json schema to config/schema
+* write new build_scripts util getProgramTypeID(programType)
+* add code in build-scripts to build program type table (a table from
+    program type ID -> program type name)
+* change build-scripts/util/normalize-program-data to create
   stable program ID from school ID and program type ID.
-  ** TODO have normalize-program-data throw if program type not found
+  ** have normalize-program-data throw if program type not found
   in program-types.json.

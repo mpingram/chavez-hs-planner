@@ -11,9 +11,12 @@ const normalizeProgramData = require("./util/normalize-program-data");
  * */
 function buildProgramData(rawProgramDataCsv) {
   // convert the raw program data to the shape the app expects
-  const programData = normalizeProgramData(rawProgramDataJSON);
-  
-  return programData;
+  try {
+    const programData = normalizeProgramData(rawProgramDataJSON);
+    return programData;
+  } catch(e) {
+    throw(e);
+  }
 }
 
 module.exports = normalizeProgramData;
