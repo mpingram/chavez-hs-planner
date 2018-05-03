@@ -1,6 +1,6 @@
-Clean up json schema in config/schema
+Clean up data in config/data
 
-* convert all schema files from .js to .json
-* validate all json schema and fix all errors in formatting and 
-  in the spec errors
+* fix misformatted cutoff scores
+* delete program groups -- can come back to this
+  commit to restore them.
 

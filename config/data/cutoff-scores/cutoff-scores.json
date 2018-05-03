@@ -2,505 +2,505 @@
     {
         "school": "AIR FORCE HS",
         "program": "Military Academy",
-        "cutoffScore": "307",
+        "cutoffScore": {"min": 307},
         "date": "2018-05-02"
     },
     {
         "school": "ALCOTT HS",
         "program": "Pre-Engineering",
-        "cutoffScore": "438",
+        "cutoffScore": {"min": 438},
         "date": "2018-05-02"
     },
     {
         "school": "AMUNDSEN HS",
         "program": "International Baccalaureate",
-        "cutoffScore": "636",
+        "cutoffScore": {"min": 636},
         "date": "2018-05-02"
     },
     {
         "school": "AUSTIN CCA HS",
         "program": "Pre-Engineering",
-        "cutoffScore": "176",
+        "cutoffScore": {"min": 176},
         "date": "2018-05-02"
     },
     {
         "school": "BACK OF THE YARDS HS",
         "program": "International Baccalaureate",
-        "cutoffScore": "623",
+        "cutoffScore": {"min": 623},
         "date": "2018-05-02"
     },
     {
         "school": "BOGAN HS",
         "program": "International Baccalaureate",
-        "cutoffScore": "552",
+        "cutoffScore": {"min": 552},
         "date": "2018-05-02"
     },
     {
         "school": "BOWEN HS",
         "program": "Pre-Engineering",
-        "cutoffScore": "50",
+        "cutoffScore": {"min": 50},
         "date": "2018-05-02"
     },
     {
         "school": "BRONZEVILLE HS",
         "program": "International Baccalaureate",
-        "cutoffScore": "428",
+        "cutoffScore": {"min": 428},
         "date": "2018-05-02"
     },
     {
         "school": "CARVER MILITARY HS",
         "program": "Military Academy",
-        "cutoffScore": "321",
+        "cutoffScore": {"min": 321},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Music \u2013 Vocal",
-        "cutoffScore": "132.5",
+        "cutoffScore": {"min": 132.5},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Dance",
-        "cutoffScore": "136.5",
+        "cutoffScore": {"min": 136.5},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Musical \u2013 Instrumental \u2013 Guitar",
-        "cutoffScore": "153.75",
+        "cutoffScore": {"min": 153.75},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Musical Theatre",
-        "cutoffScore": "157.75",
+        "cutoffScore": {"min": 157.75},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Visual Arts",
-        "cutoffScore": "184.5",
+        "cutoffScore": {"min": 184.5},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Music \u2013 Instrumental \u2013 Brass and Wood",
-        "cutoffScore": "190",
+        "cutoffScore": {"min": 190},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Theatre",
-        "cutoffScore": "190.25",
+        "cutoffScore": {"min": 190.25},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Music \u2013 Instrumental \u2013 Piano",
-        "cutoffScore": "191",
+        "cutoffScore": {"min": 191},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Creative Writing",
-        "cutoffScore": "194",
+        "cutoffScore": {"min": 194},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Music \u2013 Instrumental \u2013 Percussion",
-        "cutoffScore": "213.5",
+        "cutoffScore": {"min": 213.5},
         "date": "2018-05-02"
     },
     {
         "school": "CHIARTS HS",
         "program": "Music \u2013 Instrumental \u2013 Strings",
-        "cutoffScore": "205",
+        "cutoffScore": {"min": 205},
         "date": "2018-05-02"
     },
     {
         "school": "CHICAGO MILITARY HS",
         "program": "Military Academy",
-        "cutoffScore": "307",
+        "cutoffScore": {"min": 307},
         "date": "2018-05-02"
     },
     {
         "school": "Chicago Vocational",
         "program": "Medial Assisting",
-        "cutoffScore": "0",
+        "cutoffScore": {"min": 0},
         "date": "2018-05-02"
     },
     {
         "school": "Clemente",
         "program": "Allied Health",
-        "cutoffScore": "229",
+        "cutoffScore": {"min": 229},
         "date": "2018-05-02"
     },
     {
         "school": "Clemente",
         "program": "International Baccalaureate",
-        "cutoffScore": "459",
+        "cutoffScore": {"min": 459},
         "date": "2018-05-02"
     },
     {
         "school": "Curie",
         "program": "Visual Arts",
-        "cutoffScore": "0",
+        "cutoffScore": {"min": 0},
         "date": "2018-05-02"
     },
     {
         "school": "Curie",
         "program": "Music",
-        "cutoffScore": "10",
+        "cutoffScore": {"min": 10},
         "date": "2018-05-02"
     },
     {
         "school": "Curie",
         "program": "Dance",
-        "cutoffScore": "24",
+        "cutoffScore": {"min": 24},
         "date": "2018-05-02"
     },
     {
         "school": "Curie",
         "program": "International Baccalaureate",
-        "cutoffScore": "620",
+        "cutoffScore": {"min": 620},
         "date": "2018-05-02"
     },
     {
         "school": "Dunbar",
         "program": "Allied Health",
-        "cutoffScore": "185",
+        "cutoffScore": {"min": 185},
         "date": "2018-05-02"
     },
     {
         "school": "Dyett Arts",
         "program": "Dance",
-        "cutoffScore": "51",
+        "cutoffScore": {"min": 51},
         "date": "2018-05-02"
     },
     {
         "school": "Dyett Arts",
         "program": "General Education",
-        "cutoffScore": "81",
+        "cutoffScore": {"min": 81},
         "date": "2018-05-02"
     },
     {
         "school": "Dyett Arts",
         "program": "Visual Arts",
-        "cutoffScore": "72",
+        "cutoffScore": {"min": 72},
         "date": "2018-05-02"
     },
     {
         "school": "Farragut",
         "program": "Pre-Law",
-        "cutoffScore": "0",
+        "cutoffScore": {"min": 0},
         "date": "2018-05-02"
     },
     {
         "school": "Farragut",
         "program": "International Baccalaureate",
-        "cutoffScore": "493",
+        "cutoffScore": {"min": 493},
         "date": "2018-05-02"
     },
     {
         "school": "Hancock",
         "program": "Pre-Law",
-        "cutoffScore": "383",
+        "cutoffScore": {"min": 383},
         "date": "2018-05-02"
     },
     {
         "school": "Hancock",
         "program": "Pre-Engineering",
-        "cutoffScore": "396",
+        "cutoffScore": {"min": 396},
         "date": "2018-05-02"
     },
     {
         "school": "Hubbard",
         "program": "University Scholars",
-        "cutoffScore": "336",
+        "cutoffScore": {"min": 336},
         "date": "2018-05-02"
     },
     {
         "school": "Hubbard",
         "program": "International Baccalaureate",
-        "cutoffScore": "598",
+        "cutoffScore": {"min": 598},
         "date": "2018-05-02"
     },
     {
         "school": "Hyde Park",
         "program": "International Baccalaureate",
-        "cutoffScore": "387",
+        "cutoffScore": {"min": 387},
         "date": "2018-05-02"
     },
     {
         "school": "Jones",
         "program": "Pre-Law",
-        "cutoffScore": "475",
+        "cutoffScore": {"min": 475},
         "date": "2018-05-02"
     },
     {
         "school": "Jones",
         "program": "Pre-Engineering",
-        "cutoffScore": "534",
+        "cutoffScore": {"min": 534},
         "date": "2018-05-02"
     },
     {
         "school": "Juarez",
         "program": "Medical and Health Careers",
-        "cutoffScore": "316",
+        "cutoffScore": {"min": 316},
         "date": "2018-05-02"
     },
     {
         "school": "Juarez",
         "program": "International Baccalaureate",
-        "cutoffScore": "528.5",
+        "cutoffScore": {"min": 528.5},
         "date": "2018-05-02"
     },
     {
         "school": "Julian",
         "program": "Allied Health",
-        "cutoffScore": "250",
+        "cutoffScore": {"min": 250},
         "date": "2018-05-02"
     },
     {
         "school": "Kelly",
         "program": "AVID",
-        "cutoffScore": "39",
+        "cutoffScore": {"min": 39},
         "date": "2018-05-02"
     },
     {
         "school": "Kelly",
         "program": "International Baccalaureate",
-        "cutoffScore": "652",
+        "cutoffScore": {"min": 652},
         "date": "2018-05-02"
     },
     {
         "school": "Kelvyn Park",
         "program": "General Education",
-        "cutoffScore": "5",
+        "cutoffScore": {"min": 5},
         "date": "2018-05-02"
     },
     {
         "school": "Kennedy",
         "program": "International Baccalaureate",
-        "cutoffScore": "600",
+        "cutoffScore": {"min": 600},
         "date": "2018-05-02"
     },
     {
         "school": "Lincoln Park",
         "program": "Music \u2013 Vocal",
-        "cutoffScore": "11",
+        "cutoffScore": {"min": 11},
         "date": "2018-05-02"
     },
     {
         "school": "Lincoln Park",
         "program": "Music \u2013 Instrumental",
-        "cutoffScore": "19",
+        "cutoffScore": {"min": 19},
         "date": "2018-05-02"
     },
     {
         "school": "Lincoln Park",
         "program": "Drama",
-        "cutoffScore": "34",
+        "cutoffScore": {"min": 34},
         "date": "2018-05-02"
     },
     {
         "school": "Lincoln Park",
         "program": "Honors/Double Honors",
-        "cutoffScore": "770",
+        "cutoffScore": {"min": 770},
         "date": "2018-05-02"
     },
     {
         "school": "Lincoln Park",
         "program": "International Baccalaureate",
-        "cutoffScore": "841",
+        "cutoffScore": {"min": 841},
         "date": "2018-05-02"
     },
     {
         "school": "Marine",
         "program": "Military Academy",
-        "cutoffScore": "383",
+        "cutoffScore": {"min": 383},
         "date": "2018-05-02"
     },
     {
         "school": "Mather",
         "program": "Pre-Law",
-        "cutoffScore": "316",
+        "cutoffScore": {"min": 316},
         "date": "2018-05-02"
     },
     {
         "school": "Morgan Park",
         "program": "International Baccalaureate",
-        "cutoffScore": "476",
+        "cutoffScore": {"min": 476},
         "date": "2018-05-02"
     },
     {
         "school": "North-Grand",
         "program": "Allied Health",
-        "cutoffScore": "327",
+        "cutoffScore": {"min": 327},
         "date": "2018-05-02"
     },
     {
         "school": "North-Grand",
         "program": "Pre-Engineering",
-        "cutoffScore": "344",
+        "cutoffScore": {"min": 344},
         "date": "2018-05-02"
     },
     {
         "school": "Ogden",
         "program": "International Baccalaureate",
-        "cutoffScore": "531",
+        "cutoffScore": {"min": 531},
         "date": "2018-05-02"
     },
     {
         "school": "Phoenix",
         "program": "Military Academy",
-        "cutoffScore": "301",
+        "cutoffScore": {"min": 301},
         "date": "2018-05-02"
     },
     {
         "school": "Prosser",
         "program": "International Baccalaureate",
-        "cutoffScore": "648",
+        "cutoffScore": {"min": 648},
         "date": "2018-05-02"
     },
     {
         "school": "Raby",
         "program": "Pre-Law",
-        "cutoffScore": "123",
+        "cutoffScore": {"min": 123},
         "date": "2018-05-02"
     },
     {
         "school": "Rickover",
         "program": "Military Academy",
-        "cutoffScore": "300",
+        "cutoffScore": {"min": 300},
         "date": "2018-05-02"
     },
     {
         "school": "Roosevelt",
         "program": "Cisco Networking",
-        "cutoffScore": "48",
+        "cutoffScore": {"min": 48},
         "date": "2018-05-02"
     },
     {
         "school": "Roosevelt",
         "program": "Medical and Health Careers",
-        "cutoffScore": "0",
+        "cutoffScore": {"min": 0},
         "date": "2018-05-02"
     },
     {
         "school": "Schurz",
         "program": "Allied Health",
-        "cutoffScore": "301",
+        "cutoffScore": {"min": 301},
         "date": "2018-05-02"
     },
     {
         "school": "Schurz",
         "program": "Pre-Engineering",
-        "cutoffScore": "303",
+        "cutoffScore": {"min": 303},
         "date": "2018-05-02"
     },
     {
         "school": "Schurz",
         "program": "International Baccalaureate",
-        "cutoffScore": "470",
+        "cutoffScore": {"min": 470},
         "date": "2018-05-02"
     },
     {
         "school": "Senn",
         "program": "Dance",
-        "cutoffScore": "507",
+        "cutoffScore": {"min": 507},
         "date": "2018-05-02"
     },
     {
         "school": "Senn",
         "program": "Music",
-        "cutoffScore": "525",
+        "cutoffScore": {"min": 525},
         "date": "2018-05-02"
     },
     {
         "school": "Senn",
         "program": "International Baccalaureate",
-        "cutoffScore": "552",
+        "cutoffScore": {"min": 552},
         "date": "2018-05-02"
     },
     {
         "school": "Senn",
         "program": "Theatre",
-        "cutoffScore": "602",
+        "cutoffScore": {"min": 602},
         "date": "2018-05-02"
     },
     {
         "school": "Senn",
         "program": "Visual Arts",
-        "cutoffScore": "627",
+        "cutoffScore": {"min": 627},
         "date": "2018-05-02"
     },
     {
         "school": "Simeon",
         "program": "Career Academy",
-        "cutoffScore": "70",
+        "cutoffScore": {"min": 70},
         "date": "2018-05-02"
     },
     {
         "school": "South Shore",
         "program": "Medical and Health Careers",
-        "cutoffScore": "407",
+        "cutoffScore": {"min": 407},
         "date": "2018-05-02"
     },
     {
         "school": "South Shore",
         "program": "International Baccalaureate",
-        "cutoffScore": "501",
+        "cutoffScore": {"min": 501},
         "date": "2018-05-02"
     },
     {
         "school": "Steinmetz",
         "program": "International Baccalaureate",
-        "cutoffScore": "517",
+        "cutoffScore": {"min": 517},
         "date": "2018-05-02"
     },
     {
         "school": "Sullivan",
         "program": "Medical and Health Careers",
-        "cutoffScore": "56",
+        "cutoffScore": {"min": 56},
         "date": "2018-05-02"
     },
     {
         "school": "Taft",
         "program": "NJROTC",
-        "cutoffScore": "35",
+        "cutoffScore": {"min": 35},
         "date": "2018-05-02"
     },
     {
         "school": "Taft",
         "program": "International Baccalaureate",
-        "cutoffScore": "850",
+        "cutoffScore": {"min": 850},
         "date": "2018-05-02"
     },
     {
         "school": "Von Steuben",
         "program": "Scholars",
-        "cutoffScore": "81",
+        "cutoffScore": {"min": 81},
         "date": "2018-05-02"
     },
     {
         "school": "Washington",
         "program": "International Baccalaureate",
-        "cutoffScore": "598.5",
+        "cutoffScore": {"min": 598.5},
         "date": "2018-05-02"
     },
     {
         "school": "Wells",
         "program": "Pre-Law",
-        "cutoffScore": "185",
+        "cutoffScore": {"min": 185},
         "date": "2018-05-02"
     },
     {
         "school": "Wells",
         "program": "Medical and Health Careers",
-        "cutoffScore": "295",
+        "cutoffScore": {"min": 295},
         "date": "2018-05-02"
     }
 ]
