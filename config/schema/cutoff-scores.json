@@ -4,6 +4,11 @@
   "type": "array",
   "items": {
     "type": "object",
+    "required": ["programID", "date"],
+    "oneOf": [
+    	{"required": ["cutoffScores"]},
+    	{"required": ["tieredCutoffScores"]}
+    ],
     "properties": {
       "programID": {"type": "string"},
       "programName": {"type": "string"},

@@ -1,22 +1,6 @@
-[WIP] Make program IDs stable
+Clean up json schema in config/schema
 
-* NOTE programIDs now use a combination of the stable school ID
-  and a new, stable program type ID. The program type ID is configured
-  by a new data dependency, program-types.json. This commit adds a system
-  for building program-types.json and using program-types.json to create
-  stable program IDs.
+* convert all schema files from .js to .json
+* validate all json schema and fix all errors in formatting and 
+  in the spec errors
 
-* NOTE cutoff scores and requirement function constansts, and anywhere
-  else the old unstable programIDs have been used, have not been updated
-  with the new stable programIDs.
-
-* add program-types.json to config/data
-  ** filled in with programs according to September 2017 data
-* add program-types json schema to config/schema
-* write new build_scripts util getProgramTypeID(programType)
-* add code in build-scripts to build program type table (a table from
-    program type ID -> program type name)
-* change build-scripts/util/normalize-program-data to create
-  stable program ID from school ID and program type ID.
-  ** have normalize-program-data throw if program type not found
-  in program-types.json.

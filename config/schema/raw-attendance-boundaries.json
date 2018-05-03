@@ -1,4 +1,4 @@
-const schema = {
+{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "GeoJSON Object",
   "type": "object",
@@ -13,14 +13,14 @@ const schema = {
       "type": "string",
       "description": "The type of GeoJSON object.",
       "enum": [
-        //"Point",
-        //"MultiPoint",
-        //"LineString",
-        //"MultiLineString",
-        //"Polygon",
-        //"MultiPolygon",
-        //"GeometryCollection",
-        //"Feature",
+        "Point",
+        "MultiPoint",
+        "LineString",
+        "MultiLineString",
+        "Polygon",
+        "MultiPolygon",
+        "GeometryCollection",
+        "Feature",
         "FeatureCollection"
       ]
     },
@@ -349,7 +349,5 @@ const schema = {
     }
 
   }
-
 }
 
-module.exports = schema;

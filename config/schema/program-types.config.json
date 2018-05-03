@@ -5,15 +5,17 @@
   "items": {
     "type": "object",
     "properties": {
-      "programTypeID": {"type": "number"},
+      "programTypeID": {"type": "string"},
       "name": {"type": "string"},
       "alternateNames": {
-        {
-          "type": "array",
-          "items": {"type": "string"}
-        }
+         "type": "array",
+         "items": {"type": "string"}
       }
-    }
+    },
+    "required": [
+      "programTypeID",
+      "name"
+    ]
   }
 }
 

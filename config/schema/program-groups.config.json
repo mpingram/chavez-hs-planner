@@ -1,0 +1,22 @@
+{
+  "id": "/ProgramGroupsConfig",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "groupName": {"type": "string"},
+      "groupDesc": {"type": "string"},
+      "programIDs": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    },
+    "required": [
+      "groupName",
+      "groupDesc",
+      "programIDs"
+    ]
+  }
+}
+
