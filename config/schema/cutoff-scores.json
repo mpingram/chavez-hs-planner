@@ -11,14 +11,15 @@
     ],
     "properties": {
       "programID": {"type": "string"},
-      "programName": {"type": "string"},
+      "school": {"type": "string"},
+      "programType": {"type": "string"},
       "date": {"type": "string"},
-      "cutoffScore": {
+      "cutoffScores": {
         "type": "object",
         "properties": {
           "min": {"type": "number"},
           "avg": {"type": "number"},
-          "max": {"type": "number"},
+          "max": {"type": "number"}
         }
       },
       "tieredCutoffScores": {
@@ -29,7 +30,7 @@
             "properties": {
               "min": {"type": "number"},
               "avg": {"type": "number"},
-              "max": {"type": "number"},
+              "max": {"type": "number"}
             }
           },
           "tier1": {
@@ -37,7 +38,7 @@
             "properties": {
               "min": {"type": "number"},
               "avg": {"type": "number"},
-              "max": {"type": "number"},
+              "max": {"type": "number"}
             }
           },
           "tier2": {
@@ -45,7 +46,7 @@
             "properties": {
               "min": {"type": "number"},
               "avg": {"type": "number"},
-              "max": {"type": "number"},
+              "max": {"type": "number"}
             }
           },
           "tier3": {
@@ -53,7 +54,7 @@
             "properties": {
               "min": {"type": "number"},
               "avg": {"type": "number"},
-              "max": {"type": "number"},
+              "max": {"type": "number"}
             }
           },
           "tier4": {
@@ -61,7 +62,7 @@
             "properties": {
               "min": {"type": "number"},
               "avg": {"type": "number"},
-              "max": {"type": "number"},
+              "max": {"type": "number"}
             }
           }
         } 

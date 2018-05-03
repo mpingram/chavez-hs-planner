@@ -60,7 +60,6 @@
     "file-loader": "^1.1.5",
     "geojson-precision": "^0.4.0",
     "geolib": "^2.0.24",
-    "json2csv": "^4.1.2",
     "jsonschema": "^1.2.4",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",
@@ -81,6 +80,7 @@
   },
   "dependencies": {
     "browser-jsonp": "^1.1.5",
+    "csv-parse": "^2.2.0",
     "immutable": "^3.8.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.5",

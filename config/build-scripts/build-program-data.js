@@ -9,10 +9,10 @@ const normalizeProgramData = require("./util/normalize-program-data");
  *
  * For the schema of the output JSON file, see ./schema/processed-data/program-data.js.
  * */
-function buildProgramData(rawProgramDataCsv) {
+function buildProgramData(rawProgramDataCsv, programTypeIDConfig) {
   // convert the raw program data to the shape the app expects
   try {
-    const programData = normalizeProgramData(rawProgramDataJSON);
+    const programData = normalizeProgramData(rawProgramDataJSON, programTypeIDConfig);
     return programData;
   } catch(e) {
     throw(e);

@@ -23,7 +23,7 @@
       "Program_Selections": {"type": "string"},
       "Deadline": {"type": "string"},
       "School_Latitude": {"type": "string"},
-      "School_Longitude": {"type": "string"},
+      "School_Longitude": {"type": "string"}
     },
     "required": [
       "School_ID",

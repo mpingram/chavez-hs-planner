@@ -1,6 +1,13 @@
-Clean up data in config/data
+[WIP] Fix errors in build scripts
 
-* fix misformatted cutoff scores
-* delete program groups -- can come back to this
-  commit to restore them.
+* TODO need to fix a basic assumption in the program type ID config
+code. The basic assumption is that all programs being passed to it are
+high school programs ... in fact, the programs being passed are all CPS
+programs, ES, HS, and Middle school. And separating out which programs
+are which is not easy with the current data set. Need to think about
+when to separate programs into hs and es.
+
+* NOTE wide-ranging changes, see diff for details
+* NOTE funniest mistake: I had been trying to use an npm package called
+  2json2csv to convert csv to json
 

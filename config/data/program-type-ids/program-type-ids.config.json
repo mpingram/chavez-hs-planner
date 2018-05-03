@@ -1,170 +1,170 @@
 [
   {
-    "id": 1,
+    "programTypeID": "1",
     "name": "General Education",
     "alternateNames": [
     ]
   },
   {
-    "id": 2,
+    "programTypeID": "2",
     "name": "International Baccalaureate",
     "alternateNames": [
       "International Baccalaureate (IB)",
       "IB",
-      "Int'l Baccalaureate",
+      "Int'l Baccalaureate"
     ]
   },
   {
-    "id": 3,
+    "programTypeID": "3",
     "name": "Selective Enrollment",
     "alternateNames": [
       "Selective Enrollment High School",
-      "Selective Enrollment (SE)",
+      "Selective Enrollment (SE)"
     ]
   },
   {
-    "id": 4,
+    "programTypeID": "4",
     "name": "Service Learning Academies (Military)",
     "alternateNames": [
       "Military"
     ]
   },
   {
-    "id": 101,
-    "name": "AVID",
+    "programTypeID": "101",
+    "name": "AVprogramTypeID",
     "alternateNames": [
     ]
   },
   {
-    "id": 102,
+    "programTypeID": "102",
     "name": "Accounting & Entrepreneurship",
     "alternateNames": [
       "Accounting and Entrepreneurship"
     ]
   },
   {
-    "id": 103,
+    "programTypeID": "103",
     "name": "Agricultural Sciences",
     "alternateNames": [
     ]
   },
   {
-    "id": 104,
+    "programTypeID": "104",
     "name": "Allied Health",
     "alternateNames": [
     ]
   },
   {
-    "id": 105,
+    "programTypeID": "105",
     "name": "Architecture",
     "alternateNames": [
     ]
   },
   {
-    "id": 106,
+    "programTypeID": "106",
     "name": "Automotive Technology",
     "alternateNames": [
     ]
   },
   {
-    "id": 107,
+    "programTypeID": "107",
     "name": "Broadcast Technology",
     "alternateNames": [
     ]
   },
   {
-    "id": 107,
+    "programTypeID": "107",
     "name": "Career Academy",
     "alternateNames": [
     ]
   },
   {
-    "id": 108,
+    "programTypeID": "108",
     "name": "Carpentry",
     "alternateNames": [
     ]
   },
   {
-    "id": 109,
+    "programTypeID": "109",
     "name": "Charter",
     "alternateNames": [
     ]
   },
   {
-    "id": 110,
+    "programTypeID": "110",
     "name": "Chicago Builds",
     "alternateNames": [
     ]
   },
   {
-    "id": 111,
+    "programTypeID": "111",
     "name": "Cisco Networking",
     "alternateNames": [
     ]
   },
   {
-    "id": 112,
+    "programTypeID": "112",
     "name": "Cosmetology",
     "alternateNames": [
     ]
   },
   {
-    "id": 113,
+    "programTypeID": "113",
     "name": "Creative Writing",
     "alternateNames": [
     ]
   },
   {
-    "id": 114,
+    "programTypeID": "114",
     "name": "Culinary Arts",
     "alternateNames": [
     ]
   },
   {
-    "id": 115,
+    "programTypeID": "115",
     "name": "Dance",
     "alternateNames": [
     ]
   },
   {
-    "id": 116,
+    "programTypeID": "116",
     "name": "Diesel Technology",
     "alternateNames": [
     ]
   },
   {
-    "id": 117,
+    "programTypeID": "117",
     "name": "Digital Journalism",
     "alternateNames": [
     ]
   },
   {
-    "id": 118,
+    "programTypeID": "118",
     "name": "Digital Media",
     "alternateNames": [
     ]
   },
   {
-    "id": 119,
+    "programTypeID": "119",
     "name": "Double Honors/Scholars",
     "alternateNames": [
       "Double Honors / Scholars"
     ]
   },
   {
-    "id": 120,
+    "programTypeID": "120",
     "name": "Drama",
     "alternateNames": [
     ]
   },
   {
-    "id": 121,
+    "programTypeID": "121",
     "name": "Dual Language",
     "alternateNames": [
     ]
   },
   {
-    "id": 122,
+    "programTypeID": "122",
     "name": "Early Childhood",
     "alternateNames": [
       "Early Childhood & Teaching",
@@ -172,19 +172,19 @@
     ]
   },
   {
-    "id": 123,
+    "programTypeID": "123",
     "name": "Early College STEM",
     "alternateNames": [
     ]
   },
   {
-    "id": 124,
+    "programTypeID": "124",
     "name": "Entrepreneurship",
     "alternateNames": [
     ]
   },
   {
-    "id": 125,
+    "programTypeID": "125",
     "name": "Fine Arts & Technology",
     "alternateNames": [
       "Fine Arts and Technology",
@@ -193,45 +193,45 @@
     ]
   },
   {
-    "id": 125,
+    "programTypeID": "125",
     "name": "Fine and Performing Arts",
     "alternateNames": [
     ]
   },
   {
-    "id": 126,
+    "programTypeID": "126",
     "name": "Game Programming",
     "alternateNames": [
     ]
   },
   {
-    "id": 127,
+    "programTypeID": "127",
     "name": "Game Programming & Web Design",
     "alternateNames": [ 
       "Game Programming and Web Design"
     ]
   },
   {
-    "id": 128,
+    "programTypeID": "128",
     "name": "Health Sciences",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 129,
+    "programTypeID": "129",
     "name": "Honors",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 130,
+    "programTypeID": "130",
     "name": "Honors/Double Honors",
     "alternateNames": [ 
       "Honors / Double Honors"
     ]
   },
   {
-    "id": 131,
+    "programTypeID": "131",
     "name": "Instrumental Music",
     "alternateNames": [ 
       "Music - Instrumental",
@@ -239,140 +239,130 @@
     ]
   },
   {
-    "id": 132,
+    "programTypeID": "132",
     "name": "JROTC",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 133,
+    "programTypeID": "133",
     "name": "Magnet Program",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 134,
+    "programTypeID": "134",
     "name": "Manufacturing",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 135,
+    "programTypeID": "135",
     "name": "Medical & Health Careers",
     "alternateNames": [ 
       "Medical and Health Careers"
     ]
   },
   {
-    "id": 136,
+    "programTypeID": "136",
     "name": "Medical Assisting",
     "alternateNames": [ 
       "Medial Assisting"
     ]
   },
   {
-    "id": 137,
+    "programTypeID": "137",
     "name": "Music",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 138,
+    "programTypeID": "138",
     "name": "Music - Vocal",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 139,
+    "programTypeID": "139",
     "name": "Musical Theatre",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 140,
+    "programTypeID": "140",
     "name": "NJROTC",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 141,
+    "programTypeID": "141",
     "name": "Pre-Engineering",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 142,
+    "programTypeID": "142",
     "name": "Pre-Law",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 143,
+    "programTypeID": "143",
     "name": "Scholars",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 144,
+    "programTypeID": "144",
     "name": "Science",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 145,
+    "programTypeID": "145",
     "name": "Science/Technology/Engineering/Math",
     "alternateNames": [ 
       "Science / Technology / Engineering / Math",
       "Science, Technology, Engineering, and Math",
       "Science, Technology, Engineering and Math",
-      "STEM",
+      "STEM"
     ]
   },
   {
-    "id": 146,
-    "name": "Science/Technology/Engineering/Math",
-    "alternateNames": [ 
-      "Science / Technology / Engineering / Math",
-      "Science, Technology, Engineering, and Math",
-      "Science, Technology, Engineering and Math",
-      "STEM",
-    ]
-  },
-  {
-    "id": 147,
+    "programTypeID": "147",
     "name": "Teaching",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 148,
+    "programTypeID": "148",
     "name": "Theatre",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 149,
+    "programTypeID": "149",
     "name": "Visual Arts",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 150,
+    "programTypeID": "150",
     "name": "Vocal Music",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 151,
+    "programTypeID": "151",
     "name": "Web Design",
     "alternateNames": [ 
     ]
   },
   {
-    "id": 152,
+    "programTypeID": "152",
     "name": "World Language and International Studies",
     "alternateNames": [ 
-      "World Language & International Studies",
+      "World Language & International Studies"
     ]
-  },
+  }
 ]

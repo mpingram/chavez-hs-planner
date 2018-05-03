@@ -1,7 +1,10 @@
 const uniqueIDFrom = require("./unique-id-from");
 const getProgramTypeID = require("./get-program-type-id");
 
-const getCategory = (rawProgramData): string => {
+const PROGRAM_CATEGORY_ES = "ES";
+const PROGRAM_CATEGORY_HS = "HS";
+
+const getCategory = (p) => {
   if (isHSProgram(p)) {
     return PROGRAM_CATEGORY_HS;
   } else if (isESProgram(p)) {
@@ -29,7 +32,7 @@ const isESProgram = (program) => {
   }
 };
 
-const isHSProgram = (rawProgramData): boolean => {
+const isHSProgram = (program) => {
   if (program.Primary_Category === "HS") {
     // Academic Centers are ES (6th-8th) grade programs that are held
     // in high schools. So, (confusingly) they are labeled as "HS"
@@ -45,7 +48,7 @@ const isHSProgram = (rawProgramData): boolean => {
   }
 };
 
-const getHSBoundURL = (rawProgramData): string => {
+const getHSBoundURL = (p) => {
   const HS_BOUND_BASE_URL = "https://hsbound.org/school/"
   // KNOWN_ABBREVIATIONS is list of words to not convert to title case
   const KNOWN_ABBREVIATIONS = ["TEAM", "UIC", "CCA",];
@@ -87,13 +90,12 @@ function sanitizeRequirementDescriptions(rawProgramData) {
   let sanitizedProgramData = Object.assign({}, rawProgramData);
 
   function sanitize(string) {
+    function replaceNonBreakingSpaces(string) {
+      return string.replace("\u00a0", " "); 
+    }
     string = replaceNonBreakingSpaces(string);
-    string = string.strip();
+    string = string.trim();
     return string;
-  }
-
-  function replaceNonBreakingSpaces(string) {
-    return string.replace("\u00a0", " "); 
   }
   
   sanitizedProgramData.Application_Requirements = sanitize(rawProgramData.Application_Requirements);
@@ -102,43 +104,47 @@ function sanitizeRequirementDescriptions(rawProgramData) {
   return sanitizedProgramData;
 }
 
-const normalizeProgramData = (rawProgramData) => {
+const normalizeProgramData = (rawProgramData, programTypeIDConfig) => {
 
-  const p = sanitizeRequirementDescriptions(rawProgramData);
+  return rawProgramData.map( rawProgram => {
 
-  const programName = `${p.Short_Name}: ${p.Program_Type}`;
+    const p = sanitizeRequirementDescriptions(rawProgram);
 
-  const programTypeID = getProgramTypeID(p.Program_Type);
-  if (programTypeID === undefined) {
-    throw new Error(`Cannot find ID for program type: ${p.Program_Type}.\nYou will need to add a new program type ID to the config file at config/data/program-type-ids/program-type-ids.config.js, or add an alternate name to one of the existing program type IDs. See config/README#program-type-id-config for more information.`);
-  }
+    const programName = `${p.Short_Name}: ${p.Program_Type}`;
 
-  return {
-    id: `${p.School_ID}-${programTypeID}`,
-    programName: programName,
-    programType: p.Program_Type,
-    programTypeID: programTypeID,
+    console.log(p.Program_Type);
+    const programTypeID = getProgramTypeID(p.Program_Type, programTypeIDConfig);
+    if (programTypeID === undefined) {
+      throw new Error(`Cannot find ID for program type: ${p.Program_Type}.\nYou will need to add a new program type ID to the config file at config/data/program-type-ids/program-type-ids.config.js, or add an alternate name to one of the existing program type IDs. See config/README#program-type-id-config for more information.`);
+    }
 
-    schoolNameShort: p.Short_Name,
-    schoolNameLong: p.Long_Name,
-    schoolID: p.School_ID,
-    schoolLocation: {
-      latitude: Number.parseFloat(p.School_Latitude),
-      longitude: Number.parseFloat(p.School_Longitude)
-    },
+    return {
+      id: `${p.School_ID}-${programTypeID}`,
+      programName: programName,
+      programType: p.Program_Type,
+      programTypeID: programTypeID,
 
-    category: getCategory(p),
+      schoolNameShort: p.Short_Name,
+      schoolNameLong: p.Long_Name,
+      schoolID: p.School_ID,
+      schoolLocation: {
+        latitude: Number.parseFloat(p.School_Latitude),
+        longitude: Number.parseFloat(p.School_Longitude)
+      },
 
-    cpsPageURL: p.CPS_School_Profile,
-    hsBoundURL: getHSBoundURL(p),
-    schoolPageURL: p.Website,
+      category: getCategory(p),
 
-    applicationReqDescription: p.Application_Requirements,
-    selectionReqDescription: p.Program_Selections,
+      cpsPageURL: p.CPS_School_Profile,
+      hsBoundURL: getHSBoundURL(p),
+      schoolPageURL: p.Website,
 
-    applicationReqFnID: uniqueIDFrom(p.Application_Requirements),
-    selectionReqFnID: uniqueIDFrom(p.Program_Selections)
-  };
+      applicationReqDescription: p.Application_Requirements,
+      selectionReqDescription: p.Program_Selections,
+
+      applicationReqFnID: uniqueIDFrom(p.Application_Requirements),
+      selectionReqFnID: uniqueIDFrom(p.Program_Selections)
+    };
+  });
 };
 
 module.exports = normalizeProgramData;

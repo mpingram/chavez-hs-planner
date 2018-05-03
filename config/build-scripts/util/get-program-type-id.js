@@ -14,9 +14,10 @@ function getProgramTypeID(programType, programTypesConfig) {
   // iterate over programTypes config, looking for an entry that matches the programType passed in.
   for (let i = 0; i < programTypesConfig.length; i++) {
     const record = programTypesConfig[i];
-    const recordMatchesProgramType = programTypeRecord.name === programType || programTypeRecord.alternateNames.some( name => name === programType );
-    if(recordMatchesProgramType) {
-      return record.id;
+    const programTypeMatchesName = programType.trim().toLowerCase() === record.name.trim().toLowerCase();
+    const programTypeMatchesAltName = record.alternateNames.some( name => programType.trim().toLowerCase() === name.trim().toLowerCase() );
+    if(programTypeMatchesName || programTypeMatchesAltName) {
+      return record.programTypeID;
     }
   }
 
