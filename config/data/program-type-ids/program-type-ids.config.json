@@ -31,7 +31,7 @@
   },
   {
     "programTypeID": "101",
-    "name": "AVprogramTypeID",
+    "name": "AVID",
     "alternateNames": [
     ]
   },
@@ -363,6 +363,18 @@
     "name": "World Language and International Studies",
     "alternateNames": [ 
       "World Language & International Studies"
+    ]
+  },
+  {
+    "programTypeID": "153",
+    "name": "Accounting",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "154",
+    "name": "University Scholars",
+    "alternateNames": [ 
     ]
   }
 ]

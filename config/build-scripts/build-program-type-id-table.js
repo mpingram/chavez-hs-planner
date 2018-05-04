@@ -6,7 +6,7 @@
 function buildProgramTypeIDTable(programTypeIDsConfig) {
   let output = {}
   programTypeIDsConfig.forEach( record => {
-    output[record.id] = record.name;
+    output[record.programTypeID] = record.name;
   });
   return output;
 }

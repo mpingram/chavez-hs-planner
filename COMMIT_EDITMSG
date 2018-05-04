@@ -1,13 +1,21 @@
-[WIP] Fix errors in build scripts
+Fix errors in build scripts
 
-* TODO need to fix a basic assumption in the program type ID config
-code. The basic assumption is that all programs being passed to it are
-high school programs ... in fact, the programs being passed are all CPS
-programs, ES, HS, and Middle school. And separating out which programs
-are which is not easy with the current data set. Need to think about
-when to separate programs into hs and es.
+* separate processed program data into hs programs and non-hs
+  programs, in separate json files.
+  ** Change the way program IDs are created for non hs programs. For hs
+  programs, program IDs are made from combining school ID and program
+  type ID; for non HS programs, because we do not have a normalized
+  table of non hs progam types to get IDs from, I just used the plain
+  text of the progam type.
+    *** NOTE this may cause problems down the line with parsing the
+    school id from the program id. I don't think those potential
+    problems are worth architecture astronauting a better solution right
+    now.
+* TODO IN FUTURE consider reducing the amount of data in the non hs
+  progams json -- we only end up using the id, school name, program
+  name, and location, I'm pretty sure.
 
 * NOTE wide-ranging changes, see diff for details
 * NOTE funniest mistake: I had been trying to use an npm package called
-  2json2csv to convert csv to json
+  json2csv to convert csv to json
 

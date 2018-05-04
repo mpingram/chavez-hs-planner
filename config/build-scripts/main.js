@@ -34,11 +34,12 @@ const INPUT_FILEPATH_PROGRAM_TYPE_IDS = path.join(srcDir, "program-type-ids", "p
 // Processed data filepaths
 // ------------------
 const destDir = path.resolve(__dirname, "..", "..", "dist", "data");
-const OUTPUT_FILEPATH_PROGRAM_DATA = path.join(destDir, "hs-program-data.json");
 const OUTPUT_FILEPATH_ATTENDANCE_BOUND_GEOMETRIES = path.join(destDir, "school-attendance-boundary-table.json");
 const OUTPUT_FILEPATH_TRACT_TIER_TABLE = path.join(destDir, "tract-tier-table.json");
 const OUTPUT_FILEPATH_CUTOFF_SCORES = path.join(destDir, "cutoff-scores.json");
 const OUTPUT_FILEPATH_PROGRAM_TYPE_ID_TABLE = path.join(destDir, "program-type-id-table.json");
+const OUTPUT_FILEPATH_HS_PROGRAMS = path.join(destDir, "hs-programs.json");
+const OUTPUT_FILEPATH_NON_HS_PROGRAMS = path.join(destDir, "non-hs-programs.json");
 
 // ==================
 
@@ -69,6 +70,7 @@ function buildAll() {
   const programTypeIDsConfig = JSON.parse(fs.readFileSync(INPUT_FILEPATH_PROGRAM_TYPE_IDS, "utf-8"));
   validateOrThrow(programTypeIDsConfig, programTypeIDsConfigSchema);
   const programTypeIDTable = buildProgramTypeIDTable(programTypeIDsConfig);
+  // validateOrThrow(programTypeIDsConfig);
   fs.writeFileSync(OUTPUT_FILEPATH_PROGRAM_TYPE_ID_TABLE, JSON.stringify(programTypeIDTable), "utf-8");
 
   // Program Data
@@ -84,7 +86,20 @@ function buildAll() {
   } catch(e) {
     throw(e);
   }
-  fs.writeFileSync(OUTPUT_FILEPATH_PROGRAM_DATA, programData, "utf-8");
+  // separate out high school programs and other programs
+  let hsPrograms = [];
+  let nonHSPrograms = [];
+  programData.forEach( program => {
+    if (program.category === PROGRAM_CATEGORY_HS) {
+      hsPrograms.push(program);
+    } else {
+      nonHSPrograms.push(program);
+    }
+  });
+  // validateOrThrow(hsPrograms, hsProgramsSchema);
+  // validateOrThrow(nonHSPrograms, nonHSProgramsSchema);
+  fs.writeFileSync(OUTPUT_FILEPATH_HS_PROGRAMS, JSON.stringify(hsPrograms), "utf-8");
+  fs.writeFileSync(OUTPUT_FILEPATH_NON_HS_PROGRAMS, JSON.stringify(nonHSPrograms), "utf-8");
 
 }
 

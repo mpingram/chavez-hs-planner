@@ -111,11 +111,23 @@ const normalizeProgramData = (rawProgramData, programTypeIDConfig) => {
     const p = sanitizeRequirementDescriptions(rawProgram);
 
     const programName = `${p.Short_Name}: ${p.Program_Type}`;
+    const category = getCategory(p);
 
-    console.log(p.Program_Type);
-    const programTypeID = getProgramTypeID(p.Program_Type, programTypeIDConfig);
-    if (programTypeID === undefined) {
-      throw new Error(`Cannot find ID for program type: ${p.Program_Type}.\nYou will need to add a new program type ID to the config file at config/data/program-type-ids/program-type-ids.config.js, or add an alternate name to one of the existing program type IDs. See config/README#program-type-id-config for more information.`);
+    let programTypeID;
+    // we only care about program types for high schools; if this
+    // school is not a high school, don't bother trying to normalize
+    // its progam type.
+    if (category === PROGRAM_CATEGORY_HS) {
+      programTypeID = getProgramTypeID(p.Program_Type, programTypeIDConfig);
+      if (programTypeID === null) {
+        throw new Error(`Cannot find ID for program type: ${p.Program_Type}.\nYou will need to add a new program type ID to the config file at config/data/program-type-ids/program-type-ids.config.js, or add an alternate name to one of the existing program type IDs. See config/README#program-type-id-config for more information.`);
+      }
+    } else {
+      // for non hs programs, just use the raw text of the program type to make the id.
+      // We don't care at all about normalizing the program ID for non-hs programs -- we only need the non-hs
+      // programs to ask the student where their current school is at. Therefore, we just need unique ids,
+      // not super meaningful ones.
+      programTypeID = p.Program_Type;
     }
 
     return {
@@ -132,7 +144,7 @@ const normalizeProgramData = (rawProgramData, programTypeIDConfig) => {
         longitude: Number.parseFloat(p.School_Longitude)
       },
 
-      category: getCategory(p),
+      category: category,
 
       cpsPageURL: p.CPS_School_Profile,
       hsBoundURL: getHSBoundURL(p),
