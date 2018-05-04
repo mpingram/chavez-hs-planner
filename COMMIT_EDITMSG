@@ -1,21 +1,10 @@
-Fix errors in build scripts
+Config: Add json schema validation for outputted data
 
-* separate processed program data into hs programs and non-hs
-  programs, in separate json files.
-  ** Change the way program IDs are created for non hs programs. For hs
-  programs, program IDs are made from combining school ID and program
-  type ID; for non HS programs, because we do not have a normalized
-  table of non hs progam types to get IDs from, I just used the plain
-  text of the progam type.
-    *** NOTE this may cause problems down the line with parsing the
-    school id from the program id. I don't think those potential
-    problems are worth architecture astronauting a better solution right
-    now.
-* TODO IN FUTURE consider reducing the amount of data in the non hs
-  progams json -- we only end up using the id, school name, program
-  name, and location, I'm pretty sure.
+* NOTE previously only inputted data was validated by json schema.
+  Now, the outputted data produced by the build scripts is validated
+  before it is written to the output folder.
 
-* NOTE wide-ranging changes, see diff for details
-* NOTE funniest mistake: I had been trying to use an npm package called
-  json2csv to convert csv to json
-
+* TODO IN FUTURE consider separating the data manipulation and
+  validation code in the build scripts; currently it happens in the same
+  place, which is making it harder to see what the code is doing at a
+  glance.

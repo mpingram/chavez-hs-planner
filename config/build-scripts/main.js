@@ -7,11 +7,17 @@ const buildProgramData = require("./build-program-data");
 const buildProgramTypeIDTable = require("./build-program-type-id-table");
 const buildSchoolAttendanceBoundaryTable = require("./build-school-attendance-boundary-table");
 
-const rawProgramDataSchema = require("../schema/raw-program-data.json");
-const rawAttendanceBoundariesSchema = require("../schema/raw-attendance-boundaries.json");
-const tractTierTableConfigSchema = require("../schema/tract-tier-table.json");
-const cutoffScoresSchema = require("../schema/cutoff-scores.json");
-const programTypeIDsConfigSchema = require("../schema/program-type-ids.config.json");
+const schemaDir = path.resolve(__dirname, "..", "schema");
+const rawProgramDataSchema = require(path.resolve(schemaDir, "raw-program-data.json"));
+const rawAttendanceBoundariesSchema = require(path.resolve(schemaDir, "raw-attendance-boundaries.json"));
+const tractTierTableConfigSchema = require(path.resolve(schemaDir, "tract-tier-table.json"));
+const cutoffScoresSchema = require(path.resolve(schemaDir, "cutoff-scores.json"));
+const programTypeIDsConfigSchema = require(path.resolve(schemaDir, "program-type-ids.config.json"));
+
+const schoolAttendanceBoundTableSchema = require(path.resolve(schemaDir, "school-attendance-boundary-table.json"));
+const programTypeIDTableSchema = require(path.resolve(schemaDir, "program-type-id-table.json"));
+const hsProgramsSchema = require(path.resolve(schemaDir, "hs-programs.json"));
+const nonHSProgramsSchema = require(path.resolve(schemaDir, "non-hs-programs.json"));
 
 // Constants
 // ==================
@@ -50,6 +56,7 @@ function buildAll() {
   const rawHSAttendanceBoundGeojson = JSON.parse(fs.readFileSync(INPUT_FILEPATH_RAW_HS_ATTENDANCE_BOUND_GEOMETRY, "utf-8"));
   validateOrThrow(rawHSAttendanceBoundGeojson, rawAttendanceBoundariesSchema);
   const schoolAttendanceBoundTable = buildSchoolAttendanceBoundaryTable(rawHSAttendanceBoundGeojson, ATTENDANCE_BOUND_COORDINATE_PRECISION);
+  validateOrThrow(schoolAttendanceBoundTable, schoolAttendanceBoundTableSchema);
   const schoolAttendanceBoundTableJSON = JSON.stringify(schoolAttendanceBoundTable);
   fs.writeFileSync(OUTPUT_FILEPATH_ATTENDANCE_BOUND_GEOMETRIES, schoolAttendanceBoundTableJSON, "utf-8");
 
@@ -69,12 +76,33 @@ function buildAll() {
   // --
   const programTypeIDsConfig = JSON.parse(fs.readFileSync(INPUT_FILEPATH_PROGRAM_TYPE_IDS, "utf-8"));
   validateOrThrow(programTypeIDsConfig, programTypeIDsConfigSchema);
+
+  // test each program type id for uniqueness
+  let keys = {};
+  let duplicateKey;
+  const hasUniqueKeys = programTypeIDsConfig.every( record => {
+    const id = record.programTypeID;
+    let isUnique;
+    if (keys[id] === undefined) {
+      isUnique = true;
+    } else {
+      duplicateKey = id;
+      isUnique = false;
+    }
+    // add key to hashtable of keys we've already seen
+    keys[id] = true;
+    return isUnique;
+  });
+  if (!hasUniqueKeys) {
+    throw new Error(`Two or more records in the program type id config share the same programTypeID property: ${duplicateKey}. All programTypeID properties in the program type id config must be unique.`);
+  }
+
   const programTypeIDTable = buildProgramTypeIDTable(programTypeIDsConfig);
-  // validateOrThrow(programTypeIDsConfig);
+  validateOrThrow(programTypeIDTable, programTypeIDTableSchema);
   fs.writeFileSync(OUTPUT_FILEPATH_PROGRAM_TYPE_ID_TABLE, JSON.stringify(programTypeIDTable), "utf-8");
 
   // Program Data
-  // DEPENDENCY ON: programTypeIDsConfig
+  // Must come after programTypeIDsConfig
   // --
   const rawProgramDataCsv = fs.readFileSync(INPUT_FILEPATH_RAW_PROGRAM_DATA, "utf-8");  
   // parse csv file into js object
@@ -96,8 +124,8 @@ function buildAll() {
       nonHSPrograms.push(program);
     }
   });
-  // validateOrThrow(hsPrograms, hsProgramsSchema);
-  // validateOrThrow(nonHSPrograms, nonHSProgramsSchema);
+  validateOrThrow(hsPrograms, hsProgramsSchema);
+  validateOrThrow(nonHSPrograms, nonHSProgramsSchema);
   fs.writeFileSync(OUTPUT_FILEPATH_HS_PROGRAMS, JSON.stringify(hsPrograms), "utf-8");
   fs.writeFileSync(OUTPUT_FILEPATH_NON_HS_PROGRAMS, JSON.stringify(nonHSPrograms), "utf-8");
 

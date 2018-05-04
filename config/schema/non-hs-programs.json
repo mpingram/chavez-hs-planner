@@ -1,5 +1,5 @@
 {
-  "id": "/ProgramData",
+  "id": "/NonHSPrograms",
   "$schema": "http://json-schema.org/draft-06/schema#",
   "type": "array",
   "items": {
@@ -15,8 +15,8 @@
       "schoolLocation": {
         "type": "object",
         "properties": {
-          "latitude": {"type": "string"},
-          "longitude": {"type": "string"}
+          "latitude": {"type": "number"},
+          "longitude": {"type": "number"}
         }
       },
 
@@ -46,7 +46,7 @@
       "applicationReqDescription",
       "selectionReqDescription",
       "applicationReqFnID",
-      "selectionReqFnID",
+      "selectionReqFnID"
     ]
   }
 }
