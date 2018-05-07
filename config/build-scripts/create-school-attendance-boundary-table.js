@@ -23,7 +23,7 @@ function createSchoolAttendanceBoundaryTable(attendBoundGeojson, coordinatePreci
   if (coordinatePrecision !== undefined) {
     reduceGeojsonPrecision(attendBoundGeojson, coordinatePrecision);
   }
-  
+
   let output = {};
   // Each feature in the geoJSON object's 'features' property describes
   // one school.
@@ -36,6 +36,19 @@ function createSchoolAttendanceBoundaryTable(attendBoundGeojson, coordinatePreci
   return output;
 }
 
+
+/* 
+ * Polyfilled rounding function from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round#A_better_solution
+ * to avoid floating point arithmetic issues / lack of decimal rounding in js standard lib
+ * */
+function round(number, precision) {
+  var shift = function (number, precision) {
+    var numArray = ("" + number).split("e");
+    return +(numArray[0] + "e" + (numArray[1] ? (+numArray[1] + precision) : precision));
+  };
+  return shift(Math.round(shift(number, +precision)), -precision);
+}
+
 /*
  * Reduces precision of the coordinates in a geojson object.
  * NOTE: mutates the original geojson object.
@@ -46,8 +59,8 @@ function reduceGeojsonPrecision(geojson, decimalPrecision) {
     // coords are nested 4 levels deep
     coords = coords[0][0];
     coords = coords.map( coordPair => [
-        Math.round(coordPair[0], precision), 
-        Math.round(coordPair[1], precision)
+        round(coordPair[0], precision), 
+        round(coordPair[1], precision)
       ] 
     );
     // remove any repeated coordinates that may have been
