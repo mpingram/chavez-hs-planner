@@ -1,10 +1,5 @@
-Config: Add json schema validation for outputted data
+Config: refactor main build script
 
-* NOTE previously only inputted data was validated by json schema.
-  Now, the outputted data produced by the build scripts is validated
-  before it is written to the output folder.
-
-* TODO IN FUTURE consider separating the data manipulation and
-  validation code in the build scripts; currently it happens in the same
-  place, which is making it harder to see what the code is doing at a
-  glance.
+* split main build script into smaller functions
+* rename build script utils to distinguish them from
+  internal functions in main build script

@@ -3,9 +3,9 @@ const path = require("path");
 const csvParseSync = require("csv-parse/lib/sync");
 const jsonschema = require("jsonschema");
 
-const buildProgramData = require("./build-program-data");
-const buildProgramTypeIDTable = require("./build-program-type-id-table");
-const buildSchoolAttendanceBoundaryTable = require("./build-school-attendance-boundary-table");
+const createProgramData = require("./create-program-data");
+const createProgramTypeIDTable = require("./create-program-type-id-table");
+const createSchoolAttendanceBoundaryTable = require("./create-school-attendance-boundary-table");
 
 const schemaDir = path.resolve(__dirname, "..", "schema");
 const rawProgramDataSchema = require(path.resolve(schemaDir, "raw-program-data.json"));
@@ -51,29 +51,39 @@ const OUTPUT_FILEPATH_NON_HS_PROGRAMS = path.join(destDir, "non-hs-programs.json
 
 function buildAll() {
   
-  // School attendance boundaries
-  // --
+  buildSchoolAttendanceBoundaryTable();
+  buildTractTierTable();
+  buildCutoffScores();
+  buildProgramTypeIDTable();
+  buildProgramData();
+
+}
+
+function buildSchoolAttendanceBoundaryTable() {
   const rawHSAttendanceBoundGeojson = JSON.parse(fs.readFileSync(INPUT_FILEPATH_RAW_HS_ATTENDANCE_BOUND_GEOMETRY, "utf-8"));
   validateOrThrow(rawHSAttendanceBoundGeojson, rawAttendanceBoundariesSchema);
-  const schoolAttendanceBoundTable = buildSchoolAttendanceBoundaryTable(rawHSAttendanceBoundGeojson, ATTENDANCE_BOUND_COORDINATE_PRECISION);
-  validateOrThrow(schoolAttendanceBoundTable, schoolAttendanceBoundTableSchema);
-  const schoolAttendanceBoundTableJSON = JSON.stringify(schoolAttendanceBoundTable);
-  fs.writeFileSync(OUTPUT_FILEPATH_ATTENDANCE_BOUND_GEOMETRIES, schoolAttendanceBoundTableJSON, "utf-8");
 
-  // Tract-tier table
-  // --
+  const schoolAttendanceBoundTable = createSchoolAttendanceBoundaryTable(rawHSAttendanceBoundGeojson, ATTENDANCE_BOUND_COORDINATE_PRECISION);
+  validateOrThrow(schoolAttendanceBoundTable, schoolAttendanceBoundTableSchema);
+
+  fs.writeFileSync(OUTPUT_FILEPATH_ATTENDANCE_BOUND_GEOMETRIES, JSON.stringify(schoolAttendanceBoundTable), "utf-8");
+}
+
+function buildTractTierTable() {
   const tractTierTable = JSON.parse(fs.readFileSync(INPUT_FILEPATH_TRACT_TIER_TABLE, "utf-8"));
   validateOrThrow(tractTierTable, tractTierTableConfigSchema);
-  fs.copyFileSync(INPUT_FILEPATH_TRACT_TIER_TABLE, OUTPUT_FILEPATH_TRACT_TIER_TABLE);
 
-  // Historical cutoff scores
-  // --
+  fs.copyFileSync(INPUT_FILEPATH_TRACT_TIER_TABLE, OUTPUT_FILEPATH_TRACT_TIER_TABLE);
+}
+
+function buildCutoffScores() {
   const cutoffScores = JSON.parse(fs.readFileSync(INPUT_FILEPATH_CUTOFF_SCORES, "utf-8"));
   validateOrThrow(cutoffScores, cutoffScoresSchema);
-  fs.copyFileSync(INPUT_FILEPATH_TRACT_TIER_TABLE, OUTPUT_FILEPATH_TRACT_TIER_TABLE);
 
-  // Program Types
-  // --
+  fs.copyFileSync(INPUT_FILEPATH_CUTOFF_SCORES, OUTPUT_FILEPATH_CUTOFF_SCORES);
+}
+
+function buildProgramTypeIDTable() {
   const programTypeIDsConfig = JSON.parse(fs.readFileSync(INPUT_FILEPATH_PROGRAM_TYPE_IDS, "utf-8"));
   validateOrThrow(programTypeIDsConfig, programTypeIDsConfigSchema);
 
@@ -97,20 +107,23 @@ function buildAll() {
     throw new Error(`Two or more records in the program type id config share the same programTypeID property: ${duplicateKey}. All programTypeID properties in the program type id config must be unique.`);
   }
 
-  const programTypeIDTable = buildProgramTypeIDTable(programTypeIDsConfig);
+  const programTypeIDTable = createProgramTypeIDTable(programTypeIDsConfig);
   validateOrThrow(programTypeIDTable, programTypeIDTableSchema);
-  fs.writeFileSync(OUTPUT_FILEPATH_PROGRAM_TYPE_ID_TABLE, JSON.stringify(programTypeIDTable), "utf-8");
 
-  // Program Data
-  // Must come after programTypeIDsConfig
-  // --
+  fs.writeFileSync(OUTPUT_FILEPATH_PROGRAM_TYPE_ID_TABLE, JSON.stringify(programTypeIDTable), "utf-8");
+}
+
+function buildProgramData() {
+  const programTypeIDsConfig = JSON.parse(fs.readFileSync(INPUT_FILEPATH_PROGRAM_TYPE_IDS, "utf-8"));
+  validateOrThrow(programTypeIDsConfig, programTypeIDsConfigSchema);
+
   const rawProgramDataCsv = fs.readFileSync(INPUT_FILEPATH_RAW_PROGRAM_DATA, "utf-8");  
   // parse csv file into js object
   const rawProgramData = csvParseSync(rawProgramDataCsv, {columns: true});
   validateOrThrow(rawProgramData, rawProgramDataSchema);
   let programData;
   try {
-    programData = buildProgramData(rawProgramData, programTypeIDsConfig);
+    programData = createProgramData(rawProgramData, programTypeIDsConfig);
   } catch(e) {
     throw(e);
   }
@@ -124,12 +137,14 @@ function buildAll() {
       nonHSPrograms.push(program);
     }
   });
+
   validateOrThrow(hsPrograms, hsProgramsSchema);
   validateOrThrow(nonHSPrograms, nonHSProgramsSchema);
+  
   fs.writeFileSync(OUTPUT_FILEPATH_HS_PROGRAMS, JSON.stringify(hsPrograms), "utf-8");
   fs.writeFileSync(OUTPUT_FILEPATH_NON_HS_PROGRAMS, JSON.stringify(nonHSPrograms), "utf-8");
-
 }
+
 
 function validateOrThrow(json, schema) {
   const validationResult = jsonschema.validate(json, schema);
