@@ -10,10 +10,10 @@
  * program types config may specify that 'Science and Engineering' and 'Science & Engineering' are
  * the same program type, and that the id of that program type is 47.
  * */
-function getProgramTypeID(programType, programTypesConfig) {
+function getProgramTypeID(programType, programTypeIDsConfig) {
   // iterate over programTypes config, looking for an entry that matches the programType passed in.
-  for (let i = 0; i < programTypesConfig.length; i++) {
-    const record = programTypesConfig[i];
+  for (let i = 0; i < programTypeIDsConfig.length; i++) {
+    const record = programTypeIDsConfig[i];
     const programTypeMatchesName = programType.trim().toLowerCase() === record.name.trim().toLowerCase();
     const programTypeMatchesAltName = record.alternateNames.some( name => programType.trim().toLowerCase() === name.trim().toLowerCase() );
     if(programTypeMatchesName || programTypeMatchesAltName) {

@@ -1,23 +1,3 @@
-Config: debug issue in school attendance boundaries
+Write blank specs for config system
 
-* NOTE - bug log
-  ** observed: school attendance boundaries output json file had no
-  coordinates, only school ids. Unknown whether all school ids are
-  present.
-  ** tested: added console log statements to
-  create-school-attendance-boundaries.js to see where coordinates
-  were getting lost. Tracked it to the mapping function that rounded
-  the coordinates to decimal precision.
-    *** Discovered here that default Math.round implementation does
-    not round to decimal places -- it rounds to number of digits. In
-    addition, it apparently is a source of floating point math errors.
-    Note to self, don't use Math.round for this kind of thing in the
-    future!
-  ** changed: copied and pasted in an accurate round() function from the
-    mozilla developer article about issues with Math.round, and used
-    that instead.
-  ** observed: coordinates now appear in output file. They look ok to
-  the eye, but I do not know if they are accurate, or if all school IDs
-  are present in the file.
-
-
+* NOTE have not yet implemented actual unit tests

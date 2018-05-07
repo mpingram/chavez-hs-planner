@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 /**
  * buildSchoolAttendanceBoundTable takes as input a geoJSON object which
  * describes the attendance boundaries of CPS programs.
