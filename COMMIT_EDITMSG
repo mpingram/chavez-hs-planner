@@ -1,7 +1,7 @@
-Reconnect requirement functions to app
+Write a new data access layer to work with updated config system
 
-* move requirement functions folder into src/shared
-* delete cutoff-scores folder
-* update school ids in requirement functions/constants
-* load cutoff scores through shared/data-access
+* replace shared/util/data-access with new implementation that
+  dynamically loads and parses json files from dist/data/ on request
+* add new dependency: fetch polyfill
+* add new dependency: promise polyfill
 
