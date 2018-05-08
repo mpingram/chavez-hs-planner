@@ -6,8 +6,8 @@ import {
 
 import { SuccessChance } from "shared/enums";
 
-declare const require: any;
-const sePrevScores = require("../../data/se-prevyear-accepted-scores.json");
+import { getSECutoffTable } from "shared/util/data-access";
+const sePrevScores = getSECutoffTable();
 
 type PrevYearAcceptanceLookup = (student, program) => {min: number, avg: number, max: number}
 

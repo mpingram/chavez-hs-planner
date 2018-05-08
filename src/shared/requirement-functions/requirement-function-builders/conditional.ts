@@ -1,4 +1,4 @@
-import { ReqFnFilter} from "./filters";
+import {ReqFnFilter} from "./filters";
 import {RequirementFunction} from "shared/types/requirement-function";
 import {SuccessChance} from "shared/enums/success-chance";
 

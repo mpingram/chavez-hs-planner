@@ -5,8 +5,8 @@ import {Program} from "shared/types/program";
 import {pointSystem} from "./point-system";
 import {ifInAttendBound} from "./filters";
 
-declare const require: any;
-const ibCutoffTable = require("../../data/ib-cutoffs.json");
+import { getNonSECutoffTable } from "shared/util/data-access";
+const ibCutoffTable = getNonSECutoffTable();
 
 const ibPointCalc = (student: StudentData, program: Program): number => {
   const IB_NWEA_SCORE_CONSTANT = 2.2727;

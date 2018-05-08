@@ -5,7 +5,7 @@ import {
 } from "shared/types";
 
 import { SuccessChance } from "shared/enums";
-import { POINT_SYSTEM_UNCERTAINTY_THRESHOLD } from "./constants";
+import { POINT_SYSTEM_UNCERTAINTY_THRESHOLD } from "../constants";
 
 type PointCalculator = (student: StudentData, program: Program) => number;
 type PointCutoffLookup = (student: StudentData, program: Program) => number;

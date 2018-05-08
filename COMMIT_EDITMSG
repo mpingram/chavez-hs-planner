@@ -1,3 +1,7 @@
-Fix errors in config build scripts
+Reconnect requirement functions to app
 
+* move requirement functions folder into src/shared
+* delete cutoff-scores folder
+* update school ids in requirement functions/constants
+* load cutoff scores through shared/data-access
 
