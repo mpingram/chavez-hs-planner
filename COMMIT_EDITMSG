@@ -1,22 +1,10 @@
-Finish cutoff score config scripts
+[WIP] Write config system unit tests
 
-* NOTE had left the cutoff score part of the config system unfinished
-as I started testing; previously the config build scripts had just
-copied the cutoff score config to the output data folder.
+* DONE draft tests for createSchoolAttendanceBoundaryTable
+* TODO write tests for createProgramTypeIDTable
+* TODO write tests for createProgramData
+* TODO write tests for getProgramTypeID
 
-* split cutoff scores into two separate config files -- one for
-  selective enrollment (tier-based) cutoff scores and another for
-  non-selective enrollment (tier-irrelevant) cutoff scores.
-  ** update schema.
-* remove unecessary 'date' property from cutoff scores config and
-  cutoff scores config schema
-* write config build script that converts cutoff score config to
-  two tables -- one relating non-selective program ids to cutoff scores,
-  the other relating selective enrollment program ids to cutoff scores.
+* TODO clean up tests
+* TODO run tests, fix errors
 
-* fill in missing program ids in cutoff scores config
-  ** add any new program types found from programs in cutoff scores
-  config to program type ids config.
-    *** NOTE this situation is caused by having more recent cutoff scores than
-    program data. We're still waiting on new program data from CPS, but
-    we have the most recent cutoff scores, making life interesting.
