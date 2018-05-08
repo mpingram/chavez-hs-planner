@@ -4,7 +4,7 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["programID", "date", "cutoffScores"],
+    "required": ["programID",  "cutoffScores"],
     "properties": {
       "programID": {"type": "string"},
       "school": {"type": "string"},

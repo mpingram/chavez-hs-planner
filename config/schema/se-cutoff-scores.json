@@ -4,7 +4,7 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["programID", "date", "tieredCutoffScores"],
+    "required": ["programID", "tieredCutoffScores"],
     "properties": {
       "programID": {"type": "string"},
       "school": {"type": "string"},

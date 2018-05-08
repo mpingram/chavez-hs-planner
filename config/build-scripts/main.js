@@ -11,7 +11,7 @@ const schemaDir = path.resolve(__dirname, "..", "schema");
 const rawProgramDataSchema = require(path.resolve(schemaDir, "raw-program-data.json"));
 const rawAttendanceBoundariesSchema = require(path.resolve(schemaDir, "raw-attendance-boundaries.json"));
 const tractTierTableConfigSchema = require(path.resolve(schemaDir, "tract-tier-table.json"));
-const seCutoffScoresSchema = require(path.resolve(schemaDir, "selective-enrollment-cutoff-scores.json"));
+const seCutoffScoresSchema = require(path.resolve(schemaDir, "se-cutoff-scores.json"));
 const nonSECutoffScoresSchema = require(path.resolve(schemaDir, "non-se-cutoff-scores.json"));
 const programTypeIDsConfigSchema = require(path.resolve(schemaDir, "program-type-ids.config.json"));
 
@@ -82,8 +82,8 @@ function buildTractTierTable() {
 function buildCutoffScores() {
   const seCutoffScoresConfig = JSON.parse(fs.readFileSync(INPUT_FILEPATH_SE_CUTOFF_SCORES, "utf-8"));
   const nonSECutoffScoresConfig = JSON.parse(fs.readFileSync(INPUT_FILEPATH_NON_SE_CUTOFF_SCORES, "utf-8"));
-  validateOrThrow(seCutoffScores, seCutoffScoresSchema);
-  validateOrThrow(nonSECutoffScores, nonSECutoffScoresSchema);
+  validateOrThrow(seCutoffScoresConfig, seCutoffScoresSchema);
+  validateOrThrow(nonSECutoffScoresConfig, nonSECutoffScoresSchema);
 
   // convert both se cutoff scores and non-se cutoff scores into a table relating program id to 
   // cutoff score. Throw if duplicate ids are encountered.
