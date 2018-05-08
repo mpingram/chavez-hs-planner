@@ -3,7 +3,7 @@
     "programTypeID": "1",
     "name": "General Education",
     "alternateNames": [
-    ]
+-    ]
   },
   {
     "programTypeID": "2",
@@ -24,9 +24,10 @@
   },
   {
     "programTypeID": "4",
-    "name": "Service Learning Academies (Military)",
+    "name": "Military Academy",
     "alternateNames": [
-      "Military"
+      "Military",
+      "Service Learning Academies (Military)"
     ]
   },
   {
@@ -235,7 +236,8 @@
     "name": "Instrumental Music",
     "alternateNames": [ 
       "Music - Instrumental",
-      "Music - Instumental"
+      "Music - Instumental",
+      "Music \u2013 Instrumental"
     ]
   },
   {
@@ -280,6 +282,8 @@
     "programTypeID": "140",
     "name": "Music - Vocal",
     "alternateNames": [ 
+      "Music \u2013 Vocal",
+      "Vocal Music"
     ]
   },
   {
@@ -375,6 +379,61 @@
     "programTypeID": "155",
     "name": "University Scholars",
     "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "156",
+    "name": "Instrumental Music - Guitar",
+    "alternateNames": [ 
+      "Music - Instrumental - Guitar",
+      "Music \u2013 Instrumental \u2013 Guitar",
+      "Musical - Instrumental - Guitar",
+      "Musical \u2013 Instrumental \u2013 Guitar",
+      "Instrumental Music \u2013 Guitar"
+    ]
+  },
+  {
+    "programTypeID": "157",
+    "name": "Instrumental Music - Brass and Wood",
+    "alternateNames": [ 
+      "Music - Instrumental - Brass and Wood",
+      "Music \u2013 Instrumental \u2013 Brass and Wood",
+      "Musical - Instrumental - Brass and Wood",
+      "Musical \u2013 Instrumental \u2013 Brass and Wood",
+      "Instrumental Music \u2013 Brass and Wood"
+    ]
+  },
+  {
+    "programTypeID": "158",
+    "name": "Instrumental Music - Piano",
+    "alternateNames": [ 
+      "Music - Instrumental - Piano",
+      "Music \u2013 Instrumental \u2013 Piano",
+      "Musical - Instrumental - Piano",
+      "Musical \u2013 Instrumental \u2013 Piano",
+      "Instrumental Music \u2013 Piano"
+    ]
+  },
+  {
+    "programTypeID": "159",
+    "name": "Instrumental Music - Percussion",
+    "alternateNames": [ 
+      "Music - Instrumental - Percussion",
+      "Music \u2013 Instrumental \u2013 Percussion",
+      "Musical - Instrumental - Percussion",
+      "Musical \u2013 Instrumental \u2013 Percussion",
+      "Instrumental Music \u2013 Percussion"
+    ]
+  },
+  {
+    "programTypeID": "160",
+    "name": "Instrumental Music - Strings",
+    "alternateNames": [ 
+      "Music - Instrumental - Strings",
+      "Music \u2013 Instrumental \u2013 Strings",
+      "Musical - Instrumental - Strings",
+      "Musical \u2013 Instrumental \u2013 Strings",
+      "Instrumental Music \u2013 Strings"
     ]
   }
 ]

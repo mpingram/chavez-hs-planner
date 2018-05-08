@@ -11,7 +11,8 @@ const schemaDir = path.resolve(__dirname, "..", "schema");
 const rawProgramDataSchema = require(path.resolve(schemaDir, "raw-program-data.json"));
 const rawAttendanceBoundariesSchema = require(path.resolve(schemaDir, "raw-attendance-boundaries.json"));
 const tractTierTableConfigSchema = require(path.resolve(schemaDir, "tract-tier-table.json"));
-const cutoffScoresSchema = require(path.resolve(schemaDir, "cutoff-scores.json"));
+const seCutoffScoresSchema = require(path.resolve(schemaDir, "selective-enrollment-cutoff-scores.json"));
+const nonSECutoffScoresSchema = require(path.resolve(schemaDir, "non-se-cutoff-scores.json"));
 const programTypeIDsConfigSchema = require(path.resolve(schemaDir, "program-type-ids.config.json"));
 
 const schoolAttendanceBoundTableSchema = require(path.resolve(schemaDir, "school-attendance-boundary-table.json"));
@@ -34,7 +35,8 @@ const INPUT_FILEPATH_RAW_PROGRAM_DATA = path.join(srcDir, "raw-program-data", "C
 //const INPUT_FILEPATH_RAW_ES_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "es-attendance-boundaries", "Chicago Public Schools - Elementary School Attendance Boundaries SY1718.geojson");
 const INPUT_FILEPATH_RAW_HS_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "hs-attendance-boundaries", "Chicago Public Schools - High School Attendance Boundaries SY1718.geojson");
 const INPUT_FILEPATH_TRACT_TIER_TABLE = path.join(srcDir, "tract-tier-table", "tract-tier-table.json");
-const INPUT_FILEPATH_CUTOFF_SCORES = path.join(srcDir, "cutoff-scores", "cutoff-scores.json");
+const INPUT_FILEPATH_SE_CUTOFF_SCORES = path.join(srcDir, "se-cutoff-scores", "se-cutoff-scores.json");
+const INPUT_FILEPATH_NON_SE_CUTOFF_SCORES = path.join(srcDir, "non-se-cutoff-scores", "non-se-cutoff-scores.json");
 const INPUT_FILEPATH_PROGRAM_TYPE_IDS = path.join(srcDir, "program-type-ids", "program-type-ids.config.json");
 
 // Processed data filepaths
@@ -42,7 +44,8 @@ const INPUT_FILEPATH_PROGRAM_TYPE_IDS = path.join(srcDir, "program-type-ids", "p
 const destDir = path.resolve(__dirname, "..", "..", "dist", "data");
 const OUTPUT_FILEPATH_ATTENDANCE_BOUND_GEOMETRIES = path.join(destDir, "school-attendance-boundary-table.json");
 const OUTPUT_FILEPATH_TRACT_TIER_TABLE = path.join(destDir, "tract-tier-table.json");
-const OUTPUT_FILEPATH_CUTOFF_SCORES = path.join(destDir, "cutoff-scores.json");
+const OUTPUT_FILEPATH_SE_CUTOFF_SCORES = path.join(destDir, "se-cutoff-scores.json");
+const OUTPUT_FILEPATH_NON_SE_CUTOFF_SCORES = path.join(destDir, "non-se-cutoff-scores.json");
 const OUTPUT_FILEPATH_PROGRAM_TYPE_ID_TABLE = path.join(destDir, "program-type-id-table.json");
 const OUTPUT_FILEPATH_HS_PROGRAMS = path.join(destDir, "hs-programs.json");
 const OUTPUT_FILEPATH_NON_HS_PROGRAMS = path.join(destDir, "non-hs-programs.json");
@@ -77,10 +80,34 @@ function buildTractTierTable() {
 }
 
 function buildCutoffScores() {
-  const cutoffScores = JSON.parse(fs.readFileSync(INPUT_FILEPATH_CUTOFF_SCORES, "utf-8"));
-  validateOrThrow(cutoffScores, cutoffScoresSchema);
+  const seCutoffScoresConfig = JSON.parse(fs.readFileSync(INPUT_FILEPATH_SE_CUTOFF_SCORES, "utf-8"));
+  const nonSECutoffScoresConfig = JSON.parse(fs.readFileSync(INPUT_FILEPATH_NON_SE_CUTOFF_SCORES, "utf-8"));
+  validateOrThrow(seCutoffScores, seCutoffScoresSchema);
+  validateOrThrow(nonSECutoffScores, nonSECutoffScoresSchema);
 
-  fs.copyFileSync(INPUT_FILEPATH_CUTOFF_SCORES, OUTPUT_FILEPATH_CUTOFF_SCORES);
+  // convert both se cutoff scores and non-se cutoff scores into a table relating program id to 
+  // cutoff score. Throw if duplicate ids are encountered.
+  
+  let seCutoffScores = {};
+  seCutoffScoresConfig.forEach( record => {
+    // if this program id is already in the output, we have a duplicate id
+    if (seCutoffScores[record.programID] !== undefined) {
+      throw new Error(`Error: duplicate programID ${record.programID} in the selective enrollment cutoff scores config!`);
+    }
+    seCutoffScores[record.programID] = record.tieredCutoffScores;
+  });
+  
+  let nonSECutoffScores = {};
+  nonSECutoffScoresConfig.forEach( record => {
+    // if this program id is already in the output, we have a duplicate id
+    if (nonSECutoffScores[record.programID] !== undefined) {
+      throw new Error(`Error: duplicate programID ${record.programID} in the non-selective-enrollment cutoff scores config!`);
+    }
+    nonSECutoffScores[record.programID] = record.cutoffScores;
+  });
+
+  fs.writeFileSync(OUTPUT_FILEPATH_SE_CUTOFF_SCORES, JSON.stringify(seCutoffScores), "utf-8");
+  fs.writeFileSync(OUTPUT_FILEPATH_NON_SE_CUTOFF_SCORES, JSON.stringify(nonSECutoffScores), "utf-8");
 }
 
 function buildProgramTypeIDTable() {

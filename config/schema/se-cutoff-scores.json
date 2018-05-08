@@ -1,27 +1,14 @@
 {
-  "id": "/historicalCutoffScoresSchema",
+  "id": "/selectiveEnrollmentCutoffScores",
   "$schema": "http://json-schema.org/draft-06/schema#",
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["programID", "date"],
-    "oneOf": [
-    	{"required": ["cutoffScores"]},
-    	{"required": ["tieredCutoffScores"]}
-    ],
+    "required": ["programID", "date", "tieredCutoffScores"],
     "properties": {
       "programID": {"type": "string"},
       "school": {"type": "string"},
       "programType": {"type": "string"},
-      "date": {"type": "string"},
-      "cutoffScores": {
-        "type": "object",
-        "properties": {
-          "min": {"type": "number"},
-          "avg": {"type": "number"},
-          "max": {"type": "number"}
-        }
-      },
       "tieredCutoffScores": {
         "type": "object",
         "properties": {
