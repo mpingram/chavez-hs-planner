@@ -1,40 +1,35 @@
 import { fromJS, List } from  "immutable";
 
-import AppState from "shared/types/app-state";
-import Program from "shared/types/program";
-import ProgramGroup from "shared/types/program-group";
-import ProgramOutcome from "shared/types/program-outcome";
-import SuccessChance from "shared/enums/success-chance";
+import { 
+  AppState,
+  Program,
+  ProgramDictionary,
+  ProgramGroup,
+  ProgramOutcome,
+  StudentData,
+} from "shared/types";
 
-import StudentData from "shared/types/student-data";
-import Gender from "shared/enums/gender";
-import ProgramDictionary from "shared/types/program-dictionary";
+import {
+  SuccessChance,
+  Gender
+} from "shared/enums";
 
 import distanceBetweenCoords from "shared/util/distance-between-coords";
 import getCombinedSuccessChance from "shared/util/get-combined-success-chance";
 
-import {PROGRAM_CATEGORY_HS, PROGRAM_CATEGORY_ES} from "shared/constants";
-import {getAllPrograms} from "shared/util/data-access";
-const allPrograms: Program[] = getAllPrograms();
+import { 
+  getHSPrograms, 
+  getNonHSPrograms 
+} from "shared/util/data-access";
 
-declare const require: any;
-const programGroups: ProgramGroup[] = require("../../shared/data/hs_groups.json");
+let hsPrograms;
+let nonHSPrograms;
 
-const getHSPrograms = (programs: Program[]): Program[] => {
-  return programs.filter( program => program.category === PROGRAM_CATEGORY_HS );
-};
-
-const getESPrograms = (programs: Program[]): Program[] => {
-  return programs.filter( program => program.category === PROGRAM_CATEGORY_ES );
-};
-
-const getHSSchoolNames = (programs: Program[]): {[schoolID: string]: string} => {
+const getHSSchoolNames = (hsPrograms: Program[]): {[schoolID: string]: string} => {
   let hsSchools = {};
-  programs.forEach( program => {
-    if (program.category === PROGRAM_CATEGORY_HS) {
-      const schoolID = program.schoolID;
-      hsSchools[schoolID] = program.schoolNameShort;
-    }
+  hsPrograms.forEach( program => {
+    const schoolID = program.schoolID;
+    hsSchools[schoolID] = program.schoolNameShort;
   });
   return hsSchools;
 };
@@ -113,20 +108,19 @@ const initialStudentData = {
   subjGradeSocStudies: null,
 };
 
-const hsPrograms = getHSPrograms(allPrograms);
+const hsSchoolNames = getHSSchoolNames(hsPrograms);
+
 const hsProgramDict: ProgramDictionary = createProgramDictionary(hsPrograms);
-const esPrograms = getESPrograms(allPrograms);
-const esProgramDict: ProgramDictionary = createProgramDictionary(esPrograms);
-const hsSchoolNames = getHSSchoolNames(allPrograms);
+const nonHSProgramDict: ProgramDictionary = createProgramDictionary(nonHSPrograms);
 
 const initialHSProgramOutcomes = hsPrograms.map( program => createInitialOutcome(initialStudentData, program) );
 const hsProgramOutcomeDict: OutcomeDictionary = createOutcomeDictionary(initialHSProgramOutcomes);
 
 const initialSchoolData = {
-  hsPrograms: hsPrograms,
-  esPrograms: esPrograms,
+  hsPrograms: hsProgramDict,
+  esPrograms: nonHSProgramDict,
   hsSchoolNames: hsSchoolNames,
-  hsProgramGroups: programGroups,
+  hsProgramGroups: [],
   hsProgramOutcomes: hsProgramOutcomeDict
 }
 

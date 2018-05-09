@@ -6,7 +6,7 @@ interface ProgramOutcome {
   applicationChance: SuccessChance
   selectionChance: SuccessChance
   overallChance: SuccessChance
-  distance: number
+  distance?: number
 }
 
 export {ProgramOutcome};

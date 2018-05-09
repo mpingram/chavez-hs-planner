@@ -1,8 +1,10 @@
-import ActionType from "shared/enums/action-type";
-import Gender from "shared/enums/gender";
-import StudentLocation from "shared/types/student-location";
-import ScoreType from "shared/enums/score-type";
+import {
+  ActionType,
+  Gender,
+  ScoreType
+}  from "shared/enums";
 
+import { StudentLocation } from "shared/types";
 
 export const selectHSProgram = (newValue: string) => {
   return {

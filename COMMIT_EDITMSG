@@ -1,7 +1,8 @@
-Write a new data access layer to work with updated config system
+[WIP] Refactor redux store
 
-* replace shared/util/data-access with new implementation that
-  dynamically loads and parses json files from dist/data/ on request
-* add new dependency: fetch polyfill
-* add new dependency: promise polyfill
+* WIP remove immutablejs dependency
+* DONE move redux code into shared/redux
+* DONE rewrite root reducer
+* TODO rewrite initial state
+
 

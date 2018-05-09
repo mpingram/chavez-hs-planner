@@ -1,7 +1,9 @@
 import { Gender } from "shared/enums";
-import { GradeLevel, StudentLocation } from "shared/types";
-
-type LetterGrade = "A" | "B" | "C" | "D" | "F";
+import { 
+  LetterGrade,
+  GradeLevel, 
+  StudentLocation 
+} from "shared/types";
 
 export interface StudentData {
     gender: Gender

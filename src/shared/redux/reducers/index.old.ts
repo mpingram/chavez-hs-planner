@@ -1,21 +1,24 @@
 import * as Redux from "redux";
 import { Map } from "immutable";
 
-import AppState from "shared/types/app-state";
-import ActionType from "shared/enums/action-type";
-import ProgramRequirementFunction from "shared/types/program-requirement-function";
-import SuccessChance from "shared/enums/success-chance";
-import Program from "shared/types/program";
+import { 
+  AppState,
+  RequirementFunction,
+  Program
+}  from "shared/types";
+
+import {
+  ActionType,
+  SuccessChance
+} from "shared/enums";
 
 import calculateGPA from "shared/util/calculate-gpa";
 import getReqFns from "shared/util/get-req-fns";
 
 import initialState from "./initial-state";
 
-
-type ReqFnSelector = (program: Program) => {application: ProgramRequirementFunction, selection: ProgramRequirementFunction};
+type ReqFnSelector = (program: Program) => {application: RequirementFunction, selection: RequirementFunction};
 type Outcomes = Map<string, Map<string, SuccessChance>>;
-
 
 // ensures that dependent properties of AppState
 //  (ie studentData.gpa, hsData.outcomes) are set
