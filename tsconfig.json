@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "noImplicitAny": false,
+    "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": true,
     "module": "commonjs",

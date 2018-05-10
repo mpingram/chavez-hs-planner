@@ -1,6 +1,6 @@
 import { LetterGrade } from "shared/types";
 
-const toPoints = (letterGrade): number | null => {
+const toPoints = (letterGrade): number => {
   switch(letterGrade){
     case "A":
       return 4;
@@ -12,14 +12,12 @@ const toPoints = (letterGrade): number | null => {
       return 1;
     case "F":
       return 0;
-    case null:
-      return null;
     default:
       throw new Error(`Unexpected letter grade: ${letterGrade}`);
   }
 }
 
-const calculateGPA = (...letterGrades: LetterGrade[]): number => {
+const calculateGPA = (...letterGrades: LetterGrade[]): number | null => {
   const numGrades = letterGrades.length;
   let gradePointSum = 0;
   

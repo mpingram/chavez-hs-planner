@@ -6,22 +6,22 @@ import {
 } from "shared/types";
 
 export interface StudentData {
-    gender: Gender
+    gender: Gender | null
     location: StudentLocation
-    gradeLevel: number
-    prevGradeLevel: number
-    skippedGrade7OrRepeatedGrade8: boolean
-    currESProgramID: string
-    ell: boolean
-    iep: boolean
-    attendancePercentage: number
-    gpa: number
+    gradeLevel: number | null
+    prevGradeLevel: number | null
+    skippedGrade7OrRepeatedGrade8: boolean | null
+    currESProgramID: string | null
+    ell: boolean | null
+    iep: boolean | null
+    attendancePercentage: number | null
+    gpa: number | null
     siblingHSSchoolIDs: string[]
-    seTestPercentile: number
-    nweaPercentileMath: number
-    nweaPercentileRead: number
-    subjGradeMath: LetterGrade
-    subjGradeRead: LetterGrade
-    subjGradeSci: LetterGrade
-    subjGradeSocStudies: LetterGrade
+    seTestPercentile: number | null
+    nweaPercentileMath: number | null
+    nweaPercentileRead: number | null
+    subjGradeMath: LetterGrade | null
+    subjGradeRead: LetterGrade | null
+    subjGradeSci: LetterGrade | null
+    subjGradeSocStudies: LetterGrade | null
 }

@@ -1,8 +1,12 @@
-Refactor redux store
+[WIP] Update app to work with changes to config system and store
 
-* remove immutablejs dependency
-* move redux code into shared/redux
-* rewrite root reducer
-* rewrite initial state
+* NOTE there were many compiation errors that were fixed, relating to
+  import paths etc
+* NOTE changes made after enabling 'strictNullChecks' in typescript
+compiler.
 
+* WIP update redux-aware components to interface with the new and
+  improved store
+  ** NOTE deleting all of that crufty immutablejs and data mangling
+  logic in the selectors feels good
 

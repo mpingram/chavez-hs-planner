@@ -1,8 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { updateStudentAttendPercentage } from "shared/actions";
-import AppState from "shared/types/app-state";
+import { updateStudentAttendPercentage } from "shared/redux/actions";
+import { AppState } from "shared/types";
 
 import NumberField from "shared/components/ui/fields/number-field";
 

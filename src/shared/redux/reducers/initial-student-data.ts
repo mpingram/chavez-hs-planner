@@ -1,8 +1,7 @@
 import { StudentData } from "shared/types";
-import { Gender } from "shared/enums";
 
 export const initialStudentData: StudentData = {
-  gender: Gender.NOANSWER,
+  gender: null,
   location: {
     address: null,
     tier: null,
