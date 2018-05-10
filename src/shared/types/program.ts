@@ -13,6 +13,7 @@ interface Program {
 
   programName: string
   programType: string
+  programTypeID: string
   category: string
 
   cpsPageURL: string

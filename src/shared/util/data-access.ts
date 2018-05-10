@@ -43,7 +43,7 @@ export const getNonSECutoffScoresTable = (): Promise<{[programID: string]: Cutof
   return makeDataRequest(NON_SE_CUTOFF_SCORES_URL);
 };
 
-export const getProgramTypeIDTable = (): Promise<{[programTypeID: string]: string}> => {
+export const getProgramTypeNameTable = (): Promise<{[programTypeID: string]: string}> => {
   return makeDataRequest(PROGRAM_TYPE_ID_TABLE_URL);
 };
 

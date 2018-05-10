@@ -1,23 +1,36 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { List, Map } from "immutable";
 import { createSelector } from "reselect";
 
-import AppState from "shared/types/app-state";
-import Program from "shared/types/program";
-import SuccessChance from "shared/enums/success-chance";
+import { 
+  AppState,
+  Program,
+  ProgramGroup
+} from "shared/types";
+import { SuccessChance } from "shared/enums";
+
+import { selectHSProgram } from "shared/redux/actions";
 
 import HSProgramList from "./hs-program-list";
 
-import { selectHSProgram } from "shared/actions";
-
+const getProgramGroupDict = (state: AppState) => state.hsData.hsProgramGroups;
+const selectProgramGroups = createSelector(
+  [getProgramGroupDict],
+  (programGroupDict): ProgramGroup[] => {
+    // convert dictionary of program groups to an
+    // array of program groups alphabetically sorted by program
+    // group display name.
+    const programGroups: ProgramGroup[] = Object.keys(programGroupDict).map( groupID => programGroupDict[groupID] );
+    return programGroups.sort( (groupA, groupB) => groupA.name.localeCompare(groupB.name) );
+  }
+);
 
 const mapStateToProps = (state: AppState) => {
   return {
-    programs: state.getIn(['hsData', 'hsPrograms']),
-    outcomes: state.getIn(['hsData', 'programOutcomes']),
-    groups: state.getIn(['hsData', 'hsGroups']),
-    selectedProgramID: state.get('selectedHSProgramID')
+    programs: state.hsData.hsPrograms,
+    outcomes: state.programOutcomes, 
+    programGroups: selectProgramGroups,
+    selectedProgramID: state.selectedHSProgramID
   }
 };
 

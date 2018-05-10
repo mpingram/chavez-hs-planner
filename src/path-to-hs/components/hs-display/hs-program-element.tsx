@@ -1,7 +1,11 @@
 import * as React from "react";
 
-import HSProgram from "shared/types/hs-program";
-import SuccessChance from "shared/enums/success-chance";
+import { 
+  Program, 
+  ProgramOutcome
+} from "shared/types";
+import { SuccessChance } from "shared/enums";
+
 import SchoolIcon from "shared/components/icons/school";
 import OutcomeCertainIcon from "shared/components/icons/outcome-certain";
 import OutcomeLikelyIcon from "shared/components/icons/outcome-likely";
@@ -13,9 +17,10 @@ import OutcomeNotImplementedIcon from "shared/components/icons/outcome-notimplem
 import HSProgramInfoCard from "./hs-program-info-card";
 
 interface HSProgramElemProps {
-  program: HSProgram
+  program: Program
+  outcome: ProgramOutcome
   selected: boolean
-  onSelect: (id: string) => any
+  onSelect: (id: string | null) => any
 }
 
 interface HSProgramElemState {
@@ -33,7 +38,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
     super(props);
     this.state = { 
       visited: false,
-      combinedSuccessChance: this.getCombinedSuccessChance(props.program),
+      combinedSuccessChance: props.outcome.overallChance,
       showHSPreview: props.selected,
       pxFromTop: 0,
     };
@@ -42,7 +47,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
   componentWillReceiveProps(nextProps) {
     this.setState({
       showHSPreview: nextProps.selected,
-      combinedSuccessChance: this.getCombinedSuccessChance(nextProps.program)
+      combinedSuccessChance: nextProps.outcome.overallChance
     });
   }
 
@@ -91,26 +96,18 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
             }
           </div>
           <div className={`hs-list-element-shortname ${this.state.visited ? "visited" : ""}`}>
-            {this.props.program.shortname}
+            {this.props.program.schoolNameShort}
           </div>
         </button>
         <HSProgramInfoCard 
           visible={this.state.showHSPreview} 
           program={this.props.program}
+          outcome={this.props.outcome}
           style={{top: this.state.pxFromTop}}
           onCloseButtonClick={ ev => this.props.onSelect(null) }
         />
       </div>
     )
-  }
-
-  private getCombinedSuccessChance = (program: HSProgram) => {
-    if (program.applicationOutcome === SuccessChance.CERTAIN || 
-      program.applicationOutcome === SuccessChance.LIKELY) {
-      return program.selectionOutcome;
-    } else {
-      return program.applicationOutcome;
-    }
   }
 
   private outcomeToClassName = (outcome: SuccessChance) => {

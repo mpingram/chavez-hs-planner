@@ -1,31 +1,6 @@
-Update student data form to work with changes to config system and store
+Update hs display components to work with changes to config system and store
 
-* NOTE there were many compiation errors that were fixed, relating to
-  import paths etc
-* NOTE changes made after enabling 'strictNullChecks' in typescript
-compiler.
-
-* update student data form redux-aware components to interface with the new and
-  improved store
-  ** NOTE deleting all of that crufty immutablejs and data mangling
-  logic in the selectors feels good
-
-* minor refactor in naming conventions and style for student data form
-  field components
-
-* fix bug in shared form field component DropdownField -- did not
-specify nullable value in props interface
-
-* DONE remove MultiSelectField from student data form
-  ** NOTE due to tight coupling between the way I designed the
-  multiselect field and the app's data, it caused a lot of data
-  munging, before and after the refactor that I attempted. I could
-  either fully rewrite it ('better this time!') or push it out of the
-  way and replace it (and hopefully all the other fields) with a form
-  field libarary.
-  ** NOTE TO SELF These leaky abstractions I've created in the name of 'efficiency'
-  are hindrances. I need to be more careful about my instinct to
-  hand-roll my own solutions rather than use libraries; frequently my
-  hand rolled code is too clever and brittle to keep up with my changes.
-  
+* Add hsProgramGroups property to redux store.
+  ** Automatically create program groups at redux store initialization
+  using program group ids.
 

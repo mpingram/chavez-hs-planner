@@ -1,12 +1,19 @@
 import * as React from "react";
 
-import HSProgram from "shared/types/hs-program";
-import SuccessChance from "shared/enums/success-chance";
+import {
+  Program,
+  ProgramOutcome
+} from "shared/types";
+
+import {
+  SuccessChance
+}from "shared/enums";
 
 import "./hs-program-info-card.scss";
 
 interface HSInfoCardProps {
-  program: HSProgram 
+  program: Program 
+  outcome: ProgramOutcome
   visible: boolean
   style: Object
   onCloseButtonClick: React.MouseEventHandler<HTMLButtonElement>
@@ -15,7 +22,7 @@ interface HSInfoCardProps {
 const HSProgramInfoCard = (props: HSInfoCardProps) => {
   
   const toMessage = (success: SuccessChance): string => {
-    let msg: string;
+    let msg: string = "";
     switch(success) {
         case SuccessChance.CERTAIN:
           msg = "You meet this requirement.";
@@ -34,33 +41,12 @@ const HSProgramInfoCard = (props: HSInfoCardProps) => {
         break;
         case SuccessChance.NOTIMPLEMENTED:
           msg = "We don't know enough about this requirement to tell you.";
+        default:
+          msg = "We don't know enough about this requirement to tell you.";
+          console.error(`Unrecognized SuccessChance ${success.toString()} at program ${props.program.programName}`);
         break;
     }
     return msg;
-  };
-
-  // TODO move this waayyyy out of here
-  const createHSBoundLink = (name: string): string => {
-    // remove "HS" from end
-    let words = name.split(" ");
-    const lastWord = words[words.length - 1];
-    if (lastWord === "HS") {
-      words.pop();
-    }
-    const capitalizedWords = ["TEAM", "UIC", "CCA",];
-    // convert name to title case (!!!)
-    const titleCaseWords = words.map( word => {
-      if (capitalizedWords.indexOf(word) === -1) {
-        const letters = word.toLowerCase().split("");
-        letters[0] = letters[0].toUpperCase();
-        return letters.join("");
-      } else {
-        return word;
-      }
-    });
-    // replace " " with "-"
-    const schoolName = titleCaseWords.join("-");
-    return `https://hsbound.org/school/${schoolName}`;
   };
 
   return (
@@ -76,7 +62,7 @@ const HSProgramInfoCard = (props: HSInfoCardProps) => {
           X
         </button>
         <div className="hs-info-card-program-name">
-          {`${props.program.shortname} - ${props.program.programType} Program`}
+          { props.program.programName }
         </div>
         <div className="hs-info-card-requirement-container">
           <div className="hs-info-card-requirement">
@@ -89,7 +75,7 @@ const HSProgramInfoCard = (props: HSInfoCardProps) => {
               </div>
             </div>
             <div className="hs-info-card-req-success">
-              {toMessage(props.program.applicationOutcome)}
+              {toMessage(props.outcome.applicationChance)}
             </div>
           </div>
           <div className="hs-info-card-requirement">
@@ -102,13 +88,14 @@ const HSProgramInfoCard = (props: HSInfoCardProps) => {
               </div>
             </div>
             <div className="hs-info-card-req-success">
-              {toMessage(props.program.selectionOutcome)}
+              {toMessage(props.outcome.selectionChance)}
             </div>
           </div>
         </div>
         <div className="hs-links-container">
-          <a className="hs-link" target="_none" href={props.program.cpsLink}>School Website</a>
-          <a className="hs-link" target="_none" href={createHSBoundLink(props.program.shortname)}>HS Bound School Page</a>
+          <a className="hs-link" target="_none" href={props.program.cpsPageURL}>CPS School Page</a>
+          <a className="hs-link" target="_none" href={props.program.schoolPageURL}>School Website</a>
+          <a className="hs-link" target="_none" href={props.program.hsBoundURL}>HS Bound School Page</a>
         </div>
       </div>
     </div>

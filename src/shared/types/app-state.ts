@@ -2,7 +2,7 @@ import {
   StudentData, 
   ProgramOutcome,
   ProgramDictionary, 
-  ProgramGroup,
+  ProgramGroupDictionary,
   SchoolDictionary
 } from "shared/types";
 
@@ -16,7 +16,7 @@ export interface AppState {
     hsPrograms: ProgramDictionary,
     esPrograms: ProgramDictionary,
     hsSchools: SchoolDictionary
-    hsGroups: ProgramGroup[]
+    hsProgramGroups: ProgramGroupDictionary
   }
 
   // HS list

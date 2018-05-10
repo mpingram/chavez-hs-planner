@@ -2,6 +2,7 @@ import {
   AppState,
   Program,
   ProgramDictionary,
+  ProgramGroupDictionary,
   School,
   SchoolDictionary
 } from "shared/types";
@@ -9,16 +10,18 @@ import {
 import {
   getHSPrograms,
   getNonHSPrograms,
+  getProgramTypeNameTable,
 } from "shared/util/data-access";
 
 import { initialStudentData } from "./initial-student-data";
 import { createInitialProgramOutcomeDictionary } from "./create-program-outcome-dictionary";
 
 /*
- * Load highschool programs and non-highschool programs into memory.
+ * Load external data into memory.
  * */
 let hsProgramDict: ProgramDictionary = {};
 let nonHSProgramDict: ProgramDictionary = {};
+let programTypeNameTable: {[programTypeID: string]: string} = {};
 getHSPrograms().then( (programs: Program[]) => {
   programs.forEach( program => {
     hsProgramDict[program.id] = program;
@@ -28,6 +31,9 @@ getNonHSPrograms().then( (programs: Program[]) => {
   programs.forEach( program => {
     nonHSProgramDict[program.id] = program;
   })
+});
+getProgramTypeNameTable().then( table => {
+  programTypeNameTable = table;
 });
 
 /*
@@ -49,6 +55,31 @@ Object.keys(hsProgramDict).forEach( programID => {
   }
 });
 
+/*
+ * Create groups of High school programs based on their programType properties.
+ * */
+let hsProgramGroupDict: ProgramGroupDictionary = {};
+Object.keys(hsProgramDict).forEach( programID => {
+  const program = hsProgramDict[programID];
+  const programTypeID = program.programTypeID;
+
+  // if this program group does not already exist, 
+  // create a new program group and add it to the program group dict.
+  if (hsProgramGroupDict[programTypeID] === undefined) {
+    const newProgramGroup = {
+      id: programTypeID,
+      // look up the display name for this program type.
+      name: programTypeNameTable[programTypeID],
+      programIDs: [program.id]
+    };
+    hsProgramGroupDict[programTypeID] = newProgramGroup;
+
+  // otherwise, add this program's id to the existing group.
+  } else {
+    hsProgramGroupDict[programTypeID].programIDs.push(program.id);
+  }
+});
+
 export const initialState: AppState = {
   studentData: initialStudentData,
   programOutcomes: createInitialProgramOutcomeDictionary(hsProgramDict),
@@ -56,7 +87,7 @@ export const initialState: AppState = {
     hsPrograms: hsProgramDict,
     esPrograms: nonHSProgramDict,
     hsSchools: hsSchoolDict,
-    hsGroups: []
+    hsProgramGroups: hsProgramGroupDict
   },
   selectedHSProgramID: null
 };

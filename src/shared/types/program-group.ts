@@ -1,7 +1,7 @@
 interface ProgramGroup {
-  groupName: string
+  id: string,
+  name: string,
   programIDs: string[]
-  subGroups: ProgramGroup[]
 }
 
 export {ProgramGroup};

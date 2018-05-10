@@ -1,7 +1,10 @@
 import * as React from "react";
 
-import Program from "shared/types/program";
-import ProgramGroup from "shared/types/program-group";
+import {
+  Program,
+  ProgramGroup,
+  ProgramOutcomeDictionary
+} from "shared/types";
 
 import SearchBar from "shared/components/ui/search-bar";
 
@@ -9,7 +12,8 @@ import HSGroup from "./hs-group";
 
 interface HSProgramListProps {
   programs: Program[]
-  groups: ProgramGroup[]
+  programGroups: ProgramGroup[]
+  outcomes: ProgramOutcomeDictionary
   selectedProgramID: string
   onSelectedProgramIDChange: (id: string) => any
 }
@@ -29,22 +33,6 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
     };
   }
 
-
-  private filterBySearchTerm = (programs: Program[], searchTerm: string): Program[] => {
-
-    if (searchTerm.trim() === "") {
-      return programs;
-    }
-
-    const term = searchTerm.trim().toLowerCase();
-    const hasTerm = (text: string) => {
-      return text.toLowerCase().indexOf(term) != -1;
-    };
-
-    return programs.filter( program => {
-      return hasTerm(program.programName);
-    });
-  }
 
   render() {
     return (
@@ -71,15 +59,27 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
           }}
         >
           {
-          this.props.groups.map( group => {
-            const programs = group.programIDs.map( programID => this.props.programs[programID] );
+          /* 
+           * Iterate through the hsProgramGroups passed in through props.
+           * For each program group, render a HSGroup component containing the programs
+           * with the ids specified in the program group.
+           * */
+          this.props.programGroups.map( group => {
+            // get this group's programs by looking up programIDs.
+            const programs: Program[] = group.programIDs.map( programID => this.props.programs[programID] );
+            // filter the programs by the current search term.
             const filteredPrograms = this.filterBySearchTerm(programs, this.state.searchTerm);
+
             if (filteredPrograms.length > 0) {
               return (
-                <div
-                  key={group.groupName}
-                >
-                </div>
+                <HSGroup
+                  key={group.id}
+                  title={group.name}
+                  programs={filteredPrograms}
+                  outcomes={this.props.outcomes}
+                  selectedProgramID={this.props.selectedProgramID}
+                  onSelectedProgramIDChange={this.handleSelectedProgramIDChange}
+                />
               )
             }
           })
@@ -88,6 +88,27 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
       </div>
     );
   }
+
+  private filterBySearchTerm = (programs: Program[], searchTerm: string): Program[] => {
+    // if search term is empty, return early.
+    if (searchTerm.trim() === "") {
+      return programs;
+    }
+
+    const term = searchTerm.trim().toLowerCase();
+    const hasTerm = (text: string) => {
+      return text.toLowerCase().indexOf(term) != -1;
+    };
+
+    return programs.filter( program => {
+      return hasTerm(program.programName);
+    });
+  }
+
+  private handleSelectedProgramIDChange = (id: string) => {
+    this.props.onSelectedProgramIDChange(id);
+  }
+
 };
 
 export default HSProgramList;

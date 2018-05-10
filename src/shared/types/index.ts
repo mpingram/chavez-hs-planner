@@ -4,6 +4,7 @@ export * from "./limiter";
 export * from "./letter-grade";
 export * from "./program-dictionary";
 export * from "./program-group";
+export * from "./program-group-dictionary";
 export * from "./program-id";
 export * from "./program-outcome";
 export * from "./program-outcome-dictionary";
