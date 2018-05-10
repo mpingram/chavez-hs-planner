@@ -1,8 +1,8 @@
-[WIP] Refactor redux store
+Refactor redux store
 
-* WIP remove immutablejs dependency
-* DONE move redux code into shared/redux
-* DONE rewrite root reducer
-* TODO rewrite initial state
+* remove immutablejs dependency
+* move redux code into shared/redux
+* rewrite root reducer
+* rewrite initial state
 
 
