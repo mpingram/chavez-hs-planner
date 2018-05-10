@@ -1,10 +1,10 @@
 import * as Redux from "redux";
 
-import { StudentData, } from "shared/types";
+import { StudentData } from "shared/types";
 
 import { ActionType } from "shared/enums";
 
-import calculateGPA from "shared/util/calculcate-gpa";
+import calculateGPA from "shared/util/calculate-gpa";
 
 export const studentDataReducer: Redux.Reducer<StudentData> = (studentData: StudentData, action: Redux.AnyAction): StudentData => {
   let nextStudentData: StudentData = studentData;

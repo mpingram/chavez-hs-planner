@@ -9,7 +9,7 @@ import ComboBoxField from "./combo-box-field";
 import debounce from "shared/util/debounce";
 
 interface MultiSelectProps<T> {
-  values: T[] | null
+  values: any[]
   onChange: (newValues: T[] ) => any
   data: ListData<T>
 
@@ -25,7 +25,6 @@ interface MultiSelectProps<T> {
 }
 
 const MultiSelectField: React.SFC<MultiSelectProps<any>> = (props) => {
-
 
   const createOnChangeHandler = (index: number): (newValue: any) => void => {
     return (newValue: any) => {
@@ -48,8 +47,6 @@ const MultiSelectField: React.SFC<MultiSelectProps<any>> = (props) => {
     };
   };
 
-  const data = removeFromListData(props.data, props.values);
-
   const removeElemAtIndex = (arr: any[], i: number): any[] => {
     if (arr.length === 0) {
       return [];
@@ -60,6 +57,7 @@ const MultiSelectField: React.SFC<MultiSelectProps<any>> = (props) => {
     }
   };
 
+  const unselectedElements = removeFromListData(props.data, props.values);
   return (
     <FieldContainer
       label={props.label}
@@ -68,12 +66,12 @@ const MultiSelectField: React.SFC<MultiSelectProps<any>> = (props) => {
       { props.values && props.values.map( (value, i) => {
         return (
           <div 
-            key={props.data.getKey(value)}
+            key={value}
             style={{width: "100%", display: "flex", flexDirection: "row", alignItems: "center"}}>
             <ComboBoxField 
-              value={value}
+              value={props.data}
               onChange={createOnChangeHandler(i)}
-              data={data}
+              data={unselectedElements}
               debounceTime={props.debounceTime}
             />
             <button 
@@ -96,7 +94,7 @@ const MultiSelectField: React.SFC<MultiSelectProps<any>> = (props) => {
                                          : [newValue];
           props.onChange(newValues);
         } }
-        data={data}
+        data={unselectedElements}
         debounceTime={props.debounceTime}
       />
     </FieldContainer>

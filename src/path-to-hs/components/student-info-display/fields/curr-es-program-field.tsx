@@ -13,12 +13,12 @@ import ComboBoxField  from "shared/components/ui/fields/combo-box-field";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
-interface FieldProps {
+interface CurrESProgramFieldProps {
   currProgramID: string | null
   programs: Program[]
   onChange: (newProgramID: string) => any
 }
-const Field = (props: FieldProps) => (
+const CurrESProgramField = (props: CurrESProgramFieldProps) => (
   <ComboBoxField
     label="What elementary school program are you in now?"
     value={props.currProgramID}
@@ -91,4 +91,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export const CurrESProgramField = connect(mapStateToProps, mapDispatchToProps)(Field);
+export const CurrESProgramFieldContainer = connect(mapStateToProps, mapDispatchToProps)(CurrESProgramField);

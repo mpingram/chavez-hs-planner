@@ -2,12 +2,16 @@ import * as React from "react";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 import between from "shared/util/limiters/between";
-import ScoreType from "shared/enums/score-type";
+import { ScoreType } from "shared/enums";
 import { connectScoreType } from "./connect-score-type";
 
 import NumberField from "shared/components/ui/fields/number-field";
 
-const Field = (props) => {
+interface ScoreFieldProps {
+  value: number | null
+  onChange: (newValue: number) => any
+}
+const SETestField: React.SFC<ScoreFieldProps> = (props) => {
   return <NumberField
     label="Selective Enrollment Test Percentile"
     value={props.value}
@@ -17,4 +21,4 @@ const Field = (props) => {
   />
 }
 
-export const SETestScoreField = connectScoreType(ScoreType.seTestPercentile)(Field);
+export const SETestFieldContainer = connectScoreType(ScoreType.seTestPercentile)(SETestField);

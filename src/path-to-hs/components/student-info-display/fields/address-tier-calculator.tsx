@@ -16,10 +16,10 @@ interface AddrTierCalcProps {
 
 interface AddrTierCalcState {
   address: string
-  tier: string
+  tier: string | null
   geo: {latitude: number, longitude: number}
   request?: Promise<string> 
-  timeoutInstance?: Timeout | null
+  timeoutInstance: Timeout | null
   requestInProgress: boolean
   addressValidationState: FieldValidationState
   errMsg: string | null

@@ -2,7 +2,8 @@ import {
   StudentData, 
   ProgramOutcome,
   ProgramDictionary, 
-  ProgramGroup 
+  ProgramGroup,
+  SchoolDictionary
 } from "shared/types";
 
 export interface AppState {
@@ -14,7 +15,7 @@ export interface AppState {
   hsData: {
     hsPrograms: ProgramDictionary,
     esPrograms: ProgramDictionary,
-    hsSchoolNames: {[schoolID: string]: string}
+    hsSchools: SchoolDictionary
     hsGroups: ProgramGroup[]
   }
 

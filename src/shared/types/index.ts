@@ -13,5 +13,7 @@ export * from "./student-data";
 export * from "./student-location";
 export * from "./cutoff-scores";
 export * from "./tiered-cutoff-scores";
+export * from "./school";
+export * from "./school-dictionary";
 
 

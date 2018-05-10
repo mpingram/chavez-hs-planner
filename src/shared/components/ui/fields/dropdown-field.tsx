@@ -5,7 +5,7 @@ import FieldContainer from "./field-container";
 import debounce from "shared/util/debounce";
 
 interface DropdownFieldProps {
-  value: string
+  value: string | null
   onChange: (newValue: string) => any
 
   label?: string

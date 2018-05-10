@@ -17,7 +17,8 @@ const toPoints = (letterGrade): number => {
   }
 }
 
-const calculateGPA = (...letterGrades: LetterGrade[]): number | null => {
+type NullableLetterGrade = LetterGrade | null
+const calculateGPA = (...letterGrades: NullableLetterGrade[]): number | null => {
   const numGrades = letterGrades.length;
   let gradePointSum = 0;
   
@@ -25,7 +26,7 @@ const calculateGPA = (...letterGrades: LetterGrade[]): number | null => {
   for (let i=0; i < letterGrades.length; i++) {
     const letterGrade = letterGrades[i];
 
-    // if any grades are null, return early with null.
+    // if any letter grades are null, return early with null.
     if (letterGrade === null) {
       return null;
     }

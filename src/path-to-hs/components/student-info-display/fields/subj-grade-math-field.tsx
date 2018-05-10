@@ -1,12 +1,17 @@
 import * as React from "react";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
-import ScoreType from "shared/enums/score-type";
+import { LetterGrade } from "shared/types";
+import { ScoreType } from "shared/enums";
 import { connectScoreType } from "./connect-score-type";
 
 import DropdownField from "shared/components/ui/fields/dropdown-field";
 
-const Field = (props) => {
+interface GradeFieldProps {
+  value: LetterGrade | null
+  onChange: (newValue: LetterGrade) => any
+}
+const SubjGradeMathField: React.SFC<GradeFieldProps> = (props) => {
   return <DropdownField
     label="Math Grade"
     value={props.value}
@@ -21,4 +26,4 @@ const Field = (props) => {
   </DropdownField>
 }
 
-export const SubjGradeMathField = connectScoreType(ScoreType.subjGradeMath)(Field);
+export const SubjGradeMathFieldContainer = connectScoreType(ScoreType.subjGradeMath)(SubjGradeMathField);

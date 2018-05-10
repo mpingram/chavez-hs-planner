@@ -1,7 +1,9 @@
 import { 
   AppState,
   Program,
-  ProgramDictionary
+  ProgramDictionary,
+  School,
+  SchoolDictionary
 } from "shared/types";
 
 import {
@@ -32,14 +34,18 @@ getNonHSPrograms().then( (programs: Program[]) => {
  * Create map of unique school ids to school names
  * in high school programs.
  * */
-let hsSchoolNameDict: {[schoolID: string]: string} = {};
+let hsSchoolDict: SchoolDictionary = {};
 Object.keys(hsProgramDict).forEach( programID => {
   const program = hsProgramDict[programID];
   // Many programs share the same schoolID and schoolName properties.
   // Only add the schoolID/schoolName to hsSchoolDict if we have not
   // already encountered this schoolID as we iterate through programs.
-  if (hsSchoolNameDict[program.schoolID] === undefined) {
-    hsSchoolNameDict[program.schoolID] = program.schoolNameLong;  
+  if (hsSchoolDict[program.schoolID] === undefined) {
+    hsSchoolDict[program.schoolID] = {
+      id: program.schoolID,
+      longName: program.schoolNameLong,
+      shortName: program.schoolNameShort
+    }
   }
 });
 
@@ -49,7 +55,7 @@ export const initialState: AppState = {
   hsData: {
     hsPrograms: hsProgramDict,
     esPrograms: nonHSProgramDict,
-    hsSchoolNames: hsSchoolNameDict,
+    hsSchools: hsSchoolDict,
     hsGroups: []
   },
   selectedHSProgramID: null
