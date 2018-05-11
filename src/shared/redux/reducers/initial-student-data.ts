@@ -2,11 +2,7 @@ import { StudentData } from "shared/types";
 
 export const initialStudentData: StudentData = {
   gender: null,
-  location: {
-    address: null,
-    tier: null,
-    geo: {latitude: null, longitude: null},
-  },
+  location: null,
   gradeLevel: null,
   prevGradeLevel: null,
   iep: null,

@@ -1,17 +1,19 @@
 import {expect} from "chai";
 
-import StudentData from "../../../../../src/shared/types/student-data";
-import CPSProgram from "../../../../../src/shared/types/cps-program";
+import {
+  StudentData,
+  Program
+} from "shared/types";
 
-import {ifStudentAttendsOneOf} from "../../../../../src/shared/util/req-fn-builders/filters";
+import { ifStudentAttendsOneOf } from "shared/requirement-functions/requirement-function-builders/filters/if-student-attends-one-of";
 
 describe("ifStudentAttendsOneOf requirement function filter", () => {
 
   let s: StudentData;
-  let p: CPSProgram;
+  let p: Program;
   beforeEach( () => {
     s = {} as StudentData;
-    p = {} as CPSProgram;
+    p = {} as Program;
   });
 
   const PROGRAM_A = "a";
@@ -29,9 +31,6 @@ describe("ifStudentAttendsOneOf requirement function filter", () => {
   });
 
   it("should return a function that returns false if the student's current elementary school program is undefined or null", () => {
-    s.currESProgramID = undefined;
-    expect(ifStudentAttendsOneOf(PROGRAM_A, PROGRAM_B, PROGRAM_C)(s, p)).to.eq(false);
-
     s.currESProgramID = null;
     expect(ifStudentAttendsOneOf(PROGRAM_A, PROGRAM_B, PROGRAM_C)(s, p)).to.eq(false);
   });

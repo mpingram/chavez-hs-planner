@@ -1,18 +1,17 @@
 import { ReqFnFilter} from "./";
-import isUninitialized from "shared/util/is-uninitialized";
 
 import pointInPolygon from "shared/util/point-in-polygon";
 
-declare const require: any;
-const schoolAttendBoundTable = require("../../../data/school-geometry-table.json");
+import { getSchoolAttendanceBoundaryTable } from "shared/util/data-access";
+
+let schoolAttendBoundTable;
+getSchoolAttendanceBoundaryTable().then( table => {
+  schoolAttendBoundTable = table;
+});
 
 export const ifInAttendBound: ReqFnFilter = (student, program) => {
   // return false immediately if student properties are uninitialized
-  if (isUninitialized(student.location)) {
-    return false;
-  } else if (isUninitialized(student.location.geo)) {
-    return false;
-  } else if (isUninitialized(student.location.geo.latitude) || isUninitialized(student.location.geo.longitude)) {
+  if (student.location === null) {
     return false;
   }
 

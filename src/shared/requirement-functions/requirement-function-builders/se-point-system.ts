@@ -2,16 +2,33 @@ import {
   RequirementFunction,
   StudentData,
   Program,
+  TieredCutoffScores
 } from "shared/types";
 
 import { SuccessChance } from "shared/enums";
 
-import { getSECutoffTable } from "shared/util/data-access";
-const sePrevScores = getSECutoffTable();
+import { getSECutoffScoresTable } from "shared/util/data-access";
+let seCutoffTable = {};
+getSECutoffScoresTable().then( table => {
+  seCutoffTable = table;
+});
 
-type PrevYearAcceptanceLookup = (student, program) => {min: number, avg: number, max: number}
+const sePointCalc = (student: StudentData, program: Program): number | null => {
 
-const sePointCalc = (student: StudentData, program: Program): number => {
+  // if any needed student data is null, return early with null
+  if (student.nweaPercentileMath === null ||
+    student.nweaPercentileRead === null ||
+    student.subjGradeMath === null ||
+    student.subjGradeRead === null ||
+    student.subjGradeSci === null ||
+    student.subjGradeSocStudies === null ||
+    student.seTestPercentile === null
+  ) {
+
+    return null;
+  }
+
+
   // calculate points for NWEA scores
   const NWEA_SCORE_CONSTANT = 1.515;
   const nweaMathPoints = Math.round(student.nweaPercentileMath * NWEA_SCORE_CONSTANT);
@@ -45,13 +62,18 @@ const sePointCalc = (student: StudentData, program: Program): number => {
   return sePoints;
 };
 
-const seLookup: PrevYearAcceptanceLookup = (student, school)  => {
+const seLookup  = (student: StudentData, program: Program): TieredCutoffScores  => {
   // TODO: this ignores rank cutoff scores, assuming that if you make it
   // past your tier cutoff scores you're good. Make double sure that's a
   // good assumption.
-  const cutoff = sePrevScores[school.School_ID];
+  const cutoff = seCutoffTable[program.schoolID];
   if (cutoff === undefined) {
-    throw new Error(`School ${school.Long_Name} not found in SE Cutoff scores`); 
+    throw new Error(`Program ${program.programName} not found in SE Cutoff scores`); 
+  }
+  // uninitialzed student data should not be passed to this function; if it is,
+  // throw an error.
+  if (student.location === null) {
+    throw new Error("Null student location");
   }
   switch(student.location.tier) {
     case '1':
@@ -68,6 +90,20 @@ const seLookup: PrevYearAcceptanceLookup = (student, school)  => {
 };
 
 export const sePointSystem: RequirementFunction = (student, program)  => {
+  // if student data is not initialized, return early with NOTIMPLEMENTED
+  if (student.nweaPercentileMath === null ||
+    student.nweaPercentileRead === null ||
+    student.subjGradeMath === null ||
+    student.subjGradeRead === null ||
+    student.subjGradeSci === null ||
+    student.subjGradeSocStudies === null ||
+    student.seTestPercentile === null ||
+    student.location === null
+  ) {
+
+    return SuccessChance.NOTIMPLEMENTED;
+  }
+  
   const points = sePointCalc(student, program);
   let prevScores;
   try {
@@ -76,7 +112,7 @@ export const sePointSystem: RequirementFunction = (student, program)  => {
     return SuccessChance.NOTIMPLEMENTED;
   }
 
-  if (isNaN(points)) {
+  if (points === null || isNaN(points)) {
     console.error("received NaN for sePointCalc");
     return SuccessChance.NOTIMPLEMENTED;
   }

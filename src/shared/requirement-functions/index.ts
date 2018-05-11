@@ -1,6 +1,6 @@
 import {requirementFunctions} from "./requirement-functions";
 
-
+// FIXME literally does this do anything
 function minifyRequirementFunctions(reqFns) {
   // shallow copy the original object
   let reqFnsCopy = Object.assign({}, reqFns);

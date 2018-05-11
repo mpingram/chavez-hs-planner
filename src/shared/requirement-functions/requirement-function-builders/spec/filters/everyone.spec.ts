@@ -1,17 +1,18 @@
 import {expect} from "chai";
 
-import StudentData from "../../../../../src/shared/types/student-data";
-import CPSProgram from "../../../../../src/shared/types/cps-program";
+import { 
+  StudentData,
+  Program
+} from "shared/types";
 
-import {everyone} from "../../../../../src/shared/util/req-fn-builders/filters";
+import { everyone } from "shared/requirement-functions/requirement-function-builders/filters";
 
 const s = {} as StudentData;
-const p = {} as CPSProgram;
+const p = {} as Program;
 
 describe("everyone filter function", () => {
   it("should always return true, no matter the input", () => {
     expect(everyone(s,p)).to.equal(true);
-    expect(everyone(null, null)).to.equal(true);
   });
 });
 

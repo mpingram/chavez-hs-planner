@@ -1,6 +1,1 @@
-Update hs display components to work with changes to config system and store
-
-* Add hsProgramGroups property to redux store.
-  ** Automatically create program groups at redux store initialization
-  using program group ids.
-
+Fix remaining app typescript compilation errors

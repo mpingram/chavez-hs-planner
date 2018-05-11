@@ -7,16 +7,20 @@ import {
 import { SuccessChance } from "shared/enums";
 import { POINT_SYSTEM_UNCERTAINTY_THRESHOLD } from "../constants";
 
-type PointCalculator = (student: StudentData, program: Program) => number;
+type PointCalculator = (student: StudentData, program: Program) => number | null;
 type PointCutoffLookup = (student: StudentData, program: Program) => number;
 
 type PointSystemFn = (calc: PointCalculator, lookup: PointCutoffLookup) => RequirementFunction;
-
 
 export const pointSystem: PointSystemFn = (calc, lookup) => {
   return (student, program) => {
 
     const points = calc(student, program);
+    // point calculator may return null if called with uninitialized
+    // student data; in that case, return NOTIMPLEMENTED as a default
+    if (points === null) {
+      return SuccessChance.NOTIMPLEMENTED;
+    }
     const cutoff = lookup(student, program);
     const pointsFromCutoff = points - cutoff;
 

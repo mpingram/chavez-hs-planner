@@ -1,7 +1,7 @@
-import {Program} from "shared/types";
+import { Program } from "shared/types";
 
 import { ReqFnFilter} from "./";
-import {ifInAttendBound} from "./";
+import { ifInAttendBound } from "./";
 
 const ifInAttendBoundOf = (...schoolIDs: string[]): ReqFnFilter => {
   return (student, program) => {

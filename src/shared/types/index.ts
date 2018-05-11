@@ -16,5 +16,6 @@ export * from "./cutoff-scores";
 export * from "./tiered-cutoff-scores";
 export * from "./school";
 export * from "./school-dictionary";
+export * from "./lat-long";
 
 

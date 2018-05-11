@@ -5,7 +5,6 @@ const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 const config = {
   entry: {
     "app": path.resolve(__dirname, "src", "index.tsx"),
-    "requirement-functions": path.resolve(__dirname, "requirement-functions", "index.ts")
   },
   output: {
     filename: "[name].bundle.js",

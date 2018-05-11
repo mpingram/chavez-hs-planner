@@ -1,6 +1,5 @@
 import { ReqFnFilter} from "./";
 
-import isUninitialized from "shared/util/is-uninitialized";
 import {
   isValidNwea, 
   isValidCombinedNwea, 
@@ -19,8 +18,6 @@ interface StudentGrades {
 
 export const ifHasGrades = (grades: StudentGrades): ReqFnFilter => {
 
-  // check to make sure we didn't get a combination of
-  // 'bothNWEA', 'nweaMath' or 'nweaRead', 'combinedNWEA'
   const hasNweaMath = grades.nweaMath !== undefined 
   const hasNweaRead = grades.nweaRead !== undefined;
   const hasNweaMathOrRead = hasNweaMath || hasNweaRead;
@@ -73,59 +70,65 @@ export const ifHasGrades = (grades: StudentGrades): ReqFnFilter => {
   }
 
   return (student, program) => {
-    // check if student passes all grade thresholds
-    // compare NWEA
-    // ----------
-    if (hasNweaMathOrRead) {
-      if (hasNweaMath) {
-        if (isUninitialized(student.nweaPercentileMath)) {
+
+    // If we recieved either(/both) the nweaMath and nweaRead options,
+    // check the student's nweaMath or(/and) nweaRead scores.
+    if (grades.nweaMath !== undefined || grades.nweaRead !== undefined) {
+
+      if (grades.nweaMath !== undefined) {
+        if (student.nweaPercentileMath === null) {
           return false;
         } else if (student.nweaPercentileMath < grades.nweaMath) {
           return false;
         }
       }
-      if (hasNweaRead) {
-        if (isUninitialized(student.nweaPercentileRead)) {
+      if (grades.nweaRead !== undefined) {
+        if (student.nweaPercentileRead === null) {
           return false;
         } else if (student.nweaPercentileRead < grades.nweaRead) {
           return false;
         }
       }
-    } else if (hasNweaBoth) {
-      if (isUninitialized(student.nweaPercentileMath) || isUninitialized(student.nweaPercentileRead)) {
-        return false
+
+      // Else if we recieved the nweaBoth argument, check the student's
+      // nweaRead and nweaMath scores against the value of nweaBoth.
+    } else if (grades.nweaBoth !== undefined) {
+      if (student.nweaPercentileMath === null || student.nweaPercentileRead === null) {
+        return false;
       } else if (student.nweaPercentileMath < grades.nweaBoth || student.nweaPercentileRead < grades.nweaBoth) {
         return false;
       }
-    } else if (hasNweaCombined) {
-      if (isUninitialized(student.nweaPercentileMath) || isUninitialized(student.nweaPercentileRead)) {
+
+      // Else if we recieved the nweaCombined argument, check the student's
+      // nweaRead + nweaMath scores added together against the value of nweaCombined.
+    } else if (grades.nweaCombined !== undefined) {
+      if (student.nweaPercentileMath === null || student.nweaPercentileRead === null) {
         return false;
       } else if (student.nweaPercentileMath + student.nweaPercentileRead < grades.nweaCombined) {
         return false;
       }
     }
 
-    // compare GPA
-    // ----
-    if (hasGpa) {
-      if (isUninitialized(student.gpa)) {
+
+    // If we received the gpa option, check gpa.
+    if (grades.gpa !== undefined) {
+      if (student.gpa === null) {
         return false;
       } else if (student.gpa < grades.gpa) {
         return false;
       }
     }
 
-    // compare attendance
-    // ----
-    if (hasAttendance) {
-      if (isUninitialized(student.attendancePercentage)) {
+    // If we recieved the attendance option, check attendance.
+    if (grades.attendance !== undefined) {
+      if (student.attendancePercentage === null) {
         return false;
       } else if (student.attendancePercentage < grades.attendance) {
-        return false
+        return false;
       }
     }
 
-    // fallthrough: student has passed all tests
+    // fallthrough: student has passed all tests.
     return true;
   }
 };

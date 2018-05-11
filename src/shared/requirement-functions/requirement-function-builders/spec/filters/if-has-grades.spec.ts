@@ -1,14 +1,16 @@
-import {expect} from "chai";
+import { expect } from "chai";
 
-import StudentData from "../../../../../src/shared/types/student-data";
-import CPSProgram from "../../../../../src/shared/types/cps-program";
+import {
+  StudentData,
+  Program
+} from "shared/types";
 
-import {ifHasGrades} from "../../../../../src/shared/util/req-fn-builders/filters";
+import { ifHasGrades } from "shared/requirement-functions/requirement-function-builders/filters";
 
 describe("ifHasGrades hsReqFilter", () => {
 
   let s: StudentData;
-  let p: CPSProgram;
+  let p: Program;
 
   beforeEach( () => {
     s = {
@@ -18,7 +20,14 @@ describe("ifHasGrades hsReqFilter", () => {
       gradeLevel: 8,
       prevGradeLevel: 7,
       skippedGrade7OrRepeatedGrade8: false,
-      location: {},
+      location: {
+        address: "",
+        tier: "",
+        geo: {
+          latitude: 0,
+          longitude: 0
+        }
+      },
       currESProgramID: "",
       siblingHSSchoolIDs: [],
 
@@ -32,7 +41,8 @@ describe("ifHasGrades hsReqFilter", () => {
       subjGradeRead: 'C',
       subjGradeSocStudies: 'D' 
     } as StudentData;
-    p = {} as CPSProgram;
+
+    p = {} as Program;
   });
 
   it("should return true if the student grades are all greater than or equal to the specified grades", () => {
@@ -118,8 +128,8 @@ describe("ifHasGrades hsReqFilter", () => {
     expect(gradeFilterCombined(s,p)).to.equal(false);
   });
 
-  it("should return false if the student's grades compared to are undefined", () => {
-    s.nweaPercentileMath = undefined;
+  it("should return false if the student's grades compared to are null", () => {
+    s.nweaPercentileMath = null;
     s.nweaPercentileRead = 40;
 
     const gradeFilterRead = ifHasGrades({nweaRead: 40});

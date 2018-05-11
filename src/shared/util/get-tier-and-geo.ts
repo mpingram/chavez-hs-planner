@@ -1,6 +1,11 @@
-import TractTierTable from "../data/tract-tier-table"
-import createUrl from "shared/util/create-url";
 import * as JSONP from "browser-jsonp";
+
+import createUrl from "shared/util/create-url";
+import { getTractTierTable } from "shared/util/data-access";
+let tractTierTable = {};
+getTractTierTable().then( table => {
+  tractTierTable = table
+});
 
 export const GetTierError = {
   InvalidAddressErr: new Error("Invalid address"),
@@ -12,6 +17,7 @@ export interface TierAndGeoResponse {
   tier: string
   geo: {latitude: number, longitude: number}
 };
+
 
 export const getTierAndGeo = (address: string): Promise<TierAndGeoResponse> => {
 
@@ -97,7 +103,7 @@ const getTractAndGeo = (address: string): Promise<{tract: string, geo: {latitude
 
 const lookupTierFromTract = (tract: string): Promise<string> => {
   return new Promise( (resolve, reject) => {
-      const tier: string = TractTierTable[tract];
+      const tier: string = tractTierTable[tract];
       if (tier === undefined) {
         reject(GetTierError.NoTierFoundErr);
       } else {

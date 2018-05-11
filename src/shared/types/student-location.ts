@@ -1,9 +1,9 @@
 interface StudentLocation {
-  address: string | null
-  tier: string | null
+  address: string
+  tier: string
   geo: {
-    latitude: number | null
-    longitude: number | null
+    latitude: number
+    longitude: number
   }
 }
 

@@ -1,4 +1,4 @@
-import {RequirementFunction} from "shared/types";
+import { RequirementFunction } from "shared/types";
 
 interface Program {
   id: string
@@ -23,8 +23,8 @@ interface Program {
   applicationReqDescription: string
   selectionReqDescription: string
 
-  applicationReqFn: ProgramRequirementFunction,
-  selectionReqFn: ProgramRequirementFunction
+  applicationReqFn: RequirementFunction,
+  selectionReqFn: RequirementFunction
 }
 
 export {Program};

@@ -1,14 +1,26 @@
-import {RequirementFunction} from "shared/types/requirement-function";
-import {StudentData} from "shared/types/student-data";
-import {Program} from "shared/types/program";
+import { RequirementFunction } from "shared/types/requirement-function";
+import { StudentData } from "shared/types/student-data";
+import { Program } from "shared/types/program";
 
-import {pointSystem} from "./point-system";
-import {ifInAttendBound} from "./filters";
+import { pointSystem } from "./point-system";
+import { ifInAttendBound } from "./filters";
 
-import { getNonSECutoffTable } from "shared/util/data-access";
-const ibCutoffTable = getNonSECutoffTable();
+import { getNonSECutoffScoresTable } from "shared/util/data-access";
+const ibCutoffTable = getNonSECutoffScoresTable();
 
-const ibPointCalc = (student: StudentData, program: Program): number => {
+const ibPointCalc = (student: StudentData, program: Program): number | null => {
+
+  // if any needed student data is null, return early with null
+  if (student.nweaPercentileMath === null ||
+    student.nweaPercentileRead === null ||
+    student.subjGradeMath === null ||
+    student.subjGradeRead === null ||
+    student.subjGradeSci === null ||
+    student.subjGradeSocStudies === null) {
+
+    return null;
+  }
+
   const IB_NWEA_SCORE_CONSTANT = 2.2727;
   const IB_ATTEND_BOUND_BONUS_PTS = 50;
 

@@ -7,7 +7,7 @@ import {
 
 export interface StudentData {
     gender: Gender | null
-    location: StudentLocation
+    location: StudentLocation | null
     gradeLevel: number | null
     prevGradeLevel: number | null
     skippedGrade7OrRepeatedGrade8: boolean | null
@@ -16,7 +16,7 @@ export interface StudentData {
     iep: boolean | null
     attendancePercentage: number | null
     gpa: number | null
-    siblingHSSchoolIDs: string[]
+    siblingHSSchoolIDs: string[] | null
     seTestPercentile: number | null
     nweaPercentileMath: number | null
     nweaPercentileRead: number | null

@@ -67,7 +67,7 @@ import {
   KILMER_ES_PROGRAM,
   MCPHERSON_ES_PROGRAM,
   WEST_RIDGE_ES_PROGRAM,
-} from "./requirement-function-builders/constants";
+} from "./constants";
 
 
 interface ReqFnTable {
