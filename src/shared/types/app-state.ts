@@ -1,24 +1,19 @@
 import {
+  AppData,
+  ProgramOutcomeDictionary,
   StudentData, 
-  ProgramOutcome,
-  ProgramDictionary, 
-  ProgramGroupDictionary,
-  SchoolDictionary
 } from "shared/types";
 
 export interface AppState {
   
   studentData: StudentData;
 
-  programOutcomes: {[programID: string]: ProgramOutcome}
+  programOutcomes: ProgramOutcomeDictionary
 
-  hsData: {
-    hsPrograms: ProgramDictionary,
-    esPrograms: ProgramDictionary,
-    hsSchools: SchoolDictionary
-    hsProgramGroups: ProgramGroupDictionary
+  loadingStatus: {
+    loadingData: boolean
+    dataLoaded: boolean
   }
 
-  // HS list
-  selectedHSProgramID: string | null
+  data: AppData
 };

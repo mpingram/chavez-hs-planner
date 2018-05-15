@@ -1,12 +1,13 @@
 import * as Redux from "redux";
 
 import { StudentData } from "shared/types";
-
 import { ActionType } from "shared/enums";
 
 import calculateGPA from "shared/util/calculate-gpa";
 
-export const studentDataReducer: Redux.Reducer<StudentData> = (studentData: StudentData, action: Redux.AnyAction): StudentData => {
+import { initialStudentData } from "./initial-state";
+
+export const studentDataReducer: Redux.Reducer<StudentData> = (studentData = initialStudentData, action): StudentData => {
   let nextStudentData: StudentData = studentData;
   switch(action.type) {
     case ActionType.UpdateStudentGender:

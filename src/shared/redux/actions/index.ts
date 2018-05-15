@@ -6,6 +6,9 @@ import {
 
 import { StudentLocation } from "shared/types";
 
+export * from "./data-loading";
+export * from "./update-program-outcomes";
+
 export const selectHSProgram = (newValue: string) => {
   return {
     type: ActionType.SelectHSProgram,
@@ -164,3 +167,5 @@ export const updateStudentScore = (scoreType: ScoreType, newValue: number) => {
     payload: newValue
   };
 }
+
+

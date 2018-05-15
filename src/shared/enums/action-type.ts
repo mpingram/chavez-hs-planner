@@ -1,4 +1,6 @@
-enum ActionType {
+export enum ActionType {
+
+  /* student data */
   UpdateStudentGender,
   UpdateStudentLocation,
 
@@ -21,7 +23,25 @@ enum ActionType {
 
   UpdateStudentSETestPercentile,
 
-  SelectHSProgram
-}
+  /* outcomes */
+  UpdateProgramOutcomes,
 
-export {ActionType};
+  /* ui state */
+  SelectHSProgram,
+
+  /* data loading */
+  LoadingData,
+  DataLoaded, 
+
+  /* data */
+  UpdateHSPrograms,
+  UpdateNonHSPrograms,
+  UpdateHSSchools,
+  UpdateHSProgramGroups,
+
+  UpdateSECutoffScores,
+  UpdateNonSECutoffScores,
+  UpdateTractTierTable,
+  UpdateProgramTypeIDTable,
+  UpdateSchoolAttendanceBoundaryTable
+}

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 120);
+/******/ 	return __webpack_require__(__webpack_require__.s = 125);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -447,6 +447,51 @@ module.exports = reactProdInvariant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(243));
+__export(__webpack_require__(244));
+__export(__webpack_require__(245));
+__export(__webpack_require__(246));
+__export(__webpack_require__(43));
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.INPUT_DEBOUNCE_TIME = 250;
+exports.OutcomeCertainColor = "#5bed2a";
+exports.OutcomeLikelyColor = "#beee40";
+exports.OutcomeUncertainColor = "#f0e100";
+exports.OutcomeUnlikelyColor = "#f49600";
+exports.OutcomeNoneColor = "#f4743b";
+exports.OutcomeNotImplementedColor = "#999";
+exports.GEO_APPROX_DEG_KM_CONVERSION_FACTOR = 110.25;
+exports.GEO_APPROX_DEG_MI_CONVERSION_FACTOR = 68.5061739;
+exports.MILE_METER_CONVERSION_FACTOR = 1609.344;
+exports.PROGRAM_CATEGORY_HS = "HS";
+exports.PROGRAM_CATEGORY_ES = "ES";
+exports.HS_PROGRAMS_URL = "data/hs-programs.json";
+exports.NON_HS_PROGRAMS_URL = "data/non-hs-programs.json";
+exports.SE_CUTOFF_SCORES_URL = "data/se-cutoff-scores.json";
+exports.NON_SE_CUTOFF_SCORES_URL = "data/non-se-cutoff-scores.json";
+exports.PROGRAM_TYPE_ID_TABLE_URL = "data/program-type-id-table.json";
+exports.SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL = "data/school-attendance-boundary-table.json";
+exports.TRACT_TIER_TABLE_URL = "data/tract-tier-table.json";
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /*
 object-assign
 (c) Sindre Sorhus
@@ -540,7 +585,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -559,7 +604,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var _prodInvariant = __webpack_require__(4);
 
 var DOMProperty = __webpack_require__(20);
-var ReactDOMComponentFlags = __webpack_require__(74);
+var ReactDOMComponentFlags = __webpack_require__(79);
 
 var invariant = __webpack_require__(2);
 
@@ -741,28 +786,7 @@ module.exports = ReactDOMComponentTree;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.INPUT_DEBOUNCE_TIME = 250;
-exports.OutcomeCertainColor = "#5bed2a";
-exports.OutcomeLikelyColor = "#beee40";
-exports.OutcomeUncertainColor = "#f0e100";
-exports.OutcomeUnlikelyColor = "#f49600";
-exports.OutcomeNoneColor = "#f4743b";
-exports.OutcomeNotImplementedColor = "#999";
-exports.GEO_APPROX_DEG_KM_CONVERSION_FACTOR = 110.25;
-exports.GEO_APPROX_DEG_MI_CONVERSION_FACTOR = 68.5061739;
-exports.MILE_METER_CONVERSION_FACTOR = 1609.344;
-exports.PROGRAM_CATEGORY_HS = "HS";
-exports.PROGRAM_CATEGORY_ES = "ES";
-
-
-/***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -801,23 +825,6 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(239));
-__export(__webpack_require__(240));
-__export(__webpack_require__(241));
-__export(__webpack_require__(242));
-__export(__webpack_require__(243));
-
 
 /***/ }),
 /* 10 */
@@ -1271,7 +1278,7 @@ module.exports = emptyFunction;
 var debugTool = null;
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactDebugTool = __webpack_require__(146);
+  var ReactDebugTool = __webpack_require__(151);
   debugTool = ReactDebugTool;
 }
 
@@ -1284,9 +1291,9 @@ module.exports = { debugTool: debugTool };
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(247);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(256);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
@@ -1349,11 +1356,11 @@ module.exports = ReactCurrentOwner;
 
 
 var _prodInvariant = __webpack_require__(4),
-    _assign = __webpack_require__(5);
+    _assign = __webpack_require__(7);
 
-var CallbackQueue = __webpack_require__(78);
+var CallbackQueue = __webpack_require__(83);
 var PooledClass = __webpack_require__(24);
-var ReactFeatureFlags = __webpack_require__(79);
+var ReactFeatureFlags = __webpack_require__(84);
 var ReactReconciler = __webpack_require__(27);
 var Transaction = __webpack_require__(38);
 
@@ -1717,7 +1724,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(263);
+var	fixUrls = __webpack_require__(267);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -2046,7 +2053,7 @@ function updateLink (link, options, obj) {
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var PooledClass = __webpack_require__(24);
 
@@ -2307,8 +2314,13 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 
 "use strict";
 
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(9);
+const enums_1 = __webpack_require__(5);
+__export(__webpack_require__(279));
+__export(__webpack_require__(116));
 exports.selectHSProgram = (newValue) => {
     return {
         type: enums_1.ActionType.SelectHSProgram,
@@ -2699,7 +2711,7 @@ exports.connectScoreType = (scoreType) => (elem) => {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(33);
-const field_container_1 = __webpack_require__(43);
+const field_container_1 = __webpack_require__(45);
 const debounce_1 = __webpack_require__(34);
 class DropdownField extends React.PureComponent {
     constructor(props) {
@@ -2750,7 +2762,7 @@ exports.default = DropdownField;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var ReactCurrentOwner = __webpack_require__(14);
 
@@ -2758,7 +2770,7 @@ var warning = __webpack_require__(3);
 var canDefineProperty = __webpack_require__(35);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(69);
+var REACT_ELEMENT_TYPE = __webpack_require__(74);
 
 var RESERVED_PROPS = {
   key: true,
@@ -3215,26 +3227,26 @@ module.exports = PooledClass;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
-var ReactBaseClasses = __webpack_require__(67);
-var ReactChildren = __webpack_require__(121);
-var ReactDOMFactories = __webpack_require__(125);
+var ReactBaseClasses = __webpack_require__(72);
+var ReactChildren = __webpack_require__(126);
+var ReactDOMFactories = __webpack_require__(130);
 var ReactElement = __webpack_require__(23);
-var ReactPropTypes = __webpack_require__(129);
-var ReactVersion = __webpack_require__(131);
+var ReactPropTypes = __webpack_require__(134);
+var ReactVersion = __webpack_require__(136);
 
-var createReactClass = __webpack_require__(132);
-var onlyChild = __webpack_require__(134);
+var createReactClass = __webpack_require__(137);
+var onlyChild = __webpack_require__(139);
 
 var createElement = ReactElement.createElement;
 var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var lowPriorityWarning = __webpack_require__(46);
+  var lowPriorityWarning = __webpack_require__(48);
   var canDefineProperty = __webpack_require__(35);
-  var ReactElementValidator = __webpack_require__(71);
+  var ReactElementValidator = __webpack_require__(76);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -3397,7 +3409,7 @@ module.exports = reactProdInvariant;
 
 
 
-var ReactRef = __webpack_require__(144);
+var ReactRef = __webpack_require__(149);
 var ReactInstrumentation = __webpack_require__(12);
 
 var warning = __webpack_require__(3);
@@ -3569,11 +3581,11 @@ module.exports = ReactReconciler;
 
 
 
-var DOMNamespaces = __webpack_require__(54);
+var DOMNamespaces = __webpack_require__(56);
 var setInnerHTML = __webpack_require__(40);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(55);
-var setTextContent = __webpack_require__(83);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(57);
+var setTextContent = __webpack_require__(88);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -3693,10 +3705,10 @@ module.exports = DOMLazyTree;
 
 
 var EventPluginHub = __webpack_require__(30);
-var EventPluginUtils = __webpack_require__(48);
+var EventPluginUtils = __webpack_require__(50);
 
-var accumulateInto = __webpack_require__(75);
-var forEachAccumulated = __webpack_require__(76);
+var accumulateInto = __webpack_require__(80);
+var forEachAccumulated = __webpack_require__(81);
 var warning = __webpack_require__(3);
 
 var getListener = EventPluginHub.getListener;
@@ -3835,11 +3847,11 @@ module.exports = EventPropagators;
 var _prodInvariant = __webpack_require__(4);
 
 var EventPluginRegistry = __webpack_require__(37);
-var EventPluginUtils = __webpack_require__(48);
-var ReactErrorUtils = __webpack_require__(49);
+var EventPluginUtils = __webpack_require__(50);
+var ReactErrorUtils = __webpack_require__(51);
 
-var accumulateInto = __webpack_require__(75);
-var forEachAccumulated = __webpack_require__(76);
+var accumulateInto = __webpack_require__(80);
+var forEachAccumulated = __webpack_require__(81);
 var invariant = __webpack_require__(2);
 
 /**
@@ -4114,7 +4126,7 @@ module.exports = EventPluginHub;
 
 var SyntheticEvent = __webpack_require__(18);
 
-var getEventTarget = __webpack_require__(50);
+var getEventTarget = __webpack_require__(52);
 
 /**
  * @interface UIEvent
@@ -4824,9 +4836,9 @@ module.exports = TransactionImpl;
 
 
 var SyntheticUIEvent = __webpack_require__(31);
-var ViewportMetrics = __webpack_require__(82);
+var ViewportMetrics = __webpack_require__(87);
 
-var getEventModifierState = __webpack_require__(52);
+var getEventModifierState = __webpack_require__(54);
 
 /**
  * @interface MouseEvent
@@ -4900,13 +4912,13 @@ module.exports = SyntheticMouseEvent;
 
 
 
-var ExecutionEnvironment = __webpack_require__(8);
-var DOMNamespaces = __webpack_require__(54);
+var ExecutionEnvironment = __webpack_require__(9);
+var DOMNamespaces = __webpack_require__(56);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(55);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(57);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -5130,14 +5142,14 @@ module.exports = escapeTextContentForBrowser;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var EventPluginRegistry = __webpack_require__(37);
-var ReactEventEmitterMixin = __webpack_require__(170);
-var ViewportMetrics = __webpack_require__(82);
+var ReactEventEmitterMixin = __webpack_require__(175);
+var ViewportMetrics = __webpack_require__(87);
 
-var getVendorPrefixedEventName = __webpack_require__(171);
-var isEventSupported = __webpack_require__(51);
+var getVendorPrefixedEventName = __webpack_require__(176);
+var isEventSupported = __webpack_require__(53);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -5449,14 +5461,17 @@ module.exports = ReactBrowserEventEmitter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-__webpack_require__(276);
-const field_label_1 = __webpack_require__(278);
-const FieldContainer = (props) => (React.createElement("div", { style: props.style, className: "field-container" + " " + props.className },
-    props.label &&
-        React.createElement(field_label_1.default, null, props.label),
-    props.children));
-exports.default = FieldContainer;
+var SuccessChance;
+(function (SuccessChance) {
+    SuccessChance[SuccessChance["CERTAIN"] = 5] = "CERTAIN";
+    SuccessChance[SuccessChance["LIKELY"] = 4] = "LIKELY";
+    SuccessChance[SuccessChance["UNCERTAIN"] = 3] = "UNCERTAIN";
+    SuccessChance[SuccessChance["UNLIKELY"] = 2] = "UNLIKELY";
+    SuccessChance[SuccessChance["NONE"] = 1] = "NONE";
+    SuccessChance[SuccessChance["NOTIMPLEMENTED"] = 0] = "NOTIMPLEMENTED";
+})(SuccessChance || (SuccessChance = {}));
+exports.SuccessChance = SuccessChance;
+;
 
 
 /***/ }),
@@ -5466,9 +5481,77 @@ exports.default = FieldContainer;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.initialStudentData = {
+    gender: null,
+    location: null,
+    gradeLevel: null,
+    prevGradeLevel: null,
+    iep: null,
+    ell: null,
+    attendancePercentage: null,
+    gpa: null,
+    skippedGrade7OrRepeatedGrade8: null,
+    currESProgramID: null,
+    siblingHSSchoolIDs: [],
+    seTestPercentile: null,
+    nweaPercentileMath: null,
+    nweaPercentileRead: null,
+    subjGradeMath: null,
+    subjGradeRead: null,
+    subjGradeSci: null,
+    subjGradeSocStudies: null
+};
+exports.initialProgramOutcomes = {};
+exports.initialLoadingStatus = {
+    loadingData: false,
+    dataLoaded: false
+};
+exports.initialData = {
+    hsPrograms: {},
+    nonHSPrograms: {},
+    hsSchools: {},
+    hsProgramGroups: {},
+    seCutoffScores: {},
+    nonSECutoffScores: {},
+    programTypeIDTable: {},
+    schoolAttendanceBoundaryTable: {},
+    tractTierTable: {}
+};
+exports.initialState = {
+    studentData: exports.initialStudentData,
+    programOutcomes: exports.initialProgramOutcomes,
+    loadingStatus: exports.initialLoadingStatus,
+    data: exports.initialData
+};
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+__webpack_require__(310);
+const field_label_1 = __webpack_require__(312);
+const FieldContainer = (props) => (React.createElement("div", { style: props.style, className: "field-container" + " " + props.className },
+    props.label &&
+        React.createElement(field_label_1.default, null, props.label),
+    props.children));
+exports.default = FieldContainer;
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(33);
-const field_container_1 = __webpack_require__(43);
+const field_container_1 = __webpack_require__(45);
 const debounce_1 = __webpack_require__(34);
 class NumberField extends React.PureComponent {
     constructor(props) {
@@ -5514,7 +5597,7 @@ exports.default = NumberField;
 
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5540,7 +5623,7 @@ exports.default = between;
 
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5611,7 +5694,7 @@ module.exports = lowPriorityWarning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5632,7 +5715,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5650,7 +5733,7 @@ module.exports = ReactPropTypesSecret;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactErrorUtils = __webpack_require__(49);
+var ReactErrorUtils = __webpack_require__(51);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -5864,7 +5947,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5946,7 +6029,7 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5986,7 +6069,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6002,7 +6085,7 @@ module.exports = getEventTarget;
 
 
 
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
 var useHasFeature;
 if (ExecutionEnvironment.canUseDOM) {
@@ -6051,7 +6134,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6099,7 +6182,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6116,13 +6199,13 @@ module.exports = getEventModifierState;
 
 
 var DOMLazyTree = __webpack_require__(28);
-var Danger = __webpack_require__(155);
-var ReactDOMComponentTree = __webpack_require__(6);
+var Danger = __webpack_require__(160);
+var ReactDOMComponentTree = __webpack_require__(8);
 var ReactInstrumentation = __webpack_require__(12);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(55);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(57);
 var setInnerHTML = __webpack_require__(40);
-var setTextContent = __webpack_require__(83);
+var setTextContent = __webpack_require__(88);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -6331,7 +6414,7 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6356,7 +6439,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6393,7 +6476,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6411,8 +6494,8 @@ module.exports = createMicrosoftUnsafeLocalFunction;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactPropTypesSecret = __webpack_require__(87);
-var propTypesFactory = __webpack_require__(72);
+var ReactPropTypesSecret = __webpack_require__(92);
+var propTypesFactory = __webpack_require__(77);
 
 var React = __webpack_require__(25);
 var PropTypes = propTypesFactory(React.isValidElement);
@@ -6537,7 +6620,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6587,7 +6670,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6660,7 +6743,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6707,7 +6790,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6771,7 +6854,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7011,7 +7094,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7027,7 +7110,7 @@ module.exports = ReactUpdateQueue;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var emptyFunction = __webpack_require__(11);
 var warning = __webpack_require__(3);
@@ -7388,7 +7471,7 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7443,13 +7526,50 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(228);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(107);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
+
+
+
+
+
+
+
+/*
+* This is a dummy function to check if the function name has been altered by minification.
+* If the function has been minified and NODE_ENV !== 'production', warn the user.
+*/
+function isCrushed() {}
+
+if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+  __WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */]('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
+}
+
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(233);
 
 
 
@@ -7515,7 +7635,7 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 65 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7543,7 +7663,46 @@ function warning(message) {
 }
 
 /***/ }),
-/* 66 */
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(287));
+__export(__webpack_require__(288));
+__export(__webpack_require__(290));
+__export(__webpack_require__(292));
+__export(__webpack_require__(295));
+__export(__webpack_require__(296));
+__export(__webpack_require__(297));
+__export(__webpack_require__(298));
+__export(__webpack_require__(299));
+__export(__webpack_require__(300));
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+const constants_1 = __webpack_require__(6);
+exports.CPS_PROXIMITY_LOTTERY_RADIUS_MI = 2.5;
+exports.CPS_PROXIMITY_LOTTERY_RADIUS_METERS = exports.CPS_PROXIMITY_LOTTERY_RADIUS_MI * constants_1.MILE_METER_CONVERSION_FACTOR;
+exports.POINT_SYSTEM_UNCERTAINTY_THRESHOLD = 2;
+__export(__webpack_require__(294));
+
+
+/***/ }),
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7674,7 +7833,7 @@ function createStructuredSelector(selectors) {
 }
 
 /***/ }),
-/* 67 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7691,14 +7850,14 @@ function createStructuredSelector(selectors) {
 
 
 var _prodInvariant = __webpack_require__(26),
-    _assign = __webpack_require__(5);
+    _assign = __webpack_require__(7);
 
-var ReactNoopUpdateQueue = __webpack_require__(68);
+var ReactNoopUpdateQueue = __webpack_require__(73);
 
 var canDefineProperty = __webpack_require__(35);
 var emptyObject = __webpack_require__(36);
 var invariant = __webpack_require__(2);
-var lowPriorityWarning = __webpack_require__(46);
+var lowPriorityWarning = __webpack_require__(48);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -7823,7 +7982,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 68 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7924,7 +8083,7 @@ module.exports = ReactNoopUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 69 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7949,7 +8108,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 70 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7995,7 +8154,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 71 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8022,12 +8181,12 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(10);
 var ReactElement = __webpack_require__(23);
 
-var checkReactTypeSpec = __webpack_require__(126);
+var checkReactTypeSpec = __webpack_require__(131);
 
 var canDefineProperty = __webpack_require__(35);
-var getIteratorFn = __webpack_require__(70);
+var getIteratorFn = __webpack_require__(75);
 var warning = __webpack_require__(3);
-var lowPriorityWarning = __webpack_require__(46);
+var lowPriorityWarning = __webpack_require__(48);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -8256,7 +8415,7 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 72 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8275,7 +8434,7 @@ module.exports = ReactElementValidator;
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
 // `index.js` entry point, and it will branch depending on the environment.
-var factory = __webpack_require__(73);
+var factory = __webpack_require__(78);
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
   var throwOnDirectAccess = false;
@@ -8284,7 +8443,7 @@ module.exports = function(isValidElement) {
 
 
 /***/ }),
-/* 73 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8303,8 +8462,8 @@ var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
-var ReactPropTypesSecret = __webpack_require__(47);
-var checkPropTypes = __webpack_require__(130);
+var ReactPropTypesSecret = __webpack_require__(49);
+var checkPropTypes = __webpack_require__(135);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -8804,7 +8963,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8827,7 +8986,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 75 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8891,7 +9050,7 @@ module.exports = accumulateInto;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 76 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8927,7 +9086,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 77 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8943,7 +9102,7 @@ module.exports = forEachAccumulated;
 
 
 
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
 var contentKey = null;
 
@@ -8965,7 +9124,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 78 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9090,7 +9249,7 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 79 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9117,7 +9276,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 80 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9133,7 +9292,7 @@ module.exports = ReactFeatureFlags;
 
 
 
-var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMComponentTree = __webpack_require__(8);
 
 function isCheckable(elem) {
   var type = elem.type;
@@ -9245,7 +9404,7 @@ var inputValueTracking = {
 module.exports = inputValueTracking;
 
 /***/ }),
-/* 81 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9301,7 +9460,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 82 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9331,7 +9490,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 83 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9347,7 +9506,7 @@ module.exports = ViewportMetrics;
 
 
 
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 var escapeTextContentForBrowser = __webpack_require__(41);
 var setInnerHTML = __webpack_require__(40);
 
@@ -9388,7 +9547,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 84 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9420,7 +9579,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 85 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9579,7 +9738,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 86 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9596,10 +9755,10 @@ module.exports = CSSProperty;
 
 
 var DOMProperty = __webpack_require__(20);
-var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMComponentTree = __webpack_require__(8);
 var ReactInstrumentation = __webpack_require__(12);
 
-var quoteAttributeValueForBrowser = __webpack_require__(169);
+var quoteAttributeValueForBrowser = __webpack_require__(174);
 var warning = __webpack_require__(3);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -9820,7 +9979,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 87 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9842,7 +10001,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 88 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9858,10 +10017,10 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
-var LinkedValueUtils = __webpack_require__(56);
-var ReactDOMComponentTree = __webpack_require__(6);
+var LinkedValueUtils = __webpack_require__(58);
+var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(15);
 
 var warning = __webpack_require__(3);
@@ -10048,7 +10207,7 @@ module.exports = ReactDOMSelect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 89 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10065,13 +10224,13 @@ module.exports = ReactDOMSelect;
 
 
 var _prodInvariant = __webpack_require__(4),
-    _assign = __webpack_require__(5);
+    _assign = __webpack_require__(7);
 
-var ReactCompositeComponent = __webpack_require__(177);
-var ReactEmptyComponent = __webpack_require__(91);
-var ReactHostComponent = __webpack_require__(92);
+var ReactCompositeComponent = __webpack_require__(182);
+var ReactEmptyComponent = __webpack_require__(96);
+var ReactHostComponent = __webpack_require__(97);
 
-var getNextDebugID = __webpack_require__(180);
+var getNextDebugID = __webpack_require__(185);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
@@ -10183,7 +10342,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 90 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10229,7 +10388,7 @@ module.exports = ReactNodeTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 91 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10264,7 +10423,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 92 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10338,7 +10497,7 @@ module.exports = ReactHostComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 93 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10357,11 +10516,11 @@ module.exports = ReactHostComponent;
 var _prodInvariant = __webpack_require__(4);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var REACT_ELEMENT_TYPE = __webpack_require__(181);
+var REACT_ELEMENT_TYPE = __webpack_require__(186);
 
-var getIteratorFn = __webpack_require__(182);
+var getIteratorFn = __webpack_require__(187);
 var invariant = __webpack_require__(2);
-var KeyEscapeUtils = __webpack_require__(60);
+var KeyEscapeUtils = __webpack_require__(62);
 var warning = __webpack_require__(3);
 
 var SEPARATOR = '.';
@@ -10520,7 +10679,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 94 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10610,7 +10769,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 95 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10626,11 +10785,11 @@ module.exports = EventListener;
 
 
 
-var ReactDOMSelection = __webpack_require__(194);
+var ReactDOMSelection = __webpack_require__(199);
 
-var containsNode = __webpack_require__(196);
-var focusNode = __webpack_require__(84);
-var getActiveElement = __webpack_require__(96);
+var containsNode = __webpack_require__(201);
+var focusNode = __webpack_require__(89);
+var getActiveElement = __webpack_require__(101);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -10738,7 +10897,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 96 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10782,7 +10941,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 97 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10805,22 +10964,22 @@ var DOMProperty = __webpack_require__(20);
 var React = __webpack_require__(25);
 var ReactBrowserEventEmitter = __webpack_require__(42);
 var ReactCurrentOwner = __webpack_require__(14);
-var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMContainerInfo = __webpack_require__(211);
-var ReactDOMFeatureFlags = __webpack_require__(212);
-var ReactFeatureFlags = __webpack_require__(79);
+var ReactDOMComponentTree = __webpack_require__(8);
+var ReactDOMContainerInfo = __webpack_require__(216);
+var ReactDOMFeatureFlags = __webpack_require__(217);
+var ReactFeatureFlags = __webpack_require__(84);
 var ReactInstanceMap = __webpack_require__(32);
 var ReactInstrumentation = __webpack_require__(12);
-var ReactMarkupChecksum = __webpack_require__(213);
+var ReactMarkupChecksum = __webpack_require__(218);
 var ReactReconciler = __webpack_require__(27);
-var ReactUpdateQueue = __webpack_require__(61);
+var ReactUpdateQueue = __webpack_require__(63);
 var ReactUpdates = __webpack_require__(15);
 
 var emptyObject = __webpack_require__(36);
-var instantiateReactComponent = __webpack_require__(89);
+var instantiateReactComponent = __webpack_require__(94);
 var invariant = __webpack_require__(2);
 var setInnerHTML = __webpack_require__(40);
-var shouldUpdateReactComponent = __webpack_require__(59);
+var shouldUpdateReactComponent = __webpack_require__(61);
 var warning = __webpack_require__(3);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -11326,7 +11485,7 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 98 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11342,7 +11501,7 @@ module.exports = ReactMount;
 
 
 
-var ReactNodeTypes = __webpack_require__(90);
+var ReactNodeTypes = __webpack_require__(95);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -11361,51 +11520,14 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 99 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(232);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(103);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
-
-
-
-
-
-
-
-/*
-* This is a dummy function to check if the function name has been altered by minification.
-* If the function has been minified and NODE_ENV !== 'production', warn the user.
-*/
-function isCrushed() {}
-
-if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
-  __WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */]('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
-}
-
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
-/***/ }),
-/* 100 */
+/* 104 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActionTypes; });
 /* harmony export (immutable) */ __webpack_exports__["b"] = createStore;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(234);
 
 
 
@@ -11656,11 +11778,11 @@ var ActionTypes = {
 }
 
 /***/ }),
-/* 101 */
+/* 105 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__root_js__ = __webpack_require__(227);
 
 
 /** Built-in value references. */
@@ -11670,7 +11792,7 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 
 
 /***/ }),
-/* 102 */
+/* 106 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11697,7 +11819,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 103 */
+/* 107 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11725,7 +11847,7 @@ function warning(message) {
 }
 
 /***/ }),
-/* 104 */
+/* 108 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11764,98 +11886,7 @@ function compose() {
 }
 
 /***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const HS_PROGRAMS_URL = "data/hs-programs.json";
-const NON_HS_PROGRAMS_URL = "data/non-hs-programs.json";
-const SE_CUTOFF_SCORES_URL = "data/se-cutoff-scores.json";
-const NON_SE_CUTOFF_SCORES_URL = "data/non-se-cutoff-scores.json";
-const PROGRAM_TYPE_ID_TABLE_URL = "data/program-type-id-table.json";
-const SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL = "data/school-attendance-boundary-table.json";
-const TRACT_TIER_TABLE_URL = "data/tract-tier-table.json";
-const makeDataRequest = (url) => {
-    return new Promise((resolve, reject) => {
-        fetch(url).then(res => {
-            if (!res.ok) {
-                reject(`Request failed with status ${res.statusText}`);
-            }
-            return res.json();
-        }).then(json => {
-            resolve(json);
-        }).catch(err => {
-            reject(err);
-        });
-    });
-};
-exports.getHSPrograms = () => {
-    return makeDataRequest(HS_PROGRAMS_URL);
-};
-exports.getNonHSPrograms = () => {
-    return makeDataRequest(NON_HS_PROGRAMS_URL);
-};
-exports.getSECutoffScoresTable = () => {
-    return makeDataRequest(SE_CUTOFF_SCORES_URL);
-};
-exports.getNonSECutoffScoresTable = () => {
-    return makeDataRequest(NON_SE_CUTOFF_SCORES_URL);
-};
-exports.getProgramTypeNameTable = () => {
-    return makeDataRequest(PROGRAM_TYPE_ID_TABLE_URL);
-};
-exports.getTractTierTable = () => {
-    return makeDataRequest(TRACT_TIER_TABLE_URL);
-};
-exports.getSchoolAttendanceBoundaryTable = () => {
-    return makeDataRequest(SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL);
-};
-
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(9);
-const get_overall_success_chance_1 = __webpack_require__(244);
-exports.createProgramOutcomeDictionary = (programDict, studentData) => {
-    let outcomeDict = {};
-    Object.keys(programDict).forEach(programID => {
-        const program = programDict[programID];
-        const applicationChance = program.applicationReqFn(studentData, program);
-        const selectionChance = program.selectionReqFn(studentData, program);
-        const outcome = {
-            programID: programID,
-            applicationChance: applicationChance,
-            selectionChance: selectionChance,
-            overallChance: get_overall_success_chance_1.getOverallSuccessChance({ application: applicationChance, selection: selectionChance })
-        };
-        outcomeDict[programID] = outcome;
-    });
-    return outcomeDict;
-};
-exports.createInitialProgramOutcomeDictionary = (programDict) => {
-    let initialOutcomes = {};
-    Object.keys(programDict).forEach(programID => {
-        const outcome = {
-            programID: programID,
-            applicationChance: enums_1.SuccessChance.NOTIMPLEMENTED,
-            selectionChance: enums_1.SuccessChance.NOTIMPLEMENTED,
-            overallChance: enums_1.SuccessChance.NOTIMPLEMENTED
-        };
-        initialOutcomes[programID] = outcome;
-    });
-    return initialOutcomes;
-};
-
-
-/***/ }),
-/* 107 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -11882,23 +11913,23 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(73)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(78)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(248)();
+  module.exports = __webpack_require__(252)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 108 */
+/* 110 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return subscriptionShape; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return storeShape; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
 
 
@@ -11916,19 +11947,19 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 });
 
 /***/ }),
-/* 109 */
+/* 111 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(253);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(254);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(251);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(110);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -12221,14 +12252,14 @@ selectorFactory) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 110 */
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = wrapMapToPropsConstant;
 /* unused harmony export getDependsOnOwnProps */
 /* harmony export (immutable) */ __webpack_exports__["b"] = wrapMapToPropsFunc;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(113);
 
 
 function wrapMapToPropsConstant(getConstant) {
@@ -12299,13 +12330,13 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 111 */
+/* 113 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifyPlainObject;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(68);
 
 
 
@@ -12316,18 +12347,85 @@ function verifyPlainObject(value, displayName, methodName) {
 }
 
 /***/ }),
-/* 112 */
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(280));
+__export(__webpack_require__(304));
+__export(__webpack_require__(305));
+__export(__webpack_require__(306));
+__export(__webpack_require__(308));
+
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const constants_1 = __webpack_require__(70);
+exports.pointSystem = (calc, lookup) => {
+    return (student, program) => {
+        const points = calc(student, program);
+        if (points === null) {
+            return enums_1.SuccessChance.NOTIMPLEMENTED;
+        }
+        const cutoff = lookup(student, program);
+        const pointsFromCutoff = points - cutoff;
+        if (isNaN(points) || isNaN(cutoff)) {
+            return enums_1.SuccessChance.NOTIMPLEMENTED;
+        }
+        if (pointsFromCutoff < 0) {
+            return enums_1.SuccessChance.NONE;
+        }
+        else if (pointsFromCutoff <= constants_1.POINT_SYSTEM_UNCERTAINTY_THRESHOLD) {
+            return enums_1.SuccessChance.LIKELY;
+        }
+        else {
+            return enums_1.SuccessChance.CERTAIN;
+        }
+    };
+};
+
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const utils_1 = __webpack_require__(114);
+exports.updateProgramOutcomes = (studentData, programDict) => {
+    return {
+        type: enums_1.ActionType.UpdateProgramOutcomes,
+        payload: utils_1.createProgramOutcomeDictionary(studentData, programDict)
+    };
+};
+
+
+/***/ }),
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const timeout_1 = __webpack_require__(275);
-const text_field_1 = __webpack_require__(113);
+const timeout_1 = __webpack_require__(309);
+const text_field_1 = __webpack_require__(118);
 const field_validation_state_1 = __webpack_require__(33);
-const get_tier_and_geo_1 = __webpack_require__(279);
-__webpack_require__(284);
+const get_tier_and_geo_1 = __webpack_require__(313);
+__webpack_require__(318);
 class AddressTierCalculator extends React.Component {
     constructor(props) {
         super(props);
@@ -12426,7 +12524,7 @@ exports.AddressTierCalculator = AddressTierCalculator;
 
 
 /***/ }),
-/* 113 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12434,7 +12532,7 @@ exports.AddressTierCalculator = AddressTierCalculator;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(33);
-const field_container_1 = __webpack_require__(43);
+const field_container_1 = __webpack_require__(45);
 const debounce_1 = __webpack_require__(34);
 class TextField extends React.PureComponent {
     constructor(props) {
@@ -12482,86 +12580,6 @@ exports.default = TextField;
 
 
 /***/ }),
-/* 114 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const OutcomeCertainIcon = (props) => {
-    return (React.createElement("svg", { stroke: "black", strokeWidth: "0.5", fill: props.color ? props.color : constants_1.OutcomeCertainColor, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" })));
-};
-exports.default = OutcomeCertainIcon;
-
-
-/***/ }),
-/* 115 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const OutcomeLikelyIcon = (props) => {
-    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeLikelyColor, height: props.height, viewBox: "0 0 24 24", width: props.width, stroke: "black", strokeWidth: "0.5", xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
-};
-exports.default = OutcomeLikelyIcon;
-
-
-/***/ }),
-/* 116 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const OutcomeUncertainIcon = (props) => {
-    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: props.width, height: props.height, fill: props.color ? props.color : constants_1.OutcomeUncertainColor, stroke: "black", strokeWidth: "5", viewBox: "-0.5 -0.303 427 427" },
-        React.createElement("path", { d: "M 129.9,189.5 C 103.9,189.5 88.7,205.42 63.5,238.06 L 33.1,217.1 C 47.9,195.5 57.9,182.62 75.5,169.18 C 91.427778,157.15296 111.9,145.02 135.101,145.02 C 172.276,145.02 192.278,161.973 223.101,185.82 C 253.501,209.34 274.702,219.421 293.901,219.421 C 302.301,219.421 317.28256,215.01581 327.102,207.101 C 340.22141,197.96521 349.502,185.981 363.502,163.42 L 394.302,187.26 C 377.902,212.22 367.102,224.3 353.902,235.82 C 333.502,254.06 314.702,264.381 288.702,264.381 C 218.652,264.38 187.714,189.5 129.9,189.5 z " })));
-};
-exports.default = OutcomeUncertainIcon;
-
-
-/***/ }),
-/* 117 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const OutcomeUnlikelyIcon = (props) => {
-    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: props.color ? props.color : constants_1.OutcomeUnlikelyColor, width: props.width, height: props.height, stroke: "black", strokeWidth: "5", viewBox: "0 0 750 750" },
-        React.createElement("rect", { y: "350", x: "125", height: "75", width: "500" })));
-};
-exports.default = OutcomeUnlikelyIcon;
-
-
-/***/ }),
-/* 118 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const OutcomeNoneIcon = (props) => {
-    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeNoneColor, height: props.height, viewBox: "0 0 24 24", stroke: "black", strokeWidth: "0.5", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" })));
-};
-exports.default = OutcomeNoneIcon;
-
-
-/***/ }),
 /* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12569,13 +12587,12 @@ exports.default = OutcomeNoneIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const OutcomeNotImplementedIcon = (props) => {
-    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeNotImplementedColor, width: props.width, height: props.height, viewBox: "0 0 40 40", stroke: "black", strokeWidth: "0.5", xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("g", { transform: "translate(-8)" },
-            React.createElement("path", { d: "M29.898 26.5722l-4.3921 0c-0.0118,-0.635 -0.0177,-1.0172 -0.0177,-1.1583 0,-1.4229 0.2352,-2.5929 0.7056,-3.5102 0.4704,-0.9231 1.417,-1.952 2.8281,-3.1044 1.4111,-1.1465 2.2578,-1.8991 2.5282,-2.2578 0.4292,-0.5585 0.6409,-1.1818 0.6409,-1.8579 0,-0.9408 -0.3763,-1.7463 -1.1289,-2.4224 -0.7526,-0.6703 -1.7639,-1.0054 -3.0397,-1.0054 -1.2289,0 -2.2578,0.3527 -3.0868,1.0524 -0.8232,0.6997 -1.3935,1.7698 -1.7051,3.2044l-4.4391 -0.5527c0.1234,-2.0578 0.9995,-3.8041 2.6223,-5.2387 1.6286,-1.4346 3.757,-2.152 6.4029,-2.152 2.7752,0 4.9859,0.7291 6.6322,2.1814 1.6404,1.4522 2.4635,3.1397 2.4635,5.0741 0,1.0642 -0.3057,2.0755 -0.9054,3.028 -0.6056,0.9525 -1.8933,2.2519 -3.8688,3.8923 -1.0231,0.8525 -1.6581,1.5346 -1.905,2.052 -0.2469,0.5174 -0.3587,1.4405 -0.3351,2.7752zm-4.3921 6.5087l0 -4.8389 4.8389 0 0 4.8389 -4.8389 0z" }))));
+const constants_1 = __webpack_require__(6);
+const OutcomeCertainIcon = (props) => {
+    return (React.createElement("svg", { stroke: "black", strokeWidth: "0.5", fill: props.color ? props.color : constants_1.OutcomeCertainColor, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" })));
 };
-exports.default = OutcomeNotImplementedIcon;
+exports.default = OutcomeCertainIcon;
 
 
 /***/ }),
@@ -12586,17 +12603,98 @@ exports.default = OutcomeNotImplementedIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const react_dom_1 = __webpack_require__(135);
-const redux_1 = __webpack_require__(99);
-const reducers_1 = __webpack_require__(235);
+const constants_1 = __webpack_require__(6);
+const OutcomeLikelyIcon = (props) => {
+    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeLikelyColor, height: props.height, viewBox: "0 0 24 24", width: props.width, stroke: "black", strokeWidth: "0.5", xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
+};
+exports.default = OutcomeLikelyIcon;
+
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(6);
+const OutcomeUncertainIcon = (props) => {
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: props.width, height: props.height, fill: props.color ? props.color : constants_1.OutcomeUncertainColor, stroke: "black", strokeWidth: "5", viewBox: "-0.5 -0.303 427 427" },
+        React.createElement("path", { d: "M 129.9,189.5 C 103.9,189.5 88.7,205.42 63.5,238.06 L 33.1,217.1 C 47.9,195.5 57.9,182.62 75.5,169.18 C 91.427778,157.15296 111.9,145.02 135.101,145.02 C 172.276,145.02 192.278,161.973 223.101,185.82 C 253.501,209.34 274.702,219.421 293.901,219.421 C 302.301,219.421 317.28256,215.01581 327.102,207.101 C 340.22141,197.96521 349.502,185.981 363.502,163.42 L 394.302,187.26 C 377.902,212.22 367.102,224.3 353.902,235.82 C 333.502,254.06 314.702,264.381 288.702,264.381 C 218.652,264.38 187.714,189.5 129.9,189.5 z " })));
+};
+exports.default = OutcomeUncertainIcon;
+
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(6);
+const OutcomeUnlikelyIcon = (props) => {
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: props.color ? props.color : constants_1.OutcomeUnlikelyColor, width: props.width, height: props.height, stroke: "black", strokeWidth: "5", viewBox: "0 0 750 750" },
+        React.createElement("rect", { y: "350", x: "125", height: "75", width: "500" })));
+};
+exports.default = OutcomeUnlikelyIcon;
+
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(6);
+const OutcomeNoneIcon = (props) => {
+    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeNoneColor, height: props.height, viewBox: "0 0 24 24", stroke: "black", strokeWidth: "0.5", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" })));
+};
+exports.default = OutcomeNoneIcon;
+
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(6);
+const OutcomeNotImplementedIcon = (props) => {
+    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeNotImplementedColor, width: props.width, height: props.height, viewBox: "0 0 40 40", stroke: "black", strokeWidth: "0.5", xmlns: "http://www.w3.org/2000/svg" },
+        React.createElement("g", { transform: "translate(-8)" },
+            React.createElement("path", { d: "M29.898 26.5722l-4.3921 0c-0.0118,-0.635 -0.0177,-1.0172 -0.0177,-1.1583 0,-1.4229 0.2352,-2.5929 0.7056,-3.5102 0.4704,-0.9231 1.417,-1.952 2.8281,-3.1044 1.4111,-1.1465 2.2578,-1.8991 2.5282,-2.2578 0.4292,-0.5585 0.6409,-1.1818 0.6409,-1.8579 0,-0.9408 -0.3763,-1.7463 -1.1289,-2.4224 -0.7526,-0.6703 -1.7639,-1.0054 -3.0397,-1.0054 -1.2289,0 -2.2578,0.3527 -3.0868,1.0524 -0.8232,0.6997 -1.3935,1.7698 -1.7051,3.2044l-4.4391 -0.5527c0.1234,-2.0578 0.9995,-3.8041 2.6223,-5.2387 1.6286,-1.4346 3.757,-2.152 6.4029,-2.152 2.7752,0 4.9859,0.7291 6.6322,2.1814 1.6404,1.4522 2.4635,3.1397 2.4635,5.0741 0,1.0642 -0.3057,2.0755 -0.9054,3.028 -0.6056,0.9525 -1.8933,2.2519 -3.8688,3.8923 -1.0231,0.8525 -1.6581,1.5346 -1.905,2.052 -0.2469,0.5174 -0.3587,1.4405 -0.3351,2.7752zm-4.3921 6.5087l0 -4.8389 4.8389 0 0 4.8389 -4.8389 0z" }))));
+};
+exports.default = OutcomeNotImplementedIcon;
+
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const react_dom_1 = __webpack_require__(140);
+const redux_1 = __webpack_require__(66);
+const reducers_1 = __webpack_require__(240);
 const react_redux_1 = __webpack_require__(13);
-const path_to_hs_1 = __webpack_require__(259);
+const path_to_hs_1 = __webpack_require__(263);
 react_dom_1.render((React.createElement(react_redux_1.Provider, { store: redux_1.createStore(reducers_1.rootReducer) },
     React.createElement(path_to_hs_1.default, null))), document.getElementById("root"));
 
 
 /***/ }),
-/* 121 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12612,11 +12710,11 @@ react_dom_1.render((React.createElement(react_redux_1.Provider, { store: redux_1
 
 
 
-var PooledClass = __webpack_require__(122);
+var PooledClass = __webpack_require__(127);
 var ReactElement = __webpack_require__(23);
 
 var emptyFunction = __webpack_require__(11);
-var traverseAllChildren = __webpack_require__(123);
+var traverseAllChildren = __webpack_require__(128);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
 var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -12792,7 +12890,7 @@ var ReactChildren = {
 module.exports = ReactChildren;
 
 /***/ }),
-/* 122 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12910,7 +13008,7 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 123 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12929,11 +13027,11 @@ module.exports = PooledClass;
 var _prodInvariant = __webpack_require__(26);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var REACT_ELEMENT_TYPE = __webpack_require__(69);
+var REACT_ELEMENT_TYPE = __webpack_require__(74);
 
-var getIteratorFn = __webpack_require__(70);
+var getIteratorFn = __webpack_require__(75);
 var invariant = __webpack_require__(2);
-var KeyEscapeUtils = __webpack_require__(124);
+var KeyEscapeUtils = __webpack_require__(129);
 var warning = __webpack_require__(3);
 
 var SEPARATOR = '.';
@@ -13092,7 +13190,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 124 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13156,7 +13254,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 125 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13181,7 +13279,7 @@ var ReactElement = __webpack_require__(23);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(71);
+  var ReactElementValidator = __webpack_require__(76);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -13331,7 +13429,7 @@ module.exports = ReactDOMFactories;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 126 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13349,8 +13447,8 @@ module.exports = ReactDOMFactories;
 
 var _prodInvariant = __webpack_require__(26);
 
-var ReactPropTypeLocationNames = __webpack_require__(127);
-var ReactPropTypesSecret = __webpack_require__(128);
+var ReactPropTypeLocationNames = __webpack_require__(132);
+var ReactPropTypesSecret = __webpack_require__(133);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -13424,7 +13522,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 127 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13455,7 +13553,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 128 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13477,7 +13575,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 129 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13496,12 +13594,12 @@ module.exports = ReactPropTypesSecret;
 var _require = __webpack_require__(23),
     isValidElement = _require.isValidElement;
 
-var factory = __webpack_require__(72);
+var factory = __webpack_require__(77);
 
 module.exports = factory(isValidElement);
 
 /***/ }),
-/* 130 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13519,7 +13617,7 @@ module.exports = factory(isValidElement);
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(2);
   var warning = __webpack_require__(3);
-  var ReactPropTypesSecret = __webpack_require__(47);
+  var ReactPropTypesSecret = __webpack_require__(49);
   var loggedTypeFailures = {};
 }
 
@@ -13570,7 +13668,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 131 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13589,7 +13687,7 @@ module.exports = checkPropTypes;
 module.exports = '15.6.1';
 
 /***/ }),
-/* 132 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13605,19 +13703,19 @@ module.exports = '15.6.1';
 
 
 
-var _require = __webpack_require__(67),
+var _require = __webpack_require__(72),
     Component = _require.Component;
 
 var _require2 = __webpack_require__(23),
     isValidElement = _require2.isValidElement;
 
-var ReactNoopUpdateQueue = __webpack_require__(68);
-var factory = __webpack_require__(133);
+var ReactNoopUpdateQueue = __webpack_require__(73);
+var factory = __webpack_require__(138);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 /***/ }),
-/* 133 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13633,7 +13731,7 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var emptyObject = __webpack_require__(36);
 var _invariant = __webpack_require__(2);
@@ -14497,7 +14595,7 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 134 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14541,17 +14639,17 @@ module.exports = onlyChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 135 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(136);
+module.exports = __webpack_require__(141);
 
 
 /***/ }),
-/* 136 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14569,16 +14667,16 @@ module.exports = __webpack_require__(136);
 
 
 
-var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDefaultInjection = __webpack_require__(137);
-var ReactMount = __webpack_require__(97);
+var ReactDOMComponentTree = __webpack_require__(8);
+var ReactDefaultInjection = __webpack_require__(142);
+var ReactMount = __webpack_require__(102);
 var ReactReconciler = __webpack_require__(27);
 var ReactUpdates = __webpack_require__(15);
-var ReactVersion = __webpack_require__(215);
+var ReactVersion = __webpack_require__(220);
 
-var findDOMNode = __webpack_require__(216);
-var getHostComponentFromComposite = __webpack_require__(98);
-var renderSubtreeIntoContainer = __webpack_require__(217);
+var findDOMNode = __webpack_require__(221);
+var getHostComponentFromComposite = __webpack_require__(103);
+var renderSubtreeIntoContainer = __webpack_require__(222);
 var warning = __webpack_require__(3);
 
 ReactDefaultInjection.inject();
@@ -14619,7 +14717,7 @@ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVT
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  var ExecutionEnvironment = __webpack_require__(8);
+  var ExecutionEnvironment = __webpack_require__(9);
   if (ExecutionEnvironment.canUseDOM && window.top === window.self) {
     // First check if devtools is not installed
     if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined') {
@@ -14655,9 +14753,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 if (process.env.NODE_ENV !== 'production') {
   var ReactInstrumentation = __webpack_require__(12);
-  var ReactDOMUnknownPropertyHook = __webpack_require__(218);
-  var ReactDOMNullInputValuePropHook = __webpack_require__(219);
-  var ReactDOMInvalidARIAHook = __webpack_require__(220);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(223);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(224);
+  var ReactDOMInvalidARIAHook = __webpack_require__(225);
 
   ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
   ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -14668,7 +14766,7 @@ module.exports = ReactDOM;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 137 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14684,25 +14782,25 @@ module.exports = ReactDOM;
 
 
 
-var ARIADOMPropertyConfig = __webpack_require__(138);
-var BeforeInputEventPlugin = __webpack_require__(139);
-var ChangeEventPlugin = __webpack_require__(143);
-var DefaultEventPluginOrder = __webpack_require__(151);
-var EnterLeaveEventPlugin = __webpack_require__(152);
-var HTMLDOMPropertyConfig = __webpack_require__(153);
-var ReactComponentBrowserEnvironment = __webpack_require__(154);
-var ReactDOMComponent = __webpack_require__(160);
-var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMEmptyComponent = __webpack_require__(186);
-var ReactDOMTreeTraversal = __webpack_require__(187);
-var ReactDOMTextComponent = __webpack_require__(188);
-var ReactDefaultBatchingStrategy = __webpack_require__(189);
-var ReactEventListener = __webpack_require__(190);
-var ReactInjection = __webpack_require__(192);
-var ReactReconcileTransaction = __webpack_require__(193);
-var SVGDOMPropertyConfig = __webpack_require__(199);
-var SelectEventPlugin = __webpack_require__(200);
-var SimpleEventPlugin = __webpack_require__(201);
+var ARIADOMPropertyConfig = __webpack_require__(143);
+var BeforeInputEventPlugin = __webpack_require__(144);
+var ChangeEventPlugin = __webpack_require__(148);
+var DefaultEventPluginOrder = __webpack_require__(156);
+var EnterLeaveEventPlugin = __webpack_require__(157);
+var HTMLDOMPropertyConfig = __webpack_require__(158);
+var ReactComponentBrowserEnvironment = __webpack_require__(159);
+var ReactDOMComponent = __webpack_require__(165);
+var ReactDOMComponentTree = __webpack_require__(8);
+var ReactDOMEmptyComponent = __webpack_require__(191);
+var ReactDOMTreeTraversal = __webpack_require__(192);
+var ReactDOMTextComponent = __webpack_require__(193);
+var ReactDefaultBatchingStrategy = __webpack_require__(194);
+var ReactEventListener = __webpack_require__(195);
+var ReactInjection = __webpack_require__(197);
+var ReactReconcileTransaction = __webpack_require__(198);
+var SVGDOMPropertyConfig = __webpack_require__(204);
+var SelectEventPlugin = __webpack_require__(205);
+var SimpleEventPlugin = __webpack_require__(206);
 
 var alreadyInjected = false;
 
@@ -14759,7 +14857,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 138 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14838,7 +14936,7 @@ var ARIADOMPropertyConfig = {
 module.exports = ARIADOMPropertyConfig;
 
 /***/ }),
-/* 139 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14855,10 +14953,10 @@ module.exports = ARIADOMPropertyConfig;
 
 
 var EventPropagators = __webpack_require__(29);
-var ExecutionEnvironment = __webpack_require__(8);
-var FallbackCompositionState = __webpack_require__(140);
-var SyntheticCompositionEvent = __webpack_require__(141);
-var SyntheticInputEvent = __webpack_require__(142);
+var ExecutionEnvironment = __webpack_require__(9);
+var FallbackCompositionState = __webpack_require__(145);
+var SyntheticCompositionEvent = __webpack_require__(146);
+var SyntheticInputEvent = __webpack_require__(147);
 
 var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 var START_KEYCODE = 229;
@@ -15227,7 +15325,7 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
-/* 140 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15243,11 +15341,11 @@ module.exports = BeforeInputEventPlugin;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var PooledClass = __webpack_require__(24);
 
-var getTextContentAccessor = __webpack_require__(77);
+var getTextContentAccessor = __webpack_require__(82);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -15327,7 +15425,7 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
-/* 141 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15368,7 +15466,7 @@ SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface
 module.exports = SyntheticCompositionEvent;
 
 /***/ }),
-/* 142 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15410,7 +15508,7 @@ SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 module.exports = SyntheticInputEvent;
 
 /***/ }),
-/* 143 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15428,15 +15526,15 @@ module.exports = SyntheticInputEvent;
 
 var EventPluginHub = __webpack_require__(30);
 var EventPropagators = __webpack_require__(29);
-var ExecutionEnvironment = __webpack_require__(8);
-var ReactDOMComponentTree = __webpack_require__(6);
+var ExecutionEnvironment = __webpack_require__(9);
+var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(15);
 var SyntheticEvent = __webpack_require__(18);
 
-var inputValueTracking = __webpack_require__(80);
-var getEventTarget = __webpack_require__(50);
-var isEventSupported = __webpack_require__(51);
-var isTextInputElement = __webpack_require__(81);
+var inputValueTracking = __webpack_require__(85);
+var getEventTarget = __webpack_require__(52);
+var isEventSupported = __webpack_require__(53);
+var isTextInputElement = __webpack_require__(86);
 
 var eventTypes = {
   change: {
@@ -15727,7 +15825,7 @@ var ChangeEventPlugin = {
 module.exports = ChangeEventPlugin;
 
 /***/ }),
-/* 144 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15744,7 +15842,7 @@ module.exports = ChangeEventPlugin;
 
 
 
-var ReactOwner = __webpack_require__(145);
+var ReactOwner = __webpack_require__(150);
 
 var ReactRef = {};
 
@@ -15821,7 +15919,7 @@ ReactRef.detachRefs = function (instance, element) {
 module.exports = ReactRef;
 
 /***/ }),
-/* 145 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15920,7 +16018,7 @@ module.exports = ReactOwner;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 146 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15937,12 +16035,12 @@ module.exports = ReactOwner;
 
 
 
-var ReactInvalidSetStateWarningHook = __webpack_require__(147);
-var ReactHostOperationHistoryHook = __webpack_require__(148);
+var ReactInvalidSetStateWarningHook = __webpack_require__(152);
+var ReactHostOperationHistoryHook = __webpack_require__(153);
 var ReactComponentTreeHook = __webpack_require__(10);
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
-var performanceNow = __webpack_require__(149);
+var performanceNow = __webpack_require__(154);
 var warning = __webpack_require__(3);
 
 var hooks = [];
@@ -16287,7 +16385,7 @@ module.exports = ReactDebugTool;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 147 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16330,7 +16428,7 @@ module.exports = ReactInvalidSetStateWarningHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 148 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16369,7 +16467,7 @@ var ReactHostOperationHistoryHook = {
 module.exports = ReactHostOperationHistoryHook;
 
 /***/ }),
-/* 149 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16386,7 +16484,7 @@ module.exports = ReactHostOperationHistoryHook;
  * @typechecks
  */
 
-var performance = __webpack_require__(150);
+var performance = __webpack_require__(155);
 
 var performanceNow;
 
@@ -16408,7 +16506,7 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 150 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16425,7 +16523,7 @@ module.exports = performanceNow;
 
 
 
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
 var performance;
 
@@ -16436,7 +16534,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 151 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16467,7 +16565,7 @@ var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'Tap
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
-/* 152 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16484,7 +16582,7 @@ module.exports = DefaultEventPluginOrder;
 
 
 var EventPropagators = __webpack_require__(29);
-var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMComponentTree = __webpack_require__(8);
 var SyntheticMouseEvent = __webpack_require__(39);
 
 var eventTypes = {
@@ -16570,7 +16668,7 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
-/* 153 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16811,7 +16909,7 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
-/* 154 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16827,8 +16925,8 @@ module.exports = HTMLDOMPropertyConfig;
 
 
 
-var DOMChildrenOperations = __webpack_require__(53);
-var ReactDOMIDOperations = __webpack_require__(159);
+var DOMChildrenOperations = __webpack_require__(55);
+var ReactDOMIDOperations = __webpack_require__(164);
 
 /**
  * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -16844,7 +16942,7 @@ var ReactComponentBrowserEnvironment = {
 module.exports = ReactComponentBrowserEnvironment;
 
 /***/ }),
-/* 155 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16863,9 +16961,9 @@ module.exports = ReactComponentBrowserEnvironment;
 var _prodInvariant = __webpack_require__(4);
 
 var DOMLazyTree = __webpack_require__(28);
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
-var createNodesFromMarkup = __webpack_require__(156);
+var createNodesFromMarkup = __webpack_require__(161);
 var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(2);
 
@@ -16896,7 +16994,7 @@ module.exports = Danger;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 156 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16915,10 +17013,10 @@ module.exports = Danger;
 
 /*eslint-disable fb-www/unsafe-html*/
 
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
-var createArrayFromMixed = __webpack_require__(157);
-var getMarkupWrap = __webpack_require__(158);
+var createArrayFromMixed = __webpack_require__(162);
+var getMarkupWrap = __webpack_require__(163);
 var invariant = __webpack_require__(2);
 
 /**
@@ -16986,7 +17084,7 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 157 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17119,7 +17217,7 @@ module.exports = createArrayFromMixed;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 158 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17137,7 +17235,7 @@ module.exports = createArrayFromMixed;
 
 /*eslint-disable fb-www/unsafe-html */
 
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
 var invariant = __webpack_require__(2);
 
@@ -17220,7 +17318,7 @@ module.exports = getMarkupWrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 159 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17236,8 +17334,8 @@ module.exports = getMarkupWrap;
 
 
 
-var DOMChildrenOperations = __webpack_require__(53);
-var ReactDOMComponentTree = __webpack_require__(6);
+var DOMChildrenOperations = __webpack_require__(55);
+var ReactDOMComponentTree = __webpack_require__(8);
 
 /**
  * Operations used to process updates to DOM nodes.
@@ -17258,7 +17356,7 @@ var ReactDOMIDOperations = {
 module.exports = ReactDOMIDOperations;
 
 /***/ }),
-/* 160 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17277,34 +17375,34 @@ module.exports = ReactDOMIDOperations;
 
 
 var _prodInvariant = __webpack_require__(4),
-    _assign = __webpack_require__(5);
+    _assign = __webpack_require__(7);
 
-var AutoFocusUtils = __webpack_require__(161);
-var CSSPropertyOperations = __webpack_require__(162);
+var AutoFocusUtils = __webpack_require__(166);
+var CSSPropertyOperations = __webpack_require__(167);
 var DOMLazyTree = __webpack_require__(28);
-var DOMNamespaces = __webpack_require__(54);
+var DOMNamespaces = __webpack_require__(56);
 var DOMProperty = __webpack_require__(20);
-var DOMPropertyOperations = __webpack_require__(86);
+var DOMPropertyOperations = __webpack_require__(91);
 var EventPluginHub = __webpack_require__(30);
 var EventPluginRegistry = __webpack_require__(37);
 var ReactBrowserEventEmitter = __webpack_require__(42);
-var ReactDOMComponentFlags = __webpack_require__(74);
-var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMInput = __webpack_require__(172);
-var ReactDOMOption = __webpack_require__(173);
-var ReactDOMSelect = __webpack_require__(88);
-var ReactDOMTextarea = __webpack_require__(174);
+var ReactDOMComponentFlags = __webpack_require__(79);
+var ReactDOMComponentTree = __webpack_require__(8);
+var ReactDOMInput = __webpack_require__(177);
+var ReactDOMOption = __webpack_require__(178);
+var ReactDOMSelect = __webpack_require__(93);
+var ReactDOMTextarea = __webpack_require__(179);
 var ReactInstrumentation = __webpack_require__(12);
-var ReactMultiChild = __webpack_require__(175);
-var ReactServerRenderingTransaction = __webpack_require__(184);
+var ReactMultiChild = __webpack_require__(180);
+var ReactServerRenderingTransaction = __webpack_require__(189);
 
 var emptyFunction = __webpack_require__(11);
 var escapeTextContentForBrowser = __webpack_require__(41);
 var invariant = __webpack_require__(2);
-var isEventSupported = __webpack_require__(51);
-var shallowEqual = __webpack_require__(58);
-var inputValueTracking = __webpack_require__(80);
-var validateDOMNesting = __webpack_require__(62);
+var isEventSupported = __webpack_require__(53);
+var shallowEqual = __webpack_require__(60);
+var inputValueTracking = __webpack_require__(85);
+var validateDOMNesting = __webpack_require__(64);
 var warning = __webpack_require__(3);
 
 var Flags = ReactDOMComponentFlags;
@@ -18274,7 +18372,7 @@ module.exports = ReactDOMComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 161 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18290,9 +18388,9 @@ module.exports = ReactDOMComponent;
 
 
 
-var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMComponentTree = __webpack_require__(8);
 
-var focusNode = __webpack_require__(84);
+var focusNode = __webpack_require__(89);
 
 var AutoFocusUtils = {
   focusDOMComponent: function () {
@@ -18303,7 +18401,7 @@ var AutoFocusUtils = {
 module.exports = AutoFocusUtils;
 
 /***/ }),
-/* 162 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18319,14 +18417,14 @@ module.exports = AutoFocusUtils;
 
 
 
-var CSSProperty = __webpack_require__(85);
-var ExecutionEnvironment = __webpack_require__(8);
+var CSSProperty = __webpack_require__(90);
+var ExecutionEnvironment = __webpack_require__(9);
 var ReactInstrumentation = __webpack_require__(12);
 
-var camelizeStyleName = __webpack_require__(163);
-var dangerousStyleValue = __webpack_require__(165);
-var hyphenateStyleName = __webpack_require__(166);
-var memoizeStringOnly = __webpack_require__(168);
+var camelizeStyleName = __webpack_require__(168);
+var dangerousStyleValue = __webpack_require__(170);
+var hyphenateStyleName = __webpack_require__(171);
+var memoizeStringOnly = __webpack_require__(173);
 var warning = __webpack_require__(3);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
@@ -18524,7 +18622,7 @@ module.exports = CSSPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 163 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18541,7 +18639,7 @@ module.exports = CSSPropertyOperations;
 
 
 
-var camelize = __webpack_require__(164);
+var camelize = __webpack_require__(169);
 
 var msPattern = /^-ms-/;
 
@@ -18569,7 +18667,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 164 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18606,7 +18704,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 165 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18622,7 +18720,7 @@ module.exports = camelize;
 
 
 
-var CSSProperty = __webpack_require__(85);
+var CSSProperty = __webpack_require__(90);
 var warning = __webpack_require__(3);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -18691,7 +18789,7 @@ module.exports = dangerousStyleValue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 166 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18708,7 +18806,7 @@ module.exports = dangerousStyleValue;
 
 
 
-var hyphenate = __webpack_require__(167);
+var hyphenate = __webpack_require__(172);
 
 var msPattern = /^ms-/;
 
@@ -18735,7 +18833,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 167 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18773,7 +18871,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 168 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18808,7 +18906,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 169 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18839,7 +18937,7 @@ function quoteAttributeValueForBrowser(value) {
 module.exports = quoteAttributeValueForBrowser;
 
 /***/ }),
-/* 170 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18876,7 +18974,7 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
-/* 171 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18892,7 +18990,7 @@ module.exports = ReactEventEmitterMixin;
 
 
 
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
 /**
  * Generate a mapping of standard vendor prefixes using the defined style property and event name.
@@ -18982,7 +19080,7 @@ function getVendorPrefixedEventName(eventName) {
 module.exports = getVendorPrefixedEventName;
 
 /***/ }),
-/* 172 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18999,11 +19097,11 @@ module.exports = getVendorPrefixedEventName;
 
 
 var _prodInvariant = __webpack_require__(4),
-    _assign = __webpack_require__(5);
+    _assign = __webpack_require__(7);
 
-var DOMPropertyOperations = __webpack_require__(86);
-var LinkedValueUtils = __webpack_require__(56);
-var ReactDOMComponentTree = __webpack_require__(6);
+var DOMPropertyOperations = __webpack_require__(91);
+var LinkedValueUtils = __webpack_require__(58);
+var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(15);
 
 var invariant = __webpack_require__(2);
@@ -19275,7 +19373,7 @@ module.exports = ReactDOMInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 173 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19291,11 +19389,11 @@ module.exports = ReactDOMInput;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var React = __webpack_require__(25);
-var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMSelect = __webpack_require__(88);
+var ReactDOMComponentTree = __webpack_require__(8);
+var ReactDOMSelect = __webpack_require__(93);
 
 var warning = __webpack_require__(3);
 var didWarnInvalidOptionChildren = false;
@@ -19403,7 +19501,7 @@ module.exports = ReactDOMOption;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 174 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19420,10 +19518,10 @@ module.exports = ReactDOMOption;
 
 
 var _prodInvariant = __webpack_require__(4),
-    _assign = __webpack_require__(5);
+    _assign = __webpack_require__(7);
 
-var LinkedValueUtils = __webpack_require__(56);
-var ReactDOMComponentTree = __webpack_require__(6);
+var LinkedValueUtils = __webpack_require__(58);
+var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(15);
 
 var invariant = __webpack_require__(2);
@@ -19569,7 +19667,7 @@ module.exports = ReactDOMTextarea;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 175 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19587,16 +19685,16 @@ module.exports = ReactDOMTextarea;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactComponentEnvironment = __webpack_require__(57);
+var ReactComponentEnvironment = __webpack_require__(59);
 var ReactInstanceMap = __webpack_require__(32);
 var ReactInstrumentation = __webpack_require__(12);
 
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactReconciler = __webpack_require__(27);
-var ReactChildReconciler = __webpack_require__(176);
+var ReactChildReconciler = __webpack_require__(181);
 
 var emptyFunction = __webpack_require__(11);
-var flattenChildren = __webpack_require__(183);
+var flattenChildren = __webpack_require__(188);
 var invariant = __webpack_require__(2);
 
 /**
@@ -20021,7 +20119,7 @@ module.exports = ReactMultiChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 176 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20039,10 +20137,10 @@ module.exports = ReactMultiChild;
 
 var ReactReconciler = __webpack_require__(27);
 
-var instantiateReactComponent = __webpack_require__(89);
-var KeyEscapeUtils = __webpack_require__(60);
-var shouldUpdateReactComponent = __webpack_require__(59);
-var traverseAllChildren = __webpack_require__(93);
+var instantiateReactComponent = __webpack_require__(94);
+var KeyEscapeUtils = __webpack_require__(62);
+var shouldUpdateReactComponent = __webpack_require__(61);
+var traverseAllChildren = __webpack_require__(98);
 var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
@@ -20180,7 +20278,7 @@ module.exports = ReactChildReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 177 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20197,25 +20295,25 @@ module.exports = ReactChildReconciler;
 
 
 var _prodInvariant = __webpack_require__(4),
-    _assign = __webpack_require__(5);
+    _assign = __webpack_require__(7);
 
 var React = __webpack_require__(25);
-var ReactComponentEnvironment = __webpack_require__(57);
+var ReactComponentEnvironment = __webpack_require__(59);
 var ReactCurrentOwner = __webpack_require__(14);
-var ReactErrorUtils = __webpack_require__(49);
+var ReactErrorUtils = __webpack_require__(51);
 var ReactInstanceMap = __webpack_require__(32);
 var ReactInstrumentation = __webpack_require__(12);
-var ReactNodeTypes = __webpack_require__(90);
+var ReactNodeTypes = __webpack_require__(95);
 var ReactReconciler = __webpack_require__(27);
 
 if (process.env.NODE_ENV !== 'production') {
-  var checkReactTypeSpec = __webpack_require__(178);
+  var checkReactTypeSpec = __webpack_require__(183);
 }
 
 var emptyObject = __webpack_require__(36);
 var invariant = __webpack_require__(2);
-var shallowEqual = __webpack_require__(58);
-var shouldUpdateReactComponent = __webpack_require__(59);
+var shallowEqual = __webpack_require__(60);
+var shouldUpdateReactComponent = __webpack_require__(61);
 var warning = __webpack_require__(3);
 
 var CompositeTypes = {
@@ -21086,7 +21184,7 @@ module.exports = ReactCompositeComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 178 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21104,8 +21202,8 @@ module.exports = ReactCompositeComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactPropTypeLocationNames = __webpack_require__(179);
-var ReactPropTypesSecret = __webpack_require__(87);
+var ReactPropTypeLocationNames = __webpack_require__(184);
+var ReactPropTypesSecret = __webpack_require__(92);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -21179,7 +21277,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 179 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21210,7 +21308,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 180 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21236,7 +21334,7 @@ function getNextDebugID() {
 module.exports = getNextDebugID;
 
 /***/ }),
-/* 181 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21261,7 +21359,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 182 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21307,7 +21405,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 183 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21324,8 +21422,8 @@ module.exports = getIteratorFn;
 
 
 
-var KeyEscapeUtils = __webpack_require__(60);
-var traverseAllChildren = __webpack_require__(93);
+var KeyEscapeUtils = __webpack_require__(62);
+var traverseAllChildren = __webpack_require__(98);
 var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
@@ -21389,7 +21487,7 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 184 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21405,12 +21503,12 @@ module.exports = flattenChildren;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var PooledClass = __webpack_require__(24);
 var Transaction = __webpack_require__(38);
 var ReactInstrumentation = __webpack_require__(12);
-var ReactServerUpdateQueue = __webpack_require__(185);
+var ReactServerUpdateQueue = __webpack_require__(190);
 
 /**
  * Executed within the scope of the `Transaction` instance. Consider these as
@@ -21485,7 +21583,7 @@ module.exports = ReactServerRenderingTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 185 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21504,7 +21602,7 @@ module.exports = ReactServerRenderingTransaction;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ReactUpdateQueue = __webpack_require__(61);
+var ReactUpdateQueue = __webpack_require__(63);
 
 var warning = __webpack_require__(3);
 
@@ -21630,7 +21728,7 @@ module.exports = ReactServerUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 186 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21646,10 +21744,10 @@ module.exports = ReactServerUpdateQueue;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var DOMLazyTree = __webpack_require__(28);
-var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMComponentTree = __webpack_require__(8);
 
 var ReactDOMEmptyComponent = function (instantiate) {
   // ReactCompositeComponent uses this:
@@ -21695,7 +21793,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 module.exports = ReactDOMEmptyComponent;
 
 /***/ }),
-/* 187 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21837,7 +21935,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 188 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21854,15 +21952,15 @@ module.exports = {
 
 
 var _prodInvariant = __webpack_require__(4),
-    _assign = __webpack_require__(5);
+    _assign = __webpack_require__(7);
 
-var DOMChildrenOperations = __webpack_require__(53);
+var DOMChildrenOperations = __webpack_require__(55);
 var DOMLazyTree = __webpack_require__(28);
-var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMComponentTree = __webpack_require__(8);
 
 var escapeTextContentForBrowser = __webpack_require__(41);
 var invariant = __webpack_require__(2);
-var validateDOMNesting = __webpack_require__(62);
+var validateDOMNesting = __webpack_require__(64);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -22005,7 +22103,7 @@ module.exports = ReactDOMTextComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 189 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22021,7 +22119,7 @@ module.exports = ReactDOMTextComponent;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
 var ReactUpdates = __webpack_require__(15);
 var Transaction = __webpack_require__(38);
@@ -22078,7 +22176,7 @@ var ReactDefaultBatchingStrategy = {
 module.exports = ReactDefaultBatchingStrategy;
 
 /***/ }),
-/* 190 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22094,16 +22192,16 @@ module.exports = ReactDefaultBatchingStrategy;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
-var EventListener = __webpack_require__(94);
-var ExecutionEnvironment = __webpack_require__(8);
+var EventListener = __webpack_require__(99);
+var ExecutionEnvironment = __webpack_require__(9);
 var PooledClass = __webpack_require__(24);
-var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMComponentTree = __webpack_require__(8);
 var ReactUpdates = __webpack_require__(15);
 
-var getEventTarget = __webpack_require__(50);
-var getUnboundedScrollPosition = __webpack_require__(191);
+var getEventTarget = __webpack_require__(52);
+var getUnboundedScrollPosition = __webpack_require__(196);
 
 /**
  * Find the deepest React component completely containing the root of the
@@ -22238,7 +22336,7 @@ var ReactEventListener = {
 module.exports = ReactEventListener;
 
 /***/ }),
-/* 191 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22282,7 +22380,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 192 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22300,11 +22398,11 @@ module.exports = getUnboundedScrollPosition;
 
 var DOMProperty = __webpack_require__(20);
 var EventPluginHub = __webpack_require__(30);
-var EventPluginUtils = __webpack_require__(48);
-var ReactComponentEnvironment = __webpack_require__(57);
-var ReactEmptyComponent = __webpack_require__(91);
+var EventPluginUtils = __webpack_require__(50);
+var ReactComponentEnvironment = __webpack_require__(59);
+var ReactEmptyComponent = __webpack_require__(96);
 var ReactBrowserEventEmitter = __webpack_require__(42);
-var ReactHostComponent = __webpack_require__(92);
+var ReactHostComponent = __webpack_require__(97);
 var ReactUpdates = __webpack_require__(15);
 
 var ReactInjection = {
@@ -22321,7 +22419,7 @@ var ReactInjection = {
 module.exports = ReactInjection;
 
 /***/ }),
-/* 193 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22337,15 +22435,15 @@ module.exports = ReactInjection;
 
 
 
-var _assign = __webpack_require__(5);
+var _assign = __webpack_require__(7);
 
-var CallbackQueue = __webpack_require__(78);
+var CallbackQueue = __webpack_require__(83);
 var PooledClass = __webpack_require__(24);
 var ReactBrowserEventEmitter = __webpack_require__(42);
-var ReactInputSelection = __webpack_require__(95);
+var ReactInputSelection = __webpack_require__(100);
 var ReactInstrumentation = __webpack_require__(12);
 var Transaction = __webpack_require__(38);
-var ReactUpdateQueue = __webpack_require__(61);
+var ReactUpdateQueue = __webpack_require__(63);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -22505,7 +22603,7 @@ module.exports = ReactReconcileTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 194 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22521,10 +22619,10 @@ module.exports = ReactReconcileTransaction;
 
 
 
-var ExecutionEnvironment = __webpack_require__(8);
+var ExecutionEnvironment = __webpack_require__(9);
 
-var getNodeForCharacterOffset = __webpack_require__(195);
-var getTextContentAccessor = __webpack_require__(77);
+var getNodeForCharacterOffset = __webpack_require__(200);
+var getTextContentAccessor = __webpack_require__(82);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -22722,7 +22820,7 @@ var ReactDOMSelection = {
 module.exports = ReactDOMSelection;
 
 /***/ }),
-/* 195 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22801,7 +22899,7 @@ function getNodeForCharacterOffset(root, offset) {
 module.exports = getNodeForCharacterOffset;
 
 /***/ }),
-/* 196 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22818,7 +22916,7 @@ module.exports = getNodeForCharacterOffset;
  * 
  */
 
-var isTextNode = __webpack_require__(197);
+var isTextNode = __webpack_require__(202);
 
 /*eslint-disable no-bitwise */
 
@@ -22846,7 +22944,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 197 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22863,7 +22961,7 @@ module.exports = containsNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(198);
+var isNode = __webpack_require__(203);
 
 /**
  * @param {*} object The object to check.
@@ -22876,7 +22974,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 198 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22906,7 +23004,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 199 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23213,7 +23311,7 @@ Object.keys(ATTRS).forEach(function (key) {
 module.exports = SVGDOMPropertyConfig;
 
 /***/ }),
-/* 200 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23230,14 +23328,14 @@ module.exports = SVGDOMPropertyConfig;
 
 
 var EventPropagators = __webpack_require__(29);
-var ExecutionEnvironment = __webpack_require__(8);
-var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInputSelection = __webpack_require__(95);
+var ExecutionEnvironment = __webpack_require__(9);
+var ReactDOMComponentTree = __webpack_require__(8);
+var ReactInputSelection = __webpack_require__(100);
 var SyntheticEvent = __webpack_require__(18);
 
-var getActiveElement = __webpack_require__(96);
-var isTextInputElement = __webpack_require__(81);
-var shallowEqual = __webpack_require__(58);
+var getActiveElement = __webpack_require__(101);
+var isTextInputElement = __webpack_require__(86);
+var shallowEqual = __webpack_require__(60);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -23406,7 +23504,7 @@ var SelectEventPlugin = {
 module.exports = SelectEventPlugin;
 
 /***/ }),
-/* 201 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23425,23 +23523,23 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(4);
 
-var EventListener = __webpack_require__(94);
+var EventListener = __webpack_require__(99);
 var EventPropagators = __webpack_require__(29);
-var ReactDOMComponentTree = __webpack_require__(6);
-var SyntheticAnimationEvent = __webpack_require__(202);
-var SyntheticClipboardEvent = __webpack_require__(203);
+var ReactDOMComponentTree = __webpack_require__(8);
+var SyntheticAnimationEvent = __webpack_require__(207);
+var SyntheticClipboardEvent = __webpack_require__(208);
 var SyntheticEvent = __webpack_require__(18);
-var SyntheticFocusEvent = __webpack_require__(204);
-var SyntheticKeyboardEvent = __webpack_require__(205);
+var SyntheticFocusEvent = __webpack_require__(209);
+var SyntheticKeyboardEvent = __webpack_require__(210);
 var SyntheticMouseEvent = __webpack_require__(39);
-var SyntheticDragEvent = __webpack_require__(207);
-var SyntheticTouchEvent = __webpack_require__(208);
-var SyntheticTransitionEvent = __webpack_require__(209);
+var SyntheticDragEvent = __webpack_require__(212);
+var SyntheticTouchEvent = __webpack_require__(213);
+var SyntheticTransitionEvent = __webpack_require__(214);
 var SyntheticUIEvent = __webpack_require__(31);
-var SyntheticWheelEvent = __webpack_require__(210);
+var SyntheticWheelEvent = __webpack_require__(215);
 
 var emptyFunction = __webpack_require__(11);
-var getEventCharCode = __webpack_require__(63);
+var getEventCharCode = __webpack_require__(65);
 var invariant = __webpack_require__(2);
 
 /**
@@ -23638,7 +23736,7 @@ module.exports = SimpleEventPlugin;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 202 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23682,7 +23780,7 @@ SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 module.exports = SyntheticAnimationEvent;
 
 /***/ }),
-/* 203 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23725,7 +23823,7 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 module.exports = SyntheticClipboardEvent;
 
 /***/ }),
-/* 204 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23766,7 +23864,7 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 module.exports = SyntheticFocusEvent;
 
 /***/ }),
-/* 205 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23784,9 +23882,9 @@ module.exports = SyntheticFocusEvent;
 
 var SyntheticUIEvent = __webpack_require__(31);
 
-var getEventCharCode = __webpack_require__(63);
-var getEventKey = __webpack_require__(206);
-var getEventModifierState = __webpack_require__(52);
+var getEventCharCode = __webpack_require__(65);
+var getEventKey = __webpack_require__(211);
+var getEventModifierState = __webpack_require__(54);
 
 /**
  * @interface KeyboardEvent
@@ -23855,7 +23953,7 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 module.exports = SyntheticKeyboardEvent;
 
 /***/ }),
-/* 206 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23871,7 +23969,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var getEventCharCode = __webpack_require__(63);
+var getEventCharCode = __webpack_require__(65);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -23972,7 +24070,7 @@ function getEventKey(nativeEvent) {
 module.exports = getEventKey;
 
 /***/ }),
-/* 207 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24013,7 +24111,7 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 module.exports = SyntheticDragEvent;
 
 /***/ }),
-/* 208 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24031,7 +24129,7 @@ module.exports = SyntheticDragEvent;
 
 var SyntheticUIEvent = __webpack_require__(31);
 
-var getEventModifierState = __webpack_require__(52);
+var getEventModifierState = __webpack_require__(54);
 
 /**
  * @interface TouchEvent
@@ -24063,7 +24161,7 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 module.exports = SyntheticTouchEvent;
 
 /***/ }),
-/* 209 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24107,7 +24205,7 @@ SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 module.exports = SyntheticTransitionEvent;
 
 /***/ }),
-/* 210 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24163,7 +24261,7 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 module.exports = SyntheticWheelEvent;
 
 /***/ }),
-/* 211 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24179,7 +24277,7 @@ module.exports = SyntheticWheelEvent;
 
 
 
-var validateDOMNesting = __webpack_require__(62);
+var validateDOMNesting = __webpack_require__(64);
 
 var DOC_NODE_TYPE = 9;
 
@@ -24202,7 +24300,7 @@ module.exports = ReactDOMContainerInfo;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 212 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24226,7 +24324,7 @@ var ReactDOMFeatureFlags = {
 module.exports = ReactDOMFeatureFlags;
 
 /***/ }),
-/* 213 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24242,7 +24340,7 @@ module.exports = ReactDOMFeatureFlags;
 
 
 
-var adler32 = __webpack_require__(214);
+var adler32 = __webpack_require__(219);
 
 var TAG_END = /\/?>/;
 var COMMENT_START = /^<\!\-\-/;
@@ -24281,7 +24379,7 @@ var ReactMarkupChecksum = {
 module.exports = ReactMarkupChecksum;
 
 /***/ }),
-/* 214 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24330,7 +24428,7 @@ function adler32(data) {
 module.exports = adler32;
 
 /***/ }),
-/* 215 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24349,7 +24447,7 @@ module.exports = adler32;
 module.exports = '15.6.1';
 
 /***/ }),
-/* 216 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24368,10 +24466,10 @@ module.exports = '15.6.1';
 var _prodInvariant = __webpack_require__(4);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var ReactDOMComponentTree = __webpack_require__(6);
+var ReactDOMComponentTree = __webpack_require__(8);
 var ReactInstanceMap = __webpack_require__(32);
 
-var getHostComponentFromComposite = __webpack_require__(98);
+var getHostComponentFromComposite = __webpack_require__(103);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
@@ -24415,7 +24513,7 @@ module.exports = findDOMNode;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 217 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24431,12 +24529,12 @@ module.exports = findDOMNode;
 
 
 
-var ReactMount = __webpack_require__(97);
+var ReactMount = __webpack_require__(102);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ }),
-/* 218 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24554,7 +24652,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 219 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24603,7 +24701,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 220 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24702,13 +24800,13 @@ module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 221 */
+/* 226 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(230);
 
 
 
@@ -24740,11 +24838,11 @@ function baseGetTag(value) {
 
 
 /***/ }),
-/* 222 */
+/* 227 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__ = __webpack_require__(228);
 
 
 /** Detect free variable `self`. */
@@ -24757,7 +24855,7 @@ var root = __WEBPACK_IMPORTED_MODULE_0__freeGlobal_js__["a" /* default */] || fr
 
 
 /***/ }),
-/* 223 */
+/* 228 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24766,14 +24864,14 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 
 /* harmony default export */ __webpack_exports__["a"] = (freeGlobal);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(102)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(106)))
 
 /***/ }),
-/* 224 */
+/* 229 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(105);
 
 
 /** Used for built-in method references. */
@@ -24823,7 +24921,7 @@ function getRawTag(value) {
 
 
 /***/ }),
-/* 225 */
+/* 230 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24852,11 +24950,11 @@ function objectToString(value) {
 
 
 /***/ }),
-/* 226 */
+/* 231 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__overArg_js__ = __webpack_require__(232);
 
 
 /** Built-in value references. */
@@ -24866,7 +24964,7 @@ var getPrototype = __WEBPACK_IMPORTED_MODULE_0__overArg_js__["a" /* default */](
 
 
 /***/ }),
-/* 227 */
+/* 232 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24888,7 +24986,7 @@ function overArg(func, transform) {
 
 
 /***/ }),
-/* 228 */
+/* 233 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24924,11 +25022,11 @@ function isObjectLike(value) {
 
 
 /***/ }),
-/* 229 */
+/* 234 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(231);
+/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__ = __webpack_require__(236);
 /* global window */
 
 
@@ -24949,10 +25047,10 @@ if (typeof self !== 'undefined') {
 var result = __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__["a" /* default */](root);
 /* harmony default export */ __webpack_exports__["a"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(102), __webpack_require__(230)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(106), __webpack_require__(235)(module)))
 
 /***/ }),
-/* 230 */
+/* 235 */
 /***/ (function(module, exports) {
 
 module.exports = function(originalModule) {
@@ -24982,7 +25080,7 @@ module.exports = function(originalModule) {
 
 
 /***/ }),
-/* 231 */
+/* 236 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25007,14 +25105,14 @@ function symbolObservablePonyfill(root) {
 
 
 /***/ }),
-/* 232 */
+/* 237 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(107);
 
 
 
@@ -25148,7 +25246,7 @@ function combineReducers(reducers) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 233 */
+/* 238 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25202,12 +25300,12 @@ function bindActionCreators(actionCreators, dispatch) {
 }
 
 /***/ }),
-/* 234 */
+/* 239 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(108);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -25258,7 +25356,7 @@ function applyMiddleware() {
 }
 
 /***/ }),
-/* 235 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25267,172 +25365,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(236));
-
-
-/***/ }),
-/* 236 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const initial_state_1 = __webpack_require__(237);
-const create_program_outcome_dictionary_1 = __webpack_require__(106);
-const student_data_reducer_1 = __webpack_require__(245);
-exports.rootReducer = (state = initial_state_1.initialState, action) => {
-    const nextStudentData = student_data_reducer_1.studentDataReducer(state.studentData, action);
-    let nextOutcomes = state.programOutcomes;
-    if (nextStudentData !== state.studentData) {
-        nextOutcomes = create_program_outcome_dictionary_1.createProgramOutcomeDictionary(state.hsData.hsPrograms, nextStudentData);
-    }
-    const nextState = Object.assign({}, state, { studentData: nextStudentData, programOutcomes: nextOutcomes });
-    return nextState;
-};
-
-
-/***/ }),
-/* 237 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const data_access_1 = __webpack_require__(105);
-const initial_student_data_1 = __webpack_require__(238);
-const create_program_outcome_dictionary_1 = __webpack_require__(106);
-let hsProgramDict = {};
-let nonHSProgramDict = {};
-let programTypeNameTable = {};
-data_access_1.getHSPrograms().then((programs) => {
-    programs.forEach(program => {
-        hsProgramDict[program.id] = program;
-    });
-});
-data_access_1.getNonHSPrograms().then((programs) => {
-    programs.forEach(program => {
-        nonHSProgramDict[program.id] = program;
-    });
-});
-data_access_1.getProgramTypeNameTable().then(table => {
-    programTypeNameTable = table;
-});
-let hsSchoolDict = {};
-Object.keys(hsProgramDict).forEach(programID => {
-    const program = hsProgramDict[programID];
-    if (hsSchoolDict[program.schoolID] === undefined) {
-        hsSchoolDict[program.schoolID] = {
-            id: program.schoolID,
-            longName: program.schoolNameLong,
-            shortName: program.schoolNameShort
-        };
-    }
-});
-let hsProgramGroupDict = {};
-Object.keys(hsProgramDict).forEach(programID => {
-    const program = hsProgramDict[programID];
-    const programTypeID = program.programTypeID;
-    if (hsProgramGroupDict[programTypeID] === undefined) {
-        const newProgramGroup = {
-            id: programTypeID,
-            name: programTypeNameTable[programTypeID],
-            programIDs: [program.id]
-        };
-        hsProgramGroupDict[programTypeID] = newProgramGroup;
-    }
-    else {
-        hsProgramGroupDict[programTypeID].programIDs.push(program.id);
-    }
-});
-exports.initialState = {
-    studentData: initial_student_data_1.initialStudentData,
-    programOutcomes: create_program_outcome_dictionary_1.createInitialProgramOutcomeDictionary(hsProgramDict),
-    hsData: {
-        hsPrograms: hsProgramDict,
-        esPrograms: nonHSProgramDict,
-        hsSchools: hsSchoolDict,
-        hsProgramGroups: hsProgramGroupDict
-    },
-    selectedHSProgramID: null
-};
-
-
-/***/ }),
-/* 238 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.initialStudentData = {
-    gender: null,
-    location: null,
-    gradeLevel: null,
-    prevGradeLevel: null,
-    iep: null,
-    ell: null,
-    attendancePercentage: null,
-    gpa: null,
-    skippedGrade7OrRepeatedGrade8: null,
-    currESProgramID: null,
-    siblingHSSchoolIDs: [],
-    seTestPercentile: null,
-    nweaPercentileMath: null,
-    nweaPercentileRead: null,
-    subjGradeMath: null,
-    subjGradeRead: null,
-    subjGradeSci: null,
-    subjGradeSocStudies: null,
-};
-
-
-/***/ }),
-/* 239 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ActionType;
-(function (ActionType) {
-    ActionType[ActionType["UpdateStudentGender"] = 0] = "UpdateStudentGender";
-    ActionType[ActionType["UpdateStudentLocation"] = 1] = "UpdateStudentLocation";
-    ActionType[ActionType["UpdateStudentGradeLevel"] = 2] = "UpdateStudentGradeLevel";
-    ActionType[ActionType["UpdateStudentPrevGradeLevel"] = 3] = "UpdateStudentPrevGradeLevel";
-    ActionType[ActionType["UpdateStudentSkip7OrRepeated8"] = 4] = "UpdateStudentSkip7OrRepeated8";
-    ActionType[ActionType["UpdateStudentELLStatus"] = 5] = "UpdateStudentELLStatus";
-    ActionType[ActionType["UpdateStudentIEPStatus"] = 6] = "UpdateStudentIEPStatus";
-    ActionType[ActionType["UpdateStudentAttendPercentage"] = 7] = "UpdateStudentAttendPercentage";
-    ActionType[ActionType["UpdateStudentCurrESProgram"] = 8] = "UpdateStudentCurrESProgram";
-    ActionType[ActionType["UpdateStudentSiblingHSSchools"] = 9] = "UpdateStudentSiblingHSSchools";
-    ActionType[ActionType["UpdateStudentNWEAPercentileMath"] = 10] = "UpdateStudentNWEAPercentileMath";
-    ActionType[ActionType["UpdateStudentNWEAPercentileRead"] = 11] = "UpdateStudentNWEAPercentileRead";
-    ActionType[ActionType["UpdateStudentSubjGradeMath"] = 12] = "UpdateStudentSubjGradeMath";
-    ActionType[ActionType["UpdateStudentSubjGradeRead"] = 13] = "UpdateStudentSubjGradeRead";
-    ActionType[ActionType["UpdateStudentSubjGradeSci"] = 14] = "UpdateStudentSubjGradeSci";
-    ActionType[ActionType["UpdateStudentSubjGradeSocStudies"] = 15] = "UpdateStudentSubjGradeSocStudies";
-    ActionType[ActionType["UpdateStudentSETestPercentile"] = 16] = "UpdateStudentSETestPercentile";
-    ActionType[ActionType["SelectHSProgram"] = 17] = "SelectHSProgram";
-})(ActionType || (ActionType = {}));
-exports.ActionType = ActionType;
-
-
-/***/ }),
-/* 240 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var EffortLevel;
-(function (EffortLevel) {
-    EffortLevel[EffortLevel["NONE"] = 1] = "NONE";
-    EffortLevel[EffortLevel["LOW"] = 2] = "LOW";
-    EffortLevel[EffortLevel["NORMAL"] = 3] = "NORMAL";
-    EffortLevel[EffortLevel["HIGH"] = 4] = "HIGH";
-    EffortLevel[EffortLevel["EXTREME"] = 5] = "EXTREME";
-})(EffortLevel || (EffortLevel = {}));
-exports.EffortLevel = EffortLevel;
+__export(__webpack_require__(241));
 
 
 /***/ }),
@@ -25442,14 +25375,17 @@ exports.EffortLevel = EffortLevel;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Gender;
-(function (Gender) {
-    Gender[Gender["MALE"] = 0] = "MALE";
-    Gender[Gender["FEMALE"] = 1] = "FEMALE";
-    Gender[Gender["OTHER"] = 2] = "OTHER";
-    Gender[Gender["NOANSWER"] = 3] = "NOANSWER";
-})(Gender || (Gender = {}));
-exports.Gender = Gender;
+const Redux = __webpack_require__(66);
+const student_data_reducer_1 = __webpack_require__(242);
+const program_outcomes_reducer_1 = __webpack_require__(248);
+const loading_status_reducer_1 = __webpack_require__(249);
+const data_reducer_1 = __webpack_require__(250);
+exports.rootReducer = Redux.combineReducers({
+    studentData: student_data_reducer_1.studentDataReducer,
+    programOutcomes: program_outcomes_reducer_1.programOutcomesReducer,
+    loadingStatus: loading_status_reducer_1.loadingStatusReducer,
+    data: data_reducer_1.dataReducer
+});
 
 
 /***/ }),
@@ -25459,67 +25395,10 @@ exports.Gender = Gender;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ScoreType;
-(function (ScoreType) {
-    ScoreType["nweaPercentileMath"] = "nweaPercentileMath";
-    ScoreType["nweaPercentileRead"] = "nweaPercentileRead";
-    ScoreType["subjGradeMath"] = "subjGradeMath";
-    ScoreType["subjGradeRead"] = "subjGradeRead";
-    ScoreType["subjGradeSci"] = "subjGradeSci";
-    ScoreType["subjGradeSocStudies"] = "subjGradeSocStudies";
-    ScoreType["seTestPercentile"] = "seTestPercentile";
-})(ScoreType || (ScoreType = {}));
-exports.ScoreType = ScoreType;
-
-
-/***/ }),
-/* 243 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SuccessChance;
-(function (SuccessChance) {
-    SuccessChance[SuccessChance["CERTAIN"] = 5] = "CERTAIN";
-    SuccessChance[SuccessChance["LIKELY"] = 4] = "LIKELY";
-    SuccessChance[SuccessChance["UNCERTAIN"] = 3] = "UNCERTAIN";
-    SuccessChance[SuccessChance["UNLIKELY"] = 2] = "UNLIKELY";
-    SuccessChance[SuccessChance["NONE"] = 1] = "NONE";
-    SuccessChance[SuccessChance["NOTIMPLEMENTED"] = 0] = "NOTIMPLEMENTED";
-})(SuccessChance || (SuccessChance = {}));
-exports.SuccessChance = SuccessChance;
-;
-
-
-/***/ }),
-/* 244 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(9);
-exports.getOverallSuccessChance = (opts) => {
-    if (opts.application === enums_1.SuccessChance.CERTAIN || opts.application === enums_1.SuccessChance.LIKELY) {
-        return opts.selection;
-    }
-    else {
-        return opts.application;
-    }
-};
-
-
-/***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(9);
-const calculate_gpa_1 = __webpack_require__(246);
-exports.studentDataReducer = (studentData, action) => {
+const enums_1 = __webpack_require__(5);
+const calculate_gpa_1 = __webpack_require__(247);
+const initial_state_1 = __webpack_require__(44);
+exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, action) => {
     let nextStudentData = studentData;
     switch (action.type) {
         case enums_1.ActionType.UpdateStudentGender:
@@ -25576,7 +25455,104 @@ exports.studentDataReducer = (studentData, action) => {
 
 
 /***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ActionType;
+(function (ActionType) {
+    ActionType[ActionType["UpdateStudentGender"] = 0] = "UpdateStudentGender";
+    ActionType[ActionType["UpdateStudentLocation"] = 1] = "UpdateStudentLocation";
+    ActionType[ActionType["UpdateStudentGradeLevel"] = 2] = "UpdateStudentGradeLevel";
+    ActionType[ActionType["UpdateStudentPrevGradeLevel"] = 3] = "UpdateStudentPrevGradeLevel";
+    ActionType[ActionType["UpdateStudentSkip7OrRepeated8"] = 4] = "UpdateStudentSkip7OrRepeated8";
+    ActionType[ActionType["UpdateStudentELLStatus"] = 5] = "UpdateStudentELLStatus";
+    ActionType[ActionType["UpdateStudentIEPStatus"] = 6] = "UpdateStudentIEPStatus";
+    ActionType[ActionType["UpdateStudentAttendPercentage"] = 7] = "UpdateStudentAttendPercentage";
+    ActionType[ActionType["UpdateStudentCurrESProgram"] = 8] = "UpdateStudentCurrESProgram";
+    ActionType[ActionType["UpdateStudentSiblingHSSchools"] = 9] = "UpdateStudentSiblingHSSchools";
+    ActionType[ActionType["UpdateStudentNWEAPercentileMath"] = 10] = "UpdateStudentNWEAPercentileMath";
+    ActionType[ActionType["UpdateStudentNWEAPercentileRead"] = 11] = "UpdateStudentNWEAPercentileRead";
+    ActionType[ActionType["UpdateStudentSubjGradeMath"] = 12] = "UpdateStudentSubjGradeMath";
+    ActionType[ActionType["UpdateStudentSubjGradeRead"] = 13] = "UpdateStudentSubjGradeRead";
+    ActionType[ActionType["UpdateStudentSubjGradeSci"] = 14] = "UpdateStudentSubjGradeSci";
+    ActionType[ActionType["UpdateStudentSubjGradeSocStudies"] = 15] = "UpdateStudentSubjGradeSocStudies";
+    ActionType[ActionType["UpdateStudentSETestPercentile"] = 16] = "UpdateStudentSETestPercentile";
+    ActionType[ActionType["UpdateProgramOutcomes"] = 17] = "UpdateProgramOutcomes";
+    ActionType[ActionType["SelectHSProgram"] = 18] = "SelectHSProgram";
+    ActionType[ActionType["LoadingData"] = 19] = "LoadingData";
+    ActionType[ActionType["DataLoaded"] = 20] = "DataLoaded";
+    ActionType[ActionType["UpdateHSPrograms"] = 21] = "UpdateHSPrograms";
+    ActionType[ActionType["UpdateNonHSPrograms"] = 22] = "UpdateNonHSPrograms";
+    ActionType[ActionType["UpdateHSSchools"] = 23] = "UpdateHSSchools";
+    ActionType[ActionType["UpdateHSProgramGroups"] = 24] = "UpdateHSProgramGroups";
+    ActionType[ActionType["UpdateSECutoffScores"] = 25] = "UpdateSECutoffScores";
+    ActionType[ActionType["UpdateNonSECutoffScores"] = 26] = "UpdateNonSECutoffScores";
+    ActionType[ActionType["UpdateTractTierTable"] = 27] = "UpdateTractTierTable";
+    ActionType[ActionType["UpdateProgramTypeIDTable"] = 28] = "UpdateProgramTypeIDTable";
+    ActionType[ActionType["UpdateSchoolAttendanceBoundaryTable"] = 29] = "UpdateSchoolAttendanceBoundaryTable";
+})(ActionType = exports.ActionType || (exports.ActionType = {}));
+
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var EffortLevel;
+(function (EffortLevel) {
+    EffortLevel[EffortLevel["NONE"] = 1] = "NONE";
+    EffortLevel[EffortLevel["LOW"] = 2] = "LOW";
+    EffortLevel[EffortLevel["NORMAL"] = 3] = "NORMAL";
+    EffortLevel[EffortLevel["HIGH"] = 4] = "HIGH";
+    EffortLevel[EffortLevel["EXTREME"] = 5] = "EXTREME";
+})(EffortLevel || (EffortLevel = {}));
+exports.EffortLevel = EffortLevel;
+
+
+/***/ }),
+/* 245 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Gender;
+(function (Gender) {
+    Gender[Gender["MALE"] = 0] = "MALE";
+    Gender[Gender["FEMALE"] = 1] = "FEMALE";
+    Gender[Gender["OTHER"] = 2] = "OTHER";
+    Gender[Gender["NOANSWER"] = 3] = "NOANSWER";
+})(Gender || (Gender = {}));
+exports.Gender = Gender;
+
+
+/***/ }),
 /* 246 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ScoreType;
+(function (ScoreType) {
+    ScoreType["nweaPercentileMath"] = "nweaPercentileMath";
+    ScoreType["nweaPercentileRead"] = "nweaPercentileRead";
+    ScoreType["subjGradeMath"] = "subjGradeMath";
+    ScoreType["subjGradeRead"] = "subjGradeRead";
+    ScoreType["subjGradeSci"] = "subjGradeSci";
+    ScoreType["subjGradeSocStudies"] = "subjGradeSocStudies";
+    ScoreType["seTestPercentile"] = "seTestPercentile";
+})(ScoreType || (ScoreType = {}));
+exports.ScoreType = ScoreType;
+
+
+/***/ }),
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25615,17 +25591,92 @@ exports.default = calculateGPA;
 
 
 /***/ }),
-/* 247 */
+/* 248 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const initial_state_1 = __webpack_require__(44);
+exports.programOutcomesReducer = (outcomeDict = initial_state_1.initialProgramOutcomes, action) => {
+    switch (action.type) {
+        case enums_1.ActionType.UpdateProgramOutcomes:
+            return action.payload;
+        default:
+            return outcomeDict;
+    }
+};
+
+
+/***/ }),
+/* 249 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const initial_state_1 = __webpack_require__(44);
+exports.loadingStatusReducer = (loadingStatus = initial_state_1.initialLoadingStatus, action) => {
+    switch (action.type) {
+        case enums_1.ActionType.LoadingData:
+            return Object.assign({}, loadingStatus, { loadingData: true });
+        case enums_1.ActionType.DataLoaded:
+            return Object.assign({}, loadingStatus, { loadingData: false, dataLoaded: true });
+        default:
+            return loadingStatus;
+    }
+};
+
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const initial_state_1 = __webpack_require__(44);
+exports.dataReducer = (appData = initial_state_1.initialData, action) => {
+    switch (action.type) {
+        case enums_1.ActionType.UpdateHSPrograms:
+            return Object.assign({}, appData, { hsPrograms: action.payload });
+        case enums_1.ActionType.UpdateNonHSPrograms:
+            return Object.assign({}, appData, { nonHSPrograms: action.payload });
+        case enums_1.ActionType.UpdateHSSchools:
+            return Object.assign({}, appData, { hsSchools: action.payload });
+        case enums_1.ActionType.UpdateHSProgramGroups:
+            return Object.assign({}, appData, { hsProgramGroups: action.payload });
+        case enums_1.ActionType.UpdateSECutoffScores:
+            return Object.assign({}, appData, { seCutoffScores: action.payload });
+        case enums_1.ActionType.UpdateNonSECutoffScores:
+            return Object.assign({}, appData, { nonSECutoffScores: action.payload });
+        case enums_1.ActionType.UpdateProgramTypeIDTable:
+            return Object.assign({}, appData, { programTypeIDTable: action.payload });
+        case enums_1.ActionType.UpdateSchoolAttendanceBoundaryTable:
+            return Object.assign({}, appData, { schoolAttendanceBoundaryTable: action.payload });
+        case enums_1.ActionType.UpdateTractTierTable:
+            return Object.assign({}, appData, { tractTierTable: action.payload });
+        default:
+            return appData;
+    }
+};
+
+
+/***/ }),
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = createProvider;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(68);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -25701,7 +25752,7 @@ function createProvider() {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 248 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25718,7 +25769,7 @@ function createProvider() {
 
 var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(2);
-var ReactPropTypesSecret = __webpack_require__(47);
+var ReactPropTypesSecret = __webpack_require__(49);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -25767,7 +25818,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 249 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25839,7 +25890,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 /***/ }),
-/* 250 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25898,7 +25949,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 251 */
+/* 255 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25997,17 +26048,17 @@ var Subscription = function () {
 
 
 /***/ }),
-/* 252 */
+/* 256 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createConnect */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(253);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(256);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(261);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -26113,7 +26164,7 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
-/* 253 */
+/* 257 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26150,15 +26201,15 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 254 */
+/* 258 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export whenMapDispatchToPropsIsFunction */
 /* unused harmony export whenMapDispatchToPropsIsMissing */
 /* unused harmony export whenMapDispatchToPropsIsObject */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(112);
 
 
 
@@ -26181,13 +26232,13 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
 
 /***/ }),
-/* 255 */
+/* 259 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export whenMapStateToPropsIsFunction */
 /* unused harmony export whenMapStateToPropsIsMissing */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__wrapMapToProps__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__wrapMapToProps__ = __webpack_require__(112);
 
 
 function whenMapStateToPropsIsFunction(mapStateToProps) {
@@ -26203,7 +26254,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
 
 /***/ }),
-/* 256 */
+/* 260 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26211,7 +26262,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* unused harmony export wrapMergePropsFunc */
 /* unused harmony export whenMergePropsIsFunction */
 /* unused harmony export whenMergePropsIsOmitted */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_verifyPlainObject__ = __webpack_require__(113);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -26260,14 +26311,14 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 257 */
+/* 261 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(262);
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 
@@ -26373,12 +26424,12 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 258 */
+/* 262 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifySubselectors;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warning__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warning__ = __webpack_require__(68);
 
 
 function verify(selector, methodName, displayName) {
@@ -26398,17 +26449,17 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 259 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const page_1 = __webpack_require__(260);
-const box_1 = __webpack_require__(264);
-const student_data_form_1 = __webpack_require__(267);
-const hs_programs_container_1 = __webpack_require__(304);
+const page_1 = __webpack_require__(264);
+const box_1 = __webpack_require__(268);
+const student_data_form_1 = __webpack_require__(271);
+const hs_programs_container_1 = __webpack_require__(338);
 const PathToHS = (props) => {
     return (React.createElement(page_1.default, null,
         React.createElement(box_1.default, { width: "half", height: "full", flex: {
@@ -26424,14 +26475,14 @@ exports.default = PathToHS;
 
 
 /***/ }),
-/* 260 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(261);
+__webpack_require__(265);
 const Page = (props) => {
     return (React.createElement("div", { className: "page" }, props.children));
 };
@@ -26439,13 +26490,13 @@ exports.default = Page;
 
 
 /***/ }),
-/* 261 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(262);
+var content = __webpack_require__(266);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -26470,7 +26521,7 @@ if(false) {
 }
 
 /***/ }),
-/* 262 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -26484,7 +26535,7 @@ exports.push([module.i, ".page {\n  height: 100vh;\n  width: 100vw;\n  display: 
 
 
 /***/ }),
-/* 263 */
+/* 267 */
 /***/ (function(module, exports) {
 
 
@@ -26579,14 +26630,14 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 264 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(265);
+__webpack_require__(269);
 const Box = (props) => {
     const widthClass = "width-" + props.width;
     const heightClass = "height-" + props.height;
@@ -26605,13 +26656,13 @@ exports.default = Box;
 
 
 /***/ }),
-/* 265 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(266);
+var content = __webpack_require__(270);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -26636,7 +26687,7 @@ if(false) {
 }
 
 /***/ }),
-/* 266 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -26650,16 +26701,16 @@ exports.push([module.i, ".box {\n  border: 2px solid #9e9e9e;\n  padding: 0.25em
 
 
 /***/ }),
-/* 267 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const form_1 = __webpack_require__(268);
-const sub_form_1 = __webpack_require__(271);
-const fields_1 = __webpack_require__(274);
+const form_1 = __webpack_require__(272);
+const sub_form_1 = __webpack_require__(275);
+const fields_1 = __webpack_require__(278);
 const StudentDataForm = (props) => {
     return (React.createElement(form_1.default, null,
         React.createElement(sub_form_1.default, { label: "Your student information" },
@@ -26684,26 +26735,26 @@ exports.default = StudentDataForm;
 
 
 /***/ }),
-/* 268 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(269);
+__webpack_require__(273);
 const Form = (props) => (React.createElement("div", { className: "form" }, props.children));
 exports.default = Form;
 
 
 /***/ }),
-/* 269 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(270);
+var content = __webpack_require__(274);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -26728,7 +26779,7 @@ if(false) {
 }
 
 /***/ }),
-/* 270 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -26742,14 +26793,14 @@ exports.push([module.i, ".form {\n  width: 100%;\n  overflow-y: auto; }\n", ""])
 
 
 /***/ }),
-/* 271 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(272);
+__webpack_require__(276);
 const SubForm = (props) => (React.createElement("div", { className: "form-subform" },
     React.createElement("div", { className: "form-subheader" }, props.label),
     props.children));
@@ -26757,13 +26808,13 @@ exports.default = SubForm;
 
 
 /***/ }),
-/* 272 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(273);
+var content = __webpack_require__(277);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -26788,7 +26839,7 @@ if(false) {
 }
 
 /***/ }),
-/* 273 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -26802,7 +26853,7 @@ exports.push([module.i, ".form-subform {\n  display: -webkit-box;\n  display: -m
 
 
 /***/ }),
-/* 274 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26812,26 +26863,3406 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(21));
-__export(__webpack_require__(112));
+__export(__webpack_require__(117));
+__export(__webpack_require__(320));
+__export(__webpack_require__(321));
+__export(__webpack_require__(325));
+__export(__webpack_require__(326));
+__export(__webpack_require__(327));
+__export(__webpack_require__(328));
+__export(__webpack_require__(329));
+__export(__webpack_require__(330));
+__export(__webpack_require__(331));
+__export(__webpack_require__(332));
+__export(__webpack_require__(333));
+__export(__webpack_require__(334));
+__export(__webpack_require__(335));
+__export(__webpack_require__(336));
+__export(__webpack_require__(337));
+
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const constants_1 = __webpack_require__(6);
+const utils_1 = __webpack_require__(114);
+const update_program_outcomes_1 = __webpack_require__(116);
+const fetchJSONFrom = (url) => {
+    return fetch(constants_1.HS_PROGRAMS_URL).then(res => {
+        if (res.ok) {
+            return res.json();
+        }
+        else {
+            console.error(`Request for ${constants_1.HS_PROGRAMS_URL} failed with ${res.statusText}`);
+        }
+    }, err => {
+        console.error(err);
+        return null;
+    });
+};
+const updateHSPrograms = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateHSPrograms,
+        payload: data
+    };
+};
+const loadHSPrograms = () => {
+    return (dispatch) => {
+        fetchJSONFrom(constants_1.HS_PROGRAMS_URL).then(json => {
+            dispatch(updateHSPrograms(json));
+        });
+    };
+};
+const updateNonHSPrograms = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateNonHSPrograms,
+        payload: data
+    };
+};
+const loadNonHSPrograms = () => {
+    return (dispatch) => {
+        fetchJSONFrom(constants_1.NON_HS_PROGRAMS_URL).then(json => {
+            dispatch(updateNonHSPrograms(json));
+        });
+    };
+};
+const updateSECutoffScores = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateSECutoffScores,
+        payload: data
+    };
+};
+const loadSECutoffScores = () => {
+    return (dispatch) => {
+        fetchJSONFrom(constants_1.SE_CUTOFF_SCORES_URL).then(json => {
+            dispatch(updateSECutoffScores(json));
+        });
+    };
+};
+const updateNonSECutoffScores = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateNonSECutoffScores,
+        payload: data
+    };
+};
+const loadNonSECutoffScores = () => {
+    return (dispatch) => {
+        fetchJSONFrom(constants_1.NON_SE_CUTOFF_SCORES_URL).then(json => {
+            dispatch(updateNonSECutoffScores(json));
+        });
+    };
+};
+const updateProgramTypeIDTable = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateProgramTypeIDTable,
+        payload: data
+    };
+};
+const loadProgramTypeIDTable = () => {
+    return (dispatch) => {
+        fetchJSONFrom(constants_1.PROGRAM_TYPE_ID_TABLE_URL).then(json => {
+            dispatch(updateProgramTypeIDTable(json));
+        });
+    };
+};
+const updateSchoolAttendanceBoundaryTable = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateSchoolAttendanceBoundaryTable,
+        payload: data
+    };
+};
+const loadSchoolAttendanceBoundaryTable = () => {
+    return (dispatch) => {
+        fetchJSONFrom(constants_1.SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then(json => {
+            dispatch(updateSchoolAttendanceBoundaryTable(json));
+        });
+    };
+};
+const updateTractTierTable = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateTractTierTable,
+        payload: data
+    };
+};
+const loadTractTierTable = () => {
+    return (dispatch) => {
+        fetchJSONFrom(constants_1.TRACT_TIER_TABLE_URL).then(json => {
+            dispatch(updateTractTierTable(json));
+        });
+    };
+};
+const loadingData = () => {
+    return {
+        type: enums_1.ActionType.LoadingData
+    };
+};
+const dataLoaded = () => {
+    return {
+        type: enums_1.ActionType.DataLoaded
+    };
+};
+const updateProgramGroups = (hsPrograms, programTypeIDTable) => {
+    return {
+        type: enums_1.ActionType.UpdateHSProgramGroups,
+        payload: utils_1.createProgramGroupDictionary(hsPrograms, programTypeIDTable)
+    };
+};
+exports.loadAllData = () => {
+    return (dispatch, getState) => {
+        dispatch(loadingData());
+        return Promise.all([
+            loadHSPrograms,
+            loadNonHSPrograms,
+            loadSECutoffScores,
+            loadNonSECutoffScores,
+            loadProgramTypeIDTable,
+            loadSchoolAttendanceBoundaryTable,
+            loadTractTierTable,
+        ]).then(results => {
+            dispatch(dataLoaded());
+            const state = getState();
+            dispatch(updateProgramGroups(state.data.hsPrograms, state.data.programTypeIDTable));
+            dispatch(update_program_outcomes_1.updateProgramOutcomes(state.studentData, state.data.hsPrograms));
+        });
+    };
+};
+
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const requirement_functions_1 = __webpack_require__(281);
+exports.createHSProgramDictionary = (rawProgramData) => {
+    let programDictionary = {};
+    rawProgramData.forEach(rawProgram => {
+        const applicationReqFn = requirement_functions_1.requirementFunctions[rawProgram.applicationReqFnID];
+        const selectionReqFn = requirement_functions_1.requirementFunctions[rawProgram.selectionReqFnID];
+        if (applicationReqFn === undefined || selectionReqFn === undefined) {
+            throw new Error(`Cannot find requirement functions for program ${rawProgram.programName}`);
+        }
+        const program = Object.assign({}, rawProgram, {
+            applicationReqFnID: undefined,
+            selectionReqFnID: undefined,
+            applicationReqFn: applicationReqFn,
+            selectionReqFn: selectionReqFn
+        });
+        programDictionary[program.id] = program;
+    });
+    return rawProgramData;
+};
+
+
+/***/ }),
+/* 281 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const requirement_functions_1 = __webpack_require__(282);
+exports.requirementFunctions = requirement_functions_1.requirementFunctions;
+function minifyRequirementFunctions(reqFns) {
+    let reqFnsCopy = Object.assign({}, reqFns);
+    Object.keys(reqFnsCopy).forEach(key => {
+        let entry = reqFnsCopy[key];
+        reqFnsCopy[key] = entry.fn;
+    });
+    return reqFnsCopy;
+}
+const requirementFunctionsMinified = minifyRequirementFunctions(requirement_functions_1.requirementFunctions);
+exports.requirementFunctionsMinified = requirementFunctionsMinified;
+
+
+/***/ }),
+/* 282 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const requirement_function_builders_1 = __webpack_require__(283);
+const filters_1 = __webpack_require__(69);
+const constants_1 = __webpack_require__(70);
+const requirementFunctions = {
+    "6adf97f83acf6453d4a6a4b1070f3754": {
+        "desc": "None",
+        "programs": [
+            "NOBLE - JOHNSON HS - General Education - Application",
+            "FOUNDATIONS - General Education - Application",
+            "NOBLE - PRITZKER HS - General Education - Application",
+            "PERSPECTIVES - TECH HS - General Education - Application",
+            "FARRAGUT HS - General Education - Application",
+            "URBAN PREP - WEST HS - General Education - Application",
+            "AUSTIN CCA HS - General Education - Application",
+            "CHICAGO VIRTUAL - Charter - Application",
+            "NOBLE - MANSUETO HS - General Education - Application",
+            "ACERO - SOTO HS - General Education - Application",
+            "CICS - LONGWOOD - Charter - Application",
+            "NOBLE - NOBLE HS - General Education - Application",
+            "ACERO - GARCIA HS - General Education - Application",
+            "ASPIRA - EARLY COLLEGE HS - General Education - Application",
+            "NOBLE - UIC HS - General Education - Application",
+            "WELLS HS - Pre-Law - Application",
+            "NOBLE - COMER - General Education - Application",
+            "SCHURZ HS - Accounting & Entrepreneurship - Application",
+            "WASHINGTON HS - General Education - Application",
+            "SCHURZ HS - General Education - Application",
+            "JUAREZ HS - General Education - Application",
+            "CHICAGO VOCATIONAL HS - Agricultural Sciences - Application",
+            "RICHARDS HS - General Education - Application",
+            "BOGAN HS - Entrepreneurship - Application",
+            "DOUGLASS HS - General Education - Application",
+            "LAKE VIEW HS - General Education - Application",
+            "ROOSEVELT HS - Game Programming - Application",
+            "ROOSEVELT HS - Medical & Health Careers - Application",
+            "NORTH-GRAND HS - Culinary Arts - Application",
+            "FOREMAN HS - Digital Media - Application",
+            "PHILLIPS HS - Digital Media - Application",
+            "ALCOTT HS - Pre-Engineering - Application",
+            "CURIE HS - Game Programming & Web Design - Application",
+            "CHICAGO MATH & SCIENCE HS - General Education - Application",
+            "BOWEN HS - Manufacturing - Application",
+            "JUAREZ HS - Culinary Arts - Application",
+            "SULLIVAN HS - Medical & Health Careers - Application",
+            "HUBBARD HS - General Education - Application",
+            "CHICAGO VOCATIONAL HS - Culinary Arts - Application",
+            "CICS - NORTHTOWN HS - General Education - Application",
+            "JULIAN HS - General Education - Application",
+            "SCHURZ HS - Automotive Technology - Application",
+            "CICS - CHICAGOQUEST HS - General Education - Application",
+            "COLLINS HS - Game Programming - Application",
+            "SULLIVAN HS - Accounting - Application",
+            "CHICAGO VIRTUAL - General Education - Application",
+            "SPRY HS - General Education - Application",
+            "FARRAGUT HS - Pre-Law - Application",
+            "NOBLE - BAKER HS - General Education - Application",
+            "CLEMENTE HS - Broadcast Technology - Application",
+            "SOUTH SHORE INTL HS - Medical & Health Careers - Application",
+            "CURIE HS - Accounting - Application",
+            "ROOSEVELT HS - Early Childhood - Application",
+            "PERSPECTIVES - MATH & SCI HS - General Education - Application",
+            "KENNEDY HS - General Education - Application",
+            "KELLY HS - General Education - Application",
+            "FARRAGUT HS - Automotive Technology - Application",
+            "JULIAN HS - Entrepreneurship - Application",
+            "CHICAGO VOCATIONAL HS - Carpentry - Application",
+            "CICS - ELLISON HS - General Education - Application",
+            "NOBLE - BULLS HS - General Education - Application",
+            "JULIAN HS - Allied Health - Application",
+            "ROOSEVELT HS - General Education - Application",
+            "URBAN PREP - ENGLEWOOD HS - General Education - Application",
+            "HYDE PARK HS - Broadcast Technology - Application",
+            "NORTH-GRAND HS - General Education - Application",
+            "GAGE PARK HS - General Education - Application",
+            "UPLIFT HS - General Education - Application",
+            "JUAREZ HS - Automotive Technology - Application",
+            "U OF C - WOODLAWN HS - General Education - Application",
+            "TILDEN HS - General Education - Application",
+            "BOWEN HS - General Education - Application",
+            "DUNBAR HS - Chicago Builds - Application",
+            "TAFT HS - General Education - Application",
+            "MORGAN PARK HS - General Education - Application",
+            "JULIAN HS - Broadcast Technology - Application",
+            "CURIE HS - Early Childhood & Teaching - Application",
+            "CLEMENTE HS - Culinary Arts - Application",
+            "BOGAN HS - Accounting - Application",
+            "NORTH-GRAND HS - Pre-Engineering - Application",
+            "CURIE HS - Automotive Technology - Application",
+            "JUAREZ HS - Medical & Health Careers - Application",
+            "JULIAN HS - Game Programming - Application",
+            "NORTH-GRAND HS - Allied Health - Application",
+            "JUAREZ HS - Architecture - Application",
+            "TILDEN HS - Culinary Arts - Application",
+            "INTRINSIC HS - General Education - Application",
+            "NOBLE - RAUNER HS - General Education - Application",
+            "SCHURZ HS - Digital Media - Application",
+            "FOREMAN HS - Web Design - Application",
+            "PERSPECTIVES - LEADERSHIP HS - General Education - Application",
+            "HYDE PARK HS - Digital Media - Application",
+            "CICS - LONGWOOD - General Education - Application",
+            "CORLISS HS - Early College STEM - Application",
+            "BOWEN HS - Pre-Engineering - Application",
+            "HYDE PARK HS - General Education - Application",
+            "ROOSEVELT HS - Culinary Arts - Application",
+            "FOREMAN HS - General Education - Application",
+            "NOBLE - ROWE CLARK HS - General Education - Application",
+            "CURIE HS - Broadcast Technology - Application",
+            "NOBLE - MUCHIN HS - General Education - Application",
+            "ALCOTT HS - General Education - Application",
+            "RICHARDS HS - Culinary Arts - Application",
+            "FENGER HS - Culinary Arts - Application",
+            "SCHURZ HS - Allied Health - Application",
+            "RABY HS - Culinary Arts - Application",
+            "RABY HS - Pre-Law - Application",
+            "FENGER HS - General Education - Application",
+            "HARPER HS - Culinary Arts - Application",
+            "NOBLE - DRW HS - General Education - Application",
+            "AMUNDSEN HS - General Education - Application",
+            "WILLIAMS HS - Medical & Health Careers - Application",
+            "NOBLE - GOLDER HS - General Education - Application",
+            "RABY HS - Broadcast Technology - Application",
+            "HIRSCH HS - General Education - Application",
+            "STEINMETZ HS - Digital Media - Application",
+            "JULIAN HS - Digital Media - Application",
+            "AUSTIN CCA HS - Manufacturing - Application",
+            "HARPER HS - Digital Media - Application",
+            "DYETT ARTS HS - General Education - Application",
+            "MATHER HS - Pre-Law - Application",
+            "AMUNDSEN HS - Game Programming & Web Design - Application",
+            "SOLORIO HS - General Education - Application",
+            "PERSPECTIVES - JOSLIN HS - General Education - Application",
+            "RICHARDS HS - Accounting - Application",
+            "MATHER HS - Game Programming & Web Design - Application",
+            "EPIC HS - General Education - Application",
+            "BOGAN HS - General Education - Application",
+            "CHICAGO COLLEGIATE - General Education - Application",
+            "CURIE HS - Culinary Arts - Application",
+            "RABY HS - Entrepreneurship - Application",
+            "CLEMENTE HS - Allied Health - Application",
+            "DYETT ARTS HS - Digital Media - Application",
+            "DUNBAR HS - Allied Health - Application",
+            "CHICAGO VOCATIONAL HS - Early College STEM - Application",
+            "HARLAN HS - Digital Media - Application",
+            "DUNBAR HS - Career Academy - Application",
+            "MANLEY HS - Culinary Arts - Application",
+            "CHICAGO VOCATIONAL HS - Diesel Technology - Application",
+            "CURIE HS - Fine Arts & Technology - NEIGHBORHOOD - Application",
+            "CHICAGO VOCATIONAL HS - General Education - Application",
+            "STEINMETZ HS - General Education - Application",
+            "SENN HS - General Education - Application",
+            "WELLS HS - Game Programming - Application",
+            "NOBLE - HANSBERRY HS - General Education - Application",
+            "ROBESON HS - General Education - Application",
+            "CHICAGO VOCATIONAL HS - Medical Assisting - Application",
+            "LAKE VIEW HS - Early College STEM - Application",
+            "CHICAGO VOCATIONAL HS - Cosmetology - Application",
+            "FENGER HS - Carpentry - Application",
+            "HARLAN HS - Web Design - Application",
+            "CURIE HS - Digital Media - Application",
+            "URBAN PREP - BRONZEVILLE HS - General Education - Application",
+            "CURIE HS - Architecture - Application",
+            "KENWOOD HS - General Education - Application",
+            "MATHER HS - General Education - Application",
+            "AUSTIN CCA HS - Pre-Engineering - Application",
+            "ORR HS - General Education - Application",
+            "SULLIVAN HS - General Education - Application",
+            "MANLEY HS - General Education - Application",
+            "HOPE HS - General Education - Application",
+            "NORTH LAWNDALE - CHRISTIANA HS - General Education - Application",
+            "NORTH LAWNDALE - COLLINS HS - General Education - Application",
+            "UPLIFT HS - Teaching - Application",
+            "SCHURZ HS - Pre-Engineering - Application",
+            "ACE TECH HS - General Education - Application",
+            "LEGAL PREP HS - General Education - Application",
+            "ASPIRA - BUSINESS & FINANCE HS - General Education - Application",
+            "JUAREZ HS - Game Programming & Web Design - Application",
+            "PROSSER HS - Career Academy - Application",
+            "HARPER HS - General Education - Application",
+            "INSTITUTO - HEALTH - General Education - Application",
+            "ROOSEVELT HS - Cisco Networking - Application",
+            "INFINITY HS - Science/Technology/Engineering/Math - Application",
+            "CHICAGO TECH HS - Science/Technology/Engineering/Math - Application",
+            "NOBLE - ITW SPEER HS - General Education - Application",
+            "NOBLE - BUTLER HS - General Education - Application",
+            "NOBLE - ACADEMY HS - General Education - Application",
+            "MARSHALL HS - General Education - Application",
+            "MARSHALL HS - Agricultural Sciences - Application",
+            "MARSHALL HS - Culinary Arts - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.everyone)
+    },
+    "f1a0a3737e921ccaf4617c5eafab5f53": {
+        "desc": "Students are randomly selected by computerized lottery. Contact the school for additional information.",
+        "programs": [
+            "NOBLE - JOHNSON HS - General Education - Selection",
+            "NOBLE - PRITZKER HS - General Education - Selection",
+            "PERSPECTIVES - TECH HS - General Education - Selection",
+            "URBAN PREP - WEST HS - General Education - Selection",
+            "NOBLE - MANSUETO HS - General Education - Selection",
+            "ACERO - SOTO HS - General Education - Selection",
+            "NOBLE - NOBLE HS - General Education - Selection",
+            "ACERO - GARCIA HS - General Education - Selection",
+            "ASPIRA - EARLY COLLEGE HS - General Education - Selection",
+            "NOBLE - UIC HS - General Education - Selection",
+            "NOBLE - COMER - General Education - Selection",
+            "CICS - NORTHTOWN HS - General Education - Selection",
+            "NOBLE - BAKER HS - General Education - Selection",
+            "PERSPECTIVES - MATH & SCI HS - General Education - Selection",
+            "CICS - ELLISON HS - General Education - Selection",
+            "NOBLE - BULLS HS - General Education - Selection",
+            "URBAN PREP - ENGLEWOOD HS - General Education - Selection",
+            "NOBLE - RAUNER HS - General Education - Selection",
+            "PERSPECTIVES - LEADERSHIP HS - General Education - Selection",
+            "CICS - LONGWOOD - General Education - Selection",
+            "NOBLE - ROWE CLARK HS - General Education - Selection",
+            "NOBLE - MUCHIN HS - General Education - Selection",
+            "NOBLE - DRW HS - General Education - Selection",
+            "NOBLE - GOLDER HS - General Education - Selection",
+            "PERSPECTIVES - JOSLIN HS - General Education - Selection",
+            "EPIC HS - General Education - Selection",
+            "NOBLE - HANSBERRY HS - General Education - Selection",
+            "URBAN PREP - BRONZEVILLE HS - General Education - Selection",
+            "ASPIRA - BUSINESS & FINANCE HS - General Education - Selection",
+            "NOBLE - ITW SPEER HS - General Education - Selection",
+            "NOBLE - BUTLER HS - General Education - Selection",
+            "NOBLE - ACADEMY HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "ea7a8ea4de4f5cdcc8bc6e7aab6a7962": {
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled at Foundations College Prep, isibling, general.",
+        "programs": [
+            "FOUNDATIONS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.FOUNDATIONS_COLLEGE_PREP_JOINT_ES_HS_PROGRAM),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "783216956d119ad64639725fa9f4d44b": {
+        "desc": "Students who live within the school's attendance boundary can be admitted automatically. This program only accepts students who live within the school's attendance boundary.",
+        "programs": [
+            "FARRAGUT HS - General Education - Selection",
+            "WASHINGTON HS - General Education - Selection",
+            "HUBBARD HS - General Education - Selection",
+            "KENNEDY HS - General Education - Selection",
+            "KELLY HS - General Education - Selection",
+            "ROOSEVELT HS - General Education - Selection",
+            "BOGAN HS - General Education - Selection",
+            "CURIE HS - Fine Arts & Technology - NEIGHBORHOOD - Selection",
+            "SENN HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifInAttendBound)
+    },
+    "240970c398eb1cf1d65952b71e811d58": {
+        "desc": "If the school receives more applications than there are seats available, students are randomly selected through a computerized lottery.  Priority is given to students currently enrolled in the school and to siblings of students enrolled in the campus.",
+        "programs": [
+            "CHICAGO VIRTUAL - Charter - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.either(filters_1.ifSiblingAttends, filters_1.ifStudentAttendsOneOf(constants_1.CHICAGO_VIRTUAL_CHARTER_JOINT_ES_HS_PROGRAM, constants_1.CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM)),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "01a561f658ea66df980a6e77eae83235": {
+        "desc": "If the school receives more applications than there are seats available, students are randomly selected through a computerized lottery.  Priority is given to students currently enrolled in the school who wish to continue and to siblings of students enrolled in the campus.",
+        "programs": [
+            "CICS - LONGWOOD - Charter - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.either(filters_1.ifSiblingAttends, filters_1.ifStudentAttendsOneOf(constants_1.CICS_LONGWOOD_CHARTER_JOINT_ES_HS_PROGRAM, constants_1.CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM)),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "8c431d51587c33009ee9b67a566c042e": {
+        "desc": "Students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "AUSTIN CCA HS - General Education - Selection",
+            "JULIAN HS - General Education - Selection",
+            "NORTH-GRAND HS - General Education - Selection",
+            "GAGE PARK HS - General Education - Selection",
+            "BOWEN HS - General Education - Selection",
+            "FOREMAN HS - General Education - Selection",
+            "FENGER HS - General Education - Selection",
+            "HIRSCH HS - General Education - Selection",
+            "CHICAGO VOCATIONAL HS - General Education - Selection",
+            "ROBESON HS - General Education - Selection",
+            "ORR HS - General Education - Selection",
+            "MANLEY HS - General Education - Selection",
+            "HOPE HS - General Education - Selection",
+            "HARPER HS - General Education - Selection",
+            "INFINITY HS - Science/Technology/Engineering/Math - Selection",
+            "MARSHALL HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "6fddb8b397a12770dbed5afff360213b": {
+        "desc": "Minimum percentile of 75 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, and minimum attendance percentage of 95.",
+        "programs": [
+            "SOLORIO HS - Double Honors/Scholars - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 75,
+            gpa: 3.0,
+            attendance: 95
+        }))
+    },
+    "218f3d334a0ceaa37bb7ce57bec10e96": {
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, proximity, students enrolled in AUSL schools, general.",
+        "programs": [
+            "SOLORIO HS - Double Honors/Scholars - Selection",
+            "CHICAGO ACADEMY HS - Scholars - Selection",
+            "CHICAGO ACADEMY HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.PROXIMITY_LOTTERY_STAGE, {
+            filter: filters_1.ifStudentAttendsOneOf(...constants_1.AUSL_ES_PROGRAMS),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "3086b8e507b2f64e53b85b8ad808e66d": {
+        "desc": "Minimum 2.0 GPA in 7th grade and minimum attendance percentage of 85.",
+        "programs": [
+            "FARRAGUT HS - JROTC - Application",
+            "SCHURZ HS - AVID - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            gpa: 2.0,
+            attendance: 85
+        }))
+    },
+    "d3ddea21fb0e360b470bf095ce6bdfef": {
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: proximity, general.",
+        "programs": [
+            "FARRAGUT HS - JROTC - Selection",
+            "ROBESON HS - Allied Health - Selection",
+            "DUNBAR HS - Chicago Builds - Selection",
+            "SCHURZ HS - AVID - Selection",
+            "PROSSER HS - Career Academy - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.PROXIMITY_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "618315c228cf8e591d1909fc8ca41206": {
+        "desc": "Students are selected on a point system. Points are based on 7th grade final GPA and NWEA MAP scores. The school determines the minimum cutoff score for selections.",
+        "programs": [
+            "WELLS HS - Pre-Law - Selection",
+            "ALCOTT HS - Pre-Engineering - Selection",
+            "SULLIVAN HS - Medical & Health Careers - Selection",
+            "FARRAGUT HS - Pre-Law - Selection",
+            "SOUTH SHORE INTL HS - Medical & Health Careers - Selection",
+            "JULIAN HS - Allied Health - Selection",
+            "JUAREZ HS - Medical & Health Careers - Selection",
+            "BOWEN HS - Pre-Engineering - Selection",
+            "WILLIAMS HS - Medical & Health Careers - Selection",
+            "CLEMENTE HS - Allied Health - Selection",
+            "DUNBAR HS - Allied Health - Selection",
+            "CHICAGO VOCATIONAL HS - Medical Assisting - Selection",
+            "SCHURZ HS - Pre-Engineering - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "f661cdb969617a4f2a3923f5c80c190c": {
+        "desc": "General Education and 504 Plan students: Minimum percentile of 50 in both reading and math on NWEA MAP, minimum 2.7 GPA in 7th grade, and minimum attendance percentage of 90.  IEP and EL students: Minimum combined percentile of 50 in reading and math on NWEA MAP.  An Interview is required for all eligible applicants.",
+        "programs": [
+            "DYETT ARTS HS - Music - Application",
+            "DYETT ARTS HS - Visual Arts - Application",
+            "DYETT ARTS HS - Dance - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 50
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 50,
+                gpa: 2.7,
+                attendance: 90
+            }))
+        })
+    },
+    "3d86881707e468c9fe2a0ce0f5eeac4f": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math and the interview.",
+        "programs": [
+            "DYETT ARTS HS - Music - Selection",
+            "DYETT ARTS HS - Visual Arts - Selection",
+            "DYETT ARTS HS - Dance - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "7672890f5b16cd8f5c0cae20d58d1888": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. General Education and 504 Plan students: Preference is given to students with percentiles of 24 and above on the NWEA MAP in reading and math. A total of 30% of the seats will be made available to attendance area applicants.  IEP and EL students: Preference is given to students with combined NWEA MAP scores that equal 48 or above.  Note: Repeating 8th graders and students pushed into 8th grade from 6th grade due to age requirements qualify for selection but will be placed in a lower preference group.",
+        "programs": [
+            "SCHURZ HS - Accounting & Entrepreneurship - Selection",
+            "KELLY HS - Digital Media - Selection",
+            "CHICAGO VOCATIONAL HS - Agricultural Sciences - Selection",
+            "BOGAN HS - Entrepreneurship - Selection",
+            "ROOSEVELT HS - Game Programming - Selection",
+            "NORTH-GRAND HS - Culinary Arts - Selection",
+            "FOREMAN HS - Digital Media - Selection",
+            "PHILLIPS HS - Digital Media - Selection",
+            "CURIE HS - Game Programming & Web Design - Selection",
+            "BOWEN HS - Manufacturing - Selection",
+            "JUAREZ HS - Culinary Arts - Selection",
+            "CHICAGO VOCATIONAL HS - Culinary Arts - Selection",
+            "SCHURZ HS - Automotive Technology - Selection",
+            "COLLINS HS - Game Programming - Selection",
+            "CLEMENTE HS - Broadcast Technology - Selection",
+            "CURIE HS - Accounting - Selection",
+            "ROOSEVELT HS - Early Childhood - Selection",
+            "FARRAGUT HS - Automotive Technology - Selection",
+            "JULIAN HS - Entrepreneurship - Selection",
+            "CHICAGO VOCATIONAL HS - Carpentry - Selection",
+            "HYDE PARK HS - Broadcast Technology - Selection",
+            "JUAREZ HS - Automotive Technology - Selection",
+            "JULIAN HS - Broadcast Technology - Selection",
+            "CURIE HS - Early Childhood & Teaching - Selection",
+            "CLEMENTE HS - Culinary Arts - Selection",
+            "CURIE HS - Automotive Technology - Selection",
+            "JULIAN HS - Game Programming - Selection",
+            "JUAREZ HS - Architecture - Selection",
+            "TILDEN HS - Culinary Arts - Selection",
+            "SCHURZ HS - Digital Media - Selection",
+            "FOREMAN HS - Web Design - Selection",
+            "HYDE PARK HS - Digital Media - Selection",
+            "ROOSEVELT HS - Culinary Arts - Selection",
+            "CURIE HS - Broadcast Technology - Selection",
+            "RICHARDS HS - Culinary Arts - Selection",
+            "FENGER HS - Culinary Arts - Selection",
+            "RABY HS - Culinary Arts - Selection",
+            "HARPER HS - Culinary Arts - Selection",
+            "RABY HS - Broadcast Technology - Selection",
+            "STEINMETZ HS - Digital Media - Selection",
+            "JULIAN HS - Digital Media - Selection",
+            "AUSTIN CCA HS - Manufacturing - Selection",
+            "HARPER HS - Digital Media - Selection",
+            "AMUNDSEN HS - Game Programming & Web Design - Selection",
+            "RICHARDS HS - Accounting - Selection",
+            "MATHER HS - Game Programming & Web Design - Selection",
+            "CURIE HS - Culinary Arts - Selection",
+            "RABY HS - Entrepreneurship - Selection",
+            "CHICAGO VOCATIONAL HS - Early College STEM - Selection",
+            "HARLAN HS - Digital Media - Selection",
+            "MANLEY HS - Culinary Arts - Selection",
+            "CHICAGO VOCATIONAL HS - Diesel Technology - Selection",
+            "WELLS HS - Game Programming - Selection",
+            "FENGER HS - Carpentry - Selection",
+            "HARLAN HS - Web Design - Selection",
+            "CURIE HS - Digital Media - Selection",
+            "CURIE HS - Architecture - Selection",
+            "UPLIFT HS - Teaching - Selection",
+            "JUAREZ HS - Game Programming & Web Design - Selection",
+            "MARSHALL HS - Agricultural Sciences - Selection",
+            "MARSHALL HS - Culinary Arts - Selection",
+            "SULLIVAN HS - Accounting - Selection",
+            "BOGAN HS - Accounting - Selection",
+            "DYETT ARTS HS - Digital Media - Selection",
+            "CHICAGO VOCATIONAL HS - Cosmetology - Selection"
+        ],
+        "fn": (s, p) => {
+            if (filters_1.ifSkipped7OrRepeated8(s, p)) {
+                return enums_1.SuccessChance.UNLIKELY;
+            }
+            else if (filters_1.ifIEPorEL(s, p)) {
+                const passesGrades = filters_1.ifHasGrades({ nweaCombined: 48 })(s, p);
+                if (passesGrades) {
+                    return enums_1.SuccessChance.LIKELY;
+                }
+                else {
+                    return enums_1.SuccessChance.UNCERTAIN;
+                }
+            }
+            else {
+                const passesGrades = filters_1.ifHasGrades({ nweaBoth: 24 })(s, p);
+                if (passesGrades) {
+                    return enums_1.SuccessChance.LIKELY;
+                }
+                else {
+                    return enums_1.SuccessChance.UNCERTAIN;
+                }
+            }
+        }
+    },
+    "4ab864cc8934557f435c392c96e5cfc1": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the school's attendance boundary are randomly selected by computerized lottery.\u00a0The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "SCHURZ HS - General Education - Selection",
+            "STEINMETZ HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "ae1af40b734a31b447b1ed50f6e4bc17": {
+        "name": "",
+        "desc": "Minimum combined percentile of 48 in reading and math on NWEA MAP. Attendance at an Information Session is required for eligible applicants.",
+        "programs": [
+            "AIR FORCE HS - Service Learning Academies (Military) - Application",
+            "MARINE LEADERSHIP AT AMES HS - Service Learning Academies (Military) - Application",
+            "RICKOVER MILITARY HS - Service Learning Academies (Military) - Application",
+            "PHOENIX MILITARY HS - Service Learning Academies (Military) - Application",
+            "CARVER MILITARY HS - Service Learning Academies (Military) - Application",
+            "CHICAGO MILITARY HS - Service Learning Academies (Military) - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({ nweaCombined: 48 }))
+    },
+    "9a6d8103474c5e8b4988360767a186de": {
+        "name": "",
+        "desc": "During the Information Session, students will sign a Commitment Agreement, complete a Motivation and Perseverance Assessment and write a brief essay. Selections are based on a point system with a maximum of 500 points, derived from 7th grade final (cumulative) grades (100 points), 7th grade NWEA MAP scores (150 points), the two-part assessment (50 for each part), and the essay (100 points).",
+        "programs": [
+            "AIR FORCE HS - Service Learning Academies (Military) - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "459b0b1aaa6e44d897f0a720ba82369e": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the school's attendance boundary will be randomly selected by computerized lottery. The lottery will be conducted in the following order: sibling, general.",
+        "programs": [
+            "JUAREZ HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "d41d8cd98f00b204e9800998ecf8427e": {
+        "name": "",
+        "desc": "",
+        "programs": [
+            "KELLY HS - Digital Media - Application"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "2317c60e8a1eec08ab495a14ccfd9c64": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the school's attendance boundary are randomly selected by computerized lottery.",
+        "programs": [
+            "RICHARDS HS - General Education - Selection",
+            "TILDEN HS - General Education - Selection",
+            "DYETT ARTS HS - General Education - Selection",
+            "SOLORIO HS - General Education - Selection",
+            "MATHER HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "c32c0804dc719ba6c4c00322e7a69be2": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 45 in both reading and math on NWEA MAP.  IEP and EL students: Minimum NWEA MAP percentile of 50 in one subject (reading or math) and minimum NWEA MAP percentile of 40 in the other subject (reading or math).  Testing is required for all eligible applicants.",
+        "programs": [
+            "BROOKS HS - Academic Center - Application",
+            "TAFT HS - Academic Center - Application",
+            "LANE TECH HS - Academic Center - Application",
+            "MORGAN PARK HS - Academic Center - Application",
+            "KENWOOD HS - Academic Center - Application",
+            "LINDBLOM HS - Academic Center - Application",
+            "YOUNG HS - Academic Center - Application"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "224ce8807abceb6ca72e650988637629": {
+        "name": "",
+        "desc": "Students are selected on a point system with a maximum of 900 points. Students are assigned points for prior year final grades, NWEA MAP scores, and the admissions test, each worth a maximum of 300 points.",
+        "programs": [
+            "BROOKS HS - Academic Center - Selection",
+            "TAFT HS - Academic Center - Selection",
+            "LANE TECH HS - Academic Center - Selection",
+            "MORGAN PARK HS - Academic Center - Selection",
+            "KENWOOD HS - Academic Center - Selection",
+            "LINDBLOM HS - Academic Center - Selection",
+            "YOUNG HS - Academic Center - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "03010a12030cab563c3f5d9115e7aabe": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 45 in both reading and math on NWEA MAP and minimum 2.0 GPA in 7th grade.  IEP and EL students: Minimum combined percentile of 90 in reading and math on NWEA MAP, and minimum 2.0 GPA in 7th grade.",
+        "programs": [
+            "STEINMETZ HS - JROTC - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 90,
+                gpa: 2.0
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 45,
+                gpa: 2.0
+            }))
+        })
+    },
+    "5096cc5a97943badb78efd427ee13eb6": {
+        "name": "",
+        "desc": "Eligible students are randomly selected by computerized lottery.",
+        "programs": [
+            "STEINMETZ HS - JROTC - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "f6b1cadaa52f894d87ad4246bd4c9b0a": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, proximity, general.",
+        "programs": [
+            "DOUGLASS HS - General Education - Selection",
+            "WILLIAMS HS - General Education - Selection",
+            "SENN HS - Digital Journalism - Selection",
+            "NORTH LAWNDALE - CHRISTIANA HS - General Education - Selection",
+            "NORTH LAWNDALE - COLLINS HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.PROXIMITY_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "77620df9b5c4a530f21c30267af843ce": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP. An audition/portfolio review is required.",
+        "programs": [
+            "CURIE HS - Dance - Application",
+            "CURIE HS - Music - Application",
+            "CURIE HS - Visual Arts - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24
+            }))
+        })
+    },
+    "7e51568fc748dec3fd5aa79aae428009": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math, 7th grade final (cumulative) grades, and the audition.",
+        "programs": [
+            "CURIE HS - Dance - Selection",
+            "SENN HS - Dance - Selection",
+            "CURIE HS - Music - Selection",
+            "SENN HS - Music - Selection",
+            "SENN HS - Theatre - Selection",
+            "CURIE HS - Visual Arts - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "0514de51e21823dae4f43b085538f9e6": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, and minimum attendance percentage of 95.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, and minimum attendance percentage of 95.",
+        "programs": [
+            "WESTINGHOUSE HS - Career Academy - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                gpa: 3.0,
+                attendance: 95
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                gpa: 3.0,
+                attendance: 95
+            }))
+        })
+    },
+    "d76c385b612c2ef53c62501b074b6134": {
+        "name": "",
+        "desc": "Students are randomly selected by compterized lottery. The lottery is conducted in the following order: proximity, general.",
+        "programs": [
+            "WESTINGHOUSE HS - Career Academy - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.PROXIMITY_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "5ee7cff3803c80e025f483be28b57f06": {
+        "name": "",
+        "desc": "This program only accepts students who live within the school's attendance boundary or who attend a Grow Community School (Audubon, Bell, Blaine, Budlong, Burley, Chappell, Coonley, Greeley, Hamilton, Hawthorne, Inter-American, Jahn, Jamieson, McPherson, Nettelhorst, Ravenswood, or Waters). Students are randomly selected by computerized lottery.",
+        "programs": [
+            "LAKE VIEW HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.either(filters_1.ifInAttendBound, filters_1.ifStudentAttendsOneOf(...constants_1.GROW_COMMUNITY_SCHOOL_ES_PROGRAMS)),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        })
+    },
+    "930c01733b718c40bc1f2af23839e14a": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  Attendance at an Information Session is required for all eligible applicants.",
+        "programs": [
+            "KELLY HS - International Baccalaureate (IB) - Application",
+            "SOUTH SHORE INTL HS - International Baccalaureate (IB) - Application",
+            "BACK OF THE YARDS HS - International Baccalaureate (IB) - Application",
+            "PROSSER HS - International Baccalaureate (IB) - Application",
+            "STEINMETZ HS - International Baccalaureate (IB) - Application",
+            "MORGAN PARK HS - International Baccalaureate (IB) - Application",
+            "TAFT HS - International Baccalaureate (IB) - Application",
+            "BOGAN HS - International Baccalaureate (IB) - Application",
+            "JUAREZ HS - International Baccalaureate (IB) - Application",
+            "OGDEN HS - International Baccalaureate (IB) - Application",
+            "KENNEDY HS - International Baccalaureate (IB) - Application",
+            "AMUNDSEN HS - International Baccalaureate (IB) - Application",
+            "WASHINGTON HS - International Baccalaureate (IB) - Application",
+            "SCHURZ HS - International Baccalaureate (IB) - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                gpa: 2.5
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                gpa: 2.5
+            }))
+        })
+    },
+    "11bdd4bc6af64732a32d73a850bc78a4": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points.The school determines the minimum cutoff score for selections.",
+        "programs": [
+            "KELLY HS - International Baccalaureate (IB) - Selection",
+            "BACK OF THE YARDS HS - International Baccalaureate (IB) - Selection",
+            "JUAREZ HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "f79604e9d7984cc9b43fa3c69abe428d": {
+        "name": "",
+        "desc": "During the Information Session, students will sign a Commitment Agreement, complete a Motivation and Perseverance Assessment and write a brief essay. Selections will be based on a point system with a maximum of 500 points, derived from 7th grade final (cumulative) grades (100 points), 7th grade NWEA MAP scores (150 points), the two-part assessment (50 for each part), and the essay (100 points).",
+        "programs": [
+            "MARINE LEADERSHIP AT AMES HS - Service Learning Academies (Military) - Selection",
+            "RICKOVER MILITARY HS - Service Learning Academies (Military) - Selection",
+            "PHOENIX MILITARY HS - Service Learning Academies (Military) - Selection",
+            "CARVER MILITARY HS - Service Learning Academies (Military) - Selection",
+            "CHICAGO MILITARY HS - Service Learning Academies (Military) - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "4cb799c1cf8b41a3baf1e8d9176463d8": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP.",
+        "programs": [
+            "JONES HS - Pre-Engineering - Application",
+            "CRANE MEDICAL HS - Health Sciences - Application",
+            "CHICAGO AGRICULTURE HS - Agricultural Sciences - Application",
+            "HANCOCK HS - Pre-Law - Application",
+            "HANCOCK HS - Pre-Engineering - Application",
+            "JONES HS - Pre-Law - Application",
+            "VON STEUBEN HS - Science - Application",
+            "CLARK HS - Early College STEM - Application",
+            "DISNEY II HS - Fine Arts & Technology - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24
+            }))
+        })
+    },
+    "0fe94ad9490cc5fe33139f705336bf3d": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on 7th grade final GPA and 7th grade stanines. Students are ranked and selected from high to low. Students residing within the attendance overlay boundary of the school are selected first.",
+        "programs": [
+            "JONES HS - Pre-Engineering - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "0fedde2a8081243a74d2c6a3be90b411": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections.",
+        "programs": [
+            "SOUTH SHORE INTL HS - International Baccalaureate (IB) - Selection",
+            "CLEMENTE HS - International Baccalaureate (IB) - Selection",
+            "STEINMETZ HS - International Baccalaureate (IB) - Selection",
+            "HUBBARD HS - International Baccalaureate (IB) - Selection",
+            "BOGAN HS - International Baccalaureate (IB) - Selection",
+            "KENNEDY HS - International Baccalaureate (IB) - Selection",
+            "BRONZEVILLE HS - International Baccalaureate (IB) - Selection",
+            "WASHINGTON HS - International Baccalaureate (IB) - Selection",
+            "SCHURZ HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "70d67060ab98f9cd752d741b32e207ba": {
+        "name": "",
+        "desc": "Student selections are based on points. Students are assigned points for 7th grade final GPA and 7th grade stanines. Each school determines a minimum cutoff score for selections.",
+        "programs": [
+            "ROOSEVELT HS - Medical & Health Careers - Selection",
+            "NORTH-GRAND HS - Pre-Engineering - Selection",
+            "NORTH-GRAND HS - Allied Health - Selection",
+            "SCHURZ HS - Allied Health - Selection",
+            "RABY HS - Pre-Law - Selection",
+            "MATHER HS - Pre-Law - Selection",
+            "ROOSEVELT HS - Cisco Networking - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "eb6acf17c18f9a5177bcdb7a4504672a": {
+        "name": "",
+        "desc": "Minimum percentile of 40 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, LAS Links Assessment composite of 4 or STAMP Assessment at the Intermediate Level.",
+        "programs": [
+            "SCHURZ HS - Dual Language - Application",
+            "BACK OF THE YARDS HS - Dual Language - Application"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "0640ddea233c6c9c97db5dd816b5c24a": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, students currently enrolled in a CPS elementary school with a world language or dual language program, general.",
+        "programs": [
+            "SCHURZ HS - Dual Language - Selection",
+            "BACK OF THE YARDS HS - Dual Language - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "8c1dffabe7825704cbe29a12138cc4d9": {
+        "name": "",
+        "desc": "Students currently enrolled in the school's eighth grade will have a deadline to submit their intent to enroll in ninth grade. For remaining seats, students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "CHICAGO MATH & SCIENCE HS - General Education - Selection",
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "8c1dffabe7825704cbe29a12138cc4d0": {
+        "name": "",
+        "desc": "Students currently enrolled in the school's eighth grade will have a deadline to submit their intent to enroll in ninth grade. For remaining seats, students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "CICS - CHICAGOQUEST HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.CICS_CHICAGOQUEST_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "70b7c4a5e527fb50d69ea37b000765d8": {
+        "name": "",
+        "desc": "Minimum percentile of 70 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, and minimum attendance percentage of 93.",
+        "programs": [
+            "CHICAGO ACADEMY HS - Scholars - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 70,
+            gpa: 3.0,
+            attendance: 93
+        }))
+    },
+    "1d126a086436d78661af2cb249938c72": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: Minimum attendance percentage of 92.",
+        "programs": [
+            "MULTICULTURAL HS - Fine and Performing Arts - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                attendance: 92
+            }))
+        })
+    },
+    "c36c294e63476a7959123bfe85a2c639": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements and can be admitted automatically.  Eligible students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "MULTICULTURAL HS - Fine and Performing Arts - Selection",
+            "CLEMENTE HS - General Education - Selection",
+            "PHILLIPS HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "889af44e3306313029109d465b1c2de6": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: Minimum GPA of 2.5 in 7th grade and minimum attendance percentage of 85.",
+        "programs": [
+            "CLEMENTE HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                gpa: 2.5,
+                attendance: 85
+            }))
+        })
+    },
+    "6a02d16ba52a69b937a74a43c6a82769": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  Attendance is required at an Information Session for all eligible applicants.",
+        "programs": [
+            "CLEMENTE HS - International Baccalaureate (IB) - Application",
+            "CURIE HS - International Baccalaureate (IB) - Application",
+            "FARRAGUT HS - International Baccalaureate (IB) - Application",
+            "BRONZEVILLE HS - International Baccalaureate (IB) - Application",
+            "HYDE PARK HS - International Baccalaureate (IB) - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                gpa: 2.5
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                gpa: 2.5
+            }))
+        })
+    },
+    "1a043655763ab140a0d14f5080d63a2c": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP.  Testing is required for all eligible applicants.",
+        "programs": [
+            "BROOKS HS - Selective Enrollment High School - Application",
+            "YOUNG HS - Selective Enrollment High School - Application",
+            "SOUTH SHORE INTL HS - Selective Enrollment High School - Application",
+            "WESTINGHOUSE HS - Selective Enrollment High School - Application",
+            "LANE TECH HS - Selective Enrollment High School - Application",
+            "HANCOCK HS - Selective Enrollment High School - Application",
+            "LINDBLOM HS - Selective Enrollment High School - Application",
+            "KING HS - Selective Enrollment High School - Application",
+            "PAYTON HS - Selective Enrollment High School - Application",
+            "JONES HS - Selective Enrollment High School - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24
+            }))
+        })
+    },
+    "bd680e7bc10c03552140e26736221cf7": {
+        "name": "",
+        "desc": "Students are selected on a point system with a maximum of 900 points. Students are assigned points for 7th grade final grades, NWEA MAP scores, and the admissions test, each worth a maximum of 300 points.",
+        "programs": [
+            "BROOKS HS - Selective Enrollment High School - Selection",
+            "YOUNG HS - Selective Enrollment High School - Selection",
+            "NORTHSIDE PREP HS - Selective Enrollment High School - Selection",
+            "SOUTH SHORE INTL HS - Selective Enrollment High School - Selection",
+            "WESTINGHOUSE HS - Selective Enrollment High School - Selection",
+            "LANE TECH HS - Selective Enrollment High School - Selection",
+            "HANCOCK HS - Selective Enrollment High School - Selection",
+            "LINDBLOM HS - Selective Enrollment High School - Selection",
+            "KING HS - Selective Enrollment High School - Selection",
+            "JONES HS - Selective Enrollment High School - Selection"
+        ],
+        "fn": requirement_function_builders_1.sePointSystem
+    },
+    "94f10272b6ff9ee947b6c7f8e9adc98c": {
+        "name": "",
+        "desc": "Minimum percentile of 24 in both reading and math on NWEA MAP. An interview is required for applicants.",
+        "programs": [
+            "TAFT HS - NJROTC - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 24
+        }))
+    },
+    "29034b3dd211fc6857c0762ea4431354": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP scores and the interview.",
+        "programs": [
+            "TAFT HS - NJROTC - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "7ca8e42afc3b2240bdc21e9b02a9b6ff": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: Minimum percentile of 60 in both reading and math on NWEA MAP and minimum 2.75 GPA in 7th grade. An audition is required for students who live outside of the school's attendance boundary.",
+        "programs": [
+            "LINCOLN PARK HS - Vocal Music - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 60,
+                gpa: 2.75
+            }))
+        })
+    },
+    "abfbe30160c0ed3a6d925da2f6fbe7d6": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility/audition requirements and can be admitted automatically.  Students who live outside of the school's attendance boundary are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math, 7th grade GPA, and the audition.",
+        "programs": [
+            "LINCOLN PARK HS - Vocal Music - Selection",
+            "LINCOLN PARK HS - Instrumental Music - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.notImplemented
+        })
+    },
+    "9653c4a2af98c756aaeeaa36980f9dc5": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP, minimum 2.5 GPA in 7th grade, and minimum attendance percentage of 90.  IEP and EL students: Minimum combined percentile of 24 in reading and math on NWEA MAP, and minimum attendance percentage of 90.",
+        "programs": [
+            "PHILLIPS HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 24,
+                attendance: 90
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                gpa: 2.5,
+                attendance: 90
+            }))
+        })
+    },
+    "49bc52caf46148ee777e8d3534f22700": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, proximity, tiers.",
+        "programs": [
+            "CRANE MEDICAL HS - Health Sciences - Selection",
+            "CHICAGO AGRICULTURE HS - Agricultural Sciences - Selection",
+            "VON STEUBEN HS - Science - Selection",
+            "CLARK HS - Early College STEM - Selection",
+            "DISNEY II HS - Fine Arts & Technology - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.PROXIMITY_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "3c0f47771fc40565978a3a894bd96705": {
+        "name": "",
+        "desc": "Minimum percentile of 50 in both reading and math on NWEA MAP, and minimum 2.0 GPA in 7th grade.",
+        "programs": [
+            "FENGER HS - Honors - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 50,
+            gpa: 2.0
+        }))
+    },
+    "308d8156364219130aef9a7de30a6c8d": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery.",
+        "programs": [
+            "FENGER HS - Honors - Selection",
+            "CHICAGO VIRTUAL - General Education - Selection",
+            "KENWOOD HS - Honors - Selection",
+            "HUBBARD HS - University Scholars - Selection",
+            "DUNBAR HS - Career Academy - Selection",
+            "BRONZEVILLE HS - Honors - Selection",
+            "ACE TECH HS - General Education - Selection",
+            "MORGAN PARK HS - World Language and International Studies - Selection",
+            "CHICAGO TECH HS - Science/Technology/Engineering/Math - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "ab7e9a52b2c607977c432dd5f27c6fe9": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. Each school selects a minimum cutoff score for selections.",
+        "programs": [
+            "PROSSER HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "8f4240fa22d2281a32186e7a65e75011": {
+        "name": "",
+        "desc": "Spry is a three-year, year-round school. Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "SPRY HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "b4dc6bde064d3f16c8bed871ea0cee30": {
+        "name": "",
+        "desc": "Minimum percentile of 50 in reading on NWEA MAP, minimum 2.0 GPA in 7th grade, and minimum attendance percentage of 80.",
+        "programs": [
+            "KELLY HS - AVID - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 50,
+            gpa: 2.0,
+            attendance: 80
+        }))
+    },
+    "4ce6d6733bff330b780bc8390660d7cf": {
+        "name": "",
+        "desc": "Students will be selected based on teacher recommendation letter(s) and an interview process.",
+        "programs": [
+            "KELLY HS - AVID - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "cb7238b523517845746779fe18ea174a": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP.   IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP.  Testing is required for all eligible applicants.",
+        "programs": [
+            "NORTHSIDE PREP HS - Selective Enrollment High School - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24
+            }))
+        })
+    },
+    "14673a83b42347d3fdc6f2fa445c4d2f": {
+        "name": "",
+        "desc": "Student selections are based on points. Students are assigned points for 7th grade final GPA and 7th grade stanines. Students are ranked and selected from high to low. Students residing within the attendance overlay boundary of the school are selected first.",
+        "programs": [
+            "HANCOCK HS - Pre-Law - Selection",
+            "HANCOCK HS - Pre-Engineering - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "3d1c7a20cb38789ce4b0f651200dd9cd": {
+        "name": "",
+        "desc": "Minimum percentile of 75 in both reading and math on NWEA MAP, minimum 3.5 GPA in 7th grade, and minimum attendance percentage of 95.",
+        "programs": [
+            "KENWOOD HS - Honors - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 75,
+            gpa: 3.5,
+            attendance: 95
+        }))
+    },
+    "027fe7b2d9fd7d9c6e55de49f723852f": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum combined percentile of 40 in reading and math on NWEA MAP, minimum 2.5 GPA in 7th grade, and minimum attendance percentage of 90.  IEP and EL students: Minimum combined percentile of 30 in reading and math on NWEA MAP, and minimum attendance percentage of 90.",
+        "programs": [
+            "SIMEON HS - Career Academy - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 30,
+                attendance: 90
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 40,
+                gpa: 2.5,
+                attendance: 90
+            }))
+        })
+    },
+    "47befdd406dee45058f2dbd64a097154": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the combined NWEA MAP scores and the interview.",
+        "programs": [
+            "SIMEON HS - Career Academy - Selection",
+            "SIMEON HS - Honors - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "39fbe111b62498337fb2f7973a18e570": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum attendance percentage of 85.  IEP and EL students: Minimum combined percentile of 40 in reading and math on NWEA MAP and minimum attendance percentage of 85.",
+        "programs": [
+            "HARLAN HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 40,
+                attendance: 85
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                attendance: 85
+            }))
+        })
+    },
+    "3e4ad403b3a6a2e998cd7d7b7d179091": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibilty requirements and can be admitted automatically.  Eligible students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "HARLAN HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "f2829bdd4c9bc67e01b90bdd3db46c07": {
+        "name": "",
+        "desc": "Minimum percentile of 50 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, and minimum attendance percentage of 90.",
+        "programs": [
+            "SIMEON HS - Honors - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 50,
+            gpa: 3.0,
+            attendance: 90
+        }))
+    },
+    "c66032656bbf52edb1c9d6b62ca2e2eb": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: Minimum combined percentile of 135 in reading and math on NWEA MAP and minimum 3.0 GPA in 7th grade.",
+        "programs": [
+            "LINCOLN PARK HS - Honors/Double Honors - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 135,
+                gpa: 3.0
+            }))
+        })
+    },
+    "1558a52d4663a54c6a5f06fa10062961": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements and can be admitted automatically.  Eligible students who live outside the school's attendance boundary are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math and 7th grade GPA.",
+        "programs": [
+            "LINCOLN PARK HS - Honors/Double Honors - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.notImplemented
+        })
+    },
+    "f4491f6cf1ebf200770f01271d93ba47": {
+        "name": "",
+        "desc": "Minimum percentile of 80 in both reading and math on NWEA MAP and minimum 3.5 GPA in 7th grade.",
+        "programs": [
+            "CHICAGO AGRICULTURE HS - Scholars - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 80,
+            gpa: 3.5
+        }))
+    },
+    "1976701fe4ffdbf53913f7f638f61b26": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. Preference is given to students with a sibling who is currently enrolled and will be enrolled in the upcoming school year.",
+        "programs": [
+            "CHICAGO AGRICULTURE HS - Scholars - Selection",
+            "HARLAN HS - Pre-Engineering - Selection",
+            "CHICAGO AGRICULTURE HS - Honors - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "736b7d124b6930cf8ae642563037eeb9": {
+        "name": "",
+        "desc": "Attendance at an Information Session is not required, but preference is given to students who attend an Information Session.",
+        "programs": [
+            "GOODE HS - Early College STEM - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.everyone)
+    },
+    "85463a98c5a7ba21313aacdaeda48cd0": {
+        "name": "",
+        "desc": "Students are randomly selcted by computerized lottery. The lottery is conducted in the following order: students who live within the school's overlay boundary and attend an Information Session; students who live within the school's network and attend an Information Session; students who live outside of the network and attend an Information Session; students who live within the school's overlay boundary and do not attend an Information Session; students who live within the school's network and do not attend an Information Session; students who live outside of the network and do not attend an Information Session.",
+        "programs": [
+            "GOODE HS - Early College STEM - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "8ccbd2eb3d4e026932b83ee576862b16": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP.  An audition is required for all eligible applicants.",
+        "programs": [
+            "SENN HS - Dance - Application",
+            "SENN HS - Music - Application",
+            "SENN HS - Theatre - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24
+            }))
+        })
+    },
+    "7e054e33cdc685f9b099a243e45f0386": {
+        "name": "",
+        "desc": "Minimum 2.5 GPA in 7th grade.",
+        "programs": [
+            "ROBESON HS - Allied Health - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            gpa: 2.5
+        }))
+    },
+    "b3b514880eaa7b9a4db6d6b6308eb1f7": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school selects the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school\u2019s Academic Center.",
+        "programs": [
+            "MORGAN PARK HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "7574e7fa48dfdf030b059dbaff5351b6": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling; students who attend Brennemann, Courtenay, or McCutcheon Elementary Schools; general.",
+        "programs": [
+            "UPLIFT HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, {
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.BRENNEMANN_ES_PROGRAM, constants_1.COURTENAY_ES_PROGRAM, constants_1.MCCUTCHEON_ES_PROGRAM),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "f9d7148f613933f83ad7d81004715614": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled at the University of Chicago Woodlawn, sibling, proximity, general.",
+        "programs": [
+            "U OF C - WOODLAWN HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.PROXIMITY_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "bc314f72be86fc565247301f6d8f99b8": {
+        "name": "",
+        "desc": "Minimum percentile of 40 in both reading and math on NWEA MAP, minimum 2.8 GPA in 7th grade, and minimum attendance percentage of 92.",
+        "programs": [
+            "COLLINS HS - Scholars - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 40,
+            gpa: 2.8,
+            attendance: 92
+        }))
+    },
+    "685beedfccfae8bdb0649c36f03dfd7a": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled in Chalmers, Dvorak, Herzl, Johnson, or Morton Elementary Schools; general.",
+        "programs": [
+            "COLLINS HS - Scholars - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.CHALMERS_ES_PROGRAM, constants_1.DVORAK_ES_PROGRAM, constants_1.HERZL_ES_PROGRAM, constants_1.JOHNSON_ES_PROGRAM, constants_1.MORTON_ES_PROGRAM),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "9a2a27708247d3b692481757756b5226": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum combined percentile of 40 in both reading and math on NWEA MAP, minimum 2.0 GPA in 7th grade, and minimum attendance percentage of 80.  IEP/EL students have no eligibility requirements.",
+        "programs": [
+            "TEAM HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 40,
+                gpa: 2.0,
+                attendance: 80
+            }))
+        })
+    },
+    "8f880cad92a9a0dc49dd8d6ba4209b14": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students with a 7th grade final GPA of 2.5 or higher, general.",
+        "programs": [
+            "TEAM HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.ifHasGrades({
+                gpa: 2.5
+            }),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "43cabfe5f36cbf1ccbb95a9962d90319": {
+        "name": "",
+        "desc": "Students enrolled in the Taft Academic Center or students who live within the school's attendance boundary can be admitted automatically. This program only accepts students who live within the school's attendance boundary or who attend the school's Academic Center.",
+        "programs": [
+            "TAFT HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.either(filters_1.ifInAttendBound, filters_1.ifStudentAttendsOneOf(constants_1.TAFT_ACADEMIC_CENTER_PROGRAM)))
+    },
+    "9fad1e147fb546e7a25d0fccba608035": {
+        "name": "",
+        "desc": "Students who are enrolled in the Morgan Park Academic Center and students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "MORGAN PARK HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.MORGAN_PARK_ACADEMIC_CENTER_PROGRAM),
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "7ef878b115498c24fd96f8891c346480": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum attendance percentage of 85.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP, and minimum attendance percentage of 85.",
+        "programs": [
+            "WILLIAMS HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                attendance: 85
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                attendance: 85
+            }))
+        })
+    },
+    "01bb8009b315ff8fc0120dbadf71444c": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading on math on NWEA MAP, minimum 2.5 GPA in 7th grade, and minimum attendance percentage of 90.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP, minimum 2.5 GPA in 7th grade, and minimum attendance percentage of 90.",
+        "programs": [
+            "HUBBARD HS - University Scholars - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                gpa: 2.5,
+                attendance: 90
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                gpa: 2.5,
+                attendance: 90
+            }))
+        })
+    },
+    "86b8c5719b264aa9072aa6433644fb60": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP, minimum 2.5 GPA in 7th grade, and minimum attendance percentage of 90.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP, and minimum attendance percentage of 90.",
+        "programs": [
+            "SENN HS - Digital Journalism - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                attendance: 90
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                gpa: 2.5,
+                attendance: 90
+            }))
+        })
+    },
+    "87bdb6caf5cf899ddb8041511761e58b": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "INTRINSIC HS - General Education - Selection",
+            "YOUNG WOMENS HS - General Education - Selection",
+            "INSTITUTO - HEALTH - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "23e3199eb5514de5456653457f75f366": {
+        "name": "",
+        "desc": "Minimum percentile of 60 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, and minimum attendance percentage of 95.",
+        "programs": [
+            "KENWOOD HS - Magnet Program - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 60,
+            gpa: 3.0,
+            attendance: 95
+        }))
+    },
+    "9b26cbed99b12a4c7cfca5a4713c6e17": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled in the Kenwood Academic Center, general.",
+        "programs": [
+            "KENWOOD HS - Magnet Program - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.KENWOOD_ACADEMIC_CENTER_PROGRAM),
+            size: requirement_function_builders_1.LotteryStageSize.SMALL
+        }, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "0df5dab7dc2c1e8d8947d27287872269": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibilty requirements, attend an Information Session, and are enrolled in the school\u2019s Middle Years Programme partner, Edwards Elementary School.",
+        "programs": [
+            "CURIE HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "9e837f0a671ce67593e611ccf595306a": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the schools attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "CORLISS HS - Early College STEM - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "2fdf00001de412f0e493fa242647bad0": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school\u2019s Academic Center.",
+        "programs": [
+            "TAFT HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "ba2bb65c77d8d0932634f43bb01707cc": {
+        "name": "",
+        "desc": "Students who live within the school's attendance area can be admitted automatically.  Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled in Carnegie Elementary School, sibling, general.",
+        "programs": [
+            "HYDE PARK HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery({
+                filter: filters_1.ifStudentAttendsOneOf(constants_1.CARNEGIE_ES_PROGRAMS),
+                size: requirement_function_builders_1.LotteryStageSize.LARGE
+            }, requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "08ee4f1aa31d5eb00bbc81c21139188b": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary: None  Students who live outside of the school's attendance boundary: Minimum percentile of 60 in both reading and math on NWEA MAP and minimum 2.75 GPA in 7th grade. An audition is required for students who live outside of the school's attendance boundary.",
+        "programs": [
+            "LINCOLN PARK HS - Instrumental Music - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 60,
+                gpa: 2.75
+            }))
+        })
+    },
+    "d1b719a6ff9e6979e8f14b2c05b63352": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: Alcott Elementary School students, proximity, general.",
+        "programs": [
+            "ALCOTT HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.ALCOTT_ES_PROGRAM),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.PROXIMITY_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "f5ef0c0580eb110a06888b1c15313717": {
+        "name": "",
+        "desc": "Minimum percentile of 60 in both reading and math on NWEA MAP and minimum 2.75 GPA in 7th grade. An audition is required for all eligible applicants.",
+        "programs": [
+            "LINCOLN PARK HS - Drama - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 60,
+            gpa: 2.5
+        }))
+    },
+    "9f4eb5cee59306847a4fa61720f8e54d": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math, 7th grade GPA, and the audition.",
+        "programs": [
+            "LINCOLN PARK HS - Drama - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "625d1f6025c2e892f5573e60ab69f903": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on the NWEA MAP.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP.",
+        "programs": [
+            "HARLAN HS - Pre-Engineering - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24
+            }))
+        })
+    },
+    "bc517a96ab40c67deddde65b6a4c07a8": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP.  A portfolio review is required for all eligible applicants.",
+        "programs": [
+            "SENN HS - Visual Arts - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24
+            }))
+        })
+    },
+    "cb76bc6620a1921e5f9630e2a39fb8d8": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math, 7th grade final (cumulative) grades, and the portfolio review.",
+        "programs": [
+            "SENN HS - Visual Arts - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "afb0dfcaa0f2cc236b2bd07a0244385e": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary or who attend Grow Community Schools can be admitted automatically. This program only accepts students who live within the school's attendance boundary or attend a Grow Community School.",
+        "programs": [
+            "AMUNDSEN HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.either(filters_1.ifInAttendBound, filters_1.ifStudentAttendsOneOf(...constants_1.GROW_COMMUNITY_SCHOOL_ES_PROGRAMS)))
+    },
+    "78e3973b67c80b7984271b2a127e9ebf": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: Minimum 2.5 GPA in 7th grade and minimum attendance percentage of 85.",
+        "programs": [
+            "KELVYN PARK HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                gpa: 2.5,
+                attendance: 85
+            }))
+        })
+    },
+    "03c4df08f6e417f196f6e87415e2064f": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements and can be admitted automatically.  Eligible students who live outside of the school's attendance boundary are selected on a point system. Points are based on NWEA MAP scores, 7th grade GPA, and the interview.",
+        "programs": [
+            "KELVYN PARK HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.notImplemented
+        })
+    },
+    "95025d14a97b9b32f5a2c8225c4ddd6e": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  Attendance is required at an Information Session for all eliglble applicants.",
+        "programs": [
+            "HUBBARD HS - International Baccalaureate (IB) - Application"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "296d2849362aa5311f457ffc834a868b": {
+        "name": "",
+        "desc": "Students are selected on a point system. Students are assigned points for 7th grade final GPA and 7th grade stanines. Students are ranked and selected from high to low. Students residing within the attendance overlay boundary of the school are selected first.",
+        "programs": [
+            "JONES HS - Pre-Law - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "bb9e0e6f1af678dafb340a8e48ff4fbf": {
+        "name": "",
+        "desc": "Minimum percentile of 50 in both reading and math on NWEA MAP and minimum 3.0 GPA in 7th grade.",
+        "programs": [
+            "CHICAGO AGRICULTURE HS - Honors - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 50,
+            gpa: 3.0
+        }))
+    },
+    "26f5b02fa29f8a9c2b5bc909b844e585": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school\u2019s Middle Years Programme partner,  Madero Middle School.",
+        "programs": [
+            "FARRAGUT HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "6de001ff1207c6d38de87e65f3e11ff3": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled at Chicago Collegiate Charter School, sibling, proximity, general.",
+        "programs": [
+            "CHICAGO COLLEGIATE - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.PROXIMITY_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "351d1f100c07b40673b51f4506b0e34e": {
+        "name": "",
+        "desc": "None. All interested students, including students who live within the overlay boundary of the school, must submit apply.",
+        "programs": [
+            "BACK OF THE YARDS HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.everyone)
+    },
+    "fd100fd06ddf9bd72e2809f6d659faf2": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students who live within the attendance boundaries of Chavez, Daley, Hamline, Hedges, Lara, or Seward Elementary Schools; general.",
+        "programs": [
+            "BACK OF THE YARDS HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "763686fddcad223e9a51aebaac42b61c": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: General Education and 504 Plan students: Minimum percentile of 60 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade, and minimum attendance percentage of 95.  IEP/EL students have no eligibility requirements.",
+        "programs": [
+            "WELLS HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 60,
+                gpa: 3.0,
+                attendance: 95
+            }))
+        })
+    },
+    "379139122b47f0c7efa0e423df956e30": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements and can be admitted automatically.  Eligible students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: students scoring above designated NWEA MAP percentile, sibling, general.",
+        "programs": [
+            "WELLS HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery({
+                filter: filters_1.ifHasGrades({
+                    nweaBoth: 60
+                }),
+                size: requirement_function_builders_1.LotteryStageSize.LARGE
+            }, requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "69aef50164a2914f16a28630afa50270": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 30 in both reading and math on NWEA MAP, minimum 2.0 GPA in 7th grade and minimum attendance percentage of 85.  IEP and EL students: Minimum combined percentile of 24 in reading and math on NWEA MAP, and minimum attendance percentage of 85.",
+        "programs": [
+            "COLLINS HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 24,
+                attendance: 85
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 30,
+                gpa: 2.0,
+                attendance: 85
+            }))
+        })
+    },
+    "a105512ab5a0eb6536021215baf98ea8": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled in Chalmers, Dvorak, Herzl, Johnson, or Morton Elementary Schools; sibling; general.",
+        "programs": [
+            "COLLINS HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery({
+            filter: filters_1.ifStudentAttendsOneOf(constants_1.CHALMERS_ES_PROGRAM, constants_1.DVORAK_ES_PROGRAM, constants_1.HERZL_ES_PROGRAM, constants_1.JOHNSON_ES_PROGRAM, constants_1.MORTON_ES_PROGRAM),
+            size: requirement_function_builders_1.LotteryStageSize.LARGE
+        }, requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "47750c8ffb643412fb55f3f3d6bde14a": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school selects the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school\u2019s Middle Years Programme partner, Ogden Elementary School.",
+        "programs": [
+            "OGDEN HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "a6071a83f74612d54c3f659f9cb8a79c": {
+        "name": "",
+        "desc": "General Education/504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  Attendance at an Information Session is required for all eligible applicants.",
+        "programs": [
+            "SENN HS - International Baccalaureate (IB) - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                gpa: 2.5
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                gpa: 2.5
+            }))
+        })
+    },
+    "8605454896638a4de5feec75ed536489": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school\u2019s Middle Years Programme partner, Peirce Elementary School.",
+        "programs": [
+            "SENN HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "5e32e9c5ce34b2af75f2ec9e1a6c6643": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 50 in both reading and math on NWEA MAP, minimum 2.5 GPA in 7th grade.    IEP and EL students: Minimum combined percentile of 100 in reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.",
+        "programs": [
+            "BRONZEVILLE HS - Honors - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 100,
+                gpa: 2.5
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 50,
+                gpa: 2.5
+            }))
+        })
+    },
+    "8a0c487746fe132f3f1925a84c56e9ee": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.  Attendance at an Information Session is required for all eliglble applicants.",
+        "programs": [
+            "LINCOLN PARK HS - International Baccalaureate (IB) - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                gpa: 2.5
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                gpa: 2.5
+            }))
+        })
+    },
+    "8e60c325cf7da2ae7aa09dc4e543590e": {
+        "name": "",
+        "desc": "Students are selected based on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school selects the minimum cutoff score for selections.",
+        "programs": [
+            "LINCOLN PARK HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "f1650d13a99b142887259980d7570270": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections.  Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school\u2019s Middle Years Programme partner, McPherson Elementary School.",
+        "programs": [
+            "AMUNDSEN HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "2434179e9c2fb95777cc4e0c6c998de1": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: Minimum attendance percentage of 95.",
+        "programs": [
+            "WORLD LANGUAGE HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                attendance: 95
+            }))
+        })
+    },
+    "cbc3d549cb9e0240f077ac3c87b0f671": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements and can be admitted automatically.  Eligible students who live outside of the school's attendance boundary are randomly selected by computerized lottery.\u00a0The lottery is conducted in the following order: sibling, general.",
+        "programs": [
+            "WORLD LANGUAGE HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "5cfeec40267082ca1ee0ca7e469687a7": {
+        "name": "",
+        "desc": "Contact the school for information.",
+        "programs": [
+            "LAKE VIEW HS - Early College STEM - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "94798381edc76846cfb1ec3503fd61b0": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements.  Students who live outside of the school's attendance boundary: Essay",
+        "programs": [
+            "SOCIAL JUSTICE HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.everyone)
+    },
+    "62c57f6f0d8cb1d35fb12bd66840819f": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary have no eligibility requirements and can be admitted automatically.  Students who live outside of the school's attendance boundary are selected on a point system. The points are based on the student essay and NWEA MAP scores.",
+        "programs": [
+            "SOCIAL JUSTICE HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.notImplemented
+        })
+    },
+    "182b0f39bdb6558622d86addc2aae6b7": {
+        "name": "",
+        "desc": "Students are selected on an overall applicant score. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections.  Preference is given to students who meet the minimum eligibilty requirements, attend an Information Session, and are enrolled in the school\u2019s Middle Years Programme partner, Carnegie Elementary School.",
+        "programs": [
+            "HYDE PARK HS - International Baccalaureate (IB) - Selection"
+        ],
+        "fn": requirement_function_builders_1.ibPointSystem
+    },
+    "c7ce3086f4acc55ea53e0c97f71d12aa": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary and students currently enrolled in the Kenwood Academic Center can be admitted automatically. This program only accepts students who live within the school's attendance boundary or who are enrolled in the school's Academic Center.",
+        "programs": [
+            "KENWOOD HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.either(filters_1.ifInAttendBound, filters_1.ifStudentAttendsOneOf(constants_1.KENWOOD_ACADEMIC_CENTER_PROGRAM)))
+    },
+    "65f9f712e101af2ba0f44401e01ca729": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on 7th grade final GPA and NWEA MAP scores. The school determines the minimum cutoff score for selections. Preference is given to students who live within the school's attendance boundary.",
+        "programs": [
+            "AUSTIN CCA HS - Pre-Engineering - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "5fbf1b80166fef3a0e0db9557d500465": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 25 in both reading and math on NWEA MAP.   IEP and EL students: Minimum combined percentile of 50 in reading and math on NWEA MAP, and minimum attendance percentage of 85.",
+        "programs": [
+            "CHICAGO ACADEMY HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 50,
+                attendance: 85
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 25
+            }))
+        })
+    },
+    "924ceb6aa82922cdb541302a265549eb": {
+        "name": "",
+        "desc": "Students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: students attending Boone, Field, Gale, Hayt, Jordan, Kilmer, McCutcheon, McPherson, or West Ridge Elementary Schools; sibling; general.",
+        "programs": [
+            "SULLIVAN HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifInAttendBound,
+            fn: requirement_function_builders_1.accept(filters_1.everyone)
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.lottery({
+                filter: filters_1.ifStudentAttendsOneOf(constants_1.BOONE_ES_PROGRAM, constants_1.FIELD_ES_PROGRAM, constants_1.GALE_ES_PROGRAM, constants_1.HAYT_ES_PROGRAM, constants_1.JORDAN_ES_PROGRAM, constants_1.KILMER_ES_PROGRAM, constants_1.MCCUTCHEON_ES_PROGRAM, constants_1.MCPHERSON_ES_PROGRAM, constants_1.WEST_RIDGE_ES_PROGRAM),
+                size: requirement_function_builders_1.LotteryStageSize.LARGE
+            }, requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+        })
+    },
+    "46083386e3daad02ff00ac73d3987286": {
+        "name": "",
+        "desc": "Students are selected on a point system with a maximum of 900 points. Points are based on 7th grade final grades, NWEA MAP scores, and the admissions test, each worth a maximum of 300 points.",
+        "programs": [
+            "PAYTON HS - Selective Enrollment High School - Selection"
+        ],
+        "fn": requirement_function_builders_1.sePointSystem
+    },
+    "536556326f56a1875afccbeedde85fb9": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. The lottery is conduced in the following order: sibling, general.",
+        "programs": [
+            "LEGAL PREP HS - General Education - Selection"
+        ],
+        "fn": requirement_function_builders_1.lottery(requirement_function_builders_1.SIBLING_LOTTERY_STAGE, requirement_function_builders_1.GENERAL_LOTTERY_STAGE)
+    },
+    "7cc8a6e9cd27c6a9e8d43b323a961475": {
+        "name": "",
+        "desc": "Applicants must be girls currently enrolled in eighth grade.",
+        "programs": [
+            "YOUNG WOMENS HS - General Education - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.everyone)
+    },
+    "a787cb9987ca94d3c2370e2cb67d50cc": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 50 in both reading and math on the NWEA MAP and minimum 3.0 GPA in 7th grade.  IEP and EL students: Minimum combined percentile of 60 in reading and math on NWEA MAP.",
+        "programs": [
+            "MORGAN PARK HS - World Language and International Studies - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 60
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 50,
+                gpa: 3.0
+            }))
+        })
+    },
+    "d7e3e54b06028c21a40cf58127e2aef4": {
+        "name": "",
+        "desc": "Minimum percentile of 60 in both reading and math on NWEA MAP and minimum 3.0 GPA in 7th grade. Eligible students must submit teacher recommendations and an essay. See www.vonsteuben.org for submission details (click 'Apply' and 'Scholars Program'). Applicants who are not eligible will automatically be included in the computerized lottery selection process for the Von Steuben Science Program.",
+        "programs": [
+            "VON STEUBEN HS - Scholars - Application"
+        ],
+        "fn": requirement_function_builders_1.accept(filters_1.ifHasGrades({
+            nweaBoth: 60,
+            gpa: 3.0
+        }))
+    },
+    "0a7d20d2cdbb736d46e6c7a37e5b7764": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the teacher recommendations and the essay.",
+        "programs": [
+            "VON STEUBEN HS - Scholars - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "a59652b1328b73b5acb08979a32a9db8": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum attendance percentage of 92.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum attendance percentage of 92.  An audition is required for all eligible applicants.",
+        "programs": [
+            "CHIARTS HS - Music - Vocal - Application",
+            "CHIARTS HS - Theatre - Application",
+            "CHIARTS HS - Music - Instumental - Application",
+            "CHIARTS HS - Dance - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                attendance: 92
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                attendance: 92
+            }))
+        })
+    },
+    "500cba9f742c1244ddaa1c37070299f1": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math and the audition.",
+        "programs": [
+            "CHIARTS HS - Music - Vocal - Selection",
+            "CHIARTS HS - Theatre - Selection",
+            "CHIARTS HS - Music - Instumental - Selection",
+            "CHIARTS HS - Dance - Selection",
+            "CHIARTS HS - Musical Theatre - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "b89ee63f6f32c43ca9707a85d8dc98e7": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum attendance percentage of 92.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum attendance percentage of 92.   A portfolio review is required for all eligible applicants.",
+        "programs": [
+            "CHIARTS HS - Creative Writing - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                attendance: 92
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                attendance: 92
+            }))
+        })
+    },
+    "fd2b72f8025478fc320959b283c0ff2f": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math and the portfolio review.",
+        "programs": [
+            "CHIARTS HS - Creative Writing - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "3f45862ca2003745fc3f4e12492abdfa": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum attendance percentage of 92.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP.  A portfolio review is required for all eligible applicants.",
+        "programs": [
+            "CHIARTS HS - Visual Arts - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                attendance: 92
+            }))
+        })
+    },
+    "6c2d1016a23c9b0e67736b91a166b594": {
+        "name": "",
+        "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP socres in reading and math and the portfolio review.",
+        "programs": [
+            "CHIARTS HS - Visual Arts - Selection"
+        ],
+        "fn": requirement_function_builders_1.notImplemented
+    },
+    "ae43e969113d1c6b1b6fe0c0a1321c40": {
+        "name": "",
+        "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and minimum attendance percentage of 92.  IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum attendance percentage of 92. An audition is required for all eligible applicants.",
+        "programs": [
+            "CHIARTS HS - Musical Theatre - Application"
+        ],
+        "fn": requirement_function_builders_1.conditional({
+            filter: filters_1.ifIEPorEL,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaCombined: 48,
+                attendance: 92
+            }))
+        }, {
+            filter: filters_1.everyone,
+            fn: requirement_function_builders_1.accept(filters_1.ifHasGrades({
+                nweaBoth: 24,
+                attendance: 92
+            }))
+        })
+    }
+};
+exports.requirementFunctions = requirementFunctions;
+
+
+/***/ }),
+/* 283 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(284));
+__export(__webpack_require__(285));
 __export(__webpack_require__(286));
-__export(__webpack_require__(287));
-__export(__webpack_require__(291));
-__export(__webpack_require__(292));
-__export(__webpack_require__(293));
-__export(__webpack_require__(294));
-__export(__webpack_require__(295));
-__export(__webpack_require__(296));
-__export(__webpack_require__(297));
-__export(__webpack_require__(298));
-__export(__webpack_require__(299));
-__export(__webpack_require__(300));
+__export(__webpack_require__(115));
 __export(__webpack_require__(301));
 __export(__webpack_require__(302));
 __export(__webpack_require__(303));
 
 
 /***/ }),
-/* 275 */
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const success_chance_1 = __webpack_require__(43);
+exports.accept = (filter) => {
+    return (student, program) => {
+        if (filter(student, program)) {
+            return success_chance_1.SuccessChance.CERTAIN;
+        }
+        else {
+            return success_chance_1.SuccessChance.NONE;
+        }
+    };
+};
+
+
+/***/ }),
+/* 285 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const success_chance_1 = __webpack_require__(43);
+exports.conditional = (...conditions) => {
+    return (student, program) => {
+        for (let i = 0; i < conditions.length; i++) {
+            const c = conditions[i];
+            if (c.filter(student, program)) {
+                return c.fn(student, program);
+            }
+        }
+        return success_chance_1.SuccessChance.NONE;
+    };
+};
+
+
+/***/ }),
+/* 286 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const success_chance_1 = __webpack_require__(43);
+const filters_1 = __webpack_require__(69);
+var LotteryStageSize;
+(function (LotteryStageSize) {
+    LotteryStageSize[LotteryStageSize["SMALL"] = 0] = "SMALL";
+    LotteryStageSize[LotteryStageSize["LARGE"] = 1] = "LARGE";
+})(LotteryStageSize = exports.LotteryStageSize || (exports.LotteryStageSize = {}));
+exports.PROXIMITY_LOTTERY_STAGE = {
+    filter: filters_1.ifInProximity,
+    size: LotteryStageSize.LARGE
+};
+exports.SIBLING_LOTTERY_STAGE = {
+    filter: filters_1.ifSiblingAttends,
+    size: LotteryStageSize.SMALL
+};
+exports.GENERAL_LOTTERY_STAGE = {
+    filter: filters_1.everyone,
+    size: LotteryStageSize.LARGE
+};
+exports.lottery = (...stages) => {
+    return (student, program) => {
+        let prevLargeStage = false;
+        for (let i = 0; i < stages.length; i++) {
+            const stage = stages[i];
+            if (stage.filter(student, program)) {
+                if (prevLargeStage) {
+                    return success_chance_1.SuccessChance.UNLIKELY;
+                }
+                else {
+                    if (stage.size === LotteryStageSize.SMALL) {
+                        return success_chance_1.SuccessChance.LIKELY;
+                    }
+                    else if (stage.size === LotteryStageSize.LARGE) {
+                        return success_chance_1.SuccessChance.UNCERTAIN;
+                    }
+                }
+            }
+            if (stage.size === LotteryStageSize.LARGE) {
+                prevLargeStage = true;
+            }
+        }
+        return success_chance_1.SuccessChance.NONE;
+    };
+};
+
+
+/***/ }),
+/* 287 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.everyone = (student, program) => true;
+
+
+/***/ }),
+/* 288 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const grade_validate_1 = __webpack_require__(289);
+exports.ifHasGrades = (grades) => {
+    const hasNweaMath = grades.nweaMath !== undefined;
+    const hasNweaRead = grades.nweaRead !== undefined;
+    const hasNweaMathOrRead = hasNweaMath || hasNweaRead;
+    const hasNweaBoth = grades.nweaBoth !== undefined;
+    const hasNweaCombined = grades.nweaCombined !== undefined;
+    const hasGpa = grades.gpa !== undefined;
+    const hasAttendance = grades.attendance !== undefined;
+    const illegalCombination = (hasNweaMathOrRead && hasNweaBoth) || (hasNweaBoth && hasNweaCombined) || (hasNweaMathOrRead && hasNweaCombined);
+    if (illegalCombination) {
+        throw new Error("ifHasGrades: only one of (nweaMath/nweaRead), nweaBoth, and nweaCombined may be set in the grades argument.");
+    }
+    const hasAny = hasNweaMath || hasNweaRead || hasNweaBoth || hasNweaCombined || hasGpa || hasAttendance;
+    if (!hasAny) {
+        throw new Error("No grade thresholds found in grades argument.");
+    }
+    if (hasNweaMath) {
+        if (!grade_validate_1.isValidNwea(grades.nweaMath)) {
+            throw new Error("Invalid value for nweaMath");
+        }
+    }
+    if (hasNweaRead) {
+        if (!grade_validate_1.isValidNwea(grades.nweaRead)) {
+            throw new Error("Invalid value for nweaRead");
+        }
+    }
+    if (hasNweaBoth) {
+        if (!grade_validate_1.isValidNwea(grades.nweaBoth)) {
+            throw new Error("Invalid value for nweaBoth");
+        }
+    }
+    if (hasNweaCombined) {
+        if (!grade_validate_1.isValidCombinedNwea(grades.nweaCombined)) {
+            throw new Error("Invalid value for nweaCombined");
+        }
+    }
+    if (hasGpa) {
+        if (!grade_validate_1.isValidGPA(grades.gpa)) {
+            throw new Error("Invalid value for gpa");
+        }
+    }
+    if (hasAttendance) {
+        if (!grade_validate_1.isValidAttendance(grades.attendance)) {
+            throw new Error("Invalid value for attendance");
+        }
+    }
+    return (student, program) => {
+        if (grades.nweaMath !== undefined || grades.nweaRead !== undefined) {
+            if (grades.nweaMath !== undefined) {
+                if (student.nweaPercentileMath === null) {
+                    return false;
+                }
+                else if (student.nweaPercentileMath < grades.nweaMath) {
+                    return false;
+                }
+            }
+            if (grades.nweaRead !== undefined) {
+                if (student.nweaPercentileRead === null) {
+                    return false;
+                }
+                else if (student.nweaPercentileRead < grades.nweaRead) {
+                    return false;
+                }
+            }
+        }
+        else if (grades.nweaBoth !== undefined) {
+            if (student.nweaPercentileMath === null || student.nweaPercentileRead === null) {
+                return false;
+            }
+            else if (student.nweaPercentileMath < grades.nweaBoth || student.nweaPercentileRead < grades.nweaBoth) {
+                return false;
+            }
+        }
+        else if (grades.nweaCombined !== undefined) {
+            if (student.nweaPercentileMath === null || student.nweaPercentileRead === null) {
+                return false;
+            }
+            else if (student.nweaPercentileMath + student.nweaPercentileRead < grades.nweaCombined) {
+                return false;
+            }
+        }
+        if (grades.gpa !== undefined) {
+            if (student.gpa === null) {
+                return false;
+            }
+            else if (student.gpa < grades.gpa) {
+                return false;
+            }
+        }
+        if (grades.attendance !== undefined) {
+            if (student.attendancePercentage === null) {
+                return false;
+            }
+            else if (student.attendancePercentage < grades.attendance) {
+                return false;
+            }
+        }
+        return true;
+    };
+};
+
+
+/***/ }),
+/* 289 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isValidNwea = (value) => {
+    return typeof value === "number" && 1 <= value && value <= 99;
+};
+exports.isValidCombinedNwea = (value) => {
+    return typeof value === "number" && 2 <= value && value <= 198;
+};
+exports.isValidGPA = (value) => {
+    return typeof value === "number" && 0 <= value && value <= 4.0;
+};
+exports.isValidAttendance = (value) => {
+    return typeof value === "number" && 0 <= value && value <= 100;
+};
+
+
+/***/ }),
+/* 290 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const point_in_polygon_1 = __webpack_require__(291);
+const data_access_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"shared/util/data-access\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+let schoolAttendBoundTable;
+data_access_1.getSchoolAttendanceBoundaryTable().then(table => {
+    schoolAttendBoundTable = table;
+});
+exports.ifInAttendBound = (student, program) => {
+    if (student.location === null) {
+        return false;
+    }
+    const point = [student.location.geo.longitude, student.location.geo.latitude];
+    const polygon = schoolAttendBoundTable[program.schoolID];
+    if (polygon === undefined) {
+        console.warn(`No attend bound found for ${program.programName}`);
+        return false;
+    }
+    return point_in_polygon_1.default(point, polygon);
+};
+
+
+/***/ }),
+/* 291 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const pointInPolygon = (point, polygon) => {
+    var x = point[0], y = point[1];
+    var inside = false;
+    for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+        var xi = polygon[i][0], yi = polygon[i][1];
+        var xj = polygon[j][0], yj = polygon[j][1];
+        var intersect = ((yi > y) != (yj > y))
+            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+        if (intersect)
+            inside = !inside;
+    }
+    return inside;
+};
+exports.default = pointInPolygon;
+
+
+/***/ }),
+/* 292 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const distance_between_coords_1 = __webpack_require__(293);
+const constants_1 = __webpack_require__(70);
+exports.ifInProximity = (student, program) => {
+    if (student.location === null) {
+        return false;
+    }
+    const studentCoords = student.location.geo;
+    const schoolCoords = program.schoolLocation;
+    const distance = distance_between_coords_1.default(studentCoords, schoolCoords);
+    return distance <= constants_1.CPS_PROXIMITY_LOTTERY_RADIUS_MI;
+};
+
+
+/***/ }),
+/* 293 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const constants_1 = __webpack_require__(6);
+const distanceBetweenCoords = (a, b) => {
+    const x = a.latitude - b.latitude;
+    const y = (a.longitude - b.longitude) * Math.cos(b.longitude);
+    const dstDegrees = Math.sqrt((x * x) + (y * y));
+    return constants_1.GEO_APPROX_DEG_MI_CONVERSION_FACTOR * dstDegrees;
+};
+exports.default = distanceBetweenCoords;
+
+
+/***/ }),
+/* 294 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BRADWELL_ES_PROGRAM = "609806-Open Enrollment";
+exports.CARTER_ES_PROGRAM = "609844-Open Enrollment";
+exports.CASALS_ES_PROGRAM = "610021-Open Enrollment";
+exports.CHALMERS_ES_PROGRAM = "609851-Open Enrollment";
+exports.CURTIS_ES_PROGRAM = "609900-Open Enrollment";
+exports.DENEEN_ES_PROGRAM = "609883-Open Enrollment";
+exports.DEWEY_ES_PROGRAM = "609885-Magnet Cluster";
+exports.DULLES_ES_PROGRAM = "610263-Open Enrollment";
+exports.DVORAK_ES_PROGRAM = "610254-Magnet Cluster";
+exports.FULLER_ES_PROGRAM = "609928-Open Enrollment";
+exports.GRESHAM_ES_PROGRAM = "609955-Open Enrollment";
+exports.HARVARD_ES_PROGRAM = "609971-Open Enrollment";
+exports.HERZL_ES_PROGRAM = "609991-Open Enrollment";
+exports.HOWE_ES_PROGRAM = "610000-Open Enrollment";
+exports.JOHNSON_ES_PROGRAM = "610274-Open Enrollment";
+exports.LEWIS_ES_PROGRAM = "610036-Open Enrollment";
+exports.MARQUETTE_ES_PROGRAM = "610053-Magnet Cluster";
+exports.MCNAIR_ES_PROGRAM = "610282-Open Enrollment";
+exports.MORTON_ES_PROGRAM = "610257-Open Enrollment";
+exports.NATIONAL_TEACHERS_ACADEMY_ES_PROGRAM = "610231-Open Enrollment";
+exports.OKEEFFE_ES_PROGRAM = "610103-Open Enrollment";
+exports.PICCOLO_ES_PROGRAM = "610106-Open Enrollment";
+exports.SHERMAN_ES_PROGRAM = "610172-Open Enrollment";
+exports.STAGG_ES_PROGRAM = "610339-Open Enrollment";
+exports.TARKINGTON_ES_PROGRAM = "610396-Open Enrollment";
+exports.CHICAGO_ACADEMY_ES_PROGRAM = "610248-Open Enrollment";
+exports.BRENNEMANN_ES_PROGRAM = "610242-Magnet Cluster";
+exports.COURTENAY_ES_PROGRAM = "610355-Open Enrollment";
+exports.MCCUTCHEON_ES_PROGRAM = "610269-Open Enrollment";
+exports.CARNEGIE_MAGNET_CLUSTER_ES_PROGRAM = "609837-Magnet Cluster";
+exports.CARNEGIE_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609837-Regional Gifted Center";
+exports.ALCOTT_ES_PROGRAM = "609774-Open Enrollment";
+exports.BOONE_ES_PROGRAM = "609804-Magnet Cluster";
+exports.FIELD_ES_PROGRAM = "609918-Open Enrollment";
+exports.GALE_ES_PROGRAM = "609933-Open Enrollment";
+exports.HAYT_ES_PROGRAM = "609976-Open Enrollment";
+exports.JORDAN_ES_PROGRAM = "609865-Open Enrollment";
+exports.KILMER_ES_PROGRAM = "610022-Open Enrollment";
+exports.MCPHERSON_ES_PROGRAM = "610070-Magnet Cluster";
+exports.WEST_RIDGE_ES_PROGRAM = "610542-Open Enrollment";
+exports.CALMECA_ES_PROGRAM = "610353-Open Enrollment";
+exports.COOPER_ES_PROGRAM = "609867-Open Enrollment";
+exports.AUDUBON_ES_PROGRAM = "609782-Magnet Cluster";
+exports.BELL_OPEN_ENROLLMENT_ES_PROGRAM = "609799-Open Enrollment";
+exports.BELL_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609799-Regional Gifted Center";
+exports.BLAINE_ES_PROGRAM = "609803-Magnet Cluster";
+exports.BUDLONG_ES_PROGRAM = "609817-Open Enrollment";
+exports.BURLEY_ES_PROGRAM = "609820-Magnet Cluster";
+exports.CHAPPELL_ES_PROGRAM = "609852-Magnet Cluster";
+exports.COONLEY_OPEN_ENROLLMENT_ES_PROGRAM = "609866-Open Enrollment";
+exports.COONLEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609866-Regional Gifted Center";
+exports.GREELEY_MAGNET_CLUSTER_ES_PROGRAM = "609850-Magnet Cluster";
+exports.GREELEY_REGIONAL_GIFTD_CENTER_FOR_ELS_ES_PROGRAM = "609850-Regional Gifted Center for English Learners";
+exports.HAMILTON_ES_PROGRAM = "609963-Magnet Cluster";
+exports.HAWTHORNE_ES_PROGRAM = "609974-Citywide Magnet";
+exports.INTER_AMERICAN_ES_PROGRAM = "610078-Citywide Magnet";
+exports.JAHN_ES_PROGRAM = "610010-Magnet Cluster";
+exports.JAMIESON_ES_PROGRAM = "610011-Open Enrollment";
+exports.NETTELHORST_ES_PROGRAM = "610094-Magnet Cluster";
+exports.RAVENSWOOD_ES_PROGRAM = "610141-Magnet Cluster";
+exports.WATERS_ES_PROGRAM = "610220-Magnet Cluster";
+exports.FOUNDATIONS_COLLEGE_PREP_JOINT_ES_HS_PROGRAM = "400171-1";
+exports.CHICAGO_VIRTUAL_CHARTER_JOINT_ES_HS_PROGRAM = "400036-110";
+exports.CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM = "400036-1";
+exports.CICS_LONGWOOD_CHARTER_JOINT_ES_HS_PROGRAM = "400033-110";
+exports.CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM = "400033-1";
+exports.CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM = "400035-1";
+exports.U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM = "400077-1";
+exports.CHICAGO_COLLEGIATE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM = "400161-1";
+exports.CICS_CHICAGOQUEST_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM = "400113-1";
+exports.TAFT_ACADEMIC_CENTER_PROGRAM = "609734-Academic Center";
+exports.MORGAN_PARK_ACADEMIC_CENTER_PROGRAM = "609725-Academic Center";
+exports.KENWOOD_ACADEMIC_CENTER_PROGRAM = "609746-Academic Center";
+exports.CARNEGIE_ES_PROGRAMS = [
+    exports.CARNEGIE_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
+    exports.CARNEGIE_MAGNET_CLUSTER_ES_PROGRAM
+];
+exports.CPS_JOINT_ES_AND_HS_PROGRAM_IDS = [
+    exports.FOUNDATIONS_COLLEGE_PREP_JOINT_ES_HS_PROGRAM,
+    exports.CHICAGO_VIRTUAL_CHARTER_JOINT_ES_HS_PROGRAM,
+    exports.CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+    exports.CICS_LONGWOOD_CHARTER_JOINT_ES_HS_PROGRAM,
+    exports.CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+    exports.U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+    exports.CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+    exports.CHICAGO_COLLEGIATE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+    exports.CICS_CHICAGOQUEST_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+];
+exports.GROW_COMMUNITY_SCHOOL_ES_PROGRAMS = [
+    exports.AUDUBON_ES_PROGRAM,
+    exports.BELL_OPEN_ENROLLMENT_ES_PROGRAM,
+    exports.BELL_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
+    exports.BLAINE_ES_PROGRAM,
+    exports.BUDLONG_ES_PROGRAM,
+    exports.BURLEY_ES_PROGRAM,
+    exports.CHAPPELL_ES_PROGRAM,
+    exports.COONLEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
+    exports.COONLEY_OPEN_ENROLLMENT_ES_PROGRAM,
+    exports.GREELEY_REGIONAL_GIFTD_CENTER_FOR_ELS_ES_PROGRAM,
+    exports.GREELEY_MAGNET_CLUSTER_ES_PROGRAM,
+    exports.HAMILTON_ES_PROGRAM,
+    exports.HAWTHORNE_ES_PROGRAM,
+    exports.INTER_AMERICAN_ES_PROGRAM,
+    exports.JAHN_ES_PROGRAM,
+    exports.JAMIESON_ES_PROGRAM,
+    exports.MCPHERSON_ES_PROGRAM,
+    exports.NETTELHORST_ES_PROGRAM,
+    exports.RAVENSWOOD_ES_PROGRAM,
+    exports.WATERS_ES_PROGRAM
+];
+exports.AUSL_ES_PROGRAMS = [
+    exports.BRADWELL_ES_PROGRAM,
+    exports.CARTER_ES_PROGRAM,
+    exports.CASALS_ES_PROGRAM,
+    exports.CHALMERS_ES_PROGRAM,
+    exports.CURTIS_ES_PROGRAM,
+    exports.DENEEN_ES_PROGRAM,
+    exports.DEWEY_ES_PROGRAM,
+    exports.DULLES_ES_PROGRAM,
+    exports.DVORAK_ES_PROGRAM,
+    exports.FULLER_ES_PROGRAM,
+    exports.GRESHAM_ES_PROGRAM,
+    exports.HARVARD_ES_PROGRAM,
+    exports.HERZL_ES_PROGRAM,
+    exports.HOWE_ES_PROGRAM,
+    exports.JOHNSON_ES_PROGRAM,
+    exports.LEWIS_ES_PROGRAM,
+    exports.MARQUETTE_ES_PROGRAM,
+    exports.MCNAIR_ES_PROGRAM,
+    exports.MORTON_ES_PROGRAM,
+    exports.NATIONAL_TEACHERS_ACADEMY_ES_PROGRAM,
+    exports.OKEEFFE_ES_PROGRAM,
+    exports.PICCOLO_ES_PROGRAM,
+    exports.SHERMAN_ES_PROGRAM,
+    exports.STAGG_ES_PROGRAM,
+    exports.TARKINGTON_ES_PROGRAM,
+    exports.CHICAGO_ACADEMY_ES_PROGRAM,
+];
+
+
+/***/ }),
+/* 295 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ifSiblingAttends = (student, program) => {
+    if (student.siblingHSSchoolIDs === null) {
+        return false;
+    }
+    return student.siblingHSSchoolIDs.some(school => school === program.schoolID);
+};
+
+
+/***/ }),
+/* 296 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ifStudentAttendsOneOf = (...programIDs) => {
+    if (programIDs.length === 0) {
+        throw new Error("No parameters passed to ifStudentAttendsOneOf -- usage: ifStudentAttendsOneOf(programID_1, programID_2, programID_3 ... )(student, program)");
+    }
+    return (student, program) => {
+        return programIDs.some(programID => programID === student.currESProgramID);
+    };
+};
+
+
+/***/ }),
+/* 297 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ifIEPorEL = (student, program) => {
+    if (student.iep || student.ell) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+
+/***/ }),
+/* 298 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ifSkipped7OrRepeated8 = (student, program) => {
+    if (student.skippedGrade7OrRepeatedGrade8) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+
+/***/ }),
+/* 299 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.both = (...filters) => {
+    return (student, program) => {
+        return filters.every(filter => filter(student, program));
+    };
+};
+
+
+/***/ }),
+/* 300 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.either = (...filters) => {
+    return (student, program) => {
+        return filters.some(filter => filter(student, program));
+    };
+};
+
+
+/***/ }),
+/* 301 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const data_access_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"shared/util/data-access\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+let seCutoffTable = {};
+data_access_1.getSECutoffScoresTable().then(table => {
+    seCutoffTable = table;
+});
+const sePointCalc = (student, program) => {
+    if (student.nweaPercentileMath === null ||
+        student.nweaPercentileRead === null ||
+        student.subjGradeMath === null ||
+        student.subjGradeRead === null ||
+        student.subjGradeSci === null ||
+        student.subjGradeSocStudies === null ||
+        student.seTestPercentile === null) {
+        return null;
+    }
+    const NWEA_SCORE_CONSTANT = 1.515;
+    const nweaMathPoints = Math.round(student.nweaPercentileMath * NWEA_SCORE_CONSTANT);
+    const nweaReadPoints = Math.round(student.nweaPercentileRead * NWEA_SCORE_CONSTANT);
+    const gradePointsLookup = {
+        "A": 75,
+        "B": 50,
+        "C": 25,
+        "D": 0,
+        "F": 0,
+    };
+    const subjGradeMathPoints = gradePointsLookup[student.subjGradeMath];
+    const subjGradeReadPoints = gradePointsLookup[student.subjGradeRead];
+    const subjGradeSciPoints = gradePointsLookup[student.subjGradeSci];
+    const subjGradeSocStudiesPoints = gradePointsLookup[student.subjGradeSocStudies];
+    const SE_TEST_PERCENTILE_CONSTANT = 3.03;
+    const seTestPoints = Math.round(student.seTestPercentile * SE_TEST_PERCENTILE_CONSTANT);
+    const sePoints = nweaMathPoints +
+        nweaReadPoints +
+        subjGradeMathPoints +
+        subjGradeReadPoints +
+        subjGradeSciPoints +
+        subjGradeSocStudiesPoints +
+        seTestPoints;
+    return sePoints;
+};
+const seLookup = (student, program) => {
+    const cutoff = seCutoffTable[program.schoolID];
+    if (cutoff === undefined) {
+        throw new Error(`Program ${program.programName} not found in SE Cutoff scores`);
+    }
+    if (student.location === null) {
+        throw new Error("Null student location");
+    }
+    switch (student.location.tier) {
+        case '1':
+            return cutoff.tier1;
+        case '2':
+            return cutoff.tier2;
+        case '3':
+            return cutoff.tier3;
+        case '4':
+            return cutoff.tier4;
+        default:
+            throw new Error("No tier");
+    }
+};
+exports.sePointSystem = (student, program) => {
+    if (student.nweaPercentileMath === null ||
+        student.nweaPercentileRead === null ||
+        student.subjGradeMath === null ||
+        student.subjGradeRead === null ||
+        student.subjGradeSci === null ||
+        student.subjGradeSocStudies === null ||
+        student.seTestPercentile === null ||
+        student.location === null) {
+        return enums_1.SuccessChance.NOTIMPLEMENTED;
+    }
+    const points = sePointCalc(student, program);
+    let prevScores;
+    try {
+        prevScores = seLookup(student, program);
+    }
+    catch (e) {
+        return enums_1.SuccessChance.NOTIMPLEMENTED;
+    }
+    if (points === null || isNaN(points)) {
+        console.error("received NaN for sePointCalc");
+        return enums_1.SuccessChance.NOTIMPLEMENTED;
+    }
+    if (isNaN(prevScores.min) || isNaN(prevScores.avg) || isNaN(prevScores.max)) {
+        console.error("received NaN for seCutoffLookup");
+        return enums_1.SuccessChance.NOTIMPLEMENTED;
+    }
+    if (points >= prevScores.max) {
+        return enums_1.SuccessChance.CERTAIN;
+    }
+    else if (points >= prevScores.avg) {
+        return enums_1.SuccessChance.LIKELY;
+    }
+    else if (points >= prevScores.min) {
+        return enums_1.SuccessChance.UNCERTAIN;
+    }
+    else {
+        return enums_1.SuccessChance.NONE;
+    }
+};
+
+
+/***/ }),
+/* 302 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const point_system_1 = __webpack_require__(115);
+const filters_1 = __webpack_require__(69);
+const data_access_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"shared/util/data-access\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+const ibCutoffTable = data_access_1.getNonSECutoffScoresTable();
+const ibPointCalc = (student, program) => {
+    if (student.nweaPercentileMath === null ||
+        student.nweaPercentileRead === null ||
+        student.subjGradeMath === null ||
+        student.subjGradeRead === null ||
+        student.subjGradeSci === null ||
+        student.subjGradeSocStudies === null) {
+        return null;
+    }
+    const IB_NWEA_SCORE_CONSTANT = 2.2727;
+    const IB_ATTEND_BOUND_BONUS_PTS = 50;
+    const nweaMathPoints = Math.round(student.nweaPercentileMath * IB_NWEA_SCORE_CONSTANT);
+    const nweaReadPoints = Math.round(student.nweaPercentileRead * IB_NWEA_SCORE_CONSTANT);
+    const gradePointsLookup = {
+        "A": 112.5,
+        "B": 75,
+        "C": 38,
+        "D": 0,
+        "F": 0,
+    };
+    const subjGradeMathPoints = gradePointsLookup[student.subjGradeMath];
+    const subjGradeReadPoints = gradePointsLookup[student.subjGradeRead];
+    const subjGradeSciPoints = gradePointsLookup[student.subjGradeSci];
+    const subjGradeSocStudiesPoints = gradePointsLookup[student.subjGradeSocStudies];
+    const attendBonus = filters_1.ifInAttendBound(student, program) ? IB_ATTEND_BOUND_BONUS_PTS : 0;
+    const ibPoints = nweaMathPoints +
+        nweaReadPoints +
+        subjGradeMathPoints +
+        subjGradeReadPoints +
+        subjGradeSciPoints +
+        subjGradeSocStudiesPoints +
+        attendBonus;
+    return ibPoints;
+};
+const ibCutoffLookup = (student, program) => {
+    const cutoff = ibCutoffTable[program.schoolID];
+    if (cutoff === undefined) {
+        throw new Error(`School ${program.schoolNameLong} not found in IB Cutoff scores`);
+    }
+    return cutoff;
+};
+exports.ibPointSystem = point_system_1.pointSystem(ibPointCalc, ibCutoffLookup);
+
+
+/***/ }),
+/* 303 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+exports.notImplemented = (student, program) => {
+    return enums_1.SuccessChance.NOTIMPLEMENTED;
+};
+
+
+/***/ }),
+/* 304 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createHSSchoolDict = (hsProgramDict) => {
+    let hsSchoolDict = {};
+    Object.keys(hsProgramDict).forEach(programID => {
+        const program = hsProgramDict[programID];
+        if (hsSchoolDict[program.schoolID] === undefined) {
+            hsSchoolDict[program.schoolID] = {
+                id: program.schoolID,
+                longName: program.schoolNameLong,
+                shortName: program.schoolNameShort
+            };
+        }
+    });
+    return hsSchoolDict;
+};
+
+
+/***/ }),
+/* 305 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const emptyRequirementFunction = (student, program) => enums_1.SuccessChance.NOTIMPLEMENTED;
+exports.createNonHSProgramDictionary = (rawProgramData) => {
+    let programDictionary = {};
+    rawProgramData.forEach(rawProgram => {
+        const applicationReqFn = emptyRequirementFunction;
+        const selectionReqFn = emptyRequirementFunction;
+        const program = Object.assign({}, rawProgram, {
+            applicationReqFnID: undefined,
+            selectionReqFnID: undefined,
+            applicationReqFn: applicationReqFn,
+            selectionReqFn: selectionReqFn
+        });
+        programDictionary[program.id] = program;
+    });
+    return rawProgramData;
+};
+
+
+/***/ }),
+/* 306 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+const get_overall_success_chance_1 = __webpack_require__(307);
+exports.createProgramOutcomeDictionary = (studentData, programDict) => {
+    let outcomeDict = {};
+    Object.keys(programDict).forEach(programID => {
+        const program = programDict[programID];
+        const applicationChance = program.applicationReqFn(studentData, program);
+        const selectionChance = program.selectionReqFn(studentData, program);
+        const outcome = {
+            programID: programID,
+            applicationChance: applicationChance,
+            selectionChance: selectionChance,
+            overallChance: get_overall_success_chance_1.getOverallSuccessChance({ application: applicationChance, selection: selectionChance })
+        };
+        outcomeDict[programID] = outcome;
+    });
+    return outcomeDict;
+};
+exports.createInitialProgramOutcomeDictionary = (programDict) => {
+    let initialOutcomes = {};
+    Object.keys(programDict).forEach(programID => {
+        const outcome = {
+            programID: programID,
+            applicationChance: enums_1.SuccessChance.NOTIMPLEMENTED,
+            selectionChance: enums_1.SuccessChance.NOTIMPLEMENTED,
+            overallChance: enums_1.SuccessChance.NOTIMPLEMENTED
+        };
+        initialOutcomes[programID] = outcome;
+    });
+    return initialOutcomes;
+};
+
+
+/***/ }),
+/* 307 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(5);
+exports.getOverallSuccessChance = (opts) => {
+    if (opts.application === enums_1.SuccessChance.CERTAIN || opts.application === enums_1.SuccessChance.LIKELY) {
+        return opts.selection;
+    }
+    else {
+        return opts.application;
+    }
+};
+
+
+/***/ }),
+/* 308 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createProgramGroupDictionary = (hsPrograms, programTypeIDTable) => {
+    let programGroups = {};
+    Object.keys(hsPrograms).forEach(programID => {
+        const program = hsPrograms[programID];
+        const programTypeID = program.programTypeID;
+        if (hsPrograms[programTypeID] === undefined) {
+            const programTypeName = programTypeIDTable[programTypeID] !== undefined
+                ? programTypeIDTable[programTypeID]
+                : program.programType;
+            const newProgramGroup = {
+                id: programTypeID,
+                name: programTypeName,
+                programIDs: [program.id]
+            };
+            programGroups[programTypeID] = newProgramGroup;
+        }
+        else {
+            programGroups[programTypeID].programIDs.push(program.id);
+        }
+    });
+    return programGroups;
+};
+
+
+/***/ }),
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26873,13 +30304,13 @@ exports.default = Timeout;
 
 
 /***/ }),
-/* 276 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(277);
+var content = __webpack_require__(311);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -26904,7 +30335,7 @@ if(false) {
 }
 
 /***/ }),
-/* 277 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -26918,7 +30349,7 @@ exports.push([module.i, "/* ----------------------------------------------------
 
 
 /***/ }),
-/* 278 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26930,14 +30361,14 @@ exports.default = FieldLabel;
 
 
 /***/ }),
-/* 279 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const JSONP = __webpack_require__(280);
-const data_access_1 = __webpack_require__(105);
+const JSONP = __webpack_require__(314);
+const data_access_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"shared/util/data-access\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 let tractTierTable = {};
 data_access_1.getTractTierTable().then(table => {
     tractTierTable = table;
@@ -27015,7 +30446,7 @@ const lookupTierFromTract = (tract) => {
 
 
 /***/ }),
-/* 280 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;(function() {
@@ -27136,7 +30567,7 @@ const lookupTierFromTract = (tract) => {
     return data.join('&');
   };
 
-  if ("function" !== "undefined" && __webpack_require__(282) !== null ? __webpack_require__(283) : void 0) {
+  if ("function" !== "undefined" && __webpack_require__(316) !== null ? __webpack_require__(317) : void 0) {
     !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
       return JSONP;
     }.call(exports, __webpack_require__, exports, module),
@@ -27149,10 +30580,10 @@ const lookupTierFromTract = (tract) => {
 
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(281)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(315)(module)))
 
 /***/ }),
-/* 281 */
+/* 315 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -27180,7 +30611,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 282 */
+/* 316 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -27189,7 +30620,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 283 */
+/* 317 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -27198,13 +30629,13 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 284 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(285);
+var content = __webpack_require__(319);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -27229,7 +30660,7 @@ if(false) {
 }
 
 /***/ }),
-/* 285 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -27243,7 +30674,7 @@ exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  bor
 
 
 /***/ }),
-/* 286 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27252,9 +30683,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
-const number_field_1 = __webpack_require__(44);
-const constants_1 = __webpack_require__(7);
-const between_1 = __webpack_require__(45);
+const number_field_1 = __webpack_require__(46);
+const constants_1 = __webpack_require__(6);
+const between_1 = __webpack_require__(47);
 const AttendPercentageField = (props) => (React.createElement(number_field_1.default, { label: "Your 7th grade attendance percentage", style: { width: "6em" }, value: props.attendancePercentage, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
 const mapStateToProps = (state) => {
     return {
@@ -27270,7 +30701,7 @@ exports.AttendPercentageFieldContainer = react_redux_1.connect(mapStateToProps, 
 
 
 /***/ }),
-/* 287 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27278,10 +30709,10 @@ exports.AttendPercentageFieldContainer = react_redux_1.connect(mapStateToProps, 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
-const reselect_1 = __webpack_require__(66);
+const reselect_1 = __webpack_require__(71);
 const actions_1 = __webpack_require__(19);
-const combo_box_field_1 = __webpack_require__(288);
-const constants_1 = __webpack_require__(7);
+const combo_box_field_1 = __webpack_require__(322);
+const constants_1 = __webpack_require__(6);
 const CurrESProgramField = (props) => (React.createElement(combo_box_field_1.default, { label: "What elementary school program are you in now?", value: props.currProgramID, data: {
         records: props.programs,
         getKey: (program) => program.id,
@@ -27329,7 +30760,7 @@ exports.CurrESProgramFieldContainer = react_redux_1.connect(mapStateToProps, map
 
 
 /***/ }),
-/* 288 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27337,8 +30768,8 @@ exports.CurrESProgramFieldContainer = react_redux_1.connect(mapStateToProps, map
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(33);
-const field_container_1 = __webpack_require__(43);
-const list_box_1 = __webpack_require__(289);
+const field_container_1 = __webpack_require__(45);
+const list_box_1 = __webpack_require__(323);
 const debounce_1 = __webpack_require__(34);
 class ComboBoxField extends React.PureComponent {
     constructor(props) {
@@ -27394,14 +30825,14 @@ exports.default = ComboBoxField;
 
 
 /***/ }),
-/* 289 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const list_box_element_1 = __webpack_require__(290);
+const list_box_element_1 = __webpack_require__(324);
 const ListBox = (props) => {
     const className = "list-box " + (props.visible ? "visible" : "");
     return (React.createElement("ul", { className: className }, props.data.records.map(opt => React.createElement(list_box_element_1.default, { key: props.data.getKey(opt), value: props.data.getKey(opt), selected: props.selected === props.data.getKey(opt), onSelect: ev => {
@@ -27413,7 +30844,7 @@ exports.default = ListBox;
 
 
 /***/ }),
-/* 290 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27430,7 +30861,7 @@ exports.default = ListBoxElement;
 
 
 /***/ }),
-/* 291 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27440,7 +30871,7 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(22);
-const constants_1 = __webpack_require__(7);
+const constants_1 = __webpack_require__(6);
 const ELLField = (props) => (React.createElement(dropdown_field_1.default, { label: "Are you an English Language Learner?", value: props.ellStatus ? "true" : "false", onChange: ell => props.onChange(ell === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
     React.createElement("option", { value: "true" }, "Yes"),
     React.createElement("option", { value: "false" }, "No"),
@@ -27459,7 +30890,7 @@ exports.ELLFieldContainer = react_redux_1.connect(mapStateToProps, mapDispatchTo
 
 
 /***/ }),
-/* 292 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27469,7 +30900,7 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(22);
-const constants_1 = __webpack_require__(7);
+const constants_1 = __webpack_require__(6);
 const IEPField = (props) => (React.createElement(dropdown_field_1.default, { label: "Do you have an IEP?", value: props.iepStatus ? "true" : "false", onChange: iep => props.onChange(iep === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
     React.createElement("option", { value: "true" }, "Yes"),
     React.createElement("option", { value: "false" }, "No"),
@@ -27488,7 +30919,7 @@ exports.IEPFieldContainer = react_redux_1.connect(mapStateToProps, mapDispatchTo
 
 
 /***/ }),
-/* 293 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27497,7 +30928,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
-const address_tier_calculator_1 = __webpack_require__(112);
+const address_tier_calculator_1 = __webpack_require__(117);
 const StudentLocationField = (props) => (React.createElement(address_tier_calculator_1.AddressTierCalculator, { location: props.location, onLocationChange: props.onChange }));
 const mapStateToProps = (state) => {
     return {
@@ -27513,18 +30944,18 @@ exports.StudentLocationFieldContainer = react_redux_1.connect(mapStateToProps, m
 
 
 /***/ }),
-/* 294 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const between_1 = __webpack_require__(45);
-const enums_1 = __webpack_require__(9);
+const constants_1 = __webpack_require__(6);
+const between_1 = __webpack_require__(47);
+const enums_1 = __webpack_require__(5);
 const connect_score_type_1 = __webpack_require__(21);
-const number_field_1 = __webpack_require__(44);
+const number_field_1 = __webpack_require__(46);
 const NWEAMathField = (props) => {
     return (React.createElement(number_field_1.default, { label: "NWEA Math percentile", style: { width: "4em" }, value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
 };
@@ -27532,18 +30963,18 @@ exports.NWEAMathFieldContainer = connect_score_type_1.connectScoreType(enums_1.S
 
 
 /***/ }),
-/* 295 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const between_1 = __webpack_require__(45);
-const enums_1 = __webpack_require__(9);
+const constants_1 = __webpack_require__(6);
+const between_1 = __webpack_require__(47);
+const enums_1 = __webpack_require__(5);
 const connect_score_type_1 = __webpack_require__(21);
-const number_field_1 = __webpack_require__(44);
+const number_field_1 = __webpack_require__(46);
 const NWEAReadField = (props) => {
     return React.createElement(number_field_1.default, { label: "NWEA Reading percentile", style: { width: "4em" }, value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
@@ -27551,18 +30982,18 @@ exports.NWEAReadFieldContainer = connect_score_type_1.connectScoreType(enums_1.S
 
 
 /***/ }),
-/* 296 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const between_1 = __webpack_require__(45);
-const enums_1 = __webpack_require__(9);
+const constants_1 = __webpack_require__(6);
+const between_1 = __webpack_require__(47);
+const enums_1 = __webpack_require__(5);
 const connect_score_type_1 = __webpack_require__(21);
-const number_field_1 = __webpack_require__(44);
+const number_field_1 = __webpack_require__(46);
 const SETestField = (props) => {
     return React.createElement(number_field_1.default, { label: "Selective Enrollment Test Percentile", value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
@@ -27570,7 +31001,7 @@ exports.SETestFieldContainer = connect_score_type_1.connectScoreType(enums_1.Sco
 
 
 /***/ }),
-/* 297 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27578,7 +31009,7 @@ exports.SETestFieldContainer = connect_score_type_1.connectScoreType(enums_1.Sco
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
-const reselect_1 = __webpack_require__(66);
+const reselect_1 = __webpack_require__(71);
 const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(22);
 class SiblingHSField extends React.PureComponent {
@@ -27631,7 +31062,7 @@ exports.SiblingHSFieldContainer = react_redux_1.connect(mapStateToProps, mapDisp
 
 
 /***/ }),
-/* 298 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27641,7 +31072,7 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(22);
-const constants_1 = __webpack_require__(7);
+const constants_1 = __webpack_require__(6);
 const SkippedGradeField = (props) => {
     return (React.createElement(dropdown_field_1.default, { label: "Did you skip 7th grade or repeat 8th grade?", value: props.didSkipGrade ? "true" : "false", onChange: (value) => props.onChange(value === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
         React.createElement("option", { value: "true" }, "Yes"),
@@ -27661,15 +31092,15 @@ exports.SkippedGradeFieldContainer = react_redux_1.connect(mapStateToProps, mapD
 
 
 /***/ }),
-/* 299 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const enums_1 = __webpack_require__(9);
+const constants_1 = __webpack_require__(6);
+const enums_1 = __webpack_require__(5);
 const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(22);
 const SubjGradeMathField = (props) => {
@@ -27684,15 +31115,15 @@ exports.SubjGradeMathFieldContainer = connect_score_type_1.connectScoreType(enum
 
 
 /***/ }),
-/* 300 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const enums_1 = __webpack_require__(9);
+const constants_1 = __webpack_require__(6);
+const enums_1 = __webpack_require__(5);
 const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(22);
 const SubjGradeReadField = (props) => {
@@ -27707,15 +31138,15 @@ exports.SubjGradeReadFieldContainer = connect_score_type_1.connectScoreType(enum
 
 
 /***/ }),
-/* 301 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const enums_1 = __webpack_require__(9);
+const constants_1 = __webpack_require__(6);
+const enums_1 = __webpack_require__(5);
 const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(22);
 const SubjGradeSciField = (props) => {
@@ -27730,15 +31161,15 @@ exports.SubjGradeSciFieldContainer = connect_score_type_1.connectScoreType(enums
 
 
 /***/ }),
-/* 302 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(7);
-const enums_1 = __webpack_require__(9);
+const constants_1 = __webpack_require__(6);
+const enums_1 = __webpack_require__(5);
 const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(22);
 const SubjGradeSocStudiesField = (props) => {
@@ -27753,7 +31184,7 @@ exports.SubjGradeSocStudiesFieldContainer = connect_score_type_1.connectScoreTyp
 
 
 /***/ }),
-/* 303 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27761,8 +31192,8 @@ exports.SubjGradeSocStudiesFieldContainer = connect_score_type_1.connectScoreTyp
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
-const text_field_1 = __webpack_require__(113);
-const constants_1 = __webpack_require__(7);
+const text_field_1 = __webpack_require__(118);
+const constants_1 = __webpack_require__(6);
 const GPADisplayField = (props) => {
     const gpa = props.gpa ? props.gpa.toFixed(2) : "";
     return (React.createElement(text_field_1.default, { label: "Your GPA", editable: false, value: gpa, onChange: () => false, debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
@@ -27776,16 +31207,16 @@ exports.GPADisplayFieldContainer = react_redux_1.connect(mapStateToProps)(GPADis
 
 
 /***/ }),
-/* 304 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_redux_1 = __webpack_require__(13);
-const reselect_1 = __webpack_require__(66);
+const reselect_1 = __webpack_require__(71);
 const actions_1 = __webpack_require__(19);
-const hs_program_list_1 = __webpack_require__(305);
+const hs_program_list_1 = __webpack_require__(339);
 const getProgramGroupDict = (state) => state.hsData.hsProgramGroups;
 const selectProgramGroups = reselect_1.createSelector([getProgramGroupDict], (programGroupDict) => {
     const programGroups = Object.keys(programGroupDict).map(groupID => programGroupDict[groupID]);
@@ -27809,16 +31240,16 @@ exports.default = HSProgramsContainer;
 
 
 /***/ }),
-/* 305 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const search_bar_1 = __webpack_require__(306);
-const hs_group_1 = __webpack_require__(310);
-const constants_1 = __webpack_require__(7);
+const search_bar_1 = __webpack_require__(340);
+const hs_group_1 = __webpack_require__(344);
+const constants_1 = __webpack_require__(6);
 class HSProgramList extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -27869,16 +31300,16 @@ exports.default = HSProgramList;
 
 
 /***/ }),
-/* 306 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const search_1 = __webpack_require__(307);
+const search_1 = __webpack_require__(341);
 const debounce_1 = __webpack_require__(34);
-__webpack_require__(308);
+__webpack_require__(342);
 class SearchBar extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -27916,7 +31347,7 @@ exports.default = SearchBar;
 
 
 /***/ }),
-/* 307 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27932,13 +31363,13 @@ exports.default = SearchIcon;
 
 
 /***/ }),
-/* 308 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(309);
+var content = __webpack_require__(343);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -27963,7 +31394,7 @@ if(false) {
 }
 
 /***/ }),
-/* 309 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -27977,23 +31408,23 @@ exports.push([module.i, ".search-bar-container {\n  width: 100%;\n  padding: 0.5
 
 
 /***/ }),
-/* 310 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const enums_1 = __webpack_require__(9);
-const outcome_certain_1 = __webpack_require__(114);
-const outcome_likely_1 = __webpack_require__(115);
-const outcome_uncertain_1 = __webpack_require__(116);
-const outcome_unlikely_1 = __webpack_require__(117);
-const outcome_none_1 = __webpack_require__(118);
-const outcome_notimplemented_1 = __webpack_require__(119);
-const constants_1 = __webpack_require__(7);
-const hs_program_element_1 = __webpack_require__(311);
-__webpack_require__(318);
+const enums_1 = __webpack_require__(5);
+const outcome_certain_1 = __webpack_require__(119);
+const outcome_likely_1 = __webpack_require__(120);
+const outcome_uncertain_1 = __webpack_require__(121);
+const outcome_unlikely_1 = __webpack_require__(122);
+const outcome_none_1 = __webpack_require__(123);
+const outcome_notimplemented_1 = __webpack_require__(124);
+const constants_1 = __webpack_require__(6);
+const hs_program_element_1 = __webpack_require__(345);
+__webpack_require__(352);
 class HSGroup extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -28097,23 +31528,23 @@ exports.default = HSGroup;
 
 
 /***/ }),
-/* 311 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const enums_1 = __webpack_require__(9);
-const school_1 = __webpack_require__(312);
-const outcome_certain_1 = __webpack_require__(114);
-const outcome_likely_1 = __webpack_require__(115);
-const outcome_uncertain_1 = __webpack_require__(116);
-const outcome_unlikely_1 = __webpack_require__(117);
-const outcome_none_1 = __webpack_require__(118);
-const outcome_notimplemented_1 = __webpack_require__(119);
-const hs_program_info_card_1 = __webpack_require__(313);
-__webpack_require__(316);
+const enums_1 = __webpack_require__(5);
+const school_1 = __webpack_require__(346);
+const outcome_certain_1 = __webpack_require__(119);
+const outcome_likely_1 = __webpack_require__(120);
+const outcome_uncertain_1 = __webpack_require__(121);
+const outcome_unlikely_1 = __webpack_require__(122);
+const outcome_none_1 = __webpack_require__(123);
+const outcome_notimplemented_1 = __webpack_require__(124);
+const hs_program_info_card_1 = __webpack_require__(347);
+__webpack_require__(350);
 class HSProgramElement extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -28189,7 +31620,7 @@ exports.default = HSProgramElement;
 
 
 /***/ }),
-/* 312 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28209,15 +31640,15 @@ exports.default = SchoolIcon;
 
 
 /***/ }),
-/* 313 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const enums_1 = __webpack_require__(9);
-__webpack_require__(314);
+const enums_1 = __webpack_require__(5);
+__webpack_require__(348);
 const HSProgramInfoCard = (props) => {
     const toMessage = (success) => {
         let msg = "";
@@ -28270,13 +31701,13 @@ exports.default = HSProgramInfoCard;
 
 
 /***/ }),
-/* 314 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(315);
+var content = __webpack_require__(349);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -28301,7 +31732,7 @@ if(false) {
 }
 
 /***/ }),
-/* 315 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -28315,13 +31746,13 @@ exports.push([module.i, ".hs-info-card-container {\n  display: none;\n  position
 
 
 /***/ }),
-/* 316 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(317);
+var content = __webpack_require__(351);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -28346,7 +31777,7 @@ if(false) {
 }
 
 /***/ }),
-/* 317 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -28360,13 +31791,13 @@ exports.push([module.i, ".hs-list-element {\n  position: relative;\n  font-size:
 
 
 /***/ }),
-/* 318 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(319);
+var content = __webpack_require__(353);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -28391,7 +31822,7 @@ if(false) {
 }
 
 /***/ }),
-/* 319 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);

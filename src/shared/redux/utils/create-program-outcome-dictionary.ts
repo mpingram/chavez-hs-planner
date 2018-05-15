@@ -9,7 +9,7 @@ import { SuccessChance } from "shared/enums";
 
 import { getOverallSuccessChance } from "shared/util/get-overall-success-chance";
 
-export const createProgramOutcomeDictionary = (programDict: ProgramDictionary, studentData: StudentData): ProgramOutcomeDictionary => {
+export const createProgramOutcomeDictionary = (studentData: StudentData, programDict: ProgramDictionary): ProgramOutcomeDictionary => {
   let outcomeDict: ProgramOutcomeDictionary = {};
   Object.keys(programDict).forEach( programID => {
     const program = programDict[programID];
