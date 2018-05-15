@@ -4,12 +4,10 @@ import { rootReducer } from "shared/redux/reducers";
 
 import { loadAllData } from "../actions";
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   applyMiddleware(thunk)
 );
 
 /* load all app data on initialization. */
-store.dispatch( loadAllData() )
-
-export default store;
+//store.dispatch( loadAllData() );

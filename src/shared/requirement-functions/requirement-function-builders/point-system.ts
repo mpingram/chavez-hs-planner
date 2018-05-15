@@ -1,14 +1,15 @@
 import {
+  CutoffScores,
+  Program,
   RequirementFunction,
   StudentData,
-  Program,
 } from "shared/types";
 
 import { SuccessChance } from "shared/enums";
 import { POINT_SYSTEM_UNCERTAINTY_THRESHOLD } from "../constants";
 
 type PointCalculator = (student: StudentData, program: Program) => number | null;
-type PointCutoffLookup = (student: StudentData, program: Program) => number;
+type PointCutoffLookup = (student: StudentData, program: Program) => CutoffScores;
 
 type PointSystemFn = (calc: PointCalculator, lookup: PointCutoffLookup) => RequirementFunction;
 
@@ -22,11 +23,11 @@ export const pointSystem: PointSystemFn = (calc, lookup) => {
       return SuccessChance.NOTIMPLEMENTED;
     }
     const cutoff = lookup(student, program);
-    const pointsFromCutoff = points - cutoff;
+    const pointsFromCutoff = points - cutoff.min;
 
     // handle failure by returning NOTIMPLEMENTED
     // rather than give inaccurate prediction
-    if (isNaN(points) || isNaN(cutoff)) {
+    if (isNaN(points) || isNaN(cutoff.min)) {
       return SuccessChance.NOTIMPLEMENTED;
     }
 

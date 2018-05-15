@@ -2,16 +2,13 @@ import {
   RequirementFunction,
   StudentData,
   Program,
-  TieredCutoffScores
+  CutoffScores
 } from "shared/types";
 
 import { SuccessChance } from "shared/enums";
 
-import { getSECutoffScoresTable } from "shared/util/data-access";
-let seCutoffTable = {};
-getSECutoffScoresTable().then( table => {
-  seCutoffTable = table;
-});
+import { store } from "shared/redux/store";
+const getSECutoffScoresTable = () => store.getState().data.seCutoffScores;
 
 const sePointCalc = (student: StudentData, program: Program): number | null => {
 
@@ -62,19 +59,18 @@ const sePointCalc = (student: StudentData, program: Program): number | null => {
   return sePoints;
 };
 
-const seLookup  = (student: StudentData, program: Program): TieredCutoffScores  => {
+const seLookup  = (student: StudentData, program: Program): CutoffScores | null  => {
   // TODO: this ignores rank cutoff scores, assuming that if you make it
   // past your tier cutoff scores you're good. Make double sure that's a
   // good assumption.
-  const cutoff = seCutoffTable[program.schoolID];
+  const cutoff = getSECutoffScoresTable()[program.schoolID];
   if (cutoff === undefined) {
-    throw new Error(`Program ${program.programName} not found in SE Cutoff scores`); 
+    return null;
   }
-  // uninitialzed student data should not be passed to this function; if it is,
-  // throw an error.
   if (student.location === null) {
-    throw new Error("Null student location");
+    return null;
   }
+
   switch(student.location.tier) {
     case '1':
       return cutoff.tier1; 
@@ -85,7 +81,7 @@ const seLookup  = (student: StudentData, program: Program): TieredCutoffScores  
     case '4':
       return cutoff.tier4;
     default:
-      throw new Error("No tier");
+      return null;
   }
 };
 
@@ -105,10 +101,8 @@ export const sePointSystem: RequirementFunction = (student, program)  => {
   }
   
   const points = sePointCalc(student, program);
-  let prevScores;
-  try {
-    prevScores = seLookup(student, program);
-  } catch(e) {
+  const prevScores= seLookup(student, program);
+  if (prevScores === null) {
     return SuccessChance.NOTIMPLEMENTED;
   }
 

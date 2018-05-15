@@ -1,23 +1,11 @@
-Rewrite redux code to load and store all app data at initialization
+Refactor app to adjust to changes in redux store
 
-* NOTE I didn't think through the way I had loaded the data earlier --
-  I was trying to create the redux initial state using callbacks from
-  the data-access promises. I realized that the better way to do things
-  is to load all data into redux store after the app and redux store
-  initialize themselves.
+* TODO refactor redux-aware components to connect to new store
+* TODO move selected hs program id into ProgramList internal state
 
-* move shared/util/data-access to shared/redux/data-access
-* move cutoff scores, tract tier table, and school attendance 
-  boundary table into redux store
-* change redux initial state to have no externally loaded data
-* add loadingData property to redux state
-* add new actions and action creators to handle
-  ** use redux-thunk to dispatch http requests in action creators
-    to load data over the network
-
-* rewrite reducers to handle loading app data
-* when redux initializes, dispatch an action to get app data
-  using code formerly in data-access method
-
-* TODO IN FUTURE refactor code that accesses data-access - load data from redux
-  store instead.
+* refactor all code which previously interaced with data-access
+  to instead load data dynamically from redux store.
+* remove some data verification code in requirement functions that
+  threw on receiving uninitialized data; because the app loads
+  data dynamically on startup, refactored requirement functions to
+  instead gracefully handle uninitialized data.

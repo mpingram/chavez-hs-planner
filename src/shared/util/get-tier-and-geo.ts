@@ -1,11 +1,9 @@
 import * as JSONP from "browser-jsonp";
 
 import createUrl from "shared/util/create-url";
-import { getTractTierTable } from "shared/util/data-access";
-let tractTierTable = {};
-getTractTierTable().then( table => {
-  tractTierTable = table
-});
+import { store } from "shared/redux/store";
+
+const getTractTierTable = () => store.getState().data.tractTierTable;
 
 export const GetTierError = {
   InvalidAddressErr: new Error("Invalid address"),
@@ -103,7 +101,7 @@ const getTractAndGeo = (address: string): Promise<{tract: string, geo: {latitude
 
 const lookupTierFromTract = (tract: string): Promise<string> => {
   return new Promise( (resolve, reject) => {
-      const tier: string = tractTierTable[tract];
+      const tier: string = getTractTierTable()[tract];
       if (tier === undefined) {
         reject(GetTierError.NoTierFoundErr);
       } else {

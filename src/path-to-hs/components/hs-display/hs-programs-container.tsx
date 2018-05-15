@@ -7,13 +7,13 @@ import {
   Program,
   ProgramGroup
 } from "shared/types";
-import { SuccessChance } from "shared/enums";
 
-import { selectHSProgram } from "shared/redux/actions";
+
+import { SuccessChance } from "shared/enums";
 
 import HSProgramList from "./hs-program-list";
 
-const getProgramGroupDict = (state: AppState) => state.hsData.hsProgramGroups;
+const getProgramGroupDict = (state: AppState) => state.data.hsProgramGroups;
 const selectProgramGroups = createSelector(
   [getProgramGroupDict],
   (programGroupDict): ProgramGroup[] => {
@@ -25,22 +25,23 @@ const selectProgramGroups = createSelector(
   }
 );
 
+const getProgramDict = (state: AppState) => state.data.hsPrograms;
+const selectPrograms = createSelector(
+  [getProgramDict],
+  (programDict): Program[] => {
+    return Object.keys(programDict).map( programID => programDict[programID] );
+  }
+);
+
 const mapStateToProps = (state: AppState) => {
   return {
-    programs: state.hsData.hsPrograms,
+    programs: selectPrograms(state),
     outcomes: state.programOutcomes, 
-    programGroups: selectProgramGroups,
-    selectedProgramID: state.selectedHSProgramID
+    programGroups: selectProgramGroups(state),
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSelectedProgramIDChange: (newID: string) => dispatch(selectHSProgram(newID))
-  }
-};
-
-const HSProgramsContainer = connect(mapStateToProps, mapDispatchToProps)(HSProgramList);
+const HSProgramsContainer = connect(mapStateToProps)(HSProgramList);
 
 export default HSProgramsContainer;
 

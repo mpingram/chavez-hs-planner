@@ -1,12 +1,18 @@
-import { RequirementFunction } from "shared/types/requirement-function";
-import { StudentData } from "shared/types/student-data";
-import { Program } from "shared/types/program";
+import { 
+  CutoffScores,
+  Program,
+  RequirementFunction,
+  StudentData,
+} from "shared/types";
 
 import { pointSystem } from "./point-system";
 import { ifInAttendBound } from "./filters";
 
-import { getNonSECutoffScoresTable } from "shared/util/data-access";
-const ibCutoffTable = getNonSECutoffScoresTable();
+import { store } from "shared/redux/store";
+
+const getIBCutoffTable = () => {
+  return store.getState().data.nonSECutoffScores;
+};
 
 const ibPointCalc = (student: StudentData, program: Program): number | null => {
 
@@ -56,8 +62,8 @@ const ibPointCalc = (student: StudentData, program: Program): number | null => {
   return ibPoints;
 };  
 
-const ibCutoffLookup = (student: StudentData, program: Program): number => {
-  const cutoff = ibCutoffTable[program.schoolID];
+const ibCutoffLookup = (student: StudentData, program: Program): CutoffScores => {
+  const cutoff = getIBCutoffTable()[program.schoolID];
   if (cutoff === undefined) {
     throw new Error(`School ${program.schoolNameLong} not found in IB Cutoff scores`); 
   }

@@ -62,7 +62,7 @@ class SiblingHSField extends React.PureComponent<SiblingHSFieldProps, SiblingHSF
 }
 
 
-const getHSSchoolDict = (state: AppState): SchoolDictionary => state.hsData.hsSchools;
+const getHSSchoolDict = (state: AppState): SchoolDictionary => state.data.hsSchools;
 
 const selectHSSchools = createSelector( 
   [getHSSchoolDict], 

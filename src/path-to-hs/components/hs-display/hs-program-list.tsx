@@ -14,11 +14,10 @@ interface HSProgramListProps {
   programs: Program[]
   programGroups: ProgramGroup[]
   outcomes: ProgramOutcomeDictionary
-  selectedProgramID: string
-  onSelectedProgramIDChange: (id: string) => any
 }
 
 interface HSProgramListState {
+  selectedProgramID: string | null
   searchTerm: string;
 }
 
@@ -29,12 +28,16 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ""
+      searchTerm: "",
+      selectedProgramID: null
     };
   }
 
 
   render() {
+    // DEBUG
+    console.log(this.props);
+    // END DEBUG
     return (
       <div
         style={{
@@ -77,7 +80,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
                   title={group.name}
                   programs={filteredPrograms}
                   outcomes={this.props.outcomes}
-                  selectedProgramID={this.props.selectedProgramID}
+                  selectedProgramID={this.state.selectedProgramID}
                   onSelectedProgramIDChange={this.handleSelectedProgramIDChange}
                 />
               )
@@ -106,7 +109,9 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
   }
 
   private handleSelectedProgramIDChange = (id: string) => {
-    this.props.onSelectedProgramIDChange(id);
+    this.setState({
+      selectedProgramID: id
+    });
   }
 
 };

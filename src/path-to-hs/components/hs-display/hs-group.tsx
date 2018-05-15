@@ -28,7 +28,7 @@ interface HSGroupProps {
   title: string
   programs: Program[]
   outcomes: ProgramOutcomeDictionary
-  selectedProgramID: string
+  selectedProgramID: string | null
   onSelectedProgramIDChange: (newID: string | null) => any
 }
 

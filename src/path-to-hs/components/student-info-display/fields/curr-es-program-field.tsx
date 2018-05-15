@@ -34,7 +34,7 @@ const CurrESProgramField = (props: CurrESProgramFieldProps) => (
   /> 
 );
 
-const getNonHSPrograms = (state: AppState): ProgramDictionary => state.hsData.esPrograms;
+const getNonHSPrograms = (state: AppState): ProgramDictionary => state.data.nonHSPrograms;
 const getStudentCurrESProgramID = (state: AppState): string | null => state.studentData.currESProgramID;
 
 const selectNonHSPrograms = createSelector( 

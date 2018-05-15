@@ -2,12 +2,9 @@ import { ReqFnFilter} from "./";
 
 import pointInPolygon from "shared/util/point-in-polygon";
 
-import { getSchoolAttendanceBoundaryTable } from "shared/util/data-access";
+import { store } from "shared/redux/store";
 
-let schoolAttendBoundTable;
-getSchoolAttendanceBoundaryTable().then( table => {
-  schoolAttendBoundTable = table;
-});
+const getSchoolAttendanceBoundaryTable = () => store.getState().data.schoolAttendanceBoundaryTable;
 
 export const ifInAttendBound: ReqFnFilter = (student, program) => {
   // return false immediately if student properties are uninitialized
@@ -17,7 +14,7 @@ export const ifInAttendBound: ReqFnFilter = (student, program) => {
 
   const point: [number, number] = [student.location.geo.longitude, student.location.geo.latitude];
   // get geometry from schoolAttendBoundTable by looking up thru ID
-  const polygon = schoolAttendBoundTable[program.schoolID];
+  const polygon = getSchoolAttendanceBoundaryTable()[program.schoolID];
   if (polygon === undefined) {
     console.warn(`No attend bound found for ${program.programName}`);
     return false
