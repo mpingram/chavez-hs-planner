@@ -10,4 +10,4 @@ export const store = createStore(
 );
 
 /* load all app data on initialization. */
-//store.dispatch( loadAllData() );
+store.dispatch( loadAllData() );

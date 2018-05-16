@@ -1,11 +1,6 @@
-Refactor app to adjust to changes in redux store
+Fix bug in store initialization
 
-* TODO refactor redux-aware components to connect to new store
-* TODO move selected hs program id into ProgramList internal state
-
-* refactor all code which previously interaced with data-access
-  to instead load data dynamically from redux store.
-* remove some data verification code in requirement functions that
-  threw on receiving uninitialized data; because the app loads
-  data dynamically on startup, refactored requirement functions to
-  instead gracefully handle uninitialized data.
+* buglog commit: b7534eb             
+* Remove duplicate store initialization code from app bootstrapping
+  code in src/index.tsx; replace with reference to redux store
+  initialized in src/shared/redux/store.
