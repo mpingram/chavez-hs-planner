@@ -1,4 +1,4 @@
-import {requirementFunctions} from "./requirement-functions";
+import {requirementFunctions as rawReqFns} from "./requirement-functions";
 
 // FIXME literally does this do anything
 function minifyRequirementFunctions(reqFns) {
@@ -16,7 +16,5 @@ function minifyRequirementFunctions(reqFns) {
   return reqFnsCopy;
 }
 
-const requirementFunctionsMinified = minifyRequirementFunctions(requirementFunctions);
-
-export {requirementFunctions, requirementFunctionsMinified};
+export const requirementFunctions= minifyRequirementFunctions(rawReqFns);
 

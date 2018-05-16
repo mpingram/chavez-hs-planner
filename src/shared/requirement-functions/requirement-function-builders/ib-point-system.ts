@@ -63,7 +63,7 @@ const ibPointCalc = (student: StudentData, program: Program): number | null => {
 };  
 
 const ibCutoffLookup = (student: StudentData, program: Program): CutoffScores => {
-  const cutoff = getIBCutoffTable()[program.schoolID];
+  const cutoff = getIBCutoffTable()[program.id];
   if (cutoff === undefined) {
     throw new Error(`School ${program.schoolNameLong} not found in IB Cutoff scores`); 
   }

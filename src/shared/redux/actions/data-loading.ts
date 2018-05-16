@@ -16,17 +16,22 @@ import {
   TRACT_TIER_TABLE_URL
 } from "shared/constants";
 
-import { createProgramGroupDictionary } from "../utils"
+import { 
+  createHSProgramDictionary,
+  createNonHSProgramDictionary,
+  createHSSchoolDict,
+  createProgramGroupDictionary
+} from "../utils"
 
 import { updateProgramOutcomes } from "./update-program-outcomes";
 
 const fetchJSONFrom = (url: string): Promise<any> => {
-  return fetch(HS_PROGRAMS_URL).then( 
+  return fetch(url).then( 
     res => {
       if (res.ok) {
         return res.json();
       } else {
-        console.error(`Request for ${HS_PROGRAMS_URL} failed with ${res.statusText}`);
+        console.error(`Request for ${url} failed with ${res.statusText}`);
       }
     },
     err => {
@@ -44,8 +49,9 @@ const updateHSPrograms = (data) => {
 }
 const loadHSPrograms = () => {
   return (dispatch) => {
-    fetchJSONFrom(HS_PROGRAMS_URL).then( json => {
-      dispatch( updateHSPrograms(json) );
+    return fetchJSONFrom(HS_PROGRAMS_URL).then( json => {
+      const programDict: ProgramDictionary = createHSProgramDictionary(json);
+      dispatch( updateHSPrograms(programDict) );
     });
   }
 };
@@ -58,8 +64,9 @@ const updateNonHSPrograms = (data) => {
 };
 const loadNonHSPrograms = () => {
   return (dispatch) => {
-    fetchJSONFrom(NON_HS_PROGRAMS_URL).then( json => {
-      dispatch( updateNonHSPrograms(json) );
+    return fetchJSONFrom(NON_HS_PROGRAMS_URL).then( json => {
+      const programDict: ProgramDictionary = createNonHSProgramDictionary(json);
+      dispatch( updateNonHSPrograms(programDict) );
     });
   }
 };
@@ -72,7 +79,7 @@ const updateSECutoffScores = (data) => {
 };
 const loadSECutoffScores = () => {
   return (dispatch) => {
-    fetchJSONFrom(SE_CUTOFF_SCORES_URL).then( json => {
+    return fetchJSONFrom(SE_CUTOFF_SCORES_URL).then( json => {
       dispatch( updateSECutoffScores(json) );
     });
   }
@@ -86,7 +93,7 @@ const updateNonSECutoffScores = (data) => {
 };
 const loadNonSECutoffScores = () => {
   return (dispatch) => {
-    fetchJSONFrom(NON_SE_CUTOFF_SCORES_URL).then( json => {
+    return fetchJSONFrom(NON_SE_CUTOFF_SCORES_URL).then( json => {
       dispatch( updateNonSECutoffScores(json) );
     });
   }
@@ -100,7 +107,7 @@ const updateProgramTypeIDTable = (data) => {
 };
 const loadProgramTypeIDTable = () => {
   return (dispatch) => {
-    fetchJSONFrom(PROGRAM_TYPE_ID_TABLE_URL).then( json => {
+    return fetchJSONFrom(PROGRAM_TYPE_ID_TABLE_URL).then( json => {
       dispatch( updateProgramTypeIDTable(json) );
     });
   }
@@ -114,7 +121,7 @@ const updateSchoolAttendanceBoundaryTable = (data) => {
 };
 const loadSchoolAttendanceBoundaryTable = () => {
   return (dispatch) => {
-    fetchJSONFrom(SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then( json => {
+    return fetchJSONFrom(SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then( json => {
       dispatch( updateSchoolAttendanceBoundaryTable(json) );
     });
   }
@@ -128,7 +135,7 @@ const updateTractTierTable = (data) => {
 };
 const loadTractTierTable = () => {
   return (dispatch) => {
-    fetchJSONFrom(TRACT_TIER_TABLE_URL).then( json => {
+    return fetchJSONFrom(TRACT_TIER_TABLE_URL).then( json => {
       dispatch( updateTractTierTable(json) );
     });
   }
@@ -159,17 +166,18 @@ export const loadAllData = () => {
   return (dispatch, getState) => {
     dispatch( loadingData() );
     return Promise.all([
-      loadHSPrograms,
-      loadNonHSPrograms,
-      loadSECutoffScores,
-      loadNonSECutoffScores,
-      loadProgramTypeIDTable,
-      loadSchoolAttendanceBoundaryTable,
-      loadTractTierTable,
+      dispatch( loadHSPrograms() ),
+      dispatch( loadNonHSPrograms() ),
+      dispatch( loadSECutoffScores() ),
+      dispatch( loadNonSECutoffScores() ),
+      dispatch( loadProgramTypeIDTable() ),
+      dispatch( loadSchoolAttendanceBoundaryTable() ),
+      dispatch( loadTractTierTable() ),
     ]).then( results => {
-
       dispatch( dataLoaded() );
       const state: AppState = getState();
+      // create hs school dictionary
+      // TODO 
       // create program groups
       dispatch( 
         updateProgramGroups(state.data.hsPrograms, state.data.programTypeIDTable)

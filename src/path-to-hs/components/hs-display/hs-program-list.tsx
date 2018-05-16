@@ -2,6 +2,7 @@ import * as React from "react";
 
 import {
   Program,
+  ProgramDictionary,
   ProgramGroup,
   ProgramOutcomeDictionary
 } from "shared/types";
@@ -11,7 +12,7 @@ import SearchBar from "shared/components/ui/search-bar";
 import HSGroup from "./hs-group";
 
 interface HSProgramListProps {
-  programs: Program[]
+  programs: ProgramDictionary
   programGroups: ProgramGroup[]
   outcomes: ProgramOutcomeDictionary
 }
@@ -35,9 +36,6 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
 
 
   render() {
-    // DEBUG
-    console.log(this.props);
-    // END DEBUG
     return (
       <div
         style={{

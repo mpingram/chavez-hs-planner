@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { 
   Program,
+  ProgramOutcome,
   ProgramOutcomeDictionary
 } from "shared/types";
 import { SuccessChance } from "shared/enums";
@@ -51,11 +52,11 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
     super(props);
     this.state = {
       collapsed: false,
-      programCounts: this.getProgramCounts(props.programs)
+      programCounts: this.getProgramCounts(props.programs, props.outcomes)
     }
   }
 
-  private getProgramCounts = (programs: Program[]): ProgramCounts => {
+  private getProgramCounts = (programs: Program[], outcomes: ProgramOutcomeDictionary): ProgramCounts => {
     let counts: ProgramCounts = {
       certain: 0,
       likely: 0,
@@ -65,29 +66,33 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
       notImplemented: 0
     };
     programs.forEach( program => {
-      const outcome = this.props.outcomes[program.id];
-      switch(outcome.overallChance){
-        case SuccessChance.CERTAIN:
-          counts.certain += 1;
-          break;
-        case SuccessChance.LIKELY:
-          counts.likely += 1;
-          break;
-        case SuccessChance.UNCERTAIN:
-          counts.uncertain += 1;
-          break;
-        case SuccessChance.UNLIKELY:
-          counts.unlikely += 1;
-          break;
-        case SuccessChance.NONE:
-          counts.none += 1;
-          break;
-        case SuccessChance.NOTIMPLEMENTED:
-          counts.notImplemented += 1;
-          break;
-        default:
-          console.warn("Unrecognized SuccessChance for program " + program.id);
-          break;
+      const outcome = outcomes[program.id];
+      if (outcome === undefined) {
+        counts.notImplemented += 1;
+      } else {
+        switch(outcome.overallChance){
+          case SuccessChance.CERTAIN:
+            counts.certain += 1;
+            break;
+          case SuccessChance.LIKELY:
+            counts.likely += 1;
+            break;
+          case SuccessChance.UNCERTAIN:
+            counts.uncertain += 1;
+            break;
+          case SuccessChance.UNLIKELY:
+            counts.unlikely += 1;
+            break;
+          case SuccessChance.NONE:
+            counts.none += 1;
+            break;
+          case SuccessChance.NOTIMPLEMENTED:
+            counts.notImplemented += 1;
+            break;
+          default:
+            console.warn("Unrecognized SuccessChance for program " + program.id);
+            break;
+        }
       }
     });
     return counts;
@@ -96,8 +101,12 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
   private sortByOutcome = (a: Program, b: Program): number => {
     const aOutcome = this.props.outcomes[a.id]
     const bOutcome = this.props.outcomes[b.id]
-    function rankChances(successChance: SuccessChance) {
-      switch(successChance) {
+
+    function toNumber(outcome: ProgramOutcome | undefined) {
+      if (outcome === undefined) {
+        return -1;
+      }
+      switch(outcome.overallChance) {
           case SuccessChance.CERTAIN: return 6;
           case SuccessChance.LIKELY: return 5;
           case SuccessChance.UNCERTAIN: return 4;
@@ -106,12 +115,12 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
           case SuccessChance.NOTIMPLEMENTED: return 1;
       }
     }
-    return rankChances(aOutcome.overallChance) - rankChances(bOutcome.overallChance);
+    return toNumber(aOutcome) - toNumber(bOutcome);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: HSGroupProps) {
     this.setState({
-      programCounts: this.getProgramCounts(nextProps.programs)
+      programCounts: this.getProgramCounts(nextProps.programs, nextProps.outcomes)
     });
   }
 

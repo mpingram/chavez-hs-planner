@@ -578,8 +578,93 @@ const requirementFunctions: ReqFnTable = {
             "MARSHALL HS - Culinary Arts - Selection",
             "SULLIVAN HS - Accounting - Selection",
             "BOGAN HS - Accounting - Selection",
-            "DYETT ARTS HS - Digital Media - Selection",
+        ],
+      // custom req fn -- req fn builders a little ungainly for handling
+      // this kind of branching.
+      "fn": (s, p) => {
+        if( ifSkipped7OrRepeated8(s,p) ) {
+          return SuccessChance.UNLIKELY
+        } else if ( ifIEPorEL(s,p) ) {
+          const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
+          if( passesGrades ) { 
+            return SuccessChance.LIKELY;
+          } else {
+            return SuccessChance.UNCERTAIN;
+          }
+
+        } else {
+          const passesGrades = ifHasGrades({nweaBoth: 24})(s, p);
+          if ( passesGrades ) {
+            return SuccessChance.LIKELY;
+          } else {
+            return SuccessChance.UNCERTAIN;
+          }
+        }
+      }
+    },
+    "4773ff8378c681fdc3855cec189b446d": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. General Education and 504 Plan Students: Preference is given to students with percentiles of 24 and above on the NWEA MAP in reading and math. A total of 30% of the seats will be made available to attendance area applicants.  IEP and EL students: Preference is given to students with combined NWEA MAP scores that equal 48 or above.  Note: Repeating 8th graders and students pushed into 8th grade from 6th grade due to age requirements qualify for selection but will be placed in a lower preference group.",
+        "programs": [
+            "BOGAN HS - Accounting - Selection",
+        ],
+      // custom req fn -- req fn builders a little ungainly for handling
+      // this kind of branching.
+      "fn": (s, p) => {
+        if( ifSkipped7OrRepeated8(s,p) ) {
+          return SuccessChance.UNLIKELY
+        } else if ( ifIEPorEL(s,p) ) {
+          const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
+          if( passesGrades ) { 
+            return SuccessChance.LIKELY;
+          } else {
+            return SuccessChance.UNCERTAIN;
+          }
+
+        } else {
+          const passesGrades = ifHasGrades({nweaBoth: 24})(s, p);
+          if ( passesGrades ) {
+            return SuccessChance.LIKELY;
+          } else {
+            return SuccessChance.UNCERTAIN;
+          }
+        }
+      }
+    },
+    "01ad18923e7e8de10e8fb09bb2c6722a": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. General Education and 504 Plan Students: Preference is given to students with percentiles of 24 and above on the NWEA MAP in reading and math. A total of 30% of the seats will be made available to attendance area applicants.  IEP and EL students: Preference is given to students with combined NWEA MAP scores that equal 48 or above.  Note: Repeating 8th graders and students pushed into 8th grade from 6th grade due to age requirements qualify for selection but will be placed in a lower preference group.",
+        "programs": [
             "CHICAGO VOCATIONAL HS - Cosmetology - Selection"
+        ],
+      // custom req fn -- req fn builders a little ungainly for handling
+      // this kind of branching.
+      "fn": (s, p) => {
+        if( ifSkipped7OrRepeated8(s,p) ) {
+          return SuccessChance.UNLIKELY
+        } else if ( ifIEPorEL(s,p) ) {
+          const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
+          if( passesGrades ) { 
+            return SuccessChance.LIKELY;
+          } else {
+            return SuccessChance.UNCERTAIN;
+          }
+
+        } else {
+          const passesGrades = ifHasGrades({nweaBoth: 24})(s, p);
+          if ( passesGrades ) {
+            return SuccessChance.LIKELY;
+          } else {
+            return SuccessChance.UNCERTAIN;
+          }
+        }
+      }
+    },
+    "965d710ce70f9e59e622f51311b5a986": {
+        "name": "",
+        "desc": "Students are randomly selected by computerized lottery. Preference is given to students with percentiles of 24 and above on the NWEA MAP in reading and math. A total of 30% of the seats will be made available to attendance area applicants.  IEP and EL students: Preference is given to students with combined NWEA MAP scores that equal 48 or above.  Note: Repeating 8th graders and students pushed into 8th grade from 6th grade due to age requirements qualify for selection but will be placed in a lower preference group.",
+        "programs": [
+            "DYETT ARTS HS - Digital Media - Selection",
         ],
       // custom req fn -- req fn builders a little ungainly for handling
       // this kind of branching.

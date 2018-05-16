@@ -18,7 +18,7 @@ import HSProgramInfoCard from "./hs-program-info-card";
 
 interface HSProgramElemProps {
   program: Program
-  outcome: ProgramOutcome
+  outcome: ProgramOutcome | undefined
   selected: boolean
   onSelect: (id: string | null) => any
 }
@@ -38,7 +38,7 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
     super(props);
     this.state = { 
       visited: false,
-      combinedSuccessChance: props.outcome.overallChance,
+      combinedSuccessChance: props.outcome === undefined ? SuccessChance.NOTIMPLEMENTED : props.outcome.overallChance,
       showHSPreview: props.selected,
       pxFromTop: 0,
     };

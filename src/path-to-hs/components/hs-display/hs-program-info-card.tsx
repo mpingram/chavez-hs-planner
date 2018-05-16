@@ -13,7 +13,7 @@ import "./hs-program-info-card.scss";
 
 interface HSInfoCardProps {
   program: Program 
-  outcome: ProgramOutcome
+  outcome: ProgramOutcome | undefined
   visible: boolean
   style: Object
   onCloseButtonClick: React.MouseEventHandler<HTMLButtonElement>
@@ -41,9 +41,10 @@ const HSProgramInfoCard = (props: HSInfoCardProps) => {
         break;
         case SuccessChance.NOTIMPLEMENTED:
           msg = "We don't know enough about this requirement to tell you.";
+        break;
         default:
           msg = "We don't know enough about this requirement to tell you.";
-          console.error(`Unrecognized SuccessChance ${success.toString()} at program ${props.program.programName}`);
+          console.error(`Unrecognized SuccessChance ${success} at program ${props.program.programName}`);
         break;
     }
     return msg;
@@ -75,7 +76,7 @@ const HSProgramInfoCard = (props: HSInfoCardProps) => {
               </div>
             </div>
             <div className="hs-info-card-req-success">
-              {toMessage(props.outcome.applicationChance)}
+              {props.outcome !== undefined && toMessage(props.outcome.applicationChance)}
             </div>
           </div>
           <div className="hs-info-card-requirement">
@@ -88,7 +89,7 @@ const HSProgramInfoCard = (props: HSInfoCardProps) => {
               </div>
             </div>
             <div className="hs-info-card-req-success">
-              {toMessage(props.outcome.selectionChance)}
+              {props.outcome !== undefined && toMessage(props.outcome.selectionChance)}
             </div>
           </div>
         </div>

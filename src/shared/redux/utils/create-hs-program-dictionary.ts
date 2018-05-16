@@ -30,5 +30,5 @@ export const createHSProgramDictionary = (rawProgramData): ProgramDictionary => 
     programDictionary[program.id] = program;
   });
   
-  return rawProgramData;
+  return programDictionary;
 };

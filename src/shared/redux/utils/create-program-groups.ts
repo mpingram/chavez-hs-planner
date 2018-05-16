@@ -20,7 +20,7 @@ export const createProgramGroupDictionary = (hsPrograms: ProgramDictionary, prog
 
     // if this program group does not already exist, 
     // create a new program group and add it to the program group dict.
-    if (hsPrograms[programTypeID] === undefined) {
+    if (programGroups[programTypeID] === undefined) {
 
       // to get the display name for the program group,
       // look up the display name for this program type in the program type id table.

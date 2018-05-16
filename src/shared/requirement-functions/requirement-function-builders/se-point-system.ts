@@ -63,7 +63,7 @@ const seLookup  = (student: StudentData, program: Program): CutoffScores | null 
   // TODO: this ignores rank cutoff scores, assuming that if you make it
   // past your tier cutoff scores you're good. Make double sure that's a
   // good assumption.
-  const cutoff = getSECutoffScoresTable()[program.schoolID];
+  const cutoff = getSECutoffScoresTable()[program.id];
   if (cutoff === undefined) {
     return null;
   }

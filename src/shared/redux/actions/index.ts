@@ -6,15 +6,10 @@ import {
 
 import { StudentLocation } from "shared/types";
 
+import { updateProgramOutcomes } from "./update-program-outcomes";
+
 export { loadAllData } from "./data-loading";
 export * from "./update-program-outcomes";
-
-export const selectHSProgram = (newValue: string) => {
-  return {
-    type: ActionType.SelectHSProgram,
-    payload: newValue
-  };
-};
 
 export const updateStudentAttendPercentage = (newValue: number) => {
   return {

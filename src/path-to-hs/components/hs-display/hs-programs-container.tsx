@@ -26,16 +26,11 @@ const selectProgramGroups = createSelector(
 );
 
 const getProgramDict = (state: AppState) => state.data.hsPrograms;
-const selectPrograms = createSelector(
-  [getProgramDict],
-  (programDict): Program[] => {
-    return Object.keys(programDict).map( programID => programDict[programID] );
-  }
-);
 
 const mapStateToProps = (state: AppState) => {
+  console.log(state);
   return {
-    programs: selectPrograms(state),
+    programs: state.data.hsPrograms,
     outcomes: state.programOutcomes, 
     programGroups: selectProgramGroups(state),
   }

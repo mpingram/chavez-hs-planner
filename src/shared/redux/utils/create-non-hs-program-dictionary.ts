@@ -25,5 +25,5 @@ export const createNonHSProgramDictionary = (rawProgramData): ProgramDictionary 
     programDictionary[program.id] = program;
   });
   
-  return rawProgramData;
+  return programDictionary;
 };
