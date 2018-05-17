@@ -9,6 +9,8 @@ import {
   ProgramDictionary
 } from "shared/types";
 
+import {withDebounce} from "shared/util/with-debounce";
+
 import Select from "react-select";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
@@ -16,7 +18,7 @@ import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 interface CurrESProgramFieldProps {
   currProgramID: string | null
   programs: Program[]
-  onChange: (newProgramID: string) => any
+  onChange: (newProgramID: string | null) => any
 }
 
 const CurrESProgramField = (props: CurrESProgramFieldProps) => {
@@ -27,7 +29,14 @@ const CurrESProgramField = (props: CurrESProgramFieldProps) => {
     });
   };
 
-  const handleSelectedProgramIDChange = (programID: string) => props.onChange(programID);
+  const handleSelectedProgramIDChange = (programOption: {value: string, label: string} | null) => {
+    if (programOption === null) {
+      props.onChange(null);
+    } else {
+       props.onChange(programOption.value); 
+    }
+  }
+
   return (
     <div>
       <div className="selected-program-id-heading">
@@ -88,4 +97,13 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export const CurrESProgramFieldContainer = connect(mapStateToProps, mapDispatchToProps)(CurrESProgramField);
+const DebouncedCurrESProgramField = withDebounce( 
+  CurrESProgramField,
+  {
+    valuePropName: 'currProgramID', 
+    onChangePropName: 'onChange', 
+    debounceTime: INPUT_DEBOUNCE_TIME
+  }
+);
+
+export const CurrESProgramFieldContainer = connect(mapStateToProps, mapDispatchToProps)(DebouncedCurrESProgramField);

@@ -1,6 +1,6 @@
-[WIP] Test multiselect with react-select
+Doodle around with a debouncing higher-order-component
 
-* DONE add react-select dependency
-* TODO use react-select in siblingHSSchools field and
-  currentESPrograms field
-
+* NOTE it is garbage, but very useful.
+* NOTE but it's a good thing to explore. I think the implementation is
+  awful but the idea is good -- should refactor and test the stuffing
+  out of it before it goes into main, though.
