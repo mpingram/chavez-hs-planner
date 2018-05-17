@@ -1,9 +1,6 @@
-[WIP] Test multiselect with react-virtualized-select
+[WIP] Test multiselect with react-select
 
-* TODO add react-virtualized-select dependency
-* TODO incorporate
-* TODO add react-select-fast-filter-options dependency if needed
+* DONE add react-select dependency
+* TODO use react-select in siblingHSSchools field and
+  currentESPrograms field
 
-* gah there are some bugs I need to fix in the main branch
-  ** sibling hs field has wrong props
-  ** store does not update

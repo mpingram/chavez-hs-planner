@@ -28,7 +28,6 @@ const selectProgramGroups = createSelector(
 const getProgramDict = (state: AppState) => state.data.hsPrograms;
 
 const mapStateToProps = (state: AppState) => {
-  console.log(state);
   return {
     programs: state.data.hsPrograms,
     outcomes: state.programOutcomes, 

@@ -11,9 +11,7 @@ import {
 
 import Select from "react-select";
 /* TODO move to index if using */
-//import 'react-select/dist/react-select.css'
-//import 'react-virtualized/styles.css'
-//import 'react-virtualized-select/styles.css'
+import 'react-select/dist/react-select.css'
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
@@ -26,14 +24,16 @@ interface SiblingHSFieldProps {
 }
 interface SiblingHSFieldState {
   hasSibling: boolean
+  ids: string[]
 }
+
 class SiblingHSField extends React.PureComponent<SiblingHSFieldProps, SiblingHSFieldState> { 
 
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       hasSibling: false,
+      ids: props.siblingSchoolIDs,
     };
   }
 
@@ -61,12 +61,38 @@ class SiblingHSField extends React.PureComponent<SiblingHSFieldProps, SiblingHSF
         </DropdownField>
       
         { this.state.hasSibling && 
-          <Select multi={true} options={this.toSelectOptions(this.props.schools)}/>
+        <Select 
+          multi 
+          simpleValue 
+          value={this.state.ids.join(',')} 
+          options={this.toSelectOptions(this.props.schools)} 
+          onChange={this.handleSiblingSchoolIDChange}
+        />
         }
       </div>
     );
   }
 
+
+  private handleSiblingSchoolIDChange = (joinedValues: string) => {
+    const ids = joinedValues.split(',');
+    this.setState({
+      ids: ids
+    });
+    /* HACK: We want the component to update as fast as possible. Currently,
+     * the app is slow, and the call to props.onChange takes >300ms to update
+     * the state. 
+     *
+     * Therefore, push call to onChange onto the function stack, so that React
+     * doesn't ignore our call to setState (instantaneous rerender) by 
+     * bundling it in with the call to onChange (>300ms rerender).
+     * */
+    setTimeout( () => {
+      this.props.onChange(ids)
+    }, 0);
+  }
+
+  
   private toSelectOptions = (schools: School[]) => {
     return schools.map( school => {
       return {
