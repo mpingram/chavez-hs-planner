@@ -74,8 +74,8 @@ const selectHSSchools = createSelector(
 
 const mapStateToProps = (state: AppState) => {
   return {
-    siblingHSSchoolIDs: state.studentData.siblingHSSchoolIDs,
-    hsSchools: selectHSSchools(state)
+    siblingSchoolIDs: state.studentData.siblingHSSchoolIDs,
+    schools: selectHSSchools(state)
   }
 };
 

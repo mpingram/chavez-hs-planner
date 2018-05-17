@@ -448,23 +448,6 @@ module.exports = reactProdInvariant;
 
 "use strict";
 
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(245));
-__export(__webpack_require__(246));
-__export(__webpack_require__(247));
-__export(__webpack_require__(248));
-__export(__webpack_require__(44));
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.INPUT_DEBOUNCE_TIME = 250;
 exports.OutcomeCertainColor = "#5bed2a";
@@ -485,6 +468,23 @@ exports.NON_SE_CUTOFF_SCORES_URL = "data/non-se-cutoff-scores.json";
 exports.PROGRAM_TYPE_ID_TABLE_URL = "data/program-type-id-table.json";
 exports.SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL = "data/school-attendance-boundary-table.json";
 exports.TRACT_TIER_TABLE_URL = "data/tract-tier-table.json";
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(247));
+__export(__webpack_require__(248));
+__export(__webpack_require__(249));
+__export(__webpack_require__(250));
+__export(__webpack_require__(44));
 
 
 /***/ }),
@@ -1291,9 +1291,9 @@ module.exports = { debugTool: debugTool };
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(287);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
@@ -1724,7 +1724,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(299);
+var	fixUrls = __webpack_require__(298);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -2318,8 +2318,8 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
-var data_loading_1 = __webpack_require__(253);
+const enums_1 = __webpack_require__(6);
+var data_loading_1 = __webpack_require__(281);
 exports.loadAllData = data_loading_1.loadAllData;
 __export(__webpack_require__(112));
 exports.updateStudentAttendPercentage = (newValue) => {
@@ -4224,7 +4224,7 @@ module.exports = ReactInstanceMap;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const redux_1 = __webpack_require__(67);
+const redux_1 = __webpack_require__(105);
 const redux_thunk_1 = __webpack_require__(241);
 const reducers_1 = __webpack_require__(242);
 const actions_1 = __webpack_require__(19);
@@ -5543,8 +5543,8 @@ exports.initialState = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(312);
-const field_label_1 = __webpack_require__(314);
+__webpack_require__(311);
+const field_label_1 = __webpack_require__(313);
 const FieldContainer = (props) => (React.createElement("div", { style: props.style, className: "field-container" + " " + props.className },
     props.label &&
         React.createElement(field_label_1.default, null, props.label),
@@ -7540,43 +7540,6 @@ module.exports = getEventCharCode;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(238);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(108);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
-
-
-
-
-
-
-
-/*
-* This is a dummy function to check if the function name has been altered by minification.
-* If the function has been minified and NODE_ENV !== 'production', warn the user.
-*/
-function isCrushed() {}
-
-if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
-  __WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */]('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
-}
-
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
-/***/ }),
-/* 68 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__baseGetTag_js__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getPrototype_js__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__isObjectLike_js__ = __webpack_require__(234);
@@ -7645,6 +7608,23 @@ function isPlainObject(value) {
 
 
 /***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(244));
+__export(__webpack_require__(272));
+__export(__webpack_require__(273));
+__export(__webpack_require__(274));
+__export(__webpack_require__(276));
+
+
+/***/ }),
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7654,16 +7634,16 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(261));
-__export(__webpack_require__(262));
+__export(__webpack_require__(255));
+__export(__webpack_require__(256));
+__export(__webpack_require__(258));
+__export(__webpack_require__(260));
+__export(__webpack_require__(263));
 __export(__webpack_require__(264));
+__export(__webpack_require__(265));
 __export(__webpack_require__(266));
-__export(__webpack_require__(269));
-__export(__webpack_require__(270));
-__export(__webpack_require__(271));
-__export(__webpack_require__(272));
-__export(__webpack_require__(273));
-__export(__webpack_require__(274));
+__export(__webpack_require__(267));
+__export(__webpack_require__(268));
 
 
 /***/ }),
@@ -7676,11 +7656,11 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 exports.CPS_PROXIMITY_LOTTERY_RADIUS_MI = 2.5;
 exports.CPS_PROXIMITY_LOTTERY_RADIUS_METERS = exports.CPS_PROXIMITY_LOTTERY_RADIUS_MI * constants_1.MILE_METER_CONVERSION_FACTOR;
 exports.POINT_SYSTEM_UNCERTAINTY_THRESHOLD = 2;
-__export(__webpack_require__(268));
+__export(__webpack_require__(262));
 
 
 /***/ }),
@@ -11534,9 +11514,46 @@ module.exports = getHostComponentFromComposite;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__combineReducers__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(109);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return __WEBPACK_IMPORTED_MODULE_2__bindActionCreators__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return __WEBPACK_IMPORTED_MODULE_4__compose__["a"]; });
+
+
+
+
+
+
+
+/*
+* This is a dummy function to check if the function name has been altered by minification.
+* If the function has been minified and NODE_ENV !== 'production', warn the user.
+*/
+function isCrushed() {}
+
+if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+  __WEBPACK_IMPORTED_MODULE_5__utils_warning__["a" /* default */]('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
+}
+
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 106 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActionTypes; });
 /* harmony export (immutable) */ __webpack_exports__["b"] = createStore;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(235);
 
 
@@ -11788,7 +11805,7 @@ var ActionTypes = {
 }
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11802,7 +11819,7 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11829,7 +11846,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11857,7 +11874,7 @@ function warning(message) {
 }
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11896,30 +11913,13 @@ function compose() {
 }
 
 /***/ }),
-/* 110 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(254));
-__export(__webpack_require__(278));
-__export(__webpack_require__(279));
-__export(__webpack_require__(280));
-__export(__webpack_require__(282));
-
-
-/***/ }),
 /* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const constants_1 = __webpack_require__(70);
 exports.pointSystem = (calc, lookup) => {
     return (student, program) => {
@@ -11952,8 +11952,8 @@ exports.pointSystem = (calc, lookup) => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
-const utils_1 = __webpack_require__(110);
+const enums_1 = __webpack_require__(6);
+const utils_1 = __webpack_require__(68);
 exports.updateProgramOutcomes = (studentData, programDict) => {
     return {
         type: enums_1.ActionType.UpdateProgramOutcomes,
@@ -11994,7 +11994,7 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(284)();
+  module.exports = __webpack_require__(283)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -12029,13 +12029,13 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(286);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(114);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -12412,7 +12412,7 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifyPlainObject;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(71);
 
 
@@ -12431,11 +12431,11 @@ function verifyPlainObject(value, displayName, methodName) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const timeout_1 = __webpack_require__(311);
+const timeout_1 = __webpack_require__(310);
 const text_field_1 = __webpack_require__(119);
 const field_validation_state_1 = __webpack_require__(34);
-const get_tier_and_geo_1 = __webpack_require__(315);
-__webpack_require__(320);
+const get_tier_and_geo_1 = __webpack_require__(314);
+__webpack_require__(319);
 class AddressTierCalculator extends React.Component {
     constructor(props) {
         super(props);
@@ -12597,7 +12597,7 @@ exports.default = TextField;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const OutcomeCertainIcon = (props) => {
     return (React.createElement("svg", { stroke: "black", strokeWidth: "0.5", fill: props.color ? props.color : constants_1.OutcomeCertainColor, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
         React.createElement("path", { d: "M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" })));
@@ -12613,7 +12613,7 @@ exports.default = OutcomeCertainIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const OutcomeLikelyIcon = (props) => {
     return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeLikelyColor, height: props.height, viewBox: "0 0 24 24", width: props.width, stroke: "black", strokeWidth: "0.5", xmlns: "http://www.w3.org/2000/svg" },
         React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
@@ -12629,7 +12629,7 @@ exports.default = OutcomeLikelyIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const OutcomeUncertainIcon = (props) => {
     return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: props.width, height: props.height, fill: props.color ? props.color : constants_1.OutcomeUncertainColor, stroke: "black", strokeWidth: "5", viewBox: "-0.5 -0.303 427 427" },
         React.createElement("path", { d: "M 129.9,189.5 C 103.9,189.5 88.7,205.42 63.5,238.06 L 33.1,217.1 C 47.9,195.5 57.9,182.62 75.5,169.18 C 91.427778,157.15296 111.9,145.02 135.101,145.02 C 172.276,145.02 192.278,161.973 223.101,185.82 C 253.501,209.34 274.702,219.421 293.901,219.421 C 302.301,219.421 317.28256,215.01581 327.102,207.101 C 340.22141,197.96521 349.502,185.981 363.502,163.42 L 394.302,187.26 C 377.902,212.22 367.102,224.3 353.902,235.82 C 333.502,254.06 314.702,264.381 288.702,264.381 C 218.652,264.38 187.714,189.5 129.9,189.5 z " })));
@@ -12645,7 +12645,7 @@ exports.default = OutcomeUncertainIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const OutcomeUnlikelyIcon = (props) => {
     return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: props.color ? props.color : constants_1.OutcomeUnlikelyColor, width: props.width, height: props.height, stroke: "black", strokeWidth: "5", viewBox: "0 0 750 750" },
         React.createElement("rect", { y: "350", x: "125", height: "75", width: "500" })));
@@ -12661,7 +12661,7 @@ exports.default = OutcomeUnlikelyIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const OutcomeNoneIcon = (props) => {
     return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeNoneColor, height: props.height, viewBox: "0 0 24 24", stroke: "black", strokeWidth: "0.5", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
         React.createElement("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" })));
@@ -12677,7 +12677,7 @@ exports.default = OutcomeNoneIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const OutcomeNotImplementedIcon = (props) => {
     return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeNotImplementedColor, width: props.width, height: props.height, viewBox: "0 0 40 40", stroke: "black", strokeWidth: "0.5", xmlns: "http://www.w3.org/2000/svg" },
         React.createElement("g", { transform: "translate(-8)" },
@@ -12697,7 +12697,7 @@ const React = __webpack_require__(1);
 const react_dom_1 = __webpack_require__(141);
 const store_1 = __webpack_require__(33);
 const react_redux_1 = __webpack_require__(13);
-const path_to_hs_1 = __webpack_require__(295);
+const path_to_hs_1 = __webpack_require__(294);
 react_dom_1.render((React.createElement(react_redux_1.Provider, { store: store_1.store },
     React.createElement(path_to_hs_1.default, null))), document.getElementById("root"));
 
@@ -24813,7 +24813,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__getRawTag_js__ = __webpack_require__(230);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objectToString_js__ = __webpack_require__(231);
 
@@ -24873,14 +24873,14 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 
 /* harmony default export */ __webpack_exports__["a"] = (freeGlobal);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(107)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(108)))
 
 /***/ }),
 /* 230 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Symbol_js__ = __webpack_require__(107);
 
 
 /** Used for built-in method references. */
@@ -25056,7 +25056,7 @@ if (typeof self !== 'undefined') {
 var result = __WEBPACK_IMPORTED_MODULE_0__ponyfill_js__["a" /* default */](root);
 /* harmony default export */ __webpack_exports__["a"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(107), __webpack_require__(236)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(108), __webpack_require__(236)(module)))
 
 /***/ }),
 /* 236 */
@@ -25119,9 +25119,9 @@ function symbolObservablePonyfill(root) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(109);
 
 
 
@@ -25314,7 +25314,7 @@ function bindActionCreators(actionCreators, dispatch) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = applyMiddleware;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compose__ = __webpack_require__(110);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -25413,11 +25413,11 @@ __export(__webpack_require__(243));
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const utils_1 = __webpack_require__(110);
+const utils_1 = __webpack_require__(68);
 const initial_state_1 = __webpack_require__(45);
-const student_data_reducer_1 = __webpack_require__(244);
-const loading_status_reducer_1 = __webpack_require__(251);
-const data_reducer_1 = __webpack_require__(252);
+const student_data_reducer_1 = __webpack_require__(277);
+const loading_status_reducer_1 = __webpack_require__(279);
+const data_reducer_1 = __webpack_require__(280);
 exports.rootReducer = (state = initial_state_1.initialState, action) => {
     const nextStudentData = student_data_reducer_1.studentDataReducer(state.studentData, action);
     const nextLoadingStatus = loading_status_reducer_1.loadingStatusReducer(state.loadingStatus, action);
@@ -25447,420 +25447,7 @@ exports.rootReducer = (state = initial_state_1.initialState, action) => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
-const calculate_gpa_1 = __webpack_require__(249);
-const initial_state_1 = __webpack_require__(45);
-exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, action) => {
-    let nextStudentData = studentData;
-    switch (action.type) {
-        case enums_1.ActionType.UpdateStudentGender:
-            nextStudentData = Object.assign({}, studentData, { gender: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentLocation:
-            nextStudentData = Object.assign({}, studentData, { location: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentGradeLevel:
-            nextStudentData = Object.assign({}, studentData, { gradeLevel: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentSkip7OrRepeated8:
-            nextStudentData = Object.assign({}, studentData, { skippedGrade7OrRepeatedGrade8: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentCurrESProgram:
-            nextStudentData = Object.assign({}, studentData, { currESProgramID: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentELLStatus:
-            nextStudentData = Object.assign({}, studentData, { ell: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentIEPStatus:
-            nextStudentData = Object.assign({}, studentData, { iep: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentAttendPercentage:
-            nextStudentData = Object.assign({}, studentData, { attendancePercentage: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentSiblingHSSchools:
-            nextStudentData = Object.assign({}, studentData, { siblingHSSchoolIDs: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentSETestPercentile:
-            nextStudentData = Object.assign({}, studentData, { seTestPercentile: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentNWEAPercentileMath:
-            nextStudentData = Object.assign({}, studentData, { nweaPercentileMath: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentNWEAPercentileRead:
-            nextStudentData = Object.assign({}, studentData, { nweaPercentileRead: action.payload });
-            break;
-        case enums_1.ActionType.UpdateStudentSubjGradeMath:
-            nextStudentData = Object.assign({}, studentData, { subjGradeMath: action.payload, gpa: calculate_gpa_1.default(action.payload, studentData.subjGradeRead, studentData.subjGradeSci, studentData.subjGradeSocStudies) });
-            break;
-        case enums_1.ActionType.UpdateStudentSubjGradeRead:
-            nextStudentData = Object.assign({}, studentData, { subjGradeRead: action.payload, gpa: calculate_gpa_1.default(studentData.subjGradeMath, action.payload, studentData.subjGradeSci, studentData.subjGradeSocStudies) });
-            break;
-        case enums_1.ActionType.UpdateStudentSubjGradeSci:
-            nextStudentData = Object.assign({}, studentData, { subjGradeSci: action.payload, gpa: calculate_gpa_1.default(studentData.subjGradeMath, studentData.subjGradeRead, action.payload, studentData.subjGradeSocStudies) });
-            break;
-        case enums_1.ActionType.UpdateStudentSubjGradeSocStudies:
-            nextStudentData = Object.assign({}, studentData, { subjGradeSocStudies: action.payload, gpa: calculate_gpa_1.default(studentData.subjGradeMath, studentData.subjGradeRead, studentData.subjGradeSci, action.payload) });
-            break;
-    }
-    return nextStudentData;
-};
-
-
-/***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ActionType;
-(function (ActionType) {
-    ActionType[ActionType["UpdateStudentGender"] = 0] = "UpdateStudentGender";
-    ActionType[ActionType["UpdateStudentLocation"] = 1] = "UpdateStudentLocation";
-    ActionType[ActionType["UpdateStudentGradeLevel"] = 2] = "UpdateStudentGradeLevel";
-    ActionType[ActionType["UpdateStudentPrevGradeLevel"] = 3] = "UpdateStudentPrevGradeLevel";
-    ActionType[ActionType["UpdateStudentSkip7OrRepeated8"] = 4] = "UpdateStudentSkip7OrRepeated8";
-    ActionType[ActionType["UpdateStudentELLStatus"] = 5] = "UpdateStudentELLStatus";
-    ActionType[ActionType["UpdateStudentIEPStatus"] = 6] = "UpdateStudentIEPStatus";
-    ActionType[ActionType["UpdateStudentAttendPercentage"] = 7] = "UpdateStudentAttendPercentage";
-    ActionType[ActionType["UpdateStudentCurrESProgram"] = 8] = "UpdateStudentCurrESProgram";
-    ActionType[ActionType["UpdateStudentSiblingHSSchools"] = 9] = "UpdateStudentSiblingHSSchools";
-    ActionType[ActionType["UpdateStudentNWEAPercentileMath"] = 10] = "UpdateStudentNWEAPercentileMath";
-    ActionType[ActionType["UpdateStudentNWEAPercentileRead"] = 11] = "UpdateStudentNWEAPercentileRead";
-    ActionType[ActionType["UpdateStudentSubjGradeMath"] = 12] = "UpdateStudentSubjGradeMath";
-    ActionType[ActionType["UpdateStudentSubjGradeRead"] = 13] = "UpdateStudentSubjGradeRead";
-    ActionType[ActionType["UpdateStudentSubjGradeSci"] = 14] = "UpdateStudentSubjGradeSci";
-    ActionType[ActionType["UpdateStudentSubjGradeSocStudies"] = 15] = "UpdateStudentSubjGradeSocStudies";
-    ActionType[ActionType["UpdateStudentSETestPercentile"] = 16] = "UpdateStudentSETestPercentile";
-    ActionType[ActionType["UpdateProgramOutcomes"] = 17] = "UpdateProgramOutcomes";
-    ActionType[ActionType["SelectHSProgram"] = 18] = "SelectHSProgram";
-    ActionType[ActionType["LoadingData"] = 19] = "LoadingData";
-    ActionType[ActionType["DataLoaded"] = 20] = "DataLoaded";
-    ActionType[ActionType["UpdateHSPrograms"] = 21] = "UpdateHSPrograms";
-    ActionType[ActionType["UpdateNonHSPrograms"] = 22] = "UpdateNonHSPrograms";
-    ActionType[ActionType["UpdateHSSchools"] = 23] = "UpdateHSSchools";
-    ActionType[ActionType["UpdateHSProgramGroups"] = 24] = "UpdateHSProgramGroups";
-    ActionType[ActionType["UpdateSECutoffScores"] = 25] = "UpdateSECutoffScores";
-    ActionType[ActionType["UpdateNonSECutoffScores"] = 26] = "UpdateNonSECutoffScores";
-    ActionType[ActionType["UpdateTractTierTable"] = 27] = "UpdateTractTierTable";
-    ActionType[ActionType["UpdateProgramTypeIDTable"] = 28] = "UpdateProgramTypeIDTable";
-    ActionType[ActionType["UpdateSchoolAttendanceBoundaryTable"] = 29] = "UpdateSchoolAttendanceBoundaryTable";
-})(ActionType = exports.ActionType || (exports.ActionType = {}));
-
-
-/***/ }),
-/* 246 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var EffortLevel;
-(function (EffortLevel) {
-    EffortLevel[EffortLevel["NONE"] = 1] = "NONE";
-    EffortLevel[EffortLevel["LOW"] = 2] = "LOW";
-    EffortLevel[EffortLevel["NORMAL"] = 3] = "NORMAL";
-    EffortLevel[EffortLevel["HIGH"] = 4] = "HIGH";
-    EffortLevel[EffortLevel["EXTREME"] = 5] = "EXTREME";
-})(EffortLevel || (EffortLevel = {}));
-exports.EffortLevel = EffortLevel;
-
-
-/***/ }),
-/* 247 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Gender;
-(function (Gender) {
-    Gender[Gender["MALE"] = 0] = "MALE";
-    Gender[Gender["FEMALE"] = 1] = "FEMALE";
-    Gender[Gender["OTHER"] = 2] = "OTHER";
-    Gender[Gender["NOANSWER"] = 3] = "NOANSWER";
-})(Gender || (Gender = {}));
-exports.Gender = Gender;
-
-
-/***/ }),
-/* 248 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ScoreType;
-(function (ScoreType) {
-    ScoreType["nweaPercentileMath"] = "nweaPercentileMath";
-    ScoreType["nweaPercentileRead"] = "nweaPercentileRead";
-    ScoreType["subjGradeMath"] = "subjGradeMath";
-    ScoreType["subjGradeRead"] = "subjGradeRead";
-    ScoreType["subjGradeSci"] = "subjGradeSci";
-    ScoreType["subjGradeSocStudies"] = "subjGradeSocStudies";
-    ScoreType["seTestPercentile"] = "seTestPercentile";
-})(ScoreType || (ScoreType = {}));
-exports.ScoreType = ScoreType;
-
-
-/***/ }),
-/* 249 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const toPoints = (letterGrade) => {
-    switch (letterGrade) {
-        case "A":
-            return 4;
-        case "B":
-            return 3;
-        case "C":
-            return 2;
-        case "D":
-            return 1;
-        case "F":
-            return 0;
-        default:
-            throw new Error(`Unexpected letter grade: ${letterGrade}`);
-    }
-};
-const calculateGPA = (...letterGrades) => {
-    const numGrades = letterGrades.length;
-    let gradePointSum = 0;
-    for (let i = 0; i < letterGrades.length; i++) {
-        const letterGrade = letterGrades[i];
-        if (letterGrade === null) {
-            return null;
-        }
-        const points = toPoints(letterGrade);
-        gradePointSum += points;
-    }
-    return gradePointSum / numGrades;
-};
-exports.default = calculateGPA;
-
-
-/***/ }),
-/* 250 */,
-/* 251 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
-const initial_state_1 = __webpack_require__(45);
-exports.loadingStatusReducer = (loadingStatus = initial_state_1.initialLoadingStatus, action) => {
-    switch (action.type) {
-        case enums_1.ActionType.LoadingData:
-            return Object.assign({}, loadingStatus, { loadingData: true });
-        case enums_1.ActionType.DataLoaded:
-            return Object.assign({}, loadingStatus, { loadingData: false, dataLoaded: true });
-        default:
-            return loadingStatus;
-    }
-};
-
-
-/***/ }),
-/* 252 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
-const initial_state_1 = __webpack_require__(45);
-exports.dataReducer = (appData = initial_state_1.initialData, action) => {
-    switch (action.type) {
-        case enums_1.ActionType.UpdateHSPrograms:
-            return Object.assign({}, appData, { hsPrograms: action.payload });
-        case enums_1.ActionType.UpdateNonHSPrograms:
-            return Object.assign({}, appData, { nonHSPrograms: action.payload });
-        case enums_1.ActionType.UpdateHSSchools:
-            return Object.assign({}, appData, { hsSchools: action.payload });
-        case enums_1.ActionType.UpdateHSProgramGroups:
-            return Object.assign({}, appData, { hsProgramGroups: action.payload });
-        case enums_1.ActionType.UpdateSECutoffScores:
-            return Object.assign({}, appData, { seCutoffScores: action.payload });
-        case enums_1.ActionType.UpdateNonSECutoffScores:
-            return Object.assign({}, appData, { nonSECutoffScores: action.payload });
-        case enums_1.ActionType.UpdateProgramTypeIDTable:
-            return Object.assign({}, appData, { programTypeIDTable: action.payload });
-        case enums_1.ActionType.UpdateSchoolAttendanceBoundaryTable:
-            return Object.assign({}, appData, { schoolAttendanceBoundaryTable: action.payload });
-        case enums_1.ActionType.UpdateTractTierTable:
-            return Object.assign({}, appData, { tractTierTable: action.payload });
-        default:
-            return appData;
-    }
-};
-
-
-/***/ }),
-/* 253 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
-const constants_1 = __webpack_require__(6);
-const utils_1 = __webpack_require__(110);
-const update_program_outcomes_1 = __webpack_require__(112);
-const fetchJSONFrom = (url) => {
-    return fetch(url).then(res => {
-        if (res.ok) {
-            return res.json();
-        }
-        else {
-            console.error(`Request for ${url} failed with ${res.statusText}`);
-        }
-    }, err => {
-        console.error(err);
-        return null;
-    });
-};
-const updateHSPrograms = (data) => {
-    return {
-        type: enums_1.ActionType.UpdateHSPrograms,
-        payload: data
-    };
-};
-const loadHSPrograms = () => {
-    return (dispatch) => {
-        return fetchJSONFrom(constants_1.HS_PROGRAMS_URL).then(json => {
-            const programDict = utils_1.createHSProgramDictionary(json);
-            dispatch(updateHSPrograms(programDict));
-        });
-    };
-};
-const updateNonHSPrograms = (data) => {
-    return {
-        type: enums_1.ActionType.UpdateNonHSPrograms,
-        payload: data
-    };
-};
-const loadNonHSPrograms = () => {
-    return (dispatch) => {
-        return fetchJSONFrom(constants_1.NON_HS_PROGRAMS_URL).then(json => {
-            const programDict = utils_1.createNonHSProgramDictionary(json);
-            dispatch(updateNonHSPrograms(programDict));
-        });
-    };
-};
-const updateSECutoffScores = (data) => {
-    return {
-        type: enums_1.ActionType.UpdateSECutoffScores,
-        payload: data
-    };
-};
-const loadSECutoffScores = () => {
-    return (dispatch) => {
-        return fetchJSONFrom(constants_1.SE_CUTOFF_SCORES_URL).then(json => {
-            dispatch(updateSECutoffScores(json));
-        });
-    };
-};
-const updateNonSECutoffScores = (data) => {
-    return {
-        type: enums_1.ActionType.UpdateNonSECutoffScores,
-        payload: data
-    };
-};
-const loadNonSECutoffScores = () => {
-    return (dispatch) => {
-        return fetchJSONFrom(constants_1.NON_SE_CUTOFF_SCORES_URL).then(json => {
-            dispatch(updateNonSECutoffScores(json));
-        });
-    };
-};
-const updateProgramTypeIDTable = (data) => {
-    return {
-        type: enums_1.ActionType.UpdateProgramTypeIDTable,
-        payload: data
-    };
-};
-const loadProgramTypeIDTable = () => {
-    return (dispatch) => {
-        return fetchJSONFrom(constants_1.PROGRAM_TYPE_ID_TABLE_URL).then(json => {
-            dispatch(updateProgramTypeIDTable(json));
-        });
-    };
-};
-const updateSchoolAttendanceBoundaryTable = (data) => {
-    return {
-        type: enums_1.ActionType.UpdateSchoolAttendanceBoundaryTable,
-        payload: data
-    };
-};
-const loadSchoolAttendanceBoundaryTable = () => {
-    return (dispatch) => {
-        return fetchJSONFrom(constants_1.SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then(json => {
-            dispatch(updateSchoolAttendanceBoundaryTable(json));
-        });
-    };
-};
-const updateTractTierTable = (data) => {
-    return {
-        type: enums_1.ActionType.UpdateTractTierTable,
-        payload: data
-    };
-};
-const loadTractTierTable = () => {
-    return (dispatch) => {
-        return fetchJSONFrom(constants_1.TRACT_TIER_TABLE_URL).then(json => {
-            dispatch(updateTractTierTable(json));
-        });
-    };
-};
-const loadingData = () => {
-    return {
-        type: enums_1.ActionType.LoadingData
-    };
-};
-const dataLoaded = () => {
-    return {
-        type: enums_1.ActionType.DataLoaded
-    };
-};
-const updateProgramGroups = (hsPrograms, programTypeIDTable) => {
-    return {
-        type: enums_1.ActionType.UpdateHSProgramGroups,
-        payload: utils_1.createProgramGroupDictionary(hsPrograms, programTypeIDTable)
-    };
-};
-exports.loadAllData = () => {
-    return (dispatch, getState) => {
-        dispatch(loadingData());
-        return Promise.all([
-            dispatch(loadHSPrograms()),
-            dispatch(loadNonHSPrograms()),
-            dispatch(loadSECutoffScores()),
-            dispatch(loadNonSECutoffScores()),
-            dispatch(loadProgramTypeIDTable()),
-            dispatch(loadSchoolAttendanceBoundaryTable()),
-            dispatch(loadTractTierTable()),
-        ]).then(results => {
-            dispatch(dataLoaded());
-            const state = getState();
-            dispatch(updateProgramGroups(state.data.hsPrograms, state.data.programTypeIDTable));
-            dispatch(update_program_outcomes_1.updateProgramOutcomes(state.studentData, state.data.hsPrograms));
-        });
-    };
-};
-
-
-/***/ }),
-/* 254 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const requirement_functions_1 = __webpack_require__(255);
+const requirement_functions_1 = __webpack_require__(245);
 exports.createHSProgramDictionary = (rawProgramData) => {
     let programDictionary = {};
     rawProgramData.forEach(rawProgram => {
@@ -25882,13 +25469,13 @@ exports.createHSProgramDictionary = (rawProgramData) => {
 
 
 /***/ }),
-/* 255 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const requirement_functions_1 = __webpack_require__(256);
+const requirement_functions_1 = __webpack_require__(246);
 function minifyRequirementFunctions(reqFns) {
     let reqFnsCopy = Object.assign({}, reqFns);
     Object.keys(reqFnsCopy).forEach(key => {
@@ -25901,14 +25488,14 @@ exports.requirementFunctions = minifyRequirementFunctions(requirement_functions_
 
 
 /***/ }),
-/* 256 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
-const requirement_function_builders_1 = __webpack_require__(257);
+const enums_1 = __webpack_require__(6);
+const requirement_function_builders_1 = __webpack_require__(251);
 const filters_1 = __webpack_require__(69);
 const constants_1 = __webpack_require__(70);
 const requirementFunctions = {
@@ -28269,7 +27856,104 @@ exports.requirementFunctions = requirementFunctions;
 
 
 /***/ }),
-/* 257 */
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ActionType;
+(function (ActionType) {
+    ActionType[ActionType["UpdateStudentGender"] = 0] = "UpdateStudentGender";
+    ActionType[ActionType["UpdateStudentLocation"] = 1] = "UpdateStudentLocation";
+    ActionType[ActionType["UpdateStudentGradeLevel"] = 2] = "UpdateStudentGradeLevel";
+    ActionType[ActionType["UpdateStudentPrevGradeLevel"] = 3] = "UpdateStudentPrevGradeLevel";
+    ActionType[ActionType["UpdateStudentSkip7OrRepeated8"] = 4] = "UpdateStudentSkip7OrRepeated8";
+    ActionType[ActionType["UpdateStudentELLStatus"] = 5] = "UpdateStudentELLStatus";
+    ActionType[ActionType["UpdateStudentIEPStatus"] = 6] = "UpdateStudentIEPStatus";
+    ActionType[ActionType["UpdateStudentAttendPercentage"] = 7] = "UpdateStudentAttendPercentage";
+    ActionType[ActionType["UpdateStudentCurrESProgram"] = 8] = "UpdateStudentCurrESProgram";
+    ActionType[ActionType["UpdateStudentSiblingHSSchools"] = 9] = "UpdateStudentSiblingHSSchools";
+    ActionType[ActionType["UpdateStudentNWEAPercentileMath"] = 10] = "UpdateStudentNWEAPercentileMath";
+    ActionType[ActionType["UpdateStudentNWEAPercentileRead"] = 11] = "UpdateStudentNWEAPercentileRead";
+    ActionType[ActionType["UpdateStudentSubjGradeMath"] = 12] = "UpdateStudentSubjGradeMath";
+    ActionType[ActionType["UpdateStudentSubjGradeRead"] = 13] = "UpdateStudentSubjGradeRead";
+    ActionType[ActionType["UpdateStudentSubjGradeSci"] = 14] = "UpdateStudentSubjGradeSci";
+    ActionType[ActionType["UpdateStudentSubjGradeSocStudies"] = 15] = "UpdateStudentSubjGradeSocStudies";
+    ActionType[ActionType["UpdateStudentSETestPercentile"] = 16] = "UpdateStudentSETestPercentile";
+    ActionType[ActionType["UpdateProgramOutcomes"] = 17] = "UpdateProgramOutcomes";
+    ActionType[ActionType["SelectHSProgram"] = 18] = "SelectHSProgram";
+    ActionType[ActionType["LoadingData"] = 19] = "LoadingData";
+    ActionType[ActionType["DataLoaded"] = 20] = "DataLoaded";
+    ActionType[ActionType["UpdateHSPrograms"] = 21] = "UpdateHSPrograms";
+    ActionType[ActionType["UpdateNonHSPrograms"] = 22] = "UpdateNonHSPrograms";
+    ActionType[ActionType["UpdateHSSchools"] = 23] = "UpdateHSSchools";
+    ActionType[ActionType["UpdateHSProgramGroups"] = 24] = "UpdateHSProgramGroups";
+    ActionType[ActionType["UpdateSECutoffScores"] = 25] = "UpdateSECutoffScores";
+    ActionType[ActionType["UpdateNonSECutoffScores"] = 26] = "UpdateNonSECutoffScores";
+    ActionType[ActionType["UpdateTractTierTable"] = 27] = "UpdateTractTierTable";
+    ActionType[ActionType["UpdateProgramTypeIDTable"] = 28] = "UpdateProgramTypeIDTable";
+    ActionType[ActionType["UpdateSchoolAttendanceBoundaryTable"] = 29] = "UpdateSchoolAttendanceBoundaryTable";
+})(ActionType = exports.ActionType || (exports.ActionType = {}));
+
+
+/***/ }),
+/* 248 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var EffortLevel;
+(function (EffortLevel) {
+    EffortLevel[EffortLevel["NONE"] = 1] = "NONE";
+    EffortLevel[EffortLevel["LOW"] = 2] = "LOW";
+    EffortLevel[EffortLevel["NORMAL"] = 3] = "NORMAL";
+    EffortLevel[EffortLevel["HIGH"] = 4] = "HIGH";
+    EffortLevel[EffortLevel["EXTREME"] = 5] = "EXTREME";
+})(EffortLevel || (EffortLevel = {}));
+exports.EffortLevel = EffortLevel;
+
+
+/***/ }),
+/* 249 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Gender;
+(function (Gender) {
+    Gender[Gender["MALE"] = 0] = "MALE";
+    Gender[Gender["FEMALE"] = 1] = "FEMALE";
+    Gender[Gender["OTHER"] = 2] = "OTHER";
+    Gender[Gender["NOANSWER"] = 3] = "NOANSWER";
+})(Gender || (Gender = {}));
+exports.Gender = Gender;
+
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ScoreType;
+(function (ScoreType) {
+    ScoreType["nweaPercentileMath"] = "nweaPercentileMath";
+    ScoreType["nweaPercentileRead"] = "nweaPercentileRead";
+    ScoreType["subjGradeMath"] = "subjGradeMath";
+    ScoreType["subjGradeRead"] = "subjGradeRead";
+    ScoreType["subjGradeSci"] = "subjGradeSci";
+    ScoreType["subjGradeSocStudies"] = "subjGradeSocStudies";
+    ScoreType["seTestPercentile"] = "seTestPercentile";
+})(ScoreType || (ScoreType = {}));
+exports.ScoreType = ScoreType;
+
+
+/***/ }),
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28278,17 +27962,17 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(258));
-__export(__webpack_require__(259));
-__export(__webpack_require__(260));
+__export(__webpack_require__(252));
+__export(__webpack_require__(253));
+__export(__webpack_require__(254));
 __export(__webpack_require__(111));
-__export(__webpack_require__(275));
-__export(__webpack_require__(276));
-__export(__webpack_require__(277));
+__export(__webpack_require__(269));
+__export(__webpack_require__(270));
+__export(__webpack_require__(271));
 
 
 /***/ }),
-/* 258 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28308,7 +27992,7 @@ exports.accept = (filter) => {
 
 
 /***/ }),
-/* 259 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28329,7 +28013,7 @@ exports.conditional = (...conditions) => {
 
 
 /***/ }),
-/* 260 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28382,7 +28066,7 @@ exports.lottery = (...stages) => {
 
 
 /***/ }),
-/* 261 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28392,13 +28076,13 @@ exports.everyone = (student, program) => true;
 
 
 /***/ }),
-/* 262 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const grade_validate_1 = __webpack_require__(263);
+const grade_validate_1 = __webpack_require__(257);
 exports.ifHasGrades = (grades) => {
     const hasNweaMath = grades.nweaMath !== undefined;
     const hasNweaRead = grades.nweaRead !== undefined;
@@ -28502,7 +28186,7 @@ exports.ifHasGrades = (grades) => {
 
 
 /***/ }),
-/* 263 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28523,13 +28207,13 @@ exports.isValidAttendance = (value) => {
 
 
 /***/ }),
-/* 264 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const point_in_polygon_1 = __webpack_require__(265);
+const point_in_polygon_1 = __webpack_require__(259);
 const store_1 = __webpack_require__(33);
 const getSchoolAttendanceBoundaryTable = () => store_1.store.getState().data.schoolAttendanceBoundaryTable;
 exports.ifInAttendBound = (student, program) => {
@@ -28547,7 +28231,7 @@ exports.ifInAttendBound = (student, program) => {
 
 
 /***/ }),
-/* 265 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28570,13 +28254,13 @@ exports.default = pointInPolygon;
 
 
 /***/ }),
-/* 266 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const distance_between_coords_1 = __webpack_require__(267);
+const distance_between_coords_1 = __webpack_require__(261);
 const constants_1 = __webpack_require__(70);
 exports.ifInProximity = (student, program) => {
     if (student.location === null) {
@@ -28590,13 +28274,13 @@ exports.ifInProximity = (student, program) => {
 
 
 /***/ }),
-/* 267 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const distanceBetweenCoords = (a, b) => {
     const x = a.latitude - b.latitude;
     const y = (a.longitude - b.longitude) * Math.cos(b.longitude);
@@ -28607,7 +28291,7 @@ exports.default = distanceBetweenCoords;
 
 
 /***/ }),
-/* 268 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28754,7 +28438,7 @@ exports.AUSL_ES_PROGRAMS = [
 
 
 /***/ }),
-/* 269 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28769,7 +28453,7 @@ exports.ifSiblingAttends = (student, program) => {
 
 
 /***/ }),
-/* 270 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28786,7 +28470,7 @@ exports.ifStudentAttendsOneOf = (...programIDs) => {
 
 
 /***/ }),
-/* 271 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28803,7 +28487,7 @@ exports.ifIEPorEL = (student, program) => {
 
 
 /***/ }),
-/* 272 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28820,7 +28504,7 @@ exports.ifSkipped7OrRepeated8 = (student, program) => {
 
 
 /***/ }),
-/* 273 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28834,7 +28518,7 @@ exports.both = (...filters) => {
 
 
 /***/ }),
-/* 274 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28848,13 +28532,13 @@ exports.either = (...filters) => {
 
 
 /***/ }),
-/* 275 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const store_1 = __webpack_require__(33);
 const getSECutoffScoresTable = () => store_1.store.getState().data.seCutoffScores;
 const sePointCalc = (student, program) => {
@@ -28953,7 +28637,7 @@ exports.sePointSystem = (student, program) => {
 
 
 /***/ }),
-/* 276 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29010,20 +28694,20 @@ exports.ibPointSystem = point_system_1.pointSystem(ibPointCalc, ibCutoffLookup);
 
 
 /***/ }),
-/* 277 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 exports.notImplemented = (student, program) => {
     return enums_1.SuccessChance.NOTIMPLEMENTED;
 };
 
 
 /***/ }),
-/* 278 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29046,13 +28730,13 @@ exports.createHSSchoolDict = (hsProgramDict) => {
 
 
 /***/ }),
-/* 279 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const emptyRequirementFunction = (student, program) => enums_1.SuccessChance.NOTIMPLEMENTED;
 exports.createNonHSProgramDictionary = (rawProgramData) => {
     let programDictionary = {};
@@ -29072,14 +28756,14 @@ exports.createNonHSProgramDictionary = (rawProgramData) => {
 
 
 /***/ }),
-/* 280 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
-const get_overall_success_chance_1 = __webpack_require__(281);
+const enums_1 = __webpack_require__(6);
+const get_overall_success_chance_1 = __webpack_require__(275);
 exports.createProgramOutcomeDictionary = (studentData, programDict) => {
     let outcomeDict = {};
     Object.keys(programDict).forEach(programID => {
@@ -29112,13 +28796,13 @@ exports.createInitialProgramOutcomeDictionary = (programDict) => {
 
 
 /***/ }),
-/* 281 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const enums_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 exports.getOverallSuccessChance = (opts) => {
     if (opts.application === enums_1.SuccessChance.CERTAIN || opts.application === enums_1.SuccessChance.LIKELY) {
         return opts.selection;
@@ -29130,7 +28814,7 @@ exports.getOverallSuccessChance = (opts) => {
 
 
 /***/ }),
-/* 282 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29161,7 +28845,322 @@ exports.createProgramGroupDictionary = (hsPrograms, programTypeIDTable) => {
 
 
 /***/ }),
-/* 283 */
+/* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(6);
+const calculate_gpa_1 = __webpack_require__(278);
+const initial_state_1 = __webpack_require__(45);
+exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, action) => {
+    let nextStudentData = studentData;
+    switch (action.type) {
+        case enums_1.ActionType.UpdateStudentGender:
+            nextStudentData = Object.assign({}, studentData, { gender: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentLocation:
+            nextStudentData = Object.assign({}, studentData, { location: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentGradeLevel:
+            nextStudentData = Object.assign({}, studentData, { gradeLevel: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentSkip7OrRepeated8:
+            nextStudentData = Object.assign({}, studentData, { skippedGrade7OrRepeatedGrade8: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentCurrESProgram:
+            nextStudentData = Object.assign({}, studentData, { currESProgramID: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentELLStatus:
+            nextStudentData = Object.assign({}, studentData, { ell: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentIEPStatus:
+            nextStudentData = Object.assign({}, studentData, { iep: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentAttendPercentage:
+            nextStudentData = Object.assign({}, studentData, { attendancePercentage: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentSiblingHSSchools:
+            nextStudentData = Object.assign({}, studentData, { siblingHSSchoolIDs: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentSETestPercentile:
+            nextStudentData = Object.assign({}, studentData, { seTestPercentile: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentNWEAPercentileMath:
+            nextStudentData = Object.assign({}, studentData, { nweaPercentileMath: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentNWEAPercentileRead:
+            nextStudentData = Object.assign({}, studentData, { nweaPercentileRead: action.payload });
+            break;
+        case enums_1.ActionType.UpdateStudentSubjGradeMath:
+            nextStudentData = Object.assign({}, studentData, { subjGradeMath: action.payload, gpa: calculate_gpa_1.default(action.payload, studentData.subjGradeRead, studentData.subjGradeSci, studentData.subjGradeSocStudies) });
+            break;
+        case enums_1.ActionType.UpdateStudentSubjGradeRead:
+            nextStudentData = Object.assign({}, studentData, { subjGradeRead: action.payload, gpa: calculate_gpa_1.default(studentData.subjGradeMath, action.payload, studentData.subjGradeSci, studentData.subjGradeSocStudies) });
+            break;
+        case enums_1.ActionType.UpdateStudentSubjGradeSci:
+            nextStudentData = Object.assign({}, studentData, { subjGradeSci: action.payload, gpa: calculate_gpa_1.default(studentData.subjGradeMath, studentData.subjGradeRead, action.payload, studentData.subjGradeSocStudies) });
+            break;
+        case enums_1.ActionType.UpdateStudentSubjGradeSocStudies:
+            nextStudentData = Object.assign({}, studentData, { subjGradeSocStudies: action.payload, gpa: calculate_gpa_1.default(studentData.subjGradeMath, studentData.subjGradeRead, studentData.subjGradeSci, action.payload) });
+            break;
+    }
+    return nextStudentData;
+};
+
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const toPoints = (letterGrade) => {
+    switch (letterGrade) {
+        case "A":
+            return 4;
+        case "B":
+            return 3;
+        case "C":
+            return 2;
+        case "D":
+            return 1;
+        case "F":
+            return 0;
+        default:
+            throw new Error(`Unexpected letter grade: ${letterGrade}`);
+    }
+};
+const calculateGPA = (...letterGrades) => {
+    const numGrades = letterGrades.length;
+    let gradePointSum = 0;
+    for (let i = 0; i < letterGrades.length; i++) {
+        const letterGrade = letterGrades[i];
+        if (letterGrade === null) {
+            return null;
+        }
+        const points = toPoints(letterGrade);
+        gradePointSum += points;
+    }
+    return gradePointSum / numGrades;
+};
+exports.default = calculateGPA;
+
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(6);
+const initial_state_1 = __webpack_require__(45);
+exports.loadingStatusReducer = (loadingStatus = initial_state_1.initialLoadingStatus, action) => {
+    switch (action.type) {
+        case enums_1.ActionType.LoadingData:
+            return Object.assign({}, loadingStatus, { loadingData: true });
+        case enums_1.ActionType.DataLoaded:
+            return Object.assign({}, loadingStatus, { loadingData: false, dataLoaded: true });
+        default:
+            return loadingStatus;
+    }
+};
+
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(6);
+const initial_state_1 = __webpack_require__(45);
+exports.dataReducer = (appData = initial_state_1.initialData, action) => {
+    switch (action.type) {
+        case enums_1.ActionType.UpdateHSPrograms:
+            return Object.assign({}, appData, { hsPrograms: action.payload });
+        case enums_1.ActionType.UpdateNonHSPrograms:
+            return Object.assign({}, appData, { nonHSPrograms: action.payload });
+        case enums_1.ActionType.UpdateHSSchools:
+            return Object.assign({}, appData, { hsSchools: action.payload });
+        case enums_1.ActionType.UpdateHSProgramGroups:
+            return Object.assign({}, appData, { hsProgramGroups: action.payload });
+        case enums_1.ActionType.UpdateSECutoffScores:
+            return Object.assign({}, appData, { seCutoffScores: action.payload });
+        case enums_1.ActionType.UpdateNonSECutoffScores:
+            return Object.assign({}, appData, { nonSECutoffScores: action.payload });
+        case enums_1.ActionType.UpdateProgramTypeIDTable:
+            return Object.assign({}, appData, { programTypeIDTable: action.payload });
+        case enums_1.ActionType.UpdateSchoolAttendanceBoundaryTable:
+            return Object.assign({}, appData, { schoolAttendanceBoundaryTable: action.payload });
+        case enums_1.ActionType.UpdateTractTierTable:
+            return Object.assign({}, appData, { tractTierTable: action.payload });
+        default:
+            return appData;
+    }
+};
+
+
+/***/ }),
+/* 281 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const enums_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
+const utils_1 = __webpack_require__(68);
+const update_program_outcomes_1 = __webpack_require__(112);
+const fetchJSONFrom = (url) => {
+    return fetch(url).then(res => {
+        if (res.ok) {
+            return res.json();
+        }
+        else {
+            console.error(`Request for ${url} failed with ${res.statusText}`);
+        }
+    }, err => {
+        console.error(err);
+        return null;
+    });
+};
+const updateHSPrograms = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateHSPrograms,
+        payload: data
+    };
+};
+const loadHSPrograms = () => {
+    return (dispatch) => {
+        return fetchJSONFrom(constants_1.HS_PROGRAMS_URL).then(json => {
+            const programDict = utils_1.createHSProgramDictionary(json);
+            dispatch(updateHSPrograms(programDict));
+        });
+    };
+};
+const updateNonHSPrograms = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateNonHSPrograms,
+        payload: data
+    };
+};
+const loadNonHSPrograms = () => {
+    return (dispatch) => {
+        return fetchJSONFrom(constants_1.NON_HS_PROGRAMS_URL).then(json => {
+            const programDict = utils_1.createNonHSProgramDictionary(json);
+            dispatch(updateNonHSPrograms(programDict));
+        });
+    };
+};
+const updateSECutoffScores = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateSECutoffScores,
+        payload: data
+    };
+};
+const loadSECutoffScores = () => {
+    return (dispatch) => {
+        return fetchJSONFrom(constants_1.SE_CUTOFF_SCORES_URL).then(json => {
+            dispatch(updateSECutoffScores(json));
+        });
+    };
+};
+const updateNonSECutoffScores = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateNonSECutoffScores,
+        payload: data
+    };
+};
+const loadNonSECutoffScores = () => {
+    return (dispatch) => {
+        return fetchJSONFrom(constants_1.NON_SE_CUTOFF_SCORES_URL).then(json => {
+            dispatch(updateNonSECutoffScores(json));
+        });
+    };
+};
+const updateProgramTypeIDTable = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateProgramTypeIDTable,
+        payload: data
+    };
+};
+const loadProgramTypeIDTable = () => {
+    return (dispatch) => {
+        return fetchJSONFrom(constants_1.PROGRAM_TYPE_ID_TABLE_URL).then(json => {
+            dispatch(updateProgramTypeIDTable(json));
+        });
+    };
+};
+const updateSchoolAttendanceBoundaryTable = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateSchoolAttendanceBoundaryTable,
+        payload: data
+    };
+};
+const loadSchoolAttendanceBoundaryTable = () => {
+    return (dispatch) => {
+        return fetchJSONFrom(constants_1.SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then(json => {
+            dispatch(updateSchoolAttendanceBoundaryTable(json));
+        });
+    };
+};
+const updateTractTierTable = (data) => {
+    return {
+        type: enums_1.ActionType.UpdateTractTierTable,
+        payload: data
+    };
+};
+const loadTractTierTable = () => {
+    return (dispatch) => {
+        return fetchJSONFrom(constants_1.TRACT_TIER_TABLE_URL).then(json => {
+            dispatch(updateTractTierTable(json));
+        });
+    };
+};
+const loadingData = () => {
+    return {
+        type: enums_1.ActionType.LoadingData
+    };
+};
+const dataLoaded = () => {
+    return {
+        type: enums_1.ActionType.DataLoaded
+    };
+};
+const updateProgramGroups = (hsPrograms, programTypeIDTable) => {
+    return {
+        type: enums_1.ActionType.UpdateHSProgramGroups,
+        payload: utils_1.createProgramGroupDictionary(hsPrograms, programTypeIDTable)
+    };
+};
+exports.loadAllData = () => {
+    return (dispatch, getState) => {
+        dispatch(loadingData());
+        return Promise.all([
+            dispatch(loadHSPrograms()),
+            dispatch(loadNonHSPrograms()),
+            dispatch(loadSECutoffScores()),
+            dispatch(loadNonSECutoffScores()),
+            dispatch(loadProgramTypeIDTable()),
+            dispatch(loadSchoolAttendanceBoundaryTable()),
+            dispatch(loadTractTierTable()),
+        ]).then(results => {
+            dispatch(dataLoaded());
+            const state = getState();
+            dispatch(updateProgramGroups(state.data.hsPrograms, state.data.programTypeIDTable));
+            dispatch(update_program_outcomes_1.updateProgramOutcomes(state.studentData, state.data.hsPrograms));
+        });
+    };
+};
+
+
+/***/ }),
+/* 282 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29247,7 +29246,7 @@ function createProvider() {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 284 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29313,7 +29312,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 285 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29385,7 +29384,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 /***/ }),
-/* 286 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29444,7 +29443,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 287 */
+/* 286 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29543,17 +29542,17 @@ var Subscription = function () {
 
 
 /***/ }),
-/* 288 */
+/* 287 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createConnect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(292);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(288);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(292);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -29659,7 +29658,7 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
-/* 289 */
+/* 288 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29696,14 +29695,14 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 290 */
+/* 289 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export whenMapDispatchToPropsIsFunction */
 /* unused harmony export whenMapDispatchToPropsIsMissing */
 /* unused harmony export whenMapDispatchToPropsIsObject */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(116);
 
 
@@ -29727,7 +29726,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
 
 /***/ }),
-/* 291 */
+/* 290 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29749,7 +29748,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
 
 /***/ }),
-/* 292 */
+/* 291 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29806,14 +29805,14 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 293 */
+/* 292 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(293);
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 
@@ -29919,7 +29918,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 294 */
+/* 293 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29944,17 +29943,17 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 295 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const page_1 = __webpack_require__(296);
-const box_1 = __webpack_require__(300);
-const student_data_form_1 = __webpack_require__(303);
-const hs_programs_container_1 = __webpack_require__(340);
+const page_1 = __webpack_require__(295);
+const box_1 = __webpack_require__(299);
+const student_data_form_1 = __webpack_require__(302);
+const hs_programs_container_1 = __webpack_require__(339);
 const PathToHS = (props) => {
     return (React.createElement(page_1.default, null,
         React.createElement(box_1.default, { width: "half", height: "full", flex: {
@@ -29970,14 +29969,14 @@ exports.default = PathToHS;
 
 
 /***/ }),
-/* 296 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(297);
+__webpack_require__(296);
 const Page = (props) => {
     return (React.createElement("div", { className: "page" }, props.children));
 };
@@ -29985,13 +29984,13 @@ exports.default = Page;
 
 
 /***/ }),
-/* 297 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(298);
+var content = __webpack_require__(297);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30016,7 +30015,7 @@ if(false) {
 }
 
 /***/ }),
-/* 298 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30030,7 +30029,7 @@ exports.push([module.i, ".page {\n  height: 100vh;\n  width: 100vw;\n  display: 
 
 
 /***/ }),
-/* 299 */
+/* 298 */
 /***/ (function(module, exports) {
 
 
@@ -30125,14 +30124,14 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 300 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(301);
+__webpack_require__(300);
 const Box = (props) => {
     const widthClass = "width-" + props.width;
     const heightClass = "height-" + props.height;
@@ -30151,13 +30150,13 @@ exports.default = Box;
 
 
 /***/ }),
-/* 301 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(302);
+var content = __webpack_require__(301);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30182,7 +30181,7 @@ if(false) {
 }
 
 /***/ }),
-/* 302 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30196,16 +30195,16 @@ exports.push([module.i, ".box {\n  border: 2px solid #9e9e9e;\n  padding: 0.25em
 
 
 /***/ }),
-/* 303 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const form_1 = __webpack_require__(304);
-const sub_form_1 = __webpack_require__(307);
-const fields_1 = __webpack_require__(310);
+const form_1 = __webpack_require__(303);
+const sub_form_1 = __webpack_require__(306);
+const fields_1 = __webpack_require__(309);
 const StudentDataForm = (props) => {
     return (React.createElement(form_1.default, null,
         React.createElement(sub_form_1.default, { label: "Your student information" },
@@ -30230,26 +30229,26 @@ exports.default = StudentDataForm;
 
 
 /***/ }),
-/* 304 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(305);
+__webpack_require__(304);
 const Form = (props) => (React.createElement("div", { className: "form" }, props.children));
 exports.default = Form;
 
 
 /***/ }),
-/* 305 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(306);
+var content = __webpack_require__(305);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30274,7 +30273,7 @@ if(false) {
 }
 
 /***/ }),
-/* 306 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30288,14 +30287,14 @@ exports.push([module.i, ".form {\n  width: 100%;\n  overflow-y: auto; }\n", ""])
 
 
 /***/ }),
-/* 307 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(308);
+__webpack_require__(307);
 const SubForm = (props) => (React.createElement("div", { className: "form-subform" },
     React.createElement("div", { className: "form-subheader" }, props.label),
     props.children));
@@ -30303,13 +30302,13 @@ exports.default = SubForm;
 
 
 /***/ }),
-/* 308 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(309);
+var content = __webpack_require__(308);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30334,7 +30333,7 @@ if(false) {
 }
 
 /***/ }),
-/* 309 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30348,7 +30347,7 @@ exports.push([module.i, ".form-subform {\n  display: -webkit-box;\n  display: -m
 
 
 /***/ }),
-/* 310 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30359,8 +30358,9 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(21));
 __export(__webpack_require__(118));
+__export(__webpack_require__(321));
 __export(__webpack_require__(322));
-__export(__webpack_require__(323));
+__export(__webpack_require__(326));
 __export(__webpack_require__(327));
 __export(__webpack_require__(328));
 __export(__webpack_require__(329));
@@ -30373,11 +30373,10 @@ __export(__webpack_require__(335));
 __export(__webpack_require__(336));
 __export(__webpack_require__(337));
 __export(__webpack_require__(338));
-__export(__webpack_require__(339));
 
 
 /***/ }),
-/* 311 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30419,13 +30418,13 @@ exports.default = Timeout;
 
 
 /***/ }),
-/* 312 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(313);
+var content = __webpack_require__(312);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30450,7 +30449,7 @@ if(false) {
 }
 
 /***/ }),
-/* 313 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30464,7 +30463,7 @@ exports.push([module.i, "/* ----------------------------------------------------
 
 
 /***/ }),
-/* 314 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30476,13 +30475,13 @@ exports.default = FieldLabel;
 
 
 /***/ }),
-/* 315 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const JSONP = __webpack_require__(316);
+const JSONP = __webpack_require__(315);
 const store_1 = __webpack_require__(33);
 const getTractTierTable = () => store_1.store.getState().data.tractTierTable;
 exports.GetTierError = {
@@ -30558,7 +30557,7 @@ const lookupTierFromTract = (tract) => {
 
 
 /***/ }),
-/* 316 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;(function() {
@@ -30679,7 +30678,7 @@ const lookupTierFromTract = (tract) => {
     return data.join('&');
   };
 
-  if ("function" !== "undefined" && __webpack_require__(318) !== null ? __webpack_require__(319) : void 0) {
+  if ("function" !== "undefined" && __webpack_require__(317) !== null ? __webpack_require__(318) : void 0) {
     !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
       return JSONP;
     }.call(exports, __webpack_require__, exports, module),
@@ -30692,10 +30691,10 @@ const lookupTierFromTract = (tract) => {
 
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(317)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(316)(module)))
 
 /***/ }),
-/* 317 */
+/* 316 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -30723,7 +30722,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 318 */
+/* 317 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -30732,7 +30731,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 319 */
+/* 318 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -30741,13 +30740,13 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 320 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(321);
+var content = __webpack_require__(320);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30772,7 +30771,7 @@ if(false) {
 }
 
 /***/ }),
-/* 321 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30786,7 +30785,7 @@ exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  bor
 
 
 /***/ }),
-/* 322 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30796,7 +30795,7 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
 const number_field_1 = __webpack_require__(47);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const between_1 = __webpack_require__(48);
 const AttendPercentageField = (props) => (React.createElement(number_field_1.default, { label: "Your 7th grade attendance percentage", style: { width: "6em" }, value: props.attendancePercentage, onChange: props.onChange, limiter: between_1.default(0, 100), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
 const mapStateToProps = (state) => {
@@ -30813,7 +30812,7 @@ exports.AttendPercentageFieldContainer = react_redux_1.connect(mapStateToProps, 
 
 
 /***/ }),
-/* 323 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30823,8 +30822,8 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(72);
 const actions_1 = __webpack_require__(19);
-const combo_box_field_1 = __webpack_require__(324);
-const constants_1 = __webpack_require__(6);
+const combo_box_field_1 = __webpack_require__(323);
+const constants_1 = __webpack_require__(5);
 const CurrESProgramField = (props) => (React.createElement(combo_box_field_1.default, { label: "What elementary school program are you in now?", value: props.currProgramID, data: {
         records: props.programs,
         getKey: (program) => program.id,
@@ -30872,7 +30871,7 @@ exports.CurrESProgramFieldContainer = react_redux_1.connect(mapStateToProps, map
 
 
 /***/ }),
-/* 324 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30881,7 +30880,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(34);
 const field_container_1 = __webpack_require__(46);
-const list_box_1 = __webpack_require__(325);
+const list_box_1 = __webpack_require__(324);
 const debounce_1 = __webpack_require__(35);
 class ComboBoxField extends React.PureComponent {
     constructor(props) {
@@ -30937,14 +30936,14 @@ exports.default = ComboBoxField;
 
 
 /***/ }),
-/* 325 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const list_box_element_1 = __webpack_require__(326);
+const list_box_element_1 = __webpack_require__(325);
 const ListBox = (props) => {
     const className = "list-box " + (props.visible ? "visible" : "");
     return (React.createElement("ul", { className: className }, props.data.records.map(opt => React.createElement(list_box_element_1.default, { key: props.data.getKey(opt), value: props.data.getKey(opt), selected: props.selected === props.data.getKey(opt), onSelect: ev => {
@@ -30956,7 +30955,7 @@ exports.default = ListBox;
 
 
 /***/ }),
-/* 326 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30973,7 +30972,7 @@ exports.default = ListBoxElement;
 
 
 /***/ }),
-/* 327 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30983,7 +30982,7 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(22);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const ELLField = (props) => (React.createElement(dropdown_field_1.default, { label: "Are you an English Language Learner?", value: props.ellStatus ? "true" : "false", onChange: ell => props.onChange(ell === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
     React.createElement("option", { value: "true" }, "Yes"),
     React.createElement("option", { value: "false" }, "No"),
@@ -31002,7 +31001,7 @@ exports.ELLFieldContainer = react_redux_1.connect(mapStateToProps, mapDispatchTo
 
 
 /***/ }),
-/* 328 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31012,7 +31011,7 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(22);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const IEPField = (props) => (React.createElement(dropdown_field_1.default, { label: "Do you have an IEP?", value: props.iepStatus ? "true" : "false", onChange: iep => props.onChange(iep === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
     React.createElement("option", { value: "true" }, "Yes"),
     React.createElement("option", { value: "false" }, "No"),
@@ -31031,7 +31030,7 @@ exports.IEPFieldContainer = react_redux_1.connect(mapStateToProps, mapDispatchTo
 
 
 /***/ }),
-/* 329 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31056,6 +31055,25 @@ exports.StudentLocationFieldContainer = react_redux_1.connect(mapStateToProps, m
 
 
 /***/ }),
+/* 329 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(1);
+const constants_1 = __webpack_require__(5);
+const between_1 = __webpack_require__(48);
+const enums_1 = __webpack_require__(6);
+const connect_score_type_1 = __webpack_require__(21);
+const number_field_1 = __webpack_require__(47);
+const NWEAMathField = (props) => {
+    return (React.createElement(number_field_1.default, { label: "NWEA Math percentile", style: { width: "4em" }, value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
+};
+exports.NWEAMathFieldContainer = connect_score_type_1.connectScoreType(enums_1.ScoreType.nweaPercentileMath)(NWEAMathField);
+
+
+/***/ }),
 /* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31063,15 +31081,15 @@ exports.StudentLocationFieldContainer = react_redux_1.connect(mapStateToProps, m
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const between_1 = __webpack_require__(48);
-const enums_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const connect_score_type_1 = __webpack_require__(21);
 const number_field_1 = __webpack_require__(47);
-const NWEAMathField = (props) => {
-    return (React.createElement(number_field_1.default, { label: "NWEA Math percentile", style: { width: "4em" }, value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
+const NWEAReadField = (props) => {
+    return React.createElement(number_field_1.default, { label: "NWEA Reading percentile", style: { width: "4em" }, value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
 };
-exports.NWEAMathFieldContainer = connect_score_type_1.connectScoreType(enums_1.ScoreType.nweaPercentileMath)(NWEAMathField);
+exports.NWEAReadFieldContainer = connect_score_type_1.connectScoreType(enums_1.ScoreType.nweaPercentileRead)(NWEAReadField);
 
 
 /***/ }),
@@ -31082,28 +31100,9 @@ exports.NWEAMathFieldContainer = connect_score_type_1.connectScoreType(enums_1.S
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const between_1 = __webpack_require__(48);
-const enums_1 = __webpack_require__(5);
-const connect_score_type_1 = __webpack_require__(21);
-const number_field_1 = __webpack_require__(47);
-const NWEAReadField = (props) => {
-    return React.createElement(number_field_1.default, { label: "NWEA Reading percentile", style: { width: "4em" }, value: props.value, onChange: props.onChange, limiter: between_1.default(1, 99), debounceTime: constants_1.INPUT_DEBOUNCE_TIME });
-};
-exports.NWEAReadFieldContainer = connect_score_type_1.connectScoreType(enums_1.ScoreType.nweaPercentileRead)(NWEAReadField);
-
-
-/***/ }),
-/* 332 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
-const between_1 = __webpack_require__(48);
-const enums_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const connect_score_type_1 = __webpack_require__(21);
 const number_field_1 = __webpack_require__(47);
 const SETestField = (props) => {
@@ -31113,7 +31112,7 @@ exports.SETestFieldContainer = connect_score_type_1.connectScoreType(enums_1.Sco
 
 
 /***/ }),
-/* 333 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31159,8 +31158,8 @@ const selectHSSchools = reselect_1.createSelector([getHSSchoolDict], (hsSchoolDi
 });
 const mapStateToProps = (state) => {
     return {
-        siblingHSSchoolIDs: state.studentData.siblingHSSchoolIDs,
-        hsSchools: selectHSSchools(state)
+        siblingSchoolIDs: state.studentData.siblingHSSchoolIDs,
+        schools: selectHSSchools(state)
     };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -31174,7 +31173,7 @@ exports.SiblingHSFieldContainer = react_redux_1.connect(mapStateToProps, mapDisp
 
 
 /***/ }),
-/* 334 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31184,7 +31183,7 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const actions_1 = __webpack_require__(19);
 const dropdown_field_1 = __webpack_require__(22);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const SkippedGradeField = (props) => {
     return (React.createElement(dropdown_field_1.default, { label: "Did you skip 7th grade or repeat 8th grade?", value: props.didSkipGrade ? "true" : "false", onChange: (value) => props.onChange(value === "true" ? true : false), debounceTime: constants_1.INPUT_DEBOUNCE_TIME },
         React.createElement("option", { value: "true" }, "Yes"),
@@ -31204,15 +31203,15 @@ exports.SkippedGradeFieldContainer = react_redux_1.connect(mapStateToProps, mapD
 
 
 /***/ }),
-/* 335 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
-const enums_1 = __webpack_require__(5);
+const constants_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(22);
 const SubjGradeMathField = (props) => {
@@ -31227,15 +31226,15 @@ exports.SubjGradeMathFieldContainer = connect_score_type_1.connectScoreType(enum
 
 
 /***/ }),
-/* 336 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
-const enums_1 = __webpack_require__(5);
+const constants_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(22);
 const SubjGradeReadField = (props) => {
@@ -31250,15 +31249,15 @@ exports.SubjGradeReadFieldContainer = connect_score_type_1.connectScoreType(enum
 
 
 /***/ }),
-/* 337 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
-const enums_1 = __webpack_require__(5);
+const constants_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(22);
 const SubjGradeSciField = (props) => {
@@ -31273,15 +31272,15 @@ exports.SubjGradeSciFieldContainer = connect_score_type_1.connectScoreType(enums
 
 
 /***/ }),
-/* 338 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const constants_1 = __webpack_require__(6);
-const enums_1 = __webpack_require__(5);
+const constants_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const connect_score_type_1 = __webpack_require__(21);
 const dropdown_field_1 = __webpack_require__(22);
 const SubjGradeSocStudiesField = (props) => {
@@ -31296,7 +31295,7 @@ exports.SubjGradeSocStudiesFieldContainer = connect_score_type_1.connectScoreTyp
 
 
 /***/ }),
-/* 339 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31305,7 +31304,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const text_field_1 = __webpack_require__(119);
-const constants_1 = __webpack_require__(6);
+const constants_1 = __webpack_require__(5);
 const GPADisplayField = (props) => {
     const gpa = props.gpa ? props.gpa.toFixed(2) : "";
     return (React.createElement(text_field_1.default, { label: "Your GPA", editable: false, value: gpa, onChange: () => false, debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
@@ -31319,7 +31318,7 @@ exports.GPADisplayFieldContainer = react_redux_1.connect(mapStateToProps)(GPADis
 
 
 /***/ }),
-/* 340 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31327,7 +31326,7 @@ exports.GPADisplayFieldContainer = react_redux_1.connect(mapStateToProps)(GPADis
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(72);
-const hs_program_list_1 = __webpack_require__(341);
+const hs_program_list_1 = __webpack_require__(340);
 const getProgramGroupDict = (state) => state.data.hsProgramGroups;
 const selectProgramGroups = reselect_1.createSelector([getProgramGroupDict], (programGroupDict) => {
     const programGroups = Object.keys(programGroupDict).map(groupID => programGroupDict[groupID]);
@@ -31347,16 +31346,16 @@ exports.default = HSProgramsContainer;
 
 
 /***/ }),
-/* 341 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const search_bar_1 = __webpack_require__(342);
-const hs_group_1 = __webpack_require__(346);
-const constants_1 = __webpack_require__(6);
+const search_bar_1 = __webpack_require__(341);
+const hs_group_1 = __webpack_require__(345);
+const constants_1 = __webpack_require__(5);
 class HSProgramList extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -31410,16 +31409,16 @@ exports.default = HSProgramList;
 
 
 /***/ }),
-/* 342 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const search_1 = __webpack_require__(343);
+const search_1 = __webpack_require__(342);
 const debounce_1 = __webpack_require__(35);
-__webpack_require__(344);
+__webpack_require__(343);
 class SearchBar extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -31456,7 +31455,7 @@ exports.default = SearchBar;
 
 
 /***/ }),
-/* 343 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31472,13 +31471,13 @@ exports.default = SearchIcon;
 
 
 /***/ }),
-/* 344 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(345);
+var content = __webpack_require__(344);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31503,7 +31502,7 @@ if(false) {
 }
 
 /***/ }),
-/* 345 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -31517,23 +31516,23 @@ exports.push([module.i, ".search-bar-container {\n  width: 100%;\n  padding: 0.5
 
 
 /***/ }),
-/* 346 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const enums_1 = __webpack_require__(5);
+const enums_1 = __webpack_require__(6);
 const outcome_certain_1 = __webpack_require__(120);
 const outcome_likely_1 = __webpack_require__(121);
 const outcome_uncertain_1 = __webpack_require__(122);
 const outcome_unlikely_1 = __webpack_require__(123);
 const outcome_none_1 = __webpack_require__(124);
 const outcome_notimplemented_1 = __webpack_require__(125);
-const constants_1 = __webpack_require__(6);
-const hs_program_element_1 = __webpack_require__(347);
-__webpack_require__(354);
+const constants_1 = __webpack_require__(5);
+const hs_program_element_1 = __webpack_require__(346);
+__webpack_require__(353);
 class HSGroup extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -31645,23 +31644,23 @@ exports.default = HSGroup;
 
 
 /***/ }),
-/* 347 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const enums_1 = __webpack_require__(5);
-const school_1 = __webpack_require__(348);
+const enums_1 = __webpack_require__(6);
+const school_1 = __webpack_require__(347);
 const outcome_certain_1 = __webpack_require__(120);
 const outcome_likely_1 = __webpack_require__(121);
 const outcome_uncertain_1 = __webpack_require__(122);
 const outcome_unlikely_1 = __webpack_require__(123);
 const outcome_none_1 = __webpack_require__(124);
 const outcome_notimplemented_1 = __webpack_require__(125);
-const hs_program_info_card_1 = __webpack_require__(349);
-__webpack_require__(352);
+const hs_program_info_card_1 = __webpack_require__(348);
+__webpack_require__(351);
 class HSProgramElement extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -31737,7 +31736,7 @@ exports.default = HSProgramElement;
 
 
 /***/ }),
-/* 348 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31757,15 +31756,15 @@ exports.default = SchoolIcon;
 
 
 /***/ }),
-/* 349 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const enums_1 = __webpack_require__(5);
-__webpack_require__(350);
+const enums_1 = __webpack_require__(6);
+__webpack_require__(349);
 const HSProgramInfoCard = (props) => {
     const toMessage = (success) => {
         let msg = "";
@@ -31819,13 +31818,13 @@ exports.default = HSProgramInfoCard;
 
 
 /***/ }),
-/* 350 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(351);
+var content = __webpack_require__(350);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31850,7 +31849,7 @@ if(false) {
 }
 
 /***/ }),
-/* 351 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -31864,13 +31863,13 @@ exports.push([module.i, ".hs-info-card-container {\n  display: none;\n  position
 
 
 /***/ }),
-/* 352 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(353);
+var content = __webpack_require__(352);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31895,7 +31894,7 @@ if(false) {
 }
 
 /***/ }),
-/* 353 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -31909,13 +31908,13 @@ exports.push([module.i, ".hs-list-element {\n  position: relative;\n  font-size:
 
 
 /***/ }),
-/* 354 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(355);
+var content = __webpack_require__(354);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31940,7 +31939,7 @@ if(false) {
 }
 
 /***/ }),
-/* 355 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
