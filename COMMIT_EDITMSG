@@ -1,4 +1,3 @@
-Fix bug in sibling hs school form field component
+Fix bug in hsSchools action creator
 
-* incorrect props were being passed to component by
-  mapStateToProps
+* hsSchools not being created/updated on receipt of data

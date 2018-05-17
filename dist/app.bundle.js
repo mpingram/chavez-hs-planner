@@ -29138,6 +29138,21 @@ const updateProgramGroups = (hsPrograms, programTypeIDTable) => {
         payload: utils_1.createProgramGroupDictionary(hsPrograms, programTypeIDTable)
     };
 };
+const createHSSchools = (hsPrograms) => {
+    let schoolDict = {};
+    Object.keys(hsPrograms).map(programID => {
+        const program = hsPrograms[programID];
+        const school = { id: program.schoolID, shortName: program.schoolNameShort, longName: program.schoolNameLong };
+        schoolDict[program.schoolID] = school;
+    });
+    return schoolDict;
+};
+const updateHSSchools = (hsPrograms) => {
+    return {
+        type: enums_1.ActionType.UpdateHSSchools,
+        payload: createHSSchools(hsPrograms)
+    };
+};
 exports.loadAllData = () => {
     return (dispatch, getState) => {
         dispatch(loadingData());
@@ -29152,6 +29167,7 @@ exports.loadAllData = () => {
         ]).then(results => {
             dispatch(dataLoaded());
             const state = getState();
+            dispatch(updateHSSchools(state.data.hsPrograms));
             dispatch(updateProgramGroups(state.data.hsPrograms, state.data.programTypeIDTable));
             dispatch(update_program_outcomes_1.updateProgramOutcomes(state.studentData, state.data.hsPrograms));
         });

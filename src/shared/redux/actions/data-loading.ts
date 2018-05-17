@@ -1,7 +1,8 @@
 import { 
   AppState,
   ProgramDictionary,
-  ProgramTypeIDTable
+  ProgramTypeIDTable,
+  SchoolDictionary
 } from "shared/types";
 
 import { ActionType } from "shared/enums";
@@ -159,6 +160,23 @@ const updateProgramGroups = (hsPrograms: ProgramDictionary, programTypeIDTable: 
   }
 };
 
+const createHSSchools = (hsPrograms: ProgramDictionary): SchoolDictionary => {
+  let schoolDict: SchoolDictionary = {};
+  Object.keys(hsPrograms).map( programID => {
+    const program = hsPrograms[programID];
+    const school = {id: program.schoolID, shortName: program.schoolNameShort, longName: program.schoolNameLong};
+    schoolDict[program.schoolID] = school;
+  });
+  return schoolDict;
+};
+
+const updateHSSchools = (hsPrograms: ProgramDictionary) => {
+  return {
+    type: ActionType.UpdateHSSchools,
+    payload: createHSSchools(hsPrograms)
+  }
+};
+
 export const loadAllData = () => {
   // dispatch all data loading actions, wrapped
   // by Promise.all().
@@ -177,7 +195,9 @@ export const loadAllData = () => {
       dispatch( dataLoaded() );
       const state: AppState = getState();
       // create hs school dictionary
-      // TODO 
+      dispatch(
+        updateHSSchools(state.data.hsPrograms)
+      );
       // create program groups
       dispatch( 
         updateProgramGroups(state.data.hsPrograms, state.data.programTypeIDTable)
