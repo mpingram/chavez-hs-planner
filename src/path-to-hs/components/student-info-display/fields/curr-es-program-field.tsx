@@ -9,7 +9,7 @@ import {
   ProgramDictionary
 } from "shared/types";
 
-import ComboBoxField  from "shared/components/ui/fields/combo-box-field";
+import Select from "react-select";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
@@ -18,21 +18,29 @@ interface CurrESProgramFieldProps {
   programs: Program[]
   onChange: (newProgramID: string) => any
 }
-const CurrESProgramField = (props: CurrESProgramFieldProps) => (
-  <ComboBoxField
-    label="What elementary school program are you in now?"
-    value={props.currProgramID}
-    data={
-      { 
-        records: props.programs, 
-        getKey: (program) => program.id, 
-        getDisplayText: (program: Program) => program.programName
-      }
-    }
-    onChange={ (program: Program) => props.onChange(program.id)}
-    debounceTime={INPUT_DEBOUNCE_TIME}
-  /> 
-);
+
+const CurrESProgramField = (props: CurrESProgramFieldProps) => {
+
+  const toSelectOptions = (programs: Program[]) => {
+    return programs.map( program => {
+      return {value: program.id, label: program.programName};
+    });
+  };
+
+  const handleSelectedProgramIDChange = (programID: string) => props.onChange(programID);
+  return (
+    <div>
+      <div className="selected-program-id-heading">
+        What elementary school program are you in now?
+      </div>
+      <Select
+        value={props.currProgramID}
+        options={toSelectOptions(props.programs)}
+        onChange={handleSelectedProgramIDChange}
+      /> 
+    </div>
+  )
+};
 
 const getNonHSPrograms = (state: AppState): ProgramDictionary => state.data.nonHSPrograms;
 const getStudentCurrESProgramID = (state: AppState): string | null => state.studentData.currESProgramID;
@@ -65,20 +73,9 @@ const selectNonHSPrograms = createSelector(
   }
 );
 
-const selectCurrESProgram = createSelector(
-  [getStudentCurrESProgramID, getNonHSPrograms],
-  (id, programDict) => {
-    if (id === null) {
-      return null;
-    }
-    const program = programDict[id]
-    return program;
-  }
-);
-
 const mapStateToProps = (state: AppState) => {
   return {
-    currProgram: selectCurrESProgram(state),
+    currProgramID: state.studentData.currESProgramID,
     programs: selectNonHSPrograms(state),
   }
 };

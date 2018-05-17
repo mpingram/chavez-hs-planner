@@ -12707,6 +12707,7 @@ const React = __webpack_require__(1);
 const react_dom_1 = __webpack_require__(81);
 const store_1 = __webpack_require__(33);
 const react_redux_1 = __webpack_require__(13);
+__webpack_require__(336);
 const path_to_hs_1 = __webpack_require__(294);
 react_dom_1.render((React.createElement(react_redux_1.Provider, { store: store_1.store },
     React.createElement(path_to_hs_1.default, null))), document.getElementById("root"));
@@ -30838,13 +30839,18 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(73);
 const actions_1 = __webpack_require__(19);
-const combo_box_field_1 = __webpack_require__(323);
-const constants_1 = __webpack_require__(5);
-const CurrESProgramField = (props) => (React.createElement(combo_box_field_1.default, { label: "What elementary school program are you in now?", value: props.currProgramID, data: {
-        records: props.programs,
-        getKey: (program) => program.id,
-        getDisplayText: (program) => program.programName
-    }, onChange: (program) => props.onChange(program.id), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }));
+const react_select_1 = __webpack_require__(333);
+const CurrESProgramField = (props) => {
+    const toSelectOptions = (programs) => {
+        return programs.map(program => {
+            return { value: program.id, label: program.programName };
+        });
+    };
+    const handleSelectedProgramIDChange = (programID) => props.onChange(programID);
+    return (React.createElement("div", null,
+        React.createElement("div", { className: "selected-program-id-heading" }, "What elementary school program are you in now?"),
+        React.createElement(react_select_1.default, { value: props.currProgramID, options: toSelectOptions(props.programs), onChange: handleSelectedProgramIDChange })));
+};
 const getNonHSPrograms = (state) => state.data.nonHSPrograms;
 const getStudentCurrESProgramID = (state) => state.studentData.currESProgramID;
 const selectNonHSPrograms = reselect_1.createSelector([getNonHSPrograms], (programDict) => {
@@ -30863,16 +30869,9 @@ const selectNonHSPrograms = reselect_1.createSelector([getNonHSPrograms], (progr
     programList.unshift(otherProgram);
     return programList;
 });
-const selectCurrESProgram = reselect_1.createSelector([getStudentCurrESProgramID, getNonHSPrograms], (id, programDict) => {
-    if (id === null) {
-        return null;
-    }
-    const program = programDict[id];
-    return program;
-});
 const mapStateToProps = (state) => {
     return {
-        currProgram: selectCurrESProgram(state),
+        currProgramID: state.studentData.currESProgramID,
         programs: selectNonHSPrograms(state),
     };
 };
@@ -30887,107 +30886,9 @@ exports.CurrESProgramFieldContainer = react_redux_1.connect(mapStateToProps, map
 
 
 /***/ }),
-/* 323 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const field_validation_state_1 = __webpack_require__(34);
-const field_container_1 = __webpack_require__(47);
-const list_box_1 = __webpack_require__(324);
-const debounce_1 = __webpack_require__(35);
-class ComboBoxField extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.filter = (data, filterString) => {
-            const filteredRecords = data.records.filter(x => {
-                const displayText = data.getDisplayText(x);
-                const re = new RegExp(filterString, "i");
-                const containsSearchString = re.test(displayText);
-                return containsSearchString;
-            });
-            return {
-                records: filteredRecords,
-                getKey: data.getKey,
-                getDisplayText: data.getDisplayText,
-            };
-        };
-        this.state = {
-            searchString: props.value ? props.data.getDisplayText(props.value) : "",
-            listBoxVisible: false
-        };
-        this.onChange = props.debounceTime ? debounce_1.default(props.onChange, props.debounceTime) : props.onChange;
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            searchString: nextProps.value ? nextProps.data.getDisplayText(nextProps.value) : "",
-        });
-        this.onChange = nextProps.debounceTime ? debounce_1.default(nextProps.onChange, nextProps.debounceTime) : nextProps.onChange;
-    }
-    render() {
-        const validation = this.props.validator ? this.props.validator(this.props.value)
-            : field_validation_state_1.default.NEUTRAL;
-        return (React.createElement(field_container_1.default, { className: this.props.className, label: this.props.label, validation: validation },
-            React.createElement("div", { style: { position: "relative" } },
-                React.createElement("div", null,
-                    React.createElement("input", { className: "field-input-element", style: { width: "100%", height: "20px" }, type: "text", value: this.state.searchString, onChange: ev => this.setState({ searchString: ev.currentTarget.value }), onFocus: () => {
-                            this.setState({ listBoxVisible: true });
-                        }, onBlur: () => {
-                            this.setState({ listBoxVisible: false });
-                        } })),
-                React.createElement("div", { style: { position: "relative" } },
-                    React.createElement(list_box_1.default, { visible: this.state.listBoxVisible, data: this.filter(this.props.data, this.state.searchString), selected: this.props.value, searchString: this.state.searchString, onChange: (record) => {
-                            this.setState({
-                                listBoxVisible: false,
-                                searchString: this.props.data.getDisplayText(record)
-                            });
-                            this.onChange(record);
-                        } })))));
-    }
-}
-;
-exports.default = ComboBoxField;
-
-
-/***/ }),
-/* 324 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const list_box_element_1 = __webpack_require__(325);
-const ListBox = (props) => {
-    const className = "list-box " + (props.visible ? "visible" : "");
-    return (React.createElement("ul", { className: className }, props.data.records.map(opt => React.createElement(list_box_element_1.default, { key: props.data.getKey(opt), value: props.data.getKey(opt), selected: props.selected === props.data.getKey(opt), onSelect: ev => {
-            props.selected === props.data.getKey(opt) ? props.onChange(null)
-                : props.onChange(opt);
-        } }, props.data.getDisplayText(opt)))));
-};
-exports.default = ListBox;
-
-
-/***/ }),
-/* 325 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(1);
-const ListBoxElement = (props) => {
-    return (React.createElement("li", { className: "list-box-element", onMouseDown: ev => {
-            ev.stopPropagation();
-            props.onSelect(ev);
-        } }, props.children));
-};
-exports.default = ListBoxElement;
-
-
-/***/ }),
+/* 323 */,
+/* 324 */,
+/* 325 */,
 /* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31139,7 +31040,6 @@ const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(73);
 const actions_1 = __webpack_require__(19);
 const react_select_1 = __webpack_require__(333);
-__webpack_require__(336);
 const dropdown_field_1 = __webpack_require__(22);
 class SiblingHSField extends React.PureComponent {
     constructor(props) {

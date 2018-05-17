@@ -10,8 +10,6 @@ import {
 } from "shared/types";
 
 import Select from "react-select";
-/* TODO move to index if using */
-import 'react-select/dist/react-select.css'
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
