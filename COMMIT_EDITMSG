@@ -1,39 +1,9 @@
-[WIP] Fix wide-ranging errors in app data loading
+[WIP] Test multiselect with react-virtualized-select
 
-* Fix error in loadAllData in which data action creators were not being
-  dispatched.
-* Fix error in data action creators not returning promises, resulting
-  in loadAllData Promise.all() not working correctly.
-* Fix error in reducer util createProgramGroupsDictionary 
-* Fix error in programs being loaded into store as arrays of programs and
-  not program dictionaries
-* Fix error in createHSProgramDictionary / createNonHSProgramDictionary
-  reducer utils in which original input was returned instead of
-  processed output
-* Fix error in HSProgramsContainer and HSGroup in which HSGroup's props
-  said it wanted a Program[] but HSGroup's implementation actually
-  wanted a ProgramDict. Changed mapStateToProps implementation in
-  HSProgramsContainer to account for this.
-* Fix error in which app expected shared/requirement functions to export
-  bare requirement functions, when it actually exported all req function
-  data.
-* Fix error in HSGroup in which code did not gracefully handle
-  uninitialized program outcomes
-  ** change type def of ProgramOutcomeDictionary to include 'undefined'
-  as a possible value for any key, so that the ts compiler cna force me
-  to check for it.
-* Fix error in which data loading reducers do not instantiate
-  program outcomes
-* Rewrite rootReducer to update outcomes after receiving
-  student data
-  ** Remove combineReducers implementation of rootReducer
-  ** TODO Make sure we understand combineReducers before we swap it out
-* Fix error in which ibPointSystem and sePointSystem requirement
-  function builders were looking up cutoff scores by school ID rather than
-  by progam ID.
+* TODO add react-virtualized-select dependency
+* TODO incorporate
+* TODO add react-select-fast-filter-options dependency if needed
 
-* IMPORTANT manually added requirement functions for
-  BOGAN HS - Accounting - Selection
-  DYETT HS - Digital Arts - Selection
-  CHICAGO VIRTUAL HS - Cosmetology - Selection
-
+* gah there are some bugs I need to fix in the main branch
+  ** sibling hs field has wrong props
+  ** store does not update
