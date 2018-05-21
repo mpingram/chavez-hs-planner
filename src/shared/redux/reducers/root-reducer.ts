@@ -5,7 +5,10 @@ import {
   ProgramOutcomeDictionary
 } from "shared/types";
 
-import { createProgramOutcomeDictionary } from "../utils";
+import { 
+  createProgramOutcomeDictionary,
+  programOutcomesAreDifferent
+} from "../utils";
 
 import { initialState } from "./initial-state";
 
@@ -27,17 +30,27 @@ export const rootReducer: Redux.Reducer<AppState> = (state = initialState, actio
   const nextData = dataReducer(state.data, action);
 
   /* 
-   * If student data or data has changed, update program outcomes.
+   * If student data or data has changed, calculate new program outcomes with new
+   * student data.
+   *
+   * If new program outcomes are the same as the old program outcomes, keep the old
+   * program outcomes.
    * */
   const studentDataChanged = nextStudentData !== state.studentData;
   const dataChanged = nextData !== state.data;
   let nextProgramOutcomes: ProgramOutcomeDictionary;
   if (studentDataChanged || dataChanged) {
-    nextProgramOutcomes = createProgramOutcomeDictionary(nextStudentData, nextData.hsPrograms);
+    const newOutcomes = createProgramOutcomeDictionary(nextStudentData, nextData.hsPrograms);
+    if (programOutcomesAreDifferent(newOutcomes, state.programOutcomes)) {
+      console.log('program outcomes are different');
+      nextProgramOutcomes = newOutcomes;
+    } else {
+      nextProgramOutcomes = state.programOutcomes;
+    }
   } else {
     nextProgramOutcomes = state.programOutcomes;
   }
-  
+
   return {
     studentData: nextStudentData,
     loadingStatus: nextLoadingStatus,

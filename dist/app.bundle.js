@@ -7622,6 +7622,7 @@ __export(__webpack_require__(272));
 __export(__webpack_require__(273));
 __export(__webpack_require__(274));
 __export(__webpack_require__(276));
+__export(__webpack_require__(355));
 
 
 /***/ }),
@@ -25426,7 +25427,14 @@ exports.rootReducer = (state = initial_state_1.initialState, action) => {
     const dataChanged = nextData !== state.data;
     let nextProgramOutcomes;
     if (studentDataChanged || dataChanged) {
-        nextProgramOutcomes = utils_1.createProgramOutcomeDictionary(nextStudentData, nextData.hsPrograms);
+        const newOutcomes = utils_1.createProgramOutcomeDictionary(nextStudentData, nextData.hsPrograms);
+        if (utils_1.programOutcomesAreDifferent(newOutcomes, state.programOutcomes)) {
+            console.log('program outcomes are different');
+            nextProgramOutcomes = newOutcomes;
+        }
+        else {
+            nextProgramOutcomes = state.programOutcomes;
+        }
     }
     else {
         nextProgramOutcomes = state.programOutcomes;
@@ -31350,7 +31358,6 @@ const selectProgramGroups = reselect_1.createSelector([getProgramGroupDict], (pr
 });
 const getProgramDict = (state) => state.data.hsPrograms;
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         programs: state.data.hsPrograms,
         outcomes: state.programOutcomes,
@@ -31966,6 +31973,41 @@ exports = module.exports = __webpack_require__(16)(undefined);
 exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  margin-bottom: 2em; }\n\n.hs-category-container.collapsed {\n  height: 75px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #cacaca;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n\n.hs-category-title {\n  max-width: 100%;\n  font-size: 140%;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n\n.count-all {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 6em;\n          flex: 0 0 6em; }\n\n.count-all-number {\n  color: #333;\n  font-size: 1.25em;\n  font-weight: bold;\n  line-height: 36px; }\n\n.count-all-desc {\n  color: #666;\n  font-size: 90%;\n  line-height: 36px; }\n\n.hs-program-outcome-counts {\n  font-size: 95%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n\n.outcome-counts-wrapper {\n  height: 36px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  background-color: #fafafa;\n  border-radius: 12px; }\n\n.outcome-count {\n  width: 20px;\n  margin: 0 5px;\n  line-height: 16px;\n  font-size: 1.25em;\n  text-align: center;\n  font-weight: bold; }\n\n.outcome-count.count-empty {\n  color: #a6a6a6;\n  font-weight: normal; }\n\n.outcome-count.count-certain {\n  color: #5bed2a; }\n\n.outcome-count.count-likely {\n  color: #b6ec29; }\n\n.outcome-count.count-uncertain {\n  color: #ccc000; }\n\n.outcome-count.count-unlikely {\n  color: #f49600; }\n\n.outcome-count.count-none {\n  color: #f4743b; }\n\n.outcome-count.count-notimplemented {\n  color: #999; }\n\n.hs-category-collapse-button {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 40px;\n          flex: 0 0 40px;\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  -ms-flex-item-align: center;\n      align-self: center;\n  border-radius: 100%;\n  border: 2px solid #9e9e9e;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
 
 // exports
+
+
+/***/ }),
+/* 355 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.programOutcomesAreDifferent = (a, b) => {
+    return Object.keys(a).some(programID => {
+        const outcomeA = a[programID];
+        const outcomeB = b[programID];
+        if (outcomeA === undefined && outcomeB === undefined) {
+            return false;
+        }
+        else if (outcomeA === undefined || outcomeB === undefined) {
+            return true;
+        }
+        else {
+            const propertiesDifferent = outcomeA.applicationChance !== outcomeB.applicationChance ||
+                outcomeA.selectionChance !== outcomeB.selectionChance ||
+                outcomeA.overallChance !== outcomeB.overallChance ||
+                outcomeA.distance !== outcomeB.distance;
+            if (propertiesDifferent) {
+                console.log(outcomeA);
+                console.log(outcomeB);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    });
+};
 
 
 /***/ })

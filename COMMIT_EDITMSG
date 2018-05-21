@@ -1,3 +1,8 @@
-Fix bug in hsSchools action creator
+Prevent unnecessary updates of program outcomes in redux store
 
-* hsSchools not being created/updated on receipt of data
+* compare state.outcomes and nextState.outcomes in redux reducer, and do not
+  update state.outcomes if they are the same
+
+
+
+
