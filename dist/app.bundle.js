@@ -1291,9 +1291,9 @@ module.exports = { debugTool: debugTool };
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(288);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createProvider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
@@ -1724,7 +1724,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(298);
+var	fixUrls = __webpack_require__(299);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -2319,7 +2319,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 const enums_1 = __webpack_require__(6);
-var data_loading_1 = __webpack_require__(281);
+var data_loading_1 = __webpack_require__(282);
 exports.loadAllData = data_loading_1.loadAllData;
 __export(__webpack_require__(112));
 exports.updateStudentAttendPercentage = (newValue) => {
@@ -5543,8 +5543,8 @@ exports.initialState = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(311);
-const field_label_1 = __webpack_require__(313);
+__webpack_require__(312);
+const field_label_1 = __webpack_require__(314);
 const FieldContainer = (props) => (React.createElement("div", { style: props.style, className: "field-container" + " " + props.className },
     props.label &&
         React.createElement(field_label_1.default, null, props.label),
@@ -7622,7 +7622,7 @@ __export(__webpack_require__(272));
 __export(__webpack_require__(273));
 __export(__webpack_require__(274));
 __export(__webpack_require__(276));
-__export(__webpack_require__(355));
+__export(__webpack_require__(277));
 
 
 /***/ }),
@@ -11995,7 +11995,7 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(283)();
+  module.exports = __webpack_require__(284)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -12030,13 +12030,13 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(286);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(114);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -12432,11 +12432,11 @@ function verifyPlainObject(value, displayName, methodName) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const timeout_1 = __webpack_require__(310);
+const timeout_1 = __webpack_require__(311);
 const text_field_1 = __webpack_require__(119);
 const field_validation_state_1 = __webpack_require__(34);
-const get_tier_and_geo_1 = __webpack_require__(314);
-__webpack_require__(319);
+const get_tier_and_geo_1 = __webpack_require__(315);
+__webpack_require__(320);
 class AddressTierCalculator extends React.Component {
     constructor(props) {
         super(props);
@@ -12698,7 +12698,7 @@ const React = __webpack_require__(1);
 const react_dom_1 = __webpack_require__(141);
 const store_1 = __webpack_require__(33);
 const react_redux_1 = __webpack_require__(13);
-const path_to_hs_1 = __webpack_require__(294);
+const path_to_hs_1 = __webpack_require__(295);
 react_dom_1.render((React.createElement(react_redux_1.Provider, { store: store_1.store },
     React.createElement(path_to_hs_1.default, null))), document.getElementById("root"));
 
@@ -25416,9 +25416,9 @@ __export(__webpack_require__(243));
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = __webpack_require__(68);
 const initial_state_1 = __webpack_require__(45);
-const student_data_reducer_1 = __webpack_require__(277);
-const loading_status_reducer_1 = __webpack_require__(279);
-const data_reducer_1 = __webpack_require__(280);
+const student_data_reducer_1 = __webpack_require__(278);
+const loading_status_reducer_1 = __webpack_require__(280);
+const data_reducer_1 = __webpack_require__(281);
 exports.rootReducer = (state = initial_state_1.initialState, action) => {
     const nextStudentData = student_data_reducer_1.studentDataReducer(state.studentData, action);
     const nextLoadingStatus = loading_status_reducer_1.loadingStatusReducer(state.loadingStatus, action);
@@ -28859,8 +28859,43 @@ exports.createProgramGroupDictionary = (hsPrograms, programTypeIDTable) => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.programOutcomesAreDifferent = (a, b) => {
+    return Object.keys(a).some(programID => {
+        const outcomeA = a[programID];
+        const outcomeB = b[programID];
+        if (outcomeA === undefined && outcomeB === undefined) {
+            return false;
+        }
+        else if (outcomeA === undefined || outcomeB === undefined) {
+            return true;
+        }
+        else {
+            const propertiesDifferent = outcomeA.applicationChance !== outcomeB.applicationChance ||
+                outcomeA.selectionChance !== outcomeB.selectionChance ||
+                outcomeA.overallChance !== outcomeB.overallChance ||
+                outcomeA.distance !== outcomeB.distance;
+            if (propertiesDifferent) {
+                console.log(outcomeA);
+                console.log(outcomeB);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    });
+};
+
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 const enums_1 = __webpack_require__(6);
-const calculate_gpa_1 = __webpack_require__(278);
+const calculate_gpa_1 = __webpack_require__(279);
 const initial_state_1 = __webpack_require__(45);
 exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, action) => {
     let nextStudentData = studentData;
@@ -28919,7 +28954,7 @@ exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, 
 
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28958,7 +28993,7 @@ exports.default = calculateGPA;
 
 
 /***/ }),
-/* 279 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28979,7 +29014,7 @@ exports.loadingStatusReducer = (loadingStatus = initial_state_1.initialLoadingSt
 
 
 /***/ }),
-/* 280 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29014,7 +29049,7 @@ exports.dataReducer = (appData = initial_state_1.initialData, action) => {
 
 
 /***/ }),
-/* 281 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29184,7 +29219,7 @@ exports.loadAllData = () => {
 
 
 /***/ }),
-/* 282 */
+/* 283 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29270,7 +29305,7 @@ function createProvider() {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 283 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29336,7 +29371,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 284 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29408,7 +29443,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 /***/ }),
-/* 285 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29467,7 +29502,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 286 */
+/* 287 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29566,17 +29601,17 @@ var Subscription = function () {
 
 
 /***/ }),
-/* 287 */
+/* 288 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export createConnect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_connectAdvanced__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(288);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(289);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(291);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_shallowEqual__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mapDispatchToProps__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mapStateToProps__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mergeProps__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__selectorFactory__ = __webpack_require__(293);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -29682,7 +29717,7 @@ function createConnect() {
 /* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
-/* 288 */
+/* 289 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29719,7 +29754,7 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 289 */
+/* 290 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29750,7 +29785,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
 
 /***/ }),
-/* 290 */
+/* 291 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29772,7 +29807,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 /* harmony default export */ __webpack_exports__["a"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
 
 /***/ }),
-/* 291 */
+/* 292 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29829,14 +29864,14 @@ function whenMergePropsIsOmitted(mergeProps) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 292 */
+/* 293 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export impureFinalPropsSelectorFactory */
 /* unused harmony export pureFinalPropsSelectorFactory */
 /* harmony export (immutable) */ __webpack_exports__["a"] = finalPropsSelectorFactory;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(293);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__verifySubselectors__ = __webpack_require__(294);
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 
@@ -29942,7 +29977,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 293 */
+/* 294 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29967,17 +30002,17 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 294 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const page_1 = __webpack_require__(295);
-const box_1 = __webpack_require__(299);
-const student_data_form_1 = __webpack_require__(302);
-const hs_programs_container_1 = __webpack_require__(339);
+const page_1 = __webpack_require__(296);
+const box_1 = __webpack_require__(300);
+const student_data_form_1 = __webpack_require__(303);
+const hs_programs_container_1 = __webpack_require__(340);
 const PathToHS = (props) => {
     return (React.createElement(page_1.default, null,
         React.createElement(box_1.default, { width: "half", height: "full", flex: {
@@ -29993,14 +30028,14 @@ exports.default = PathToHS;
 
 
 /***/ }),
-/* 295 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(296);
+__webpack_require__(297);
 const Page = (props) => {
     return (React.createElement("div", { className: "page" }, props.children));
 };
@@ -30008,13 +30043,13 @@ exports.default = Page;
 
 
 /***/ }),
-/* 296 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(297);
+var content = __webpack_require__(298);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30039,7 +30074,7 @@ if(false) {
 }
 
 /***/ }),
-/* 297 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30053,7 +30088,7 @@ exports.push([module.i, ".page {\n  height: 100vh;\n  width: 100vw;\n  display: 
 
 
 /***/ }),
-/* 298 */
+/* 299 */
 /***/ (function(module, exports) {
 
 
@@ -30148,14 +30183,14 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 299 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(300);
+__webpack_require__(301);
 const Box = (props) => {
     const widthClass = "width-" + props.width;
     const heightClass = "height-" + props.height;
@@ -30174,13 +30209,13 @@ exports.default = Box;
 
 
 /***/ }),
-/* 300 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(301);
+var content = __webpack_require__(302);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30205,7 +30240,7 @@ if(false) {
 }
 
 /***/ }),
-/* 301 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30219,16 +30254,16 @@ exports.push([module.i, ".box {\n  border: 2px solid #9e9e9e;\n  padding: 0.25em
 
 
 /***/ }),
-/* 302 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const form_1 = __webpack_require__(303);
-const sub_form_1 = __webpack_require__(306);
-const fields_1 = __webpack_require__(309);
+const form_1 = __webpack_require__(304);
+const sub_form_1 = __webpack_require__(307);
+const fields_1 = __webpack_require__(310);
 const StudentDataForm = (props) => {
     return (React.createElement(form_1.default, null,
         React.createElement(sub_form_1.default, { label: "Your student information" },
@@ -30253,26 +30288,26 @@ exports.default = StudentDataForm;
 
 
 /***/ }),
-/* 303 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(304);
+__webpack_require__(305);
 const Form = (props) => (React.createElement("div", { className: "form" }, props.children));
 exports.default = Form;
 
 
 /***/ }),
-/* 304 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(305);
+var content = __webpack_require__(306);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30297,7 +30332,7 @@ if(false) {
 }
 
 /***/ }),
-/* 305 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30311,14 +30346,14 @@ exports.push([module.i, ".form {\n  width: 100%;\n  overflow-y: auto; }\n", ""])
 
 
 /***/ }),
-/* 306 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-__webpack_require__(307);
+__webpack_require__(308);
 const SubForm = (props) => (React.createElement("div", { className: "form-subform" },
     React.createElement("div", { className: "form-subheader" }, props.label),
     props.children));
@@ -30326,13 +30361,13 @@ exports.default = SubForm;
 
 
 /***/ }),
-/* 307 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(308);
+var content = __webpack_require__(309);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30357,7 +30392,7 @@ if(false) {
 }
 
 /***/ }),
-/* 308 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30371,7 +30406,7 @@ exports.push([module.i, ".form-subform {\n  display: -webkit-box;\n  display: -m
 
 
 /***/ }),
-/* 309 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30382,9 +30417,8 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(21));
 __export(__webpack_require__(118));
-__export(__webpack_require__(321));
 __export(__webpack_require__(322));
-__export(__webpack_require__(326));
+__export(__webpack_require__(323));
 __export(__webpack_require__(327));
 __export(__webpack_require__(328));
 __export(__webpack_require__(329));
@@ -30397,10 +30431,11 @@ __export(__webpack_require__(335));
 __export(__webpack_require__(336));
 __export(__webpack_require__(337));
 __export(__webpack_require__(338));
+__export(__webpack_require__(339));
 
 
 /***/ }),
-/* 310 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30442,13 +30477,13 @@ exports.default = Timeout;
 
 
 /***/ }),
-/* 311 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(312);
+var content = __webpack_require__(313);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30473,7 +30508,7 @@ if(false) {
 }
 
 /***/ }),
-/* 312 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30487,7 +30522,7 @@ exports.push([module.i, "/* ----------------------------------------------------
 
 
 /***/ }),
-/* 313 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30499,13 +30534,13 @@ exports.default = FieldLabel;
 
 
 /***/ }),
-/* 314 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const JSONP = __webpack_require__(315);
+const JSONP = __webpack_require__(316);
 const store_1 = __webpack_require__(33);
 const getTractTierTable = () => store_1.store.getState().data.tractTierTable;
 exports.GetTierError = {
@@ -30581,7 +30616,7 @@ const lookupTierFromTract = (tract) => {
 
 
 /***/ }),
-/* 315 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;(function() {
@@ -30702,7 +30737,7 @@ const lookupTierFromTract = (tract) => {
     return data.join('&');
   };
 
-  if ("function" !== "undefined" && __webpack_require__(317) !== null ? __webpack_require__(318) : void 0) {
+  if ("function" !== "undefined" && __webpack_require__(318) !== null ? __webpack_require__(319) : void 0) {
     !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
       return JSONP;
     }.call(exports, __webpack_require__, exports, module),
@@ -30715,10 +30750,10 @@ const lookupTierFromTract = (tract) => {
 
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(316)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(317)(module)))
 
 /***/ }),
-/* 316 */
+/* 317 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -30746,7 +30781,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 317 */
+/* 318 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -30755,7 +30790,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 318 */
+/* 319 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -30764,13 +30799,13 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 319 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(320);
+var content = __webpack_require__(321);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -30795,7 +30830,7 @@ if(false) {
 }
 
 /***/ }),
-/* 320 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -30809,7 +30844,7 @@ exports.push([module.i, ".spinning-load-icon, .spinning-load-icon:after {\n  bor
 
 
 /***/ }),
-/* 321 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30836,7 +30871,7 @@ exports.AttendPercentageFieldContainer = react_redux_1.connect(mapStateToProps, 
 
 
 /***/ }),
-/* 322 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30846,7 +30881,7 @@ const React = __webpack_require__(1);
 const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(72);
 const actions_1 = __webpack_require__(19);
-const combo_box_field_1 = __webpack_require__(323);
+const combo_box_field_1 = __webpack_require__(324);
 const constants_1 = __webpack_require__(5);
 const CurrESProgramField = (props) => (React.createElement(combo_box_field_1.default, { label: "What elementary school program are you in now?", value: props.currProgramID, data: {
         records: props.programs,
@@ -30895,7 +30930,7 @@ exports.CurrESProgramFieldContainer = react_redux_1.connect(mapStateToProps, map
 
 
 /***/ }),
-/* 323 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30904,7 +30939,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const field_validation_state_1 = __webpack_require__(34);
 const field_container_1 = __webpack_require__(46);
-const list_box_1 = __webpack_require__(324);
+const list_box_1 = __webpack_require__(325);
 const debounce_1 = __webpack_require__(35);
 class ComboBoxField extends React.PureComponent {
     constructor(props) {
@@ -30960,14 +30995,14 @@ exports.default = ComboBoxField;
 
 
 /***/ }),
-/* 324 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const list_box_element_1 = __webpack_require__(325);
+const list_box_element_1 = __webpack_require__(326);
 const ListBox = (props) => {
     const className = "list-box " + (props.visible ? "visible" : "");
     return (React.createElement("ul", { className: className }, props.data.records.map(opt => React.createElement(list_box_element_1.default, { key: props.data.getKey(opt), value: props.data.getKey(opt), selected: props.selected === props.data.getKey(opt), onSelect: ev => {
@@ -30979,7 +31014,7 @@ exports.default = ListBox;
 
 
 /***/ }),
-/* 325 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30996,7 +31031,7 @@ exports.default = ListBoxElement;
 
 
 /***/ }),
-/* 326 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31025,7 +31060,7 @@ exports.ELLFieldContainer = react_redux_1.connect(mapStateToProps, mapDispatchTo
 
 
 /***/ }),
-/* 327 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31054,7 +31089,7 @@ exports.IEPFieldContainer = react_redux_1.connect(mapStateToProps, mapDispatchTo
 
 
 /***/ }),
-/* 328 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31079,7 +31114,7 @@ exports.StudentLocationFieldContainer = react_redux_1.connect(mapStateToProps, m
 
 
 /***/ }),
-/* 329 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31098,7 +31133,7 @@ exports.NWEAMathFieldContainer = connect_score_type_1.connectScoreType(enums_1.S
 
 
 /***/ }),
-/* 330 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31117,7 +31152,7 @@ exports.NWEAReadFieldContainer = connect_score_type_1.connectScoreType(enums_1.S
 
 
 /***/ }),
-/* 331 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31136,7 +31171,7 @@ exports.SETestFieldContainer = connect_score_type_1.connectScoreType(enums_1.Sco
 
 
 /***/ }),
-/* 332 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31197,7 +31232,7 @@ exports.SiblingHSFieldContainer = react_redux_1.connect(mapStateToProps, mapDisp
 
 
 /***/ }),
-/* 333 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31227,7 +31262,7 @@ exports.SkippedGradeFieldContainer = react_redux_1.connect(mapStateToProps, mapD
 
 
 /***/ }),
-/* 334 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31250,7 +31285,7 @@ exports.SubjGradeMathFieldContainer = connect_score_type_1.connectScoreType(enum
 
 
 /***/ }),
-/* 335 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31273,7 +31308,7 @@ exports.SubjGradeReadFieldContainer = connect_score_type_1.connectScoreType(enum
 
 
 /***/ }),
-/* 336 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31296,7 +31331,7 @@ exports.SubjGradeSciFieldContainer = connect_score_type_1.connectScoreType(enums
 
 
 /***/ }),
-/* 337 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31319,7 +31354,7 @@ exports.SubjGradeSocStudiesFieldContainer = connect_score_type_1.connectScoreTyp
 
 
 /***/ }),
-/* 338 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31342,7 +31377,7 @@ exports.GPADisplayFieldContainer = react_redux_1.connect(mapStateToProps)(GPADis
 
 
 /***/ }),
-/* 339 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31350,7 +31385,7 @@ exports.GPADisplayFieldContainer = react_redux_1.connect(mapStateToProps)(GPADis
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_redux_1 = __webpack_require__(13);
 const reselect_1 = __webpack_require__(72);
-const hs_program_list_1 = __webpack_require__(340);
+const hs_program_list_1 = __webpack_require__(341);
 const getProgramGroupDict = (state) => state.data.hsProgramGroups;
 const selectProgramGroups = reselect_1.createSelector([getProgramGroupDict], (programGroupDict) => {
     const programGroups = Object.keys(programGroupDict).map(groupID => programGroupDict[groupID]);
@@ -31369,15 +31404,15 @@ exports.default = HSProgramsContainer;
 
 
 /***/ }),
-/* 340 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const search_bar_1 = __webpack_require__(341);
-const hs_group_1 = __webpack_require__(345);
+const search_bar_1 = __webpack_require__(342);
+const hs_group_1 = __webpack_require__(346);
 const constants_1 = __webpack_require__(5);
 class HSProgramList extends React.PureComponent {
     constructor(props) {
@@ -31432,16 +31467,16 @@ exports.default = HSProgramList;
 
 
 /***/ }),
-/* 341 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
-const search_1 = __webpack_require__(342);
+const search_1 = __webpack_require__(343);
 const debounce_1 = __webpack_require__(35);
-__webpack_require__(343);
+__webpack_require__(344);
 class SearchBar extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -31478,7 +31513,7 @@ exports.default = SearchBar;
 
 
 /***/ }),
-/* 342 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31494,13 +31529,13 @@ exports.default = SearchIcon;
 
 
 /***/ }),
-/* 343 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(344);
+var content = __webpack_require__(345);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31525,7 +31560,7 @@ if(false) {
 }
 
 /***/ }),
-/* 344 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -31539,7 +31574,7 @@ exports.push([module.i, ".search-bar-container {\n  width: 100%;\n  padding: 0.5
 
 
 /***/ }),
-/* 345 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31554,8 +31589,8 @@ const outcome_unlikely_1 = __webpack_require__(123);
 const outcome_none_1 = __webpack_require__(124);
 const outcome_notimplemented_1 = __webpack_require__(125);
 const constants_1 = __webpack_require__(5);
-const hs_program_element_1 = __webpack_require__(346);
-__webpack_require__(353);
+const hs_program_element_1 = __webpack_require__(347);
+__webpack_require__(354);
 class HSGroup extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -31658,7 +31693,7 @@ class HSGroup extends React.PureComponent {
                 React.createElement("button", { className: `hs-category-collapse-button ${this.state.collapsed ? "collapsed" : ""}`, onClick: ev => this.setState({ collapsed: !this.state.collapsed }) },
                     React.createElement("div", { className: "hs-category-collapse-button-icon" }, "<"))),
             React.createElement("div", { className: "hs-list" }, this.props.programs.sort(this.sortByOutcome).map((program) => {
-                return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: this.props.outcomes[program.id], selected: program.id === this.props.selectedProgramID, onSelect: newID => this.props.onSelectedProgramIDChange(newID) }));
+                return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: this.props.outcomes[program.id], selected: program.id === this.props.selectedProgramID, onSelect: this.props.onSelectedProgramIDChange }));
             }))));
     }
 }
@@ -31667,7 +31702,7 @@ exports.default = HSGroup;
 
 
 /***/ }),
-/* 346 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31675,16 +31710,17 @@ exports.default = HSGroup;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const enums_1 = __webpack_require__(6);
-const school_1 = __webpack_require__(347);
+const shallow_compare_1 = __webpack_require__(356);
+const school_1 = __webpack_require__(348);
 const outcome_certain_1 = __webpack_require__(120);
 const outcome_likely_1 = __webpack_require__(121);
 const outcome_uncertain_1 = __webpack_require__(122);
 const outcome_unlikely_1 = __webpack_require__(123);
 const outcome_none_1 = __webpack_require__(124);
 const outcome_notimplemented_1 = __webpack_require__(125);
-const hs_program_info_card_1 = __webpack_require__(348);
-__webpack_require__(351);
-class HSProgramElement extends React.PureComponent {
+const hs_program_info_card_1 = __webpack_require__(349);
+__webpack_require__(352);
+class HSProgramElement extends React.Component {
     constructor(props) {
         super(props);
         this.outcomeToClassName = (outcome) => {
@@ -31711,6 +31747,25 @@ class HSProgramElement extends React.PureComponent {
             showHSPreview: props.selected,
             pxFromTop: 0,
         };
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.selected !== this.props.selected) {
+            return true;
+        }
+        if (nextProps.onSelect !== this.props.onSelect) {
+            return true;
+        }
+        if (nextProps.outcome === undefined || this.props.outcome === undefined) {
+            if (nextProps.outcome !== this.props.outcome) {
+                return true;
+            }
+        }
+        else {
+            if (shallow_compare_1.shallowCompare(nextProps.outcome, this.props.outcome) === false) {
+                return true;
+            }
+        }
+        return false;
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
@@ -31759,7 +31814,7 @@ exports.default = HSProgramElement;
 
 
 /***/ }),
-/* 347 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31779,7 +31834,7 @@ exports.default = SchoolIcon;
 
 
 /***/ }),
-/* 348 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31787,7 +31842,7 @@ exports.default = SchoolIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(1);
 const enums_1 = __webpack_require__(6);
-__webpack_require__(349);
+__webpack_require__(350);
 const HSProgramInfoCard = (props) => {
     const toMessage = (success) => {
         let msg = "";
@@ -31841,13 +31896,13 @@ exports.default = HSProgramInfoCard;
 
 
 /***/ }),
-/* 349 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(350);
+var content = __webpack_require__(351);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31872,7 +31927,7 @@ if(false) {
 }
 
 /***/ }),
-/* 350 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -31886,13 +31941,13 @@ exports.push([module.i, ".hs-info-card-container {\n  display: none;\n  position
 
 
 /***/ }),
-/* 351 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(352);
+var content = __webpack_require__(353);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31917,7 +31972,7 @@ if(false) {
 }
 
 /***/ }),
-/* 352 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -31931,13 +31986,13 @@ exports.push([module.i, ".hs-list-element {\n  position: relative;\n  font-size:
 
 
 /***/ }),
-/* 353 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(354);
+var content = __webpack_require__(355);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31962,7 +32017,7 @@ if(false) {
 }
 
 /***/ }),
-/* 354 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -31976,37 +32031,20 @@ exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: aut
 
 
 /***/ }),
-/* 355 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.programOutcomesAreDifferent = (a, b) => {
-    return Object.keys(a).some(programID => {
-        const outcomeA = a[programID];
-        const outcomeB = b[programID];
-        if (outcomeA === undefined && outcomeB === undefined) {
-            return false;
-        }
-        else if (outcomeA === undefined || outcomeB === undefined) {
-            return true;
-        }
-        else {
-            const propertiesDifferent = outcomeA.applicationChance !== outcomeB.applicationChance ||
-                outcomeA.selectionChance !== outcomeB.selectionChance ||
-                outcomeA.overallChance !== outcomeB.overallChance ||
-                outcomeA.distance !== outcomeB.distance;
-            if (propertiesDifferent) {
-                console.log(outcomeA);
-                console.log(outcomeB);
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-    });
+exports.shallowCompare = (objA, objB) => {
+    if (Object.keys(objA).some(key => objA[key] !== objB[key])) {
+        return false;
+    }
+    if (Object.keys(objB).some(key => objA[key] !== objB[key])) {
+        return false;
+    }
+    return true;
 };
 
 

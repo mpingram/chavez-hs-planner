@@ -6,6 +6,8 @@ import {
 } from "shared/types";
 import { SuccessChance } from "shared/enums";
 
+import { shallowCompare } from "shared/util/shallow-compare";
+
 import SchoolIcon from "shared/components/icons/school";
 import OutcomeCertainIcon from "shared/components/icons/outcome-certain";
 import OutcomeLikelyIcon from "shared/components/icons/outcome-likely";
@@ -32,7 +34,7 @@ interface HSProgramElemState {
 
 import "./hs-program-element.scss";
 
-class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgramElemState> {
+class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElemState> {
 
   constructor(props) {
     super(props);
@@ -42,6 +44,33 @@ class HSProgramElement extends React.PureComponent<HSProgramElemProps, HSProgram
       showHSPreview: props.selected,
       pxFromTop: 0,
     };
+  }
+
+  shouldComponentUpdate(nextProps: HSProgramElemProps, nextState: HSProgramElemState) {
+    // assume props.program does not change
+    
+    // compare props.selected
+    if (nextProps.selected !== this.props.selected) {
+      return true;
+    }
+    
+    // compare props.onSelect
+    if (nextProps.onSelect !== this.props.onSelect) {
+      return true;
+    }
+   
+    // shallow compare outcome
+    if (nextProps.outcome === undefined || this.props.outcome === undefined) {
+      if (nextProps.outcome !== this.props.outcome) {
+        return true;
+      }
+    } else {
+      if (shallowCompare(nextProps.outcome, this.props.outcome) === false) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   componentWillReceiveProps(nextProps) {

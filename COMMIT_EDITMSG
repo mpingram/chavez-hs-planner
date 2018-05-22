@@ -1,8 +1,1 @@
-Prevent unnecessary updates of program outcomes in redux store
-
-* compare state.outcomes and nextState.outcomes in redux reducer, and do not
-  update state.outcomes if they are the same
-
-
-
-
+Add shouldComponentUpdate checks to hsProgramElement component

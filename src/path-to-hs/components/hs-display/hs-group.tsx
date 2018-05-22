@@ -174,7 +174,7 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
                   program={program} 
                   outcome={this.props.outcomes[program.id]}
                   selected={program.id === this.props.selectedProgramID}
-                  onSelect={ newID => this.props.onSelectedProgramIDChange(newID) }
+                  onSelect={this.props.onSelectedProgramIDChange}
                 /> 
               );
             })
