@@ -1,8 +1,1 @@
-Add unit tests to requirement function builders
-
-* write unit tests for new dependency-injected sePointSystem,
-ibPointSystem, and ifInAttendBound
-* move tests alongside code
-* clean up old tests
-* update testing framework
-* write missing unit tests
+Write unit tests for config system

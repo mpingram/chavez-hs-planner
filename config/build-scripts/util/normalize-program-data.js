@@ -1,4 +1,5 @@
-const uniqueIDFrom = require("./unique-id-from");
+const crypto = require("crypto");
+
 const getProgramTypeID = require("./get-program-type-id");
 
 const PROGRAM_CATEGORY_ES = "ES";
@@ -103,6 +104,10 @@ function sanitizeRequirementDescriptions(rawProgramData) {
 
   return sanitizedProgramData;
 }
+
+const uniqueIDFrom = (string) => {
+  return crypto.createHash("md5").update(string).digest("hex");
+};
 
 const normalizeProgramData = (rawProgramData, programTypeIDConfig) => {
 
