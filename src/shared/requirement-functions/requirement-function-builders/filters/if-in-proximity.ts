@@ -1,9 +1,11 @@
-import { LatLong } from "shared/types";
+import { 
+  LatLong,
+  ReqFnFilter
+} from "shared/types";
 
 import isUninitialized from "shared/util/is-uninitialized";
 import distanceBetweenCoords from "shared/util/distance-between-coords";
 
-import { ReqFnFilter} from "./";
 import { CPS_PROXIMITY_LOTTERY_RADIUS_MI } from "../../constants";
 
 export const ifInProximity: ReqFnFilter = (student, program) => {

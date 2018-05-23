@@ -1,4 +1,4 @@
-const webpackConfig = require("./webpack.config");
+const webpackConfig = require("./webpack.config.dev");
 
 module.exports = function(config) {
     config.set({
@@ -12,7 +12,7 @@ module.exports = function(config) {
          * The root path location that will be used to resolve all relative
          * paths defined in "files" and "exclude".
          */
-        basePath: "",
+        basePath: "./",
 
         /*
          * List of browsers to launch and capture tests in. In order to use a
@@ -32,7 +32,7 @@ module.exports = function(config) {
          * http://karma-runner.github.io/0.13/config/files.html
          */
         files: [
-            "spec/**/*.spec.ts",
+            "src/**/*.spec.ts"
         ],
         /*
          * List of test frameworks you want to use. For example, if you want to
@@ -48,7 +48,7 @@ module.exports = function(config) {
          * to load via the plugins configuration setting.
          */
         plugins: [
-            "karma-*"
+            "karma-*",
         ],
         // The port where the Karma web server will be listening.
         port: 9876,
@@ -57,14 +57,22 @@ module.exports = function(config) {
          * npm module to be npm installed and added to the "plugins" field.
          */
         preprocessors: {
-            "spec/**/*.spec.ts": ["webpack"], // Using karma-webpack npm module
+            "src/**/*.spec.ts": ["webpack"], // Using karma-webpack npm module
         },
         /*
          * A list of reporters to use to display the test results. In order to
          * use the karma-mocha-reporter, you must npm install the module and
          * include it in the list of plugins.
          */
-        reporters: ["progress"],
+        reporters: ["spec"],
+        specReporter: {
+          maxLogLines: 5,         // limit number of lines logged per test
+          suppressErrorSummary: true,  // do not print error summary
+          suppressFailed: false,  // do not print information about failed tests
+          suppressPassed: false,  // do not print information about passed tests
+          suppressSkipped: true,  // do not print information about skipped tests
+          showSpecTiming: false // print the time elapsed for each spec
+        },
         /*
          * If true, Karma will start and capture all configured browsers, run
          * tests and then exit with an exit code of 0 or 1 depending on whether

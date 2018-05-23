@@ -1,11 +1,11 @@
-import {expect} from "chai";
+import { expect } from "chai";
 
 import {
   StudentData,
   Program
 } from "shared/types";
 
-import { ifStudentAttendsOneOf } from "shared/requirement-functions/requirement-function-builders/filters/if-student-attends-one-of";
+import { ifStudentAttendsOneOf } from "./";
 
 describe("ifStudentAttendsOneOf requirement function filter", () => {
 

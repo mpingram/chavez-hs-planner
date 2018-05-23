@@ -1,4 +1,4 @@
-import { ReqFnFilter} from "./";
+import { ReqFnFilter } from "shared/types";
 
 export const ifIEPorEL: ReqFnFilter = (student, program) => {
   if (student.iep || student.ell) {

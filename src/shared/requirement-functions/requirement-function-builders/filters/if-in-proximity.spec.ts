@@ -4,7 +4,7 @@ import {
   Program
 } from "shared/types";
 
-import { CPS_PROXIMITY_LOTTERY_RADIUS_METERS } from "../../../constants/";
+import { CPS_PROXIMITY_LOTTERY_RADIUS_METERS } from "../../constants";
 import { computeDestinationPoint } from "geolib";
 
 import { ifInProximity } from "shared/requirement-functions/requirement-function-builders/filters/if-in-proximity";

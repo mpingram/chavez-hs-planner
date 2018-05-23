@@ -2,13 +2,13 @@ import {expect} from "chai";
 
 import {
   StudentData,
+  ReqFnFilter,
   Program
 } from "shared/types";
 
 import {
-  ReqFnFilter,
   either
-} from "../../filters";
+} from "./";
 
 const succeed: ReqFnFilter = (student, program) => true;
 const fail: ReqFnFilter = (student, program) => false;

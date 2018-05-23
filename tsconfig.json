@@ -14,7 +14,6 @@
     }
   },
   "include": [
-    "config/data/requirement-functions/**/*",
     "src/**/*",
     "typings.d.ts"
   ],

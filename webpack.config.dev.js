@@ -16,7 +16,7 @@ const config = {
     poll: true
   },
   resolve: {
-    extensions: [".webpack.js", ".ts", ".tsx", ".spec.ts", ".js", ".json"],
+    extensions: [".webpack.js", ".ts", ".tsx", ".spec.ts", ".spec.tsx", ".js", ".json"],
     plugins: [
       new TsConfigPathsPlugin(path.resolve(__dirname, "tsconfig.js"))
     ],

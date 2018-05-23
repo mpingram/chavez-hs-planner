@@ -6,14 +6,18 @@ import {
   Program
 } from "shared/types";
 
-import { ifInAttendBound } from "shared/requirement-functions/requirement-function-builders/filters/if-in-attend-bound";
+import { createIfInAttendBound } from "shared/requirement-functions/requirement-function-builders/filters/if-in-attend-bound";
 
-describe("inAttendBound hsReqFilter", () => {
+const mockAttendBoundTable = require("./__mocks__/mock-school-attendance-boundary-table.json");
+const getMockAttendBoundTable = () => mockAttendBoundTable;
+const ifInAttendBound = createIfInAttendBound(getMockAttendBoundTable);
+
+describe("ifInAttendBound hsReqFilter", () => {
   // NOTE these tests are based on real Chicago addresses and school attendance bounds as of SY1718. 
   // Changes to CPS school attendance bounds may make these tests inaccurate over time.
   
-  let s; // : StudentData
-  let p: Program;
+  let s: any = {}; // : StudentData
+  let p: Program = {} as Program;
   beforeEach( () => {
     s.location = {
       address: "",

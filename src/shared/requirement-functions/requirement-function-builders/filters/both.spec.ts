@@ -1,14 +1,14 @@
-import {expect} from "chai";
+import { expect } from "chai";
 
 import {
+  Program,
+  ReqFnFilter,
   StudentData,
-  Program
 } from "shared/types";
 
 import {
-  ReqFnFilter,
   both
-} from "../../filters";
+} from "./";
 
 const succeed: ReqFnFilter = (student, program) => true;
 const fail: ReqFnFilter = (student, program) => false;
@@ -16,7 +16,7 @@ const fail: ReqFnFilter = (student, program) => false;
 const s = {} as StudentData;
 const p = {} as Program;
 
-describe("both filter composer", () => {
+describe("combine filters function", () => {
   it("should create a filter that only returns true if all filters return true", () => {
     const combined = both(succeed, succeed, succeed);
     expect(combined(s,p)).to.equal(true);

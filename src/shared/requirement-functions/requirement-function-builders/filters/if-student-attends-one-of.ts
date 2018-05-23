@@ -1,4 +1,4 @@
-import { ReqFnFilter} from "./";
+import { ReqFnFilter } from "shared/types";
 
 export const ifStudentAttendsOneOf = (...programIDs): ReqFnFilter => {
   if(programIDs.length === 0) {

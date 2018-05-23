@@ -2,11 +2,12 @@ import {
   StudentData,
   Program,
   RequirementFunction,
+  ReqFnFilter,
 } from "shared/types";
+
 import {SuccessChance} from "shared/enums/success-chance";
 
 import {
-  ReqFnFilter,
   ifInProximity,
   ifSiblingAttends,
   everyone,

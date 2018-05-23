@@ -8,5 +8,4 @@ export * from "./if-iep-or-el";
 export * from "./if-skipped-7-or-repeated-8";
 export * from "./both";
 export * from "./either";
-export * from "./types/req-fn-filter";
 
