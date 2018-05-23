@@ -15,8 +15,8 @@ import {
   GENERAL_LOTTERY_STAGE,
   LotteryStageSize,
   conditional,
-  ibPointSystem,
-  sePointSystem,
+  createIBPointSystem,
+  createSEPointSystem,
   notImplemented
 } from "./requirement-function-builders";
 
@@ -27,7 +27,7 @@ import {
   ifSiblingAttends, 
   ifStudentAttendsOneOf, 
   ifHasGrades,
-  ifInAttendBound,
+  createIfInAttendBound,
   ifIEPorEL,
   ifSkipped7OrRepeated8
 } from "./requirement-function-builders/filters";
@@ -69,9 +69,24 @@ import {
   WEST_RIDGE_ES_PROGRAM,
 } from "./constants";
 
+/* 
+ * Initialize ibPointSystem, sePointSystem, and getAttendBoundDict.
+ *
+ * These three functions depend on app data (school cutoff scores and attendance boundary geo data). 
+ * We need to initialize these functions by passing them a link
+ * to the app's redux store, which holds the data.
+ * */
+import { store } from "shared/redux/store";
+const getAttendBoundDict = () => store.getState().data.schoolAttendanceBoundaryTable;
+const getSECutoffScores = () => store.getState().data.seCutoffScores;
+const getNonSECutoffScores = () => store.getState().data.nonSECutoffScores;
+
+const ifInAttendBound = createIfInAttendBound(getAttendBoundDict);
+const ibPointSystem: RequirementFunction = createIBPointSystem(getNonSECutoffScores, ifInAttendBound);
+const sePointSystem: RequirementFunction = createSEPointSystem(getSECutoffScores);
 
 interface ReqFnTable {
-  [hashId: string]: {
+  [reqFnId: string]: {
     name?: string
     desc: string
     programs: string[]

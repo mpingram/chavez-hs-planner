@@ -2,13 +2,11 @@ import {
   RequirementFunction,
   StudentData,
   Program,
+  SECutoffDictionary,
   CutoffScores
 } from "shared/types";
 
 import { SuccessChance } from "shared/enums";
-
-import { store } from "shared/redux/store";
-const getSECutoffScoresTable = () => store.getState().data.seCutoffScores;
 
 const sePointCalc = (student: StudentData, program: Program): number | null => {
 
@@ -59,11 +57,11 @@ const sePointCalc = (student: StudentData, program: Program): number | null => {
   return sePoints;
 };
 
-const seLookup  = (student: StudentData, program: Program): CutoffScores | null  => {
+const createSELookup = (getCutoffDict: () => SECutoffDictionary) => (student: StudentData, program: Program): CutoffScores | null  => {
   // TODO: this ignores rank cutoff scores, assuming that if you make it
   // past your tier cutoff scores you're good. Make double sure that's a
   // good assumption.
-  const cutoff = getSECutoffScoresTable()[program.id];
+  const cutoff = getCutoffDict()[program.id];
   if (cutoff === undefined) {
     return null;
   }
@@ -85,44 +83,48 @@ const seLookup  = (student: StudentData, program: Program): CutoffScores | null 
   }
 };
 
-export const sePointSystem: RequirementFunction = (student, program)  => {
-  // if student data is not initialized, return early with NOTIMPLEMENTED
-  if (student.nweaPercentileMath === null ||
-    student.nweaPercentileRead === null ||
-    student.subjGradeMath === null ||
-    student.subjGradeRead === null ||
-    student.subjGradeSci === null ||
-    student.subjGradeSocStudies === null ||
-    student.seTestPercentile === null ||
-    student.location === null
-  ) {
+export const createSEPointSystem = (getCutoffDict: () => SECutoffDictionary): RequirementFunction => {
 
-    return SuccessChance.NOTIMPLEMENTED;
-  }
-  
-  const points = sePointCalc(student, program);
-  const prevScores= seLookup(student, program);
-  if (prevScores === null) {
-    return SuccessChance.NOTIMPLEMENTED;
-  }
+  const seLookup = createSELookup(getCutoffDict);
 
-  if (points === null || isNaN(points)) {
-    console.error("received NaN for sePointCalc");
-    return SuccessChance.NOTIMPLEMENTED;
-  }
-  if (isNaN(prevScores.min) || isNaN(prevScores.avg) || isNaN(prevScores.max)) {
-    console.error("received NaN for seCutoffLookup");
-    return SuccessChance.NOTIMPLEMENTED;
-  }
+  return (student, program) => {
+    // if student data is not initialized, return early with NOTIMPLEMENTED
+    if (student.nweaPercentileMath === null ||
+      student.nweaPercentileRead === null ||
+      student.subjGradeMath === null ||
+      student.subjGradeRead === null ||
+      student.subjGradeSci === null ||
+      student.subjGradeSocStudies === null ||
+      student.seTestPercentile === null ||
+      student.location === null
+    ) {
+      return SuccessChance.NOTIMPLEMENTED;
+    }
+    
+    const points = sePointCalc(student, program);
+    const prevScores= seLookup(student, program);
+    if (prevScores === null) {
+      return SuccessChance.NOTIMPLEMENTED;
+    }
 
-  if (points >= prevScores.max) {
-    return SuccessChance.CERTAIN;
-  } else if (points >= prevScores.avg) {
-    return SuccessChance.LIKELY;
-  } else if (points >= prevScores.min) {
-    return SuccessChance.UNCERTAIN; 
-  } else {
-    return SuccessChance.NONE;
+    if (points === null || isNaN(points)) {
+      console.error("received NaN for sePointCalc");
+      return SuccessChance.NOTIMPLEMENTED;
+    }
+    if (isNaN(prevScores.min) || isNaN(prevScores.avg) || isNaN(prevScores.max)) {
+      console.error("received NaN for seCutoffLookup");
+      return SuccessChance.NOTIMPLEMENTED;
+    }
+
+    if (points >= prevScores.max) {
+      return SuccessChance.CERTAIN;
+    } else if (points >= prevScores.avg) {
+      return SuccessChance.LIKELY;
+    } else if (points >= prevScores.min) {
+      return SuccessChance.UNCERTAIN; 
+    } else {
+      return SuccessChance.NONE;
+    }
   }
 };
 

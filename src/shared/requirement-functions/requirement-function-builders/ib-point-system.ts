@@ -1,20 +1,16 @@
 import { 
   CutoffScores,
   Program,
+  ReqFnFilter,
   RequirementFunction,
   StudentData,
+  NonSECutoffDictionary,
+  AttendanceBoundaryDictionary
 } from "shared/types";
 
 import { pointSystem } from "./point-system";
-import { ifInAttendBound } from "./filters";
 
-import { store } from "shared/redux/store";
-
-const getIBCutoffTable = () => {
-  return store.getState().data.nonSECutoffScores;
-};
-
-const ibPointCalc = (student: StudentData, program: Program): number | null => {
+const createIBPointCalc = (ifInAttendBound: ReqFnFilter) => (student: StudentData, program: Program): number | null => {
 
   // if any needed student data is null, return early with null
   if (student.nweaPercentileMath === null ||
@@ -62,13 +58,18 @@ const ibPointCalc = (student: StudentData, program: Program): number | null => {
   return ibPoints;
 };  
 
-const ibCutoffLookup = (student: StudentData, program: Program): CutoffScores => {
-  const cutoff = getIBCutoffTable()[program.id];
+const createIBCutoffLookup = (getCutoffDict: () => NonSECutoffDictionary) => (student: StudentData, program: Program): CutoffScores => {
+  const cutoff = getCutoffDict()[program.id];
   if (cutoff === undefined) {
     throw new Error(`School ${program.schoolNameLong} not found in IB Cutoff scores`); 
   }
   return cutoff;
 };
 
-export const ibPointSystem: RequirementFunction = pointSystem(ibPointCalc, ibCutoffLookup);
+export const createIBPointSystem = (getCutoffDict: () => NonSECutoffDictionary, ifInAttendBound: ReqFnFilter) => {
+  const ibPointCalc = createIBPointCalc(ifInAttendBound);
+  const ibCutoffLookup = createIBCutoffLookup(getCutoffDict);
+  return pointSystem(ibPointCalc, ibCutoffLookup);
+} 
+  
 
