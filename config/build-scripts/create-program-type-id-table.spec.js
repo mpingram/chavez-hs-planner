@@ -1,6 +1,6 @@
-const {expect} = require("chai");
+const { expect } = require("chai");
 
-const createProgramTypeIDTable = require("../../../config/build-scripts/create-program-type-id-table");
+const createProgramTypeIDTable = require("./create-program-type-id-table");
 
 describe("createProgramTypeIDTable", () => {
 

@@ -16,16 +16,28 @@
  * boundary.
  * */
 function createSchoolAttendanceBoundaryTable(attendBoundGeojson, coordinatePrecision) {
+  if (coordinatePrecision !== undefined) {
+    if (typeof coordinatePrecision !== "number") {
+      throw new Error("Incorrect parameters passed to createSchoolAttendanceBoundaryTable.");
+    }
+  }
+
+  // HACK: deep clone attendBoundGeojson so that this mutation-happy code does not
+  // mutate the arguments passed to it. (!)
+  let geojson = JSON.parse(JSON.stringify(attendBoundGeojson));
+
   // if coordinate precision is specified, reduce precision of coordinates
   // of each geojson object
   if (coordinatePrecision !== undefined) {
-    reduceGeojsonPrecision(attendBoundGeojson, coordinatePrecision);
-  }
+    // reduceGeojson mutates its parameters. (I know, I know.)
+    reduceGeojsonPrecision(geojson, coordinatePrecision);
+  } 
+
 
   let output = {};
   // Each feature in the geoJSON object's 'features' property describes
   // one school.
-  const schools = attendBoundGeojson.features;
+  const schools = geojson.features;
   // Add the school's geometry to the output object keyed by school ID.
   schools.forEach( school => {
     output[school.properties.school_id] = school.geometry.coordinates;
@@ -54,8 +66,6 @@ function round(number, precision) {
 function reduceGeojsonPrecision(geojson, decimalPrecision) {
 
   function setPrecision(coords, precision) {
-    // coords are nested 4 levels deep
-    coords = coords[0][0];
     coords = coords.map( coordPair => [
         round(coordPair[0], precision), 
         round(coordPair[1], precision)
@@ -71,15 +81,18 @@ function reduceGeojsonPrecision(geojson, decimalPrecision) {
         } else {
           return true;
         }
+      } else {
+        return true;
       }
     } );
+
     return coords;
   }
 
   // iterate through the geojson coordinates and reduce their precision
   const features = geojson["features"];
   geojson["features"] = features.map( feature => {
-    const coords = feature["geometry"]["coordinates"];
+    const coords = feature["geometry"]["coordinates"][0][0];
     feature["geometry"]["coordinates"] = setPrecision(coords, decimalPrecision);
     return feature;
   });

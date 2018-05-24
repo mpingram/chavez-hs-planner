@@ -1,8 +1,6 @@
-import { createProgram } from "typescript";
-
 const {expect} = require("chai");
 
-const createProgramData = require("../../../config/build-scripts/create-program-data");
+const createProgramData = require("./create-program-data");
 
 describe("createProgramData", () => {
 
@@ -39,10 +37,10 @@ describe("createProgramData", () => {
         School_Longitude: "2",
       },
     ];
-    mockProgramTypeIDConfig = {
-      "type1": {programTypeID: "type1", name: "type1"},
-      "type2": {programTypeID: "type2", name: "type2"},
-    };
+    mockProgramTypeIDConfig = [
+      {programTypeID: "type1", name: "type1"},
+      {programTypeID: "type2", name: "type2"},
+    ];
   });
 
   it("should assign a unique programID property to each program in the output", () => {
@@ -56,13 +54,15 @@ describe("createProgramData", () => {
         return false;
       }
     }
-    expect(programs.some(isNotUnique)).to.be(false);
+    expect(programs.some(isNotUnique)).to.be.false;
   });
 
   it("should assign a matching programTypeID from programTypeID config to each program", () => {
     const programs = createProgramData(mockRawProgramData, mockProgramTypeIDConfig);
     programs.forEach( program => {
-      expect(mockProgramTypeIDConfig[program.proigramTypeID]).to.not.be(undefined);
+      // expect to find each program's type id in the original program type id config.
+      expect(mockProgramTypeIDConfig.some( entry => entry.programTypeID === program.programTypeID ) ).to.eq(true);
+      expect(mockProgramTypeIDConfig.some( entry => entry.programTypeID === 'not a program type ID' ) ).not.to.eq(true);
     });
   });
 
@@ -87,15 +87,15 @@ describe("createProgramData", () => {
     
     const programs = createProgramData(mockRawProgramData, mockProgramTypeIDConfig)
     programs.forEach( (program, i) => {
-      expect(program.location.latitude).to.not.be(NaN);
-      expect(program.location.longitude).to.not.be(NaN);
+      expect(program.schoolLocation.latitude).to.not.be.NaN;
+      expect(program.schoolLocation.longitude).to.not.be.NaN;
 
       const originalRawProgram = mockRawProgramData[i];
       const originalLatitude = originalRawProgram.School_Latitude;
       const originalLongitude = originalRawProgram.School_Longitude;
 
-      expect(program.location.latitude).to.equal(Number.parseFloat(originalLatitude));
-      expect(program.location.longitude).to.equal(Number.parseFloat(originalLongitude));
+      expect(program.schoolLocation.latitude).to.equal(Number.parseFloat(originalLatitude));
+      expect(program.schoolLocation.longitude).to.equal(Number.parseFloat(originalLongitude));
     })
   });
 

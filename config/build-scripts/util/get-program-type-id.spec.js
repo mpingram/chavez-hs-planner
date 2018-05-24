@@ -1,30 +1,28 @@
-import { get } from "http";
-
 const {expect} = require("chai");
 
-const getProgramTypeID = require("../../../../config/build-scripts/util/get-program-type-id");
+const getProgramTypeID = require("./get-program-type-id");
 
 describe("getProgramTypeID", () => {
 
-  const programTypeIDsConfig = {
-    "1": {
+  const programTypeIDsConfig = [
+    {
       programTypeID: "1",
       name: "1",
       alternateNames: ["one"]
     },
-    "2": {
+    {
       programTypeID: "2",
       name: "2",
       alternateNames: ["two", "too"]
     }
-  };
+  ];
 
   it("should return null if programType cannot be found in programTypeIDsConfig", () => {
     // positive
-    expect(getProgramTypeID("willis", programTypeIDsConfig)).to.be(null);
-    expect(getProgramTypeID(1, programTypeIDsConfig)).to.be(null);
+    expect(getProgramTypeID("willis", programTypeIDsConfig)).to.be.null;
+    expect(getProgramTypeID(1, programTypeIDsConfig)).to.be.null;
     // negative
-    expect(getProgramTypeID("1", programTypeIDsConfig)).not.to.be(null);
+    expect(getProgramTypeID("1", programTypeIDsConfig)).not.to.be.null;
   });
 
   it("if programType can be found in programTypeIDsConfig, should return matching program type id", () => {
@@ -43,6 +41,17 @@ describe("getProgramTypeID", () => {
     expect(getProgramTypeID(" TOO ", programTypeIDsConfig)).to.eq("2");
     // negative
     expect(getProgramTypeID("TOO", programTypeIDsConfig)).not.to.eq("1");
+  });
+
+  it("should expect the 'alternateNames' field in programTypeIDsConfig to be optional", () => {
+    const programTypeIDsConfigNoAltNames = [
+      {
+        programTypeID: "3",
+        name: "Three Dogs"
+      }
+    ];
+    expect(getProgramTypeID("Three Dogs", programTypeIDsConfigNoAltNames)).to.eq("3");
+    expect(getProgramTypeID("Four Dogs??", programTypeIDsConfigNoAltNames)).not.to.eq("3");
   });
 
 });
