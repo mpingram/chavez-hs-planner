@@ -2,6 +2,7 @@ import {
   AppState,
   ProgramDictionary,
   ProgramTypeIDTable,
+  RequirementFunctionDictionary,
   SchoolDictionary
 } from "shared/types";
 
@@ -26,6 +27,8 @@ import {
 
 import { updateProgramOutcomes } from "./update-program-outcomes";
 
+import { requirementFunctions } from "shared/requirement-functions";
+
 const fetchJSONFrom = (url: string): Promise<any> => {
   return fetch(url).then( 
     res => {
@@ -42,28 +45,29 @@ const fetchJSONFrom = (url: string): Promise<any> => {
   );
 };
 
-const updateHSPrograms = (data) => {
+export const updateHSPrograms = (data) => {
   return {
     type: ActionType.UpdateHSPrograms,
     payload: data
   }
 }
-const loadHSPrograms = () => {
+
+export const loadHSPrograms = (requirementFunctions: RequirementFunctionDictionary) => {
   return (dispatch) => {
     return fetchJSONFrom(HS_PROGRAMS_URL).then( json => {
-      const programDict: ProgramDictionary = createHSProgramDictionary(json);
+      const programDict: ProgramDictionary = createHSProgramDictionary(json, requirementFunctions);
       dispatch( updateHSPrograms(programDict) );
     });
   }
 };
 
-const updateNonHSPrograms = (data) => {
+export const updateNonHSPrograms = (data) => {
   return {
     type: ActionType.UpdateNonHSPrograms,
     payload: data
   }
 };
-const loadNonHSPrograms = () => {
+export const loadNonHSPrograms = () => {
   return (dispatch) => {
     return fetchJSONFrom(NON_HS_PROGRAMS_URL).then( json => {
       const programDict: ProgramDictionary = createNonHSProgramDictionary(json);
@@ -72,13 +76,13 @@ const loadNonHSPrograms = () => {
   }
 };
 
-const updateSECutoffScores = (data) => {
+export const updateSECutoffScores = (data) => {
   return {
     type: ActionType.UpdateSECutoffScores,
     payload: data
   }
 };
-const loadSECutoffScores = () => {
+export const loadSECutoffScores = () => {
   return (dispatch) => {
     return fetchJSONFrom(SE_CUTOFF_SCORES_URL).then( json => {
       dispatch( updateSECutoffScores(json) );
@@ -86,13 +90,13 @@ const loadSECutoffScores = () => {
   }
 };
 
-const updateNonSECutoffScores = (data) => {
+export const updateNonSECutoffScores = (data) => {
   return {
     type: ActionType.UpdateNonSECutoffScores,
     payload: data
   }
 };
-const loadNonSECutoffScores = () => {
+export const loadNonSECutoffScores = () => {
   return (dispatch) => {
     return fetchJSONFrom(NON_SE_CUTOFF_SCORES_URL).then( json => {
       dispatch( updateNonSECutoffScores(json) );
@@ -100,13 +104,13 @@ const loadNonSECutoffScores = () => {
   }
 };
 
-const updateProgramTypeIDTable = (data) => {
+export const updateProgramTypeIDTable = (data) => {
   return {
     type: ActionType.UpdateProgramTypeIDTable,
     payload: data
   }
 };
-const loadProgramTypeIDTable = () => {
+export const loadProgramTypeIDTable = () => {
   return (dispatch) => {
     return fetchJSONFrom(PROGRAM_TYPE_ID_TABLE_URL).then( json => {
       dispatch( updateProgramTypeIDTable(json) );
@@ -114,13 +118,13 @@ const loadProgramTypeIDTable = () => {
   }
 };
 
-const updateSchoolAttendanceBoundaryTable = (data) => {
+export const updateSchoolAttendanceBoundaryTable = (data) => {
   return {
     type: ActionType.UpdateSchoolAttendanceBoundaryTable,
     payload: data
   }
 };
-const loadSchoolAttendanceBoundaryTable = () => {
+export const loadSchoolAttendanceBoundaryTable = () => {
   return (dispatch) => {
     return fetchJSONFrom(SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then( json => {
       dispatch( updateSchoolAttendanceBoundaryTable(json) );
@@ -128,13 +132,13 @@ const loadSchoolAttendanceBoundaryTable = () => {
   }
 };
 
-const updateTractTierTable = (data) => {
+export const updateTractTierTable = (data) => {
   return {
     type: ActionType.UpdateTractTierTable,
     payload: data
   }
 };
-const loadTractTierTable = () => {
+export const loadTractTierTable = () => {
   return (dispatch) => {
     return fetchJSONFrom(TRACT_TIER_TABLE_URL).then( json => {
       dispatch( updateTractTierTable(json) );
@@ -142,18 +146,18 @@ const loadTractTierTable = () => {
   }
 };
 
-const loadingData = () => {
+export const loadingData = () => {
   return {
     type: ActionType.LoadingData
   }
 };
-const dataLoaded = () => {
+export const dataLoaded = () => {
   return {
     type: ActionType.DataLoaded
   }
 };
 
-const updateProgramGroups = (hsPrograms: ProgramDictionary, programTypeIDTable: ProgramTypeIDTable) => {
+export const updateProgramGroups = (hsPrograms: ProgramDictionary, programTypeIDTable: ProgramTypeIDTable) => {
   return {
     type: ActionType.UpdateHSProgramGroups,
     payload: createProgramGroupDictionary(hsPrograms, programTypeIDTable)
@@ -170,13 +174,30 @@ const createHSSchools = (hsPrograms: ProgramDictionary): SchoolDictionary => {
   return schoolDict;
 };
 
-const updateHSSchools = (hsPrograms: ProgramDictionary) => {
+export const updateHSSchools = (hsPrograms: ProgramDictionary) => {
   return {
     type: ActionType.UpdateHSSchools,
     payload: createHSSchools(hsPrograms)
   }
 };
 
+/**
+ * loadAllData is a convenience method for loading or re-loading all app data at once.
+ *
+ * loadAllData dispatches actions for loading every piece 
+ * of app data, and waits for the actions to complete.
+ *
+ * If the data loading actions all complete successfully, it then 
+ * dispatches more actions to update derived data. These are:
+ *  1) an action informing the store that all data is loaded,
+ *  2) an action to update hsSchoolDictionary based on the new data,
+ *  3) an action to update program groups based on the new data
+ *  4) an action to update program outcomes based on the new data.
+ *
+ * If any of the data loading actions fail to complete, 
+ * ...
+ * TODO figure out how we should do error handling.
+ * */
 export const loadAllData = () => {
   // dispatch all data loading actions, wrapped
   // by Promise.all().
@@ -184,7 +205,7 @@ export const loadAllData = () => {
   return (dispatch, getState) => {
     dispatch( loadingData() );
     return Promise.all([
-      dispatch( loadHSPrograms() ),
+      dispatch( loadHSPrograms(requirementFunctions) ),
       dispatch( loadNonHSPrograms() ),
       dispatch( loadSECutoffScores() ),
       dispatch( loadNonSECutoffScores() ),

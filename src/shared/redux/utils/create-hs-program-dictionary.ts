@@ -1,11 +1,10 @@
 import {
   Program,
-  ProgramDictionary
+  ProgramDictionary,
+  RequirementFunctionDictionary
 } from "shared/types";
 
-import { requirementFunctions } from "shared/requirement-functions";
-
-export const createHSProgramDictionary = (rawProgramData): ProgramDictionary => {
+export const createHSProgramDictionary = (rawProgramData, requirementFunctions: RequirementFunctionDictionary): ProgramDictionary => {
   let programDictionary: ProgramDictionary = {};
   rawProgramData.forEach( rawProgram => {
 

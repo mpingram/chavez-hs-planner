@@ -23,5 +23,6 @@ export * from "./req-fn-filter";
 export * from "./attendance-boundary-dictionary";
 export * from "./non-se-cutoff-dictionary";
 export * from "./se-cutoff-dictionary";
+export * from "./requirement-function-dictionary";
 
 
