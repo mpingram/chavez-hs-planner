@@ -1,12 +1,15 @@
 import {
   AppData,
+  Program,
+  ProgramOutcome,
   ProgramOutcomeDictionary,
   StudentData, 
+  ProgramModalState
 } from "shared/types";
 
 export interface AppState {
-  
-  studentData: StudentData;
+
+  studentData: StudentData
 
   programOutcomes: ProgramOutcomeDictionary
 
@@ -16,4 +19,6 @@ export interface AppState {
   }
 
   data: AppData
+
+  programModalState: ProgramModalState  
 };

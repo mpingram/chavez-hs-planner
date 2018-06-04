@@ -6,6 +6,8 @@ import StudentDataForm from "./components/student-info-display/student-data-form
 import SuccessChanceKey from "./components/hs-display/success-chance-key";
 import HSProgramsContainer from "./components/hs-display/hs-programs-container";
 
+import { ProgramModalContainer } from "./components/program-modal-container";
+
 const PathToHS: React.SFC<any> = (props) => {
   return (
     <Page>
@@ -27,6 +29,7 @@ const PathToHS: React.SFC<any> = (props) => {
       >
         <HSProgramsContainer/>
       </Box>
+      <ProgramModalContainer />
     </Page>
   );
 };

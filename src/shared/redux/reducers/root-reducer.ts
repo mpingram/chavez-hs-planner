@@ -15,6 +15,7 @@ import { initialState } from "./initial-state";
 import { studentDataReducer } from "./student-data-reducer";
 import { loadingStatusReducer } from "./loading-status-reducer";
 import { dataReducer } from "./data-reducer";
+import { programModalStateReducer } from "./program-modal-state-reducer";
 
 //export const rootReducer: Redux.Reducer<AppState> = Redux.combineReducers({
 //  studentData: studentDataReducer,
@@ -51,11 +52,14 @@ export const rootReducer: Redux.Reducer<AppState> = (state = initialState, actio
     nextProgramOutcomes = state.programOutcomes;
   }
 
+  const nextProgramModalState = programModalStateReducer(state.programModalState, action)
+
   return {
     studentData: nextStudentData,
     loadingStatus: nextLoadingStatus,
     data: nextData,
-    programOutcomes: nextProgramOutcomes
+    programOutcomes: nextProgramOutcomes,
+    programModalState: nextProgramModalState
   };
 };
 

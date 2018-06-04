@@ -5,9 +5,11 @@ import { createSelector } from "reselect";
 import { 
   AppState,
   Program,
+  ProgramOutcome,
   ProgramGroup
 } from "shared/types";
 
+import { openProgramModal } from "shared/redux/actions";
 
 import { SuccessChance } from "shared/enums";
 
@@ -35,7 +37,15 @@ const mapStateToProps = (state: AppState) => {
   }
 };
 
-const HSProgramsContainer = connect(mapStateToProps)(HSProgramList);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSelectedProgramChange: (program: Program, outcome: ProgramOutcome | undefined) => {
+      dispatch(openProgramModal(program, outcome))
+    }
+  }
+};
+
+const HSProgramsContainer = connect(mapStateToProps, mapDispatchToProps)(HSProgramList);
 
 export default HSProgramsContainer;
 

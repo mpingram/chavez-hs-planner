@@ -38,8 +38,14 @@ export const initialData = {
   schoolAttendanceBoundaryTable: {},
   tractTierTable: {}
 };
+export const initialProgramModalState = {
+  open: false,
+  program: null,
+  outcome: null
+}
 
 export const initialState: AppState = {
+  programModalState: initialProgramModalState,
   studentData: initialStudentData,
   programOutcomes: initialProgramOutcomes,
   loadingStatus: initialLoadingStatus,

@@ -2,6 +2,7 @@ import * as React from "react";
 
 import {
   Program,
+  ProgramOutcome,
   ProgramDictionary,
   ProgramGroup,
   ProgramOutcomeDictionary
@@ -15,10 +16,10 @@ interface HSProgramListProps {
   programs: ProgramDictionary
   programGroups: ProgramGroup[]
   outcomes: ProgramOutcomeDictionary
+  onSelectedProgramChange: (program: Program, outcome: ProgramOutcome | undefined) => any
 }
 
 interface HSProgramListState {
-  selectedProgramID: string | null
   searchTerm: string;
 }
 
@@ -30,7 +31,6 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
     super(props);
     this.state = {
       searchTerm: "",
-      selectedProgramID: null
     };
   }
 
@@ -78,8 +78,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
                   title={group.name}
                   programs={filteredPrograms}
                   outcomes={this.props.outcomes}
-                  selectedProgramID={this.state.selectedProgramID}
-                  onSelectedProgramIDChange={this.handleSelectedProgramIDChange}
+                  onSelectedProgramChange={this.props.onSelectedProgramChange}
                 />
               )
             }
@@ -103,12 +102,6 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
 
     return programs.filter( program => {
       return hasTerm(program.programName);
-    });
-  }
-
-  private handleSelectedProgramIDChange = (id: string) => {
-    this.setState({
-      selectedProgramID: id
     });
   }
 

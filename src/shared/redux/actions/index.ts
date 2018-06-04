@@ -4,7 +4,11 @@ import {
   ScoreType
 }  from "shared/enums";
 
-import { StudentLocation } from "shared/types";
+import { 
+  Program,
+  ProgramOutcome,
+  StudentLocation
+} from "shared/types";
 
 import { updateProgramOutcomes } from "./update-program-outcomes";
 
@@ -161,6 +165,20 @@ export const updateStudentScore = (scoreType: ScoreType, newValue: number) => {
     type: actionType,
     payload: newValue
   };
+}
+
+export const openProgramModal = (program: Program, outcome: ProgramOutcome | undefined) => {
+  return {
+    type: ActionType.OpenProgramModal,
+    program: program,
+    outcome: outcome === undefined ? null : outcome
+  }
+};
+
+export const closeProgramModal = () => {
+  return {
+    type: ActionType.CloseProgramModal
+  }
 }
 
 

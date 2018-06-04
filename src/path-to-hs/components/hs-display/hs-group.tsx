@@ -29,8 +29,7 @@ interface HSGroupProps {
   title: string
   programs: Program[]
   outcomes: ProgramOutcomeDictionary
-  selectedProgramID: string | null
-  onSelectedProgramIDChange: (newID: string | null) => any
+  onSelectedProgramChange: (program: Program, outcome: ProgramOutcome | undefined) => any
 }
 
 interface ProgramCounts {
@@ -168,13 +167,13 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
         <div className="hs-list">
           { 
             this.props.programs.sort( this.sortByOutcome ).map( (program: Program) => {
+              const outcome = this.props.outcomes[program.id];
               return (
                 <HSProgramElement 
                   key={program.id} 
                   program={program} 
-                  outcome={this.props.outcomes[program.id]}
-                  selected={program.id === this.props.selectedProgramID}
-                  onSelect={this.props.onSelectedProgramIDChange}
+                  outcome={outcome}
+                  onSelect={this.props.onSelectedProgramChange}
                 /> 
               );
             })

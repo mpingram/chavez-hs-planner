@@ -21,14 +21,11 @@ import HSProgramInfoCard from "./hs-program-info-card";
 interface HSProgramElemProps {
   program: Program
   outcome: ProgramOutcome | undefined
-  selected: boolean
-  onSelect: (id: string | null) => any
+  onSelect: (program: Program, outcome: ProgramOutcome | undefined) => any
 }
 
 interface HSProgramElemState {
-  showHSPreview: boolean
   visited: boolean
-  pxFromTop: number
   combinedSuccessChance: SuccessChance
 }
 
@@ -41,18 +38,11 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
     this.state = { 
       visited: false,
       combinedSuccessChance: props.outcome === undefined ? SuccessChance.NOTIMPLEMENTED : props.outcome.overallChance,
-      showHSPreview: props.selected,
-      pxFromTop: 0,
     };
   }
 
   shouldComponentUpdate(nextProps: HSProgramElemProps, nextState: HSProgramElemState) {
     // assume props.program does not change
-    
-    // compare props.selected
-    if (nextProps.selected !== this.props.selected) {
-      return true;
-    }
     
     // compare props.onSelect
     if (nextProps.onSelect !== this.props.onSelect) {
@@ -75,7 +65,6 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      showHSPreview: nextProps.selected,
       combinedSuccessChance: nextProps.outcome.overallChance
     });
   }
@@ -101,42 +90,30 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
 
   render() {
     const IconClassName = `hs-list-element-icon ${this.outcomeToClassName(this.state.combinedSuccessChance)}`;
+
     return (
-      <div>
-        <button 
-          className={"hs-list-element" + " " + (this.props.selected ? "selected" : "")}
-          ref={ ref => {
-            if (ref) { 
-              this.setState({ pxFromTop: ref.offsetTop + 60 });
-            }
-          } }
-          onClick={(ev) => {
-            this.setState({visited: true});
-            this.props.onSelect(this.props.program.id);
-            console.log(this.state);
-          } }
-        >
-          <div className="outcome-icon-container">
-            { this.getIcon(this.state.combinedSuccessChance) }
-          </div>
-          <div className={IconClassName}>
-            { this.state.combinedSuccessChance !== SuccessChance.NOTIMPLEMENTED &&
-            <SchoolIcon width="45px" height="45px" color="#000"/>
-            }
-          </div>
-          <div className={`hs-list-element-shortname ${this.state.visited ? "visited" : ""}`}>
-            {this.props.program.schoolNameShort}
-          </div>
-        </button>
-        <HSProgramInfoCard 
-          visible={this.state.showHSPreview} 
-          program={this.props.program}
-          outcome={this.props.outcome}
-          style={{top: this.state.pxFromTop}}
-          onCloseButtonClick={ ev => this.props.onSelect(null) }
-        />
-      </div>
+      <button 
+        className="hs-list-element"
+        onClick={this.handleClick}
+      >
+        <div className="outcome-icon-container">
+          { this.getIcon(this.state.combinedSuccessChance) }
+        </div>
+        <div className={IconClassName}>
+          { this.state.combinedSuccessChance !== SuccessChance.NOTIMPLEMENTED &&
+          <SchoolIcon width="45px" height="45px" color="#000"/>
+          }
+        </div>
+        <div className={`hs-list-element-shortname ${this.state.visited ? "visited" : ""}`}>
+          {this.props.program.schoolNameShort}
+        </div>
+      </button>
     )
+  }
+
+  private handleClick = (ev) => {
+    this.setState({visited: true});
+    this.props.onSelect(this.props.program, this.props.outcome);
   }
 
   private outcomeToClassName = (outcome: SuccessChance) => {

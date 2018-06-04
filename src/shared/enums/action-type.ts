@@ -28,6 +28,8 @@ export enum ActionType {
 
   /* ui state */
   SelectHSProgram,
+  OpenProgramModal,
+  CloseProgramModal,
 
   /* data loading */
   LoadingData,
