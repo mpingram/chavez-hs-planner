@@ -16,7 +16,7 @@ const getCategory = (p) => {
 };
 
 const isESProgram = (program) => {
-  if (program.Primary_Category !== "ES") {
+  if (program.Primary_Category === "ES") {
     return true;
   } else if (program.Primary_Category === "HS") {
     // Academic Centers are ES (6th-8th) grade programs that are held

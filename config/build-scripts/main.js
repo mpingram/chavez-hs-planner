@@ -30,7 +30,7 @@ const PROGRAM_CATEGORY_HS = "HS";
 
 // Raw data filepaths
 // ------------------
-const srcDir = path.resolve(__dirname, "..", "data");
+const srcDir = path.resolve(__dirname, "..", "raw-data");
 const INPUT_FILEPATH_RAW_PROGRAM_DATA = path.join(srcDir, "raw-program-data", "Chicago_Public_Schools_-_School_Admissions_Information_SY1617.csv");
 //const INPUT_FILEPATH_RAW_ES_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "es-attendance-boundaries", "Chicago Public Schools - Elementary School Attendance Boundaries SY1718.geojson");
 const INPUT_FILEPATH_RAW_HS_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "hs-attendance-boundaries", "Chicago Public Schools - High School Attendance Boundaries SY1718.geojson");

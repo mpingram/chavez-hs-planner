@@ -1,6 +1,5 @@
-Doodle around with a debouncing higher-order-component
+Fix errors in config/build-scripts
 
-* NOTE it is garbage, but very useful.
-* NOTE but it's a good thing to explore. I think the implementation is
-  awful but the idea is good -- should refactor and test the stuffing
-  out of it before it goes into main, though.
+* fix file path errors resulting from folder restructuring
+* fix bug causing CPS middle schools not to be included in
+  non-hs-programs.json
