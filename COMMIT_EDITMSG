@@ -1,8 +1,6 @@
-Fix errors in unit tests for config system
+Doodle around with a debouncing higher-order-component
 
-* NOTE The unit testing code for the config system was really sloppy. I
-  need to avoid the temptation to bang out code like that for the
-  illusion of progress / getting things done. It would have been better
-  to write less code that I could rely on and extend. Instead, now I
-  have to debug everything, after I've forgotten what I was thinking
-  when I wrote it.
+* NOTE it is garbage, but very useful.
+* NOTE but it's a good thing to explore. I think the implementation is
+  awful but the idea is good -- should refactor and test the stuffing
+  out of it before it goes into main, though.
