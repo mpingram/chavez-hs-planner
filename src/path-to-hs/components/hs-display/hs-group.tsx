@@ -115,7 +115,7 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
           case SuccessChance.NOTIMPLEMENTED: return 1;
       }
     }
-    return toNumber(aOutcome) - toNumber(bOutcome);
+    return toNumber(bOutcome) - toNumber(aOutcome);
   }
 
   componentWillReceiveProps(nextProps: HSGroupProps) {
