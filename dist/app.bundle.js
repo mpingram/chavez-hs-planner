@@ -34534,7 +34534,7 @@ class SearchBar extends React.PureComponent {
         return (React.createElement("div", { className: "search-bar-container" },
             React.createElement("div", { className: "search-bar" },
                 React.createElement(search_1.default, { width: "24px", height: "24px" }),
-                React.createElement("input", { className: "search-bar-input", type: "text", value: this.state.localValue ? this.state.localValue : " ", onChange: ev => {
+                React.createElement("input", { className: "search-bar-input", type: "search", value: this.state.localValue ? this.state.localValue : " ", onChange: ev => {
                         const value = ev.currentTarget.value;
                         this.setState({ localValue: value });
                         this.handleChange(value);

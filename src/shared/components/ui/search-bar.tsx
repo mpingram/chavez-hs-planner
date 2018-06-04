@@ -45,7 +45,7 @@ class SearchBar extends React.PureComponent<SearchBarProps, SearchBarState> {
           <SearchIcon width="24px" height="24px"/>
           <input 
             className="search-bar-input"
-            type="text" 
+            type="search" 
             value={this.state.localValue ? this.state.localValue : " "} 
             onChange={ ev => {
               const value = ev.currentTarget.value;
