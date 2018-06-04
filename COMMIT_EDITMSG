@@ -1,5 +1,1 @@
-Fix errors in config/build-scripts
-
-* fix file path errors resulting from folder restructuring
-* fix bug causing CPS middle schools not to be included in
-  non-hs-programs.json
+Update tract-tier-table raw data
