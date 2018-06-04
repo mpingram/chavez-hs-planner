@@ -4,21 +4,21 @@ import Form from "shared/components/layout/form";
 import SubForm from "shared/components/layout/sub-form";
 
 import {
-  IEPField,
-  ELLField,
-  LocationField,
-  SkippedGradeField,
-  AttendPercentageField,
-  CurrESProgramField,
-  SiblingHSProgramField,
-  NWEAMathField,
-  NWEAReadField,
-  GPADisplay,
-  SubjGradeMathField,
-  SubjGradeReadField,
-  SubjGradeSciField,
-  SubjGradeSocStudiesField,
-  SETestScoreField,
+  IEPFieldContainer,
+  ELLFieldContainer,
+  StudentLocationFieldContainer,
+  SkippedGradeFieldContainer,
+  AttendPercentageFieldContainer,
+  CurrESProgramFieldContainer,
+  SiblingHSFieldContainer,
+  NWEAMathFieldContainer,
+  NWEAReadFieldContainer,
+  GPADisplayFieldContainer,
+  SubjGradeMathFieldContainer,
+  SubjGradeReadFieldContainer,
+  SubjGradeSciFieldContainer,
+  SubjGradeSocStudiesFieldContainer,
+  SETestFieldContainer,
 } from "./fields";
 
 
@@ -27,23 +27,23 @@ const StudentDataForm = (props) => {
   return (
     <Form>
       <SubForm label="Your student information">
-        <IEPField/>
-        <ELLField/>
-        <SkippedGradeField/>
-        <LocationField/>
-        <AttendPercentageField/>
-        <CurrESProgramField/>
-        <SiblingHSProgramField/>
+        <IEPFieldContainer/>
+        <ELLFieldContainer/>
+        <SkippedGradeFieldContainer/>
+        <StudentLocationFieldContainer/>
+        <AttendPercentageFieldContainer/>
+        <CurrESProgramFieldContainer/>
+        <SiblingHSFieldContainer/>
       </SubForm>
       <SubForm label="Your grades">
-        <NWEAMathField/>
-        <NWEAReadField/>
-        <SubjGradeMathField/>
-        <SubjGradeReadField/>
-        <SubjGradeSciField/>
-        <SubjGradeSocStudiesField/>
-        <SETestScoreField/>
-        <GPADisplay/>
+        <NWEAMathFieldContainer/>
+        <NWEAReadFieldContainer/>
+        <SubjGradeMathFieldContainer/>
+        <SubjGradeReadFieldContainer/>
+        <SubjGradeSciFieldContainer/>
+        <SubjGradeSocStudiesFieldContainer/>
+        <SETestFieldContainer/>
+        <GPADisplayFieldContainer/>
       </SubForm>
     </Form>
   );

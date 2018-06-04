@@ -2,12 +2,16 @@ import * as React from "react";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 import between from "shared/util/limiters/between";
-import ScoreType from "shared/enums/score-type";
+import { ScoreType } from "shared/enums";
 import { connectScoreType } from "./connect-score-type";
 
 import NumberField from "shared/components/ui/fields/number-field";
 
-const Field = (props) => {
+interface ScoreFieldProps {
+  value: number | null
+  onChange: (newValue: number) => any
+}
+const NWEAReadField: React.SFC<ScoreFieldProps> = (props) => {
   return <NumberField
     label="NWEA Reading percentile"
     style={{width: "4em"}}
@@ -18,4 +22,4 @@ const Field = (props) => {
   />
 }
 
-export const NWEAReadField = connectScoreType(ScoreType.nweaPercentileRead)(Field);
+export const NWEAReadFieldContainer = connectScoreType(ScoreType.nweaPercentileRead)(NWEAReadField);

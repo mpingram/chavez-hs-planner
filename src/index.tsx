@@ -1,13 +1,12 @@
 import * as React from "react";
 import { render } from "react-dom";
-import { createStore } from "redux";
-import rootReducer from "shared/reducers";
+import { store } from "shared/redux/store";
 import { Provider } from "react-redux";
 
 import PathToHS from "./path-to-hs/path-to-hs"
 
 render( (
-  <Provider store={createStore(rootReducer)}>
+  <Provider store={store}>
     <PathToHS>
     </PathToHS>
   </Provider>

@@ -31,7 +31,6 @@ class SearchBar extends React.PureComponent<SearchBarProps, SearchBarState> {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.value);
     this.setState({
       localValue: nextProps.value
     });

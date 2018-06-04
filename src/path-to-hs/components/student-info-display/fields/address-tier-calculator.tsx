@@ -1,7 +1,8 @@
 import * as React from "react";
 
+import { StudentLocation } from "shared/types";
+
 import Timeout from "shared/util/timeout";
-import StudentLocation from "shared/types/student-location";
 import TextField from "shared/components/ui/fields/text-field";
 import FieldValidationState from "shared/components/ui/fields/field-validation-state";
 import { getTierAndGeo, GetTierError } from "shared/util/get-tier-and-geo";
@@ -15,10 +16,10 @@ interface AddrTierCalcProps {
 
 interface AddrTierCalcState {
   address: string
-  tier: string
+  tier: string | null
   geo: {latitude: number, longitude: number}
   request?: Promise<string> 
-  timeoutInstance?: Timeout | null
+  timeoutInstance: Timeout | null
   requestInProgress: boolean
   addressValidationState: FieldValidationState
   errMsg: string | null

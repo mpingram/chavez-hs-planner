@@ -1,8 +1,11 @@
 import * as React from "react";
 
-import getCombinedSuccessChance from "shared/util/get-combined-success-chance";
-import HSProgram from "shared/types/hs-program";
-import SuccessChance from "shared/enums/success-chance";
+import { 
+  Program,
+  ProgramOutcome,
+  ProgramOutcomeDictionary
+} from "shared/types";
+import { SuccessChance } from "shared/enums";
 
 import OutcomeCertainIcon from "shared/components/icons/outcome-certain";
 import OutcomeLikelyIcon from "shared/components/icons/outcome-likely";
@@ -24,9 +27,10 @@ import "./hs-group.scss";
 
 interface HSGroupProps {
   title: string
-  programs: HSProgram[]
-  selectedProgramID: string
-  onSelectedProgramIDChange: (newID: string) => any
+  programs: Program[]
+  outcomes: ProgramOutcomeDictionary
+  selectedProgramID: string | null
+  onSelectedProgramIDChange: (newID: string | null) => any
 }
 
 interface ProgramCounts {
@@ -38,7 +42,6 @@ interface ProgramCounts {
   notImplemented: number
 }
 
-
 interface HSGroupState {
   collapsed: boolean
   programCounts: ProgramCounts
@@ -49,11 +52,11 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
     super(props);
     this.state = {
       collapsed: false,
-      programCounts: this.getProgramCounts(props.programs)
+      programCounts: this.getProgramCounts(props.programs, props.outcomes)
     }
   }
 
-  private getProgramCounts = (programs: HSProgram[]): ProgramCounts => {
+  private getProgramCounts = (programs: Program[], outcomes: ProgramOutcomeDictionary): ProgramCounts => {
     let counts: ProgramCounts = {
       certain: 0,
       likely: 0,
@@ -63,43 +66,61 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
       notImplemented: 0
     };
     programs.forEach( program => {
-      const outcome = getCombinedSuccessChance(program.applicationOutcome, program.selectionOutcome);
-      switch(outcome){
-        case SuccessChance.CERTAIN:
-          counts.certain += 1;
-          break;
-        case SuccessChance.LIKELY:
-          counts.likely += 1;
-          break;
-        case SuccessChance.UNCERTAIN:
-          counts.uncertain += 1;
-          break;
-        case SuccessChance.UNLIKELY:
-          counts.unlikely += 1;
-          break;
-        case SuccessChance.NONE:
-          counts.none += 1;
-          break;
-        case SuccessChance.NOTIMPLEMENTED:
-          counts.notImplemented += 1;
-          break;
-        default:
-          console.warn("Unrecognized SuccessChance for program " + program.id);
-          break;
+      const outcome = outcomes[program.id];
+      if (outcome === undefined) {
+        counts.notImplemented += 1;
+      } else {
+        switch(outcome.overallChance){
+          case SuccessChance.CERTAIN:
+            counts.certain += 1;
+            break;
+          case SuccessChance.LIKELY:
+            counts.likely += 1;
+            break;
+          case SuccessChance.UNCERTAIN:
+            counts.uncertain += 1;
+            break;
+          case SuccessChance.UNLIKELY:
+            counts.unlikely += 1;
+            break;
+          case SuccessChance.NONE:
+            counts.none += 1;
+            break;
+          case SuccessChance.NOTIMPLEMENTED:
+            counts.notImplemented += 1;
+            break;
+          default:
+            console.warn("Unrecognized SuccessChance for program " + program.id);
+            break;
+        }
       }
     });
     return counts;
   }
 
-  private sortByOutcome = (a: HSProgram, b: HSProgram): number => {
-    const aOutcome = getCombinedSuccessChance(a.applicationOutcome, a.selectionOutcome);
-    const bOutcome = getCombinedSuccessChance(b.applicationOutcome, b.selectionOutcome);
-    return bOutcome - aOutcome;
+  private sortByOutcome = (a: Program, b: Program): number => {
+    const aOutcome = this.props.outcomes[a.id]
+    const bOutcome = this.props.outcomes[b.id]
+
+    function toNumber(outcome: ProgramOutcome | undefined) {
+      if (outcome === undefined) {
+        return -1;
+      }
+      switch(outcome.overallChance) {
+          case SuccessChance.CERTAIN: return 6;
+          case SuccessChance.LIKELY: return 5;
+          case SuccessChance.UNCERTAIN: return 4;
+          case SuccessChance.UNLIKELY: return 3;
+          case SuccessChance.NONE: return 2;
+          case SuccessChance.NOTIMPLEMENTED: return 1;
+      }
+    }
+    return toNumber(aOutcome) - toNumber(bOutcome);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: HSGroupProps) {
     this.setState({
-      programCounts: this.getProgramCounts(nextProps.programs)
+      programCounts: this.getProgramCounts(nextProps.programs, nextProps.outcomes)
     });
   }
 
@@ -146,13 +167,14 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
         </div>
         <div className="hs-list">
           { 
-            this.props.programs.sort( this.sortByOutcome ).map( (hs: HSProgram) => {
+            this.props.programs.sort( this.sortByOutcome ).map( (program: Program) => {
               return (
                 <HSProgramElement 
-                  key={hs.id} 
-                  program={hs} 
-                  selected={hs.id === this.props.selectedProgramID}
-                  onSelect={ newID => this.props.onSelectedProgramIDChange(newID) }
+                  key={program.id} 
+                  program={program} 
+                  outcome={this.props.outcomes[program.id]}
+                  selected={program.id === this.props.selectedProgramID}
+                  onSelect={this.props.onSelectedProgramIDChange}
                 /> 
               );
             })

@@ -1,4 +1,4 @@
-import Limiter from "shared/types/limiter";
+import { Limiter } from "shared/types/limiter";
 
 const between = (min: number, max: number): Limiter<number> => {
   return (curr: number, next: number): number => {

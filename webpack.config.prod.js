@@ -5,14 +5,16 @@ const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 //const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
-  entry: path.resolve(__dirname, "src", "index.tsx"),
-  devtool: 'source-map',
+  entry: {
+    "app": path.resolve(__dirname, "src", "index.tsx"),
+  },
   output: {
-    filename: "bundle.min.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  devtool: 'source-map',
   resolve: {
-    extensions: [".webpack.js", ".ts", ".tsx", ".spec.ts", ".js", ".json"],
+    extensions: [".webpack.js", ".ts", ".tsx", ".js", ".json"],
     plugins: [
       new TsConfigPathsPlugin(path.resolve(__dirname, "tsconfig.js")),
       //new webpack.optimize.UglifyJsPlugin(),

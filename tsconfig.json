@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "noImplicitAny": false,
+    "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": true,
     "module": "commonjs",
@@ -18,7 +19,6 @@
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useCache": true

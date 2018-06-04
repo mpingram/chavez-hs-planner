@@ -8,4 +8,4 @@ enum ScoreType {
   seTestPercentile = "seTestPercentile"
 }
 
-export default ScoreType;
+export {ScoreType};

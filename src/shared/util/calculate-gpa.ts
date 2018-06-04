@@ -1,4 +1,6 @@
-const toPoints = (letterGrade): number | null => {
+import { LetterGrade } from "shared/types";
+
+const toPoints = (letterGrade): number => {
   switch(letterGrade){
     case "A":
       return 4;
@@ -10,24 +12,29 @@ const toPoints = (letterGrade): number | null => {
       return 1;
     case "F":
       return 0;
-    case null:
-      return null;
     default:
       throw new Error(`Unexpected letter grade: ${letterGrade}`);
   }
 }
 
-const calculateGPA = (...grades: number[]): number => {
-  const numGrades = grades.length;
+type NullableLetterGrade = LetterGrade | null
+const calculateGPA = (...letterGrades: NullableLetterGrade[]): number | null => {
+  const numGrades = letterGrades.length;
   let gradePointSum = 0;
-  for (let i=0; i < numGrades; i++) {
-    const points = toPoints(grades[i]);
-    if (points === null) {
+  
+  // convert each letter grade to points from 0 to 4.
+  for (let i=0; i < letterGrades.length; i++) {
+    const letterGrade = letterGrades[i];
+
+    // if any letter grades are null, return early with null.
+    if (letterGrade === null) {
       return null;
-    } else {
-      gradePointSum += points;
     }
+
+    const points = toPoints(letterGrade);
+    gradePointSum += points;
   }
+  // average the points from each letter grade.
   return gradePointSum / numGrades;
 };
 

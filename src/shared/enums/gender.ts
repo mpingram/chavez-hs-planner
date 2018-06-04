@@ -5,4 +5,4 @@ enum Gender {
   NOANSWER,
 }
 
-export default Gender;
+export {Gender};

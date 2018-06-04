@@ -1,15 +1,22 @@
 {
   "name": "path-to-hs",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "A website that calculates a student's chances of getting into different Chicago Public Schools high schools.",
   "main": " ",
   "scripts": {
     "test": "karma start karma.conf.js",
     "move-index": "cp src/index.html dist/index.html",
-    "build": "npm run move-index && webpack -p --config webpack.config.prod.js",
-    "build-gz": "npm build && gzip dist/bundle.min.js",
-    "start": "npm run move-index && concurrently \"webpack\" \"browser-sync start -s 'dist' --files 'dist' \"",
-    "start:windows": "concurrently \"webpack\" \"browser-sync start -s dist --files dist \"",
+    "build": "npm run build-site && npm run build-config",
+    "build-site": "npm run move-index && webpack -p --config webpack.config.prod.js",
+    "start": "npm run move-index && concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
+    "start:windows": "concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s dist --files dist \"",
+    "update-program-data": "",
+    "diff-requirement-functions": "./build-scripts/diff-req-fns.js --req-fns xxx --program-data xxx",
+    "create-empty-requirement-functions": "",
+
+    "build-config": "./build-scripts/main.js",
+    "test-config": "karma start ./config/build-scripts/karma.conf.js",
+
     "aws-sync:production": "aws s3 sync dist/ s3://chavez-hs-planner.com",
     "aws-sync:dev": "aws s3 sync dist/ s3://path-to-hs-dev"
   },
@@ -56,11 +63,13 @@
     "file-loader": "^1.1.5",
     "geojson-precision": "^0.4.0",
     "geolib": "^2.0.24",
+    "jsonschema": "^1.2.4",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^1.3.0",
     "karma-sinon": "^1.0.5",
+    "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^2.0.4",
     "mocha": "^4.0.0",
     "node-sass": "^4.5.3",
@@ -75,12 +84,15 @@
   },
   "dependencies": {
     "browser-jsonp": "^1.1.5",
-    "immutable": "^3.8.2",
+    "csv-parse": "^2.2.0",
+    "promise-polyfill": "^7.1.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "reselect": "^3.0.1"
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
+    "whatwg-fetch": "^2.0.4"
   }
 }

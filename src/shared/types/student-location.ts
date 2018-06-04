@@ -7,5 +7,4 @@ interface StudentLocation {
   }
 }
 
-export default StudentLocation;
-
+export {StudentLocation};

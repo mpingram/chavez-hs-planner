@@ -1,13 +1,17 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import AppState from "shared/types/app-state";
+import { AppState } from "shared/types";
 
 import TextField from "shared/components/ui/fields/text-field";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
-const Field = (props) => {
+interface GPADisplayFieldProps {
+  gpa: number | null
+}
+
+const GPADisplayField: React.SFC<GPADisplayFieldProps> = (props) => {
   const gpa = props.gpa ? props.gpa.toFixed(2) : "";
   return (
     <TextField
@@ -23,8 +27,8 @@ const Field = (props) => {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    gpa: state.getIn(['studentData', 'gpa'])
+    gpa: state.studentData.gpa
   }
 };
 
-export const GPADisplay = connect(mapStateToProps)(Field);
+export const GPADisplayFieldContainer = connect(mapStateToProps)(GPADisplayField);

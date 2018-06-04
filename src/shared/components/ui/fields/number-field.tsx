@@ -56,7 +56,7 @@ class NumberField extends React.PureComponent<NumberFieldProps, NumberFieldState
         const currValue = this.props.value;
         const nextValue = ev.currentTarget.valueAsNumber;
         this.setState({localValue: nextValue});
-        if (this.props.limiter) {
+        if (this.props.limiter && currValue !== null) {
           this.onChange(this.props.limiter(currValue, nextValue));
         } else {
           this.onChange(nextValue);

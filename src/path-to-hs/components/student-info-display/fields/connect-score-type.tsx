@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
 
-import AppState from "shared/types/app-state";
-import ScoreType from "shared/enums/score-type";
-import { updateStudentScore } from "shared/actions";
+import { AppState } from "shared/types/app-state";
+import { ScoreType } from "shared/enums/score-type";
+import { updateStudentScore } from "shared/redux/actions";
 
 
 const mapStateScore = (scoreType: ScoreType) => (state: AppState) => {
   return { 
-    value: state.getIn(['studentData', scoreType]) 
+    value: state.studentData[scoreType] 
   };
 }
 const mapDispatchScore = (scoreType: ScoreType) => (dispatch) => {

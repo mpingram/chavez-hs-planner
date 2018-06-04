@@ -1,17 +1,21 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { updateStudentIEPStatus } from "shared/actions";
-import AppState from "shared/types/app-state";
+import { updateStudentIEPStatus } from "shared/redux/actions";
+import { AppState } from "shared/types";
 
 import DropdownField from "shared/components/ui/fields/dropdown-field";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
-const Field = (props) => (
+interface IEPFieldProps {
+  iepStatus: boolean | null
+  onChange: (newIEPStatus: boolean) => any
+}
+const IEPField: React.SFC<IEPFieldProps> = (props) => (
   <DropdownField
     label="Do you have an IEP?"
-    value={props.iep ? "true" : "false"}
+    value={props.iepStatus ? "true" : "false"}
     onChange={ iep => props.onChange(iep === "true" ? true : false) }
     debounceTime={INPUT_DEBOUNCE_TIME}
     >
@@ -23,7 +27,7 @@ const Field = (props) => (
 
 const mapStateToProps = (state: AppState) => {
   return {
-    iep: state.getIn(['studentData', 'iep'])
+    iep: state.studentData.iep
   }
 };
 
@@ -33,4 +37,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export const IEPField = connect(mapStateToProps, mapDispatchToProps)(Field);
+export const IEPFieldContainer = connect(mapStateToProps, mapDispatchToProps)(IEPField);

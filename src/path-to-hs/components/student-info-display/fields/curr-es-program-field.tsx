@@ -1,75 +1,85 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { List, Map } from "immutable";
 import { createSelector } from "reselect";
 
-import { updateStudentCurrESProgram } from "shared/actions";
-import AppState from "shared/types/app-state";
-import CPSProgram from "shared/types/cps-program";
+import { updateStudentCurrESProgram } from "shared/redux/actions";
+import { 
+  AppState,
+  Program,
+  ProgramDictionary
+} from "shared/types";
 
 import ComboBoxField  from "shared/components/ui/fields/combo-box-field";
 
 import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
-const Field = (props) => (
+interface CurrESProgramFieldProps {
+  currProgramID: string | null
+  programs: Program[]
+  onChange: (newProgramID: string) => any
+}
+const CurrESProgramField = (props: CurrESProgramFieldProps) => (
   <ComboBoxField
     label="What elementary school program are you in now?"
-    value={props.currESProgram}
+    value={props.currProgramID}
     data={
       { 
-        records: props.esPrograms, 
-        getKey: (program) => program.ID, 
-        getDisplayText: (program: CPSProgram) => {
-          return program.Short_Name + " - " + program.Program_Type;
-        }
+        records: props.programs, 
+        getKey: (program) => program.id, 
+        getDisplayText: (program: Program) => program.programName
       }
     }
-    onChange={ (program: CPSProgram) => props.onChange(program.ID)}
+    onChange={ (program: Program) => props.onChange(program.id)}
     debounceTime={INPUT_DEBOUNCE_TIME}
   /> 
 );
 
-const getPrograms = (state: AppState): List<CPSProgram> => state.getIn(['hsData', 'programs']);
-const getProgramIndex = (state: AppState): Map<string, number> => state.getIn(['hsData', 'index']);
-const getESProgramIDs = (state: AppState): List<string> => state.getIn(['hsData', 'esProgramIDs']);
-const getCurrESProgramID = (state: AppState): string => state.getIn(['studentData', 'currESProgramID']);
+const getNonHSPrograms = (state: AppState): ProgramDictionary => state.data.nonHSPrograms;
+const getStudentCurrESProgramID = (state: AppState): string | null => state.studentData.currESProgramID;
 
-const selectESPrograms = createSelector( 
-  [getESProgramIDs, getPrograms, getProgramIndex], 
-  (ids, programs, index) => {
-    let esPrograms = [];
-    ids.forEach( id => {
-      // use index to find cps program corresponding to id
-      const i = index.get(id);
-      const program = programs.get(i);
-      esPrograms.push(program);
+const selectNonHSPrograms = createSelector( 
+  [getNonHSPrograms], 
+  (programDict) => {
+    // Convert the program dictionary we get from state
+    // to Program[], sorted alphabetically.
+    
+    let programList: Program[] = [];
+    Object.keys(programDict).forEach( programID => {
+      const program = programDict[programID];
+      programList.push(program);
     });
 
-    // add an 'Other' option
-    const OtherProgram: CPSProgram = {
-      ID: "OTHER",
-      Short_Name: "Other",
-      Program_Type: "Non-CPS, Homeschool, etc.",
-    } as CPSProgram;
-    esPrograms.unshift(OtherProgram);
+    programList.sort( (programA, programB) => {
+      return programA.programName.localeCompare(programB.programName);
+    });
 
-    return esPrograms;
+    // HACK: add an 'Other' option to the top of the program list,
+    // to serve as a 'my program isn't listed here' option.
+    const otherProgram: Program = {
+      id: "OTHER",
+      programName: "Other (Non-CPS, Homeschool, etc.)"
+    } as Program;
+    programList.unshift(otherProgram);
+
+    return programList;
   }
 );
 
 const selectCurrESProgram = createSelector(
-  [getCurrESProgramID, getPrograms, getProgramIndex],
-  (id, programs, index) => {
-    const i = index.get(id);
-    const program = programs.get(i);
+  [getStudentCurrESProgramID, getNonHSPrograms],
+  (id, programDict) => {
+    if (id === null) {
+      return null;
+    }
+    const program = programDict[id]
     return program;
   }
 );
 
 const mapStateToProps = (state: AppState) => {
   return {
-    currESProgram: selectCurrESProgram(state),
-    esPrograms: selectESPrograms(state),
+    currProgram: selectCurrESProgram(state),
+    programs: selectNonHSPrograms(state),
   }
 };
 
@@ -81,4 +91,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export const CurrESProgramField = connect(mapStateToProps, mapDispatchToProps)(Field);
+export const CurrESProgramFieldContainer = connect(mapStateToProps, mapDispatchToProps)(CurrESProgramField);
