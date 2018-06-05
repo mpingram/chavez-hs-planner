@@ -84,9 +84,9 @@ export const ProgramModal: React.SFC<ProgramModalProps> = (props) => {
         </div>
         { props.program && 
         <div className="program-modal-footer">
-          <a className="button" target="_none" href={props.program.cpsPageURL}>CPS School Page</a>
-          <a className="button" target="_none" href={props.program.schoolPageURL}>School Website</a>
-          <a className="button" target="_none" href={props.program.hsBoundURL}>HS Bound School Page</a>
+          <a className="program-modal-button" target="_none" href={props.program.cpsPageURL}>CPS School Page</a>
+          <a className="program-modal-button" target="_none" href={props.program.schoolPageURL}>School Website</a>
+          <a className="program-modal-button" target="_none" href={props.program.hsBoundURL}>HS Bound School Page</a>
         </div>
         }
       </div>

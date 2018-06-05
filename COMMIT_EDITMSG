@@ -1,8 +1,8 @@
-Finish and style ProgramModal component
+Restyle student-data form (not integrated)
 
-* Remove most DOM from HSProgramElement and place into new shared
-  ProgramCard component
-* Add onCloseButtonClick prop to ProgramModal and dispatch
- closeProgramModal action in its handler in ProgramModalContainer
-* Listen for 'Esc' keypresses on page root component in path-to-hs.tsx,
-  dispatch closeProgramModal action in keypress handler
+* add bulma dependency
+* rewrite student data form with bulma form classes
+* NOTE have not connected any forms to redux; these are
+just styled shells
+* NOTE responsive styling conflicts with rest of app
+

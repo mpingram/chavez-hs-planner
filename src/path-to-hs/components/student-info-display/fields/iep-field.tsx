@@ -18,7 +18,7 @@ const IEPField: React.SFC<IEPFieldProps> = (props) => (
     value={props.iepStatus ? "true" : "false"}
     onChange={ iep => props.onChange(iep === "true" ? true : false) }
     debounceTime={INPUT_DEBOUNCE_TIME}
-    >
+  >
     <option value="true">Yes</option>
     <option value="false">No</option>
     <option value="false">I don't know</option>

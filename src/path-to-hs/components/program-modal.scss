@@ -26,6 +26,7 @@
   width: 60px;
   height: 60px;
 
+  border: none;
   background-color: #f44242; 
   color: $text-white;
   border-radius: 100%;
@@ -110,7 +111,7 @@
   justify-content: center;
 }
 
-.button {
+.program-modal-button {
   margin: 1em;
   padding: 0.5em;
   color: $col-app-neutral;
@@ -118,11 +119,11 @@
   border-radius: 7px;
   transition: background-color 200ms ease;
 }
-.button:hover {
+.program-modal-button:hover {
   color: $col-app-neutral;
   background-color: darken($col-app-neutral, 40%);
 }
-.button:active {
+.program-modal-button:active {
   color: $col-app-neutral;
   background-color: darken($col-app-neutral, 60%);
 }
