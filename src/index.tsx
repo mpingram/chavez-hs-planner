@@ -4,13 +4,13 @@ import { store } from "shared/redux/store";
 import { Provider } from "react-redux";
 
 /* style imports */
-import 'react-select/dist/react-select.css'
+import "react-select/dist/react-select.css"
 
-import PathToHS from "./path-to-hs/path-to-hs"
+import App from "./path-to-hs/path-to-hs"
 
 render( (
   <Provider store={store}>
-    <PathToHS>
-    </PathToHS>
+    <App>
+    </App>
   </Provider>
 ), document.getElementById("root") );

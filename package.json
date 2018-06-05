@@ -82,6 +82,7 @@
   },
   "dependencies": {
     "browser-jsonp": "^1.1.5",
+    "bulma": "^0.7.1",
     "csv-parse": "^2.2.0",
     "promise-polyfill": "^7.1.2",
     "react": "^15.6.1",

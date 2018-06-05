@@ -1,8 +1,5 @@
 import * as React from "react"
 
-import Form from "shared/components/layout/form";
-import SubForm from "shared/components/layout/sub-form";
-
 import {
   IEPFieldContainer,
   ELLFieldContainer,
@@ -21,31 +18,26 @@ import {
   SETestFieldContainer,
 } from "./fields";
 
+import { withDebounce } from "shared/util/with-debounce";
+
+import "./student-data-form.scss";
 
 const StudentDataForm = (props) => {
-
   return (
-    <Form>
-      <SubForm label="Your student information">
-        <IEPFieldContainer/>
-        <ELLFieldContainer/>
-        <SkippedGradeFieldContainer/>
-        <StudentLocationFieldContainer/>
-        <AttendPercentageFieldContainer/>
-        <CurrESProgramFieldContainer/>
-        <SiblingHSFieldContainer/>
-      </SubForm>
-      <SubForm label="Your grades">
-        <NWEAMathFieldContainer/>
-        <NWEAReadFieldContainer/>
-        <SubjGradeMathFieldContainer/>
-        <SubjGradeReadFieldContainer/>
-        <SubjGradeSciFieldContainer/>
-        <SubjGradeSocStudiesFieldContainer/>
-        <SETestFieldContainer/>
-        <GPADisplayFieldContainer/>
-      </SubForm>
-    </Form>
+    <div className="student-data-form">
+      <div className="field">
+        <label className="label">Do you have an IEP?</label>
+        <div className="control">
+          <div className="select">
+            <select>
+              <option>Yes</option>
+              <option>No</option>
+              <option>I don't know</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
