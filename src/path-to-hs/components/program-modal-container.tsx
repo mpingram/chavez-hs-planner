@@ -1,7 +1,9 @@
 import * as React from "react";
+import { connect, mapStateToProps } from "react-redux";
 
 import { AppState } from "shared/types";
-import { connect, mapStateToProps } from "react-redux";
+
+import { closeProgramModal } from "shared/redux/actions";
 
 import { ProgramModal } from "./program-modal";
 
@@ -13,4 +15,10 @@ const mapStateToProps = (state: AppState) => {
   }
 }
 
-export const ProgramModalContainer = connect(mapStateToProps)(ProgramModal);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onCloseButtonClick: () => dispatch(closeProgramModal())
+  }
+}
+
+export const ProgramModalContainer = connect(mapStateToProps, mapDispatchToProps)(ProgramModal);

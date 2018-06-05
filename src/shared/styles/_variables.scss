@@ -6,14 +6,13 @@ $colo-valid-succcess: green;
 $colo-valid-warn: yellow;
 $colo-valid-fail: red;
 
-$col-app-neutral: #fafafd;
-$col-app-fg: #cacaca;
+$col-app-base: #70C8FF;
+$col-app-accent: #AFFF84;
+$col-app-neutral: #FCFEFF;
 
-$col-app-gray-light: #cacaca;
-$col-app-gray-dark: #6a6a6a;
-$col-app-gray: #9e9e9e;
-$col-app-1: #95e57a;
-$col-app-2: #dbdb74;
+$col-app-gray-light: #EFEFF2;
+$col-app-gray: #9C9C9E;
+$col-app-gray-dark: #747475;
 
 $col-succ-certain: #5bed2a;
 $col-succ-likely: #beee40;
@@ -26,6 +25,7 @@ $text-black: #111;
 $text-dark-gray: #333;
 $text-gray: #666;
 $text-light-gray: #999;
+$text-white: #fefefe;
 
 $margin-xs: 5px;
 $margin-sm: 10px;

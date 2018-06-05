@@ -1,1 +1,8 @@
-Update tract-tier-table raw data
+Finish and style ProgramModal component
+
+* Remove most DOM from HSProgramElement and place into new shared
+  ProgramCard component
+* Add onCloseButtonClick prop to ProgramModal and dispatch
+ closeProgramModal action in its handler in ProgramModalContainer
+* Listen for 'Esc' keypresses on page root component in path-to-hs.tsx,
+  dispatch closeProgramModal action in keypress handler

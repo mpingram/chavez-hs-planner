@@ -10,9 +10,9 @@
 .spinning-load-icon {
   font-size: 10px;
   position: relative;
-  border-top: 4px solid $col-app-1;
-  border-right: 4px solid $col-app-1;
-  border-bottom: 4px solid $col-app-1;
+  border-top: 4px solid $col-app-base;
+  border-right: 4px solid $col-app-base;
+  border-bottom: 4px solid $col-app-base;
   border-left: 2px solid #ffffff;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
@@ -24,45 +24,45 @@
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-    border-top: 4px solid $col-app-1;
-    border-right: 4px solid $col-app-1;
-    border-bottom: 4px solid $col-app-1;
+    border-top: 4px solid $col-app-base;
+    border-right: 4px solid $col-app-base;
+    border-bottom: 4px solid $col-app-base;
   }
   50% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-    border-top: 4px solid $col-app-2;
-    border-right: 4px solid $col-app-2;
-    border-bottom: 4px solid $col-app-2;
+    border-top: 4px solid $col-app-accent;
+    border-right: 4px solid $col-app-accent;
+    border-bottom: 4px solid $col-app-accent;
   }
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-    border-top: 4px solid $col-app-1;
-    border-right: 4px solid $col-app-1;
-    border-bottom: 4px solid $col-app-1;
+    border-top: 4px solid $col-app-base;
+    border-right: 4px solid $col-app-base;
+    border-bottom: 4px solid $col-app-base;
   }
 }
 @keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
-    border-top: 4px solid $col-app-1;
-    border-right: 4px solid $col-app-1;
-    border-bottom: 4px solid $col-app-1;
+    border-top: 4px solid $col-app-base;
+    border-right: 4px solid $col-app-base;
+    border-bottom: 4px solid $col-app-base;
   }
   50% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
-    border-top: 4px solid $col-app-2;
-    border-right: 4px solid $col-app-2;
-    border-bottom: 4px solid $col-app-2;
+    border-top: 4px solid $col-app-accent;
+    border-right: 4px solid $col-app-accent;
+    border-bottom: 4px solid $col-app-accent;
   }
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-    border-top: 4px solid $col-app-1;
-    border-right: 4px solid $col-app-1;
-    border-bottom: 4px solid $col-app-1;
+    border-top: 4px solid $col-app-base;
+    border-right: 4px solid $col-app-base;
+    border-bottom: 4px solid $col-app-base;
   }
 }
