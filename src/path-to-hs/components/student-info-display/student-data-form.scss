@@ -4,6 +4,23 @@
 @import "../../../../node_modules/bulma/sass/utilities/_all";
 @import "../../../../node_modules/bulma/sass/elements/button";
 @import "../../../../node_modules/bulma/sass/elements/form";
+/* override react-select styles */
+.Select-arrow-zone {
+  display: none;
+}
+.Select-control {
+  @extend .select;
+}
+
+.Select-input {
+  input {
+    line-height: 1em;
+  }
+}
+.Select-placeholder {
+  padding: 10px 3.5px 30px 6.5px;
+  line-height: 1em;
+}
 
 
 .student-data-form {

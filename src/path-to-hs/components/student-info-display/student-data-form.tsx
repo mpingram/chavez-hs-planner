@@ -104,7 +104,7 @@ const StudentDataForm = (props) => {
       <div className="field">
         <label className="label is-small">What elementary school are you in now?</label>
         <div className="control is-small">
-          <Select/>
+          <Select placeholder=""/>
         </div>
       </div>
 
@@ -124,7 +124,7 @@ const StudentDataForm = (props) => {
       <div className="field">
         <label className="label is-small">Which high school does your brother or sister go to?</label>
           <div className="control is-small">
-            <Select />
+            <Select placeholder=""/>
           </div>
       </div>
   </div>
