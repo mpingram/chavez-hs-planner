@@ -20,7 +20,7 @@ const App: React.SFC<any> = (props) => {
       }}
     >
       <div className="student-data-form-container">
-        <StudentDataForm />
+        <StudentDataFormContainer />
       </div>
       <div className="hs-programs-container">
         <HSProgramsContainer />
