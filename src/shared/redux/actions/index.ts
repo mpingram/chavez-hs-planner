@@ -5,6 +5,7 @@ import {
 }  from "shared/enums";
 
 import { 
+  LetterGrade,
   Program,
   ProgramOutcome,
   StudentLocation
@@ -57,13 +58,6 @@ export const updateStudentIEPStatus = (newValue: boolean) => {
   }
 };
 
-export const updateStudentLocation = (location: StudentLocation) => {
-  return {
-    type: ActionType.UpdateStudentLocation,
-    payload: location
-  }
-};
-
 export const updateStudentCurrESProgram = (newValue: string) => {
   return {
     type: ActionType.UpdateStudentCurrESProgram,
@@ -99,28 +93,28 @@ export const updateStudentNWEAPercentileRead = (newValue: number) => {
   };
 };
 
-export const updateStudentSubjGradeMath = (newValue: number) => {
+export const updateStudentSubjGradeMath = (newValue: LetterGrade) => {
   return {
     type: ActionType.UpdateStudentSubjGradeMath,
     payload: newValue
   };
 };
 
-export const updateStudentSubjGradeRead = (newValue: number) => {
+export const updateStudentSubjGradeRead = (newValue: LetterGrade) => {
   return {
     type: ActionType.UpdateStudentSubjGradeRead,
     payload: newValue
   };
 };
 
-export const updateStudentSubjGradeSci = (newValue: number) => {
+export const updateStudentSubjGradeSci = (newValue: LetterGrade) => {
   return {
     type: ActionType.UpdateStudentSubjGradeSci,
     payload: newValue
   };
 };
 
-export const updateStudentSubjGradeSocStudies = (newValue: number) => {
+export const updateStudentSubjGradeSocStudies = (newValue: LetterGrade) => {
   return {
     type: ActionType.UpdateStudentSubjGradeSocStudies,
     payload: newValue
@@ -181,4 +175,47 @@ export const closeProgramModal = () => {
   }
 }
 
+export const updateStudentTier = (tier: string) => {
+  return {
+    type: ActionType.UpdateStudentTier,
+    payload: tier
+  }
+};
+
+export const updateStudentGeo = (geo: {latitude: number, longitude: number}) => {
+  return {
+    type: ActionType.UpdateStudentGeo,
+    payload: geo
+  }
+}
+
+export const updateStudentAddress = (address: string) => {
+  return (dispatch) => {
+    // update address
+    dispatch({
+      type: ActionType.UpdateStudentAddress,
+      payload: address
+    });
+    /* FIXME implement*/
+    dispatch(loadingTier());
+    setTimeout( () => {
+      dispatch(tierLoaded());
+      dispatch(updateStudentTier("5"));
+      dispatch(updateStudentGeo({latitude: 0, longitude: 0}));
+    }, 2000);
+    /* END FIXME */
+  }
+}
+
+export const loadingTier = () => {
+  return {
+    type: ActionType.LoadingTier
+  }
+}
+
+export const tierLoaded = () => {
+  return {
+    type: ActionType.TierLoaded
+  }
+}
 

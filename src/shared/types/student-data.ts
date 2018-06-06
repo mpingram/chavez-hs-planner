@@ -2,12 +2,14 @@ import { Gender } from "shared/enums";
 import { 
   LetterGrade,
   GradeLevel, 
-  StudentLocation 
+  LatLong
 } from "shared/types";
 
 export interface StudentData {
     gender: Gender | null
-    location: StudentLocation | null
+    address: string | null
+    tier: string | null
+    geo: LatLong | null
     gradeLevel: number | null
     prevGradeLevel: number | null
     skippedGrade7OrRepeatedGrade8: boolean | null

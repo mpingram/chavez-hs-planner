@@ -2,7 +2,10 @@ export enum ActionType {
 
   /* student data */
   UpdateStudentGender,
-  UpdateStudentLocation,
+    //UpdateStudentLocation,
+  UpdateStudentAddress,
+  UpdateStudentTier,
+  UpdateStudentGeo,
 
   UpdateStudentGradeLevel,
   UpdateStudentPrevGradeLevel,
@@ -34,6 +37,8 @@ export enum ActionType {
   /* data loading */
   LoadingData,
   DataLoaded, 
+  LoadingTier,
+  TierLoaded,
 
   /* data */
   UpdateHSPrograms,

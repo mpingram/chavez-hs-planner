@@ -7,11 +7,11 @@ import pointInPolygon from "shared/util/point-in-polygon";
 
 export const createIfInAttendBound = (getAttendBoundDict: () => AttendanceBoundaryDictionary): ReqFnFilter => (student, program) => {
   // return false immediately if student properties are uninitialized
-  if (student.location === null) {
+  if (student.geo === null) {
     return false;
   }
 
-  const point: [number, number] = [student.location.geo.longitude, student.location.geo.latitude];
+  const point: [number, number] = [student.geo.longitude, student.geo.latitude];
   // get geometry from schoolAttendBoundTable by looking up thru ID
   const polygon = getAttendBoundDict()[program.schoolID];
   if (polygon === undefined) {

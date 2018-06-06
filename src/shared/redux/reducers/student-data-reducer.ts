@@ -13,8 +13,15 @@ export const studentDataReducer: Redux.Reducer<StudentData> = (studentData = ini
     case ActionType.UpdateStudentGender:
       nextStudentData = {...studentData, gender: action.payload};
       break;
-    case ActionType.UpdateStudentLocation:
-      nextStudentData = {...studentData, location: action.payload};
+    case ActionType.UpdateStudentAddress:
+      nextStudentData = {...studentData, address: action.payload};
+      console.log(nextStudentData);
+      break;
+    case ActionType.UpdateStudentTier:
+      nextStudentData = {...studentData, tier: action.payload};
+      break;
+    case ActionType.UpdateStudentGeo:
+      nextStudentData = {...studentData, geo: action.payload};
       break;
     case ActionType.UpdateStudentGradeLevel:
       nextStudentData = {...studentData, gradeLevel: action.payload};

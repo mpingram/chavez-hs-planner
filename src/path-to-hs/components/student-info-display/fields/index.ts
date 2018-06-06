@@ -5,7 +5,6 @@ export * from "./attend-percentage-field";
 export * from "./curr-es-program-field";
 export * from "./ell-field";
 export * from "./iep-field";
-export * from "./student-location-field";
 export * from "./nwea-math-field";
 export * from "./nwea-read-field";
 export * from "./se-test-score-field";

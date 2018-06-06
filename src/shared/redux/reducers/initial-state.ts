@@ -2,7 +2,9 @@ import { AppState } from "shared/types";
 
 export const initialStudentData = {
   gender: null,
-  location: null,
+  address: null,
+  tier: null,
+  geo: null,
   gradeLevel: null,
   prevGradeLevel: null,
   iep: null,
@@ -24,7 +26,9 @@ export const initialStudentData = {
 export const initialProgramOutcomes = {};
 export const initialLoadingStatus = {
   loadingData: false,
-  dataLoaded: false
+  dataLoaded: false,
+  loadingTier: false,
+  tierLoaded: false,
 };
 export const initialData = {
   hsPrograms: {},

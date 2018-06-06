@@ -16,13 +16,11 @@ describe("ifInProximity hsReqFilter", () => {
   let p: Program;
   beforeEach( () => {
     s = {
-      location: {
-        address: "",
-        tier: "",
-        geo: {
-          latitude: 0,
-          longitude: 0
-        }
+      address: "",
+      tier: "",
+      geo: {
+        latitude: 0,
+        longitude: 0
       }
     } as StudentData;
 

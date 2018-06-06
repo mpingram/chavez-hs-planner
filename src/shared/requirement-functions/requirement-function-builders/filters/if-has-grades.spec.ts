@@ -20,13 +20,11 @@ describe("ifHasGrades hsReqFilter", () => {
       gradeLevel: 8,
       prevGradeLevel: 7,
       skippedGrade7OrRepeatedGrade8: false,
-      location: {
-        address: "",
-        tier: "",
-        geo: {
-          latitude: 0,
-          longitude: 0
-        }
+      address: "",
+      tier: "",
+      geo: {
+        latitude: 0,
+        longitude: 0
       },
       currESProgramID: "",
       siblingHSSchoolIDs: [],
