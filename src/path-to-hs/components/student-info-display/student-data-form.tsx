@@ -76,10 +76,10 @@ const StudentDataForm = (props) => {
 
       <div className="field is-grouped">
 
-        <div className="field">
+        <div className="field control is-expanded">
           <label className="label is-small">Your address</label>
           <div className="field has-addons">
-            <div className="control">
+            <div className="control is-expanded">
               <input className="input is-small" type="text" placeholder="42 Wallaby Way" />
             </div>
             <div className="control">
@@ -90,7 +90,7 @@ const StudentDataForm = (props) => {
           </div>
         </div>
 
-        <div className="field is-expanded">
+        <div className="field">
           <label className="label is-small">CPS Tier</label>
           <div className="field">
             <div className="control is-small is-loading tier-display-input">
