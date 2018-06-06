@@ -1,8 +1,1 @@
-Restyle student-data form (not integrated)
-
-* add bulma dependency
-* rewrite student data form with bulma form classes
-* NOTE have not connected any forms to redux; these are
-just styled shells
-* NOTE responsive styling conflicts with rest of app
-
+Fix hs display overflowing page on mobile
