@@ -5,14 +5,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .student-data-form-container {
   height: 100vh;
-  width: 50vw;
+  flex: 1 0 320px;
 }
 
 .hs-programs-container {
   height: 100vh;
-  width: 50vw;
+  flex: 2 0 50vw;
 }

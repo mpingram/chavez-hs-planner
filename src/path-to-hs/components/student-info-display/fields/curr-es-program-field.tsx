@@ -38,16 +38,11 @@ const CurrESProgramField = (props: CurrESProgramFieldProps) => {
   }
 
   return (
-    <div>
-      <div className="selected-program-id-heading">
-        What elementary school program are you in now?
-      </div>
-      <Select
-        value={props.currProgramID}
-        options={toSelectOptions(props.programs)}
-        onChange={handleSelectedProgramIDChange}
-      /> 
-    </div>
+    <Select
+      value={props.currProgramID}
+      options={toSelectOptions(props.programs)}
+      onChange={handleSelectedProgramIDChange}
+    /> 
   )
 };
 
