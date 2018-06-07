@@ -57,13 +57,6 @@ export const updateStudentIEPStatus = (newValue: boolean) => {
   }
 };
 
-export const updateStudentLocation = (location: StudentLocation) => {
-  return {
-    type: ActionType.UpdateStudentLocation,
-    payload: location
-  }
-};
-
 export const updateStudentCurrESProgram = (newValue: string) => {
   return {
     type: ActionType.UpdateStudentCurrESProgram,
@@ -181,4 +174,47 @@ export const closeProgramModal = () => {
   }
 }
 
+export const updateStudentTier = (tier: string) => {
+  return {
+    type: ActionType.UpdateStudentTier,
+    payload: tier
+  }
+};
+
+export const updateStudentGeo = (geo: {latitude: number, longitude: number}) => {
+  return {
+    type: ActionType.UpdateStudentGeo,
+    payload: geo
+  }
+}
+
+export const updateStudentAddress = (address: string) => {
+  return (dispatch) => {
+    // update address
+    dispatch({
+      type: ActionType.UpdateStudentAddress,
+      payload: address
+    });
+    /* FIXME implement*/
+    dispatch(loadingTier());
+    setTimeout( () => {
+      dispatch(tierLoaded());
+      dispatch(updateStudentTier("5"));
+      dispatch(updateStudentGeo({latitude: 0, longitude: 0}));
+    }, 2000);
+    /* END FIXME */
+  }
+}
+
+export const loadingTier = () => {
+  return {
+    type: ActionType.LoadingTier
+  }
+}
+
+export const tierLoaded = () => {
+  return {
+    type: ActionType.TierLoaded
+  }
+}
 

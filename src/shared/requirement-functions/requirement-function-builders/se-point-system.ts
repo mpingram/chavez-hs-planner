@@ -65,11 +65,11 @@ const createSELookup = (getCutoffDict: () => SECutoffDictionary) => (student: St
   if (cutoff === undefined) {
     return null;
   }
-  if (student.location === null) {
+  if (student.tier === null) {
     return null;
   }
 
-  switch(student.location.tier) {
+  switch(student.tier) {
     case '1':
       return cutoff.tier1; 
     case '2':
@@ -96,7 +96,7 @@ export const createSEPointSystem = (getCutoffDict: () => SECutoffDictionary): Re
       student.subjGradeSci === null ||
       student.subjGradeSocStudies === null ||
       student.seTestPercentile === null ||
-      student.location === null
+      student.tier === null
     ) {
       return SuccessChance.NOTIMPLEMENTED;
     }

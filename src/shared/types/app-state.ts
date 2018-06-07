@@ -16,6 +16,8 @@ export interface AppState {
   loadingStatus: {
     loadingData: boolean
     dataLoaded: boolean
+    loadingTier: boolean
+    tierLoaded: boolean
   }
 
   data: AppData
