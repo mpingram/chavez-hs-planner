@@ -5,18 +5,18 @@
 @import "../../../../node_modules/bulma/sass/elements/button";
 @import "../../../../node_modules/bulma/sass/elements/form";
 /* override react-select styles */
-.Select-arrow-zone {
-  display: none;
-}
-.Select-control {
-  @extend .select;
-}
-
-.Select-input {
-  input {
-    line-height: 1em;
-  }
-}
+//.Select-arrow-zone {
+//  display: none;
+//}
+//.Select-control {
+//  @extend .select;
+//}
+//
+//.Select-input {
+//  input {
+//    line-height: 1em;
+//  }
+//}
 
 
 .student-data-form {

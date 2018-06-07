@@ -14,25 +14,44 @@ import { INPUT_DEBOUNCE_TIME } from "shared/constants";
 
 import StudentInfoForm from "./student-info-form";
 
-const selectESProgramOptions = () => {
-  return {
-    id: "",
-    name: ""
+const selectNonHSProgramDict = (state: AppState) => state.data.nonHSPrograms;
+const selectNonHSProgramOptions = createSelector(
+  [selectNonHSProgramDict],
+  (programDict) => {
+    let options: any[] = [];
+    options.push({value: "%%none%%", label: "Other"});
+    Object.keys(programDict).forEach( id => {
+      const program = programDict[id];
+      options.push({
+        value: program.id,
+        label: program.programName
+      });
+    });
+    return options;
   }
-};
+);
 
-const selectHSSchoolOptions = () => {
-  return {
-    id: "",
-    name: ""
+const selectHSSchoolDict = (state: AppState) => state.data.hsSchools;
+const selectHSSchoolOptions = createSelector(
+  [selectHSSchoolDict],
+  (hsSchoolDict) => {
+    let options: any[] = [];
+    Object.keys(hsSchoolDict).forEach( id => {
+      const school = hsSchoolDict[id];
+      options.push({
+        value: school.id,
+        label: school.shortName
+      });
+    });
+    return options;
   }
-};
+);
 
 const mapStateToProps = (state: AppState) => {
   return {
     addressIsLoading: state.loadingStatus.loadingTier,
-    currEsProgramOptions: selectESProgramOptions,
-    siblingHSSchoolOptions: selectHSSchoolOptions,
+    currEsProgramOptions: selectNonHSProgramOptions(state),
+    siblingHSSchoolOptions: selectHSSchoolOptions(state),
 
     iep: state.studentData.iep,
     el: state.studentData.ell,

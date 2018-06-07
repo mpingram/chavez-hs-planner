@@ -24,8 +24,8 @@ interface StudentInfoFormProps {
   onSkip7OrRepeat8Change: (newVal: boolean) => any
   currESProgram: string | null
   onCurrESProgramChange: (newVal: string) => any
-  siblingHSSchools: string
-  onSiblingHSSchoolChange: (newVal: string) => any
+  siblingHSSchools: string[]
+  onSiblingHSSchoolChange: (newVal: string[]) => any
 
 }
 const StudentInfoForm: React.SFC<StudentInfoFormProps> = (props) => {
@@ -148,7 +148,12 @@ const StudentInfoForm: React.SFC<StudentInfoFormProps> = (props) => {
           <label className="label is-small">What elementary school are you in now?</label>
           <div className="control is-small">
 
-            <Select placeholder=""/>
+            <Select 
+              options={props.currEsProgramOptions}
+              value={props.currESProgram}
+              onChange={ value => props.onCurrESProgramChange(value) }
+              placeholder=""
+            />
 
           </div>
         </div>
@@ -172,7 +177,14 @@ const StudentInfoForm: React.SFC<StudentInfoFormProps> = (props) => {
           <label className="label is-small">Which high school does your brother or sister go to?</label>
           <div className="control is-small">
 
-            <Select placeholder=""/>
+            <Select 
+              multi
+              simpleValue
+              options={props.siblingHSSchoolOptions}
+              value={props.siblingHSSchools.join(",")}
+              onChange={ joinedValues => props.onSiblingHSSchoolChange(joinedValues.split(",")) }
+              placeholder=""
+            />
 
           </div>
         </div>

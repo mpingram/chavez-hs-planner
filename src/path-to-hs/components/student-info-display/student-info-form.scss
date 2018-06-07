@@ -4,19 +4,30 @@
 @import "../../../../node_modules/bulma/sass/utilities/_all";
 @import "../../../../node_modules/bulma/sass/elements/button";
 @import "../../../../node_modules/bulma/sass/elements/form";
-/* override react-select styles */
-.Select-arrow-zone {
-  display: none;
-}
-.Select-control {
-  @extend .select;
+
+
+.select:not(.is-multiple):not(.is-loading) {
+    &::after {
+      border-color: $col-app-base;
+      z-index: 0 !important;
+    }
 }
 
-.Select-input {
-  input {
-    line-height: 1em;
-  }
-}
+    
+
+///* override react-select styles */
+//.Select-arrow-zone {
+//  display: none;
+//}
+//.Select-control {
+//  @extend .select;
+//}
+//
+//.Select-input {
+//  input {
+//    line-height: 1em;
+//  }
+//}
 
 
 .student-data-form {
