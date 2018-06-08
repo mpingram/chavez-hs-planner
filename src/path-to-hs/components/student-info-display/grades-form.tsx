@@ -10,6 +10,9 @@ export interface GradesFormProps {
   nweaRead: number | null
   onNWEAReadChange: (newVal: number) => any
 
+  attendancePercentage: number | null;
+  onAttendancePercentageChange: (newVal: number) => any
+
   mathGrade: LetterGrade | null
   onMathGradeChange: (newVal: LetterGrade) => any
   readGrade: LetterGrade | null
@@ -18,12 +21,30 @@ export interface GradesFormProps {
   onScienceGradeChange: (newVal: LetterGrade) => any
   socialStudiesGrade: LetterGrade | null
   onSocialStudiesGradeChange: (newVal: LetterGrade) => any
+
+  gpa: number | null
 }
 
 export const GradesForm: React.SFC<GradesFormProps> = (props) => {
   return (
     <div className="grades-form">
-      <h3>Your grades</h3>
+
+      <h3>Grades and Attendance</h3>
+
+      <div className="field fixed-width-small">
+        <label className="label is-small">Attendance Percentage</label>
+        <div className="control">
+
+          <input
+            value={props.attendancePercentage === null ? "" : props.attendancePercentage}
+            onChange={ ev => props.onAttendancePercentageChange(ev.currentTarget.valueAsNumber) }
+            className="input"
+            type="number"
+          />
+
+        </div>
+      </div>
+
       <div className="field-group">
         <div className="field">
           <label className="label is-small">NWEA Math percentile</label>
@@ -56,7 +77,7 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
 
       <div className="field-group">
         <div className="field fixed-width-small">
-          <label className="label is-small">Math</label>
+          <label className="label is-small multiline">Math Grade</label>
           <div className="control">
             <div className="select">
 
@@ -77,7 +98,7 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
         </div>
 
         <div className="field fixed-width-small">
-          <label className="label is-small">Reading</label>
+          <label className="label is-small multiline">Reading Grade</label>
           <div className="control">
             <div className="select">
 
@@ -98,7 +119,7 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
         </div>
 
         <div className="field fixed-width-small">
-          <label className="label is-small">Science</label>
+          <label className="label is-small multiline">Science Grade</label>
           <div className="control">
             <div className="select">
 
@@ -119,7 +140,7 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
         </div>
 
         <div className="field">
-          <label className="label is-small">Social Studies</label>
+          <label className="label is-small multiline">Social Studies Grade</label>
           <div className="control">
             <div className="select">
 
@@ -138,6 +159,23 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
             </div>
           </div>
         </div>
+        <div className="field">
+          <label className="label is-small multiline">GPA</label>
+          <div className="field">
+            <div className="control gpa-display">
+
+              <input 
+                value={props.gpa === null ? "" : props.gpa.toFixed(2)}
+                readOnly 
+                disabled 
+                className="input" 
+                type="text" 
+              />
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
