@@ -21,8 +21,8 @@ import "./program-card.scss";
 export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
 
   const getIcon = (outcome: SuccessChance) => {
-    const width="24px";
-    const height="24px";
+    const width="16px";
+    const height="16px";
     switch(outcome) {
       case SuccessChance.CERTAIN:
         return <OutcomeCertainIcon width={width} height={height}/>;
@@ -58,17 +58,15 @@ export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
     }
   };
   
-  const iconClassName = `program-card-icon ${getClassName(props.outcome)}`;
-
   return (
     <div className="program-card">
-      <div className="program-card-icon-container">
-        { getIcon(props.outcome) }
-      </div>
-      <div className={iconClassName}>
-        { props.outcome !== SuccessChance.NOTIMPLEMENTED &&
-        <SchoolIcon width="45px" height="45px" color="#000"/>
-        }
+      <div className={`program-card-icon-container ${getClassName(props.outcome)}`}>
+        <div className={`program-card-icon ${getClassName(props.outcome)}`}>
+          <SchoolIcon width="30px" height="30px" color="#fefefe"/>
+        </div>
+        <div className="program-card-outcome-icon">
+          { getIcon(props.outcome) }
+        </div>
       </div>
       <div className='program-card-displayname'>
         {props.displayName}
