@@ -25898,6 +25898,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const enums_1 = __webpack_require__(7);
 const calculate_gpa_1 = __webpack_require__(249);
 const initial_state_1 = __webpack_require__(30);
+const sanitizeNWEAPercentile = (percentile) => {
+    let sanitized;
+    if (Number.isNaN(percentile)) {
+        sanitized = null;
+    }
+    else if (percentile < 1) {
+        sanitized = 1;
+    }
+    else if (percentile > 99) {
+        sanitized = 99;
+    }
+    else {
+        console.log(percentile);
+        sanitized = percentile;
+    }
+    return sanitized;
+};
 exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, action) => {
     let nextStudentData = studentData;
     switch (action.type) {
@@ -25939,10 +25956,12 @@ exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, 
             nextStudentData = Object.assign({}, studentData, { seTestPercentile: action.payload });
             break;
         case enums_1.ActionType.UpdateStudentNWEAPercentileMath:
-            nextStudentData = Object.assign({}, studentData, { nweaPercentileMath: action.payload });
+            const nweaPercentileMath = sanitizeNWEAPercentile(action.payload);
+            nextStudentData = Object.assign({}, studentData, { nweaPercentileMath: nweaPercentileMath });
             break;
         case enums_1.ActionType.UpdateStudentNWEAPercentileRead:
-            nextStudentData = Object.assign({}, studentData, { nweaPercentileRead: action.payload });
+            const nweaPercentileRead = sanitizeNWEAPercentile(action.payload);
+            nextStudentData = Object.assign({}, studentData, { nweaPercentileRead: nweaPercentileRead });
             break;
         case enums_1.ActionType.UpdateStudentSubjGradeMath:
             nextStudentData = Object.assign({}, studentData, { subjGradeMath: action.payload, gpa: calculate_gpa_1.default(action.payload, studentData.subjGradeRead, studentData.subjGradeSci, studentData.subjGradeSocStudies) });
