@@ -6,7 +6,8 @@ import {
   updateStudentSubjGradeMath,
   updateStudentSubjGradeRead,
   updateStudentSubjGradeSci,
-  updateStudentSubjGradeSocStudies
+  updateStudentSubjGradeSocStudies,
+  updateStudentAttendPercentage
 } from "shared/redux/actions";
 
 import { AppState } from "shared/types";
@@ -20,7 +21,9 @@ const mapStateToProps = (state: AppState): Partial<GradesFormProps> => {
     mathGrade: state.studentData.subjGradeMath,
     readGrade: state.studentData.subjGradeRead,
     scienceGrade: state.studentData.subjGradeSci,
-    socialStudiesGrade: state.studentData.subjGradeSocStudies
+    socialStudiesGrade: state.studentData.subjGradeSocStudies,
+    attendancePercentage: state.studentData.attendancePercentage,
+    gpa: state.studentData.gpa
   }
 };
 
@@ -31,7 +34,8 @@ const mapDispatchToProps = (dispatch): Partial<GradesFormProps> => {
     onMathGradeChange: val => dispatch(updateStudentSubjGradeMath(val)),
     onReadGradeChange: val => dispatch(updateStudentSubjGradeRead(val)),
     onScienceGradeChange: val => dispatch(updateStudentSubjGradeSci(val)),
-    onSocialStudiesGradeChange: val => dispatch(updateStudentSubjGradeSocStudies(val))
+    onSocialStudiesGradeChange: val => dispatch(updateStudentSubjGradeSocStudies(val)),
+    onAttendancePercentageChange: val => dispatch(updateStudentAttendPercentage(val))
   }
 };
 
