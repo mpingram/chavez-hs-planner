@@ -3,7 +3,6 @@ import {
   ReqFnFilter
 } from "shared/types";
 
-import isUninitialized from "shared/util/is-uninitialized";
 import distanceBetweenCoords from "shared/util/distance-between-coords";
 
 import { CPS_PROXIMITY_LOTTERY_RADIUS_MI } from "../../constants";
