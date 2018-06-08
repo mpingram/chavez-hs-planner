@@ -1,1 +1,1 @@
-Move getTierAndGeo code to redux action creators
+Add nwea percentile validation to student data reducers

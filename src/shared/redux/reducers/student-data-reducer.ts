@@ -7,6 +7,24 @@ import calculateGPA from "shared/util/calculate-gpa";
 
 import { initialStudentData } from "./initial-state";
 
+const sanitizeNWEAPercentile = (percentile: number): number | null => {
+  // if input is NaN, return null
+  // if input is less than 1, return 1
+  // if input is greater than 99, return 99
+  let sanitized;
+  if (Number.isNaN(percentile)){
+    sanitized = null;
+  } else if (percentile < 1) {
+    sanitized = 1;
+  } else if (percentile > 99) {
+    sanitized = 99
+  } else {
+    console.log(percentile);
+    sanitized = percentile;
+  }
+  return sanitized;
+};
+
 export const studentDataReducer: Redux.Reducer<StudentData> = (studentData = initialStudentData, action): StudentData => {
   let nextStudentData: StudentData = studentData;
   switch(action.type) {
@@ -48,10 +66,12 @@ export const studentDataReducer: Redux.Reducer<StudentData> = (studentData = ini
       nextStudentData = {...studentData, seTestPercentile: action.payload};
       break;
     case ActionType.UpdateStudentNWEAPercentileMath:
-      nextStudentData = {...studentData, nweaPercentileMath: action.payload};
+      const nweaPercentileMath = sanitizeNWEAPercentile(action.payload);
+      nextStudentData = {...studentData, nweaPercentileMath: nweaPercentileMath};
       break;
     case ActionType.UpdateStudentNWEAPercentileRead:
-      nextStudentData = {...studentData, nweaPercentileRead: action.payload};
+      const nweaPercentileRead = sanitizeNWEAPercentile(action.payload);
+      nextStudentData = {...studentData, nweaPercentileRead: nweaPercentileRead};
       break;
     case ActionType.UpdateStudentSubjGradeMath:
       nextStudentData = {
