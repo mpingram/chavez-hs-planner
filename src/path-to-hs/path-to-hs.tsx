@@ -3,6 +3,7 @@ import { store } from "shared/redux/store";
 import { closeProgramModal } from "shared/redux/actions";
 
 import { StudentInfoFormContainer } from "./components/student-info-display/student-info-form-container";
+import { GradesFormContainer } from "./components/student-info-display/grades-form-container";
 import SuccessChanceKey from "./components/hs-display/success-chance-key";
 import HSProgramsContainer from "./components/hs-display/hs-programs-container";
 import { ProgramModalContainer } from "./components/program-modal-container";
@@ -21,6 +22,7 @@ const App: React.SFC<any> = (props) => {
     >
       <div className="student-data-form-container">
         <StudentInfoFormContainer />
+        <GradesFormContainer />
       </div>
       <div className="hs-programs-container">
         <HSProgramsContainer />

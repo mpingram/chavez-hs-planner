@@ -30,7 +30,7 @@ interface StudentInfoFormProps {
 }
 const StudentInfoForm: React.SFC<StudentInfoFormProps> = (props) => {
   return (
-    <div className="student-data-form">
+    <div className="student-info-form">
         <div className="field-group">
           <div className="field fixed-width-small">
             <label className="label is-small multiline">Do you have an IEP?</label>
@@ -68,7 +68,7 @@ const StudentInfoForm: React.SFC<StudentInfoFormProps> = (props) => {
                     ? props.onELChange(true) 
                     : props.onELChange(false) }
                 >
-                  <option value="placeholder" disabled selected></option>
+                  <option value="placeholder" disabled></option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                   <option value="unsure">I don't know</option>
@@ -91,7 +91,7 @@ const StudentInfoForm: React.SFC<StudentInfoFormProps> = (props) => {
                     ? props.onSkip7OrRepeat8Change(true) 
                     : props.onSkip7OrRepeat8Change(false) }
                 >
-                  <option value="placeholder" disabled selected></option>
+                  <option value="placeholder" disabled></option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                   <option value="no">I don't know</option>
@@ -164,7 +164,7 @@ const StudentInfoForm: React.SFC<StudentInfoFormProps> = (props) => {
               <div className="select is-small">
 
                 <select>
-                  <option value="placeholder" disabled selected></option>
+                  <option value="placeholder" disabled></option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
@@ -186,100 +186,6 @@ const StudentInfoForm: React.SFC<StudentInfoFormProps> = (props) => {
               placeholder=""
             />
 
-          </div>
-        </div>
-
-        <div className="field-group">
-          <div className="field">
-            <label className="label is-small">NWEA Math percentile</label>
-            <div className="control">
-
-              <input className="input" type="number" />
-
-            </div>
-          </div>
-
-          <div className="field">
-            <label className="label is-small">NWEA Reading percentile</label>
-            <div className="control">
-
-              <input className="input" type="number" />
-
-            </div>
-          </div>
-        </div>
-
-        <div className="field-group">
-          <div className="field fixed-width-small">
-            <label className="label is-small">Math</label>
-            <div className="control">
-              <div className="select">
-
-                <select>
-                  <option value="placeholder" disabled selected></option>
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="D">D</option>
-                  <option value="F">F</option>
-                </select>
-
-              </div>
-            </div>
-          </div>
-
-          <div className="field fixed-width-small">
-            <label className="label is-small">Reading</label>
-            <div className="control">
-              <div className="select">
-
-                <select>
-                  <option value="placeholder" disabled selected></option>
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="D">D</option>
-                  <option value="F">F</option>
-                </select>
-
-              </div>
-            </div>
-          </div>
-
-          <div className="field fixed-width-small">
-            <label className="label is-small">Science</label>
-            <div className="control">
-              <div className="select">
-
-                <select>
-                  <option value="placeholder" disabled selected></option>
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="D">D</option>
-                  <option value="F">F</option>
-                </select>
-
-              </div>
-            </div>
-          </div>
-
-          <div className="field">
-            <label className="label is-small">Social Studies</label>
-            <div className="control">
-              <div className="select">
-
-                <select>
-                  <option value="placeholder" disabled selected></option>
-                  <option value="A">A</option>
-                  <option value="B">B</option>
-                  <option value="C">C</option>
-                  <option value="D">D</option>
-                  <option value="F">F</option>
-                </select>
-
-              </div>
-            </div>
           </div>
         </div>
   </div>

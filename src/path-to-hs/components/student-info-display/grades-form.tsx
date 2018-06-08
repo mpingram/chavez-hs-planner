@@ -1,6 +1,26 @@
 import * as React from "react";
 
-const GradesForm: React.SFC<any> = () => {
+import { LetterGrade } from "shared/types";
+
+import "./grades-form.scss";
+
+export interface GradesFormProps {
+  nweaMath: number | null
+  onNWEAMathChange: (newVal: number) => any
+  nweaRead: number | null
+  onNWEAReadChange: (newVal: number) => any
+
+  mathGrade: LetterGrade | null
+  onMathGradeChange: (newVal: LetterGrade) => any
+  readGrade: LetterGrade | null
+  onReadGradeChange: (newVal: LetterGrade) => any
+  scienceGrade: LetterGrade | null
+  onScienceGradeChange: (newVal: LetterGrade) => any
+  socialStudiesGrade: LetterGrade | null
+  onSocialStudiesGradeChange: (newVal: LetterGrade) => any
+}
+
+export const GradesForm: React.SFC<GradesFormProps> = (props) => {
   return (
     <div className="grades-form">
       <div className="field-group">
@@ -8,7 +28,12 @@ const GradesForm: React.SFC<any> = () => {
           <label className="label is-small">NWEA Math percentile</label>
           <div className="control">
 
-            <input className="input" type="number" />
+            <input 
+              value={props.nweaMath === null ? "" : props.nweaMath}
+              onChange={ ev => props.onNWEAMathChange(ev.currentTarget.valueAsNumber) }
+              className="input" 
+              type="number" 
+            />
 
           </div>
         </div>
@@ -17,7 +42,12 @@ const GradesForm: React.SFC<any> = () => {
           <label className="label is-small">NWEA Reading percentile</label>
           <div className="control">
 
-            <input className="input" type="number" />
+          <input 
+              value={props.nweaRead === null ? "" : props.nweaRead}
+              onChange={ ev => props.onNWEAReadChange(ev.currentTarget.valueAsNumber) }
+              className="input" 
+              type="number" 
+            />
 
           </div>
         </div>
@@ -29,8 +59,11 @@ const GradesForm: React.SFC<any> = () => {
           <div className="control">
             <div className="select">
 
-              <select>
-                <option value="placeholder" disabled selected></option>
+              <select
+                value={props.mathGrade === null ? "placeholder" : props.mathGrade}
+                onChange={ ev => props.onMathGradeChange(ev.currentTarget.value as LetterGrade) }
+              >
+                <option value="placeholder" disabled></option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -47,8 +80,11 @@ const GradesForm: React.SFC<any> = () => {
           <div className="control">
             <div className="select">
 
-              <select>
-                <option value="placeholder" disabled selected></option>
+              <select
+                value={props.readGrade === null ? "placeholder" : props.readGrade}
+                onChange={ ev => props.onReadGradeChange(ev.currentTarget.value as LetterGrade) }
+              >
+                <option value="placeholder" disabled></option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -65,8 +101,11 @@ const GradesForm: React.SFC<any> = () => {
           <div className="control">
             <div className="select">
 
-              <select>
-                <option value="placeholder" disabled selected></option>
+              <select
+                value={props.scienceGrade === null ? "placeholder" : props.scienceGrade}
+                onChange={ ev => props.onScienceGradeChange(ev.currentTarget.value as LetterGrade) }
+              >
+                <option value="placeholder" disabled></option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -83,8 +122,11 @@ const GradesForm: React.SFC<any> = () => {
           <div className="control">
             <div className="select">
 
-              <select>
-                <option value="placeholder" disabled selected></option>
+              <select
+                value={props.socialStudiesGrade === null ? "placeholder" : props.socialStudiesGrade}
+                onChange={ ev => props.onSocialStudiesGradeChange(ev.currentTarget.value as LetterGrade) }
+              >
+                <option value="placeholder" disabled></option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -99,5 +141,3 @@ const GradesForm: React.SFC<any> = () => {
     </div>
   );
 }
-
-export default GradesForm;

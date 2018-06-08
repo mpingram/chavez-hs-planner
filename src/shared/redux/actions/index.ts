@@ -5,6 +5,7 @@ import {
 }  from "shared/enums";
 
 import { 
+  LetterGrade,
   Program,
   ProgramOutcome,
   StudentLocation
@@ -92,28 +93,28 @@ export const updateStudentNWEAPercentileRead = (newValue: number) => {
   };
 };
 
-export const updateStudentSubjGradeMath = (newValue: number) => {
+export const updateStudentSubjGradeMath = (newValue: LetterGrade) => {
   return {
     type: ActionType.UpdateStudentSubjGradeMath,
     payload: newValue
   };
 };
 
-export const updateStudentSubjGradeRead = (newValue: number) => {
+export const updateStudentSubjGradeRead = (newValue: LetterGrade) => {
   return {
     type: ActionType.UpdateStudentSubjGradeRead,
     payload: newValue
   };
 };
 
-export const updateStudentSubjGradeSci = (newValue: number) => {
+export const updateStudentSubjGradeSci = (newValue: LetterGrade) => {
   return {
     type: ActionType.UpdateStudentSubjGradeSci,
     payload: newValue
   };
 };
 
-export const updateStudentSubjGradeSocStudies = (newValue: number) => {
+export const updateStudentSubjGradeSocStudies = (newValue: LetterGrade) => {
   return {
     type: ActionType.UpdateStudentSubjGradeSocStudies,
     payload: newValue
