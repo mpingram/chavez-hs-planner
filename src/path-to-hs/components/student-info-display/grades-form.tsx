@@ -23,6 +23,7 @@ export interface GradesFormProps {
 export const GradesForm: React.SFC<GradesFormProps> = (props) => {
   return (
     <div className="grades-form">
+      <h3>Your grades</h3>
       <div className="field-group">
         <div className="field">
           <label className="label is-small">NWEA Math percentile</label>
