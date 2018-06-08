@@ -11,10 +11,14 @@ import {
   StudentLocation
 } from "shared/types";
 
-import { updateProgramOutcomes } from "./update-program-outcomes";
+import * as debounce from "lodash.debounce";
 
+import { getTierAndGeo } from "../utils/get-tier-and-geo";
+import { updateProgramOutcomes } from "./update-program-outcomes";
 export { loadAllData } from "./data-loading";
 export * from "./update-program-outcomes";
+
+const API_REQUEST_DEBOUNCE_DELAY = 1500; //ms
 
 export const updateStudentAttendPercentage = (newValue: number) => {
   return {
@@ -189,6 +193,23 @@ export const updateStudentGeo = (geo: {latitude: number, longitude: number}) => 
   }
 }
 
+
+const __requestTierAndGeoInnerFn = debounce(
+  (dispatch, address) => {
+    getTierAndGeo(address).then(
+      (res) => {
+        dispatch(tierLoaded());
+        dispatch(updateStudentTier(res.tier));
+        dispatch(updateStudentGeo(res.geo));
+      }
+    );
+  }
+, API_REQUEST_DEBOUNCE_DELAY);
+
+const requestTierAndGeo = (address: string) => {
+  return dispatch => __requestTierAndGeoInnerFn(dispatch, address);
+}
+
 export const updateStudentAddress = (address: string) => {
   return (dispatch) => {
     // update address
@@ -196,14 +217,9 @@ export const updateStudentAddress = (address: string) => {
       type: ActionType.UpdateStudentAddress,
       payload: address
     });
-    /* FIXME implement*/
+    // FIXME add deobouncing, error handling
     dispatch(loadingTier());
-    setTimeout( () => {
-      dispatch(tierLoaded());
-      dispatch(updateStudentTier("5"));
-      dispatch(updateStudentGeo({latitude: 0, longitude: 0}));
-    }, 2000);
-    /* END FIXME */
+    dispatch(requestTierAndGeo(address));
   }
 }
 

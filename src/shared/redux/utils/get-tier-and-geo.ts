@@ -17,7 +17,14 @@ export interface TierAndGeoResponse {
 };
 
 
-export const getTierAndGeo = (address: string): Promise<TierAndGeoResponse> => {
+/*
+ * Takes a Chicago street address (e.g. 4747 S Marshfield Ave) and returns a promise
+ * that either returns the address' geolocation and CPS tier, or returns one of the
+ * three GetTierErrors defined in this module.
+ * */
+export const getTierAndGeo = (streetAddress: string): Promise<TierAndGeoResponse> => {
+
+  const address = streetAddress.trim() + " , Chicago IL";
 
   return new Promise((resolve, reject) => {
     getTractAndGeo(address).then( ({tract, geo}) => {
@@ -25,11 +32,8 @@ export const getTierAndGeo = (address: string): Promise<TierAndGeoResponse> => {
         resolve({tier, geo});
       }).catch( err => reject(GetTierError.NoTierFoundErr));
     }).catch( err => {
-      if (err === GetTierError.RequestFailedErr){
-        reject(GetTierError.RequestFailedErr);
-      } else {
-        reject(GetTierError.InvalidAddressErr);
-      }
+      console.error(err);
+      reject(err);
     });
   });
 };
@@ -67,6 +71,8 @@ const getTractAndGeo = (address: string): Promise<{tract: string, geo: {latitude
     vintage: "Current_Current",
     layers: "Census Tracts",
   };
+
+
 
   const sendRequest = (baseUrl: string, params: GeocodingAPIParams): Promise<GeocodingAPIResponse> => {
     return new Promise( (resolve, reject) => {
