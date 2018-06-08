@@ -34768,7 +34768,7 @@ exports = module.exports = __webpack_require__(16)(undefined);
 
 
 // module
-exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n", ""]);
+exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px;\n  overflow-y: auto; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n", ""]);
 
 // exports
 
