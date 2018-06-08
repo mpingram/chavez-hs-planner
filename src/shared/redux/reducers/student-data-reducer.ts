@@ -19,8 +19,24 @@ const sanitizeNWEAPercentile = (percentile: number): number | null => {
   } else if (percentile > 99) {
     sanitized = 99
   } else {
-    console.log(percentile);
     sanitized = percentile;
+  }
+  return sanitized;
+};
+
+const sanitizeAttendancePercentage = (percentage: number): number | null => {
+  // if input is NaN, return null
+  // if input is less than 0, return 0
+  // if input is greater than 100, return 100
+  let sanitized;
+  if (Number.isNaN(percentage)){
+    sanitized = null;
+  } else if (percentage < 0) {
+    sanitized = 0;
+  } else if (percentage > 100) {
+    sanitized = 100;
+  } else {
+    sanitized = percentage;
   }
   return sanitized;
 };
@@ -57,7 +73,8 @@ export const studentDataReducer: Redux.Reducer<StudentData> = (studentData = ini
       nextStudentData = {...studentData, iep: action.payload};
       break;
     case ActionType.UpdateStudentAttendPercentage:
-      nextStudentData = {...studentData, attendancePercentage: action.payload};
+      const attendancePercentage = sanitizeAttendancePercentage(action.payload);
+      nextStudentData = {...studentData, attendancePercentage: attendancePercentage};
       break;
     case ActionType.UpdateStudentSiblingHSSchools:
       nextStudentData = {...studentData, siblingHSSchoolIDs: action.payload};
