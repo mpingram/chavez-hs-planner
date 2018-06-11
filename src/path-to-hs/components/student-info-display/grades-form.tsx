@@ -45,8 +45,8 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
         </div>
       </div>
 
-      <div className="field-group">
-        <div className="field">
+      <div className="field-group distribute-left">
+        <div className="field fixed-width-med">
           <label className="label is-small">NWEA Math percentile</label>
           <div className="control">
 
@@ -60,7 +60,7 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
           </div>
         </div>
 
-        <div className="field">
+        <div className="field fixed-width-med">
           <label className="label is-small">NWEA Reading percentile</label>
           <div className="control">
 

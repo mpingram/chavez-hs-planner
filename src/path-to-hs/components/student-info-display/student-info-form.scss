@@ -52,7 +52,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+<<<<<<< HEAD
   justify-content: space-between;
+=======
+  justify-content: space-between; 
+>>>>>>> dev
   align-items: flex-end;
   margin-bottom: 0.75em;
   .field {
@@ -62,9 +66,18 @@
     }
   }
 }
+.field-group.distribute-left {
+  justify-content: flex-start;
+}
 
 .field.fixed-width-small {
   width: 90px;
+<<<<<<< HEAD
+=======
+}
+.field.fixed-width-med {
+  width: 140px;
+>>>>>>> dev
 }
 
 .label {
