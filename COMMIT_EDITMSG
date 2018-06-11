@@ -1,6 +1,3 @@
-Tweak form field styling
+Make all form fields the same size
 
-* fix static-height multiline label -- approach does not work at
-  different font scalings (or even with different fonts)
-* adjust flex alignment of fields within field-groups to align fields
-  along baseline and have the same margins as non-grouped fields.
+* Also make minor adjustments to placement of cps tier display 
