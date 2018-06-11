@@ -10,6 +10,8 @@ import {
 
 import SearchBar from "shared/components/ui/search-bar";
 
+
+import SuccessChanceKey from "./success-chance-key";
 import HSGroup from "./hs-group";
 
 interface HSProgramListProps {
@@ -45,6 +47,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
           overflowY: "hidden"
         }}
       >
+        <SuccessChanceKey />
         <SearchBar 
           value={this.state.searchTerm} 
           onChange={value => this.setState({searchTerm: value})}

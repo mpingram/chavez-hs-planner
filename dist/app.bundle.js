@@ -34084,6 +34084,7 @@ exports.default = HSProgramsContainer;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 const search_bar_1 = __webpack_require__(311);
+const success_chance_key_1 = __webpack_require__(331);
 const hs_group_1 = __webpack_require__(315);
 const constants_1 = __webpack_require__(12);
 class HSProgramList extends React.PureComponent {
@@ -34112,6 +34113,7 @@ class HSProgramList extends React.PureComponent {
                 overflowX: "hidden",
                 overflowY: "hidden"
             } },
+            React.createElement(success_chance_key_1.default, null),
             React.createElement(search_bar_1.default, { value: this.state.searchTerm, onChange: value => this.setState({ searchTerm: value }), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }),
             React.createElement("div", { style: {
                     width: "100%",
@@ -34769,6 +34771,91 @@ exports = module.exports = __webpack_require__(16)(undefined);
 
 // module
 exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px;\n  overflow-y: auto; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 331 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(4);
+const outcome_certain_1 = __webpack_require__(113);
+const outcome_likely_1 = __webpack_require__(114);
+const outcome_uncertain_1 = __webpack_require__(115);
+const outcome_unlikely_1 = __webpack_require__(116);
+const outcome_none_1 = __webpack_require__(117);
+const outcome_notimplemented_1 = __webpack_require__(118);
+const constants_1 = __webpack_require__(12);
+__webpack_require__(332);
+const SuccessChanceKey = (props) => {
+    return (React.createElement("div", { className: "hs-program-success-chance-key" },
+        React.createElement("div", { className: "hs-program-success-chance-example" },
+            React.createElement(outcome_certain_1.default, { color: constants_1.OutcomeCertainColor, width: "48px", height: "48px" }),
+            "You will almost certainly be accepted."),
+        React.createElement("div", { className: "hs-program-success-chance-example" },
+            React.createElement(outcome_likely_1.default, { color: constants_1.OutcomeLikelyColor, width: "48px", height: "48px" }),
+            "You're more likely to be accepted than other students."),
+        React.createElement("div", { className: "hs-program-success-chance-example" },
+            React.createElement(outcome_uncertain_1.default, { color: constants_1.OutcomeUncertainColor, width: "48px", height: "48px" }),
+            "You're about as likely to be accepted as other students."),
+        React.createElement("div", { className: "hs-program-success-chance-example" },
+            React.createElement(outcome_unlikely_1.default, { color: constants_1.OutcomeUnlikelyColor, width: "48px", height: "48px" }),
+            "You're less likely to be accepted than other students."),
+        React.createElement("div", { className: "hs-program-success-chance-example" },
+            React.createElement(outcome_none_1.default, { color: constants_1.OutcomeNoneColor, width: "48px", height: "48px" }),
+            "You probably won't be accepted."),
+        React.createElement("div", { className: "hs-program-success-chance-example" },
+            React.createElement(outcome_notimplemented_1.default, { color: constants_1.OutcomeNotImplementedColor, width: "48px", height: "48px" }),
+            "There isn't enough information to give an answer.")));
+};
+exports.default = SuccessChanceKey;
+
+
+/***/ }),
+/* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(333);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(17)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./success-chance-key.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./success-chance-key.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 333 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(16)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".hs-program-success-chance-key {\n  width: 100%;\n  height: 150px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-left: -0.5em;\n  padding-bottom: 0.5em;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  text-align: center; }\n\n.hs-program-success-chance-example {\n  -webkit-transform: scale(0.85);\n          transform: scale(0.85); }\n\n.hs-program-success-chance-example > .hs-list-element-icon {\n  margin: 0 auto; }\n", ""]);
 
 // exports
 
