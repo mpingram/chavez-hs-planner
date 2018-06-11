@@ -51,19 +51,20 @@
 .field-group {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 0.75em;
   .field {
     margin-bottom: 0.75em;
+    &:not(:last-child) {
+      margin-right: 0.5em;
+    }
   }
 }
 
 .field.fixed-width-small {
   width: 90px;
-  &not(:last-child) {
-    margin-right:10px;
-  }
 }
 
 .label {
