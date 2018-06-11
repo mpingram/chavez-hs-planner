@@ -51,19 +51,26 @@
 .field-group {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-between; 
   align-items: flex-end;
   margin-bottom: 0.75em;
   .field {
     margin-bottom: 0.75em;
+    &:not(:last-child) {
+      margin-right: 0.5em;
+    }
   }
+}
+.field-group.distribute-left {
+  justify-content: flex-start;
 }
 
 .field.fixed-width-small {
   width: 90px;
-  &not(:last-child) {
-    margin-right:10px;
-  }
+}
+.field.fixed-width-med {
+  width: 140px;
 }
 
 .label {
