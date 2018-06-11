@@ -818,7 +818,7 @@ module.exports = ExecutionEnvironment;
 
 var _prodInvariant = __webpack_require__(22);
 
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -1288,6 +1288,88 @@ exports.TRACT_TIER_TABLE_URL = "data/tract-tier-table.json";
 
 /***/ }),
 /* 13 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1646,7 +1728,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1680,7 +1762,7 @@ var ReactCurrentOwner = {
 module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1935,88 +2017,6 @@ var ReactUpdates = {
 
 module.exports = ReactUpdates;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
 
 /***/ }),
 /* 17 */
@@ -2524,7 +2524,7 @@ module.exports = DOMProperty;
 
 var _assign = __webpack_require__(5);
 
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 
 var warning = __webpack_require__(2);
 var canDefineProperty = __webpack_require__(32);
@@ -6789,10 +6789,10 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(11);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -8039,7 +8039,7 @@ module.exports = getIteratorFn;
 
 
 
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 var ReactComponentTreeHook = __webpack_require__(9);
 var ReactElement = __webpack_require__(19);
 
@@ -9883,7 +9883,7 @@ var _assign = __webpack_require__(5);
 
 var LinkedValueUtils = __webpack_require__(54);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 
 var warning = __webpack_require__(2);
 
@@ -10377,7 +10377,7 @@ module.exports = ReactHostComponent;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 var REACT_ELEMENT_TYPE = __webpack_require__(180);
 
 var getIteratorFn = __webpack_require__(181);
@@ -10825,7 +10825,7 @@ var DOMLazyTree = __webpack_require__(24);
 var DOMProperty = __webpack_require__(18);
 var React = __webpack_require__(21);
 var ReactBrowserEventEmitter = __webpack_require__(39);
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMContainerInfo = __webpack_require__(210);
 var ReactDOMFeatureFlags = __webpack_require__(211);
@@ -10835,7 +10835,7 @@ var ReactInstrumentation = __webpack_require__(11);
 var ReactMarkupChecksum = __webpack_require__(212);
 var ReactReconciler = __webpack_require__(23);
 var ReactUpdateQueue = __webpack_require__(59);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 
 var emptyObject = __webpack_require__(33);
 var instantiateReactComponent = __webpack_require__(95);
@@ -13181,7 +13181,7 @@ module.exports = PooledClass;
 
 var _prodInvariant = __webpack_require__(22);
 
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 var REACT_ELEMENT_TYPE = __webpack_require__(75);
 
 var getIteratorFn = __webpack_require__(76);
@@ -14816,7 +14816,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDefaultInjection = __webpack_require__(136);
 var ReactMount = __webpack_require__(103);
 var ReactReconciler = __webpack_require__(23);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 var ReactVersion = __webpack_require__(214);
 
 var findDOMNode = __webpack_require__(215);
@@ -15673,7 +15673,7 @@ var EventPluginHub = __webpack_require__(27);
 var EventPropagators = __webpack_require__(26);
 var ExecutionEnvironment = __webpack_require__(8);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 var SyntheticEvent = __webpack_require__(17);
 
 var inputValueTracking = __webpack_require__(86);
@@ -19247,7 +19247,7 @@ var _prodInvariant = __webpack_require__(3),
 var DOMPropertyOperations = __webpack_require__(92);
 var LinkedValueUtils = __webpack_require__(54);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -19667,7 +19667,7 @@ var _prodInvariant = __webpack_require__(3),
 
 var LinkedValueUtils = __webpack_require__(54);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -19834,7 +19834,7 @@ var ReactComponentEnvironment = __webpack_require__(55);
 var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(11);
 
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 var ReactReconciler = __webpack_require__(23);
 var ReactChildReconciler = __webpack_require__(175);
 
@@ -20444,7 +20444,7 @@ var _prodInvariant = __webpack_require__(3),
 
 var React = __webpack_require__(21);
 var ReactComponentEnvironment = __webpack_require__(55);
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 var ReactErrorUtils = __webpack_require__(47);
 var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(11);
@@ -22266,7 +22266,7 @@ module.exports = ReactDOMTextComponent;
 
 var _assign = __webpack_require__(5);
 
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 var Transaction = __webpack_require__(35);
 
 var emptyFunction = __webpack_require__(10);
@@ -22343,7 +22343,7 @@ var EventListener = __webpack_require__(100);
 var ExecutionEnvironment = __webpack_require__(8);
 var PooledClass = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 
 var getEventTarget = __webpack_require__(48);
 var getUnboundedScrollPosition = __webpack_require__(190);
@@ -22548,7 +22548,7 @@ var ReactComponentEnvironment = __webpack_require__(55);
 var ReactEmptyComponent = __webpack_require__(97);
 var ReactBrowserEventEmitter = __webpack_require__(39);
 var ReactHostComponent = __webpack_require__(98);
-var ReactUpdates = __webpack_require__(15);
+var ReactUpdates = __webpack_require__(16);
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -24610,7 +24610,7 @@ module.exports = '15.6.1';
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(14);
+var ReactCurrentOwner = __webpack_require__(15);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstanceMap = __webpack_require__(29);
 
@@ -30498,7 +30498,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -30518,7 +30518,7 @@ if(false) {
 /* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
@@ -36119,7 +36119,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -36139,7 +36139,7 @@ if(false) {
 /* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
@@ -39183,7 +39183,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -39203,7 +39203,7 @@ if(false) {
 /* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
@@ -39342,7 +39342,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -39362,7 +39362,7 @@ if(false) {
 /* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
@@ -39605,7 +39605,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -39625,7 +39625,7 @@ if(false) {
 /* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
@@ -39691,7 +39691,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -39711,7 +39711,7 @@ if(false) {
 /* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
@@ -39930,13 +39930,13 @@ exports.shallowCompare = (objA, objB) => {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 const SchoolIcon = (props) => {
-    return (React.createElement("svg", { width: props.width, height: props.height, fill: props.color, xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 470 470" },
-        React.createElement("path", { stroke: "#eee", "stroke-width": "100", d: "M462.5,240H360v-53.5c0-0.277-0.017-0.55-0.047-0.819c-0.007-0.067-0.021-0.132-0.03-0.198 c-0.028-0.204-0.06-0.407-0.104-0.606c-0.017-0.075-0.038-0.148-0.057-0.222c-0.048-0.188-0.1-0.374-0.162-0.557 c-0.026-0.077-0.055-0.152-0.083-0.227c-0.066-0.176-0.137-0.348-0.215-0.517c-0.036-0.077-0.072-0.153-0.11-0.228 c-0.083-0.164-0.172-0.323-0.266-0.48c-0.044-0.073-0.087-0.147-0.133-0.219c-0.104-0.16-0.215-0.313-0.33-0.464 c-0.046-0.061-0.089-0.124-0.137-0.183c-0.166-0.205-0.341-0.402-0.527-0.588c-0.018-0.018-0.039-0.034-0.058-0.052 c-0.171-0.168-0.35-0.327-0.537-0.477c-0.017-0.014-0.031-0.03-0.049-0.043L242.5,89.871V15H308v28h-43c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5h50.5c4.142,0,7.5-3.358,7.5-7.5v-43c0-4.142-3.358-7.5-7.5-7.5H235c-4.142,0-7.5,3.358-7.5,7.5v82.371 l-114.655,90.748c-0.017,0.013-0.032,0.029-0.049,0.043c-0.187,0.151-0.366,0.31-0.537,0.477c-0.018,0.018-0.039,0.034-0.058,0.052 c-0.186,0.186-0.361,0.383-0.527,0.588c-0.048,0.059-0.091,0.122-0.137,0.183c-0.115,0.151-0.226,0.304-0.33,0.464 c-0.047,0.072-0.089,0.146-0.133,0.219c-0.094,0.157-0.183,0.316-0.266,0.48c-0.038,0.076-0.074,0.151-0.11,0.228 c-0.078,0.169-0.15,0.341-0.215,0.517c-0.028,0.076-0.057,0.151-0.083,0.227c-0.062,0.182-0.114,0.368-0.162,0.557 c-0.019,0.074-0.04,0.147-0.057,0.222c-0.044,0.199-0.076,0.401-0.104,0.606c-0.009,0.066-0.023,0.132-0.03,0.198 c-0.029,0.269-0.047,0.542-0.047,0.819V240H7.5c-4.142,0-7.5,3.358-7.5,7.5v215c0,4.142,3.358,7.5,7.5,7.5h455 c4.142,0,7.5-3.358,7.5-7.5v-215C470,243.358,466.642,240,462.5,240z M455,255v25h-95v-25H455z M110,255v25H15v-25H110z M295,331.667V425h-52.5v-93.333H295z M227.5,425H175v-93.333h52.5V425z M175,440h120v15H175V440z M310,455V324.167 c0-4.142-3.358-7.5-7.5-7.5h-135c-4.142,0-7.5,3.358-7.5,7.5V455H15V295h95v137.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V194 h137.5c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H139.061L235,103.065L330.939,179H292.5c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5H345v238.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V295h95v160H310z" }),
-        React.createElement("path", { "stroke-width": "100", d: "M44.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C51.667,320.025,48.309,316.667,44.167,316.667z" }),
-        React.createElement("path", { "stroke-width": "100", d: "M80.833,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C88.333,320.025,84.976,316.667,80.833,316.667z" }),
-        React.createElement("path", { "stroke-width": "100", d: "M425.833,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C433.333,320.025,429.976,316.667,425.833,316.667z" }),
-        React.createElement("path", { "stroke-width": "100", d: "M389.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C396.667,320.025,393.309,316.667,389.167,316.667z" }),
-        React.createElement("path", { "stroke-width": "100", d: "M235,219c-20.034,0-36.333,16.299-36.333,36.333s16.299,36.333,36.333,36.333s36.333-16.299,36.333-36.333 S255.034,219,235,219z M235,276.667c-11.763,0-21.333-9.57-21.333-21.333S223.237,234,235,234s21.333,9.57,21.333,21.333 S246.763,276.667,235,276.667z" })));
+    return (React.createElement("svg", { width: props.width, height: props.height, fill: props.color, xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 470 470", strokeWidth: "2" },
+        React.createElement("path", { strokeWidth: "5", stroke: "#eee", d: "M462.5,240H360v-53.5c0-0.277-0.017-0.55-0.047-0.819c-0.007-0.067-0.021-0.132-0.03-0.198 c-0.028-0.204-0.06-0.407-0.104-0.606c-0.017-0.075-0.038-0.148-0.057-0.222c-0.048-0.188-0.1-0.374-0.162-0.557 c-0.026-0.077-0.055-0.152-0.083-0.227c-0.066-0.176-0.137-0.348-0.215-0.517c-0.036-0.077-0.072-0.153-0.11-0.228 c-0.083-0.164-0.172-0.323-0.266-0.48c-0.044-0.073-0.087-0.147-0.133-0.219c-0.104-0.16-0.215-0.313-0.33-0.464 c-0.046-0.061-0.089-0.124-0.137-0.183c-0.166-0.205-0.341-0.402-0.527-0.588c-0.018-0.018-0.039-0.034-0.058-0.052 c-0.171-0.168-0.35-0.327-0.537-0.477c-0.017-0.014-0.031-0.03-0.049-0.043L242.5,89.871V15H308v28h-43c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5h50.5c4.142,0,7.5-3.358,7.5-7.5v-43c0-4.142-3.358-7.5-7.5-7.5H235c-4.142,0-7.5,3.358-7.5,7.5v82.371 l-114.655,90.748c-0.017,0.013-0.032,0.029-0.049,0.043c-0.187,0.151-0.366,0.31-0.537,0.477c-0.018,0.018-0.039,0.034-0.058,0.052 c-0.186,0.186-0.361,0.383-0.527,0.588c-0.048,0.059-0.091,0.122-0.137,0.183c-0.115,0.151-0.226,0.304-0.33,0.464 c-0.047,0.072-0.089,0.146-0.133,0.219c-0.094,0.157-0.183,0.316-0.266,0.48c-0.038,0.076-0.074,0.151-0.11,0.228 c-0.078,0.169-0.15,0.341-0.215,0.517c-0.028,0.076-0.057,0.151-0.083,0.227c-0.062,0.182-0.114,0.368-0.162,0.557 c-0.019,0.074-0.04,0.147-0.057,0.222c-0.044,0.199-0.076,0.401-0.104,0.606c-0.009,0.066-0.023,0.132-0.03,0.198 c-0.029,0.269-0.047,0.542-0.047,0.819V240H7.5c-4.142,0-7.5,3.358-7.5,7.5v215c0,4.142,3.358,7.5,7.5,7.5h455 c4.142,0,7.5-3.358,7.5-7.5v-215C470,243.358,466.642,240,462.5,240z M455,255v25h-95v-25H455z M110,255v25H15v-25H110z M295,331.667V425h-52.5v-93.333H295z M227.5,425H175v-93.333h52.5V425z M175,440h120v15H175V440z M310,455V324.167 c0-4.142-3.358-7.5-7.5-7.5h-135c-4.142,0-7.5,3.358-7.5,7.5V455H15V295h95v137.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V194 h137.5c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H139.061L235,103.065L330.939,179H292.5c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5H345v238.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V295h95v160H310z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M44.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C51.667,320.025,48.309,316.667,44.167,316.667z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M80.833,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C88.333,320.025,84.976,316.667,80.833,316.667z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M425.833,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C433.333,320.025,429.976,316.667,425.833,316.667z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M389.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C396.667,320.025,393.309,316.667,389.167,316.667z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M235,219c-20.034,0-36.333,16.299-36.333,36.333s16.299,36.333,36.333,36.333s36.333-16.299,36.333-36.333 S255.034,219,235,219z M235,276.667c-11.763,0-21.333-9.57-21.333-21.333S223.237,234,235,234s21.333,9.57,21.333,21.333 S246.763,276.667,235,276.667z" })));
 };
 exports.default = SchoolIcon;
 
@@ -39956,7 +39956,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -39976,7 +39976,7 @@ if(false) {
 /* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
@@ -40001,7 +40001,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -40021,7 +40021,7 @@ if(false) {
 /* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
@@ -40046,7 +40046,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -40066,12 +40066,12 @@ if(false) {
 /* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto; }\n\n.hs-category-container.collapsed {\n  height: 75px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #b6b6b7;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n\n.hs-category-title {\n  max-width: 100%;\n  font-size: 140%;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n\n.count-all {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 6em;\n          flex: 0 0 6em; }\n\n.count-all-number {\n  color: #333;\n  font-size: 1.25em;\n  font-weight: bold;\n  line-height: 36px; }\n\n.count-all-desc {\n  color: #666;\n  font-size: 90%;\n  line-height: 36px; }\n\n.hs-program-outcome-counts {\n  font-size: 95%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n\n.outcome-counts-wrapper {\n  height: 36px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  background-color: #fafafa;\n  border-radius: 12px; }\n\n.outcome-count {\n  width: 20px;\n  margin: 0 5px;\n  line-height: 16px;\n  font-size: 1.25em;\n  text-align: center;\n  font-weight: bold; }\n\n.outcome-count.count-empty {\n  color: #a6a6a6;\n  font-weight: normal; }\n\n.outcome-count.count-certain {\n  color: #5bed2a; }\n\n.outcome-count.count-likely {\n  color: #b6ec29; }\n\n.outcome-count.count-uncertain {\n  color: #ccc000; }\n\n.outcome-count.count-unlikely {\n  color: #f49600; }\n\n.outcome-count.count-none {\n  color: #f4743b; }\n\n.outcome-count.count-notimplemented {\n  color: #999; }\n\n.hs-category-collapse-button {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 40px;\n          flex: 0 0 40px;\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  -ms-flex-item-align: center;\n      align-self: center;\n  border-radius: 100%;\n  border: 2px solid #b6b6b7;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
+exports.push([module.i, ".hs-category-container {\n  width: 100%;\n  height: auto; }\n\n.hs-category-container.collapsed {\n  height: 75px; }\n\n.hs-category-container.collapsed > .hs-list {\n  display: none; }\n\n.hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-bottom: 1px solid #b6b6b7;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n\n.hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n\n.hs-category-title {\n  max-width: 100%;\n  font-size: 1.2rem;\n  font-weight: bold;\n  letter-spacing: 1px;\n  text-transform: uppercase;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n\n.count-all {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 6em;\n          flex: 0 0 6em; }\n\n.count-all-number {\n  color: #333;\n  font-size: 1.25em;\n  font-weight: bold;\n  line-height: 36px; }\n\n.count-all-desc {\n  color: #666;\n  font-size: 90%;\n  line-height: 36px; }\n\n.hs-program-outcome-counts {\n  font-size: 95%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: end;\n      -ms-flex-align: end;\n          align-items: flex-end; }\n\n.outcome-counts-wrapper {\n  height: 36px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  background-color: #fafafa;\n  border-radius: 12px; }\n\n.outcome-count {\n  width: 20px;\n  margin: 0 5px;\n  line-height: 16px;\n  font-size: 1.25em;\n  text-align: center;\n  font-weight: bold; }\n\n.outcome-count.count-empty {\n  color: #a6a6a6;\n  font-weight: normal; }\n\n.outcome-count.count-certain {\n  color: #5bed2a; }\n\n.outcome-count.count-likely {\n  color: #b6ec29; }\n\n.outcome-count.count-uncertain {\n  color: #ccc000; }\n\n.outcome-count.count-unlikely {\n  color: #f49600; }\n\n.outcome-count.count-none {\n  color: #f4743b; }\n\n.outcome-count.count-notimplemented {\n  color: #999; }\n\n.hs-category-collapse-button {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 40px;\n          flex: 0 0 40px;\n  font-size: 130%;\n  display: block;\n  width: 40px;\n  height: 40px;\n  margin-right: 1em;\n  -ms-flex-item-align: center;\n      align-self: center;\n  border-radius: 100%;\n  border: 2px solid #b6b6b7;\n  z-index: 2;\n  -webkit-box-shadow: 0px 2px 0px #999;\n          box-shadow: 0px 2px 0px #999;\n  -webkit-transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease;\n  transition: transform 150ms ease, box-shadow 150ms ease, -webkit-transform 150ms ease, -webkit-box-shadow 150ms ease; }\n\n.hs-category-collapse-button:hover {\n  -webkit-box-shadow: 0px 4px 0px #999;\n          box-shadow: 0px 4px 0px #999;\n  -webkit-transform: translateY(-5%);\n          transform: translateY(-5%); }\n\n.hs-category-collapse-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9);\n  -webkit-box-shadow: none;\n          box-shadow: none; }\n\n.hs-category-collapse-button.collapsed {\n  -webkit-box-shadow: 0px 1px 0px #999;\n          box-shadow: 0px 1px 0px #999; }\n\n.hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg); }\n\n.hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 300ms ease;\n  transition: -webkit-transform 300ms ease;\n  transition: transform 300ms ease;\n  transition: transform 300ms ease, -webkit-transform 300ms ease; }\n\n.hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
 
 // exports
 
@@ -40180,7 +40180,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -40200,12 +40200,12 @@ if(false) {
 /* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, ".program-modal-bg-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  z-index: 99;\n  background-color: rgba(0, 0, 0, 0.25);\n  visibility: hidden;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.program-modal-bg-overlay.program-modal-active {\n  visibility: visible; }\n\n.program-modal-close-button {\n  font-size: 150%;\n  width: 60px;\n  height: 60px;\n  border: none;\n  background-color: #f44242;\n  color: #fefefe;\n  border-radius: 100%;\n  z-index: 2;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  position: absolute;\n  right: -15px;\n  top: -20px;\n  -webkit-transition: -webkit-transform 150ms ease;\n  transition: -webkit-transform 150ms ease;\n  transition: transform 150ms ease;\n  transition: transform 150ms ease, -webkit-transform 150ms ease; }\n\n.program-modal-close-button:hover {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2); }\n\n.program-modal-close-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9); }\n\n.program-modal {\n  position: relative;\n  margin-top: 10vh;\n  width: 95vw;\n  max-width: 900px;\n  background: #FCFEFF;\n  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);\n          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);\n  border-radius: 6px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start; }\n\n.program-modal-header {\n  width: 100%;\n  margin-bottom: 0.5em;\n  background-color: #EFEFF2;\n  border-bottom: 4px solid #70C8FF; }\n\n.program-modal-header-text {\n  font-size: 175%;\n  line-height: 200%;\n  margin: 1em; }\n\n.program-modal-program-card-container {\n  margin-top: -40px;\n  display: inline-block;\n  float: left; }\n\n.program-modal-body {\n  width: 100%;\n  padding: 0.5em 1em; }\n\n.program-modal-requirement-desc {\n  font-size: 80%;\n  background: #EFEFF2;\n  border-radius: 5px;\n  border: 1px solid #eee;\n  padding: 1em; }\n\n.program-modal-footer {\n  border-top: 4px solid #70C8FF;\n  background-color: #EFEFF2;\n  height: 4em;\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.program-modal-button {\n  margin: 1em;\n  padding: 0.5em;\n  color: #FCFEFF;\n  background-color: #00a8fc;\n  border-radius: 7px;\n  -webkit-transition: background-color 200ms ease;\n  transition: background-color 200ms ease; }\n\n.program-modal-button:hover {\n  color: #FCFEFF;\n  background-color: #30baff; }\n\n.program-modal-button:active {\n  color: #FCFEFF;\n  background-color: #0086c9; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box; }\n\n* {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit; }\n\nbutton {\n  border: none;\n  margin: 0;\n  padding: 0;\n  width: auto;\n  overflow: visible;\n  background: transparent;\n  /* inherit font & color from ancestor */\n  color: inherit;\n  font: inherit;\n  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */\n  line-height: normal;\n  /* Corrects font smoothing for webkit */\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  /* Corrects inability to style clickable `input` types in iOS */\n  -webkit-appearance: none; }\n\n/* Remove excess padding and border in Firefox 4+ */\n\nbutton::-moz-focus-inner {\n  border: 0;\n  padding: 0; }\n\ninput {\n  font-family: inherit; }\n\n.program-modal-bg-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  z-index: 99;\n  background-color: rgba(0, 0, 0, 0.25);\n  visibility: hidden;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.program-modal-bg-overlay.program-modal-active {\n  visibility: visible; }\n\n.program-modal-close-button {\n  font-size: 150%;\n  width: 60px;\n  height: 60px;\n  border: none;\n  background-color: #f44242;\n  color: #fefefe;\n  border-radius: 100%;\n  z-index: 2;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  position: absolute;\n  right: -15px;\n  top: -20px;\n  -webkit-transition: -webkit-transform 150ms ease;\n  transition: -webkit-transform 150ms ease;\n  transition: transform 150ms ease;\n  transition: transform 150ms ease, -webkit-transform 150ms ease; }\n\n.program-modal-close-button:hover {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2); }\n\n.program-modal-close-button:active {\n  -webkit-transform: scale(0.9);\n          transform: scale(0.9); }\n\n.program-modal {\n  position: relative;\n  margin-top: 10vh;\n  width: 95vw;\n  max-width: 900px;\n  background: #FCFEFF;\n  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);\n          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);\n  border-radius: 6px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start; }\n\n.program-modal-header {\n  width: 100%;\n  margin-bottom: 0.5em;\n  background-color: #EFEFF2;\n  border-bottom: 4px solid #70C8FF; }\n\n.program-modal-header-text {\n  font-size: 175%;\n  line-height: 200%;\n  margin: 1em; }\n\n.program-modal-program-card-container {\n  margin-top: -40px;\n  display: inline-block;\n  float: left; }\n\n.program-modal-body {\n  width: 100%;\n  padding: 0.5em 1em; }\n\n.program-modal-requirement-desc {\n  font-size: 80%;\n  background: #EFEFF2;\n  border-radius: 5px;\n  border: 1px solid #eee;\n  padding: 1em; }\n\n.program-modal-footer {\n  border-top: 4px solid #70C8FF;\n  background-color: #EFEFF2;\n  height: 4em;\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.program-modal-button {\n  margin: 1em;\n  padding: 0.5em;\n  color: #FCFEFF;\n  background-color: #00a8fc;\n  border-radius: 7px;\n  -webkit-transition: background-color 200ms ease;\n  transition: background-color 200ms ease; }\n\n.program-modal-button:hover {\n  color: #FCFEFF;\n  background-color: #30baff; }\n\n.program-modal-button:active {\n  color: #FCFEFF;\n  background-color: #0086c9; }\n", ""]);
 
 // exports
 
@@ -40225,7 +40225,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
+var update = __webpack_require__(14)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -40245,12 +40245,12 @@ if(false) {
 /* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(16)(undefined);
+exports = module.exports = __webpack_require__(13)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px;\n  overflow-y: auto; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n", ""]);
+exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px;\n  overflow-y: auto; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n\nh1, h2, h3 {\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n", ""]);
 
 // exports
 

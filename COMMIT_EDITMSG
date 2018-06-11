@@ -1,1 +1,6 @@
-Sketch reskinned ProgramCard
+Match GoCPS typography
+
+* include Montserrat font
+* style headers in HSGroup and StudentDataForm
+* set font to 'inherit' in all <button> and <input> elements
+  
