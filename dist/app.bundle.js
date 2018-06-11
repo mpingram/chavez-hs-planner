@@ -1271,6 +1271,7 @@ exports.OutcomeUncertainColor = "#f0e100";
 exports.OutcomeUnlikelyColor = "#f49600";
 exports.OutcomeNoneColor = "#f4743b";
 exports.OutcomeNotImplementedColor = "#999";
+exports.OutcomeInactiveColor = "#adadad";
 exports.GEO_APPROX_DEG_KM_CONVERSION_FACTOR = 110.25;
 exports.GEO_APPROX_DEG_MI_CONVERSION_FACTOR = 68.5061739;
 exports.MILE_METER_CONVERSION_FACTOR = 1609.344;
@@ -34084,7 +34085,7 @@ exports.default = HSProgramsContainer;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 const search_bar_1 = __webpack_require__(311);
-const success_chance_key_1 = __webpack_require__(331);
+const success_chance_filter_1 = __webpack_require__(334);
 const hs_group_1 = __webpack_require__(315);
 const constants_1 = __webpack_require__(12);
 class HSProgramList extends React.PureComponent {
@@ -34104,6 +34105,12 @@ class HSProgramList extends React.PureComponent {
         };
         this.state = {
             searchTerm: "",
+            showCertain: true,
+            showLikely: true,
+            showUncertain: true,
+            showUnlikely: true,
+            showNone: true,
+            showNotImplemented: true
         };
     }
     render() {
@@ -34113,7 +34120,32 @@ class HSProgramList extends React.PureComponent {
                 overflowX: "hidden",
                 overflowY: "hidden"
             } },
-            React.createElement(success_chance_key_1.default, null),
+            ">",
+            React.createElement(success_chance_filter_1.default, { succCertainActive: this.state.showCertain, succLikelyActive: this.state.showLikely, succUncertainActive: this.state.showUncertain, succUnlikelyActive: this.state.showUnlikely, succNoneActive: this.state.showNone, succNotImplementedActive: this.state.showNotImplemented, onSuccCertainClick: ev => {
+                    this.setState({
+                        showCertain: !this.state.showCertain
+                    });
+                }, onSuccLikelyClick: ev => {
+                    this.setState({
+                        showLikely: !this.state.showLikely
+                    });
+                }, onSuccUncertainClick: ev => {
+                    this.setState({
+                        showUncertain: !this.state.showUncertain
+                    });
+                }, onSuccUnlikelyClick: ev => {
+                    this.setState({
+                        showUnlikely: !this.state.showUnlikely
+                    });
+                }, onSuccNoneClick: ev => {
+                    this.setState({
+                        showNone: !this.state.showNone
+                    });
+                }, onSuccNotImplementedClick: ev => {
+                    this.setState({
+                        showNotImplemented: !this.state.showNotImplemented
+                    });
+                } }),
             React.createElement(search_bar_1.default, { value: this.state.searchTerm, onChange: value => this.setState({ searchTerm: value }), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }),
             React.createElement("div", { style: {
                     width: "100%",
@@ -34776,7 +34808,10 @@ exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  disp
 
 
 /***/ }),
-/* 331 */
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34790,39 +34825,40 @@ const outcome_unlikely_1 = __webpack_require__(116);
 const outcome_none_1 = __webpack_require__(117);
 const outcome_notimplemented_1 = __webpack_require__(118);
 const constants_1 = __webpack_require__(12);
-__webpack_require__(332);
-const SuccessChanceKey = (props) => {
-    return (React.createElement("div", { className: "hs-program-success-chance-key" },
-        React.createElement("div", { className: "hs-program-success-chance-example" },
-            React.createElement(outcome_certain_1.default, { color: constants_1.OutcomeCertainColor, width: "48px", height: "48px" }),
+__webpack_require__(335);
+const ICON_SIZE = "48px";
+const SuccessChanceFilter = (props) => {
+    return (React.createElement("div", { className: "success-chance-filter" },
+        React.createElement("button", { className: "success-chance-filter-button", onClick: props.onSuccCertainClick },
+            React.createElement(outcome_certain_1.default, { color: props.succCertainActive ? constants_1.OutcomeCertainColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
             "You will almost certainly be accepted."),
-        React.createElement("div", { className: "hs-program-success-chance-example" },
-            React.createElement(outcome_likely_1.default, { color: constants_1.OutcomeLikelyColor, width: "48px", height: "48px" }),
+        React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccLikelyClick },
+            React.createElement(outcome_likely_1.default, { color: props.succLikelyActive ? constants_1.OutcomeLikelyColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
             "You're more likely to be accepted than other students."),
-        React.createElement("div", { className: "hs-program-success-chance-example" },
-            React.createElement(outcome_uncertain_1.default, { color: constants_1.OutcomeUncertainColor, width: "48px", height: "48px" }),
+        React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccUncertainClick },
+            React.createElement(outcome_uncertain_1.default, { color: props.succUncertainActive ? constants_1.OutcomeUncertainColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
             "You're about as likely to be accepted as other students."),
-        React.createElement("div", { className: "hs-program-success-chance-example" },
-            React.createElement(outcome_unlikely_1.default, { color: constants_1.OutcomeUnlikelyColor, width: "48px", height: "48px" }),
+        React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccUnlikelyClick },
+            React.createElement(outcome_unlikely_1.default, { color: props.succUnlikelyActive ? constants_1.OutcomeUnlikelyColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
             "You're less likely to be accepted than other students."),
-        React.createElement("div", { className: "hs-program-success-chance-example" },
-            React.createElement(outcome_none_1.default, { color: constants_1.OutcomeNoneColor, width: "48px", height: "48px" }),
+        React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccNoneClick },
+            React.createElement(outcome_none_1.default, { color: props.succNoneActive ? constants_1.OutcomeNoneColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
             "You probably won't be accepted."),
-        React.createElement("div", { className: "hs-program-success-chance-example" },
-            React.createElement(outcome_notimplemented_1.default, { color: constants_1.OutcomeNotImplementedColor, width: "48px", height: "48px" }),
-            "There isn't enough information to give an answer.")));
+        React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccNotImplementedClick },
+            React.createElement(outcome_notimplemented_1.default, { color: props.succNotImplementedActive ? constants_1.OutcomeNotImplementedColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
+            "We don't have enough information to tell you.")));
 };
-exports.default = SuccessChanceKey;
+exports.default = SuccessChanceFilter;
 
 
 /***/ }),
-/* 332 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(333);
+var content = __webpack_require__(336);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -34836,8 +34872,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./success-chance-key.scss", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./success-chance-key.scss");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./success-chance-filter.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./success-chance-filter.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -34847,7 +34883,7 @@ if(false) {
 }
 
 /***/ }),
-/* 333 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(16)(undefined);
@@ -34855,7 +34891,7 @@ exports = module.exports = __webpack_require__(16)(undefined);
 
 
 // module
-exports.push([module.i, ".hs-program-success-chance-key {\n  width: 100%;\n  height: 150px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-left: -0.5em;\n  padding-bottom: 0.5em;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  text-align: center; }\n\n.hs-program-success-chance-example {\n  -webkit-transform: scale(0.85);\n          transform: scale(0.85); }\n\n.hs-program-success-chance-example > .hs-list-element-icon {\n  margin: 0 auto; }\n", ""]);
+exports.push([module.i, ".success-chance-filter {\n  width: 100%;\n  height: 150px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-left: -0.5em;\n  padding-bottom: 0.5em;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  text-align: center; }\n", ""]);
 
 // exports
 

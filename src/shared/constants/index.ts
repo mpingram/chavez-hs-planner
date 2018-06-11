@@ -8,6 +8,7 @@ export const OutcomeUncertainColor = "#f0e100";
 export const OutcomeUnlikelyColor = "#f49600";
 export const OutcomeNoneColor = "#f4743b";
 export const OutcomeNotImplementedColor = "#999";
+export const OutcomeInactiveColor = "#adadad";
 
 export const GEO_APPROX_DEG_KM_CONVERSION_FACTOR = 110.25;
 export const GEO_APPROX_DEG_MI_CONVERSION_FACTOR = 68.5061739;

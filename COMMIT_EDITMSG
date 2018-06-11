@@ -1,1 +1,4 @@
-Add SuccessChanceKey back to app
+Convert SuccessChanceKey to SuccessChanceFilter
+
+* expose onFilterChange(SuccessChance | null) prop
+* convert each success chance key reference to button
