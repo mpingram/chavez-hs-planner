@@ -1,6 +1,6 @@
-Match GoCPS typography
+Tweak form field styling
 
-* include Montserrat font
-* style headers in HSGroup and StudentDataForm
-* set font to 'inherit' in all <button> and <input> elements
-  
+* fix static-height multiline label -- approach does not work at
+  different font scalings (or even with different fonts)
+* adjust flex alignment of fields within field-groups to align fields
+  along baseline and have the same margins as non-grouped fields.

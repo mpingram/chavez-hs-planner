@@ -13,6 +13,7 @@
     }
 }
 
+
 .label.has-tooltip {
   text-decoration: underline;
   text-decoration-style: dotted;
@@ -49,11 +50,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: flex-end;
+  margin-bottom: 0.75em;
+  .field {
+    margin-bottom: 0.75em;
+  }
 }
 
 .field.fixed-width-small {
-  width: 100px;
+  width: 90px;
+  &not(:last-child) {
+    margin-right:10px;
+  }
 }
 
 .label {
@@ -64,7 +72,7 @@
 }
 
 .label.multiline {
-  height: 3em;
+  //height: 3em;
 }
 
 .control.is-small {
