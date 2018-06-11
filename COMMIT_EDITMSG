@@ -1,3 +1,4 @@
-Make all form fields the same size
+Wrap CPS tier calculator in a form-group
 
-* Also make minor adjustments to placement of cps tier display 
+* add flex-wrap rule to form-group styling
+
