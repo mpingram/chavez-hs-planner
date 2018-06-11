@@ -139,7 +139,7 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
           </div>
         </div>
 
-        <div className="field">
+        <div className="field fixed-width-small">
           <label className="label is-small multiline">Social Studies Grade</label>
           <div className="control">
             <div className="select">
@@ -159,20 +159,18 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
             </div>
           </div>
         </div>
-        <div className="field">
+
+        <div className="field fixed-width-small">
           <label className="label is-small multiline">GPA</label>
-          <div className="field">
-            <div className="control gpa-display">
+          <div className="control gpa-display">
+            <input 
+              value={props.gpa === null ? "" : props.gpa.toFixed(2)}
+              readOnly 
+              disabled 
+              className="input" 
+              type="text" 
+            />
 
-              <input 
-                value={props.gpa === null ? "" : props.gpa.toFixed(2)}
-                readOnly 
-                disabled 
-                className="input" 
-                type="text" 
-              />
-
-            </div>
           </div>
         </div>
 

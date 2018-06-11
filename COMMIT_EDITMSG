@@ -1,1 +1,6 @@
-Add tooltip styling to field labels
+Tweak form field styling
+
+* fix static-height multiline label -- approach does not work at
+  different font scalings (or even with different fonts)
+* adjust flex alignment of fields within field-groups to align fields
+  along baseline and have the same margins as non-grouped fields.
