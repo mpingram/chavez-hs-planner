@@ -1,4 +1,4 @@
-Convert SuccessChanceKey to SuccessChanceFilter
+Incorporate SuccessChanceFilter into HSProgramList
 
-* expose onFilterChange(SuccessChance | null) prop
-* convert each success chance key reference to button
+* write logic in HSProgramList that filters displayed programs
+  by selected filters in SuccessChanceFilter

@@ -4,7 +4,6 @@ import { closeProgramModal } from "shared/redux/actions";
 
 import { StudentInfoFormContainer } from "./components/student-info-display/student-info-form-container";
 import { GradesFormContainer } from "./components/student-info-display/grades-form-container";
-import SuccessChanceKey from "./components/hs-display/success-chance-key";
 import HSProgramsContainer from "./components/hs-display/hs-programs-container";
 import { ProgramModalContainer } from "./components/program-modal-container";
 
