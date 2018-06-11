@@ -1,8 +1,10 @@
 import * as React from "react"
 
-import { Program } from "shared/types";
-
+import { Tooltip } from "react-tippy";
+import "react-tippy/dist/tippy.css";
 import Select from "react-select";
+
+import { Program } from "shared/types";
 
 import "./student-info-form.scss";
 
@@ -29,6 +31,8 @@ interface StudentInfoFormProps {
 
 interface StudentInfoFormState {
   showSiblingHSSchools: boolean | null
+  showIEPTooltip: boolean
+  showELTooltip: boolean
 }
 
 export class StudentInfoForm extends React.Component<StudentInfoFormProps, StudentInfoFormState> {
@@ -36,7 +40,9 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
   constructor(props) {
     super(props);
     this.state = {
-      showSiblingHSSchools: null
+      showSiblingHSSchools: null,
+      showIEPTooltip: false,
+      showELTooltip: false
     }
   }
 
@@ -45,8 +51,16 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
       <div className="student-info-form">
           <h3>Your info</h3>
           <div className="field-group">
+
             <div className="field fixed-width-small">
-              <label className="label is-small multiline">Do you have an IEP?</label>
+              <Tooltip
+                title="test"
+                tabIndex={0}
+                position="right"
+                arrow="true"
+              >
+                <label tabIndex={0} className="label is-small multiline has-tooltip">Do you have an IEP?</label>
+              </Tooltip>
               <div className="control">
                 <div className="select is-small">
                   
@@ -69,7 +83,14 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
             </div>
 
             <div className="field fixed-width-small">
-              <label className="label is-small multiline">Are you an English Learner student?</label>
+              <Tooltip
+                title="test"
+                tabIndex={0}
+                position="right"
+                arrow="true"
+              >
+                <label data-tip data-for="el-tooltip" className="label is-small multiline has-tooltip">Are you an English Learner student?</label>
+              </Tooltip>
               <div className="control">
                 <div className="select is-small">
 

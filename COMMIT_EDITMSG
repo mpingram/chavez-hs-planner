@@ -1,4 +1,2 @@
-Incorporate SuccessChanceFilter into HSProgramList
+Add rough tooltips to StudentInfoForm
 
-* write logic in HSProgramList that filters displayed programs
-  by selected filters in SuccessChanceFilter
