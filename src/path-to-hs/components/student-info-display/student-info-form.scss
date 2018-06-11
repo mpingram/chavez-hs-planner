@@ -5,13 +5,32 @@
 @import "../../../../node_modules/bulma/sass/elements/button";
 @import "../../../../node_modules/bulma/sass/elements/form";
 
-
 /* Override bulma select icon to prevent it from rendering above other elements */
 .select:not(.is-multiple):not(.is-loading) {
     &::after {
       border-color: $col-app-base;
       z-index: 0 !important;
     }
+}
+
+.label.has-tooltip {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: $col-app-info;
+
+  &:after {
+    margin: 0 0.25em;
+    font-size: 9px;
+    line-height: 10px;
+    color: $col-app-info;
+    content: "?";
+    display: inline-block;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    border: 1px solid $col-app-info;
+    border-radius: 100%;
+  }
 }
 
 .student-info-form {

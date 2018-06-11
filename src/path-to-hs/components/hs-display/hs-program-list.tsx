@@ -7,9 +7,12 @@ import {
   ProgramGroup,
   ProgramOutcomeDictionary
 } from "shared/types";
+import { SuccessChance } from "shared/enums";
 
 import SearchBar from "shared/components/ui/search-bar";
 
+
+import SuccessChanceFilter from "./success-chance-filter";
 import HSGroup from "./hs-group";
 
 interface HSProgramListProps {
@@ -21,6 +24,7 @@ interface HSProgramListProps {
 
 interface HSProgramListState {
   searchTerm: string;
+  selectedSuccessChance: SuccessChance | null
 }
 
 import {INPUT_DEBOUNCE_TIME} from "shared/constants";
@@ -31,6 +35,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
     super(props);
     this.state = {
       searchTerm: "",
+      selectedSuccessChance: null
     };
   }
 
@@ -42,9 +47,65 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
           width: "100%",
           height: "100%",
           overflowX: "hidden",
-          overflowY: "hidden"
+          overflowY: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "stretch"
         }}
       >
+        <SuccessChanceFilter
+          succCertainActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.CERTAIN}
+          succLikelyActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.LIKELY}
+          succUncertainActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.UNCERTAIN}
+          succUnlikelyActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.UNLIKELY}
+          succNoneActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.NONE}
+          succNotImplementedActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.NOTIMPLEMENTED}
+
+          onSuccCertainClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.CERTAIN) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.CERTAIN}) 
+            }
+          }}
+          onSuccLikelyClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.LIKELY) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.LIKELY}) 
+            }
+          }}
+          onSuccUncertainClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.UNCERTAIN) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.UNCERTAIN}) 
+            }
+          }}
+          onSuccUnlikelyClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.UNLIKELY) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.UNLIKELY}) 
+            }
+          }}
+          onSuccNoneClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.NONE) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.NONE}) 
+            }
+          }}
+          onSuccNotImplementedClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.NOTIMPLEMENTED) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.NOTIMPLEMENTED}) 
+            }
+          }}
+        />
+
         <SearchBar 
           value={this.state.searchTerm} 
           onChange={value => this.setState({searchTerm: value})}
@@ -53,7 +114,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
         <div 
           style={{
             width: "100%", 
-            height: "100%", 
+            flex: "1 1 80vh",
             overflowY: "auto", 
             overflowX:"hidden", 
             position: "relative"
@@ -68,8 +129,12 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
           this.props.programGroups.map( group => {
             // get this group's programs by looking up programIDs.
             const programs: Program[] = group.programIDs.map( programID => this.props.programs[programID] );
-            // filter the programs by the current search term.
-            const filteredPrograms = this.filterBySearchTerm(programs, this.state.searchTerm);
+            // filter the programs by the current search term and by the current filters on SuccessChance.
+            let filteredPrograms = programs;
+            filteredPrograms = this.filterBySearchTerm(filteredPrograms, this.state.searchTerm);
+            if (this.state.selectedSuccessChance !== null) {
+              filteredPrograms = this.filterBySuccessChance(filteredPrograms, this.props.outcomes, this.state.selectedSuccessChance);
+            }
 
             if (filteredPrograms.length > 0) {
               return (
@@ -102,6 +167,20 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
 
     return programs.filter( program => {
       return hasTerm(program.programName);
+    });
+  }
+
+  /** 
+   * Keep only the programs whose current outcome's overall chance matches the successChance passed as the third argument.
+   * */
+  private filterBySuccessChance = (programs: Program[], outcomes: ProgramOutcomeDictionary, successChance: SuccessChance): Program[] => {
+    return programs.filter( program => {
+      const outcome = outcomes[program.id];
+      if (outcome === undefined) {
+        console.warn(`Missing outcome for program ${program.programName}`);
+        return true;
+      }
+      return successChance === outcome.overallChance;
     });
   }
 
