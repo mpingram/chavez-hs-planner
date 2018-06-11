@@ -13,7 +13,6 @@
     }
 }
 
-
 .label.has-tooltip {
   text-decoration: underline;
   text-decoration-style: dotted;
@@ -41,9 +40,12 @@
 
 .tier-display-input {
   width: 34px;
-  display: flex;
-  text-align: center;
-  padding: 2px;
+  input {
+    text-align: center;
+  }
+  &:after {
+    right: 8px !important;
+  }
 }
 
 .field-group {

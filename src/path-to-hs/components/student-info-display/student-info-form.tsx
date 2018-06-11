@@ -62,7 +62,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
                 <label tabIndex={0} className="label is-small multiline has-tooltip">Do you have an IEP?</label>
               </Tooltip>
               <div className="control">
-                <div className="select is-small">
+                <div className="select">
                   
                   <select 
                     value={this.props.iep === null 
@@ -92,7 +92,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
                 <label data-tip data-for="el-tooltip" className="label is-small multiline has-tooltip">Are you an English Learner student?</label>
               </Tooltip>
               <div className="control">
-                <div className="select is-small">
+                <div className="select">
 
                   <select 
                     value={this.props.el === null 
@@ -115,7 +115,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
             <div className="field fixed-width-small">
               <label className="label is-small multiline">Did you skip 7th grade or repeat 8th grade?</label>
               <div className="control">
-                <div className="select is-small">
+                <div className="select">
 
                   <select
                     value={this.props.skip7OrRepeat8 === null 
@@ -145,14 +145,14 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
                   <input 
                     value={this.props.address ? this.props.address : ""}
                     onChange={ ev => this.props.onAddressChange(ev.currentTarget.value) }
-                    className="input is-small" 
+                    className="input" 
                     type="text" 
                     placeholder="42 Wallaby Way" 
                   />
 
                 </div>
                 <div className="control">
-                  <div className="button is-static is-small">
+                  <div className="button is-static">
                     Chicago, IL
                   </div>
                 </div>
@@ -162,7 +162,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
             <div className="field">
               <label className="label is-small">CPS Tier</label>
               <div className="field">
-                <div className={`control is-small tier-display-input ${this.props.addressIsLoading ? 'is-loading' : ''}`}>
+                <div className={`control tier-display-input ${this.props.addressIsLoading ? 'is-loading' : ''}`}>
 
                   <input 
                     value={this.props.tier && !this.props.addressIsLoading
@@ -170,7 +170,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
                       : ""}
                     readOnly 
                     disabled 
-                    className="input is-small" 
+                    className="input" 
                     type="text" />
 
                 </div>
@@ -180,7 +180,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
             
           <div className="field">
             <label className="label is-small">What elementary school are you in now?</label>
-            <div className="control is-small">
+            <div className="control">
 
               <Select 
                 options={this.props.currEsProgramOptions}
@@ -195,7 +195,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
           <div className="field">
             <label className="label is-small">Do you have a brother or sister at a CPS high school?</label>
               <div className="control">
-                <div className="select is-small">
+                <div className="select">
 
                   <select
                     value={ this.state.showSiblingHSSchools === null ? "placeholder" : (this.state.showSiblingHSSchools === true ? "yes" : "no") }
@@ -215,7 +215,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
           { this.state.showSiblingHSSchools && 
           <div className="field">
             <label className="label is-small">Which high schools do your brother or sister go to?</label>
-            <div className="control is-small">
+            <div className="control">
               <Select 
                 multi
                 simpleValue
