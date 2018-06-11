@@ -34130,7 +34130,49 @@ class HSProgramList extends React.PureComponent {
                 justifyContent: "flex-start",
                 alignItems: "stretch"
             } },
-            React.createElement(success_chance_filter_1.default, { succCertainActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.CERTAIN, succLikelyActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.LIKELY, succUncertainActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.UNCERTAIN, succUnlikelyActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.UNLIKELY, succNoneActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.NONE, succNotImplementedActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.NOTIMPLEMENTED, onSuccCertainClick: ev => this.setState({ selectedSuccessChance: enums_1.SuccessChance.CERTAIN }), onSuccLikelyClick: ev => this.setState({ selectedSuccessChance: enums_1.SuccessChance.LIKELY }), onSuccUncertainClick: ev => this.setState({ selectedSuccessChance: enums_1.SuccessChance.UNCERTAIN }), onSuccUnlikelyClick: ev => this.setState({ selectedSuccessChance: enums_1.SuccessChance.UNLIKELY }), onSuccNoneClick: ev => this.setState({ selectedSuccessChance: enums_1.SuccessChance.NONE }), onSuccNotImplementedClick: ev => this.setState({ selectedSuccessChance: enums_1.SuccessChance.NOTIMPLEMENTED }) }),
+            React.createElement(success_chance_filter_1.default, { succCertainActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.CERTAIN, succLikelyActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.LIKELY, succUncertainActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.UNCERTAIN, succUnlikelyActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.UNLIKELY, succNoneActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.NONE, succNotImplementedActive: this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === enums_1.SuccessChance.NOTIMPLEMENTED, onSuccCertainClick: ev => {
+                    if (this.state.selectedSuccessChance === enums_1.SuccessChance.CERTAIN) {
+                        this.setState({ selectedSuccessChance: null });
+                    }
+                    else {
+                        this.setState({ selectedSuccessChance: enums_1.SuccessChance.CERTAIN });
+                    }
+                }, onSuccLikelyClick: ev => {
+                    if (this.state.selectedSuccessChance === enums_1.SuccessChance.LIKELY) {
+                        this.setState({ selectedSuccessChance: null });
+                    }
+                    else {
+                        this.setState({ selectedSuccessChance: enums_1.SuccessChance.LIKELY });
+                    }
+                }, onSuccUncertainClick: ev => {
+                    if (this.state.selectedSuccessChance === enums_1.SuccessChance.UNCERTAIN) {
+                        this.setState({ selectedSuccessChance: null });
+                    }
+                    else {
+                        this.setState({ selectedSuccessChance: enums_1.SuccessChance.UNCERTAIN });
+                    }
+                }, onSuccUnlikelyClick: ev => {
+                    if (this.state.selectedSuccessChance === enums_1.SuccessChance.UNLIKELY) {
+                        this.setState({ selectedSuccessChance: null });
+                    }
+                    else {
+                        this.setState({ selectedSuccessChance: enums_1.SuccessChance.UNLIKELY });
+                    }
+                }, onSuccNoneClick: ev => {
+                    if (this.state.selectedSuccessChance === enums_1.SuccessChance.NONE) {
+                        this.setState({ selectedSuccessChance: null });
+                    }
+                    else {
+                        this.setState({ selectedSuccessChance: enums_1.SuccessChance.NONE });
+                    }
+                }, onSuccNotImplementedClick: ev => {
+                    if (this.state.selectedSuccessChance === enums_1.SuccessChance.NOTIMPLEMENTED) {
+                        this.setState({ selectedSuccessChance: null });
+                    }
+                    else {
+                        this.setState({ selectedSuccessChance: enums_1.SuccessChance.NOTIMPLEMENTED });
+                    }
+                } }),
             React.createElement(search_bar_1.default, { value: this.state.searchTerm, onChange: value => this.setState({ searchTerm: value }), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }),
             React.createElement("div", { style: {
                     width: "100%",

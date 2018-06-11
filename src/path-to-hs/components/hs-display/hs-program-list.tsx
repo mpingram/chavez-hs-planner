@@ -62,12 +62,48 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
           succNoneActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.NONE}
           succNotImplementedActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.NOTIMPLEMENTED}
 
-          onSuccCertainClick={ ev => this.setState({selectedSuccessChance: SuccessChance.CERTAIN}) }
-          onSuccLikelyClick={ ev => this.setState({selectedSuccessChance: SuccessChance.LIKELY}) }
-          onSuccUncertainClick={ ev => this.setState({selectedSuccessChance: SuccessChance.UNCERTAIN}) }
-          onSuccUnlikelyClick={ ev => this.setState({selectedSuccessChance: SuccessChance.UNLIKELY}) }
-          onSuccNoneClick={ ev => this.setState({selectedSuccessChance: SuccessChance.NONE}) }
-          onSuccNotImplementedClick={ ev => this.setState({selectedSuccessChance: SuccessChance.NOTIMPLEMENTED}) }
+          onSuccCertainClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.CERTAIN) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.CERTAIN}) 
+            }
+          }}
+          onSuccLikelyClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.LIKELY) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.LIKELY}) 
+            }
+          }}
+          onSuccUncertainClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.UNCERTAIN) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.UNCERTAIN}) 
+            }
+          }}
+          onSuccUnlikelyClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.UNLIKELY) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.UNLIKELY}) 
+            }
+          }}
+          onSuccNoneClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.NONE) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.NONE}) 
+            }
+          }}
+          onSuccNotImplementedClick={ ev => {
+            if (this.state.selectedSuccessChance === SuccessChance.NOTIMPLEMENTED) {
+              this.setState({selectedSuccessChance: null});
+            } else {
+              this.setState({selectedSuccessChance: SuccessChance.NOTIMPLEMENTED}) 
+            }
+          }}
         />
 
         <SearchBar 
