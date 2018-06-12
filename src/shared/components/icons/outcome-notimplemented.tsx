@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import OutcomeIconProps from "./outcome-icon-props";
-import { OutcomeNotImplementedColor } from "shared/constants";
 
 import "./outcome-icon.scss";
 
