@@ -24,17 +24,17 @@ export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
     const ICON_SIZE = "16px";
     switch(outcome) {
       case SuccessChance.CERTAIN:
-        return <OutcomeCertainIcon size={ICON_SIZE} />
+        return <OutcomeCertainIcon invertedColors={true} size={ICON_SIZE} />
       case SuccessChance.LIKELY:
-        return <OutcomeLikelyIcon size={ICON_SIZE} />;
+        return <OutcomeLikelyIcon invertedColors={true} size={ICON_SIZE} />;
       case SuccessChance.UNCERTAIN:
-        return <OutcomeUncertainIcon size={ICON_SIZE} />;
+        return <OutcomeUncertainIcon invertedColors={true} size={ICON_SIZE} />;
       case SuccessChance.UNLIKELY:
-        return <OutcomeUnlikelyIcon size={ICON_SIZE} />;
+        return <OutcomeUnlikelyIcon invertedColors={true} size={ICON_SIZE} />;
       case SuccessChance.NONE:
-        return <OutcomeNoneIcon size={ICON_SIZE} />;
+        return <OutcomeNoneIcon invertedColors={true} size={ICON_SIZE} />;
       case SuccessChance.NOTIMPLEMENTED:
-        return <OutcomeNotImplementedIcon size={ICON_SIZE} />;
+        return <OutcomeNotImplementedIcon invertedColors={false} size={ICON_SIZE} />;
     }
   };
 

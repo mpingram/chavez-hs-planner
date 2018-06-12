@@ -13,13 +13,6 @@ import OutcomeUncertainIcon from "shared/components/icons/outcome-uncertain";
 import OutcomeUnlikelyIcon from "shared/components/icons/outcome-unlikely";
 import OutcomeNoneIcon from "shared/components/icons/outcome-none";
 import OutcomeNotImplementedIcon from "shared/components/icons/outcome-notimplemented";
-import {
-  OutcomeCertainColor,
-  OutcomeLikelyColor,
-  OutcomeUncertainColor,
-  OutcomeUnlikelyColor,
-  OutcomeNoneColor,
-  OutcomeNotImplementedColor } from "shared/constants";
 
 import HSProgramElement from "./hs-program-element";
 
@@ -134,24 +127,55 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
             </div>
             <div className="hs-program-outcome-counts">
               <div className="outcome-counts-wrapper">
+
                 <div className={`outcome-count ${this.state.programCounts.certain > 0 ? "count-certain" : "count-empty"}`}  >
-                  <OutcomeCertainIcon size={ICON_SIZE}/>{this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"}
+                  <OutcomeCertainIcon 
+                    disabled={this.state.programCounts.certain === 0}
+                    size={ICON_SIZE}
+                  />
+                  {this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"}
                 </div>
+
                 <div className={`outcome-count ${this.state.programCounts.likely > 0 ? "count-likely" : "count-empty"}`}>
-                  <OutcomeLikelyIcon size={ICON_SIZE}/>{this.state.programCounts.likely > 0 ? this.state.programCounts.likely : "·"}
+                  <OutcomeLikelyIcon 
+                    disabled={this.state.programCounts.likely === 0}
+                    size={ICON_SIZE}
+                  />
+                  {this.state.programCounts.likely > 0 ? this.state.programCounts.likely : "·"}
                 </div>
+
                 <div className={`outcome-count ${this.state.programCounts.uncertain > 0 ? "count-uncertain" : "count-empty"}`}>
-                  <OutcomeUncertainIcon size={ICON_SIZE}/>{this.state.programCounts.uncertain > 0 ? this.state.programCounts.uncertain : "·"}
+                  <OutcomeUncertainIcon 
+                    disabled={this.state.programCounts.uncertain === 0}
+                    size={ICON_SIZE}
+                  />
+                  {this.state.programCounts.uncertain > 0 ? this.state.programCounts.uncertain : "·"}
                 </div>
+
                 <div className={`outcome-count  ${this.state.programCounts.unlikely > 0 ? "count-unlikely" : "count-empty"}`}>
-                  <OutcomeUnlikelyIcon size={ICON_SIZE}/>{this.state.programCounts.unlikely > 0 ? this.state.programCounts.unlikely : "·"}
+                  <OutcomeUnlikelyIcon 
+                    disabled={this.state.programCounts.unlikely === 0}
+                    size={ICON_SIZE}
+                  />
+                  {this.state.programCounts.unlikely > 0 ? this.state.programCounts.unlikely : "·"}
                 </div>
+
                 <div className={`outcome-count ${this.state.programCounts.none > 0 ? "count-none" : "count-empty"}`}>
-                  <OutcomeNoneIcon size={ICON_SIZE}/>{this.state.programCounts.none > 0 ? this.state.programCounts.none : "·"}
+                  <OutcomeNoneIcon 
+                    disabled={this.state.programCounts.none === 0}
+                    size={ICON_SIZE}
+                  />
+                  {this.state.programCounts.none > 0 ? this.state.programCounts.none : "·"}
                 </div>
+
                 <div className={`outcome-count ${this.state.programCounts.notImplemented > 0 ? "count-notimplemented" : "count-empty"}`}>
-                  <OutcomeNotImplementedIcon size={ICON_SIZE}/>{this.state.programCounts.notImplemented > 0 ? this.state.programCounts.notImplemented : "·"}
+                  <OutcomeNotImplementedIcon 
+                    disabled={this.state.programCounts.notImplemented === 0}
+                    size={ICON_SIZE}
+                  />
+                  {this.state.programCounts.notImplemented > 0 ? this.state.programCounts.notImplemented : "·"}
                 </div>
+
               </div>
             </div>
           </div>

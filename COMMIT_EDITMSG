@@ -1,4 +1,5 @@
-Replace outcome icons with new icons
+Add inverted and disabled props to OutcomeIcons
 
-* Change OutcomeIcon props
-  ** Change all uses of OutcomeIcon appropriately
+* Use disabled prop in SuccessChanceFilter
+* Use inverted prop in ProgramCard
+* Use disabled prop in HSGroup

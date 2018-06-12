@@ -94,10 +94,10 @@
   color: $col-succ-certain;
 }
 .outcome-count.count-likely {
-  color: darken($col-succ-likely, 5%);
+  color: $col-succ-likely;
 }
 .outcome-count.count-uncertain {
-  color: darken($col-succ-uncertain, 7%);
+  color: $col-succ-uncertain;
 }
 .outcome-count.count-unlikely {
   color: $col-succ-unlikely;
@@ -106,7 +106,7 @@
   color: $col-succ-none;
 }
 .outcome-count.count-notimplemented {
-  color: $col-succ-not-implemented;
+  color: $col-succ-notimplemented;
 }
 
 .hs-category-collapse-button {

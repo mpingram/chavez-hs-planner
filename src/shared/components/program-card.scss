@@ -25,23 +25,23 @@
   overflow: hidden;
 
   &.succ-certain {
-    background-color: lighten($col-succ-certain, 10%);
+    background-color: $col-succ-certain;
   }
   &.succ-likely {
-    background-color: lighten($col-succ-likely, 10%);
+    background-color: $col-succ-likely;
   }
   &.succ-uncertain {
-    background-color: lighten($col-succ-uncertain, 10%);
+    background-color: $col-succ-uncertain;
   }
   &.succ-unlikely {
-    background-color: lighten($col-succ-unlikely, 10%);
+    background-color: $col-succ-unlikely;
   }
   &.succ-none {
-    background-color: lighten($col-succ-none, 10%);
+    background-color: $col-succ-none;
   }
   &.succ-not-implemented {
-    background-color: inherit;
-    border: 2px dashed #999;
+    background-color: lighten($col-succ-notimplemented, 60%);
+    border: 2px dashed $col-succ-notimplemented;
   }
 }
 

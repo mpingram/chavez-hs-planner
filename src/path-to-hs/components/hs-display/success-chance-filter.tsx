@@ -6,15 +6,6 @@ import OutcomeUncertainIcon from "shared/components/icons/outcome-uncertain";
 import OutcomeUnlikelyIcon from "shared/components/icons/outcome-unlikely";
 import OutcomeNoneIcon from "shared/components/icons/outcome-none";
 import OutcomeNotImplementedIcon from "shared/components/icons/outcome-notimplemented";
-import {
-  OutcomeCertainColor,
-  OutcomeLikelyColor,
-  OutcomeUncertainColor,
-  OutcomeUnlikelyColor,
-  OutcomeNoneColor,
-  OutcomeNotImplementedColor,
-  OutcomeInactiveColor
-} from "shared/constants";
 
 import "./success-chance-filter.scss";
 
@@ -44,6 +35,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
       >
         <OutcomeCertainIcon 
           size={ICON_SIZE} 
+          disabled={!props.succCertainActive}
         />
         You will almost certainly be accepted.
       </button>
@@ -53,6 +45,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
       >
         <OutcomeLikelyIcon 
           size={ICON_SIZE} 
+          disabled={!props.succLikelyActive}
         />
         You're more likely to be accepted than other students.
       </button>
@@ -62,6 +55,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
       >
         <OutcomeUncertainIcon
           size={ICON_SIZE}
+          disabled={!props.succUncertainActive}
         />
         You're about as likely to be accepted as other students.
       </button>
@@ -71,6 +65,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
       >
         <OutcomeUnlikelyIcon 
           size={ICON_SIZE}
+          disabled={!props.succUnlikelyActive}
         />
         You're less likely to be accepted than other students.
       </button>
@@ -80,6 +75,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
       >
         <OutcomeNoneIcon 
           size={ICON_SIZE}
+          disabled={!props.succNoneActive}
         />
         You probably won't be accepted.
       </button>
@@ -89,6 +85,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
       >
         <OutcomeNotImplementedIcon
           size={ICON_SIZE}
+          disabled={!props.succNotImplementedActive}
         />
         We don't have enough information to tell you.
       </button>
