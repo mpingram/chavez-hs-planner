@@ -124,7 +124,7 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
   }
 
   render() {
-    const ICONSIZE = "18px";
+    const ICON_SIZE = "18px";
     return (
       <div className={`hs-category-container ${this.state.collapsed ? "collapsed" : ""}`}>
         <div className="hs-category-header">
@@ -135,22 +135,22 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
             <div className="hs-program-outcome-counts">
               <div className="outcome-counts-wrapper">
                 <div className={`outcome-count ${this.state.programCounts.certain > 0 ? "count-certain" : "count-empty"}`}  >
-                  <OutcomeCertainIcon color={OutcomeCertainColor} width={ICONSIZE} height={ICONSIZE}/>{this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"}
+                  <OutcomeCertainIcon size={ICON_SIZE}/>{this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"}
                 </div>
                 <div className={`outcome-count ${this.state.programCounts.likely > 0 ? "count-likely" : "count-empty"}`}>
-                  <OutcomeLikelyIcon color={OutcomeLikelyColor} width={ICONSIZE} height={ICONSIZE}/>{this.state.programCounts.likely > 0 ? this.state.programCounts.likely : "·"}
+                  <OutcomeLikelyIcon size={ICON_SIZE}/>{this.state.programCounts.likely > 0 ? this.state.programCounts.likely : "·"}
                 </div>
                 <div className={`outcome-count ${this.state.programCounts.uncertain > 0 ? "count-uncertain" : "count-empty"}`}>
-                  <OutcomeUncertainIcon color={OutcomeUncertainColor} width={ICONSIZE} height={ICONSIZE}/>{this.state.programCounts.uncertain > 0 ? this.state.programCounts.uncertain : "·"}
+                  <OutcomeUncertainIcon size={ICON_SIZE}/>{this.state.programCounts.uncertain > 0 ? this.state.programCounts.uncertain : "·"}
                 </div>
                 <div className={`outcome-count  ${this.state.programCounts.unlikely > 0 ? "count-unlikely" : "count-empty"}`}>
-                  <OutcomeUnlikelyIcon color={OutcomeUnlikelyColor} width={ICONSIZE} height={ICONSIZE}/>{this.state.programCounts.unlikely > 0 ? this.state.programCounts.unlikely : "·"}
+                  <OutcomeUnlikelyIcon size={ICON_SIZE}/>{this.state.programCounts.unlikely > 0 ? this.state.programCounts.unlikely : "·"}
                 </div>
                 <div className={`outcome-count ${this.state.programCounts.none > 0 ? "count-none" : "count-empty"}`}>
-                  <OutcomeNoneIcon color={OutcomeNoneColor} width={ICONSIZE} height={ICONSIZE}/>{this.state.programCounts.none > 0 ? this.state.programCounts.none : "·"}
+                  <OutcomeNoneIcon size={ICON_SIZE}/>{this.state.programCounts.none > 0 ? this.state.programCounts.none : "·"}
                 </div>
                 <div className={`outcome-count ${this.state.programCounts.notImplemented > 0 ? "count-notimplemented" : "count-empty"}`}>
-                  <OutcomeNotImplementedIcon color={OutcomeNotImplementedColor} width={ICONSIZE} height={ICONSIZE}/>{this.state.programCounts.notImplemented > 0 ? this.state.programCounts.notImplemented : "·"}
+                  <OutcomeNotImplementedIcon size={ICON_SIZE}/>{this.state.programCounts.notImplemented > 0 ? this.state.programCounts.notImplemented : "·"}
                 </div>
               </div>
             </div>

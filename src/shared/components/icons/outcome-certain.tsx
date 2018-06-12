@@ -5,16 +5,42 @@ import { OutcomeCertainColor } from "shared/constants";
 
 const OutcomeCertainIcon = (props: OutcomeIconProps) => {
   return (
-    <svg 
-      stroke="black"
-      strokeWidth="0.5"
-      fill={props.color ? props.color : OutcomeCertainColor} 
-      height={props.height} 
-      viewBox="0 0 24 24" 
-      width={props.width} 
-      xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/>
-    </svg>
+  <svg
+     xmlns="http://www.w3.org/2000/svg"
+     width={props.size}
+     height={props.size}
+     viewBox="0 0 100 100"
+     version="1.1"
+  >
+    <path
+      fill="none"
+      fillRule="evenodd"
+      stroke="#000000"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="miter"
+      strokeMiterlimit="4"
+      strokeDasharray="none"
+      strokeOpacity="1"
+      d="M 75,25 30.604203,78.502627 19.608671,49.970028"
+    />
+    <circle
+      opacity="1"
+      fill="#eee"
+      fillOpacity="1"
+      stroke="none"
+      strokeWidth="0.97720796"
+      strokeLinecap="butt"
+      strokeLinejoin="miter"
+      strokeMiterlimit="1"
+      strokeDasharray="none"
+      strokeDashoffset="0"
+      strokeOpacity="1"
+      cx="50"
+      cy="1002.3622"
+      r="48.511395" 
+    />
+  </svg> 
   );
 };
 

@@ -1,4 +1,4 @@
-Wrap CPS tier calculator in a form-group
+Replace outcome icons with new icons
 
-* add flex-wrap rule to form-group styling
-
+* Change OutcomeIcon props
+  ** Change all uses of OutcomeIcon appropriately

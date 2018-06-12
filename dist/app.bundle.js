@@ -7605,10 +7605,10 @@ function warning(message) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
-const constants_1 = __webpack_require__(12);
 const OutcomeCertainIcon = (props) => {
-    return (React.createElement("svg", { stroke: "black", strokeWidth: "0.5", fill: props.color ? props.color : constants_1.OutcomeCertainColor, height: props.height, viewBox: "0 0 24 24", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" })));
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: props.size, height: props.size, viewBox: "0 0 100 100", version: "1.1" },
+        React.createElement("path", { fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1", d: "M 75,25 30.604203,78.502627 19.608671,49.970028" }),
+        React.createElement("circle", { opacity: "1", fill: "#eee", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1", cx: "50", cy: "1002.3622", r: "48.511395" })));
 };
 exports.default = OutcomeCertainIcon;
 
@@ -7621,10 +7621,11 @@ exports.default = OutcomeCertainIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
-const constants_1 = __webpack_require__(12);
 const OutcomeLikelyIcon = (props) => {
-    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeLikelyColor, height: props.height, viewBox: "0 0 24 24", width: props.width, stroke: "black", strokeWidth: "0.5", xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" })));
+    return (React.createElement("svg", { height: props.size, width: props.size, xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100" },
+        React.createElement("path", { d: "m 15,50 70,0", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
+        React.createElement("path", { d: "m 50,15 0,70", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
+        React.createElement("circle", { r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" })));
 };
 exports.default = OutcomeLikelyIcon;
 
@@ -7637,10 +7638,10 @@ exports.default = OutcomeLikelyIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
-const constants_1 = __webpack_require__(12);
 const OutcomeUncertainIcon = (props) => {
-    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: props.width, height: props.height, fill: props.color ? props.color : constants_1.OutcomeUncertainColor, stroke: "black", strokeWidth: "5", viewBox: "-0.5 -0.303 427 427" },
-        React.createElement("path", { d: "M 129.9,189.5 C 103.9,189.5 88.7,205.42 63.5,238.06 L 33.1,217.1 C 47.9,195.5 57.9,182.62 75.5,169.18 C 91.427778,157.15296 111.9,145.02 135.101,145.02 C 172.276,145.02 192.278,161.973 223.101,185.82 C 253.501,209.34 274.702,219.421 293.901,219.421 C 302.301,219.421 317.28256,215.01581 327.102,207.101 C 340.22141,197.96521 349.502,185.981 363.502,163.42 L 394.302,187.26 C 377.902,212.22 367.102,224.3 353.902,235.82 C 333.502,254.06 314.702,264.381 288.702,264.381 C 218.652,264.38 187.714,189.5 129.9,189.5 z " })));
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100", height: props.size, width: props.size },
+        React.createElement("circle", { r: "29.411764", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" }),
+        React.createElement("circle", { r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" })));
 };
 exports.default = OutcomeUncertainIcon;
 
@@ -7653,10 +7654,10 @@ exports.default = OutcomeUncertainIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
-const constants_1 = __webpack_require__(12);
 const OutcomeUnlikelyIcon = (props) => {
-    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: props.color ? props.color : constants_1.OutcomeUnlikelyColor, width: props.width, height: props.height, stroke: "black", strokeWidth: "5", viewBox: "0 0 750 750" },
-        React.createElement("rect", { y: "350", x: "125", height: "75", width: "500" })));
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100", height: props.size, width: props.size },
+        React.createElement("path", { d: "m 15,50 70,0", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
+        React.createElement("circle", { r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" })));
 };
 exports.default = OutcomeUnlikelyIcon;
 
@@ -7669,10 +7670,11 @@ exports.default = OutcomeUnlikelyIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
-const constants_1 = __webpack_require__(12);
 const OutcomeNoneIcon = (props) => {
-    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeNoneColor, height: props.height, viewBox: "0 0 24 24", stroke: "black", strokeWidth: "0.5", width: props.width, xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" })));
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100", height: props.size, width: props.size },
+        React.createElement("path", { d: "M 25.251263,25.251263 74.748737,74.748737", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
+        React.createElement("path", { d: "M 74.748737,25.251263 25.251263,74.748737", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
+        React.createElement("circle", { r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" })));
 };
 exports.default = OutcomeNoneIcon;
 
@@ -7685,11 +7687,11 @@ exports.default = OutcomeNoneIcon;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
-const constants_1 = __webpack_require__(12);
 const OutcomeNotImplementedIcon = (props) => {
-    return (React.createElement("svg", { fill: props.color ? props.color : constants_1.OutcomeNotImplementedColor, width: props.width, height: props.height, viewBox: "0 0 40 40", stroke: "black", strokeWidth: "0.5", xmlns: "http://www.w3.org/2000/svg" },
-        React.createElement("g", { transform: "translate(-8)" },
-            React.createElement("path", { d: "M29.898 26.5722l-4.3921 0c-0.0118,-0.635 -0.0177,-1.0172 -0.0177,-1.1583 0,-1.4229 0.2352,-2.5929 0.7056,-3.5102 0.4704,-0.9231 1.417,-1.952 2.8281,-3.1044 1.4111,-1.1465 2.2578,-1.8991 2.5282,-2.2578 0.4292,-0.5585 0.6409,-1.1818 0.6409,-1.8579 0,-0.9408 -0.3763,-1.7463 -1.1289,-2.4224 -0.7526,-0.6703 -1.7639,-1.0054 -3.0397,-1.0054 -1.2289,0 -2.2578,0.3527 -3.0868,1.0524 -0.8232,0.6997 -1.3935,1.7698 -1.7051,3.2044l-4.4391 -0.5527c0.1234,-2.0578 0.9995,-3.8041 2.6223,-5.2387 1.6286,-1.4346 3.757,-2.152 6.4029,-2.152 2.7752,0 4.9859,0.7291 6.6322,2.1814 1.6404,1.4522 2.4635,3.1397 2.4635,5.0741 0,1.0642 -0.3057,2.0755 -0.9054,3.028 -0.6056,0.9525 -1.8933,2.2519 -3.8688,3.8923 -1.0231,0.8525 -1.6581,1.5346 -1.905,2.052 -0.2469,0.5174 -0.3587,1.4405 -0.3351,2.7752zm-4.3921 6.5087l0 -4.8389 4.8389 0 0 4.8389 -4.8389 0z" }))));
+    return (React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100", height: props.size, width: props.size },
+        React.createElement("path", { d: "M 33.765549,33.564228 C 38.683574,27.023437 48.54118,24.354757 57.154627,27.232269 65.768074,30.109781 70.346272,37.633152 68.752862,45.252511 66.148911,57.704073 49.333904,58.58959 49.333904,58.58959 l 0.79441,11.302297", color: "#000000", clipRule: "nonzero", display: "inline", overflow: "visible", visibility: "visible", opacity: "1", "mixBlend-mode": "normal", colorInterpolation: "sRGB", "colorInterpolation-filters": "linearRGB", fill: "none", fillOpacity: "1", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1", colorRendering: "auto", imageRendering: "auto", shapeRendering: "auto", textRendering: "auto", enableBackground: "accumulate" }),
+        React.createElement("circle", { r: "5.0912604", cy: "79.131348", cx: "50.087566", fill: "#000000", stroke: "none", strokeWidth: "4", strokeMiterlimit: "4", strokeDasharray: "none" }),
+        React.createElement("circle", { r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" })));
 };
 exports.default = OutcomeNotImplementedIcon;
 
@@ -12787,21 +12789,20 @@ const outcome_notimplemented_1 = __webpack_require__(72);
 __webpack_require__(326);
 exports.ProgramCard = (props) => {
     const getIcon = (outcome) => {
-        const width = "16px";
-        const height = "16px";
+        const ICON_SIZE = "16px";
         switch (outcome) {
             case enums_1.SuccessChance.CERTAIN:
-                return React.createElement(outcome_certain_1.default, { width: width, height: height });
+                return React.createElement(outcome_certain_1.default, { size: ICON_SIZE });
             case enums_1.SuccessChance.LIKELY:
-                return React.createElement(outcome_likely_1.default, { width: width, height: height });
+                return React.createElement(outcome_likely_1.default, { size: ICON_SIZE });
             case enums_1.SuccessChance.UNCERTAIN:
-                return React.createElement(outcome_uncertain_1.default, { width: width, height: height });
+                return React.createElement(outcome_uncertain_1.default, { size: ICON_SIZE });
             case enums_1.SuccessChance.UNLIKELY:
-                return React.createElement(outcome_unlikely_1.default, { width: width, height: height });
+                return React.createElement(outcome_unlikely_1.default, { size: ICON_SIZE });
             case enums_1.SuccessChance.NONE:
-                return React.createElement(outcome_none_1.default, { width: width, height: height });
+                return React.createElement(outcome_none_1.default, { size: ICON_SIZE });
             case enums_1.SuccessChance.NOTIMPLEMENTED:
-                return React.createElement(outcome_notimplemented_1.default, { width: width, height: height });
+                return React.createElement(outcome_notimplemented_1.default, { size: ICON_SIZE });
         }
     };
     const getClassName = (outcome) => {
@@ -39648,28 +39649,27 @@ const outcome_uncertain_1 = __webpack_require__(69);
 const outcome_unlikely_1 = __webpack_require__(70);
 const outcome_none_1 = __webpack_require__(71);
 const outcome_notimplemented_1 = __webpack_require__(72);
-const constants_1 = __webpack_require__(12);
 __webpack_require__(320);
 const ICON_SIZE = "48px";
 const SuccessChanceFilter = (props) => {
     return (React.createElement("div", { className: "success-chance-filter" },
         React.createElement("button", { className: "success-chance-filter-button", onClick: props.onSuccCertainClick },
-            React.createElement(outcome_certain_1.default, { color: props.succCertainActive ? constants_1.OutcomeCertainColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
+            React.createElement(outcome_certain_1.default, { size: ICON_SIZE }),
             "You will almost certainly be accepted."),
         React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccLikelyClick },
-            React.createElement(outcome_likely_1.default, { color: props.succLikelyActive ? constants_1.OutcomeLikelyColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
+            React.createElement(outcome_likely_1.default, { size: ICON_SIZE }),
             "You're more likely to be accepted than other students."),
         React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccUncertainClick },
-            React.createElement(outcome_uncertain_1.default, { color: props.succUncertainActive ? constants_1.OutcomeUncertainColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
+            React.createElement(outcome_uncertain_1.default, { size: ICON_SIZE }),
             "You're about as likely to be accepted as other students."),
         React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccUnlikelyClick },
-            React.createElement(outcome_unlikely_1.default, { color: props.succUnlikelyActive ? constants_1.OutcomeUnlikelyColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
+            React.createElement(outcome_unlikely_1.default, { size: ICON_SIZE }),
             "You're less likely to be accepted than other students."),
         React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccNoneClick },
-            React.createElement(outcome_none_1.default, { color: props.succNoneActive ? constants_1.OutcomeNoneColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
+            React.createElement(outcome_none_1.default, { size: ICON_SIZE }),
             "You probably won't be accepted."),
         React.createElement("button", { className: "hs-program-success-chance-example", onClick: props.onSuccNotImplementedClick },
-            React.createElement(outcome_notimplemented_1.default, { color: props.succNotImplementedActive ? constants_1.OutcomeNotImplementedColor : constants_1.OutcomeInactiveColor, width: ICON_SIZE, height: ICON_SIZE }),
+            React.createElement(outcome_notimplemented_1.default, { size: ICON_SIZE }),
             "We don't have enough information to tell you.")));
 };
 exports.default = SuccessChanceFilter;
@@ -39735,7 +39735,6 @@ const outcome_uncertain_1 = __webpack_require__(69);
 const outcome_unlikely_1 = __webpack_require__(70);
 const outcome_none_1 = __webpack_require__(71);
 const outcome_notimplemented_1 = __webpack_require__(72);
-const constants_1 = __webpack_require__(12);
 const hs_program_element_1 = __webpack_require__(323);
 __webpack_require__(330);
 class HSGroup extends React.PureComponent {
@@ -39812,7 +39811,7 @@ class HSGroup extends React.PureComponent {
         });
     }
     render() {
-        const ICONSIZE = "18px";
+        const ICON_SIZE = "18px";
         return (React.createElement("div", { className: `hs-category-container ${this.state.collapsed ? "collapsed" : ""}` },
             React.createElement("div", { className: "hs-category-header" },
                 React.createElement("div", { className: "hs-category-info-container" },
@@ -39820,22 +39819,22 @@ class HSGroup extends React.PureComponent {
                     React.createElement("div", { className: "hs-program-outcome-counts" },
                         React.createElement("div", { className: "outcome-counts-wrapper" },
                             React.createElement("div", { className: `outcome-count ${this.state.programCounts.certain > 0 ? "count-certain" : "count-empty"}` },
-                                React.createElement(outcome_certain_1.default, { color: constants_1.OutcomeCertainColor, width: ICONSIZE, height: ICONSIZE }),
+                                React.createElement(outcome_certain_1.default, { size: ICON_SIZE }),
                                 this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"),
                             React.createElement("div", { className: `outcome-count ${this.state.programCounts.likely > 0 ? "count-likely" : "count-empty"}` },
-                                React.createElement(outcome_likely_1.default, { color: constants_1.OutcomeLikelyColor, width: ICONSIZE, height: ICONSIZE }),
+                                React.createElement(outcome_likely_1.default, { size: ICON_SIZE }),
                                 this.state.programCounts.likely > 0 ? this.state.programCounts.likely : "·"),
                             React.createElement("div", { className: `outcome-count ${this.state.programCounts.uncertain > 0 ? "count-uncertain" : "count-empty"}` },
-                                React.createElement(outcome_uncertain_1.default, { color: constants_1.OutcomeUncertainColor, width: ICONSIZE, height: ICONSIZE }),
+                                React.createElement(outcome_uncertain_1.default, { size: ICON_SIZE }),
                                 this.state.programCounts.uncertain > 0 ? this.state.programCounts.uncertain : "·"),
                             React.createElement("div", { className: `outcome-count  ${this.state.programCounts.unlikely > 0 ? "count-unlikely" : "count-empty"}` },
-                                React.createElement(outcome_unlikely_1.default, { color: constants_1.OutcomeUnlikelyColor, width: ICONSIZE, height: ICONSIZE }),
+                                React.createElement(outcome_unlikely_1.default, { size: ICON_SIZE }),
                                 this.state.programCounts.unlikely > 0 ? this.state.programCounts.unlikely : "·"),
                             React.createElement("div", { className: `outcome-count ${this.state.programCounts.none > 0 ? "count-none" : "count-empty"}` },
-                                React.createElement(outcome_none_1.default, { color: constants_1.OutcomeNoneColor, width: ICONSIZE, height: ICONSIZE }),
+                                React.createElement(outcome_none_1.default, { size: ICON_SIZE }),
                                 this.state.programCounts.none > 0 ? this.state.programCounts.none : "·"),
                             React.createElement("div", { className: `outcome-count ${this.state.programCounts.notImplemented > 0 ? "count-notimplemented" : "count-empty"}` },
-                                React.createElement(outcome_notimplemented_1.default, { color: constants_1.OutcomeNotImplementedColor, width: ICONSIZE, height: ICONSIZE }),
+                                React.createElement(outcome_notimplemented_1.default, { size: ICON_SIZE }),
                                 this.state.programCounts.notImplemented > 0 ? this.state.programCounts.notImplemented : "·")))),
                 React.createElement("button", { className: `hs-category-collapse-button ${this.state.collapsed ? "collapsed" : ""}`, onClick: ev => this.setState({ collapsed: !this.state.collapsed }) },
                     React.createElement("div", { className: "hs-category-collapse-button-icon" }, "<"))),

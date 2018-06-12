@@ -5,15 +5,42 @@ import { OutcomeUnlikelyColor } from "shared/constants";
 
 const OutcomeUnlikelyIcon = (props: OutcomeIconProps) => {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      fill={props.color ? props.color : OutcomeUnlikelyColor} 
-      width={props.width} 
-      height={props.height} 
-      stroke="black"
-      strokeWidth="5"
-      viewBox="0 0 750 750">
-      <rect y="350" x="125" height="75" width="500"/>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+      viewBox="0 0 100 100"
+      height={props.size}
+      width={props.size}
+    >
+      <path
+        d="m 15,50 70,0"
+        display="inline"
+        fill="none"
+        fillRule="evenodd"
+        stroke="#000000"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="miter"
+        strokeMiterlimit="4"
+        strokeDasharray="none"
+        strokeOpacity="1" 
+      />
+      <circle
+        r="48.511395"
+        cy="50"
+        cx="50"
+        opacity="1"
+        fill="none"
+        fillOpacity="1"
+        stroke="none"
+        strokeWidth="0.97720796"
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
+        strokeMiterlimit="1"
+        strokeDasharray="none"
+        strokeDashoffset="0"
+        strokeOpacity="1" 
+      />
     </svg>
   );
 }

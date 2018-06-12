@@ -1,7 +1,6 @@
 interface OutcomeIconProps {
-  width: string
-  height: string
-  color?: string
+  size: string
+  hasColor?: boolean
 }
 
 export default OutcomeIconProps;

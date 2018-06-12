@@ -21,21 +21,20 @@ import "./program-card.scss";
 export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
 
   const getIcon = (outcome: SuccessChance) => {
-    const width="16px";
-    const height="16px";
+    const ICON_SIZE = "16px";
     switch(outcome) {
       case SuccessChance.CERTAIN:
-        return <OutcomeCertainIcon width={width} height={height}/>;
+        return <OutcomeCertainIcon size={ICON_SIZE} />
       case SuccessChance.LIKELY:
-        return <OutcomeLikelyIcon width={width} height={height}/>;
+        return <OutcomeLikelyIcon size={ICON_SIZE} />;
       case SuccessChance.UNCERTAIN:
-        return <OutcomeUncertainIcon width={width} height={height}/>;
+        return <OutcomeUncertainIcon size={ICON_SIZE} />;
       case SuccessChance.UNLIKELY:
-        return <OutcomeUnlikelyIcon width={width} height={height}/>;
+        return <OutcomeUnlikelyIcon size={ICON_SIZE} />;
       case SuccessChance.NONE:
-        return <OutcomeNoneIcon width={width} height={height}/>;
+        return <OutcomeNoneIcon size={ICON_SIZE} />;
       case SuccessChance.NOTIMPLEMENTED:
-        return <OutcomeNotImplementedIcon width={width} height={height}/>;
+        return <OutcomeNotImplementedIcon size={ICON_SIZE} />;
     }
   };
 

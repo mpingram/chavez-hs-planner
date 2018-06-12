@@ -43,9 +43,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
         onClick={props.onSuccCertainClick}
       >
         <OutcomeCertainIcon 
-          color={props.succCertainActive ? OutcomeCertainColor : OutcomeInactiveColor } 
-          width={ICON_SIZE} 
-          height={ICON_SIZE}
+          size={ICON_SIZE} 
         />
         You will almost certainly be accepted.
       </button>
@@ -54,9 +52,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
         onClick={props.onSuccLikelyClick}
       >
         <OutcomeLikelyIcon 
-          color={props.succLikelyActive ? OutcomeLikelyColor : OutcomeInactiveColor } 
-          width={ICON_SIZE} 
-          height={ICON_SIZE}
+          size={ICON_SIZE} 
         />
         You're more likely to be accepted than other students.
       </button>
@@ -65,9 +61,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
         onClick={props.onSuccUncertainClick}
       >
         <OutcomeUncertainIcon
-          color={props.succUncertainActive ? OutcomeUncertainColor : OutcomeInactiveColor } 
-          width={ICON_SIZE} 
-          height={ICON_SIZE}
+          size={ICON_SIZE}
         />
         You're about as likely to be accepted as other students.
       </button>
@@ -76,9 +70,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
         onClick={props.onSuccUnlikelyClick}
       >
         <OutcomeUnlikelyIcon 
-          color={props.succUnlikelyActive ? OutcomeUnlikelyColor : OutcomeInactiveColor } 
-          width={ICON_SIZE} 
-          height={ICON_SIZE}
+          size={ICON_SIZE}
         />
         You're less likely to be accepted than other students.
       </button>
@@ -87,9 +79,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
         onClick={props.onSuccNoneClick}
       >
         <OutcomeNoneIcon 
-          color={props.succNoneActive ? OutcomeNoneColor : OutcomeInactiveColor } 
-          width={ICON_SIZE} 
-          height={ICON_SIZE}
+          size={ICON_SIZE}
         />
         You probably won't be accepted.
       </button>
@@ -98,9 +88,7 @@ const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
         onClick={props.onSuccNotImplementedClick}
       >
         <OutcomeNotImplementedIcon
-          color={props.succNotImplementedActive ? OutcomeNotImplementedColor : OutcomeInactiveColor } 
-          width={ICON_SIZE} 
-          height={ICON_SIZE}
+          size={ICON_SIZE}
         />
         We don't have enough information to tell you.
       </button>
