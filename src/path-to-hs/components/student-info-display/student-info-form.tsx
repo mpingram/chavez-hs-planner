@@ -135,7 +135,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
               </div>
             </div>
           </div>
-          <div className="field-group">
+          <div className="field-group nowrap">
 
             <div className="field">
               <label className="label is-small">Your address</label>

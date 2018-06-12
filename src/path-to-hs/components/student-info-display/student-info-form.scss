@@ -62,6 +62,9 @@
     }
   }
 }
+.field-group.nowrap {
+  flex-wrap: nowrap;
+}
 .field-group.distribute-left {
   justify-content: flex-start;
 }
