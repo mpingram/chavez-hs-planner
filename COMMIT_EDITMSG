@@ -1,3 +1,6 @@
-Increase OutcomeIcon stroke width
+Restyle HSProgramElement
 
-* NOTE for increased readability when icons are small
+* increase HSProgramElement width
+* change HSProgramElement hover styles
+* increase HSProgramElement font weight and size
+* increase padding of display name

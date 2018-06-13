@@ -3,11 +3,9 @@
 .program-card {
   position: relative;
   font-size: 100%;
-  width: 80px;
-  height: 80px;
-  padding: 0.5em;
-
-  background-color: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 }
 
 .program-card-icon-container {
@@ -15,6 +13,7 @@
 
   width: 60px;
   height: 60px;
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
@@ -48,12 +47,14 @@
 .program-card-displayname {
   width: 100%;
   line-height: 1em; 
-  height: 3em; // three lines at line-height of 12px;
   font-size: 0.7rem;
+  font-weight: bold;
   text-align: center;
   word-wrap: normal; 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  margin: 5px auto;
 
   // mimic link styling
   color: #0000FF;
