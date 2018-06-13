@@ -34,7 +34,7 @@ export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
       case SuccessChance.NONE:
         return <OutcomeNoneIcon invertedColors={true} size={ICON_SIZE} />;
       case SuccessChance.NOTIMPLEMENTED:
-        return <OutcomeNotImplementedIcon invertedColors={false} size={ICON_SIZE} />;
+        return <OutcomeNotImplementedIcon invertedColors={true} size={ICON_SIZE} />;
     }
   };
 

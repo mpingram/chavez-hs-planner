@@ -1,6 +1,4 @@
-Restyle HSProgramElement
+Revert notImplemented ProgramCard styling
 
-* increase HSProgramElement width
-* change HSProgramElement hover styles
-* increase HSProgramElement font weight and size
-* increase padding of display name
+* revert to original filled-background design
+* use inverted colors in OutcomeNotImplementedIcon
