@@ -119,75 +119,112 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
   render() {
     const ICON_SIZE = "18px";
     return (
-      <div className={`hs-category-container ${this.state.collapsed ? "collapsed" : ""}`}>
+      <div 
+        className={`hs-category-container ${this.state.collapsed ? "collapsed" : ""}`}
+        onClick={ ev => this.setState({collapsed: !this.state.collapsed}) }
+      >
         <div className="hs-category-header">
-          <div className="hs-category-info-container">
-            <div className="hs-category-title">
-              {this.props.title}
-            </div>
-            <div className="hs-program-outcome-counts">
-              <div className="outcome-counts-wrapper">
-
-                <div className={`outcome-count ${this.state.programCounts.certain > 0 ? "count-certain" : "count-empty"}`}  >
-                  <OutcomeCertainIcon 
-                    disabled={this.state.programCounts.certain === 0}
-                    size={ICON_SIZE}
-                  />
-                  {this.state.programCounts.certain > 0 ? this.state.programCounts.certain : "·"}
-                </div>
-
-                <div className={`outcome-count ${this.state.programCounts.likely > 0 ? "count-likely" : "count-empty"}`}>
-                  <OutcomeLikelyIcon 
-                    disabled={this.state.programCounts.likely === 0}
-                    size={ICON_SIZE}
-                  />
-                  {this.state.programCounts.likely > 0 ? this.state.programCounts.likely : "·"}
-                </div>
-
-                <div className={`outcome-count ${this.state.programCounts.uncertain > 0 ? "count-uncertain" : "count-empty"}`}>
-                  <OutcomeUncertainIcon 
-                    disabled={this.state.programCounts.uncertain === 0}
-                    size={ICON_SIZE}
-                  />
-                  {this.state.programCounts.uncertain > 0 ? this.state.programCounts.uncertain : "·"}
-                </div>
-
-                <div className={`outcome-count  ${this.state.programCounts.unlikely > 0 ? "count-unlikely" : "count-empty"}`}>
-                  <OutcomeUnlikelyIcon 
-                    disabled={this.state.programCounts.unlikely === 0}
-                    size={ICON_SIZE}
-                  />
-                  {this.state.programCounts.unlikely > 0 ? this.state.programCounts.unlikely : "·"}
-                </div>
-
-                <div className={`outcome-count ${this.state.programCounts.none > 0 ? "count-none" : "count-empty"}`}>
-                  <OutcomeNoneIcon 
-                    disabled={this.state.programCounts.none === 0}
-                    size={ICON_SIZE}
-                  />
-                  {this.state.programCounts.none > 0 ? this.state.programCounts.none : "·"}
-                </div>
-
-                <div className={`outcome-count ${this.state.programCounts.notImplemented > 0 ? "count-notimplemented" : "count-empty"}`}>
-                  <OutcomeNotImplementedIcon 
-                    disabled={this.state.programCounts.notImplemented === 0}
-                    size={ICON_SIZE}
-                  />
-                  {this.state.programCounts.notImplemented > 0 ? this.state.programCounts.notImplemented : "·"}
-                </div>
-
-              </div>
-            </div>
-          </div>
           <button 
             className={`hs-category-collapse-button ${this.state.collapsed ? "collapsed" : ""}`}
             onClick={ ev => this.setState({collapsed: !this.state.collapsed}) }
           >
             <div className="hs-category-collapse-button-icon">
-              {"<"}
+              {">"}
             </div>
           </button>
+          <div className="hs-category-info-container">
+            <div className="hs-category-title">
+              {this.props.title}
+            </div>
+            <div className="outcome-counts-wrapper">
+              <div className="outcome-count">
+                <div className="outcome-count-icon">
+                  <OutcomeCertainIcon 
+                    disabled={this.state.programCounts.certain === 0}
+                    size={ICON_SIZE}
+                  />
+                </div>
+                <div className="outcome-count-text">
+                  {this.state.programCounts.certain > 0 && 
+                  this.state.programCounts.certain 
+                  }
+                </div>
+              </div>
+
+              <div className="outcome-count">
+                <div className="outcome-count-icon">
+                  <OutcomeLikelyIcon 
+                    disabled={this.state.programCounts.likely === 0}
+                    size={ICON_SIZE}
+                  />
+                </div>
+                <div className="outcome-count-text">
+                  {this.state.programCounts.likely > 0 && 
+                  this.state.programCounts.likely 
+                  }
+                </div>
+              </div>
+
+              <div className="outcome-count">
+                <div className="outcome-count-icon">
+                  <OutcomeUncertainIcon 
+                    disabled={this.state.programCounts.uncertain === 0}
+                    size={ICON_SIZE}
+                  />
+                </div>
+                <div className="outcome-count-text">
+                  {this.state.programCounts.uncertain > 0 && 
+                  this.state.programCounts.uncertain 
+                  }
+                </div>
+              </div>
+
+              <div className="outcome-count">
+                <div className="outcome-count-icon">
+                  <OutcomeUnlikelyIcon 
+                    disabled={this.state.programCounts.unlikely === 0}
+                    size={ICON_SIZE}
+                  />
+                </div>
+                <div className="outcome-count-text">
+                  {this.state.programCounts.unlikely > 0 && 
+                  this.state.programCounts.unlikely 
+                  }
+                </div>
+              </div>
+
+              <div className="outcome-count">
+                <div className="outcome-count-icon">
+                  <OutcomeNoneIcon 
+                    disabled={this.state.programCounts.none === 0}
+                    size={ICON_SIZE}
+                  />
+                </div>
+                <div className="outcome-count-text">
+                  {this.state.programCounts.none > 0 && 
+                  this.state.programCounts.none 
+                  }
+                </div>
+              </div>
+
+              <div className="outcome-count">
+                <div className="outcome-count-icon">
+                  <OutcomeNotImplementedIcon 
+                    disabled={this.state.programCounts.notImplemented === 0}
+                    size={ICON_SIZE}
+                  />
+                </div>
+                <div className="outcome-count-text">
+                  {this.state.programCounts.notImplemented > 0 && 
+                  this.state.programCounts.notImplemented 
+                  }
+                </div> 
+              </div>
+
+            </div>
+          </div>
         </div>
+
         <div className="hs-list">
           { 
             this.props.programs.sort( this.sortByOutcome ).map( (program: Program) => {

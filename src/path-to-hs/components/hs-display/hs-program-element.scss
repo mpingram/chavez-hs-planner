@@ -1,6 +1,9 @@
 @import "../../../shared/styles/variables";
+@import "../../../shared/styles/classes";
 
 .hs-list-element {
+  @extend %clickable;
+
   width: 100px;
   height: 110px;
 

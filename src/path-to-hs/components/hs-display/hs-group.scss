@@ -1,4 +1,5 @@
 @import "../../../shared/styles/variables";
+@import "../../../shared/styles/classes";
 
 .hs-category-container {
   width: 100%;
@@ -14,10 +15,12 @@
 }
 
 .hs-category-header {
+  @extend %clickable;
+
   width: 100%;
   height: 75px;
   flex: 1 0 100%;
-  border-bottom: 1px solid $col-app-gray;
+  border-top: 1px solid $col-app-gray;
   
   display: flex;
   justify-content: space-between;
@@ -45,113 +48,66 @@
   text-overflow: ellipsis;
 }
 
-.count-all {
-  flex: 0 0 6em;
-}
-
-.count-all-number {
-  color: $text-dark-gray;
-  font-size: 1.25em;
-  font-weight: bold;
-  line-height: 36px; 
-}
-.count-all-desc {
-  color: $text-gray;
-  font-size: 90%;
-  line-height: 36px;
-}
-
-.hs-program-outcome-counts {
-  font-size: 95%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
-
 .outcome-counts-wrapper {
   height: 36px;
-  display: flex;
-  flex-direction: row;
-  background-color: #fafafa;
-  border-radius: $border-radius-med;
+  margin-left: 2em;
+  margin-top: 0.25em;
 }
 
 .outcome-count {
-  width: 20px;
-  margin: 0 5px;
-  line-height: 16px;
-  font-size: 1.25em;
-  text-align: center;
+  float: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.outcome-count-icon {
+  float: left;
+}
+.outcome-count-text {
+  float: left;
+  user-select: none;
+  width: 30px;
   font-weight: bold;
-}
-
-.outcome-count.count-empty {
-  color: lighten($text-light-gray, 5%);
-  font-weight: normal;
-}
-
-.outcome-count.count-certain {
-  color: $col-succ-certain;
-}
-.outcome-count.count-likely {
-  color: $col-succ-likely;
-}
-.outcome-count.count-uncertain {
-  color: $col-succ-uncertain;
-}
-.outcome-count.count-unlikely {
-  color: $col-succ-unlikely;
-}
-.outcome-count.count-none {
-  color: $col-succ-none;
-}
-.outcome-count.count-notimplemented {
-  color: $col-succ-notimplemented;
+  font-size: 0.85rem;
+  margin-left: 3px;
 }
 
 .hs-category-collapse-button {
-  flex: 0 0 40px;
-  font-size: 130%;
   display: block;
-  width: 40px;
-  height: 40px;
-  margin-right: 1em;
-
-  align-self: center;
-
+  background-color: $col-app-gray-dark;
   border-radius: 100%;
-  border: 2px solid $col-app-gray;
+  cursor: pointer;
+  font-size: 130%;
+  color: $text-white;
+  font-weight: bold;
 
-  z-index: 2;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
 
-  box-shadow: 0px 2px 0px #999;
-  transition: transform 150ms ease,
-              box-shadow 150ms ease;
+  margin: 0.5em 0.25em 0.5em 1em;
+  align-self: center;
+  transition: transform 150ms ease;
 }
 
 .hs-category-collapse-button:hover {
-  box-shadow: 0px 4px 0px #999;
-  transform: translateY(-5%);
+  transform: scale(1.1);
 }
 .hs-category-collapse-button:active {
-  transform: scale(0.9);
-  box-shadow: $box-shadow-none;
 }
 
 .hs-category-collapse-button.collapsed {
-  box-shadow: 0px 1px 0px #999;
 }
 
 .hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {
-  transform: rotate(-90deg);
+  transform: rotate(0deg);
 }
 
 .hs-category-collapse-button-icon {
   transform: rotate(90deg);
   transition: transform 300ms ease;
 }
-
-
 
 .hs-list {
 
