@@ -1,4 +1,5 @@
-Wrap CPS tier calculator in a form-group
+Use enabled/disabled styling for SiblingHSProgramsField
 
-* add flex-wrap rule to form-group styling
+* Clear value of SiblingHSProgramsField when it is disabled
+* NOTE previously had shown/hidden field, needlessly complex/confusing.
 

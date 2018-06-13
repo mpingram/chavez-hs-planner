@@ -30806,17 +30806,22 @@ class StudentInfoForm extends React.Component {
                 React.createElement("label", { className: "label is-small" }, "Do you have a brother or sister at a CPS high school?"),
                 React.createElement("div", { className: "control" },
                     React.createElement("div", { className: "select" },
-                        React.createElement("select", { value: this.state.showSiblingHSSchools === null ? "placeholder" : (this.state.showSiblingHSSchools === true ? "yes" : "no"), onChange: ev => this.setState({
-                                showSiblingHSSchools: ev.currentTarget.value === "yes" ? true : false
-                            }) },
+                        React.createElement("select", { value: this.state.showSiblingHSSchools === null ? "placeholder" : (this.state.showSiblingHSSchools === true ? "yes" : "no"), onChange: ev => {
+                                const showSiblingHSSchools = ev.currentTarget.value === "yes" ? true : false;
+                                this.setState({
+                                    showSiblingHSSchools: showSiblingHSSchools
+                                });
+                                if (showSiblingHSSchools === false) {
+                                    this.props.onSiblingHSSchoolChange([]);
+                                }
+                            } },
                             React.createElement("option", { value: "placeholder", disabled: true }),
                             React.createElement("option", { value: "yes" }, "Yes"),
                             React.createElement("option", { value: "no" }, "No"))))),
-            this.state.showSiblingHSSchools &&
-                React.createElement("div", { className: "field" },
-                    React.createElement("label", { className: "label is-small" }, "Which high schools do your brother or sister go to?"),
-                    React.createElement("div", { className: "control" },
-                        React.createElement(react_select_1.default, { multi: true, simpleValue: true, options: this.props.siblingHSSchoolOptions, value: this.props.siblingHSSchools.join(","), onChange: joinedValues => this.props.onSiblingHSSchoolChange(joinedValues.split(",")), placeholder: "" })))));
+            React.createElement("div", { className: "field" },
+                React.createElement("label", { className: "label is-small" }, "Which high schools do your brother or sister go to?"),
+                React.createElement("div", { className: "control" },
+                    React.createElement(react_select_1.default, { disabled: !this.state.showSiblingHSSchools, multi: true, simpleValue: true, options: this.props.siblingHSSchoolOptions, value: this.state.showSiblingHSSchools ? this.props.siblingHSSchools.join(",") : "", onChange: joinedValues => this.props.onSiblingHSSchoolChange(joinedValues.split(",")), placeholder: "" })))));
     }
 }
 exports.StudentInfoForm = StudentInfoForm;
