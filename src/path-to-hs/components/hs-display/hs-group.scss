@@ -88,16 +88,6 @@
 
   margin: 0.5em 0.25em 0.5em 1em;
   align-self: center;
-  transition: transform 150ms ease;
-}
-
-.hs-category-collapse-button:hover {
-  transform: scale(1.1);
-}
-.hs-category-collapse-button:active {
-}
-
-.hs-category-collapse-button.collapsed {
 }
 
 .hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {
@@ -106,7 +96,7 @@
 
 .hs-category-collapse-button-icon {
   transform: rotate(90deg);
-  transition: transform 300ms ease;
+  transition: transform 75ms ease-out;
 }
 
 .hs-list {

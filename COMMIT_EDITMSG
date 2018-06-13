@@ -1,11 +1,1 @@
-Restyle HSGroup
-
-* move icon to left
-* change arrow icon states to left/down instead of up/down
-* make HSGroup header collapse on click
-
-* move border to top
-* restyle OutcomeCounts
-  ** move number to left of icon
-  ** remove number color
-  ** remove empty pips
+Tweak HSGroup open/close icon animation speed
