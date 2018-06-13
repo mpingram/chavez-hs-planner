@@ -121,9 +121,11 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
     return (
       <div 
         className={`hs-category-container ${this.state.collapsed ? "collapsed" : ""}`}
-        onClick={ ev => this.setState({collapsed: !this.state.collapsed}) }
       >
-        <div className="hs-category-header">
+        <div 
+          className="hs-category-header"
+          onClick={ ev => this.setState({collapsed: !this.state.collapsed}) }
+        >
           <button 
             className={`hs-category-collapse-button ${this.state.collapsed ? "collapsed" : ""}`}
             onClick={ ev => this.setState({collapsed: !this.state.collapsed}) }

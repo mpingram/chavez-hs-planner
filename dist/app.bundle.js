@@ -39798,8 +39798,8 @@ class HSGroup extends React.PureComponent {
     }
     render() {
         const ICON_SIZE = "18px";
-        return (React.createElement("div", { className: `hs-category-container ${this.state.collapsed ? "collapsed" : ""}`, onClick: ev => this.setState({ collapsed: !this.state.collapsed }) },
-            React.createElement("div", { className: "hs-category-header" },
+        return (React.createElement("div", { className: `hs-category-container ${this.state.collapsed ? "collapsed" : ""}` },
+            React.createElement("div", { className: "hs-category-header", onClick: ev => this.setState({ collapsed: !this.state.collapsed }) },
                 React.createElement("button", { className: `hs-category-collapse-button ${this.state.collapsed ? "collapsed" : ""}`, onClick: ev => this.setState({ collapsed: !this.state.collapsed }) },
                     React.createElement("div", { className: "hs-category-collapse-button-icon" }, ">")),
                 React.createElement("div", { className: "hs-category-info-container" },
