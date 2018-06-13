@@ -1,1 +1,5 @@
-Tweak HSGroup open/close icon animation speed
+Rewrite SearchBar
+
+* move search bar component into path-to-hs folder
+* convert from dynamic search into static / button-based search
+* restyle component with scss styles

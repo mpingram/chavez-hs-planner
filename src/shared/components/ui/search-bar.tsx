@@ -6,9 +6,9 @@ import * as debounce from "lodash.debounce";
 import "./search-bar.scss";
 
 interface SearchBarProps {
-  value: string
-  onChange: (newVal: string) => any;
-  debounceTime?: number
+  defaultValue: string
+  placeholder?: string
+  onSearchSubmit: (searchString: string) => any;
 }
 
 interface SearchBarState {
@@ -20,14 +20,8 @@ class SearchBar extends React.PureComponent<SearchBarProps, SearchBarState> {
   constructor(props) {
     super(props);
     this.state = {
-      localValue: props.value
+      localValue: props.defaultValue
     };
-    const handleChange = value => props.onChange(value);
-    if (props.debounceTime) {
-      this.handleChange = debounce(handleChange, props.debounceTime) as (newVal: string) => any;
-    } else {
-      this.handleChange = handleChange;
-    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,26 +30,37 @@ class SearchBar extends React.PureComponent<SearchBarProps, SearchBarState> {
     });
   }
 
-  private handleChange: (newVal: string) => any;
-
   render() {
     return (
-      <div className="search-bar-container">
-        <div className="search-bar">
-          <SearchIcon width="24px" height="24px"/>
+      <div className="search-bar field has-addons">
+        <div className="control is-expanded">
           <input 
-            className="search-bar-input"
+            className="input is-large"
             type="search" 
-            value={this.state.localValue ? this.state.localValue : " "} 
-            onChange={ ev => {
-              const value = ev.currentTarget.value;
-              this.setState({localValue: value});
-              this.handleChange(value);
-            } } 
-          />
+            placeholder={this.props.placeholder}
+            value={this.state.localValue} 
+            onChange={this.handleChange}
+        />
+        </div>
+        <div className="control">
+          <button
+            className="button is-large"
+            onClick={ ev => {
+              this.props.onSearchSubmit(this.state.localValue);
+            }}
+            >
+            <SearchIcon width="18px" height="18px"/>
+          </button>
         </div>
       </div>
     );
+  };
+
+  /* This function is initiaized in constructor */
+  private handleChange = (ev) => {
+    this.setState({
+      localValue: ev.currentTarget.value
+    });
   };
 };
 

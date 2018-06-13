@@ -39467,10 +39467,10 @@ exports.default = HSProgramsContainer;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 const enums_1 = __webpack_require__(7);
-const search_bar_1 = __webpack_require__(317);
+const search_bar_1 = __webpack_require__(343);
 const success_chance_filter_1 = __webpack_require__(321);
 const hs_group_1 = __webpack_require__(325);
-const constants_1 = __webpack_require__(43);
+__webpack_require__(341);
 class HSProgramList extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -39496,8 +39496,19 @@ class HSProgramList extends React.PureComponent {
                 return successChance === outcome.overallChance;
             });
         };
+        this.handleSearchSubmit = (newSearchTerm) => {
+            if (newSearchTerm !== null) {
+                this.setState({
+                    searchTerm: newSearchTerm,
+                    selectedSuccessChance: null
+                });
+            }
+            else {
+                this.setState({ searchTerm: null });
+            }
+        };
         this.state = {
-            searchTerm: "",
+            searchTerm: null,
             selectedSuccessChance: null
         };
     }
@@ -39555,7 +39566,7 @@ class HSProgramList extends React.PureComponent {
                         this.setState({ selectedSuccessChance: enums_1.SuccessChance.NOTIMPLEMENTED });
                     }
                 } }),
-            React.createElement(search_bar_1.default, { value: this.state.searchTerm, onChange: value => this.setState({ searchTerm: value }), debounceTime: constants_1.INPUT_DEBOUNCE_TIME }),
+            React.createElement(search_bar_1.SearchBar, { placeholder: "Search for schools or programs...", defaultValue: this.state.searchTerm ? this.state.searchTerm : "", onSearchSubmit: this.handleSearchSubmit }),
             React.createElement("div", { style: {
                     width: "100%",
                     flex: "1 1 80vh",
@@ -39565,7 +39576,9 @@ class HSProgramList extends React.PureComponent {
                 } }, this.props.programGroups.map(group => {
                 const programs = group.programIDs.map(programID => this.props.programs[programID]);
                 let filteredPrograms = programs;
-                filteredPrograms = this.filterBySearchTerm(filteredPrograms, this.state.searchTerm);
+                if (this.state.searchTerm !== null) {
+                    filteredPrograms = this.filterBySearchTerm(filteredPrograms, this.state.searchTerm);
+                }
                 if (this.state.selectedSuccessChance !== null) {
                     filteredPrograms = this.filterBySuccessChance(filteredPrograms, this.props.outcomes, this.state.selectedSuccessChance);
                 }
@@ -39580,52 +39593,7 @@ exports.default = HSProgramList;
 
 
 /***/ }),
-/* 317 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(4);
-const search_1 = __webpack_require__(318);
-const debounce = __webpack_require__(112);
-__webpack_require__(319);
-class SearchBar extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            localValue: props.value
-        };
-        const handleChange = value => props.onChange(value);
-        if (props.debounceTime) {
-            this.handleChange = debounce(handleChange, props.debounceTime);
-        }
-        else {
-            this.handleChange = handleChange;
-        }
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            localValue: nextProps.value
-        });
-    }
-    render() {
-        return (React.createElement("div", { className: "search-bar-container" },
-            React.createElement("div", { className: "search-bar" },
-                React.createElement(search_1.default, { width: "24px", height: "24px" }),
-                React.createElement("input", { className: "search-bar-input", type: "search", value: this.state.localValue ? this.state.localValue : " ", onChange: ev => {
-                        const value = ev.currentTarget.value;
-                        this.setState({ localValue: value });
-                        this.handleChange(value);
-                    } }))));
-    }
-    ;
-}
-;
-exports.default = SearchBar;
-
-
-/***/ }),
+/* 317 */,
 /* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39642,51 +39610,8 @@ exports.default = SearchIcon;
 
 
 /***/ }),
-/* 319 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(320);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./search-bar.scss", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./search-bar.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 320 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(12)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".search-bar-container {\n  width: 100%;\n  padding: 0.5em;\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  background-color: #b6b6b7; }\n\n.search-bar {\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: #FCFEFF;\n  padding: 10px;\n  border-radius: 6px; }\n\n.search-bar-icon {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  margin: 0.5em; }\n\n.search-bar-input {\n  line-height: 24px;\n  font-size: 115%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto; }\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 319 */,
+/* 320 */,
 /* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40327,6 +40252,88 @@ exports = module.exports = __webpack_require__(12)(undefined);
 exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px;\n  overflow-y: auto; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n\nh1, h2, h3 {\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n", ""]);
 
 // exports
+
+
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(342);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(13)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-list.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-list.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 342 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".search-bar {\n  width: 100%; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 343 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(4);
+const search_1 = __webpack_require__(318);
+class SearchBar extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.handleChange = ev => {
+            if (ev.currentTarget.value === "") {
+                this.props.onSearchSubmit(null);
+            }
+            this.setState({ value: ev.currentTarget.value });
+        };
+        this.state = {
+            value: props.defaultValue
+        };
+    }
+    render() {
+        return (React.createElement("div", { className: "search-bar field has-addons" },
+            React.createElement("div", { className: "control is-expanded" },
+                React.createElement("input", { className: "input", type: "search", placeholder: "Search for schools or programs...", value: this.state.value, onChange: this.handleChange })),
+            React.createElement("div", { className: "control" },
+                React.createElement("button", { className: "button", onClick: ev => {
+                        this.props.onSearchSubmit(this.state.value);
+                    } },
+                    React.createElement(search_1.default, { width: "18px", height: "18px" }),
+                    "Search"))));
+    }
+}
+exports.SearchBar = SearchBar;
 
 
 /***/ })

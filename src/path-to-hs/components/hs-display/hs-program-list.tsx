@@ -9,8 +9,7 @@ import {
 } from "shared/types";
 import { SuccessChance } from "shared/enums";
 
-import SearchBar from "shared/components/ui/search-bar";
-
+import { SearchBar } from "./search-bar";
 
 import SuccessChanceFilter from "./success-chance-filter";
 import HSGroup from "./hs-group";
@@ -23,18 +22,18 @@ interface HSProgramListProps {
 }
 
 interface HSProgramListState {
-  searchTerm: string;
+  searchTerm: string | null;
   selectedSuccessChance: SuccessChance | null
 }
 
-import {INPUT_DEBOUNCE_TIME} from "shared/constants";
+import "./hs-program-list.scss";
 
 class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramListState> {
 
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "",
+      searchTerm: null,
       selectedSuccessChance: null
     };
   }
@@ -107,10 +106,11 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
         />
 
         <SearchBar 
-          value={this.state.searchTerm} 
-          onChange={value => this.setState({searchTerm: value})}
-          debounceTime={INPUT_DEBOUNCE_TIME}
+          placeholder="Search for schools or programs..."
+          defaultValue={this.state.searchTerm ? this.state.searchTerm : ""}
+          onSearchSubmit={this.handleSearchSubmit}
         />
+
         <div 
           style={{
             width: "100%", 
@@ -131,7 +131,9 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
             const programs: Program[] = group.programIDs.map( programID => this.props.programs[programID] );
             // filter the programs by the current search term and by the current filters on SuccessChance.
             let filteredPrograms = programs;
-            filteredPrograms = this.filterBySearchTerm(filteredPrograms, this.state.searchTerm);
+            if (this.state.searchTerm !== null) {
+              filteredPrograms = this.filterBySearchTerm(filteredPrograms, this.state.searchTerm);
+            }
             if (this.state.selectedSuccessChance !== null) {
               filteredPrograms = this.filterBySuccessChance(filteredPrograms, this.props.outcomes, this.state.selectedSuccessChance);
             }
@@ -182,6 +184,18 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
       }
       return successChance === outcome.overallChance;
     });
+  }
+
+  private handleSearchSubmit = (newSearchTerm: string | null) => {
+    /* if search term was not cleared, unset any selected success chance filters */
+    if (newSearchTerm !== null) {
+      this.setState({
+        searchTerm: newSearchTerm,
+        selectedSuccessChance: null
+      });
+    } else {
+      this.setState({searchTerm: null});
+    }
   }
 
 };
