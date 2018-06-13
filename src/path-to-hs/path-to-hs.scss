@@ -8,12 +8,16 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: stretch;
+
+  background-color: $col-app-neutral;
 }
 
 .student-data-form-container {
   height: 100vh;
   flex: 1 0 320px;
   overflow-y: auto;
+  box-shadow: $box-shadow-z3;
+  z-index: 2;
 }
 
 .hs-programs-container {
