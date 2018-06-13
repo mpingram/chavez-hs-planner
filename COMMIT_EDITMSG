@@ -1,5 +1,6 @@
-Rewrite SearchBar
+Restyle SuccessChanceFilter
 
-* move search bar component into path-to-hs folder
-* convert from dynamic search into static / button-based search
-* restyle component with scss styles
+* reduce font size
+* separate filter buttons by bars
+* add clickable styling
+* add activated/deactivated button styling

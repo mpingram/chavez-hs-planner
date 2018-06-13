@@ -42,84 +42,22 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
   render() {
     return (
       <div
-        style={{
-          width: "100%",
-          height: "100%",
-          overflowX: "hidden",
-          overflowY: "hidden",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "stretch"
-        }}
+        className="hs-program-list-container"
       >
-        <SuccessChanceFilter
-          succCertainActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.CERTAIN}
-          succLikelyActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.LIKELY}
-          succUncertainActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.UNCERTAIN}
-          succUnlikelyActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.UNLIKELY}
-          succNoneActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.NONE}
-          succNotImplementedActive={this.state.selectedSuccessChance === null || this.state.selectedSuccessChance === SuccessChance.NOTIMPLEMENTED}
+        <div className="hs-program-list-header">
+          <SuccessChanceFilter
+            selectedSuccessChance={this.state.selectedSuccessChance}
+            onSelectedSuccessChanceChange={ succChance => this.setState({selectedSuccessChance: succChance}) }
+          />
 
-          onSuccCertainClick={ ev => {
-            if (this.state.selectedSuccessChance === SuccessChance.CERTAIN) {
-              this.setState({selectedSuccessChance: null});
-            } else {
-              this.setState({selectedSuccessChance: SuccessChance.CERTAIN}) 
-            }
-          }}
-          onSuccLikelyClick={ ev => {
-            if (this.state.selectedSuccessChance === SuccessChance.LIKELY) {
-              this.setState({selectedSuccessChance: null});
-            } else {
-              this.setState({selectedSuccessChance: SuccessChance.LIKELY}) 
-            }
-          }}
-          onSuccUncertainClick={ ev => {
-            if (this.state.selectedSuccessChance === SuccessChance.UNCERTAIN) {
-              this.setState({selectedSuccessChance: null});
-            } else {
-              this.setState({selectedSuccessChance: SuccessChance.UNCERTAIN}) 
-            }
-          }}
-          onSuccUnlikelyClick={ ev => {
-            if (this.state.selectedSuccessChance === SuccessChance.UNLIKELY) {
-              this.setState({selectedSuccessChance: null});
-            } else {
-              this.setState({selectedSuccessChance: SuccessChance.UNLIKELY}) 
-            }
-          }}
-          onSuccNoneClick={ ev => {
-            if (this.state.selectedSuccessChance === SuccessChance.NONE) {
-              this.setState({selectedSuccessChance: null});
-            } else {
-              this.setState({selectedSuccessChance: SuccessChance.NONE}) 
-            }
-          }}
-          onSuccNotImplementedClick={ ev => {
-            if (this.state.selectedSuccessChance === SuccessChance.NOTIMPLEMENTED) {
-              this.setState({selectedSuccessChance: null});
-            } else {
-              this.setState({selectedSuccessChance: SuccessChance.NOTIMPLEMENTED}) 
-            }
-          }}
-        />
+          <SearchBar 
+            placeholder="Search for schools or programs..."
+            defaultValue={this.state.searchTerm ? this.state.searchTerm : ""}
+            onSearchSubmit={this.handleSearchSubmit}
+          />
+        </div>
 
-        <SearchBar 
-          placeholder="Search for schools or programs..."
-          defaultValue={this.state.searchTerm ? this.state.searchTerm : ""}
-          onSearchSubmit={this.handleSearchSubmit}
-        />
-
-        <div 
-          style={{
-            width: "100%", 
-            flex: "1 1 80vh",
-            overflowY: "auto", 
-            overflowX:"hidden", 
-            position: "relative"
-          }}
-        >
+        <div className="hs-program-list">
           {
           /* 
            * Iterate through the hsProgramGroups passed in through props.

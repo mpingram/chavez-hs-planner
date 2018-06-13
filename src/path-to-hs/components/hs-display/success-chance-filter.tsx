@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { SuccessChance } from "shared/enums";
+
 import OutcomeCertainIcon from "shared/components/icons/outcome-certain";
 import OutcomeLikelyIcon from "shared/components/icons/outcome-likely";
 import OutcomeUncertainIcon from "shared/components/icons/outcome-uncertain";
@@ -10,18 +12,8 @@ import OutcomeNotImplementedIcon from "shared/components/icons/outcome-notimplem
 import "./success-chance-filter.scss";
 
 interface SuccessChanceFilterProps {
-  succCertainActive: boolean
-  onSuccCertainClick: React.MouseEventHandler<HTMLButtonElement>
-  succLikelyActive: boolean
-  onSuccLikelyClick: React.MouseEventHandler<HTMLButtonElement>
-  succUncertainActive: boolean
-  onSuccUncertainClick: React.MouseEventHandler<HTMLButtonElement>
-  succUnlikelyActive: boolean
-  onSuccUnlikelyClick: React.MouseEventHandler<HTMLButtonElement>
-  succNoneActive: boolean
-  onSuccNoneClick: React.MouseEventHandler<HTMLButtonElement>
-  succNotImplementedActive: boolean
-  onSuccNotImplementedClick: React.MouseEventHandler<HTMLButtonElement>
+  selectedSuccessChance: SuccessChance | null
+  onSelectedSuccessChanceChange: (value: SuccessChance | null) => any
 }
 
 const ICON_SIZE = "48px";
@@ -29,66 +21,115 @@ const ICON_SIZE = "48px";
 const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
   return (
     <div className="success-chance-filter">
+
       <button 
-        className="success-chance-filter-button"
-        onClick={props.onSuccCertainClick}
+        className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.CERTAIN ? "depressed" : ""}`}
+        onClick={ ev => props.selectedSuccessChance === SuccessChance.CERTAIN
+          ? props.onSelectedSuccessChanceChange(null)
+          : props.onSelectedSuccessChanceChange(SuccessChance.CERTAIN)
+        }
       >
-        <OutcomeCertainIcon 
-          size={ICON_SIZE} 
-          disabled={!props.succCertainActive}
-        />
-        You will almost certainly be accepted.
+        <div className="success-chance-filter-button-icon">
+          <OutcomeCertainIcon 
+            size={ICON_SIZE} 
+            disabled={props.selectedSuccessChance !== null && props.selectedSuccessChance !== SuccessChance.CERTAIN}
+          />
+        </div>
+        <div className="success-chance-filter-button-text">
+          You will almost certainly be accepted.
+        </div>
       </button>
+
       <button 
-        className="hs-program-success-chance-example"
-        onClick={props.onSuccLikelyClick}
+        className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.LIKELY ? "depressed" : ""}`}
+        onClick={ ev => props.selectedSuccessChance === SuccessChance.LIKELY
+          ? props.onSelectedSuccessChanceChange(null)
+          : props.onSelectedSuccessChanceChange(SuccessChance.LIKELY)
+        }
       >
-        <OutcomeLikelyIcon 
-          size={ICON_SIZE} 
-          disabled={!props.succLikelyActive}
-        />
-        You're more likely to be accepted than other students.
+        <div className="success-chance-filter-button-icon">
+          <OutcomeLikelyIcon 
+            size={ICON_SIZE} 
+            disabled={props.selectedSuccessChance !== null && props.selectedSuccessChance !== SuccessChance.LIKELY}
+          />
+        </div>
+        <div className="success-chance-filter-button-text">
+          You're more likely to be accepted than other students.
+        </div>
       </button>
+
       <button 
-        className="hs-program-success-chance-example"
-        onClick={props.onSuccUncertainClick}
+        className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.UNCERTAIN ? "depressed" : ""}`}
+        onClick={ ev => props.selectedSuccessChance === SuccessChance.UNCERTAIN
+          ? props.onSelectedSuccessChanceChange(null)
+          : props.onSelectedSuccessChanceChange(SuccessChance.UNCERTAIN)
+        }
       >
-        <OutcomeUncertainIcon
-          size={ICON_SIZE}
-          disabled={!props.succUncertainActive}
-        />
-        You're about as likely to be accepted as other students.
+        <div className="success-chance-filter-button-icon">
+          <OutcomeUncertainIcon
+            size={ICON_SIZE}
+            disabled={props.selectedSuccessChance !== null && props.selectedSuccessChance !== SuccessChance.UNCERTAIN}
+          />
+        </div>
+        <div className="success-chance-filter-button-text">
+          You're about as likely to be accepted as other students.
+        </div>
       </button>
+
       <button 
-        className="hs-program-success-chance-example"
-        onClick={props.onSuccUnlikelyClick}
+        className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.UNLIKELY ? "depressed" : ""}`}
+        onClick={ ev => props.selectedSuccessChance === SuccessChance.UNLIKELY
+          ? props.onSelectedSuccessChanceChange(null)
+          : props.onSelectedSuccessChanceChange(SuccessChance.UNLIKELY)
+        }
       >
-        <OutcomeUnlikelyIcon 
-          size={ICON_SIZE}
-          disabled={!props.succUnlikelyActive}
-        />
-        You're less likely to be accepted than other students.
+        <div className="success-chance-filter-button-icon">
+          <OutcomeUnlikelyIcon 
+            size={ICON_SIZE}
+            disabled={props.selectedSuccessChance !== null && props.selectedSuccessChance !== SuccessChance.UNLIKELY}
+          />
+        </div>
+        <div className="success-chance-filter-button-text">
+          You're less likely to be accepted than other students.
+        </div>
       </button>
+
       <button 
-        className="hs-program-success-chance-example"
-        onClick={props.onSuccNoneClick}
+        className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.NONE ? "depressed" : ""}`}
+        onClick={ ev => props.selectedSuccessChance === SuccessChance.NONE
+          ? props.onSelectedSuccessChanceChange(null)
+          : props.onSelectedSuccessChanceChange(SuccessChance.NONE)
+        }
       >
-        <OutcomeNoneIcon 
-          size={ICON_SIZE}
-          disabled={!props.succNoneActive}
-        />
-        You probably won't be accepted.
+        <div className="success-chance-filter-button-icon">
+          <OutcomeNoneIcon 
+            size={ICON_SIZE}
+            disabled={props.selectedSuccessChance !== null && props.selectedSuccessChance !== SuccessChance.NONE}
+          />
+        </div>
+        <div className="success-chance-filter-button-text">
+          You probably won't be accepted.
+        </div>
       </button>
+
       <button 
-        className="hs-program-success-chance-example"
-        onClick={props.onSuccNotImplementedClick}
+        className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.NOTIMPLEMENTED ? "depressed" : ""}`}
+        onClick={ ev => props.selectedSuccessChance === SuccessChance.NOTIMPLEMENTED
+          ? props.onSelectedSuccessChanceChange(null)
+          : props.onSelectedSuccessChanceChange(SuccessChance.NOTIMPLEMENTED)
+        }
       >
-        <OutcomeNotImplementedIcon
-          size={ICON_SIZE}
-          disabled={!props.succNotImplementedActive}
-        />
-        We don't have enough information to tell you.
+        <div className="success-chance-filter-button-icon">
+          <OutcomeNotImplementedIcon
+            size={ICON_SIZE}
+            disabled={props.selectedSuccessChance !== null && props.selectedSuccessChance !== SuccessChance.NOTIMPLEMENTED}
+          />
+        </div>
+        <div className="success-chance-filter-button-text">
+          We don't have enough information to tell you.
+        </div>
       </button>
+
     </div>
   )
 };

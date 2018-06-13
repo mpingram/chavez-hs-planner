@@ -10,8 +10,6 @@ import { SuccessChance } from "shared/enums";
 import { shallowCompare } from "shared/util/shallow-compare";
 import { ProgramCard } from "shared/components/program-card";
 
-import HSProgramInfoCard from "./hs-program-info-card";
-
 interface HSProgramElemProps {
   program: Program
   outcome: ProgramOutcome | undefined
