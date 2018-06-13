@@ -199,9 +199,16 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
 
                   <select
                     value={ this.state.showSiblingHSSchools === null ? "placeholder" : (this.state.showSiblingHSSchools === true ? "yes" : "no") }
-                    onChange={ ev => this.setState({
-                      showSiblingHSSchools: ev.currentTarget.value === "yes" ? true : false
-                    }) }
+                    onChange={ ev => {
+                      const showSiblingHSSchools = ev.currentTarget.value === "yes" ? true : false;
+                      this.setState({
+                        showSiblingHSSchools: showSiblingHSSchools
+                      });
+                      // wipe the student's sibling hs schools if the field is disabled.
+                      if (showSiblingHSSchools === false) {
+                        this.props.onSiblingHSSchoolChange([]);
+                      }
+                    }}
                   >
                     <option value="placeholder" disabled></option>
                     <option value="yes">Yes</option>
@@ -212,21 +219,20 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
               </div>
           </div>
 
-          { this.state.showSiblingHSSchools && 
           <div className="field">
             <label className="label is-small">Which high schools do your brother or sister go to?</label>
             <div className="control">
               <Select 
+                disabled={!this.state.showSiblingHSSchools}
                 multi
                 simpleValue
                 options={this.props.siblingHSSchoolOptions}
-                value={this.props.siblingHSSchools.join(",")}
+                value={this.state.showSiblingHSSchools ? this.props.siblingHSSchools.join(",") : ""}
                 onChange={ joinedValues => this.props.onSiblingHSSchoolChange(joinedValues.split(",")) }
                 placeholder=""
               />
             </div>
           </div>
-          }
     </div>
     );
   }

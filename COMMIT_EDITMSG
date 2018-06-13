@@ -1,4 +1,5 @@
-Revert notImplemented ProgramCard styling
+Use enabled/disabled styling for SiblingHSProgramsField
 
-* revert to original filled-background design
-* use inverted colors in OutcomeNotImplementedIcon
+* Clear value of SiblingHSProgramsField when it is disabled
+* NOTE previously had shown/hidden field, needlessly complex/confusing.
+
