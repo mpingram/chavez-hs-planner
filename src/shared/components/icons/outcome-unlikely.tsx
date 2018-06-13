@@ -4,6 +4,8 @@ import OutcomeIconProps from "./outcome-icon-props";
 
 import "./outcome-icon.scss";
 
+import { ICON_STROKE_WIDTH } from "./constants";
+
 const OutcomeUnlikelyIcon = (props: OutcomeIconProps) => {
   return (
     <svg
@@ -38,7 +40,7 @@ const OutcomeUnlikelyIcon = (props: OutcomeIconProps) => {
         fill="none"
         fillRule="evenodd"
         stroke="#000000"
-        strokeWidth="6"
+        strokeWidth={ICON_STROKE_WIDTH}
         strokeLinecap="round"
         strokeLinejoin="miter"
         strokeMiterlimit="4"

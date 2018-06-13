@@ -7630,10 +7630,11 @@ function warning(message) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 __webpack_require__(25);
+const constants_1 = __webpack_require__(340);
 const OutcomeCertainIcon = (props) => {
     return (React.createElement("svg", { className: `outcome-icon outcome-certain-icon ${props.invertedColors ? "inverted" : ""} ${props.disabled ? "disabled" : ""}`, xmlns: "http://www.w3.org/2000/svg", width: props.size, height: props.size, viewBox: "0 0 100 100", version: "1.1" },
-        React.createElement("circle", { className: "bg", opacity: "1", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1", cx: "50", cy: "50", r: "48.511395" }),
-        React.createElement("path", { className: "fg", fill: "none", fillRule: "evenodd", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1", d: "M 75,25 30.604203,78.502627 19.608671,49.970028" })));
+        React.createElement("circle", { className: "bg", opacity: "1", fillOpacity: "1", stroke: "none", strokeOpacity: "1", cx: "50", cy: "50", r: "48.511395" }),
+        React.createElement("path", { className: "fg", fill: "none", fillRule: "evenodd", strokeWidth: constants_1.ICON_STROKE_WIDTH, strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1", d: "M 75,25 30.604203,78.502627 19.608671,49.970028" })));
 };
 exports.default = OutcomeCertainIcon;
 
@@ -7647,11 +7648,12 @@ exports.default = OutcomeCertainIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 __webpack_require__(25);
+const constants_1 = __webpack_require__(340);
 const OutcomeLikelyIcon = (props) => {
     return (React.createElement("svg", { className: `outcome-icon outcome-likely-icon ${props.invertedColors ? "inverted" : ""} ${props.disabled ? "disabled" : ""}`, height: props.size, width: props.size, xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100" },
         React.createElement("circle", { className: "bg", r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" }),
-        React.createElement("path", { className: "fg", d: "m 15,50 70,0", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
-        React.createElement("path", { className: "fg", d: "m 50,15 0,70", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" })));
+        React.createElement("path", { className: "fg", d: "m 15,50 70,0", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: constants_1.ICON_STROKE_WIDTH, strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
+        React.createElement("path", { className: "fg", d: "m 50,15 0,70", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: constants_1.ICON_STROKE_WIDTH, strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" })));
 };
 exports.default = OutcomeLikelyIcon;
 
@@ -7665,10 +7667,11 @@ exports.default = OutcomeLikelyIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 __webpack_require__(25);
+const constants_1 = __webpack_require__(340);
 const OutcomeUncertainIcon = (props) => {
     return (React.createElement("svg", { className: `outcome-icon outcome-uncertain-icon ${props.invertedColors ? "inverted" : ""} ${props.disabled ? "disabled" : ""}`, xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100", height: props.size, width: props.size },
         React.createElement("circle", { className: "bg", r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" }),
-        React.createElement("circle", { className: "fg", r: "29.411764", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" })));
+        React.createElement("circle", { className: "fg", r: "29.411764", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "#000000", strokeWidth: constants_1.ICON_STROKE_WIDTH, strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" })));
 };
 exports.default = OutcomeUncertainIcon;
 
@@ -7682,10 +7685,11 @@ exports.default = OutcomeUncertainIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 __webpack_require__(25);
+const constants_1 = __webpack_require__(340);
 const OutcomeUnlikelyIcon = (props) => {
     return (React.createElement("svg", { className: `outcome-icon outcome-unlikely-icon ${props.invertedColors ? "inverted" : ""} ${props.disabled ? "disabled" : ""}`, xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100", height: props.size, width: props.size },
         React.createElement("circle", { className: "bg", r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" }),
-        React.createElement("path", { className: "fg", d: "m 15,50 70,0", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" })));
+        React.createElement("path", { className: "fg", d: "m 15,50 70,0", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: constants_1.ICON_STROKE_WIDTH, strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" })));
 };
 exports.default = OutcomeUnlikelyIcon;
 
@@ -7699,11 +7703,12 @@ exports.default = OutcomeUnlikelyIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 __webpack_require__(25);
+const constants_1 = __webpack_require__(340);
 const OutcomeNoneIcon = (props) => {
     return (React.createElement("svg", { className: `outcome-icon outcome-none-icon ${props.invertedColors ? "inverted" : ""} ${props.disabled ? "disabled" : ""}`, xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100", height: props.size, width: props.size },
         React.createElement("circle", { className: "bg", r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" }),
-        React.createElement("path", { className: "fg", d: "M 25.251263,25.251263 74.748737,74.748737", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
-        React.createElement("path", { className: "fg", d: "M 74.748737,25.251263 25.251263,74.748737", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" })));
+        React.createElement("path", { className: "fg", d: "M 25.251263,25.251263 74.748737,74.748737", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: constants_1.ICON_STROKE_WIDTH, strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" }),
+        React.createElement("path", { className: "fg", d: "M 74.748737,25.251263 25.251263,74.748737", display: "inline", fill: "none", fillRule: "evenodd", stroke: "#000000", strokeWidth: constants_1.ICON_STROKE_WIDTH, strokeLinecap: "round", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeOpacity: "1" })));
 };
 exports.default = OutcomeNoneIcon;
 
@@ -7717,11 +7722,12 @@ exports.default = OutcomeNoneIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 __webpack_require__(25);
+const constants_1 = __webpack_require__(340);
 const OutcomeNotImplementedIcon = (props) => {
     return (React.createElement("svg", { className: `outcome-icon outcome-notimplemented-icon ${props.invertedColors ? "inverted" : ""} ${props.disabled ? "disabled" : ""}`, xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 100 100", height: props.size, width: props.size },
         React.createElement("circle", { className: "bg", r: "48.511395", cy: "50", cx: "50", opacity: "1", fill: "none", fillOpacity: "1", stroke: "none", strokeWidth: "0.97720796", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "1", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1" }),
-        React.createElement("path", { className: "fg", d: "M 33.765549,33.564228 C 38.683574,27.023437 48.54118,24.354757 57.154627,27.232269 65.768074,30.109781 70.346272,37.633152 68.752862,45.252511 66.148911,57.704073 49.333904,58.58959 49.333904,58.58959 l 0.79441,11.302297", color: "#000000", clipRule: "nonzero", display: "inline", overflow: "visible", visibility: "visible", opacity: "1", fill: "none", fillOpacity: "1", fillRule: "evenodd", stroke: "#000000", strokeWidth: "6", strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1", colorRendering: "auto", imageRendering: "auto", shapeRendering: "auto", textRendering: "auto", enableBackground: "accumulate" }),
-        React.createElement("circle", { className: "fg fg-fill", r: "5.0912604", cy: "79.131348", cx: "50.087566", fill: "#000000", stroke: "none", strokeWidth: "4", strokeMiterlimit: "4", strokeDasharray: "none" })));
+        React.createElement("path", { className: "fg", d: "M 33.765549,33.564228 C 38.683574,27.023437 48.54118,24.354757 57.154627,27.232269 65.768074,30.109781 70.346272,37.633152 68.752862,45.252511 66.148911,57.704073 49.333904,58.58959 49.333904,58.58959 l 0.79441,11.302297", color: "#000000", clipRule: "nonzero", display: "inline", overflow: "visible", visibility: "visible", opacity: "1", fill: "none", fillOpacity: "1", fillRule: "evenodd", stroke: "#000000", strokeWidth: constants_1.ICON_STROKE_WIDTH, strokeLinecap: "butt", strokeLinejoin: "miter", strokeMiterlimit: "4", strokeDasharray: "none", strokeDashoffset: "0", strokeOpacity: "1", colorRendering: "auto", imageRendering: "auto", shapeRendering: "auto", textRendering: "auto", enableBackground: "accumulate" }),
+        React.createElement("circle", { className: "fg fg-fill", r: "5.0912604", cy: "79.131348", cx: "50.087566", fill: "#000000", stroke: "none", strokeWidth: "1", strokeMiterlimit: "4", strokeDasharray: "none" })));
 };
 exports.default = OutcomeNotImplementedIcon;
 
@@ -40295,6 +40301,16 @@ exports = module.exports = __webpack_require__(12)(undefined);
 exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px;\n  overflow-y: auto; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n\nh1, h2, h3 {\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n", ""]);
 
 // exports
+
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ICON_STROKE_WIDTH = "10px";
 
 
 /***/ })

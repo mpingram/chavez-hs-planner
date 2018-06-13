@@ -4,6 +4,8 @@ import OutcomeIconProps from "./outcome-icon-props";
 
 import "./outcome-icon.scss";
 
+import { ICON_STROKE_WIDTH } from "./constants";
+
 const OutcomeNotImplementedIcon = (props: OutcomeIconProps) => {
   return (
     <svg
@@ -44,7 +46,7 @@ const OutcomeNotImplementedIcon = (props: OutcomeIconProps) => {
         fillOpacity="1"
         fillRule="evenodd"
         stroke="#000000"
-        strokeWidth="6"
+        strokeWidth={ICON_STROKE_WIDTH}
         strokeLinecap="butt"
         strokeLinejoin="miter"
         strokeMiterlimit="4"
@@ -64,7 +66,7 @@ const OutcomeNotImplementedIcon = (props: OutcomeIconProps) => {
         cx="50.087566"
         fill="#000000"
         stroke="none"
-        strokeWidth="4"
+        strokeWidth="1"
         strokeMiterlimit="4"
         strokeDasharray="none"
       />

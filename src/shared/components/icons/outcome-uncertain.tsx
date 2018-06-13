@@ -4,6 +4,8 @@ import OutcomeIconProps from "./outcome-icon-props";
 
 import "./outcome-icon.scss";
 
+import { ICON_STROKE_WIDTH } from "./constants";
+
 const OutcomeUncertainIcon = (props: OutcomeIconProps) => {
   return (
   <svg
@@ -40,7 +42,7 @@ const OutcomeUncertainIcon = (props: OutcomeIconProps) => {
       fill="none"
       fillOpacity="1"
       stroke="#000000"
-      strokeWidth="6"
+      strokeWidth={ICON_STROKE_WIDTH}
       strokeLinecap="round"
       strokeLinejoin="miter"
       strokeMiterlimit="1"

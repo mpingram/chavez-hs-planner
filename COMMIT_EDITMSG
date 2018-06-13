@@ -1,5 +1,3 @@
-Add inverted and disabled props to OutcomeIcons
+Increase OutcomeIcon stroke width
 
-* Use disabled prop in SuccessChanceFilter
-* Use inverted prop in ProgramCard
-* Use disabled prop in HSGroup
+* NOTE for increased readability when icons are small

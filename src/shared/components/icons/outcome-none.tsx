@@ -3,6 +3,7 @@ import * as React from "react";
 import OutcomeIconProps from "./outcome-icon-props";
 
 import "./outcome-icon.scss";
+import { ICON_STROKE_WIDTH } from "./constants";
 
 const OutcomeNoneIcon = (props: OutcomeIconProps) => {
   return (
@@ -38,7 +39,7 @@ const OutcomeNoneIcon = (props: OutcomeIconProps) => {
           fill="none"
           fillRule="evenodd"
           stroke="#000000"
-          strokeWidth="6"
+          strokeWidth={ICON_STROKE_WIDTH}
           strokeLinecap="round"
           strokeLinejoin="miter"
           strokeMiterlimit="4"
@@ -52,7 +53,7 @@ const OutcomeNoneIcon = (props: OutcomeIconProps) => {
           fill="none"
           fillRule="evenodd"
           stroke="#000000"
-          strokeWidth="6"
+          strokeWidth={ICON_STROKE_WIDTH}
           strokeLinecap="round"
           strokeLinejoin="miter"
           strokeMiterlimit="4"
