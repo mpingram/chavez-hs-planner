@@ -1,11 +1,8 @@
 import * as React from "react";
 
 import { 
-  Program,
-  ProgramOutcome,
-  ProgramOutcomeDictionary
+  OutcomeCounts
 } from "shared/types";
-import { SuccessChance } from "shared/enums";
 
 import OutcomeCertainIcon from "shared/components/icons/outcome-certain";
 import OutcomeLikelyIcon from "shared/components/icons/outcome-likely";
@@ -14,106 +11,24 @@ import OutcomeUnlikelyIcon from "shared/components/icons/outcome-unlikely";
 import OutcomeNoneIcon from "shared/components/icons/outcome-none";
 import OutcomeNotImplementedIcon from "shared/components/icons/outcome-notimplemented";
 
-import HSProgramElement from "./hs-program-element";
-
 import "./hs-group.scss";
 
 interface HSGroupProps {
   title: string
-  programs: Program[]
-  outcomes: ProgramOutcomeDictionary
-  onSelectedProgramChange: (program: Program, outcome: ProgramOutcome | undefined) => any
-}
-
-interface ProgramCounts {
-  certain: number
-  likely: number
-  uncertain: number
-  unlikely: number
-  none: number
-  notImplemented: number
+  outcomeCounts: OutcomeCounts
 }
 
 interface HSGroupState {
   collapsed: boolean
-  programCounts: ProgramCounts
 }
 
 class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
+
   constructor(props) {
     super(props);
     this.state = {
       collapsed: false,
-      programCounts: this.getProgramCounts(props.programs, props.outcomes)
     }
-  }
-
-  private getProgramCounts = (programs: Program[], outcomes: ProgramOutcomeDictionary): ProgramCounts => {
-    let counts: ProgramCounts = {
-      certain: 0,
-      likely: 0,
-      uncertain: 0,
-      unlikely: 0,
-      none: 0,
-      notImplemented: 0
-    };
-    programs.forEach( program => {
-      const outcome = outcomes[program.id];
-      if (outcome === undefined) {
-        counts.notImplemented += 1;
-      } else {
-        switch(outcome.overallChance){
-          case SuccessChance.CERTAIN:
-            counts.certain += 1;
-            break;
-          case SuccessChance.LIKELY:
-            counts.likely += 1;
-            break;
-          case SuccessChance.UNCERTAIN:
-            counts.uncertain += 1;
-            break;
-          case SuccessChance.UNLIKELY:
-            counts.unlikely += 1;
-            break;
-          case SuccessChance.NONE:
-            counts.none += 1;
-            break;
-          case SuccessChance.NOTIMPLEMENTED:
-            counts.notImplemented += 1;
-            break;
-          default:
-            console.warn("Unrecognized SuccessChance for program " + program.id);
-            break;
-        }
-      }
-    });
-    return counts;
-  }
-
-  private sortByOutcome = (a: Program, b: Program): number => {
-    const aOutcome = this.props.outcomes[a.id]
-    const bOutcome = this.props.outcomes[b.id]
-
-    function toNumber(outcome: ProgramOutcome | undefined) {
-      if (outcome === undefined) {
-        return -1;
-      }
-      switch(outcome.overallChance) {
-          case SuccessChance.CERTAIN: return 6;
-          case SuccessChance.LIKELY: return 5;
-          case SuccessChance.UNCERTAIN: return 4;
-          case SuccessChance.UNLIKELY: return 3;
-          case SuccessChance.NONE: return 2;
-          case SuccessChance.NOTIMPLEMENTED: return 1;
-      }
-    }
-    return toNumber(bOutcome) - toNumber(aOutcome);
-  }
-
-  componentWillReceiveProps(nextProps: HSGroupProps) {
-    this.setState({
-      programCounts: this.getProgramCounts(nextProps.programs, nextProps.outcomes)
-    });
   }
 
   render() {
@@ -142,13 +57,13 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
               <div className="outcome-count">
                 <div className="outcome-count-icon">
                   <OutcomeCertainIcon 
-                    disabled={this.state.programCounts.certain === 0}
+                    disabled={this.props.outcomeCounts.certain === 0}
                     size={ICON_SIZE}
                   />
                 </div>
                 <div className="outcome-count-text">
-                  {this.state.programCounts.certain > 0 && 
-                  this.state.programCounts.certain 
+                  {this.props.outcomeCounts.certain > 0 && 
+                  this.props.outcomeCounts.certain 
                   }
                 </div>
               </div>
@@ -156,13 +71,13 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
               <div className="outcome-count">
                 <div className="outcome-count-icon">
                   <OutcomeLikelyIcon 
-                    disabled={this.state.programCounts.likely === 0}
+                    disabled={this.props.outcomeCounts.likely === 0}
                     size={ICON_SIZE}
                   />
                 </div>
                 <div className="outcome-count-text">
-                  {this.state.programCounts.likely > 0 && 
-                  this.state.programCounts.likely 
+                  {this.props.outcomeCounts.likely > 0 && 
+                  this.props.outcomeCounts.likely 
                   }
                 </div>
               </div>
@@ -170,13 +85,13 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
               <div className="outcome-count">
                 <div className="outcome-count-icon">
                   <OutcomeUncertainIcon 
-                    disabled={this.state.programCounts.uncertain === 0}
+                    disabled={this.props.outcomeCounts.uncertain === 0}
                     size={ICON_SIZE}
                   />
                 </div>
                 <div className="outcome-count-text">
-                  {this.state.programCounts.uncertain > 0 && 
-                  this.state.programCounts.uncertain 
+                  {this.props.outcomeCounts.uncertain > 0 && 
+                  this.props.outcomeCounts.uncertain 
                   }
                 </div>
               </div>
@@ -184,13 +99,13 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
               <div className="outcome-count">
                 <div className="outcome-count-icon">
                   <OutcomeUnlikelyIcon 
-                    disabled={this.state.programCounts.unlikely === 0}
+                    disabled={this.props.outcomeCounts.unlikely === 0}
                     size={ICON_SIZE}
                   />
                 </div>
                 <div className="outcome-count-text">
-                  {this.state.programCounts.unlikely > 0 && 
-                  this.state.programCounts.unlikely 
+                  {this.props.outcomeCounts.unlikely > 0 && 
+                  this.props.outcomeCounts.unlikely 
                   }
                 </div>
               </div>
@@ -198,13 +113,13 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
               <div className="outcome-count">
                 <div className="outcome-count-icon">
                   <OutcomeNoneIcon 
-                    disabled={this.state.programCounts.none === 0}
+                    disabled={this.props.outcomeCounts.none === 0}
                     size={ICON_SIZE}
                   />
                 </div>
                 <div className="outcome-count-text">
-                  {this.state.programCounts.none > 0 && 
-                  this.state.programCounts.none 
+                  {this.props.outcomeCounts.none > 0 && 
+                  this.props.outcomeCounts.none 
                   }
                 </div>
               </div>
@@ -212,13 +127,13 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
               <div className="outcome-count">
                 <div className="outcome-count-icon">
                   <OutcomeNotImplementedIcon 
-                    disabled={this.state.programCounts.notImplemented === 0}
+                    disabled={this.props.outcomeCounts.notImplemented === 0}
                     size={ICON_SIZE}
                   />
                 </div>
                 <div className="outcome-count-text">
-                  {this.state.programCounts.notImplemented > 0 && 
-                  this.state.programCounts.notImplemented 
+                  {this.props.outcomeCounts.notImplemented > 0 && 
+                  this.props.outcomeCounts.notImplemented 
                   }
                 </div> 
               </div>
@@ -228,20 +143,8 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
         </div>
 
         <div className="hs-list">
-          { 
-            this.props.programs.sort( this.sortByOutcome ).map( (program: Program) => {
-              const outcome = this.props.outcomes[program.id];
-              return (
-                <HSProgramElement 
-                  key={program.id} 
-                  program={program} 
-                  outcome={outcome}
-                  onSelect={this.props.onSelectedProgramChange}
-                /> 
-              );
-            })
-          }
-      </div>
+          { this.props.children }
+        </div>
     </div>
     );
   }

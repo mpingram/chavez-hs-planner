@@ -5,11 +5,13 @@ import {
   ProgramOutcome,
   ProgramDictionary,
   ProgramGroup,
-  ProgramOutcomeDictionary
+  ProgramOutcomeDictionary,
+  OutcomeCounts
 } from "shared/types";
 import { SuccessChance } from "shared/enums";
 
 import { SearchBar } from "./search-bar";
+import HSProgramElement from "./hs-program-element";
 
 import SuccessChanceFilter from "./success-chance-filter";
 import HSGroup from "./hs-group";
@@ -75,16 +77,26 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
             if (this.state.selectedSuccessChance !== null) {
               filteredPrograms = this.filterBySuccessChance(filteredPrograms, this.props.outcomes, this.state.selectedSuccessChance);
             }
+            const outcomeCounts = this.getOutcomeCounts(filteredPrograms, this.props.outcomes);
 
             if (filteredPrograms.length > 0) {
               return (
                 <HSGroup
                   key={group.id}
                   title={group.name}
-                  programs={filteredPrograms}
-                  outcomes={this.props.outcomes}
-                  onSelectedProgramChange={this.props.onSelectedProgramChange}
-                />
+                  outcomeCounts={outcomeCounts}
+                >
+                {filteredPrograms.sort(this.sortByOutcome).map( program => {
+                  return (
+                    <HSProgramElement
+                      key={program.id}
+                      program={program}
+                      outcome={this.props.outcomes[program.id]}
+                      onSelect={this.props.onSelectedProgramChange}
+                    />
+                  );
+                })}
+                </HSGroup>
               )
             }
           })
@@ -92,6 +104,68 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
         </div>
       </div>
     );
+  }
+
+  private sortByOutcome = (a: Program, b: Program): number => {
+    const aOutcome = this.props.outcomes[a.id]
+    const bOutcome = this.props.outcomes[b.id]
+
+    function toNumber(outcome: ProgramOutcome | undefined) {
+      if (outcome === undefined) {
+        return -1;
+      }
+      switch(outcome.overallChance) {
+          case SuccessChance.CERTAIN: return 6;
+          case SuccessChance.LIKELY: return 5;
+          case SuccessChance.UNCERTAIN: return 4;
+          case SuccessChance.UNLIKELY: return 3;
+          case SuccessChance.NONE: return 2;
+          case SuccessChance.NOTIMPLEMENTED: return 1;
+      }
+    }
+    return toNumber(bOutcome) - toNumber(aOutcome);
+  }
+
+  private getOutcomeCounts = (programs: Program[], outcomes: ProgramOutcomeDictionary): OutcomeCounts => {
+    let counts: OutcomeCounts = {
+      certain: 0,
+      likely: 0,
+      uncertain: 0,
+      unlikely: 0,
+      none: 0,
+      notImplemented: 0
+    };
+    programs.forEach( program => {
+      const outcome = outcomes[program.id];
+      if (outcome === undefined) {
+        counts.notImplemented += 1;
+      } else {
+        switch(outcome.overallChance){
+          case SuccessChance.CERTAIN:
+            counts.certain += 1;
+            break;
+          case SuccessChance.LIKELY:
+            counts.likely += 1;
+            break;
+          case SuccessChance.UNCERTAIN:
+            counts.uncertain += 1;
+            break;
+          case SuccessChance.UNLIKELY:
+            counts.unlikely += 1;
+            break;
+          case SuccessChance.NONE:
+            counts.none += 1;
+            break;
+          case SuccessChance.NOTIMPLEMENTED:
+            counts.notImplemented += 1;
+            break;
+          default:
+            console.warn("Unrecognized SuccessChance for program " + program.id);
+            break;
+        }
+      }
+    });
+    return counts;
   }
 
   private filterBySearchTerm = (programs: Program[], searchTerm: string): Program[] => {

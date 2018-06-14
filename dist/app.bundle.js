@@ -3626,7 +3626,7 @@ exports.tierLoaded = () => {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(320);
+var content = __webpack_require__(322);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -12441,14 +12441,14 @@ function createStructuredSelector(selectors) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 const enums_1 = __webpack_require__(7);
-const school_1 = __webpack_require__(326);
+const school_1 = __webpack_require__(321);
 const outcome_certain_1 = __webpack_require__(69);
 const outcome_likely_1 = __webpack_require__(70);
 const outcome_uncertain_1 = __webpack_require__(71);
 const outcome_unlikely_1 = __webpack_require__(72);
 const outcome_none_1 = __webpack_require__(73);
 const outcome_notimplemented_1 = __webpack_require__(74);
-__webpack_require__(327);
+__webpack_require__(323);
 exports.ProgramCard = (props) => {
     const getIcon = (outcome) => {
         const ICON_SIZE = "16px";
@@ -39466,13 +39466,75 @@ exports.default = HSProgramsContainer;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
+const enums_1 = __webpack_require__(7);
 const search_bar_1 = __webpack_require__(317);
-const success_chance_filter_1 = __webpack_require__(319);
-const hs_group_1 = __webpack_require__(323);
+const hs_program_element_1 = __webpack_require__(319);
+const success_chance_filter_1 = __webpack_require__(327);
+const hs_group_1 = __webpack_require__(330);
 __webpack_require__(333);
 class HSProgramList extends React.PureComponent {
     constructor(props) {
         super(props);
+        this.sortByOutcome = (a, b) => {
+            const aOutcome = this.props.outcomes[a.id];
+            const bOutcome = this.props.outcomes[b.id];
+            function toNumber(outcome) {
+                if (outcome === undefined) {
+                    return -1;
+                }
+                switch (outcome.overallChance) {
+                    case enums_1.SuccessChance.CERTAIN: return 6;
+                    case enums_1.SuccessChance.LIKELY: return 5;
+                    case enums_1.SuccessChance.UNCERTAIN: return 4;
+                    case enums_1.SuccessChance.UNLIKELY: return 3;
+                    case enums_1.SuccessChance.NONE: return 2;
+                    case enums_1.SuccessChance.NOTIMPLEMENTED: return 1;
+                }
+            }
+            return toNumber(bOutcome) - toNumber(aOutcome);
+        };
+        this.getOutcomeCounts = (programs, outcomes) => {
+            let counts = {
+                certain: 0,
+                likely: 0,
+                uncertain: 0,
+                unlikely: 0,
+                none: 0,
+                notImplemented: 0
+            };
+            programs.forEach(program => {
+                const outcome = outcomes[program.id];
+                if (outcome === undefined) {
+                    counts.notImplemented += 1;
+                }
+                else {
+                    switch (outcome.overallChance) {
+                        case enums_1.SuccessChance.CERTAIN:
+                            counts.certain += 1;
+                            break;
+                        case enums_1.SuccessChance.LIKELY:
+                            counts.likely += 1;
+                            break;
+                        case enums_1.SuccessChance.UNCERTAIN:
+                            counts.uncertain += 1;
+                            break;
+                        case enums_1.SuccessChance.UNLIKELY:
+                            counts.unlikely += 1;
+                            break;
+                        case enums_1.SuccessChance.NONE:
+                            counts.none += 1;
+                            break;
+                        case enums_1.SuccessChance.NOTIMPLEMENTED:
+                            counts.notImplemented += 1;
+                            break;
+                        default:
+                            console.warn("Unrecognized SuccessChance for program " + program.id);
+                            break;
+                    }
+                }
+            });
+            return counts;
+        };
         this.filterBySearchTerm = (programs, searchTerm) => {
             if (searchTerm.trim() === "") {
                 return programs;
@@ -39525,8 +39587,11 @@ class HSProgramList extends React.PureComponent {
                 if (this.state.selectedSuccessChance !== null) {
                     filteredPrograms = this.filterBySuccessChance(filteredPrograms, this.props.outcomes, this.state.selectedSuccessChance);
                 }
+                const outcomeCounts = this.getOutcomeCounts(filteredPrograms, this.props.outcomes);
                 if (filteredPrograms.length > 0) {
-                    return (React.createElement(hs_group_1.default, { key: group.id, title: group.name, programs: filteredPrograms, outcomes: this.props.outcomes, onSelectedProgramChange: this.props.onSelectedProgramChange }));
+                    return (React.createElement(hs_group_1.default, { key: group.id, title: group.name, outcomeCounts: outcomeCounts }, filteredPrograms.sort(this.sortByOutcome).map(program => {
+                        return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: this.props.outcomes[program.id], onSelect: this.props.onSelectedProgramChange }));
+                    })));
                 }
             }))));
     }
@@ -39597,13 +39662,208 @@ exports.default = SearchIcon;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 const enums_1 = __webpack_require__(7);
+const shallow_compare_1 = __webpack_require__(320);
+const program_card_1 = __webpack_require__(120);
+__webpack_require__(325);
+class HSProgramElement extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = (ev) => {
+            this.setState({ visited: true });
+            this.props.onSelect(this.props.program, this.props.outcome);
+        };
+        this.state = {
+            visited: false,
+            combinedSuccessChance: props.outcome === undefined ? enums_1.SuccessChance.NOTIMPLEMENTED : props.outcome.overallChance,
+        };
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.onSelect !== this.props.onSelect) {
+            return true;
+        }
+        if (nextProps.outcome === undefined || this.props.outcome === undefined) {
+            if (nextProps.outcome !== this.props.outcome) {
+                return true;
+            }
+        }
+        else {
+            if (shallow_compare_1.shallowCompare(nextProps.outcome, this.props.outcome) === false) {
+                return true;
+            }
+        }
+        return false;
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            combinedSuccessChance: nextProps.outcome.overallChance
+        });
+    }
+    render() {
+        return (React.createElement("button", { className: "hs-list-element", onClick: this.handleClick },
+            React.createElement(program_card_1.ProgramCard, { outcome: this.state.combinedSuccessChance, displayName: this.props.program.schoolNameShort })));
+    }
+}
+exports.default = HSProgramElement;
+
+
+/***/ }),
+/* 320 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.shallowCompare = (objA, objB) => {
+    if (Object.keys(objA).some(key => objA[key] !== objB[key])) {
+        return false;
+    }
+    if (Object.keys(objB).some(key => objA[key] !== objB[key])) {
+        return false;
+    }
+    return true;
+};
+
+
+/***/ }),
+/* 321 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(4);
+const SchoolIcon = (props) => {
+    return (React.createElement("svg", { width: props.width, height: props.height, fill: props.color, xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 470 470", strokeWidth: "2" },
+        React.createElement("path", { strokeWidth: "5", stroke: "#eee", d: "M462.5,240H360v-53.5c0-0.277-0.017-0.55-0.047-0.819c-0.007-0.067-0.021-0.132-0.03-0.198 c-0.028-0.204-0.06-0.407-0.104-0.606c-0.017-0.075-0.038-0.148-0.057-0.222c-0.048-0.188-0.1-0.374-0.162-0.557 c-0.026-0.077-0.055-0.152-0.083-0.227c-0.066-0.176-0.137-0.348-0.215-0.517c-0.036-0.077-0.072-0.153-0.11-0.228 c-0.083-0.164-0.172-0.323-0.266-0.48c-0.044-0.073-0.087-0.147-0.133-0.219c-0.104-0.16-0.215-0.313-0.33-0.464 c-0.046-0.061-0.089-0.124-0.137-0.183c-0.166-0.205-0.341-0.402-0.527-0.588c-0.018-0.018-0.039-0.034-0.058-0.052 c-0.171-0.168-0.35-0.327-0.537-0.477c-0.017-0.014-0.031-0.03-0.049-0.043L242.5,89.871V15H308v28h-43c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5h50.5c4.142,0,7.5-3.358,7.5-7.5v-43c0-4.142-3.358-7.5-7.5-7.5H235c-4.142,0-7.5,3.358-7.5,7.5v82.371 l-114.655,90.748c-0.017,0.013-0.032,0.029-0.049,0.043c-0.187,0.151-0.366,0.31-0.537,0.477c-0.018,0.018-0.039,0.034-0.058,0.052 c-0.186,0.186-0.361,0.383-0.527,0.588c-0.048,0.059-0.091,0.122-0.137,0.183c-0.115,0.151-0.226,0.304-0.33,0.464 c-0.047,0.072-0.089,0.146-0.133,0.219c-0.094,0.157-0.183,0.316-0.266,0.48c-0.038,0.076-0.074,0.151-0.11,0.228 c-0.078,0.169-0.15,0.341-0.215,0.517c-0.028,0.076-0.057,0.151-0.083,0.227c-0.062,0.182-0.114,0.368-0.162,0.557 c-0.019,0.074-0.04,0.147-0.057,0.222c-0.044,0.199-0.076,0.401-0.104,0.606c-0.009,0.066-0.023,0.132-0.03,0.198 c-0.029,0.269-0.047,0.542-0.047,0.819V240H7.5c-4.142,0-7.5,3.358-7.5,7.5v215c0,4.142,3.358,7.5,7.5,7.5h455 c4.142,0,7.5-3.358,7.5-7.5v-215C470,243.358,466.642,240,462.5,240z M455,255v25h-95v-25H455z M110,255v25H15v-25H110z M295,331.667V425h-52.5v-93.333H295z M227.5,425H175v-93.333h52.5V425z M175,440h120v15H175V440z M310,455V324.167 c0-4.142-3.358-7.5-7.5-7.5h-135c-4.142,0-7.5,3.358-7.5,7.5V455H15V295h95v137.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V194 h137.5c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H139.061L235,103.065L330.939,179H292.5c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5H345v238.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V295h95v160H310z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M44.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C51.667,320.025,48.309,316.667,44.167,316.667z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M80.833,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C88.333,320.025,84.976,316.667,80.833,316.667z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M425.833,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C433.333,320.025,429.976,316.667,425.833,316.667z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M389.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C396.667,320.025,393.309,316.667,389.167,316.667z" }),
+        React.createElement("path", { strokeWidth: "5", d: "M235,219c-20.034,0-36.333,16.299-36.333,36.333s16.299,36.333,36.333,36.333s36.333-16.299,36.333-36.333 S255.034,219,235,219z M235,276.667c-11.763,0-21.333-9.57-21.333-21.333S223.237,234,235,234s21.333,9.57,21.333,21.333 S246.763,276.667,235,276.667z" })));
+};
+exports.default = SchoolIcon;
+
+
+/***/ }),
+/* 322 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".outcome-icon.disabled .fg {\n  stroke: #fff !important; }\n\n.outcome-icon.disabled .bg {\n  fill: #b6b6b7 !important; }\n\n.outcome-certain-icon .fg {\n  stroke: #fff; }\n\n.outcome-certain-icon .bg {\n  fill: #01a18c; }\n\n.outcome-certain-icon.inverted .fg {\n  stroke: #01a18c; }\n\n.outcome-certain-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-likely-icon .fg {\n  stroke: #fff; }\n\n.outcome-likely-icon .bg {\n  fill: #7076db; }\n\n.outcome-likely-icon.inverted .fg {\n  stroke: #7076db; }\n\n.outcome-likely-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-uncertain-icon .fg {\n  stroke: #fff; }\n\n.outcome-uncertain-icon .bg {\n  fill: #f7be00; }\n\n.outcome-uncertain-icon.inverted .fg {\n  stroke: #f7be00; }\n\n.outcome-uncertain-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-unlikely-icon .fg {\n  stroke: #fff; }\n\n.outcome-unlikely-icon .bg {\n  fill: #ff7c00; }\n\n.outcome-unlikely-icon.inverted .fg {\n  stroke: #ff7c00; }\n\n.outcome-unlikely-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-none-icon .fg {\n  stroke: #fff; }\n\n.outcome-none-icon .bg {\n  fill: #ff3e3a; }\n\n.outcome-none-icon.inverted .fg {\n  stroke: #ff3e3a; }\n\n.outcome-none-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-notimplemented-icon .fg {\n  stroke: #fff; }\n\n.outcome-notimplemented-icon .fg-fill {\n  fill: #fff; }\n\n.outcome-notimplemented-icon .bg {\n  fill: #302c32; }\n\n.outcome-notimplemented-icon.inverted .fg {\n  stroke: #302c32; }\n\n.outcome-notimplemented-icon.inverted .fg-fill {\n  fill: #302c32; }\n\n.outcome-notimplemented-icon.inverted .bg {\n  fill: #fff; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 323 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(324);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(13)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../node_modules/sass-loader/lib/loader.js!./program-card.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../node_modules/sass-loader/lib/loader.js!./program-card.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 324 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".program-card {\n  position: relative;\n  font-size: 100%;\n  width: 100%;\n  height: 100%;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.program-card-icon-container {\n  position: relative;\n  width: 60px;\n  height: 60px;\n  margin: 0 auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  overflow: hidden; }\n\n.program-card-icon-container.succ-certain {\n    background-color: #01a18c; }\n\n.program-card-icon-container.succ-likely {\n    background-color: #7076db; }\n\n.program-card-icon-container.succ-uncertain {\n    background-color: #f7be00; }\n\n.program-card-icon-container.succ-unlikely {\n    background-color: #ff7c00; }\n\n.program-card-icon-container.succ-none {\n    background-color: #ff3e3a; }\n\n.program-card-icon-container.succ-not-implemented {\n    background-color: #302c32; }\n\n.program-card-displayname {\n  width: 100%;\n  line-height: 1em;\n  font-size: 0.7rem;\n  font-weight: bold;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  margin: 5px auto;\n  color: #0000FF;\n  text-decoration: underline; }\n\n.program-card-displayname.visited {\n  color: purple; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 325 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(326);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(13)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 326 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".hs-list-element {\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .hs-list-element:hover {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .depressed.hs-list-element {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .hs-list-element {\n  width: 100px;\n  height: 110px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: none;\n  border-radius: 2px;\n  background: none;\n  padding: 0.5em;\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .hs-list-element.selected {\n  background-color: #e7e7eb;\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: background-color 250ms ease;\n  transition: background-color 250ms ease; }\n  .hs-list-element:hover {\n  background-color: #e7e7eb;\n  -webkit-transition: background-color 250ms ease;\n  transition: background-color 250ms ease; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(4);
+const enums_1 = __webpack_require__(7);
 const outcome_certain_1 = __webpack_require__(69);
 const outcome_likely_1 = __webpack_require__(70);
 const outcome_uncertain_1 = __webpack_require__(71);
 const outcome_unlikely_1 = __webpack_require__(72);
 const outcome_none_1 = __webpack_require__(73);
 const outcome_notimplemented_1 = __webpack_require__(74);
-__webpack_require__(321);
+__webpack_require__(328);
 const ICON_SIZE = "48px";
 const SuccessChanceFilter = (props) => {
     return (React.createElement("div", { className: "success-chance-filter" },
@@ -39648,27 +39908,13 @@ exports.default = SuccessChanceFilter;
 
 
 /***/ }),
-/* 320 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(12)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".outcome-icon.disabled .fg {\n  stroke: #fff !important; }\n\n.outcome-icon.disabled .bg {\n  fill: #b6b6b7 !important; }\n\n.outcome-certain-icon .fg {\n  stroke: #fff; }\n\n.outcome-certain-icon .bg {\n  fill: #01a18c; }\n\n.outcome-certain-icon.inverted .fg {\n  stroke: #01a18c; }\n\n.outcome-certain-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-likely-icon .fg {\n  stroke: #fff; }\n\n.outcome-likely-icon .bg {\n  fill: #7076db; }\n\n.outcome-likely-icon.inverted .fg {\n  stroke: #7076db; }\n\n.outcome-likely-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-uncertain-icon .fg {\n  stroke: #fff; }\n\n.outcome-uncertain-icon .bg {\n  fill: #f7be00; }\n\n.outcome-uncertain-icon.inverted .fg {\n  stroke: #f7be00; }\n\n.outcome-uncertain-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-unlikely-icon .fg {\n  stroke: #fff; }\n\n.outcome-unlikely-icon .bg {\n  fill: #ff7c00; }\n\n.outcome-unlikely-icon.inverted .fg {\n  stroke: #ff7c00; }\n\n.outcome-unlikely-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-none-icon .fg {\n  stroke: #fff; }\n\n.outcome-none-icon .bg {\n  fill: #ff3e3a; }\n\n.outcome-none-icon.inverted .fg {\n  stroke: #ff3e3a; }\n\n.outcome-none-icon.inverted .bg {\n  fill: #fff; }\n\n.outcome-notimplemented-icon .fg {\n  stroke: #fff; }\n\n.outcome-notimplemented-icon .fg-fill {\n  fill: #fff; }\n\n.outcome-notimplemented-icon .bg {\n  fill: #302c32; }\n\n.outcome-notimplemented-icon.inverted .fg {\n  stroke: #302c32; }\n\n.outcome-notimplemented-icon.inverted .fg-fill {\n  fill: #302c32; }\n\n.outcome-notimplemented-icon.inverted .bg {\n  fill: #fff; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 321 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(322);
+var content = __webpack_require__(329);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -39693,7 +39939,7 @@ if(false) {
 }
 
 /***/ }),
-/* 322 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(undefined);
@@ -39707,94 +39953,26 @@ exports.push([module.i, ".success-chance-filter-button {\n  cursor: pointer;\n  
 
 
 /***/ }),
-/* 323 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
-const enums_1 = __webpack_require__(7);
 const outcome_certain_1 = __webpack_require__(69);
 const outcome_likely_1 = __webpack_require__(70);
 const outcome_uncertain_1 = __webpack_require__(71);
 const outcome_unlikely_1 = __webpack_require__(72);
 const outcome_none_1 = __webpack_require__(73);
 const outcome_notimplemented_1 = __webpack_require__(74);
-const hs_program_element_1 = __webpack_require__(324);
 __webpack_require__(331);
 class HSGroup extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.getProgramCounts = (programs, outcomes) => {
-            let counts = {
-                certain: 0,
-                likely: 0,
-                uncertain: 0,
-                unlikely: 0,
-                none: 0,
-                notImplemented: 0
-            };
-            programs.forEach(program => {
-                const outcome = outcomes[program.id];
-                if (outcome === undefined) {
-                    counts.notImplemented += 1;
-                }
-                else {
-                    switch (outcome.overallChance) {
-                        case enums_1.SuccessChance.CERTAIN:
-                            counts.certain += 1;
-                            break;
-                        case enums_1.SuccessChance.LIKELY:
-                            counts.likely += 1;
-                            break;
-                        case enums_1.SuccessChance.UNCERTAIN:
-                            counts.uncertain += 1;
-                            break;
-                        case enums_1.SuccessChance.UNLIKELY:
-                            counts.unlikely += 1;
-                            break;
-                        case enums_1.SuccessChance.NONE:
-                            counts.none += 1;
-                            break;
-                        case enums_1.SuccessChance.NOTIMPLEMENTED:
-                            counts.notImplemented += 1;
-                            break;
-                        default:
-                            console.warn("Unrecognized SuccessChance for program " + program.id);
-                            break;
-                    }
-                }
-            });
-            return counts;
-        };
-        this.sortByOutcome = (a, b) => {
-            const aOutcome = this.props.outcomes[a.id];
-            const bOutcome = this.props.outcomes[b.id];
-            function toNumber(outcome) {
-                if (outcome === undefined) {
-                    return -1;
-                }
-                switch (outcome.overallChance) {
-                    case enums_1.SuccessChance.CERTAIN: return 6;
-                    case enums_1.SuccessChance.LIKELY: return 5;
-                    case enums_1.SuccessChance.UNCERTAIN: return 4;
-                    case enums_1.SuccessChance.UNLIKELY: return 3;
-                    case enums_1.SuccessChance.NONE: return 2;
-                    case enums_1.SuccessChance.NOTIMPLEMENTED: return 1;
-                }
-            }
-            return toNumber(bOutcome) - toNumber(aOutcome);
-        };
         this.state = {
             collapsed: false,
-            programCounts: this.getProgramCounts(props.programs, props.outcomes)
         };
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            programCounts: this.getProgramCounts(nextProps.programs, nextProps.outcomes)
-        });
     }
     render() {
         const ICON_SIZE = "18px";
@@ -39807,223 +39985,39 @@ class HSGroup extends React.PureComponent {
                     React.createElement("div", { className: "outcome-counts-wrapper" },
                         React.createElement("div", { className: "outcome-count" },
                             React.createElement("div", { className: "outcome-count-icon" },
-                                React.createElement(outcome_certain_1.default, { disabled: this.state.programCounts.certain === 0, size: ICON_SIZE })),
-                            React.createElement("div", { className: "outcome-count-text" }, this.state.programCounts.certain > 0 &&
-                                this.state.programCounts.certain)),
+                                React.createElement(outcome_certain_1.default, { disabled: this.props.outcomeCounts.certain === 0, size: ICON_SIZE })),
+                            React.createElement("div", { className: "outcome-count-text" }, this.props.outcomeCounts.certain > 0 &&
+                                this.props.outcomeCounts.certain)),
                         React.createElement("div", { className: "outcome-count" },
                             React.createElement("div", { className: "outcome-count-icon" },
-                                React.createElement(outcome_likely_1.default, { disabled: this.state.programCounts.likely === 0, size: ICON_SIZE })),
-                            React.createElement("div", { className: "outcome-count-text" }, this.state.programCounts.likely > 0 &&
-                                this.state.programCounts.likely)),
+                                React.createElement(outcome_likely_1.default, { disabled: this.props.outcomeCounts.likely === 0, size: ICON_SIZE })),
+                            React.createElement("div", { className: "outcome-count-text" }, this.props.outcomeCounts.likely > 0 &&
+                                this.props.outcomeCounts.likely)),
                         React.createElement("div", { className: "outcome-count" },
                             React.createElement("div", { className: "outcome-count-icon" },
-                                React.createElement(outcome_uncertain_1.default, { disabled: this.state.programCounts.uncertain === 0, size: ICON_SIZE })),
-                            React.createElement("div", { className: "outcome-count-text" }, this.state.programCounts.uncertain > 0 &&
-                                this.state.programCounts.uncertain)),
+                                React.createElement(outcome_uncertain_1.default, { disabled: this.props.outcomeCounts.uncertain === 0, size: ICON_SIZE })),
+                            React.createElement("div", { className: "outcome-count-text" }, this.props.outcomeCounts.uncertain > 0 &&
+                                this.props.outcomeCounts.uncertain)),
                         React.createElement("div", { className: "outcome-count" },
                             React.createElement("div", { className: "outcome-count-icon" },
-                                React.createElement(outcome_unlikely_1.default, { disabled: this.state.programCounts.unlikely === 0, size: ICON_SIZE })),
-                            React.createElement("div", { className: "outcome-count-text" }, this.state.programCounts.unlikely > 0 &&
-                                this.state.programCounts.unlikely)),
+                                React.createElement(outcome_unlikely_1.default, { disabled: this.props.outcomeCounts.unlikely === 0, size: ICON_SIZE })),
+                            React.createElement("div", { className: "outcome-count-text" }, this.props.outcomeCounts.unlikely > 0 &&
+                                this.props.outcomeCounts.unlikely)),
                         React.createElement("div", { className: "outcome-count" },
                             React.createElement("div", { className: "outcome-count-icon" },
-                                React.createElement(outcome_none_1.default, { disabled: this.state.programCounts.none === 0, size: ICON_SIZE })),
-                            React.createElement("div", { className: "outcome-count-text" }, this.state.programCounts.none > 0 &&
-                                this.state.programCounts.none)),
+                                React.createElement(outcome_none_1.default, { disabled: this.props.outcomeCounts.none === 0, size: ICON_SIZE })),
+                            React.createElement("div", { className: "outcome-count-text" }, this.props.outcomeCounts.none > 0 &&
+                                this.props.outcomeCounts.none)),
                         React.createElement("div", { className: "outcome-count" },
                             React.createElement("div", { className: "outcome-count-icon" },
-                                React.createElement(outcome_notimplemented_1.default, { disabled: this.state.programCounts.notImplemented === 0, size: ICON_SIZE })),
-                            React.createElement("div", { className: "outcome-count-text" }, this.state.programCounts.notImplemented > 0 &&
-                                this.state.programCounts.notImplemented))))),
-            React.createElement("div", { className: "hs-list" }, this.props.programs.sort(this.sortByOutcome).map((program) => {
-                const outcome = this.props.outcomes[program.id];
-                return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: outcome, onSelect: this.props.onSelectedProgramChange }));
-            }))));
+                                React.createElement(outcome_notimplemented_1.default, { disabled: this.props.outcomeCounts.notImplemented === 0, size: ICON_SIZE })),
+                            React.createElement("div", { className: "outcome-count-text" }, this.props.outcomeCounts.notImplemented > 0 &&
+                                this.props.outcomeCounts.notImplemented))))),
+            React.createElement("div", { className: "hs-list" }, this.props.children)));
     }
 }
 ;
 exports.default = HSGroup;
-
-
-/***/ }),
-/* 324 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(4);
-const enums_1 = __webpack_require__(7);
-const shallow_compare_1 = __webpack_require__(325);
-const program_card_1 = __webpack_require__(120);
-__webpack_require__(329);
-class HSProgramElement extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = (ev) => {
-            this.setState({ visited: true });
-            this.props.onSelect(this.props.program, this.props.outcome);
-        };
-        this.state = {
-            visited: false,
-            combinedSuccessChance: props.outcome === undefined ? enums_1.SuccessChance.NOTIMPLEMENTED : props.outcome.overallChance,
-        };
-    }
-    shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps.onSelect !== this.props.onSelect) {
-            return true;
-        }
-        if (nextProps.outcome === undefined || this.props.outcome === undefined) {
-            if (nextProps.outcome !== this.props.outcome) {
-                return true;
-            }
-        }
-        else {
-            if (shallow_compare_1.shallowCompare(nextProps.outcome, this.props.outcome) === false) {
-                return true;
-            }
-        }
-        return false;
-    }
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            combinedSuccessChance: nextProps.outcome.overallChance
-        });
-    }
-    render() {
-        return (React.createElement("button", { className: "hs-list-element", onClick: this.handleClick },
-            React.createElement(program_card_1.ProgramCard, { outcome: this.state.combinedSuccessChance, displayName: this.props.program.schoolNameShort })));
-    }
-}
-exports.default = HSProgramElement;
-
-
-/***/ }),
-/* 325 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.shallowCompare = (objA, objB) => {
-    if (Object.keys(objA).some(key => objA[key] !== objB[key])) {
-        return false;
-    }
-    if (Object.keys(objB).some(key => objA[key] !== objB[key])) {
-        return false;
-    }
-    return true;
-};
-
-
-/***/ }),
-/* 326 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(4);
-const SchoolIcon = (props) => {
-    return (React.createElement("svg", { width: props.width, height: props.height, fill: props.color, xmlns: "http://www.w3.org/2000/svg", x: "0px", y: "0px", viewBox: "0 0 470 470", strokeWidth: "2" },
-        React.createElement("path", { strokeWidth: "5", stroke: "#eee", d: "M462.5,240H360v-53.5c0-0.277-0.017-0.55-0.047-0.819c-0.007-0.067-0.021-0.132-0.03-0.198 c-0.028-0.204-0.06-0.407-0.104-0.606c-0.017-0.075-0.038-0.148-0.057-0.222c-0.048-0.188-0.1-0.374-0.162-0.557 c-0.026-0.077-0.055-0.152-0.083-0.227c-0.066-0.176-0.137-0.348-0.215-0.517c-0.036-0.077-0.072-0.153-0.11-0.228 c-0.083-0.164-0.172-0.323-0.266-0.48c-0.044-0.073-0.087-0.147-0.133-0.219c-0.104-0.16-0.215-0.313-0.33-0.464 c-0.046-0.061-0.089-0.124-0.137-0.183c-0.166-0.205-0.341-0.402-0.527-0.588c-0.018-0.018-0.039-0.034-0.058-0.052 c-0.171-0.168-0.35-0.327-0.537-0.477c-0.017-0.014-0.031-0.03-0.049-0.043L242.5,89.871V15H308v28h-43c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5h50.5c4.142,0,7.5-3.358,7.5-7.5v-43c0-4.142-3.358-7.5-7.5-7.5H235c-4.142,0-7.5,3.358-7.5,7.5v82.371 l-114.655,90.748c-0.017,0.013-0.032,0.029-0.049,0.043c-0.187,0.151-0.366,0.31-0.537,0.477c-0.018,0.018-0.039,0.034-0.058,0.052 c-0.186,0.186-0.361,0.383-0.527,0.588c-0.048,0.059-0.091,0.122-0.137,0.183c-0.115,0.151-0.226,0.304-0.33,0.464 c-0.047,0.072-0.089,0.146-0.133,0.219c-0.094,0.157-0.183,0.316-0.266,0.48c-0.038,0.076-0.074,0.151-0.11,0.228 c-0.078,0.169-0.15,0.341-0.215,0.517c-0.028,0.076-0.057,0.151-0.083,0.227c-0.062,0.182-0.114,0.368-0.162,0.557 c-0.019,0.074-0.04,0.147-0.057,0.222c-0.044,0.199-0.076,0.401-0.104,0.606c-0.009,0.066-0.023,0.132-0.03,0.198 c-0.029,0.269-0.047,0.542-0.047,0.819V240H7.5c-4.142,0-7.5,3.358-7.5,7.5v215c0,4.142,3.358,7.5,7.5,7.5h455 c4.142,0,7.5-3.358,7.5-7.5v-215C470,243.358,466.642,240,462.5,240z M455,255v25h-95v-25H455z M110,255v25H15v-25H110z M295,331.667V425h-52.5v-93.333H295z M227.5,425H175v-93.333h52.5V425z M175,440h120v15H175V440z M310,455V324.167 c0-4.142-3.358-7.5-7.5-7.5h-135c-4.142,0-7.5,3.358-7.5,7.5V455H15V295h95v137.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V194 h137.5c4.142,0,7.5-3.358,7.5-7.5s-3.358-7.5-7.5-7.5H139.061L235,103.065L330.939,179H292.5c-4.142,0-7.5,3.358-7.5,7.5 s3.358,7.5,7.5,7.5H345v238.5c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5V295h95v160H310z" }),
-        React.createElement("path", { strokeWidth: "5", d: "M44.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C51.667,320.025,48.309,316.667,44.167,316.667z" }),
-        React.createElement("path", { strokeWidth: "5", d: "M80.833,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C88.333,320.025,84.976,316.667,80.833,316.667z" }),
-        React.createElement("path", { strokeWidth: "5", d: "M425.833,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C433.333,320.025,429.976,316.667,425.833,316.667z" }),
-        React.createElement("path", { strokeWidth: "5", d: "M389.167,316.667c-4.142,0-7.5,3.358-7.5,7.5v30c0,4.142,3.358,7.5,7.5,7.5s7.5-3.358,7.5-7.5v-30 C396.667,320.025,393.309,316.667,389.167,316.667z" }),
-        React.createElement("path", { strokeWidth: "5", d: "M235,219c-20.034,0-36.333,16.299-36.333,36.333s16.299,36.333,36.333,36.333s36.333-16.299,36.333-36.333 S255.034,219,235,219z M235,276.667c-11.763,0-21.333-9.57-21.333-21.333S223.237,234,235,234s21.333,9.57,21.333,21.333 S246.763,276.667,235,276.667z" })));
-};
-exports.default = SchoolIcon;
-
-
-/***/ }),
-/* 327 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(328);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../node_modules/sass-loader/lib/loader.js!./program-card.scss", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../node_modules/sass-loader/lib/loader.js!./program-card.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 328 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(12)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".program-card {\n  position: relative;\n  font-size: 100%;\n  width: 100%;\n  height: 100%;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.program-card-icon-container {\n  position: relative;\n  width: 60px;\n  height: 60px;\n  margin: 0 auto;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  border-radius: 100%;\n  overflow: hidden; }\n\n.program-card-icon-container.succ-certain {\n    background-color: #01a18c; }\n\n.program-card-icon-container.succ-likely {\n    background-color: #7076db; }\n\n.program-card-icon-container.succ-uncertain {\n    background-color: #f7be00; }\n\n.program-card-icon-container.succ-unlikely {\n    background-color: #ff7c00; }\n\n.program-card-icon-container.succ-none {\n    background-color: #ff3e3a; }\n\n.program-card-icon-container.succ-not-implemented {\n    background-color: #302c32; }\n\n.program-card-displayname {\n  width: 100%;\n  line-height: 1em;\n  font-size: 0.7rem;\n  font-weight: bold;\n  text-align: center;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  margin: 5px auto;\n  color: #0000FF;\n  text-decoration: underline; }\n\n.program-card-displayname.visited {\n  color: purple; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 329 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(330);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(13)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./hs-program-element.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 330 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(12)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".hs-list-element {\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .hs-list-element:hover {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .depressed.hs-list-element {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .hs-list-element {\n  width: 100px;\n  height: 110px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: none;\n  border-radius: 2px;\n  background: none;\n  padding: 0.5em;\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .hs-list-element.selected {\n  background-color: #e7e7eb;\n  -webkit-transform: scale(1.15);\n          transform: scale(1.15);\n  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);\n  -webkit-transition: background-color 250ms ease;\n  transition: background-color 250ms ease; }\n  .hs-list-element:hover {\n  background-color: #e7e7eb;\n  -webkit-transition: background-color 250ms ease;\n  transition: background-color 250ms ease; }\n", ""]);
-
-// exports
 
 
 /***/ }),
