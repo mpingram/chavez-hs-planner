@@ -30,6 +30,17 @@ interface HSProgramListState {
 
 import "./hs-program-list.scss";
 
+/* FIXME hardcoded data */
+let AdditionalRequirementForm: any;
+const additionalRequirements = [
+  {
+    id: "Selective Enrollment Test",
+    field: <div/>,
+    helpText: "wubmo",
+    programIDs: ["this should match nothing."]
+  }
+];
+
 class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramListState> {
 
   constructor(props) {
@@ -77,6 +88,28 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
             if (this.state.selectedSuccessChance !== null) {
               filteredPrograms = this.filterBySuccessChance(filteredPrograms, this.props.outcomes, this.state.selectedSuccessChance);
             }
+
+            const sortedPrograms = filteredPrograms.sort(this.sortByOutcome);
+
+            let programsWithAddlRequirements: Program[] = []; 
+            let programsWithoutAddlRequirements: Program[] = [];
+            
+            sortedPrograms.forEach( program => {
+              const programHasAdditionalRequirement = additionalRequirements.some( addlReq => {
+                if ( addlReq.programIDs.some( id => id === program.id )) {
+                  return true;
+                } else {
+                  return false;
+                }
+              });
+
+              if (programHasAdditionalRequirement) {
+                programsWithAddlRequirements.push(program);
+              } else {
+                programsWithoutAddlRequirements.push(program);
+              }
+            });
+
             const outcomeCounts = this.getOutcomeCounts(filteredPrograms, this.props.outcomes);
 
             if (filteredPrograms.length > 0) {
@@ -86,7 +119,33 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
                   title={group.name}
                   outcomeCounts={outcomeCounts}
                 >
-                {filteredPrograms.sort(this.sortByOutcome).map( program => {
+                {/* First check to see if any programs have additional requirements. If they do,
+                  display the programs wrapped in an AdditionalRequirementsForm. */}
+                { programsWithAddlRequirements.length > 0 && 
+                  additionalRequirements.map( addlReq => {
+                  return <AdditionalRequirementForm
+                    key={addlReq.id}
+                    field={addlReq.field}
+                    helpText={addlReq.helpText}
+                  >
+                    {programsWithAddlRequirements.map( program => {
+                      if (addlReq.programIDs.some( id => id === program.id )) {
+                        return (
+                          <HSProgramElement
+                            key={program.id}
+                            program={program}
+                            outcome={this.props.outcomes[program.id]}
+                            onSelect={this.props.onSelectedProgramChange}
+                          />
+                        )
+                      }
+                    })}
+                  </AdditionalRequirementForm>
+                })}
+                }
+
+                {/* Display all of the remaining programs that do not have additional requirements. */}
+                {programsWithoutAddlRequirements.map( program => {
                   return (
                     <HSProgramElement
                       key={program.id}
@@ -99,8 +158,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
                 </HSGroup>
               )
             }
-          })
-          }
+          })}
         </div>
       </div>
     );

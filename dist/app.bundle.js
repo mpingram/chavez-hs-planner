@@ -39472,6 +39472,15 @@ const hs_program_element_1 = __webpack_require__(319);
 const success_chance_filter_1 = __webpack_require__(327);
 const hs_group_1 = __webpack_require__(330);
 __webpack_require__(333);
+let AdditionalRequirementForm;
+const additionalRequirements = [
+    {
+        id: "Selective Enrollment Test",
+        field: React.createElement("div", null),
+        helpText: "wubmo",
+        programIDs: ["this should match nothing."]
+    }
+];
 class HSProgramList extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -39587,11 +39596,40 @@ class HSProgramList extends React.PureComponent {
                 if (this.state.selectedSuccessChance !== null) {
                     filteredPrograms = this.filterBySuccessChance(filteredPrograms, this.props.outcomes, this.state.selectedSuccessChance);
                 }
+                const sortedPrograms = filteredPrograms.sort(this.sortByOutcome);
+                let programsWithAddlRequirements = [];
+                let programsWithoutAddlRequirements = [];
+                sortedPrograms.forEach(program => {
+                    const programHasAdditionalRequirement = additionalRequirements.some(addlReq => {
+                        if (addlReq.programIDs.some(id => id === program.id)) {
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    });
+                    if (programHasAdditionalRequirement) {
+                        programsWithAddlRequirements.push(program);
+                    }
+                    else {
+                        programsWithoutAddlRequirements.push(program);
+                    }
+                });
                 const outcomeCounts = this.getOutcomeCounts(filteredPrograms, this.props.outcomes);
                 if (filteredPrograms.length > 0) {
-                    return (React.createElement(hs_group_1.default, { key: group.id, title: group.name, outcomeCounts: outcomeCounts }, filteredPrograms.sort(this.sortByOutcome).map(program => {
-                        return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: this.props.outcomes[program.id], onSelect: this.props.onSelectedProgramChange }));
-                    })));
+                    return (React.createElement(hs_group_1.default, { key: group.id, title: group.name, outcomeCounts: outcomeCounts },
+                        programsWithAddlRequirements.length > 0 &&
+                            additionalRequirements.map(addlReq => {
+                                return React.createElement(AdditionalRequirementForm, { key: addlReq.id, field: addlReq.field, helpText: addlReq.helpText }, programsWithAddlRequirements.map(program => {
+                                    if (addlReq.programIDs.some(id => id === program.id)) {
+                                        return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: this.props.outcomes[program.id], onSelect: this.props.onSelectedProgramChange }));
+                                    }
+                                }));
+                            }),
+                        "}",
+                        programsWithoutAddlRequirements.map(program => {
+                            return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: this.props.outcomes[program.id], onSelect: this.props.onSelectedProgramChange }));
+                        })));
                 }
             }))));
     }
@@ -40185,7 +40223,7 @@ exports.ProgramModal = (props) => {
                     React.createElement("tbody", null,
                         React.createElement("tr", null,
                             React.createElement("td", { className: "program-modal-requirement-type" }, "To Apply:"),
-                            React.createElement("td", { className: "program-modal-requirement-desc" }, props.program && props.program.selectionReqDescription),
+                            React.createElement("td", { className: "program-modal-requirement-desc" }, props.program && props.program.applicationReqDescription),
                             React.createElement("td", { className: "program-modal-requirement-outcome" }, props.outcome && toMessage(props.outcome.applicationChance))),
                         React.createElement("tr", null,
                             React.createElement("td", { className: "program-modal-requirement-type" }, "To Be Selected:"),
