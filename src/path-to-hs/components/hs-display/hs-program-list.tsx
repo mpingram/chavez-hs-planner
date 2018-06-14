@@ -12,6 +12,7 @@ import { SuccessChance } from "shared/enums";
 
 import { SearchBar } from "./search-bar";
 import HSProgramElement from "./hs-program-element";
+import { AdditionalRequirementForm } from "./additional-requirement-form";
 
 import SuccessChanceFilter from "./success-chance-filter";
 import HSGroup from "./hs-group";
@@ -31,13 +32,12 @@ interface HSProgramListState {
 import "./hs-program-list.scss";
 
 /* FIXME hardcoded data */
-let AdditionalRequirementForm: any;
 const additionalRequirements = [
   {
     id: "Selective Enrollment Test",
-    field: <div/>,
+    field: <input type="number" value="6"/>,
     helpText: "wubmo",
-    programIDs: ["this should match nothing."]
+    programIDs: ["609726-3", "609755-3", "609749-3"]
   }
 ];
 
@@ -141,8 +141,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
                       }
                     })}
                   </AdditionalRequirementForm>
-                })}
-                }
+                }) } 
 
                 {/* Display all of the remaining programs that do not have additional requirements. */}
                 {programsWithoutAddlRequirements.map( program => {

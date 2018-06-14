@@ -30683,8 +30683,8 @@ const actions_1 = __webpack_require__(24);
 const student_info_form_container_1 = __webpack_require__(300);
 const grades_form_container_1 = __webpack_require__(311);
 const hs_programs_container_1 = __webpack_require__(315);
-const program_modal_container_1 = __webpack_require__(335);
-__webpack_require__(339);
+const program_modal_container_1 = __webpack_require__(336);
+__webpack_require__(340);
 const App = (props) => {
     return (React.createElement("div", { className: "main-page", onKeyUp: ev => {
             if (ev.key === 'Escape') {
@@ -39469,16 +39469,16 @@ const React = __webpack_require__(4);
 const enums_1 = __webpack_require__(7);
 const search_bar_1 = __webpack_require__(317);
 const hs_program_element_1 = __webpack_require__(319);
-const success_chance_filter_1 = __webpack_require__(327);
-const hs_group_1 = __webpack_require__(330);
-__webpack_require__(333);
-let AdditionalRequirementForm;
+const additional_requirement_form_1 = __webpack_require__(327);
+const success_chance_filter_1 = __webpack_require__(328);
+const hs_group_1 = __webpack_require__(331);
+__webpack_require__(334);
 const additionalRequirements = [
     {
         id: "Selective Enrollment Test",
-        field: React.createElement("div", null),
+        field: React.createElement("input", { type: "number", value: "6" }),
         helpText: "wubmo",
-        programIDs: ["this should match nothing."]
+        programIDs: ["609726-3", "609755-3", "609749-3"]
     }
 ];
 class HSProgramList extends React.PureComponent {
@@ -39620,13 +39620,12 @@ class HSProgramList extends React.PureComponent {
                     return (React.createElement(hs_group_1.default, { key: group.id, title: group.name, outcomeCounts: outcomeCounts },
                         programsWithAddlRequirements.length > 0 &&
                             additionalRequirements.map(addlReq => {
-                                return React.createElement(AdditionalRequirementForm, { key: addlReq.id, field: addlReq.field, helpText: addlReq.helpText }, programsWithAddlRequirements.map(program => {
+                                return React.createElement(additional_requirement_form_1.AdditionalRequirementForm, { key: addlReq.id, field: addlReq.field, helpText: addlReq.helpText }, programsWithAddlRequirements.map(program => {
                                     if (addlReq.programIDs.some(id => id === program.id)) {
                                         return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: this.props.outcomes[program.id], onSelect: this.props.onSelectedProgramChange }));
                                     }
                                 }));
                             }),
-                        "}",
                         programsWithoutAddlRequirements.map(program => {
                             return (React.createElement(hs_program_element_1.default, { key: program.id, program: program, outcome: this.props.outcomes[program.id], onSelect: this.props.onSelectedProgramChange }));
                         })));
@@ -39894,6 +39893,23 @@ exports.push([module.i, ".hs-list-element {\n  cursor: pointer;\n  -webkit-trans
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
+exports.AdditionalRequirementForm = props => {
+    return (React.createElement("div", { className: "additional-requirement-form" },
+        React.createElement("div", { className: "additional-requirement-form-header" },
+            React.createElement("div", { className: "additional-requirement-form-field" }, props.field),
+            React.createElement("div", { className: "additional-requirement-form-help-text" }, props.helpText)),
+        React.createElement("div", { className: "additional-requirement-form-content" }, props.children)));
+};
+
+
+/***/ }),
+/* 328 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(4);
 const enums_1 = __webpack_require__(7);
 const outcome_certain_1 = __webpack_require__(69);
 const outcome_likely_1 = __webpack_require__(70);
@@ -39901,7 +39917,7 @@ const outcome_uncertain_1 = __webpack_require__(71);
 const outcome_unlikely_1 = __webpack_require__(72);
 const outcome_none_1 = __webpack_require__(73);
 const outcome_notimplemented_1 = __webpack_require__(74);
-__webpack_require__(328);
+__webpack_require__(329);
 const ICON_SIZE = "48px";
 const SuccessChanceFilter = (props) => {
     return (React.createElement("div", { className: "success-chance-filter" },
@@ -39946,13 +39962,13 @@ exports.default = SuccessChanceFilter;
 
 
 /***/ }),
-/* 328 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(329);
+var content = __webpack_require__(330);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -39977,7 +39993,7 @@ if(false) {
 }
 
 /***/ }),
-/* 329 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(undefined);
@@ -39991,7 +40007,7 @@ exports.push([module.i, ".success-chance-filter-button {\n  cursor: pointer;\n  
 
 
 /***/ }),
-/* 330 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40004,7 +40020,7 @@ const outcome_uncertain_1 = __webpack_require__(71);
 const outcome_unlikely_1 = __webpack_require__(72);
 const outcome_none_1 = __webpack_require__(73);
 const outcome_notimplemented_1 = __webpack_require__(74);
-__webpack_require__(331);
+__webpack_require__(332);
 class HSGroup extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -40059,13 +40075,13 @@ exports.default = HSGroup;
 
 
 /***/ }),
-/* 331 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(332);
+var content = __webpack_require__(333);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -40090,7 +40106,7 @@ if(false) {
 }
 
 /***/ }),
-/* 332 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(undefined);
@@ -40104,13 +40120,13 @@ exports.push([module.i, ".hs-category-header {\n  cursor: pointer;\n  -webkit-tr
 
 
 /***/ }),
-/* 333 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(334);
+var content = __webpack_require__(335);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -40135,7 +40151,7 @@ if(false) {
 }
 
 /***/ }),
-/* 334 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(undefined);
@@ -40149,7 +40165,7 @@ exports.push([module.i, ".hs-program-list-container {\n  width: 100%;\n  height:
 
 
 /***/ }),
-/* 335 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40157,7 +40173,7 @@ exports.push([module.i, ".hs-program-list-container {\n  width: 100%;\n  height:
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_redux_1 = __webpack_require__(32);
 const actions_1 = __webpack_require__(24);
-const program_modal_1 = __webpack_require__(336);
+const program_modal_1 = __webpack_require__(337);
 const mapStateToProps = (state) => {
     return {
         visible: state.programModalState.open,
@@ -40174,7 +40190,7 @@ exports.ProgramModalContainer = react_redux_1.connect(mapStateToProps, mapDispat
 
 
 /***/ }),
-/* 336 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40183,7 +40199,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
 const enums_1 = __webpack_require__(7);
 const program_card_1 = __webpack_require__(120);
-__webpack_require__(337);
+__webpack_require__(338);
 exports.ProgramModal = (props) => {
     const toMessage = (success) => {
         let msg = "";
@@ -40238,13 +40254,13 @@ exports.ProgramModal = (props) => {
 
 
 /***/ }),
-/* 337 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(338);
+var content = __webpack_require__(339);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -40269,7 +40285,7 @@ if(false) {
 }
 
 /***/ }),
-/* 338 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(undefined);
@@ -40283,13 +40299,13 @@ exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  -webkit-box-sizi
 
 
 /***/ }),
-/* 339 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(340);
+var content = __webpack_require__(341);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -40314,7 +40330,7 @@ if(false) {
 }
 
 /***/ }),
-/* 340 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(12)(undefined);

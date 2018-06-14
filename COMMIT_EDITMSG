@@ -1,4 +1,3 @@
-Refactor HSGroup
+Write skeleton AdditionalRequirementForm component
 
-* remove props 'programs' and 'outcomes'
-* use props.children to render children
+
