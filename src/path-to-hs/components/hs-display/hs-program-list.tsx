@@ -1,15 +1,19 @@
 import * as React from "react";
 
 import {
+  AppState,
   Program,
   ProgramOutcome,
   ProgramDictionary,
   ProgramGroup,
-  ProgramOutcomeDictionary
+  ProgramOutcomeDictionary,
+  OutcomeCounts
 } from "shared/types";
 import { SuccessChance } from "shared/enums";
 
 import { SearchBar } from "./search-bar";
+import HSProgramElement from "./hs-program-element";
+import { AdditionalRequirementForm } from "./additional-requirement-form";
 
 import SuccessChanceFilter from "./success-chance-filter";
 import HSGroup from "./hs-group";
@@ -27,6 +31,70 @@ interface HSProgramListState {
 }
 
 import "./hs-program-list.scss";
+
+/* 
+ * FIXME hardcoded additional requirement field and data; move elsewhere
+ * ------------------------------------------------
+ * */
+import { connect } from "react-redux";
+import { updateStudentSETestPercentile } from "shared/redux/actions";
+interface SETEstPercentileFieldProps {
+  value: number | null
+  onChange: (value: number) => any
+}
+const SETestPercentileField: React.SFC<SETEstPercentileFieldProps> = props => {
+  return (
+    <div className="field fixed-width-med">
+      <label className="label">Selective Enrollment Test Percentile</label>
+      <input 
+        className="input" 
+        type="number" 
+        value={props.value ? props.value : ""} 
+        onChange={ ev => props.onChange(ev.currentTarget.valueAsNumber) } 
+      />
+    </div>
+  )
+};
+const mapStateToProps = (state: AppState) => {
+  return {
+    value: state.studentData.seTestPercentile
+  }
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onChange: value => dispatch(updateStudentSETestPercentile(value)) 
+  };
+};
+const SETestPercentileFieldContainer = connect(mapStateToProps, mapDispatchToProps)(SETestPercentileField);
+
+const additionalRequirements = [
+  {
+    id: "Selective Enrollment Test",
+    field: <SETestPercentileFieldContainer />,
+    helpText: 
+    <div>
+      <p><b>What's this?</b> After you apply to a Selective Enrollment school, you need to take a Selective Enrollment test. Your Selective Enrollment test percentile is used along with your grades to calculate a Selective Enrollment score from 1-900. Your Selective Enrollment score decides whether or not your get accepted to a Selective Enrollment School.</p>
+      <p><b>If you haven't taken the Selective Enrollment test yet,</b> use this to set a target score for yourself.</p>
+    </div>,
+    programIDs: [
+      "609726-3", 
+      "609755-3", 
+      "609749-3",
+      "610547-3",
+      "609693-3",
+      "609720-3",
+      "609694-3",
+      "610391-3",
+      "609751-3",
+      "609680-3",
+      "609678-3",
+    ]
+  }
+];
+/* 
+ * END FIXME
+ * ---------------------
+ * */
 
 class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramListState> {
 
@@ -76,22 +144,140 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
               filteredPrograms = this.filterBySuccessChance(filteredPrograms, this.props.outcomes, this.state.selectedSuccessChance);
             }
 
+            const sortedPrograms = filteredPrograms.sort(this.sortByOutcome);
+
+            let programsWithAddlRequirements: Program[] = []; 
+            let programsWithoutAddlRequirements: Program[] = [];
+            
+            sortedPrograms.forEach( program => {
+              const programHasAdditionalRequirement = additionalRequirements.some( addlReq => {
+                if ( addlReq.programIDs.some( id => id === program.id )) {
+                  return true;
+                } else {
+                  return false;
+                }
+              });
+
+              if (programHasAdditionalRequirement) {
+                programsWithAddlRequirements.push(program);
+              } else {
+                programsWithoutAddlRequirements.push(program);
+              }
+            });
+
+            const outcomeCounts = this.getOutcomeCounts(filteredPrograms, this.props.outcomes);
+
             if (filteredPrograms.length > 0) {
               return (
                 <HSGroup
                   key={group.id}
                   title={group.name}
-                  programs={filteredPrograms}
-                  outcomes={this.props.outcomes}
-                  onSelectedProgramChange={this.props.onSelectedProgramChange}
-                />
+                  outcomeCounts={outcomeCounts}
+                >
+                {/* First check to see if any programs have additional requirements. If they do,
+                  display the programs wrapped in an AdditionalRequirementsForm. */}
+                { programsWithAddlRequirements.length > 0 && 
+                  additionalRequirements.map( addlReq => {
+                  return <AdditionalRequirementForm
+                    key={addlReq.id}
+                    field={addlReq.field}
+                    helpText={addlReq.helpText}
+                  >
+                    {programsWithAddlRequirements.map( program => {
+                      if (addlReq.programIDs.some( id => id === program.id )) {
+                        return (
+                          <HSProgramElement
+                            key={program.id}
+                            program={program}
+                            outcome={this.props.outcomes[program.id]}
+                            onSelect={this.props.onSelectedProgramChange}
+                          />
+                        )
+                      }
+                    })}
+                  </AdditionalRequirementForm>
+                }) } 
+
+                {/* Display all of the remaining programs that do not have additional requirements. */}
+                {programsWithoutAddlRequirements.map( program => {
+                  return (
+                    <HSProgramElement
+                      key={program.id}
+                      program={program}
+                      outcome={this.props.outcomes[program.id]}
+                      onSelect={this.props.onSelectedProgramChange}
+                    />
+                  );
+                })}
+                </HSGroup>
               )
             }
-          })
-          }
+          })}
         </div>
       </div>
     );
+  }
+
+  private sortByOutcome = (a: Program, b: Program): number => {
+    const aOutcome = this.props.outcomes[a.id]
+    const bOutcome = this.props.outcomes[b.id]
+
+    function toNumber(outcome: ProgramOutcome | undefined) {
+      if (outcome === undefined) {
+        return -1;
+      }
+      switch(outcome.overallChance) {
+          case SuccessChance.CERTAIN: return 6;
+          case SuccessChance.LIKELY: return 5;
+          case SuccessChance.UNCERTAIN: return 4;
+          case SuccessChance.UNLIKELY: return 3;
+          case SuccessChance.NONE: return 2;
+          case SuccessChance.NOTIMPLEMENTED: return 1;
+      }
+    }
+    return toNumber(bOutcome) - toNumber(aOutcome);
+  }
+
+  private getOutcomeCounts = (programs: Program[], outcomes: ProgramOutcomeDictionary): OutcomeCounts => {
+    let counts: OutcomeCounts = {
+      certain: 0,
+      likely: 0,
+      uncertain: 0,
+      unlikely: 0,
+      none: 0,
+      notImplemented: 0
+    };
+    programs.forEach( program => {
+      const outcome = outcomes[program.id];
+      if (outcome === undefined) {
+        counts.notImplemented += 1;
+      } else {
+        switch(outcome.overallChance){
+          case SuccessChance.CERTAIN:
+            counts.certain += 1;
+            break;
+          case SuccessChance.LIKELY:
+            counts.likely += 1;
+            break;
+          case SuccessChance.UNCERTAIN:
+            counts.uncertain += 1;
+            break;
+          case SuccessChance.UNLIKELY:
+            counts.unlikely += 1;
+            break;
+          case SuccessChance.NONE:
+            counts.none += 1;
+            break;
+          case SuccessChance.NOTIMPLEMENTED:
+            counts.notImplemented += 1;
+            break;
+          default:
+            console.warn("Unrecognized SuccessChance for program " + program.id);
+            break;
+        }
+      }
+    });
+    return counts;
   }
 
   private filterBySearchTerm = (programs: Program[], searchTerm: string): Program[] => {

@@ -1,6 +1,3 @@
-BUGFIX clicking on hsProgramElement closes hsGroup
+Write skeleton AdditionalRequirementForm component
 
-* It was event bubbling kind of, but mostly another error on
-  my part -- I accidentally put the onClick=close hsGroup event
-  handler on the root HSGroup element, instead of the hsGroup.header
-  element.
+
