@@ -23,7 +23,10 @@ export class SearchBar extends React.PureComponent<SearchBarProps, SearchBarStat
 
   render() {
     return (
-      <div className="search-bar field has-addons">
+      <div 
+        className="search-bar field has-addons"
+        onKeyUp={ ev => ev.key === "Enter" && this.props.onSearchSubmit(this.state.value) }
+      >
         <div className="control is-expanded">
           <input 
             className="input"
