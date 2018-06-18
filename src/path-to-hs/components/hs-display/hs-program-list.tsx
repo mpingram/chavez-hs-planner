@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import {
+  AppState,
   Program,
   ProgramOutcome,
   ProgramDictionary,
@@ -31,15 +32,69 @@ interface HSProgramListState {
 
 import "./hs-program-list.scss";
 
-/* FIXME hardcoded data */
+/* 
+ * FIXME hardcoded additional requirement field and data; move elsewhere
+ * ------------------------------------------------
+ * */
+import { connect } from "react-redux";
+import { updateStudentSETestPercentile } from "shared/redux/actions";
+interface SETEstPercentileFieldProps {
+  value: number | null
+  onChange: (value: number) => any
+}
+const SETestPercentileField: React.SFC<SETEstPercentileFieldProps> = props => {
+  return (
+    <div className="field fixed-width-med">
+      <label className="label">Selective Enrollment Test Percentile</label>
+      <input 
+        className="input" 
+        type="number" 
+        value={props.value ? props.value : ""} 
+        onChange={ ev => props.onChange(ev.currentTarget.valueAsNumber) } 
+      />
+    </div>
+  )
+};
+const mapStateToProps = (state: AppState) => {
+  return {
+    value: state.studentData.seTestPercentile
+  }
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onChange: value => dispatch(updateStudentSETestPercentile(value)) 
+  };
+};
+const SETestPercentileFieldContainer = connect(mapStateToProps, mapDispatchToProps)(SETestPercentileField);
+
 const additionalRequirements = [
   {
     id: "Selective Enrollment Test",
-    field: <input type="number" value="6"/>,
-    helpText: "wubmo",
-    programIDs: ["609726-3", "609755-3", "609749-3"]
+    field: <SETestPercentileFieldContainer />,
+    helpText: 
+    <div>
+      <p><b>What's this?</b> After you apply to a Selective Enrollment school, you need to take a Selective Enrollment test. Your Selective Enrollment test percentile is used along with your grades to calculate a Selective Enrollment score from 1-900. Your Selective Enrollment score decides whether or not your get accepted to a Selective Enrollment School.</p>
+      <p><b>If you haven't taken the Selective Enrollment test yet,</b> use this to set a target score for yourself.</p>
+    </div>,
+    programIDs: [
+      "609726-3", 
+      "609755-3", 
+      "609749-3",
+      "610547-3",
+      "609693-3",
+      "609720-3",
+      "609694-3",
+      "610391-3",
+      "609751-3",
+      "609680-3",
+      "609678-3",
+    ]
   }
 ];
+/* 
+ * END FIXME
+ * ---------------------
+ * */
 
 class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramListState> {
 

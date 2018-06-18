@@ -25562,7 +25562,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const enums_1 = __webpack_require__(7);
 const calculate_gpa_1 = __webpack_require__(250);
 const initial_state_1 = __webpack_require__(31);
-const sanitizeNWEAPercentile = (percentile) => {
+const sanitizePercentile = (percentile) => {
     let sanitized;
     if (Number.isNaN(percentile)) {
         sanitized = null;
@@ -25633,14 +25633,15 @@ exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, 
             nextStudentData = Object.assign({}, studentData, { siblingHSSchoolIDs: action.payload });
             break;
         case enums_1.ActionType.UpdateStudentSETestPercentile:
-            nextStudentData = Object.assign({}, studentData, { seTestPercentile: action.payload });
+            const seTestPercentile = sanitizePercentile(action.payload);
+            nextStudentData = Object.assign({}, studentData, { seTestPercentile: seTestPercentile });
             break;
         case enums_1.ActionType.UpdateStudentNWEAPercentileMath:
-            const nweaPercentileMath = sanitizeNWEAPercentile(action.payload);
+            const nweaPercentileMath = sanitizePercentile(action.payload);
             nextStudentData = Object.assign({}, studentData, { nweaPercentileMath: nweaPercentileMath });
             break;
         case enums_1.ActionType.UpdateStudentNWEAPercentileRead:
-            const nweaPercentileRead = sanitizeNWEAPercentile(action.payload);
+            const nweaPercentileRead = sanitizePercentile(action.payload);
             nextStudentData = Object.assign({}, studentData, { nweaPercentileRead: nweaPercentileRead });
             break;
         case enums_1.ActionType.UpdateStudentSubjGradeMath:
@@ -25656,6 +25657,7 @@ exports.studentDataReducer = (studentData = initial_state_1.initialStudentData, 
             nextStudentData = Object.assign({}, studentData, { subjGradeSocStudies: action.payload, gpa: calculate_gpa_1.default(studentData.subjGradeMath, studentData.subjGradeRead, studentData.subjGradeSci, action.payload) });
             break;
     }
+    console.log(nextStudentData);
     return nextStudentData;
 };
 
@@ -39473,12 +39475,48 @@ const additional_requirement_form_1 = __webpack_require__(327);
 const success_chance_filter_1 = __webpack_require__(328);
 const hs_group_1 = __webpack_require__(331);
 __webpack_require__(334);
+const react_redux_1 = __webpack_require__(32);
+const actions_1 = __webpack_require__(24);
+const SETestPercentileField = props => {
+    return (React.createElement("div", { className: "field fixed-width-med" },
+        React.createElement("label", { className: "label" }, "Selective Enrollment Test Percentile"),
+        React.createElement("input", { className: "input", type: "number", value: props.value ? props.value : "", onChange: ev => props.onChange(ev.currentTarget.valueAsNumber) })));
+};
+const mapStateToProps = (state) => {
+    return {
+        value: state.studentData.seTestPercentile
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onChange: value => dispatch(actions_1.updateStudentSETestPercentile(value))
+    };
+};
+const SETestPercentileFieldContainer = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(SETestPercentileField);
 const additionalRequirements = [
     {
         id: "Selective Enrollment Test",
-        field: React.createElement("input", { type: "number", value: "6" }),
-        helpText: "wubmo",
-        programIDs: ["609726-3", "609755-3", "609749-3"]
+        field: React.createElement(SETestPercentileFieldContainer, null),
+        helpText: React.createElement("div", null,
+            React.createElement("p", null,
+                React.createElement("b", null, "What's this?"),
+                " After you apply to a Selective Enrollment school, you need to take a Selective Enrollment test. Your Selective Enrollment test percentile is used along with your grades to calculate a Selective Enrollment score from 1-900. Your Selective Enrollment score decides whether or not your get accepted to a Selective Enrollment School."),
+            React.createElement("p", null,
+                React.createElement("b", null, "If you haven't taken the Selective Enrollment test yet,"),
+                " use this to set a target score for yourself.")),
+        programIDs: [
+            "609726-3",
+            "609755-3",
+            "609749-3",
+            "610547-3",
+            "609693-3",
+            "609720-3",
+            "609694-3",
+            "610391-3",
+            "609751-3",
+            "609680-3",
+            "609678-3",
+        ]
     }
 ];
 class HSProgramList extends React.PureComponent {
@@ -39893,8 +39931,10 @@ exports.push([module.i, ".hs-list-element {\n  cursor: pointer;\n  -webkit-trans
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(4);
+__webpack_require__(342);
 exports.AdditionalRequirementForm = props => {
     return (React.createElement("div", { className: "additional-requirement-form" },
+        React.createElement("div", { className: "additional-requirement-form-title" }, "Additional Requirement"),
         React.createElement("div", { className: "additional-requirement-form-header" },
             React.createElement("div", { className: "additional-requirement-form-field" }, props.field),
             React.createElement("div", { className: "additional-requirement-form-help-text" }, props.helpText)),
@@ -40114,7 +40154,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, ".hs-category-header {\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .hs-category-header:hover {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .depressed.hs-category-header {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .hs-category-container {\n  width: 100%;\n  height: auto; }\n  .hs-category-container.collapsed {\n  height: 75px; }\n  .hs-category-container.collapsed > .hs-list {\n  display: none; }\n  .hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-top: 1px solid #b6b6b7;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n  .hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n  .hs-category-title {\n  max-width: 100%;\n  font-size: 1.2rem;\n  font-weight: bold;\n  letter-spacing: 1px;\n  text-transform: uppercase;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n  .outcome-counts-wrapper {\n  height: 36px;\n  margin-left: 2em;\n  margin-top: 0.25em; }\n  .outcome-count {\n  float: left;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start; }\n  .outcome-count-icon {\n  float: left; }\n  .outcome-count-text {\n  float: left;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  width: 30px;\n  font-weight: bold;\n  font-size: 0.85rem;\n  margin-left: 3px; }\n  .hs-category-collapse-button {\n  display: block;\n  background-color: #747475;\n  border-radius: 100%;\n  cursor: pointer;\n  font-size: 130%;\n  color: #fefefe;\n  font-weight: bold;\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 30px;\n          flex: 0 0 30px;\n  width: 30px;\n  height: 30px;\n  margin: 0.5em 0.25em 0.5em 1em;\n  -ms-flex-item-align: center;\n      align-self: center; }\n  .hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(0deg);\n          transform: rotate(0deg); }\n  .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 75ms ease-out;\n  transition: -webkit-transform 75ms ease-out;\n  transition: transform 75ms ease-out;\n  transition: transform 75ms ease-out, -webkit-transform 75ms ease-out; }\n  .hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
+exports.push([module.i, ".hs-category-header {\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .hs-category-header:hover {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .depressed.hs-category-header {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .hs-category-container {\n  width: 100%;\n  height: auto; }\n  .hs-category-container.collapsed {\n  height: 75px; }\n  .hs-category-container.collapsed > .hs-list {\n  display: none; }\n  .hs-category-header {\n  width: 100%;\n  height: 75px;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 100%;\n          flex: 1 0 100%;\n  border-top: 1px solid #b6b6b7;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap; }\n  .hs-category-info-container {\n  height: 100%;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 90%;\n          flex: 1 1 90%;\n  padding: 0 0.5em; }\n  .hs-category-title {\n  max-width: 100%;\n  font-size: 1.2rem;\n  font-weight: bold;\n  letter-spacing: 1px;\n  text-transform: uppercase;\n  margin-top: 10px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis; }\n  .outcome-counts-wrapper {\n  height: 36px;\n  margin-left: 2em;\n  margin-top: 0.25em; }\n  .outcome-count {\n  float: left;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start; }\n  .outcome-count-icon {\n  float: left; }\n  .outcome-count-text {\n  float: left;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  width: 30px;\n  font-weight: bold;\n  font-size: 0.85rem;\n  margin-left: 3px; }\n  .hs-category-collapse-button {\n  display: block;\n  background-color: #747475;\n  border-radius: 100%;\n  cursor: pointer;\n  font-size: 130%;\n  color: #fefefe;\n  font-weight: bold;\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 30px;\n          flex: 0 0 30px;\n  width: 30px;\n  height: 30px;\n  margin: 0.5em 0.25em 0.5em 1em;\n  -ms-flex-item-align: center;\n      align-self: center; }\n  .hs-category-collapse-button.collapsed > .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(0deg);\n          transform: rotate(0deg); }\n  .hs-category-collapse-button-icon {\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  -webkit-transition: -webkit-transform 75ms ease-out;\n  transition: -webkit-transform 75ms ease-out;\n  transition: transform 75ms ease-out;\n  transition: transform 75ms ease-out, -webkit-transform 75ms ease-out; }\n  .hs-list {\n  width: 100%;\n  min-height: 100px;\n  height: 100%;\n  padding: 1em 0.5em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n", ""]);
 
 // exports
 
@@ -40339,6 +40379,51 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 // module
 exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  background-color: #fff; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px;\n  overflow-y: auto;\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n  z-index: 2; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n\nh1, h2, h3 {\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 342 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(343);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(13)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./additional-requirement-form.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./additional-requirement-form.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 343 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(12)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".additional-requirement-form {\n  width: 100%; }\n\n.additional-requirement-form-title {\n  width: 100%;\n  font-size: 0.70rem;\n  font-weight: bold;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  border-radius: 2px 2px 0 0;\n  background-color: #b6b6b7;\n  padding: 0.5em 1em; }\n\n.additional-requirement-form-header {\n  width: 100%;\n  min-height: 4em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  border: 2px solid #b6b6b7;\n  border-top: none;\n  padding: 0.5em; }\n\n.additional-requirement-form-field {\n  margin-right: 1em; }\n\n.additional-requirement-form-help-text {\n  font-size: 0.7rem; }\n\n.additional-requirement-form-content {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  border: 2px dotted #b6b6b7;\n  border-radius: 0 0 2px 2px;\n  border-top: none;\n  background-color: #EFEFF2; }\n", ""]);
 
 // exports
 
