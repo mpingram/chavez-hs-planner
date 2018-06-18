@@ -2,7 +2,7 @@ import * as React from "react";
 
 export interface AdditionalRequirementFormProps {
   field: React.ReactNode
-  helpText: string
+  helpText: React.ReactNode
 }
 
 import "./additional-requirement-form.scss";
