@@ -5,10 +5,16 @@ import { createSelector } from "reselect";
 import { AppState, ProgramDictionary } from "shared/types";
 import { store } from "shared/redux/store";
 
+interface Suggestion {
+  value: string
+  matchStart: number
+  matchEnd: number
+}
 type Suggestions = Array<{
   title: "Programs" | "Program Types" | "Schools"
-  suggestions: string[]
+  suggestions: Suggestion[]
 }>;
+
 
 const getProgramDict = (state: AppState) => state.data.hsPrograms;
 
@@ -16,13 +22,23 @@ const getProgramDict = (state: AppState) => state.data.hsPrograms;
  * a ProgramDictionary. The numSuggestions argument determines how many suggestions to return. */
 const getSuggestions = (programDict: ProgramDictionary, query: string, numSuggestions = 10 ): Suggestions => {
 
-  const isLeftSubstring = (query: string, str: string): boolean => {
-    const leftSubstring = str.trim().toLowerCase().slice(0, query.length);
-    if (leftSubstring === query.toLowerCase()){
-      return true;
-    } else {
-      return false;
-    }
+  const getMatch = (query: string, str: string): {doesMatch: boolean, start: number, end: number} => {
+    const q = query.trim().toLowerCase();
+    const s = str.trim().toLowerCase();
+    const isLeftSubstring = (q,s) => s.slice(0, q.length) === q;
+
+    let start = 0;
+    let end = 0;
+    const doesMatch = s.split(" ").some( word => {
+      if (isLeftSubstring(q, word)) {
+        start = s.indexOf(word);
+        end = start + q.length;
+        return true;
+      } else {
+        return false;
+      }
+    });
+    return {doesMatch, start, end};
   };
 
   // use hash maps to store matches without repeats.
@@ -39,12 +55,17 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
   Object.keys(programDict).some( programID => {
     const program = programDict[programID];
 
-    if (isLeftSubstring(query, program.programName)) {
-      programMatches[program.programName] = 1;
-    } else if (isLeftSubstring(query, program.programType)) {
-      programTypeMatches[program.programType] = 1;
-    } else if (isLeftSubstring(query, program.schoolNameLong)) {
-      schoolMatches[program.schoolNameLong] = 1;
+    const programMatch = getMatch(query, program.programName);
+    if (programMatch.doesMatch) {
+      programMatches[program.programName] = programMatch;
+    }
+    const programTypeMatch = getMatch(query, program.programType);
+    if (programTypeMatch.doesMatch) {
+      programTypeMatches[program.programType] = programTypeMatch;
+    }
+    const schoolMatch = getMatch(query, program.schoolNameLong);
+    if (schoolMatch.doesMatch) {
+      schoolMatches[program.schoolNameLong] = schoolMatch;
     }
 
     // see how many matches we have; if we have enough, exit early.
@@ -62,22 +83,44 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
   return [
     {
       title: "Programs",
-      suggestions: Object.keys(programMatches)
+      suggestions: Object.keys(programMatches).map( value => {
+        const match = programMatches[value];
+        return {
+          value: value,
+          matchStart: match.start,
+          matchEnd: match.end
+        }
+      })
     },
     {
       title: "Program Types",
-      suggestions: Object.keys(programTypeMatches)
+      suggestions: Object.keys(programTypeMatches).map( value => {
+        const match = programTypeMatches[value];
+        return {
+          value: value,
+          matchStart: match.start,
+          matchEnd: match.end
+        }
+      })
     },
     {
       title: "Schools",
-      suggestions: Object.keys(schoolMatches)
+      suggestions: Object.keys(schoolMatches).map( value => {
+        const match = schoolMatches[value];
+        return {
+          value: value,
+          matchStart: match.start,
+          matchEnd: match.end
+        }
+      })
     },
   ];
 };
 
 
-
 import SearchIcon from "shared/components/icons/search";
+
+import "./search-bar.scss";
 
 interface SearchBarProps {
   placeholder: string
@@ -103,7 +146,7 @@ export class SearchBar extends React.PureComponent<SearchBarProps, SearchBarStat
   render() {
     return (
       <div 
-        className="search-bar field has-addons"
+        className="program-search-bar field has-addons"
         onKeyUp={ ev => ev.key === "Enter" && this.props.onSearchSubmit(this.state.query) }
       >
         <div className="control is-expanded">
@@ -143,15 +186,21 @@ export class SearchBar extends React.PureComponent<SearchBarProps, SearchBarStat
   /*
    * renderSuggestion returns the DOM of each suggestion in react-autosuggest element
    * */
-  private renderSuggestion = (suggestion: string, {query, isHighlighted}): React.ReactNode => {
+  private renderSuggestion = (suggestion: Suggestion, {query, isHighlighted}): React.ReactNode => {
     // boldface the query part of each search suggestion
-    return <div>
-      <strong>{suggestion.slice(0, query.length)}</strong>
-      {suggestion.slice(query.length)}
+    return <div className={`suggestion-item ${isHighlighted ? "is-highlighted" : ""}`}>
+      {suggestion.value.slice(0, suggestion.matchStart)}
+      <strong>{suggestion.value.slice(suggestion.matchStart, suggestion.matchEnd)}</strong>
+      {suggestion.value.slice(suggestion.matchEnd)}
     </div>
   }
   private renderSectionTitle = (section): React.ReactNode => {
-    return <h4>{section.title}</h4>
+    if (section.suggestions.length === 0) {
+      // do not render section
+      return null;
+    } else {
+      return <div className="section-title">{section.title}</div>
+    }
   }
 
   private handleSuggestionsFetchRequested = ({value}): void => {

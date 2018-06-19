@@ -39752,28 +39752,40 @@ const Autosuggest = __webpack_require__(319);
 const store_1 = __webpack_require__(33);
 const getProgramDict = (state) => state.data.hsPrograms;
 const getSuggestions = (programDict, query, numSuggestions = 10) => {
-    const isLeftSubstring = (query, str) => {
-        const leftSubstring = str.trim().toLowerCase().slice(0, query.length);
-        if (leftSubstring === query.toLowerCase()) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    const getMatch = (query, str) => {
+        const q = query.trim().toLowerCase();
+        const s = str.trim().toLowerCase();
+        const isLeftSubstring = (q, s) => s.slice(0, q.length) === q;
+        let start = 0;
+        let end = 0;
+        const doesMatch = s.split(" ").some(word => {
+            if (isLeftSubstring(q, word)) {
+                start = s.indexOf(word);
+                end = start + q.length;
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+        return { doesMatch, start, end };
     };
     let programMatches = {};
     let programTypeMatches = {};
     let schoolMatches = {};
     Object.keys(programDict).some(programID => {
         const program = programDict[programID];
-        if (isLeftSubstring(query, program.programName)) {
-            programMatches[program.programName] = 1;
+        const programMatch = getMatch(query, program.programName);
+        if (programMatch.doesMatch) {
+            programMatches[program.programName] = programMatch;
         }
-        else if (isLeftSubstring(query, program.programType)) {
-            programTypeMatches[program.programType] = 1;
+        const programTypeMatch = getMatch(query, program.programType);
+        if (programTypeMatch.doesMatch) {
+            programTypeMatches[program.programType] = programTypeMatch;
         }
-        else if (isLeftSubstring(query, program.schoolNameLong)) {
-            schoolMatches[program.schoolNameLong] = 1;
+        const schoolMatch = getMatch(query, program.schoolNameLong);
+        if (schoolMatch.doesMatch) {
+            schoolMatches[program.schoolNameLong] = schoolMatch;
         }
         const numProgramMatches = Object.keys(programMatches).length;
         const numProgramTypeMatches = Object.keys(programTypeMatches).length;
@@ -39788,29 +39800,57 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
     return [
         {
             title: "Programs",
-            suggestions: Object.keys(programMatches)
+            suggestions: Object.keys(programMatches).map(value => {
+                const match = programMatches[value];
+                return {
+                    value: value,
+                    matchStart: match.start,
+                    matchEnd: match.end
+                };
+            })
         },
         {
             title: "Program Types",
-            suggestions: Object.keys(programTypeMatches)
+            suggestions: Object.keys(programTypeMatches).map(value => {
+                const match = programTypeMatches[value];
+                return {
+                    value: value,
+                    matchStart: match.start,
+                    matchEnd: match.end
+                };
+            })
         },
         {
             title: "Schools",
-            suggestions: Object.keys(schoolMatches)
+            suggestions: Object.keys(schoolMatches).map(value => {
+                const match = schoolMatches[value];
+                return {
+                    value: value,
+                    matchStart: match.start,
+                    matchEnd: match.end
+                };
+            })
         },
     ];
 };
 const search_1 = __webpack_require__(331);
+__webpack_require__(357);
 class SearchBar extends React.PureComponent {
     constructor(props) {
         super(props);
         this.renderSuggestion = (suggestion, { query, isHighlighted }) => {
-            return React.createElement("div", null,
-                React.createElement("strong", null, suggestion.slice(0, query.length)),
-                suggestion.slice(query.length));
+            return React.createElement("div", { className: `suggestion-item ${isHighlighted ? "is-highlighted" : ""}` },
+                suggestion.value.slice(0, suggestion.matchStart),
+                React.createElement("strong", null, suggestion.value.slice(suggestion.matchStart, suggestion.matchEnd)),
+                suggestion.value.slice(suggestion.matchEnd));
         };
         this.renderSectionTitle = (section) => {
-            return React.createElement("h4", null, section.title);
+            if (section.suggestions.length === 0) {
+                return null;
+            }
+            else {
+                return React.createElement("div", { className: "section-title" }, section.title);
+            }
         };
         this.handleSuggestionsFetchRequested = ({ value }) => {
             this.setState({
@@ -39837,7 +39877,7 @@ class SearchBar extends React.PureComponent {
         };
     }
     render() {
-        return (React.createElement("div", { className: "search-bar field has-addons", onKeyUp: ev => ev.key === "Enter" && this.props.onSearchSubmit(this.state.query) },
+        return (React.createElement("div", { className: "program-search-bar field has-addons", onKeyUp: ev => ev.key === "Enter" && this.props.onSearchSubmit(this.state.query) },
             React.createElement("div", { className: "control is-expanded" },
                 React.createElement(Autosuggest, { inputProps: {
                         className: "input",
@@ -42466,6 +42506,51 @@ exports = module.exports = __webpack_require__(10)(undefined);
 
 // module
 exports.push([module.i, ".main-page {\n  height: 100vh;\n  width: 100vw;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  background-color: #fff; }\n\n.student-data-form-container {\n  height: 100vh;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 0 320px;\n          flex: 1 0 320px;\n  overflow-y: auto;\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n  z-index: 2; }\n\n.hs-programs-container {\n  height: 100vh;\n  -webkit-box-flex: 2;\n      -ms-flex: 2 1 50vw;\n          flex: 2 1 50vw;\n  max-width: 100vw;\n  border: 2px solid #b6b6b7; }\n\nh1, h2, h3 {\n  text-transform: uppercase;\n  letter-spacing: 1px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(358);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(11)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./search-bar.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/postcss-loader/lib/index.js??ref--3-2!../../../../node_modules/sass-loader/lib/loader.js!./search-bar.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 358 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(10)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".suggestion-item {\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .suggestion-item:hover {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .depressed.suggestion-item {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  /** \n * Override react-autosuggest styles \n * --------------------------------\n **/\n  .react-autosuggest__suggestions-container {\n  z-index: 1;\n  position: absolute;\n  background-color: #fff;\n  width: 100%;\n  border: 1px solid #b6b6b7; }\n  .react-autosuggest__suggestions-container--open {\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n  .react-autosuggest__suggestions-list {\n  padding: 0;\n  list-style-type: none; }\n  /**\n * -------------------------------\n **/\n  .suggestion-item {\n  margin: 0;\n  padding: 0.5rem; }\n  .suggestion-item:before {\n    content: none; }\n  .section-title {\n  background-color: #EFEFF2;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 0.8rem;\n  letter-spacing: 1px; }\n", ""]);
 
 // exports
 
