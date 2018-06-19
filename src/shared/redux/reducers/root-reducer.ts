@@ -43,7 +43,6 @@ export const rootReducer: Redux.Reducer<AppState> = (state = initialState, actio
   if (studentDataChanged || dataChanged) {
     const newOutcomes = createProgramOutcomeDictionary(nextStudentData, nextData.hsPrograms);
     if (programOutcomesAreDifferent(newOutcomes, state.programOutcomes)) {
-      console.log('program outcomes are different');
       nextProgramOutcomes = newOutcomes;
     } else {
       nextProgramOutcomes = state.programOutcomes;

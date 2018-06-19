@@ -49,7 +49,6 @@ export const studentDataReducer: Redux.Reducer<StudentData> = (studentData = ini
       break;
     case ActionType.UpdateStudentAddress:
       nextStudentData = {...studentData, address: action.payload};
-      console.log(nextStudentData);
       break;
     case ActionType.UpdateStudentTier:
       nextStudentData = {...studentData, tier: action.payload};
@@ -140,6 +139,5 @@ export const studentDataReducer: Redux.Reducer<StudentData> = (studentData = ini
       };
       break;
   }
-  console.log(nextStudentData);
   return nextStudentData;
 };
