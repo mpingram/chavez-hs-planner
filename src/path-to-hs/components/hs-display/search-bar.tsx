@@ -80,8 +80,9 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
   });
 
   // convert our hash maps of matches to a Suggestions object
-  return [
-    {
+  let suggestions: Suggestions = [];
+  if (Object.keys(programMatches).length !== 0) {
+    suggestions.push({
       title: "Programs",
       suggestions: Object.keys(programMatches).map( value => {
         const match = programMatches[value];
@@ -91,8 +92,10 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
           matchEnd: match.end
         }
       })
-    },
-    {
+    })
+  }
+  if (Object.keys(programTypeMatches).length !== 0) {
+    suggestions.push({
       title: "Program Types",
       suggestions: Object.keys(programTypeMatches).map( value => {
         const match = programTypeMatches[value];
@@ -102,8 +105,10 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
           matchEnd: match.end
         }
       })
-    },
-    {
+    });
+  }
+  if (Object.keys(schoolMatches).length !== 0) {
+    suggestions.push({
       title: "Schools",
       suggestions: Object.keys(schoolMatches).map( value => {
         const match = schoolMatches[value];
@@ -113,8 +118,9 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
           matchEnd: match.end
         }
       })
-    },
-  ];
+    });
+  }
+  return suggestions;
 };
 
 
@@ -163,9 +169,13 @@ export class SearchBar extends React.PureComponent<SearchBarProps, SearchBarStat
             renderSuggestion={this.renderSuggestion}
             renderSectionTitle={this.renderSectionTitle}
             getSectionSuggestions={ section => section.suggestions }
-            getSuggestionValue={ suggestion => suggestion }
+            getSuggestionValue={ suggestion => {
+              console.log(suggestion);
+              return suggestion.value;
+            }}
             onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
             onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
+            onSuggestionSelected={this.handleSuggestionSelected}
           />
         </div>
         <div className="control">
@@ -195,12 +205,7 @@ export class SearchBar extends React.PureComponent<SearchBarProps, SearchBarStat
     </div>
   }
   private renderSectionTitle = (section): React.ReactNode => {
-    if (section.suggestions.length === 0) {
-      // do not render section
-      return null;
-    } else {
-      return <div className="section-title">{section.title}</div>
-    }
+    return <div className="section-title">{section.title}</div>
   }
 
   private handleSuggestionsFetchRequested = ({value}): void => {
@@ -215,13 +220,16 @@ export class SearchBar extends React.PureComponent<SearchBarProps, SearchBarStat
     });
   }
 
-  private handleQueryChange = ev => {
-    const nextQuery = ev.currentTarget.value;
-    if (nextQuery === "") {
+  private handleQueryChange = (ev, {newValue}) => {
+    if (newValue === "") {
       this.props.onSearchSubmit(null);
     }
     this.setState({
-      query: nextQuery,
+      query: newValue,
     });
+  }
+
+  private handleSuggestionSelected = (ev, {suggestionValue}) => {
+    this.props.onSearchSubmit(suggestionValue);
   }
 }

@@ -39797,8 +39797,9 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
             return false;
         }
     });
-    return [
-        {
+    let suggestions = [];
+    if (Object.keys(programMatches).length !== 0) {
+        suggestions.push({
             title: "Programs",
             suggestions: Object.keys(programMatches).map(value => {
                 const match = programMatches[value];
@@ -39808,8 +39809,10 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
                     matchEnd: match.end
                 };
             })
-        },
-        {
+        });
+    }
+    if (Object.keys(programTypeMatches).length !== 0) {
+        suggestions.push({
             title: "Program Types",
             suggestions: Object.keys(programTypeMatches).map(value => {
                 const match = programTypeMatches[value];
@@ -39819,8 +39822,10 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
                     matchEnd: match.end
                 };
             })
-        },
-        {
+        });
+    }
+    if (Object.keys(schoolMatches).length !== 0) {
+        suggestions.push({
             title: "Schools",
             suggestions: Object.keys(schoolMatches).map(value => {
                 const match = schoolMatches[value];
@@ -39830,8 +39835,9 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
                     matchEnd: match.end
                 };
             })
-        },
-    ];
+        });
+    }
+    return suggestions;
 };
 const search_1 = __webpack_require__(331);
 __webpack_require__(357);
@@ -39845,12 +39851,7 @@ class SearchBar extends React.PureComponent {
                 suggestion.value.slice(suggestion.matchEnd));
         };
         this.renderSectionTitle = (section) => {
-            if (section.suggestions.length === 0) {
-                return null;
-            }
-            else {
-                return React.createElement("div", { className: "section-title" }, section.title);
-            }
+            return React.createElement("div", { className: "section-title" }, section.title);
         };
         this.handleSuggestionsFetchRequested = ({ value }) => {
             this.setState({
@@ -39862,14 +39863,16 @@ class SearchBar extends React.PureComponent {
                 suggestions: []
             });
         };
-        this.handleQueryChange = ev => {
-            const nextQuery = ev.currentTarget.value;
-            if (nextQuery === "") {
+        this.handleQueryChange = (ev, { newValue }) => {
+            if (newValue === "") {
                 this.props.onSearchSubmit(null);
             }
             this.setState({
-                query: nextQuery,
+                query: newValue,
             });
+        };
+        this.handleSuggestionSelected = (ev, { suggestionValue }) => {
+            this.props.onSearchSubmit(suggestionValue);
         };
         this.state = {
             query: props.defaultValue,
@@ -39885,7 +39888,10 @@ class SearchBar extends React.PureComponent {
                         placeholder: "Search for schools or programs...",
                         value: this.state.query,
                         onChange: this.handleQueryChange
-                    }, multiSection: true, suggestions: this.state.suggestions, renderSuggestion: this.renderSuggestion, renderSectionTitle: this.renderSectionTitle, getSectionSuggestions: section => section.suggestions, getSuggestionValue: suggestion => suggestion, onSuggestionsClearRequested: this.handleSuggestionsClearRequested, onSuggestionsFetchRequested: this.handleSuggestionsFetchRequested })),
+                    }, multiSection: true, suggestions: this.state.suggestions, renderSuggestion: this.renderSuggestion, renderSectionTitle: this.renderSectionTitle, getSectionSuggestions: section => section.suggestions, getSuggestionValue: suggestion => {
+                        console.log(suggestion);
+                        return suggestion.value;
+                    }, onSuggestionsClearRequested: this.handleSuggestionsClearRequested, onSuggestionsFetchRequested: this.handleSuggestionsFetchRequested, onSuggestionSelected: this.handleSuggestionSelected })),
             React.createElement("div", { className: "control" },
                 React.createElement("button", { className: "button", onClick: ev => {
                         this.props.onSearchSubmit(this.state.query);
@@ -42550,7 +42556,7 @@ exports = module.exports = __webpack_require__(10)(undefined);
 
 
 // module
-exports.push([module.i, ".suggestion-item {\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .suggestion-item:hover {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .depressed.suggestion-item {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  /** \n * Override react-autosuggest styles \n * --------------------------------\n **/\n  .react-autosuggest__suggestions-container {\n  z-index: 1;\n  position: absolute;\n  background-color: #fff;\n  width: 100%;\n  border: 1px solid #b6b6b7; }\n  .react-autosuggest__suggestions-container--open {\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n  .react-autosuggest__suggestions-list {\n  padding: 0;\n  list-style-type: none; }\n  /**\n * -------------------------------\n **/\n  .suggestion-item {\n  margin: 0;\n  padding: 0.5rem; }\n  .suggestion-item:before {\n    content: none; }\n  .section-title {\n  background-color: #EFEFF2;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 0.8rem;\n  letter-spacing: 1px; }\n", ""]);
+exports.push([module.i, ".suggestion-item {\n  cursor: pointer;\n  -webkit-transition: background-color 500ms ease;\n  transition: background-color 500ms ease; }\n  .suggestion-item:hover {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  .depressed.suggestion-item {\n    background-color: #e7e7eb;\n    -webkit-transition: background-color 250ms ease;\n    transition: background-color 250ms ease; }\n  /** \n * Override react-autosuggest styles \n * --------------------------------\n **/\n  .react-autosuggest__suggestions-container {\n  z-index: 1;\n  position: absolute;\n  background-color: #fff;\n  width: 100%;\n  border: 1px solid #b6b6b7; }\n  .react-autosuggest__suggestions-container--open {\n  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);\n          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }\n  .react-autosuggest__section-container {\n  margin-top: 1em;\n  border-top: 1px solid #b6b6b7; }\n  .react-autosuggest__section-container--first {\n  margin-top: 0;\n  border-top: none; }\n  .react-autosuggest__suggestions-list {\n  padding: 0;\n  margin: 0;\n  list-style-type: none; }\n  /**\n * -------------------------------\n **/\n  .suggestion-item {\n  margin: 0;\n  padding: 0.5rem; }\n  .suggestion-item:before {\n    content: none; }\n  .section-title {\n  color: #666;\n  text-transform: uppercase;\n  display: inline-block;\n  float: right;\n  font-weight: bold;\n  font-size: 0.8rem;\n  letter-spacing: 1px;\n  padding: 0.5rem;\n  margin: 0 1em; }\n", ""]);
 
 // exports
 
