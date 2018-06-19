@@ -292,7 +292,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
     };
 
     return programs.filter( program => {
-      return hasTerm(program.programName);
+      return hasTerm(program.programName) || hasTerm(program.schoolNameLong);
     });
   }
 

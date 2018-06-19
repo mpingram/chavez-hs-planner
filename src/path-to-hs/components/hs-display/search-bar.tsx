@@ -170,7 +170,6 @@ export class SearchBar extends React.PureComponent<SearchBarProps, SearchBarStat
             renderSectionTitle={this.renderSectionTitle}
             getSectionSuggestions={ section => section.suggestions }
             getSuggestionValue={ suggestion => {
-              console.log(suggestion);
               return suggestion.value;
             }}
             onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
