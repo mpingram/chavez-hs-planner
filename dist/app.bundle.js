@@ -39770,15 +39770,11 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
         });
         return { doesMatch, start, end };
     };
-    let programMatches = {};
     let programTypeMatches = {};
     let schoolMatches = {};
+    let programMatches = {};
     Object.keys(programDict).some(programID => {
         const program = programDict[programID];
-        const programMatch = getMatch(query, program.programName);
-        if (programMatch.doesMatch) {
-            programMatches[program.programName] = programMatch;
-        }
         const programTypeMatch = getMatch(query, program.programType);
         if (programTypeMatch.doesMatch) {
             programTypeMatches[program.programType] = programTypeMatch;
@@ -39787,10 +39783,14 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
         if (schoolMatch.doesMatch) {
             schoolMatches[program.schoolNameLong] = schoolMatch;
         }
-        const numProgramMatches = Object.keys(programMatches).length;
+        const programMatch = getMatch(query, program.programName);
+        if (programMatch.doesMatch) {
+            programMatches[program.programName] = programMatch;
+        }
         const numProgramTypeMatches = Object.keys(programTypeMatches).length;
         const numSchoolMatches = Object.keys(schoolMatches).length;
-        if (numProgramMatches + numProgramTypeMatches + numSchoolMatches >= numSuggestions) {
+        const numProgramMatches = Object.keys(programMatches).length;
+        if (numProgramTypeMatches + numSchoolMatches + numProgramMatches >= numSuggestions) {
             return true;
         }
         else {
@@ -39798,19 +39798,6 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
         }
     });
     let suggestions = [];
-    if (Object.keys(programMatches).length !== 0) {
-        suggestions.push({
-            title: "Programs",
-            suggestions: Object.keys(programMatches).map(value => {
-                const match = programMatches[value];
-                return {
-                    value: value,
-                    matchStart: match.start,
-                    matchEnd: match.end
-                };
-            })
-        });
-    }
     if (Object.keys(programTypeMatches).length !== 0) {
         suggestions.push({
             title: "Program Types",
@@ -39829,6 +39816,19 @@ const getSuggestions = (programDict, query, numSuggestions = 10) => {
             title: "Schools",
             suggestions: Object.keys(schoolMatches).map(value => {
                 const match = schoolMatches[value];
+                return {
+                    value: value,
+                    matchStart: match.start,
+                    matchEnd: match.end
+                };
+            })
+        });
+    }
+    if (Object.keys(programMatches).length !== 0) {
+        suggestions.push({
+            title: "Programs",
+            suggestions: Object.keys(programMatches).map(value => {
+                const match = programMatches[value];
                 return {
                     value: value,
                     matchStart: match.start,

@@ -44,9 +44,9 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
   // use hash maps to store matches without repeats.
   // (programTypes and schools are not unique to programs,
   // so we would have to check for duplicates otherwise).
-  let programMatches = {};
   let programTypeMatches = {};
   let schoolMatches = {};
+  let programMatches = {};
 
   // Iterate through ProgramDict until we have numSuggestions matches.
   // Object.some is used here to exit from the iteration early. We'll
@@ -55,10 +55,6 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
   Object.keys(programDict).some( programID => {
     const program = programDict[programID];
 
-    const programMatch = getMatch(query, program.programName);
-    if (programMatch.doesMatch) {
-      programMatches[program.programName] = programMatch;
-    }
     const programTypeMatch = getMatch(query, program.programType);
     if (programTypeMatch.doesMatch) {
       programTypeMatches[program.programType] = programTypeMatch;
@@ -67,12 +63,16 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
     if (schoolMatch.doesMatch) {
       schoolMatches[program.schoolNameLong] = schoolMatch;
     }
+    const programMatch = getMatch(query, program.programName);
+    if (programMatch.doesMatch) {
+      programMatches[program.programName] = programMatch;
+    }
 
     // see how many matches we have; if we have enough, exit early.
-    const numProgramMatches = Object.keys(programMatches).length;
     const numProgramTypeMatches = Object.keys(programTypeMatches).length;
     const numSchoolMatches = Object.keys(schoolMatches).length;
-    if (numProgramMatches + numProgramTypeMatches + numSchoolMatches >= numSuggestions) {
+    const numProgramMatches = Object.keys(programMatches).length;
+    if (numProgramTypeMatches + numSchoolMatches + numProgramMatches >= numSuggestions) {
       return true;
     } else {
       return false;
@@ -81,19 +81,6 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
 
   // convert our hash maps of matches to a Suggestions object
   let suggestions: Suggestions = [];
-  if (Object.keys(programMatches).length !== 0) {
-    suggestions.push({
-      title: "Programs",
-      suggestions: Object.keys(programMatches).map( value => {
-        const match = programMatches[value];
-        return {
-          value: value,
-          matchStart: match.start,
-          matchEnd: match.end
-        }
-      })
-    })
-  }
   if (Object.keys(programTypeMatches).length !== 0) {
     suggestions.push({
       title: "Program Types",
@@ -119,6 +106,19 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
         }
       })
     });
+  }
+  if (Object.keys(programMatches).length !== 0) {
+    suggestions.push({
+      title: "Programs",
+      suggestions: Object.keys(programMatches).map( value => {
+        const match = programMatches[value];
+        return {
+          value: value,
+          matchStart: match.start,
+          matchEnd: match.end
+        }
+      })
+    })
   }
   return suggestions;
 };
