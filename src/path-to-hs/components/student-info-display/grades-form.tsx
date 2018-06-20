@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { Tooltip } from "react-tippy";
+import "react-tippy/dist/tippy.css";
 import { LetterGrade } from "shared/types";
 
 import "./grades-form.scss";
@@ -32,7 +34,13 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
       <h3>Grades and Attendance</h3>
 
       <div className="field fixed-width-small">
-        <label className="label is-small">Attendance Percentage</label>
+        <Tooltip
+          html={<span className="tooltip-text">Your attendance percentage measures how many days you attended school. If you missed 10 days of school in a normal school year, your attendance percentage would be around 94%.<br/>You can find your attendance percentage on your report card.</span>}
+          tabIndex={0}
+          arrow="true"
+        >
+          <label tabIndex={0} className="label is-small has-tooltip">Attendance Percentage</label>
+        </Tooltip>
         <div className="control">
 
           <input
@@ -161,7 +169,13 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
         </div>
 
         <div className="field fixed-width-small">
-          <label className="label is-small multiline">GPA</label>
+          <Tooltip
+            html={<span className="tooltip-text">A GPA (Grade Point Average) combines all of your grades together into one number. If all of your grades are 'A', you have a 4.0 GPA. If all of your grades are 'B's, you have a 3.0 GPA.</span>}
+            tabIndex={0}
+            arrow="true"
+          >
+            <label tabIndex={0} className="label is-small multiline has-tooltip">GPA</label>
+          </Tooltip>
           <div className="control gpa-display">
             <input 
               value={props.gpa === null ? "" : props.gpa.toFixed(2)}
@@ -170,7 +184,6 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
               className="input" 
               type="text" 
             />
-
           </div>
         </div>
 

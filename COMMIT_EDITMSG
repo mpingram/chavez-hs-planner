@@ -1,1 +1,4 @@
-Remove "I don't know" option from StudentDataFields
+Finish tooltips
+
+* add tooltip for GPA
+* write tooltip text for IEP/EL/GPA fields
