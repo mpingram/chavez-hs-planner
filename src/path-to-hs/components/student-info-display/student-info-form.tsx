@@ -75,7 +75,6 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
                     <option value="placeholder" disabled></option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
-                    <option value="unsure">I don't know</option>
                   </select>
 
                 </div>
@@ -105,7 +104,6 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
                     <option value="placeholder" disabled></option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
-                    <option value="unsure">I don't know</option>
                   </select>
 
                 </div>
@@ -128,7 +126,6 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
                     <option value="placeholder" disabled></option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
-                    <option value="no">I don't know</option>
                   </select>
 
                 </div>
