@@ -2,7 +2,6 @@ import { expect } from "chai";
 
 import {
   StudentData,
-  StudentLocation,
   Program
 } from "shared/types";
 

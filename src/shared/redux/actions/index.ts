@@ -8,7 +8,6 @@ import {
   LetterGrade,
   Program,
   ProgramOutcome,
-  StudentLocation
 } from "shared/types";
 
 import * as debounce from "lodash.debounce";
