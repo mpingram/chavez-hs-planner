@@ -27,8 +27,6 @@ export const programOutcomesAreDifferent = (a: ProgramOutcomeDictionary, b: Prog
         outcomeA.distance !== outcomeB.distance;
 
       if (propertiesDifferent) {
-        console.log(outcomeA);
-        console.log(outcomeB);
         return true;
       } else {
         return false;

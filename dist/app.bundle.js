@@ -28370,8 +28370,6 @@ exports.programOutcomesAreDifferent = (a, b) => {
                 outcomeA.overallChance !== outcomeB.overallChance ||
                 outcomeA.distance !== outcomeB.distance;
             if (propertiesDifferent) {
-                console.log(outcomeA);
-                console.log(outcomeB);
                 return true;
             }
             else {
