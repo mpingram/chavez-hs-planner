@@ -1,24 +1,29 @@
-import Gender from "shared/enums/gender";
-import GradeLevel from "shared/types/grade-level";
-import StudentLocation from "shared/types/student-location";
+import { Gender } from "shared/enums";
+import { 
+  LetterGrade,
+  GradeLevel, 
+  LatLong
+} from "shared/types";
 
-export default interface StudentData {
-    gender: Gender
-    location: StudentLocation
-    gradeLevel: number
-    prevGradeLevel: number
-    skippedGrade7OrRepeatedGrade8: boolean
-    currESProgramID: string
-    ell: boolean
-    iep: boolean
-    attendancePercentage: number
-    gpa: number
-    siblingHSProgramIDs: string[]
-    seTestPercentile: number
-    nweaPercentileMath: number
-    nweaPercentileRead: number
-    subjGradeMath: number 
-    subjGradeRead: number
-    subjGradeSci: number
-    subjGradeSocStudies: number
+export interface StudentData {
+    gender: Gender | null
+    address: string | null
+    tier: string | null
+    geo: LatLong | null
+    gradeLevel: number | null
+    prevGradeLevel: number | null
+    skippedGrade7OrRepeatedGrade8: boolean | null
+    currESProgramID: string | null
+    ell: boolean | null
+    iep: boolean | null
+    attendancePercentage: number | null
+    gpa: number | null
+    siblingHSSchoolIDs: string[] | null
+    seTestPercentile: number | null
+    nweaPercentileMath: number | null
+    nweaPercentileRead: number | null
+    subjGradeMath: LetterGrade | null
+    subjGradeRead: LetterGrade | null
+    subjGradeSci: LetterGrade | null
+    subjGradeSocStudies: LetterGrade | null
 }

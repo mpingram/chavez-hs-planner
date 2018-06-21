@@ -1,32 +1,26 @@
-import StudentData from "shared/types/student-data";
-import CPSProgram from "shared/types/cps-program";
-import SuccessChance from "shared/enums/success-chance";
+import {
+  AppData,
+  Program,
+  ProgramOutcome,
+  ProgramOutcomeDictionary,
+  StudentData, 
+  ProgramModalState
+} from "shared/types";
 
-import ImmutableMap from "shared/types/immutable-map";
+export interface AppState {
 
+  studentData: StudentData
 
-interface AppStateShape {
-  
-  studentData: ImmutableMap<StudentData>
+  programOutcomes: ProgramOutcomeDictionary
 
-  hsData: ImmutableMap<{
-    programs: CPSProgram[]
-    index: {[id: string]: number}
-    hsProgramIDs: string[]
-    esProgramIDs: string[]
-    hsProgramIDsByType: {[type: string]: string[]}
+  loadingStatus: {
+    loadingData: boolean
+    dataLoaded: boolean
+    loadingTier: boolean
+    tierLoaded: boolean
+  }
 
-    outcomes: {
-      [id: string]: {
-        application: SuccessChance
-        selection: SuccessChance
-      }
-    }
-  }>
+  data: AppData
 
-  // HS list
-  selectedHSProgramID: string | null
-}
-
-type AppState = ImmutableMap<AppStateShape>
-export default AppState;
+  programModalState: ProgramModalState  
+};

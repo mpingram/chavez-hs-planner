@@ -1,6 +1,11 @@
-enum ActionType {
+export enum ActionType {
+
+  /* student data */
   UpdateStudentGender,
-  UpdateStudentLocation,
+    //UpdateStudentLocation,
+  UpdateStudentAddress,
+  UpdateStudentTier,
+  UpdateStudentGeo,
 
   UpdateStudentGradeLevel,
   UpdateStudentPrevGradeLevel,
@@ -9,7 +14,7 @@ enum ActionType {
   UpdateStudentIEPStatus,
   UpdateStudentAttendPercentage,
   UpdateStudentCurrESProgram,
-  UpdateStudentSiblingHSPrograms,
+  UpdateStudentSiblingHSSchools,
 
   UpdateStudentNWEAPercentileMath,
   UpdateStudentNWEAPercentileRead,
@@ -21,7 +26,29 @@ enum ActionType {
 
   UpdateStudentSETestPercentile,
 
-  SelectHSProgram
-}
+  /* outcomes */
+  UpdateProgramOutcomes,
 
-export default ActionType;
+  /* ui state */
+  SelectHSProgram,
+  OpenProgramModal,
+  CloseProgramModal,
+
+  /* data loading */
+  LoadingData,
+  DataLoaded, 
+  LoadingTier,
+  TierLoaded,
+
+  /* data */
+  UpdateHSPrograms,
+  UpdateNonHSPrograms,
+  UpdateHSSchools,
+  UpdateHSProgramGroups,
+
+  UpdateSECutoffScores,
+  UpdateNonSECutoffScores,
+  UpdateTractTierTable,
+  UpdateProgramTypeIDTable,
+  UpdateSchoolAttendanceBoundaryTable
+}

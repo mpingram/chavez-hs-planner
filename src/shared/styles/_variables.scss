@@ -2,24 +2,32 @@ $border-radius-sm: 6px;
 $border-radius-med: 12px;
 $border-radius-lg: 20px;
 
-$col-app-neutral: #fafafd;
-$col-app-gray-light: #cacaca;
-$col-app-gray-dark: #6a6a6a;
-$col-app-gray: #9e9e9e;
-$col-app-1: #95e57a;
-$col-app-2: #dbdb74;
+$colo-valid-succcess: green;
+$colo-valid-warn: yellow;
+$colo-valid-fail: red;
 
-$col-succ-certain: #5bed2a;
-$col-succ-likely: #beee40;
-$col-succ-uncertain: #f0e100;
-$col-succ-unlikely: #f49600;
-$col-succ-none: #f4743b;
-$col-succ-not-implemented: #999;
+$col-app-base: #70C8FF;
+$col-app-accent: #AFFF84;
+//$col-app-neutral: #FCFEFF;
+$col-app-neutral: #fff;
+$col-app-info: blue;
+
+$col-app-gray-light: #EFEFF2;
+$col-app-gray: lighten(#9C9C9E, 10%);
+$col-app-gray-dark: #747475;
+
+$col-succ-certain: #01a18c;
+$col-succ-likely: #7076db;
+$col-succ-uncertain: #f7be00;
+$col-succ-unlikely: #ff7c00;
+$col-succ-none: #ff3e3a;
+$col-succ-notimplemented: darken(#3d383f, 5%);
 
 $text-black: #111;
 $text-dark-gray: #333;
 $text-gray: #666;
 $text-light-gray: #999;
+$text-white: #fefefe;
 
 $margin-xs: 5px;
 $margin-sm: 10px;

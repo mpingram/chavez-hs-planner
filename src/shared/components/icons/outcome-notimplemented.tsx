@@ -1,22 +1,76 @@
 import * as React from "react";
 
 import OutcomeIconProps from "./outcome-icon-props";
-import { OutcomeNotImplementedColor } from "shared/constants";
+
+import "./outcome-icon.scss";
+
+import { ICON_STROKE_WIDTH } from "./constants";
 
 const OutcomeNotImplementedIcon = (props: OutcomeIconProps) => {
   return (
-    <svg 
-      fill={props.color ? props.color : OutcomeNotImplementedColor} 
-      width={props.width} 
-      height={props.height}
-      viewBox="0 0 40 40" 
-      stroke="black"
-      strokeWidth="0.5"
-      xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(-8)">
-        <path d="M29.898 26.5722l-4.3921 0c-0.0118,-0.635 -0.0177,-1.0172 -0.0177,-1.1583 0,-1.4229 0.2352,-2.5929 0.7056,-3.5102 0.4704,-0.9231 1.417,-1.952 2.8281,-3.1044 1.4111,-1.1465 2.2578,-1.8991 2.5282,-2.2578 0.4292,-0.5585 0.6409,-1.1818 0.6409,-1.8579 0,-0.9408 -0.3763,-1.7463 -1.1289,-2.4224 -0.7526,-0.6703 -1.7639,-1.0054 -3.0397,-1.0054 -1.2289,0 -2.2578,0.3527 -3.0868,1.0524 -0.8232,0.6997 -1.3935,1.7698 -1.7051,3.2044l-4.4391 -0.5527c0.1234,-2.0578 0.9995,-3.8041 2.6223,-5.2387 1.6286,-1.4346 3.757,-2.152 6.4029,-2.152 2.7752,0 4.9859,0.7291 6.6322,2.1814 1.6404,1.4522 2.4635,3.1397 2.4635,5.0741 0,1.0642 -0.3057,2.0755 -0.9054,3.028 -0.6056,0.9525 -1.8933,2.2519 -3.8688,3.8923 -1.0231,0.8525 -1.6581,1.5346 -1.905,2.052 -0.2469,0.5174 -0.3587,1.4405 -0.3351,2.7752zm-4.3921 6.5087l0 -4.8389 4.8389 0 0 4.8389 -4.8389 0z"/>
-      </g>
-    </svg>
+    <svg
+      className={`outcome-icon outcome-notimplemented-icon ${props.invertedColors ? "inverted" : ""} ${props.disabled ? "disabled" : ""}`}
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+      viewBox="0 0 100 100"
+      height={props.size}
+      width={props.size}
+    >
+      <circle
+        className="bg"
+        r="48.511395"
+        cy="50"
+        cx="50"
+        opacity="1"
+        fill="none"
+        fillOpacity="1"
+        stroke="none"
+        strokeWidth="0.97720796"
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
+        strokeMiterlimit="1"
+        strokeDasharray="none"
+        strokeDashoffset="0"
+        strokeOpacity="1" 
+      />
+      <path
+        className="fg"
+        d="M 33.765549,33.564228 C 38.683574,27.023437 48.54118,24.354757 57.154627,27.232269 65.768074,30.109781 70.346272,37.633152 68.752862,45.252511 66.148911,57.704073 49.333904,58.58959 49.333904,58.58959 l 0.79441,11.302297"
+        color="#000000"
+        clipRule="nonzero"
+        display="inline"
+        overflow="visible"
+        visibility="visible"
+        opacity="1"
+        fill="none"
+        fillOpacity="1"
+        fillRule="evenodd"
+        stroke="#000000"
+        strokeWidth={ICON_STROKE_WIDTH}
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
+        strokeMiterlimit="4"
+        strokeDasharray="none"
+        strokeDashoffset="0"
+        strokeOpacity="1"
+        colorRendering="auto"
+        imageRendering="auto"
+        shapeRendering="auto"
+        textRendering="auto"
+        enableBackground="accumulate" 
+      />
+      <circle
+        className="fg fg-fill"
+        r="5.0912604"
+        cy="79.131348"
+        cx="50.087566"
+        fill="#000000"
+        stroke="none"
+        strokeWidth="1"
+        strokeMiterlimit="4"
+        strokeDasharray="none"
+      />
+  </svg>
   );
 };
 

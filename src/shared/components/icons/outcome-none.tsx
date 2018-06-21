@@ -1,19 +1,65 @@
 import * as React from "react";
 
 import OutcomeIconProps from "./outcome-icon-props";
-import { OutcomeNoneColor } from "shared/constants";
+
+import "./outcome-icon.scss";
+import { ICON_STROKE_WIDTH } from "./constants";
 
 const OutcomeNoneIcon = (props: OutcomeIconProps) => {
   return (
-    <svg 
-      fill={props.color ? props.color : OutcomeNoneColor} 
-      height={props.height} 
-      viewBox="0 0 24 24" 
-      stroke="black"
-      strokeWidth="0.5"
-      width={props.width} 
-      xmlns="http://www.w3.org/2000/svg">
-        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+    <svg
+      className={`outcome-icon outcome-none-icon ${props.invertedColors ? "inverted" : ""} ${props.disabled ? "disabled" : ""}`}
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+      viewBox="0 0 100 100"
+      height={props.size}
+      width={props.size}
+    >
+        <circle
+          className="bg"
+          r="48.511395"
+          cy="50"
+          cx="50"
+          opacity="1"
+          fill="none"
+          fillOpacity="1"
+          stroke="none"
+          strokeWidth="0.97720796"
+          strokeLinecap="butt"
+          strokeLinejoin="miter"
+          strokeMiterlimit="1"
+          strokeDasharray="none"
+          strokeDashoffset="0"
+          strokeOpacity="1" 
+        />
+        <path
+          className="fg"
+          d="M 25.251263,25.251263 74.748737,74.748737"
+          display="inline"
+          fill="none"
+          fillRule="evenodd"
+          stroke="#000000"
+          strokeWidth={ICON_STROKE_WIDTH}
+          strokeLinecap="round"
+          strokeLinejoin="miter"
+          strokeMiterlimit="4"
+          strokeDasharray="none"
+          strokeOpacity="1" 
+        />
+        <path
+          className="fg"
+          d="M 74.748737,25.251263 25.251263,74.748737"
+          display="inline"
+          fill="none"
+          fillRule="evenodd"
+          stroke="#000000"
+          strokeWidth={ICON_STROKE_WIDTH}
+          strokeLinecap="round"
+          strokeLinejoin="miter"
+          strokeMiterlimit="4"
+          strokeDasharray="none"
+          strokeOpacity="1" 
+        />
     </svg>
   );
 };

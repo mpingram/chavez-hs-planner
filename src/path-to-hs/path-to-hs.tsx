@@ -1,35 +1,34 @@
 import * as React from "react";
+import { store } from "shared/redux/store";
+import { closeProgramModal } from "shared/redux/actions";
 
-import Page from "shared/components/layout/page";
-import Box from "shared/components/layout/box";
-import StudentDataForm from "./components/student-info-display/student-data-form";
-import SuccessChanceKey from "./components/hs-display/success-chance-key";
+import { StudentInfoFormContainer } from "./components/student-info-display/student-info-form-container";
+import { GradesFormContainer } from "./components/student-info-display/grades-form-container";
 import HSProgramsContainer from "./components/hs-display/hs-programs-container";
+import { ProgramModalContainer } from "./components/program-modal-container";
 
-const PathToHS: React.SFC<any> = (props) => {
+import "./path-to-hs.scss";
+
+const App: React.SFC<any> = (props) => {
   return (
-    <Page>
-      <Box 
-        width="half" 
-        height="full" 
-        flex={{
-          flexDirection: "column", 
-          justifyContent: "center",
-          alignItems: "center"}}
-        responsiveBehavior={{mobile: "fullscreen"}}
-      >
-        <StudentDataForm/>
-      </Box>
-      <Box 
-        width="half" 
-        height="full" 
-        responsiveBehavior={{mobile: "fullscreen"}}
-      >
-        <SuccessChanceKey/>
-        <HSProgramsContainer/>
-      </Box>
-    </Page>
+    <div 
+      className="main-page"
+      onKeyUp={ ev => { 
+        if (ev.key === 'Escape') { 
+          store.dispatch(closeProgramModal()) 
+        }
+      }}
+    >
+      <div className="student-data-form-container">
+        <StudentInfoFormContainer />
+        <GradesFormContainer />
+      </div>
+      <div className="hs-programs-container">
+        <HSProgramsContainer />
+      </div>
+      <ProgramModalContainer />
+    </div>
   );
 };
 
-export default PathToHS;
+export default App;

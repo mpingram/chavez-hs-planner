@@ -1,0 +1,23 @@
+{
+  "name": "chavez-hs-planner-config",
+  "version": "0.1.0",
+  "description": "Config system for Chavez HS Planner website.",
+  "main": " ",
+  "scripts": {
+    "test": "mocha \"build-scripts/**/*.spec.js\"",
+    "build": "./build-scripts/main.js"
+  },
+  "author": "Michael Ingram",
+  "license": "",
+  "homepage": "https://github.com/mpingram/path-to-hs#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "chai": "^4.1.2",
+    "csv-parse": "^2.2.0",
+    "geojson-precision": "^0.4.0",
+    "geolib": "^2.0.24",
+    "jsonschema": "^1.2.4",
+    "mocha": "^5.2.0",
+    "sinon": "^4.0.1"
+  }
+}

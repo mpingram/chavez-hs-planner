@@ -1,79 +1,47 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { List, Map } from "immutable";
 import { createSelector } from "reselect";
 
-import AppState from "shared/types/app-state";
-import CPSProgram from "shared/types/cps-program";
-import HSProgram from "shared/types/hs-program";
-import SuccessChance from "shared/enums/success-chance";
+import { 
+  AppState,
+  Program,
+  ProgramOutcome,
+  ProgramGroup
+} from "shared/types";
+
+import { openProgramModal } from "shared/redux/actions";
+
+import { SuccessChance } from "shared/enums";
 
 import HSProgramList from "./hs-program-list";
 
-import { selectHSProgram } from "shared/actions";
-
-
-type Outcomes = Map<string, Map<string, SuccessChance>>;
-const getPrograms = (state: AppState): List<CPSProgram> => state.getIn(['hsData', 'programs']);
-const getProgramIndex = (state: AppState): {[id: string]: number} => state.getIn(['hsData', 'index']);
-const getHSProgramIDsByType = (state: AppState): Map<string, Map<string, any>> => state.getIn(['hsData', 'hsProgramIDsByType']);
-const getOutcomes = (state: AppState): Outcomes => state.getIn(['hsData', 'outcomes']);
-
-const toHSPrograms = (cpsPrograms: CPSProgram[], outcomes: Outcomes): HSProgram[] => {
-  return cpsPrograms.map( cpsProgram => {
-    return {
-      id: cpsProgram.ID,
-      longname: cpsProgram.Long_Name,
-      shortname: cpsProgram.Short_Name,
-      programType: cpsProgram.Program_Type,
-
-      applicationReqDescription: cpsProgram.Application_Requirements,
-      applicationOutcome: outcomes.getIn([cpsProgram.ID, 'application']),
-      selectionReqDescription: cpsProgram.Program_Selections,
-      selectionOutcome: outcomes.getIn([cpsProgram.ID, 'selection']),
-      
-      cpsLink: cpsProgram.CPS_School_Profile,
-      schoolPageLink: cpsProgram.Website,
-      hsBoundLink: ""
-    }
-  });
-};
-
-const selectPrograms = (ids, allPrograms, index): CPSProgram[] => {
-  let selectedPrograms = [];
-  ids.forEach( id => {
-    // use index to find cps program corresponding to id
-    const i = index.get(id);
-    const program = allPrograms.get(i);
-    selectedPrograms.push(program);
-  });
-  return selectedPrograms;
-};
-
-const selectHSProgramsByType = createSelector(
-  [getHSProgramIDsByType, getPrograms, getProgramIndex, getOutcomes],
-  (idsByType, allPrograms, index, outcomes) => {
-    let hsProgramsByType = {}; 
-    idsByType.forEach( (ids, programType)=> {
-      const cpsPrograms: CPSProgram[] = selectPrograms(ids, allPrograms, index);
-      const hsPrograms = toHSPrograms(cpsPrograms, outcomes);
-      // TODO sort hsPrograms on outcome
-      hsProgramsByType[programType] = hsPrograms;
-    });
-    return hsProgramsByType;
+const getProgramGroupDict = (state: AppState) => state.data.hsProgramGroups;
+const selectProgramGroups = createSelector(
+  [getProgramGroupDict],
+  (programGroupDict): ProgramGroup[] => {
+    // convert dictionary of program groups to an
+    // array of program groups alphabetically sorted by program
+    // group display name.
+    const programGroups: ProgramGroup[] = Object.keys(programGroupDict).map( groupID => programGroupDict[groupID] );
+    return programGroups.sort( (groupA, groupB) => groupA.name.localeCompare(groupB.name) );
   }
 );
 
+const getProgramDict = (state: AppState) => state.data.hsPrograms;
+
 const mapStateToProps = (state: AppState) => {
   return {
-    hsProgramsByType: selectHSProgramsByType(state),
-    selectedProgramID: state.get('selectedHSProgramID')
+    programs: state.data.hsPrograms,
+    outcomes: state.programOutcomes, 
+    programGroups: selectProgramGroups(state),
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSelectedProgramIDChange: (newID: string) => dispatch(selectHSProgram(newID))
+    onSelectedProgramChange: (program: Program, outcome: ProgramOutcome | undefined) => {
+      dispatch(openProgramModal(program, outcome))
+    }
   }
 };
 
