@@ -12,7 +12,7 @@ import { ifInProximity } from "shared/requirement-functions/requirement-function
 
 describe("ifInProximity hsReqFilter", () => {
 
-  let s; //: StudentData
+  let s: StudentData;
   let p: Program;
   beforeEach( () => {
     s = {
@@ -47,7 +47,7 @@ describe("ifInProximity hsReqFilter", () => {
     const distance = CPS_PROXIMITY_LOTTERY_RADIUS_METERS - DISTANCE_OFFSET;
     const bearing = 0;
     const destination_geo = computeDestinationPoint(p.schoolLocation, distance, 0);
-    s.location.geo = {
+    s.geo = {
       latitude: destination_geo.latitude,
       longitude: destination_geo.longitude 
     };
@@ -69,34 +69,13 @@ describe("ifInProximity hsReqFilter", () => {
     const distance = CPS_PROXIMITY_LOTTERY_RADIUS_METERS + DISTANCE_OFFSET; 
     const bearing = 0;
     const destination_geo = computeDestinationPoint(p.schoolLocation, distance, 0);
-    s.location.geo = {
+    s.geo = {
       latitude: destination_geo.latitude,
       longitude: destination_geo.longitude 
     };
 
     // student should not be within proximity
     expect(ifInProximity(s, p)).to.eq(false);
-  });
-
-  it("should return false when passed a student with an undefined or uninitialized location property", () => {
-    it("should return false if passed a student with an uninitialized location property", () => {
-      // KENWOOD HS
-      p.schoolID = "609746";
-      p.schoolLocation = {
-        latitude: 41.803772,
-        longitude: -87.590421
-      }
-
-      s.location = null;
-      expect(ifInProximity(s,p)).to.equal(false);
-
-      //s.location = {address: "", tier: "", geo: undefined};
-      //expect(ifInProximity(s,p)).to.equal(false);
-
-      //s.location = {address: "", tier: "", geo: {latitude: null, longitude: null}}
-      //expect(ifInProximity(s,p)).to.equal(false);
-    });
-
   });
 
 });

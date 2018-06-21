@@ -1,9 +1,3 @@
-Support multiple word search queries
+Update requirement function builder tests
 
-* NOTE previous behavior -- single word searches work,
-  multiple word searches do not. This is caused by search
-  suggestion algorithm splitting up search strings into words
-  before matching them.
-
-* Change search suggestion algorithm to check for matches at
-  beginning of word boundaries
+* Changes in StudentData type had not been updated in tests
