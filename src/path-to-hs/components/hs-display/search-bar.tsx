@@ -29,15 +29,27 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
 
     let start = 0;
     let end = 0;
-    const doesMatch = s.split(" ").some( word => {
-      if (isLeftSubstring(q, word)) {
-        start = s.indexOf(word);
-        end = start + q.length;
-        return true;
-      } else {
-        return false;
+
+    // at the start of each word boundary in s, check for a match
+    const doesMatch = s.split('').some( (char, i) => {
+      if (i === 0) {
+        if (isLeftSubstring(q, s)) {
+          start = i;
+          end = start + q.length;
+          return true;
+        }
       }
+      if (char === " ") {
+        const rightString = s.slice(i + 1);
+        if (isLeftSubstring(q, rightString)) {
+          start = i + 1;
+          end = start + q.length;
+          return true;
+        }
+      }
+      return false;
     });
+
     return {doesMatch, start, end};
   };
 

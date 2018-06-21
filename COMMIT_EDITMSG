@@ -1,4 +1,9 @@
-Finish tooltips
+Support multiple word search queries
 
-* add tooltip for GPA
-* write tooltip text for IEP/EL/GPA fields
+* NOTE previous behavior -- single word searches work,
+  multiple word searches do not. This is caused by search
+  suggestion algorithm splitting up search strings into words
+  before matching them.
+
+* Change search suggestion algorithm to check for matches at
+  beginning of word boundaries
