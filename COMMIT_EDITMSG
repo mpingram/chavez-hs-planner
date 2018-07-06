@@ -1,1 +1,4 @@
-Remove console logging statements
+Fix styling issue in ProgramCard 
+
+* NOTE Program name under progam card did not display
+  underline style due to short line-height.
