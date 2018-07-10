@@ -15,7 +15,7 @@
     "create-empty-requirement-functions": "",
     "build-config": "node ./config/build-scripts/main.js",
     "test-config": "karma start ./config/build-scripts/karma.conf.js",
-    "aws-sync:production": "aws s3 sync dist/ s3://chavez-hs-planner.com",
+    "aws-sync:production": "aws s3 sync dist/ s3://chavez-hs-planner.com --acl public-read",
     "aws-sync:dev": "aws s3 sync dist/ s3://path-to-hs-dev"
   },
   "repository": {
