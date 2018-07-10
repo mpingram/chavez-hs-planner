@@ -1,5 +1,9 @@
-Add versioning to data in config/ folder
+Remove program type IDs, extra folders from config data
 
-* NOTE versioning system is sy<schoolyear>-v<date>, ie sy1718-v06.01
-* NOTE versioning system chosen under assumption that data should change
-  roughly every school year, but with inter-year variations.
+* NOTE Having to work with program type ID system again when updating
+  data, I decided that it was too complex and failure-prone for the
+  limited benefit (correcting the spellings of program types),
+  especially if we're going to be grouping the programs by school in the
+  future.
+
+* Added a spelling correcter to build-program-data build script
