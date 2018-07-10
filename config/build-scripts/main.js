@@ -30,7 +30,36 @@ const PROGRAM_CATEGORY_HS = "HS";
 
 // Raw data filepaths
 // ------------------
-const srcDir = path.resolve(__dirname, "..", "raw-data");
+/**
+ * Subfolders in rawDataParentDir are different versions of the raw data
+ * folder by date. Subfolders are named in ISO8601 date format, eg 2017-01-01.
+ * */
+const rawDataParentDir = path.resolve(__dirname, "..", "raw-data");
+// find the most recent version of the data
+const subfolders = fs.readdirSync(rawDataParentDir);
+let mostRecentVersion;
+for (let i = 0; i < subfolders.length; i++) {
+  const subfolderName = subfolders[i];
+  // try and parse this subfolder's name as a date
+  const subfolderDate = Date.parse(subfolderName);
+  if (subfolderDate) {
+    if (mostRecentVersion === undefined) {
+      mostRecentVersion = subfolderName;
+    } else {
+      const mostRecentDate = Date.parse(mostRecentVersion);
+      const isMoreRecent = mostRecentDate - subfolderDate < 0;
+      if (isMoreRecent) {
+        mostRecentVersion = subfolderName;
+      }
+    }
+  }
+}
+if (!mostRecentVersion) {
+  throw new Error(`No versioned data folders found in ${rawDataParentDir}.\nSubfolders of this directory should be named in ISO8601 date format, ie 2017-01-01.`);
+}
+const srcDir = path.resolve(rawDataParentDir, mostRecentVersion);
+console.log(srcDir);
+
 const INPUT_FILEPATH_RAW_PROGRAM_DATA = path.join(srcDir, "raw-program-data", "Chicago_Public_Schools_-_School_Admissions_Information_SY1617.csv");
 //const INPUT_FILEPATH_RAW_ES_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "es-attendance-boundaries", "Chicago Public Schools - Elementary School Attendance Boundaries SY1718.geojson");
 const INPUT_FILEPATH_RAW_HS_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "hs-attendance-boundaries", "Chicago Public Schools - High School Attendance Boundaries SY1718.geojson");
@@ -42,6 +71,7 @@ const INPUT_FILEPATH_PROGRAM_TYPE_IDS = path.join(srcDir, "program-type-ids", "p
 // Processed data filepaths
 // ------------------
 const destDir = path.resolve(__dirname, "..", "..", "dist", "data");
+
 const OUTPUT_FILEPATH_ATTENDANCE_BOUND_GEOMETRIES = path.join(destDir, "school-attendance-boundary-table.json");
 const OUTPUT_FILEPATH_TRACT_TIER_TABLE = path.join(destDir, "tract-tier-table.json");
 const OUTPUT_FILEPATH_SE_CUTOFF_SCORES = path.join(destDir, "se-cutoff-scores.json");

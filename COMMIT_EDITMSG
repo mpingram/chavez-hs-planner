@@ -1,1 +1,5 @@
-Remove console logging statements
+Add versioning to data in config/ folder
+
+* NOTE versioning system is sy<schoolyear>-v<date>, ie sy1718-v06.01
+* NOTE versioning system chosen under assumption that data should change
+  roughly every school year, but with inter-year variations.
