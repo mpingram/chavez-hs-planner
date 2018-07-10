@@ -28216,8 +28216,7 @@ var ActionType;
     ActionType[ActionType["UpdateSECutoffScores"] = 31] = "UpdateSECutoffScores";
     ActionType[ActionType["UpdateNonSECutoffScores"] = 32] = "UpdateNonSECutoffScores";
     ActionType[ActionType["UpdateTractTierTable"] = 33] = "UpdateTractTierTable";
-    ActionType[ActionType["UpdateProgramTypeIDTable"] = 34] = "UpdateProgramTypeIDTable";
-    ActionType[ActionType["UpdateSchoolAttendanceBoundaryTable"] = 35] = "UpdateSchoolAttendanceBoundaryTable";
+    ActionType[ActionType["UpdateSchoolAttendanceBoundaryTable"] = 34] = "UpdateSchoolAttendanceBoundaryTable";
 })(ActionType = exports.ActionType || (exports.ActionType = {}));
 
 
@@ -28323,24 +28322,21 @@ exports.getOverallSuccessChance = (opts) => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createProgramGroupDictionary = (hsPrograms, programTypeIDTable) => {
+exports.createProgramGroupDictionary = (hsPrograms) => {
     let programGroups = {};
     Object.keys(hsPrograms).forEach(programID => {
         const program = hsPrograms[programID];
-        const programTypeID = program.programTypeID;
-        if (programGroups[programTypeID] === undefined) {
-            const programTypeName = programTypeIDTable[programTypeID] !== undefined
-                ? programTypeIDTable[programTypeID]
-                : program.programType;
+        const programType = program.programType;
+        if (programGroups[programType] === undefined) {
             const newProgramGroup = {
-                id: programTypeID,
-                name: programTypeName,
+                id: programType,
+                name: programType,
                 programIDs: [program.id]
             };
-            programGroups[programTypeID] = newProgramGroup;
+            programGroups[programType] = newProgramGroup;
         }
         else {
-            programGroups[programTypeID].programIDs.push(program.id);
+            programGroups[programType].programIDs.push(program.id);
         }
     });
     return programGroups;
@@ -28575,8 +28571,6 @@ exports.dataReducer = (appData = initial_state_1.initialData, action) => {
             return Object.assign({}, appData, { seCutoffScores: action.payload });
         case enums_1.ActionType.UpdateNonSECutoffScores:
             return Object.assign({}, appData, { nonSECutoffScores: action.payload });
-        case enums_1.ActionType.UpdateProgramTypeIDTable:
-            return Object.assign({}, appData, { programTypeIDTable: action.payload });
         case enums_1.ActionType.UpdateSchoolAttendanceBoundaryTable:
             return Object.assign({}, appData, { schoolAttendanceBoundaryTable: action.payload });
         case enums_1.ActionType.UpdateTractTierTable:
@@ -29337,19 +29331,6 @@ exports.loadNonSECutoffScores = () => {
         });
     };
 };
-exports.updateProgramTypeIDTable = (data) => {
-    return {
-        type: enums_1.ActionType.UpdateProgramTypeIDTable,
-        payload: data
-    };
-};
-exports.loadProgramTypeIDTable = () => {
-    return (dispatch) => {
-        return fetchJSONFrom(constants_1.PROGRAM_TYPE_ID_TABLE_URL).then(json => {
-            dispatch(exports.updateProgramTypeIDTable(json));
-        });
-    };
-};
 exports.updateSchoolAttendanceBoundaryTable = (data) => {
     return {
         type: enums_1.ActionType.UpdateSchoolAttendanceBoundaryTable,
@@ -29386,10 +29367,10 @@ exports.dataLoaded = () => {
         type: enums_1.ActionType.DataLoaded
     };
 };
-exports.updateProgramGroups = (hsPrograms, programTypeIDTable) => {
+exports.updateProgramGroups = (hsPrograms) => {
     return {
         type: enums_1.ActionType.UpdateHSProgramGroups,
-        payload: utils_1.createProgramGroupDictionary(hsPrograms, programTypeIDTable)
+        payload: utils_1.createProgramGroupDictionary(hsPrograms)
     };
 };
 const createHSSchools = (hsPrograms) => {
@@ -29415,14 +29396,13 @@ exports.loadAllData = () => {
             dispatch(exports.loadNonHSPrograms()),
             dispatch(exports.loadSECutoffScores()),
             dispatch(exports.loadNonSECutoffScores()),
-            dispatch(exports.loadProgramTypeIDTable()),
             dispatch(exports.loadSchoolAttendanceBoundaryTable()),
             dispatch(exports.loadTractTierTable()),
         ]).then(results => {
             dispatch(exports.dataLoaded());
             const state = getState();
             dispatch(exports.updateHSSchools(state.data.hsPrograms));
-            dispatch(exports.updateProgramGroups(state.data.hsPrograms, state.data.programTypeIDTable));
+            dispatch(exports.updateProgramGroups(state.data.hsPrograms));
             dispatch(update_program_outcomes_1.updateProgramOutcomes(state.studentData, state.data.hsPrograms));
         });
     };

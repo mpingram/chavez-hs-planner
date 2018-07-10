@@ -3,7 +3,6 @@ import {
   ProgramDictionary,
   ProgramGroupDictionary,
   ProgramOutcome,
-  ProgramTypeIDTable,
   SchoolDictionary,
   TieredCutoffScores
 } from "shared/types";
@@ -16,7 +15,6 @@ export interface AppData {
 
     seCutoffScores: {[programID: string]: TieredCutoffScores}
     nonSECutoffScores: {[programID: string]: CutoffScores}
-    programTypeIDTable: ProgramTypeIDTable
     schoolAttendanceBoundaryTable: {[schoolID: string]: Array<[number, number]>}
     tractTierTable: {[tract: string]: string}
 };
