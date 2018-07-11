@@ -23,6 +23,7 @@ interface LotteryStage {
   size: LotteryStageSize
 }
 
+
 export const PROXIMITY_LOTTERY_STAGE = {
   // TODO confirm that this is how this works
   filter: ifInProximity,
@@ -35,6 +36,16 @@ export const SIBLING_LOTTERY_STAGE = {
 };
 
 export const GENERAL_LOTTERY_STAGE = {
+  filter: everyone,
+  size: LotteryStageSize.LARGE
+};
+
+// We're treating tiered lottery stage (where even numbers of applicants are
+// accepted by tier) like general lottery stages (where applicants are 
+// accepted purely randomly). Because we don't have any way of saying
+// how likely students are to get in in tiered vs general lotteries,
+// this is OK.
+export const TIER_LOTTERY_STAGE = {
   filter: everyone,
   size: LotteryStageSize.LARGE
 };

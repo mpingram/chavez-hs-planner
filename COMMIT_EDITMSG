@@ -1,8 +1,1 @@
-Only check for missing/unused req fns in development
-
-* NOTE whenever I touch webpack it's like a witch's curse that
-  steals 2hrs of my time digging through stackoverflow.
-  ** For some reason, webpack's DefinePlugin wasn't replacing
-  compile-time constants like it should have been. I still have no
-  idea why, but I was able to get around it by using the (undocumented?)
-  --define flag to do the compile time replacement in the npm script.
+Include program names in missing req fn template
