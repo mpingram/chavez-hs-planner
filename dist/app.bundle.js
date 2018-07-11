@@ -28026,26 +28026,38 @@ exports.rootReducer = (state = initial_state_1.initialState, action) => {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createHSProgramDictionary = (rawProgramData, requirementFunctions) => {
     let programDictionary = {};
-    let missingReqFns = {};
-    let orphanedReqFns = [];
-    rawProgramData.forEach(rawProgram => {
-        const applicationReqFn = requirementFunctions[rawProgram.applicationReqFnID];
-        const selectionReqFn = requirementFunctions[rawProgram.selectionReqFnID];
+    let missing = {};
+    let unused = [];
+    rawProgramData.forEach(p => {
+        const applicationReqFn = requirementFunctions[p.applicationReqFnID];
+        const selectionReqFn = requirementFunctions[p.selectionReqFnID];
         if (applicationReqFn === undefined) {
-            missingReqFns[rawProgram.applicationReqFnID] = {
-                id: rawProgram.applicationReqFnID,
-                desc: rawProgram.applicationReqDescription,
-                fn: ''
-            };
+            if (missing[p.applicationReqFnID] === undefined) {
+                missing[p.applicationReqFnID] = {
+                    id: p.applicationReqFnID,
+                    programs: [p.programName],
+                    desc: p.applicationReqDescription,
+                    fn: ''
+                };
+            }
+            else {
+                missing[p.applicationReqFnID].programs.push(p.programName);
+            }
         }
         if (selectionReqFn === undefined) {
-            missingReqFns[rawProgram.selectionReqFnID] = {
-                id: rawProgram.selectionReqFnID,
-                desc: rawProgram.selectionReqDescription,
-                fn: ''
-            };
+            if (missing[p.selectionReqFnID] === undefined) {
+                missing[p.selectionReqFnID] = {
+                    id: p.selectionReqFnID,
+                    programs: [p.programName],
+                    desc: p.selectionReqDescription,
+                    fn: ''
+                };
+            }
+            else {
+                missing[p.selectionReqFnID].programs.push(p.programName);
+            }
         }
-        const program = Object.assign({}, rawProgram, {
+        const program = Object.assign({}, p, {
             applicationReqFnID: undefined,
             selectionReqFnID: undefined,
             applicationReqFn: applicationReqFn,
@@ -28054,24 +28066,23 @@ exports.createHSProgramDictionary = (rawProgramData, requirementFunctions) => {
         programDictionary[program.id] = program;
     });
     if (true) {
-        console.log("executing");
         const reqFnIDs = Object.keys(requirementFunctions);
         reqFnIDs.forEach(id => {
             const isOrphaned = !rawProgramData.some(program => program.applicationReqFnID === id || program.selectionReqFnID === id);
             if (isOrphaned) {
-                orphanedReqFns.push(id);
+                unused.push(id);
             }
         });
-        if (orphanedReqFns.length > 0) {
-            console.warn(`There are ${orphanedReqFns.length} unused requirement functions.\n\nYou can safely remove them from the list of requirement functions in src/shared/requirement-functions/requirement-functions.ts. The IDs of the unused requirement functions are printed below:`);
+        if (unused.length > 0) {
+            console.warn(`There are ${unused.length} unused requirement functions.\n\nYou can safely remove them from the list of requirement functions in src/shared/requirement-functions/requirement-functions.ts. The IDs of the unused requirement functions are printed below:`);
             console.log("Orphaned:");
-            console.log(JSON.stringify(orphanedReqFns, null, 2));
+            console.log(JSON.stringify(unused, null, 2));
         }
-        const numMissingReqFns = Object.keys(missingReqFns).length;
+        const numMissingReqFns = Object.keys(missing).length;
         if (numMissingReqFns > 0) {
             console.error(`There are ${numMissingReqFns} MISSING requirement functions.\n\nYou must write new implementations for these requirement functions in src/shared/requirement-functions/requirement-functions.ts. A template for the missing requirement functions is printed below.`);
             console.log("Missing:");
-            console.log(JSON.stringify(missingReqFns, null, 2));
+            console.log(JSON.stringify(missing, null, 2));
         }
     }
     return programDictionary;
