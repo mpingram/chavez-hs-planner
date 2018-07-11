@@ -28107,7 +28107,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createHSProgramDictionary = (rawProgramData, requirementFunctions) => {
     let programDictionary = {};
     let missingReqFns = {};
-    let orphanedReqFns = {};
+    let orphanedReqFns = [];
     rawProgramData.forEach(rawProgram => {
         const applicationReqFn = requirementFunctions[rawProgram.applicationReqFnID];
         const selectionReqFn = requirementFunctions[rawProgram.selectionReqFnID];
@@ -28133,9 +28133,21 @@ exports.createHSProgramDictionary = (rawProgramData, requirementFunctions) => {
         });
         programDictionary[program.id] = program;
     });
+    const reqFnIDs = Object.keys(requirementFunctions);
+    reqFnIDs.forEach(id => {
+        const isOrphaned = !rawProgramData.some(program => program.applicationReqFnID === id || program.selectionReqFnID === id);
+        if (isOrphaned) {
+            orphanedReqFns.push(id);
+        }
+    });
+    if (orphanedReqFns.length > 0) {
+        console.warn(`There are ${orphanedReqFns.length} unused requirement functions.\n\nYou can safely remove them from the list of requirement functions in src/shared/requirement-functions/requirement-functions.ts. The IDs of the unused requirement functions are printed below:`);
+        console.log("Orphaned:");
+        console.log(JSON.stringify(orphanedReqFns, null, 2));
+    }
     const numMissingReqFns = Object.keys(missingReqFns).length;
     if (numMissingReqFns > 0) {
-        console.error(`Missing ${numMissingReqFns} requirement functions.`);
+        console.error(`There are ${numMissingReqFns} MISSING requirement functions.\n\nYou must write new implementations for these requirement functions in src/shared/requirement-functions/requirement-functions.ts. A template for the missing requirement functions is printed below.`);
         console.log("Missing:");
         console.log(JSON.stringify(missingReqFns, null, 2));
     }
