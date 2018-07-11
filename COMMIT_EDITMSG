@@ -1,1 +1,8 @@
-Remove program type ids from app code
+List missing req fns at runtime
+
+* NOTE originally tried listing req fns using a npm script or
+  something in that vein, but compiling req fns separately from
+  the whole app was super complex. Decided to keep it simple,
+  if less elegant, and put the missing requirement function
+  check in the application logic, in the reducer util that creates
+  Program elements.

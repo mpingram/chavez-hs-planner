@@ -23,3 +23,4 @@ export * from "./se-cutoff-dictionary";
 export * from "./requirement-function-dictionary";
 export * from "./program-modal-state";
 export * from "./outcome-counts";
+export * from "./raw-program";

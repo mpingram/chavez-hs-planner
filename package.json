@@ -13,7 +13,6 @@
     "start": "npm run move-index && concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
     "start:windows": "concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s dist --files dist \"",
     "update-program-data": "",
-    "diff-requirement-functions": "./build-scripts/diff-req-fns.js --req-fns xxx --program-data xxx",
     "create-empty-requirement-functions": "",
     "aws-sync:production": "aws s3 sync dist/ s3://chavez-hs-planner.com",
     "aws-sync:dev": "aws s3 sync dist/ s3://path-to-hs-dev"

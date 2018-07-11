@@ -28106,11 +28106,24 @@ exports.rootReducer = (state = initial_state_1.initialState, action) => {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createHSProgramDictionary = (rawProgramData, requirementFunctions) => {
     let programDictionary = {};
+    let missingReqFns = {};
+    let orphanedReqFns = {};
     rawProgramData.forEach(rawProgram => {
         const applicationReqFn = requirementFunctions[rawProgram.applicationReqFnID];
         const selectionReqFn = requirementFunctions[rawProgram.selectionReqFnID];
-        if (applicationReqFn === undefined || selectionReqFn === undefined) {
-            throw new Error(`Cannot find requirement functions for program ${rawProgram.programName}`);
+        if (applicationReqFn === undefined) {
+            missingReqFns[rawProgram.applicationReqFnID] = {
+                id: rawProgram.applicationReqFnID,
+                desc: rawProgram.applicationReqDescription,
+                fn: ''
+            };
+        }
+        if (selectionReqFn === undefined) {
+            missingReqFns[rawProgram.selectionReqFnID] = {
+                id: rawProgram.selectionReqFnID,
+                desc: rawProgram.selectionReqDescription,
+                fn: ''
+            };
         }
         const program = Object.assign({}, rawProgram, {
             applicationReqFnID: undefined,
@@ -28120,6 +28133,12 @@ exports.createHSProgramDictionary = (rawProgramData, requirementFunctions) => {
         });
         programDictionary[program.id] = program;
     });
+    const numMissingReqFns = Object.keys(missingReqFns).length;
+    if (numMissingReqFns > 0) {
+        console.error(`Missing ${numMissingReqFns} requirement functions.`);
+        console.log("Missing:");
+        console.log(JSON.stringify(missingReqFns, null, 2));
+    }
     return programDictionary;
 };
 
