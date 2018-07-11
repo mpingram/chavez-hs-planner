@@ -10,7 +10,7 @@
     "build-config": "node ./config/build-scripts/main.js",
     "test-config": "karma start ./config/build-scripts/karma.conf.js",
 
-    "start": "npm run move-index && concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
+    "start": "npm run move-index && concurrently \"webpack --define process.env.NODE_ENV='\\\"development\\\"' --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
     "start:windows": "concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s dist --files dist \"",
     "update-program-data": "",
     "create-empty-requirement-functions": "",

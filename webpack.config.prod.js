@@ -19,7 +19,7 @@ const config = {
       new TsConfigPathsPlugin(path.resolve(__dirname, "tsconfig.js")),
       //new webpack.optimize.UglifyJsPlugin(),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production')
+        'process.env.NODE_ENV': JSON.stringify('production'),
       })
     ],
   },
