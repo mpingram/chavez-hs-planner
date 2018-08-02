@@ -77,17 +77,17 @@ const additionalRequirements = [
       <p><b>If you haven't taken the Selective Enrollment test yet,</b> use this to set a target score for yourself.</p>
     </div>,
     programIDs: [
-      "609726-3", 
-      "609755-3", 
-      "609749-3",
-      "610547-3",
-      "609693-3",
-      "609720-3",
-      "609694-3",
-      "610391-3",
-      "609751-3",
-      "609680-3",
-      "609678-3",
+      "609726-Selective Enrollment High School", 
+      "609755-Selective Enrollment High School", 
+      "609749-Selective Enrollment High School",
+      "610547-Selective Enrollment High School",
+      "609693-Selective Enrollment High School",
+      "609720-Selective Enrollment High School",
+      "609694-Selective Enrollment High School",
+      "610391-Selective Enrollment High School",
+      "609751-Selective Enrollment High School",
+      "609680-Selective Enrollment High School",
+      "609678-Selective Enrollment High School",
     ]
   }
 ];

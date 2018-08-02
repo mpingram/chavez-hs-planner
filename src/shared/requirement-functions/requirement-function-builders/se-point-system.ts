@@ -63,7 +63,8 @@ const createSELookup = (getCutoffDict: () => SECutoffDictionary) => (student: St
   // good assumption.
   const cutoff = getCutoffDict()[program.id];
   if (cutoff === undefined) {
-    return null;
+    throw new Error(`Failed to find cutoff scores for ${program.programName}`);
+    //return null;
   }
   if (student.tier === null) {
     return null;
@@ -103,7 +104,9 @@ export const createSEPointSystem = (getCutoffDict: () => SECutoffDictionary): Re
     
     const points = sePointCalc(student, program);
     const prevScores= seLookup(student, program);
+    
     if (prevScores === null) {
+      console.error(`Failed to find cutoff scores for ${program.programName}`);
       return SuccessChance.NOTIMPLEMENTED;
     }
 
