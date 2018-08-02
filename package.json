@@ -6,12 +6,13 @@
   "scripts": {
     "test": "karma start karma.conf.js",
     "move-index": "cp src/index.html dist/index.html",
-    "build": "npm run build-site && npm run build-config",
     "build-site": "npm run move-index && webpack -p --config webpack.config.prod.js",
-    "start": "npm run move-index && concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
+    "build-config": "node ./config/build-scripts/main.js",
+    "test-config": "karma start ./config/build-scripts/karma.conf.js",
+
+    "start": "npm run move-index && concurrently \"webpack --define process.env.NODE_ENV='\\\"development\\\"' --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
     "start:windows": "concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s dist --files dist \"",
     "update-program-data": "",
-    "diff-requirement-functions": "./build-scripts/diff-req-fns.js --req-fns xxx --program-data xxx",
     "create-empty-requirement-functions": "",
     "build-config": "node ./config/build-scripts/main.js",
     "test-config": "karma start ./config/build-scripts/karma.conf.js",

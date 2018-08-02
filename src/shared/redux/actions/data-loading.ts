@@ -1,7 +1,6 @@
 import { 
   AppState,
   ProgramDictionary,
-  ProgramTypeIDTable,
   RequirementFunctionDictionary,
   SchoolDictionary
 } from "shared/types";
@@ -104,20 +103,6 @@ export const loadNonSECutoffScores = () => {
   }
 };
 
-export const updateProgramTypeIDTable = (data) => {
-  return {
-    type: ActionType.UpdateProgramTypeIDTable,
-    payload: data
-  }
-};
-export const loadProgramTypeIDTable = () => {
-  return (dispatch) => {
-    return fetchJSONFrom(PROGRAM_TYPE_ID_TABLE_URL).then( json => {
-      dispatch( updateProgramTypeIDTable(json) );
-    });
-  }
-};
-
 export const updateSchoolAttendanceBoundaryTable = (data) => {
   return {
     type: ActionType.UpdateSchoolAttendanceBoundaryTable,
@@ -157,10 +142,10 @@ export const dataLoaded = () => {
   }
 };
 
-export const updateProgramGroups = (hsPrograms: ProgramDictionary, programTypeIDTable: ProgramTypeIDTable) => {
+export const updateProgramGroups = (hsPrograms: ProgramDictionary) => {
   return {
     type: ActionType.UpdateHSProgramGroups,
-    payload: createProgramGroupDictionary(hsPrograms, programTypeIDTable)
+    payload: createProgramGroupDictionary(hsPrograms)
   }
 };
 
@@ -209,7 +194,6 @@ export const loadAllData = () => {
       dispatch( loadNonHSPrograms() ),
       dispatch( loadSECutoffScores() ),
       dispatch( loadNonSECutoffScores() ),
-      dispatch( loadProgramTypeIDTable() ),
       dispatch( loadSchoolAttendanceBoundaryTable() ),
       dispatch( loadTractTierTable() ),
     ]).then( results => {
@@ -221,7 +205,7 @@ export const loadAllData = () => {
       );
       // create program groups
       dispatch( 
-        updateProgramGroups(state.data.hsPrograms, state.data.programTypeIDTable)
+        updateProgramGroups(state.data.hsPrograms)
       );
       // create program outcomes
       dispatch(

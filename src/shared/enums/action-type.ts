@@ -49,6 +49,5 @@ export enum ActionType {
   UpdateSECutoffScores,
   UpdateNonSECutoffScores,
   UpdateTractTierTable,
-  UpdateProgramTypeIDTable,
   UpdateSchoolAttendanceBoundaryTable
 }

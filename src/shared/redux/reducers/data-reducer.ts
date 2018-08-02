@@ -22,8 +22,6 @@ export const dataReducer: Redux.Reducer<AppData> = (appData = initialData, actio
       return Object.assign({}, appData, {seCutoffScores: action.payload});
     case ActionType.UpdateNonSECutoffScores:
       return Object.assign({}, appData, {nonSECutoffScores: action.payload});
-    case ActionType.UpdateProgramTypeIDTable:
-      return Object.assign({}, appData, {programTypeIDTable: action.payload});
     case ActionType.UpdateSchoolAttendanceBoundaryTable:
       return Object.assign({}, appData, {schoolAttendanceBoundaryTable: action.payload});
     case ActionType.UpdateTractTierTable:
