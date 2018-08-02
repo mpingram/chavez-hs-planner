@@ -22,7 +22,14 @@ export const pointSystem: PointSystemFn = (calc, lookup) => {
     if (points === null) {
       return SuccessChance.NOTIMPLEMENTED;
     }
-    const cutoff = lookup(student, program);
+    let cutoff;
+    try {
+      cutoff = lookup(student, program);
+    } catch(e) {
+      // if cutoff not found, return NOTIMPLEMENTED
+      console.error(e);
+      return SuccessChance.NOTIMPLEMENTED;
+    }
     const pointsFromCutoff = points - cutoff.min;
 
     // handle failure by returning NOTIMPLEMENTED
