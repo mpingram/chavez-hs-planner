@@ -8,7 +8,11 @@ from bs4 import BeautifulSoup
 
 INTER_REQUEST_DELAY = 0.5 # seconds
 SCHOOLPROFILE_BASE_URL = 'https://schoolinfo.cps.edu/schoolprofile/schooldetails.aspx'
-school_locations_path = './raw-data/School_Locations_SY1718.csv' 
+
+# Path to CPS School Locations file.
+# File can be found on Chicago Open Data Portal: https://data.cityofchicago.org/Education/Chicago-Public-Schools-School-Locations-SY1718/4g38-vs8v
+#school_locations_path = './raw-data/School_Locations_SY1718.csv' 
+school_locations_path = sys.argv[1]
 output_path = './output/program_data_' + datetime.date.today().isoformat()
 
 with open(output_path, 'w') as outfile:
