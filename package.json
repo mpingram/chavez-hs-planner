@@ -5,15 +5,14 @@
   "main": " ",
   "scripts": {
     "test": "karma start karma.conf.js",
-    "move-index": "cp src/index.html dist/index.html",
-    "build-site": "npm run move-index && webpack -p --config webpack.config.prod.js",
-    "build-config": "node ./config/build-scripts/main.js",
-    "test-config": "karma start ./config/build-scripts/karma.conf.js",
+    "build-site": "webpack -p --config webpack.config.prod.js",
 
-    "start": "npm run move-index && concurrently \"webpack --define process.env.NODE_ENV='\\\"development\\\"' --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
+    "start": "concurrently \"webpack --define process.env.NODE_ENV='\\\"development\\\"' --config webpack.config.dev.js\" \"browser-sync start -s 'dist' --files 'dist' \"",
     "start:windows": "concurrently \"webpack --config webpack.config.dev.js\" \"browser-sync start -s dist --files dist \"",
+
     "update-program-data": "",
     "create-empty-requirement-functions": "",
+
     "build-config": "node ./config/build-scripts/main.js",
     "test-config": "karma start ./config/build-scripts/karma.conf.js",
     "aws-sync:production": "aws s3 sync dist/ s3://chavez-hs-planner.com --acl public-read",
@@ -23,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mpingram/path-to-hs.git"
+    "url": "git+https://github.com/mpingram/chavez-hs-planner.git"
   },
   "keywords": [
     "education",
@@ -37,11 +36,11 @@
     "high school"
   ],
   "author": "Michael Ingram",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mpingram/path-to-hs/issues"
+    "url": "https://github.com/mpingram/chavez-hs-planner/issues"
   },
-  "homepage": "https://github.com/mpingram/path-to-hs#readme",
+  "homepage": "https://github.com/mpingram/chavez-hs-planner#readme",
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
