@@ -1865,7 +1865,7 @@ const requirementFunctions: ReqFnTable = {
         ],
       "fn": accept(
         either(
-          ifInAttendBound, 
+          ifInAttendBound,
           ifStudentAttendsOneOf(TAFT_ACADEMIC_CENTER_PROGRAM)
         )
       )
@@ -5823,7 +5823,7 @@ const requirementFunctions: ReqFnTable = {
       "LINCOLN PARK HS: Visual Arts"
     ],
     "desc": "Eligible students are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math, 7th grade GPA, and the portfolio review.",
-    "fn": ""
+    "fn": notImplemented
   },
   "727f3c50374cfb4fe971e7b4b2ac10a3": {
     "id": "727f3c50374cfb4fe971e7b4b2ac10a3",
@@ -5831,7 +5831,19 @@ const requirementFunctions: ReqFnTable = {
       "WELLS HS: General Education"
     ],
     "desc": "Students who live within the school's attendance boundary have no eligibility requirements.Students who live outside of the school's attendance boundary:General Education and 504 Plan students: Minimum 2.5 GPA in 7th grade, and 7th grade minimum attendance percentage of 90.",
-    "fn": ""
+    "fn": conditional(
+    {
+      filter: ifInAttendBound,
+      fn: accept(everyone)
+    },
+    {
+      filter: everyone,
+      fn: accept(ifHasGrades({
+        gpa: 2.5,
+        attendance: 90
+      }))
+    }
+    )
   },
   "29787751d9a212e55d88a419dcf5d5cc": {
     "id": "29787751d9a212e55d88a419dcf5d5cc",
@@ -5839,7 +5851,19 @@ const requirementFunctions: ReqFnTable = {
       "WELLS HS: General Education"
     ],
     "desc": "Students who live within the school's attendance boundary have no eligibility requirements and can be admitted automatically.Eligible students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, staff preference, general.",
-    "fn": ""
+    "fn": conditional(
+    {
+         filter: ifInAttendBound,
+         fn: accept(everyone)
+     },
+     {
+         filter: everyone,
+         fn: lottery(
+             SIBLING_LOTTERY_STAGE,
+             STAFF_LOTTERY_STAGE,
+             GENERAL_LOTTERY_STAGE
+         )
+     }
   },
   "acfda3cdeb08155356c715cdfef7c20d": {
     "id": "acfda3cdeb08155356c715cdfef7c20d",
@@ -5847,7 +5871,24 @@ const requirementFunctions: ReqFnTable = {
       "HUBBARD HS: University Scholars"
     ],
     "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading on math on NWEA MAP, minimum 2.5 GPA in 7th grade, and 7th grade minimum attendance percentage of 85.IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP, minimum 2.5 GPA in 7th grade, and 7th grade minimum attendance percentage of 85.",
-    "fn": ""
+    "fn": conditional(
+      {
+          filter: ifIEPorEL,
+          fn: accept(ifHasGrades({
+              nweaCombined: 48,
+              gpa: 2.5,
+              attendance: 85
+          }))
+      },
+      {
+          filter: everyone,
+          fn: accept(ifHasGrades({
+              nweaBoth: 24,
+              gpa: 2.5,
+              attendance: 85
+          }))
+      }
+    )
   },
   "39c0535104720db22d35fe93f1ffcff0": {
     "id": "39c0535104720db22d35fe93f1ffcff0",
@@ -5855,7 +5896,12 @@ const requirementFunctions: ReqFnTable = {
       "KENWOOD HS: General Education"
     ],
     "desc": "Students currently enrolled in the school's Academic Center will receive an  offer.Students who live within the school's attendance boundary can be admitted automatically.This program only accepts students who live within the school's attendance boundary or who are enrolled in the school's Academic Center.",
-    "fn": ""
+    "fn": accept(
+        either(
+            ifInAttendBound,
+            ifStudentAttendsOneOf(KENWOOD_ACADEMIC_CENTER_PROGRAM)
+        )
+    )
   },
   "ef724d2b79616b996ac8ee00503ab460": {
     "id": "ef724d2b79616b996ac8ee00503ab460",
@@ -5868,7 +5914,7 @@ const requirementFunctions: ReqFnTable = {
       "AIR FORCE HS: Service Leadership Academy"
     ],
     "desc": "Eligible students must attend an Information Session, during which they will sign a Commitment Agreement, complete a Motivation and Perseverance Assessment and write a brief essay. Selections will be based on a point system with a maximum of 500 points, derived from 7th grade final (cumulative) grades (150 points), 7th grade NWEA MAP scores (150 points), the two-part assessment (50 for each part), and the essay (100 points).",
-    "fn": ""
+    "fn": notImplemented
   },
   "a4340aaced08a8b298270ee11fac7ed3": {
     "id": "a4340aaced08a8b298270ee11fac7ed3",
