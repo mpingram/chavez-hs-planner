@@ -8,7 +8,7 @@ import {
 
 
 import {
-  accept, 
+  accept,
   lottery,
   SIBLING_LOTTERY_STAGE,
   PROXIMITY_LOTTERY_STAGE,
@@ -25,8 +25,8 @@ import {
   either,
   both,
   everyone,
-  ifSiblingAttends, 
-  ifStudentAttendsOneOf, 
+  ifSiblingAttends,
+  ifStudentAttendsOneOf,
   ifHasGrades,
   createIfInAttendBound,
   ifIEPorEL,
@@ -63,7 +63,7 @@ import {
   CICS_WASHINGTON_PARK_ES_PROGRAM,
   CICS_WEST_BELDEN_ES_PROGRAM,
   CICS_WRIGHTWOOD_ES_PROGRAM,
-  
+
   BRENNEMANN_ES_PROGRAM,
   COURTENAY_ES_PROGRAM,
   MCCUTCHEON_ES_PROGRAM,
@@ -89,10 +89,10 @@ import {
 
 } from "./constants";
 
-/* 
+/*
  * Initialize ibPointSystem, sePointSystem, and getAttendBoundDict.
  *
- * These three functions depend on app data (school cutoff scores and attendance boundary geo data). 
+ * These three functions depend on app data (school cutoff scores and attendance boundary geo data).
  * We need to initialize these functions by passing them a link
  * to the app's redux store, which holds the data.
  * */
@@ -377,7 +377,7 @@ const requirementFunctions: ReqFnTable = {
       "fn": lottery(
         {
           filter: either(
-            ifSiblingAttends, 
+            ifSiblingAttends,
             ifStudentAttendsOneOf(
               CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM
             )
@@ -395,7 +395,7 @@ const requirementFunctions: ReqFnTable = {
         "fn": lottery(
           {
             filter: either(
-              ifSiblingAttends, 
+              ifSiblingAttends,
               ifStudentAttendsOneOf(
                 CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM
               )),
@@ -620,7 +620,7 @@ const requirementFunctions: ReqFnTable = {
           return SuccessChance.UNLIKELY
         } else if ( ifIEPorEL(s,p) ) {
           const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
-          if( passesGrades ) { 
+          if( passesGrades ) {
             return SuccessChance.LIKELY;
           } else {
             return SuccessChance.UNCERTAIN;
@@ -649,7 +649,7 @@ const requirementFunctions: ReqFnTable = {
           return SuccessChance.UNLIKELY
         } else if ( ifIEPorEL(s,p) ) {
           const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
-          if( passesGrades ) { 
+          if( passesGrades ) {
             return SuccessChance.LIKELY;
           } else {
             return SuccessChance.UNCERTAIN;
@@ -678,7 +678,7 @@ const requirementFunctions: ReqFnTable = {
           return SuccessChance.UNLIKELY
         } else if ( ifIEPorEL(s,p) ) {
           const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
-          if( passesGrades ) { 
+          if( passesGrades ) {
             return SuccessChance.LIKELY;
           } else {
             return SuccessChance.UNCERTAIN;
@@ -707,7 +707,7 @@ const requirementFunctions: ReqFnTable = {
           return SuccessChance.UNLIKELY
         } else if ( ifIEPorEL(s,p) ) {
           const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
-          if( passesGrades ) { 
+          if( passesGrades ) {
             return SuccessChance.LIKELY;
           } else {
             return SuccessChance.UNCERTAIN;
@@ -830,7 +830,7 @@ const requirementFunctions: ReqFnTable = {
             "YOUNG HS - Academic Center - Application"
         ],
         // TODO remove Academic Center programs from list of cps programs and req fns
-        "fn": notImplemented         
+        "fn": notImplemented
     },
     "224ce8807abceb6ca72e650988637629": {
         "name": "",
@@ -1142,10 +1142,10 @@ const requirementFunctions: ReqFnTable = {
         {
           filter: ifStudentAttendsOneOf(CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
           fn: accept(everyone)
-          
+
         },
         {
-          filter: everyone, 
+          filter: everyone,
           fn: lottery(
             SIBLING_LOTTERY_STAGE,
             GENERAL_LOTTERY_STAGE
@@ -1169,7 +1169,7 @@ const requirementFunctions: ReqFnTable = {
           fn: accept(everyone)
         },
         {
-          filter: everyone, 
+          filter: everyone,
           fn: lottery(
             SIBLING_LOTTERY_STAGE,
             GENERAL_LOTTERY_STAGE
@@ -1658,7 +1658,7 @@ const requirementFunctions: ReqFnTable = {
         ],
       "fn": conditional(
         {
-          filter: ifInAttendBound, 
+          filter: ifInAttendBound,
           fn: accept(everyone)
         },
         {
@@ -1761,8 +1761,8 @@ const requirementFunctions: ReqFnTable = {
         SIBLING_LOTTERY_STAGE,
         {
           filter: ifStudentAttendsOneOf(
-            BRENNEMANN_ES_PROGRAM, 
-            COURTENAY_ES_PROGRAM, 
+            BRENNEMANN_ES_PROGRAM,
+            COURTENAY_ES_PROGRAM,
             MCCUTCHEON_ES_PROGRAM
           ),
           size: LotteryStageSize.LARGE
@@ -1809,10 +1809,10 @@ const requirementFunctions: ReqFnTable = {
       "fn": lottery(
         {
           filter: ifStudentAttendsOneOf(
-            CHALMERS_ES_PROGRAM, 
-            DVORAK_ES_PROGRAM, 
-            HERZL_ES_PROGRAM, 
-            JOHNSON_ES_PROGRAM, 
+            CHALMERS_ES_PROGRAM,
+            DVORAK_ES_PROGRAM,
+            HERZL_ES_PROGRAM,
+            JOHNSON_ES_PROGRAM,
             MORTON_ES_PROGRAM
           ),
           size: LotteryStageSize.LARGE
@@ -1865,7 +1865,7 @@ const requirementFunctions: ReqFnTable = {
         ],
       "fn": accept(
         either(
-          ifInAttendBound, 
+          ifInAttendBound,
           ifStudentAttendsOneOf(TAFT_ACADEMIC_CENTER_PROGRAM)
         )
       )
@@ -2374,7 +2374,7 @@ const requirementFunctions: ReqFnTable = {
         "fn": lottery(
           {
             filter: ifStudentAttendsOneOf(
-              CHALMERS_ES_PROGRAM, 
+              CHALMERS_ES_PROGRAM,
               DVORAK_ES_PROGRAM,
               HERZL_ES_PROGRAM,
               JOHNSON_ES_PROGRAM,
@@ -2669,7 +2669,7 @@ const requirementFunctions: ReqFnTable = {
             "YOUNG WOMENS HS - General Education - Application"
         ],
         // TODO handle gender?
-        "fn": accept(everyone)   
+        "fn": accept(everyone)
     },
     "a787cb9987ca94d3c2370e2cb67d50cc": {
         "name": "",
@@ -3085,7 +3085,7 @@ const requirementFunctions: ReqFnTable = {
     "fn": lottery(
       {
         filter: ifStudentAttendsOneOf(
-          U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM, 
+          U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
         ),
         size: LotteryStageSize.LARGE
       },
@@ -3293,7 +3293,7 @@ const requirementFunctions: ReqFnTable = {
           return SuccessChance.UNLIKELY
         } else if ( ifIEPorEL(s,p) ) {
           const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
-          if( passesGrades ) { 
+          if( passesGrades ) {
             return SuccessChance.LIKELY;
           } else {
             return SuccessChance.UNCERTAIN;
@@ -3625,7 +3625,7 @@ const requirementFunctions: ReqFnTable = {
           return SuccessChance.UNLIKELY
         } else if ( ifIEPorEL(s,p) ) {
           const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
-          if( passesGrades ) { 
+          if( passesGrades ) {
             return SuccessChance.LIKELY;
           } else {
             return SuccessChance.UNCERTAIN;
@@ -3662,7 +3662,7 @@ const requirementFunctions: ReqFnTable = {
           return SuccessChance.UNLIKELY
         } else if ( ifIEPorEL(s,p) ) {
           const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
-          if( passesGrades ) { 
+          if( passesGrades ) {
             return SuccessChance.LIKELY;
           } else {
             return SuccessChance.UNCERTAIN;
@@ -3933,7 +3933,7 @@ const requirementFunctions: ReqFnTable = {
             filter: ifIEPorEL,
             fn: accept(ifHasGrades({
               gpa: 2.0,
-              attendance: 80 
+              attendance: 80
             }))
           },
           {
@@ -4033,11 +4033,11 @@ const requirementFunctions: ReqFnTable = {
     ],
     "desc": "Students who live within the school's attendance boundary can be admitted automatically.Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: Students currently enrolled in Boone, Clinton, Jamieson, Peterson, Rogers, or West Ridge; sibling; general.",
       "fn": conditional(
-        { 
-          filter: ifInAttendBound, 
-          fn: accept(everyone) 
+        {
+          filter: ifInAttendBound,
+          fn: accept(everyone)
         },
-        { 
+        {
           filter: everyone,
           fn: lottery(
             {
@@ -4405,7 +4405,7 @@ const requirementFunctions: ReqFnTable = {
         {
           filter: ifIEPorEL,
           fn: accept(ifHasGrades({
-            nweaCombined: 48 
+            nweaCombined: 48
           }))
         },
         {
@@ -4718,7 +4718,7 @@ const requirementFunctions: ReqFnTable = {
     "desc": "Students currently enrolled in the school's Academic Center will have a deadline to submit their intent to enroll in ninth grade if they wish to enroll in the school's general education program.Students who live within the school's attendance boundary can be admitted automatically.This program only accepts students who live within the school's attendance boundary or who are enrolled in the school's Academic Center.",
       "fn": accept(
         either(
-          ifInAttendBound, 
+          ifInAttendBound,
           ifStudentAttendsOneOf(KENWOOD_ACADEMIC_CENTER_PROGRAM)
         )
       )
@@ -5194,7 +5194,7 @@ const requirementFunctions: ReqFnTable = {
           return SuccessChance.UNLIKELY
         } else if ( ifIEPorEL(s,p) ) {
           const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
-          if( passesGrades ) { 
+          if( passesGrades ) {
             return SuccessChance.LIKELY;
           } else {
             return SuccessChance.UNCERTAIN;
@@ -5244,10 +5244,10 @@ const requirementFunctions: ReqFnTable = {
       "fn": lottery(
         {
           filter: ifStudentAttendsOneOf(
-            CHALMERS_ES_PROGRAM, 
-            DVORAK_ES_PROGRAM, 
-            HERZL_ES_PROGRAM, 
-            JOHNSON_ES_PROGRAM, 
+            CHALMERS_ES_PROGRAM,
+            DVORAK_ES_PROGRAM,
+            HERZL_ES_PROGRAM,
+            JOHNSON_ES_PROGRAM,
             MORTON_ES_PROGRAM
           ),
           size: LotteryStageSize.LARGE
@@ -5774,7 +5774,15 @@ const requirementFunctions: ReqFnTable = {
       "TAFT HS: General Education"
     ],
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Students enrolled in the Taft Academic Center or students who live within the school's attendance boundary can be admitted automatically.This program only accepts students who live within the school's attendance boundary or who attend the school's Academic Center.",
-    "fn": ""
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(TAFT_ACADEMIC_CENTER_PROGRAM),//TODO add 8th grade here
+        fn: accept(everyone)
+      },{
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      }
+    )
   },
   "7f46c4d6dfe5d0f8dadfd8f657026516": {
     "id": "7f46c4d6dfe5d0f8dadfd8f657026516",
@@ -5782,7 +5790,7 @@ const requirementFunctions: ReqFnTable = {
       "TAFT HS: NJROTC"
     ],
     "desc": "General Education and 504 Plan students: Minimum percentile of 50 in both reading and math on NWEA MAP.IEP and EL students: Minimum combined percentile of 100 in reading and math on NWEA MAP.Eligible applicants must participate in an interview.",
-    "fn": ""
+    "fn": notImplemented //TODO unclear
   },
   "93eb17c3073fd47dccb5e53d38c2d875": {
     "id": "93eb17c3073fd47dccb5e53d38c2d875",
@@ -5790,7 +5798,22 @@ const requirementFunctions: ReqFnTable = {
       "VON STEUBEN HS: Scholars"
     ],
     "desc": "General Education and 504 Plan students: Minimum percentile of 70 in both reading and math on NWEA MAP and minimum 3.0 GPA in 7th grade.IEP and EL students: Minimum combined percentile of 140 in reading and math on NWEA MAP and minimum 3.0 GPA in 7th grade.Eligible students must submit teacher recommendations and an essay. Online applicants will be prompted to upload their documents via the online application site. Paper applicants should visit www.vonsteuben.org for submission details (click 'Apply' and 'Scholars Program').Applicants who are not eligible will automatically be included in the computerized lottery selection process for the Von Steuben Science Program.",
-    "fn": ""
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades({
+          nweaCombined: 140,
+          gpa:3.0
+        }))
+      },{
+        filter:everyone,
+        fn: accept(ifHasGrades({
+          nweaMath:70,
+          nweaRead:70,
+          gpa:3
+        }))
+      }
+    )
   },
   "0a8552094c8fdf34594f60cb6d3448e9": {
     "id": "0a8552094c8fdf34594f60cb6d3448e9",
@@ -5884,7 +5907,24 @@ const requirementFunctions: ReqFnTable = {
       "CURIE HS: AVID"
     ],
     "desc": "General Education and 504 Plan students: Minimum percentile of 50 in both reading and math on NWEA MAP, minimum 2.5 GPA in 7th grade, and 7th grade minimum attendance percentage of 93.IEP and EL students: Minimum combined percentile of 100 in reading and math on NWEA MAP, minimum 2.5 GPA in 7th grade, and 7th grade minimum attendance percentage of 93.",
-    "fn": ""
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades({
+          nweaCombined: 100,
+          gpa:2.5,
+          attendance:93
+        }))
+      },{
+        filter:everyone,
+        fn: accept(ifHasGrades({
+          nweaMath:50,
+          nweaRead:50,
+          gpa:2.5,
+          attendance:93
+        }))
+      }
+    )
   },
   "c5458f56e94153bb8c850ab81472d9f5": {
     "id": "c5458f56e94153bb8c850ab81472d9f5",
@@ -5893,7 +5933,20 @@ const requirementFunctions: ReqFnTable = {
       "CURIE HS: Music"
     ],
     "desc": "General Education and 504 Plan students: Minimum percentile of 20 in both reading and math on NWEA MAP.IEP and EL students: Minimum combined percentile of 40 in reading and math on NWEA MAP.An audition is required for all eligible applicants.",
-    "fn": ""
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades({
+          nweaCombined: 40
+        }))
+      },{
+        filter:everyone,
+        fn: accept(ifHasGrades({
+          nweaMath:20,
+          nweaRead:20
+        }))
+      }
+    )
   },
   "f6ddc0ae7fb9f8dc8a73f328f7d00474": {
     "id": "f6ddc0ae7fb9f8dc8a73f328f7d00474",
@@ -5901,7 +5954,7 @@ const requirementFunctions: ReqFnTable = {
       "CURIE HS: Engineering"
     ],
     "desc": "Students are selected on a point system. Points are based on the student's NWEA MAP scores and 7th grade GPA. The school determines the minimum cutoff for selections.",
-    "fn": ""
+    "fn": notImplemented //TODO implement
   },
   "a653b55662f2797f775c09849f0f063e": {
     "id": "a653b55662f2797f775c09849f0f063e",
@@ -5909,7 +5962,7 @@ const requirementFunctions: ReqFnTable = {
       "CURIE HS: Visual Arts"
     ],
     "desc": "Eliglble students are selected on a point system. Points are based on the portfolio review.",
-    "fn": ""
+    "fn": notImplemented  //TODO Unclear
   },
   "391975c917916b73589bb85808e125f5": {
     "id": "391975c917916b73589bb85808e125f5",
@@ -5917,7 +5970,7 @@ const requirementFunctions: ReqFnTable = {
       "MARINE LEADERSHIP AT AMES HS: Service Leadership Academy (7-8)"
     ],
     "desc": "This school does not have an attendance boundary. Students must submit a Choice Elementary Schools application between October and December. Selections are on a point system, based on the assessment and essay completed at the Information Session.",
-    "fn": ""
+    "fn": notImplemented //TODO unclear
   },
   "0a03b2757ae82509d51d294a2673faf6": {
     "id": "0a03b2757ae82509d51d294a2673faf6",
@@ -5925,7 +5978,7 @@ const requirementFunctions: ReqFnTable = {
       "CLARK HS: Early College STEM"
     ],
     "desc": "None.  H464",
-    "fn": ""
+    "fn": accept(everyone)
   },
   "a1a1cf6327183b3989eebdaf18dfccf3": {
     "id": "a1a1cf6327183b3989eebdaf18dfccf3",
@@ -5935,7 +5988,7 @@ const requirementFunctions: ReqFnTable = {
       "RABY HS: Entrepreneurship"
     ],
     "desc": "Students are randomly selected by computerized lottery. General Education and 504 Plan students: Preference is given to students with percentiles of 24 and above on the NWEA MAP in reading and math.  A total of 30% of the seats will be made available to applicants who live in the school's proximity.IEP and EL students: Preference is given to students with combined NWEA MAP scores that equal 48 or above.Note: Repeating 8th graders and students pushed into 8th grade from 6th grade due to age requirements qualify for selection but will be placed in a lower preference group.",
-    "fn": ""
+    "fn": notImplemented //TODO implement
   },
   "baa38e3d8dc9988a0dbfee25ffa264b3": {
     "id": "baa38e3d8dc9988a0dbfee25ffa264b3",
@@ -5944,7 +5997,11 @@ const requirementFunctions: ReqFnTable = {
       "CHICAGO ACADEMY HS: Scholars"
     ],
     "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: continuing students, sibling, staff preference, proximity, general.",
-    "fn": ""
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      PROXIMITY_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    ) //TODO implement
   },
   "62212fe02d92f9004bbb29f3b92037c9": {
     "id": "62212fe02d92f9004bbb29f3b92037c9",
@@ -5954,7 +6011,18 @@ const requirementFunctions: ReqFnTable = {
       "WORLD LANGUAGE HS: General Education"
     ],
     "desc": "Students who live within the school's attendance boundary can be admitted automatically to the Little Village Lawndale High School campus.Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
-    "fn": ""
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },{
+        filter:everyone,
+        fn: lottery(
+          SIBLING_LOTTERY_STAGE,
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
   },
   "f85eca2619c54c61a3f9a9df4adab773": {
     "id": "f85eca2619c54c61a3f9a9df4adab773",
