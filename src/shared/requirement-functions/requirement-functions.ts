@@ -5962,7 +5962,25 @@ const requirementFunctions: ReqFnTable = {
       "INFINITY HS: STEM"
     ],
     "desc": "General Education and 504 Plan students: Minimum percentile of 55 in both reading and math on NWEA MAP, minimum 2.0 GPA in 7th grade, and 7th grade minimum attendance percentage of 93.IEP and EL students: Minimum combined percentile of 110 in reading and math on NWEA MAP, minimum 2.0 GPA in 7th grade, and 7th grade minimum attendance percentage of 93.",
-    "fn": ""
+    //TODO UNCLEAR: this is application criteria
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades({
+          nweaCombined: 110,
+          gpa: 2.0,
+          attendance: 93
+        }))
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades({
+          nweaBoth: 55,
+          gpa: 2.0,
+          attendance: 93
+        }))
+      }
+    )
   },
   "8e31390718d5bef64455c5f48945a1e8": {
     "id": "8e31390718d5bef64455c5f48945a1e8",
@@ -5970,7 +5988,19 @@ const requirementFunctions: ReqFnTable = {
       "INFINITY HS: STEM"
     ],
     "desc": "Eligible students who live within the school's attendance boundary can be admitted automatically to the Little Village Lawndale High School campus.Eligible students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
-    "fn": ""
+    "fn": conditional(
+      {
+        filter: ifInAttendBound
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone
+        fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+          )
+      },
+    )
   },
   "daafb1f391aa405c7f50921b7e17ecaf": {
     "id": "daafb1f391aa405c7f50921b7e17ecaf",
@@ -5978,7 +6008,13 @@ const requirementFunctions: ReqFnTable = {
       "UPLIFT HS: General Education"
     ],
     "desc": "Students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling; students who attend Brennemann, Courtenay, Disney, Goudy, Greeley, McCutcheon, or Ravenswood Elementary Schools; general.",
-    "fn": ""
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      ifStudentAttendsOneOf(BRENNEMANN_ES_PROGRAM, COURTENAY_ES_PROGRAM, DISNEY_II_ES_PROGRAM, GOUDY, GREELEY, MCCUTCHEON_ES_PROGRAM, RAVENSWOOD)
+      //TODO UNCLEAR: can you put this custom stage in a lottery?
+      //TODO UNCLEAR: Greeley, Goudy, Ravenswood don't seem to have ES entries?
+      GENERAL_LOTTERY_STAGE
+      )
   },
   "6f3b345db571ecf2523aa41d336feacc": {
     "id": "6f3b345db571ecf2523aa41d336feacc",
@@ -5986,15 +6022,50 @@ const requirementFunctions: ReqFnTable = {
       "UPLIFT HS: Teaching"
     ],
     "desc": "Students are randomly selected by computerized lottery. General Education and 504 Plan students: Preference is given to students with percentiles of 24 and above on the NWEA MAP in reading and math. A total of 30% of the seats will be made available to applicants who live in the school's proximity.IEP and EL students: Preference is given to students with combined NWEA MAP scores that equal 48 or above.Note: Repeating 8th graders and students pushed into 8th grade from 6th grade due to age requirements qualify for selection but will be placed in a lower preference group.",
-    "fn": ""
-  },
+    "fn": conditional(
+      //TODO UNCLEAR if encoding the ordering of preferences like this is ok, or if, for example, the 30% rule has to be combined across all the other rules.
+      {
+        filter: ifIEPorEL,
+        fn: //TODO UNCLEAR: lottery preference for NEWA MAP combined 48
+      },
+      {
+        filter: ifInProximity //TODO UNCLEAR if we have a function like this
+        fn: accept(percent(30)) //TODO UNCLEAR how to encode this
+      },
+      {
+        filter: ifSkipped7OrRepeated8
+        fn: //TODO UNCLEAR. 'lower preference'
+      },
+      {
+        filter: everyone
+        fn: //TODO UNCLEAR: lottery preference for NEWA MAP both 24
+      }
+    )  },
   "c55294d755cbd1ca052340fe6517693b": {
     "id": "c55294d755cbd1ca052340fe6517693b",
     "programs": [
       "COLLINS HS: Game Programming"
     ],
     "desc": "Students are randomly selected by computerized lottery. General Education and 504 Plan students: Preference is given to students with percentiles of 24 and above on the NWEA MAP in reading and math. A total of 30% of the seats will be made available to applicants who reside within the school's proximity.IEP and EL students: Preference is given to students with combined NWEA MAP scores that equal 48 or above.Note: Repeating 8th graders and students pushed into 8th grade from 6th grade due to age requirements qualify for selection but will be placed in a lower preference group.",
-    "fn": ""
+    "fn": conditional(
+      //TODO UNCLEAR if encoding the ordering of preferences like this is ok, or if, for example, the 30% rule has to be combined across all the other rules.
+      {
+        filter: ifIEPorEL,
+        fn: //TODO UNCLEAR: lottery preference for NEWA MAP combined 48
+      },
+      {
+        filter: ifInProximity //TODO UNCLEAR if we have a function like this
+        fn: accept(percent(30)) //TODO UNCLEAR how to encode this
+      },
+      {
+        filter: ifSkipped7OrRepeated8
+        fn: //TODO UNCLEAR. 'lower preference'
+      },
+      {
+        filter: everyone
+        fn: //TODO UNCLEAR: lottery preference for NEWA MAP both 24
+      }
+    )
   },
   "2220437339d9beb295c4649a227f64cc": {
     "id": "2220437339d9beb295c4649a227f64cc",
@@ -6002,7 +6073,18 @@ const requirementFunctions: ReqFnTable = {
       "OGDEN HS: International Baccalaureate (IB)"
     ],
     "desc": "Students currently enrolled in the school’s eighth grade will have a guaranteed offer to this program.Eligible students who do not attend the school are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school’s overlay boundary will be given 50 additional points. The school determines the minimum cutoff score for selections.",
-    "fn": ""
+    //TODO UNCLEAR: this is Ogden selection criteria
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(OGDEN_ES_PROGRAM)
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone
+        //TODO UNCLEAR: what to do with vagueness
+        fn: ""
+      }
+    )
   },
   "a6a877d0bc2ea8f47bd4e414468276f2": {
     "id": "a6a877d0bc2ea8f47bd4e414468276f2",
@@ -6010,7 +6092,23 @@ const requirementFunctions: ReqFnTable = {
       "BACK OF THE YARDS HS: Dual Language"
     ],
     "desc": "General Education and 504 Plan students: Minimum percentile of 40 in both reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade.IEP and EL students: Minimum combined percentile of 80 in reading and math on NWEA MAP, minimum 3.0 GPA in 7th grade.Applicants' primary language must be Spanish.",
-    "fn": ""
+    // TODO UNCLEAR: Primary Language requirement, how to encode? Applies to both IEP/EL and general per paragraph breaks on cps.edu
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades({
+          nweaCombined: 80,
+          gpa: 3.0
+        }))
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades({
+          nweaBoth: 40,
+          gpa: 3.0
+        }))
+      }
+    )
   },
   "e9046085c529aa64749154c02c8acce4": {
     "id": "e9046085c529aa64749154c02c8acce4",
@@ -6018,7 +6116,20 @@ const requirementFunctions: ReqFnTable = {
       "DISNEY II HS: Fine Arts & Technology"
     ],
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Eligible students who are not currently enrolled in the school are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, proximity, tiers.",
-    "fn": ""
+      "fn": conditional(
+        {
+          filter: ifStudentAttendsOneOf(DISNEY_II_ES_PROGRAM),
+          fn: accept(everyone)
+        },
+        {
+          filter: everyone,
+          fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            PROXIMITY_LOTTERY_STAGE,
+            TIER_LOTTERY_STAGE
+          )
+        }
+      )
   },
   "4c0f7d456bb3bcdcf96b1a2252a3f7b1": {
     "id": "4c0f7d456bb3bcdcf96b1a2252a3f7b1",
@@ -6032,7 +6143,21 @@ const requirementFunctions: ReqFnTable = {
       "DYETT ARTS HS: Visual Arts"
     ],
     "desc": "Students who live within the school's attendance boundary have no eligibility requirements.Students who live outside of the school's attendance boundary:Minimum percentile of 48 in both reading and math on NWEA MAP, minimum 2.0 GPA in 7th grade, and 7th grade minimum attendance percentage of 90.Completion of a written interview is required for eligible students who live outside of the school's attendance boundary. Applicants must complete form at www.newdyett.org. Paper applicants or applicants without computer access should picke up a copy of the form from the school or call the school to have the form emailed.",
-    "fn": ""
+    //TODO UNCLEAR: this is Dyett application
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades({
+          nweaBoth: 48,
+          attendance: 90,
+          gpa: 2.0
+        }))
+      }
+    )
   },
   "b9914d57d2b652a3368b71004c4684f1": {
     "id": "b9914d57d2b652a3368b71004c4684f1",
@@ -6046,6 +6171,17 @@ const requirementFunctions: ReqFnTable = {
       "DYETT ARTS HS: Visual Arts"
     ],
     "desc": "Students who live within the school's attendance boundary have no eligibility requirements and can be admitted automatically.Eligible students are selected on a point system. Points are based on the student's NWEA MAP scores in reading and math and the written interview.",
-    "fn": ""
+    //TODO UNCLEAR: this is Dyett selection
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        //TODO UNCLEAR: not implemented as backstop for vague criteria
+        filter: everyone,
+        fn: notImplemented
+      }
+    )
   }
 }
