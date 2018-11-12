@@ -35,6 +35,11 @@ export const SIBLING_LOTTERY_STAGE = {
   size: LotteryStageSize.SMALL
 };
 
+export const STAFF_LOTTERY_STAGE = {
+  filter: () => false,
+  size: LotteryStageSize.SMALL
+};
+
 export const GENERAL_LOTTERY_STAGE = {
   filter: everyone,
   size: LotteryStageSize.LARGE
