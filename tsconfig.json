@@ -4,14 +4,23 @@
     "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": true,
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es6",
-    "lib": ["es6", "dom"],
-    "jsx": "react",
-    "baseUrl": ".",
-    "paths": {
-      "shared/*": ["./src/shared/*"]
-    }
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "jsx": "preserve",
+    "allowJs": true,
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": [
     "src/**/*",
@@ -24,4 +33,3 @@
     "useCache": true
   }
 }
-  
