@@ -1,5 +1,7 @@
 .awcache
 
+node_modules
+
 *.pyc
 
 #os files
