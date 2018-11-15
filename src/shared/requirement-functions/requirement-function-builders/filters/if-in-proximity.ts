@@ -1,9 +1,9 @@
 import { 
   LatLong,
   ReqFnFilter
-} from "shared/types";
+} from "../../../../shared/types";
 
-import distanceBetweenCoords from "shared/util/distance-between-coords";
+import distanceBetweenCoords from "../../../../shared/util/distance-between-coords";
 
 import { CPS_PROXIMITY_LOTTERY_RADIUS_MI } from "../../constants";
 

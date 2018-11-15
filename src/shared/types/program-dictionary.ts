@@ -1,7 +1,5 @@
-import { Program } from "shared/types";
+import { Program } from "../../shared/types";
 
-interface ProgramDictionary {
+export interface ProgramDictionary {
   [programID: string]: Program
 }
-
-export {ProgramDictionary};

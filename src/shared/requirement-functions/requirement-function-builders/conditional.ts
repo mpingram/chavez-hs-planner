@@ -1,9 +1,9 @@
 import { 
   ReqFnFilter,
   RequirementFunction,
-} from "shared/types";
+} from "../../../shared/types";
 
-import { SuccessChance } from "shared/enums";
+import { SuccessChance } from "../../../shared/enums";
 
 interface Condition {
   filter: ReqFnFilter

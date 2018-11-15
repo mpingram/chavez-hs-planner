@@ -1,4 +1,4 @@
-import { LetterGrade } from "shared/types";
+import { LetterGrade } from "../../shared/types";
 
 const toPoints = (letterGrade): number => {
   switch(letterGrade){

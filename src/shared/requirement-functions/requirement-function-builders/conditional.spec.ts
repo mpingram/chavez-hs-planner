@@ -5,10 +5,10 @@ import {
   ReqFnFilter,
   RequirementFunction,
   StudentData
-} from "shared/types";
-import { SuccessChance } from "shared/enums";
+} from "../../../shared/types";
+import { SuccessChance } from "../../../shared/enums";
 
-import { conditional } from "shared/requirement-functions/requirement-function-builders/conditional";
+import { conditional } from "../../../shared/requirement-functions/requirement-function-builders/conditional";
 
 describe( "conditional", () => {
 

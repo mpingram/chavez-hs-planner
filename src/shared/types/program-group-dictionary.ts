@@ -1,4 +1,4 @@
-import { ProgramGroup } from "shared/types";
+import { ProgramGroup } from "../../shared/types";
 
 export interface ProgramGroupDictionary {
   [programGroupID: string]: ProgramGroup

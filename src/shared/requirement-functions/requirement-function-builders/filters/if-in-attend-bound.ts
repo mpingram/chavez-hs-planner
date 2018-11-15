@@ -1,9 +1,9 @@
 import { 
   ReqFnFilter,
   AttendanceBoundaryDictionary
-} from "shared/types";
+} from "../../../../shared/types";
 
-import pointInPolygon from "shared/util/point-in-polygon";
+import pointInPolygon from "../../../../shared/util/point-in-polygon";
 
 export const createIfInAttendBound = (getAttendBoundDict: () => AttendanceBoundaryDictionary): ReqFnFilter => (student, program) => {
   // return false immediately if student properties are uninitialized

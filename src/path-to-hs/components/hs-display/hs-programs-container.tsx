@@ -1,4 +1,3 @@
-import * as React from "react";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
 
@@ -7,11 +6,9 @@ import {
   Program,
   ProgramOutcome,
   ProgramGroup
-} from "shared/types";
+} from "../../../shared/types";
 
-import { openProgramModal } from "shared/redux/actions";
-
-import { SuccessChance } from "shared/enums";
+import { openProgramModal } from "../../../shared/redux/actions";
 
 import HSProgramList from "./hs-program-list";
 

@@ -2,7 +2,7 @@ import {
   Program,
   ProgramDictionary,
   ProgramGroupDictionary,
-} from "shared/types";
+} from "../../../shared/types";
 
 /*
  * Creates a data structure that groups programs together.

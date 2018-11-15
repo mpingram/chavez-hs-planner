@@ -1,4 +1,4 @@
-import { ReqFnFilter } from "shared/types";
+import { ReqFnFilter } from "../../../../shared/types";
 
 export const ifSkipped7OrRepeated8: ReqFnFilter = (student, program) => {
   if (student.skippedGrade7OrRepeatedGrade8) {

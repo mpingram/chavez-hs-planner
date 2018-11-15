@@ -1,6 +1,6 @@
 import * as React from "react";
-import { store } from "shared/redux/store";
-import { closeProgramModal } from "shared/redux/actions";
+import { store } from "../shared/redux/store";
+import { closeProgramModal } from "../shared/redux/actions";
 
 import { StudentInfoFormContainer } from "./components/student-info-display/student-info-form-container";
 import { GradesFormContainer } from "./components/student-info-display/grades-form-container";

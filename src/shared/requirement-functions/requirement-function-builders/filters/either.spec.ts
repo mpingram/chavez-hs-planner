@@ -4,7 +4,7 @@ import {
   StudentData,
   ReqFnFilter,
   Program
-} from "shared/types";
+} from "../../../../shared/types";
 
 import {
   either

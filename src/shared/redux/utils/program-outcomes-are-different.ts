@@ -1,7 +1,7 @@
 import {
   ProgramOutcome,
   ProgramOutcomeDictionary
-} from "shared/types";
+} from "../../../shared/types";
 
 /* 
  * Returns true if there is some programID in a whose value is not the same in a and b.

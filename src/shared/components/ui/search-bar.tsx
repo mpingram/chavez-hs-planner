@@ -1,7 +1,6 @@
 import * as React from "react";
 
-import SearchIcon from "shared/components/icons/search";
-import * as debounce from "lodash.debounce";
+import SearchIcon from "../../../shared/components/icons/search";
 
 import "./search-bar.scss";
 

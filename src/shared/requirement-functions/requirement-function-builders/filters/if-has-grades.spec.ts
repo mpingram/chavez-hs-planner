@@ -3,9 +3,9 @@ import { expect } from "chai";
 import {
   StudentData,
   Program
-} from "shared/types";
+} from "../../../../shared/types";
 
-import { ifHasGrades } from "shared/requirement-functions/requirement-function-builders/filters";
+import { ifHasGrades } from "../../../../shared/requirement-functions/requirement-function-builders/filters";
 
 describe("ifHasGrades hsReqFilter", () => {
 

@@ -1,3 +1,1 @@
-type GradeLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-
-export {GradeLevel};
+export type GradeLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;

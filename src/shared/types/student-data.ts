@@ -1,9 +1,8 @@
-import { Gender } from "shared/enums";
+import { Gender } from "../../shared/enums";
 import { 
   LetterGrade,
-  GradeLevel, 
   LatLong
-} from "shared/types";
+} from "../../shared/types";
 
 export interface StudentData {
     gender: Gender | null

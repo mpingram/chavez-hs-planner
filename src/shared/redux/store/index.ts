@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { rootReducer } from "shared/redux/reducers";
+import { rootReducer } from "../../../shared/redux/reducers";
 
 import { loadAllData } from "../actions";
 

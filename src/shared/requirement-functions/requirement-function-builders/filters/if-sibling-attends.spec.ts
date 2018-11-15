@@ -3,9 +3,9 @@ import {expect} from "chai";
 import {
   StudentData,
   Program
-} from "shared/types";
+} from "../../../../shared/types";
 
-import { ifSiblingAttends } from "shared/requirement-functions/requirement-function-builders/filters/if-sibling-attends";
+import { ifSiblingAttends } from "../../../../shared/requirement-functions/requirement-function-builders/filters/if-sibling-attends";
 
 describe("ifSiblingAttends requirement function filter", () => {
 

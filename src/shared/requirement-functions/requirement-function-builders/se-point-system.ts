@@ -4,9 +4,9 @@ import {
   Program,
   SECutoffDictionary,
   CutoffScores
-} from "shared/types";
+} from "../../../shared/types";
 
-import { SuccessChance } from "shared/enums";
+import { SuccessChance } from "../../../shared/enums";
 
 const sePointCalc = (student: StudentData, program: Program): number | null => {
 

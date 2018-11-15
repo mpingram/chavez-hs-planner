@@ -1,11 +1,9 @@
 import {
   AppData,
-  Program,
-  ProgramOutcome,
   ProgramOutcomeDictionary,
   StudentData, 
   ProgramModalState
-} from "shared/types";
+} from "../../shared/types";
 
 export interface AppState {
 

@@ -1,7 +1,6 @@
 import * as JSONP from "browser-jsonp";
 
-import createUrl from "shared/util/create-url";
-import { store } from "shared/redux/store";
+import { store } from "../../../shared/redux/store";
 
 const getTractTierTable = () => store.getState().data.tractTierTable;
 
