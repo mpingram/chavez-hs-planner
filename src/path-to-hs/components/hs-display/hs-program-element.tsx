@@ -3,12 +3,12 @@ import * as React from "react";
 import { 
   Program, 
   ProgramOutcome
-} from "shared/types";
+} from "../../../shared/types";
 
-import { SuccessChance } from "shared/enums";
+import { SuccessChance } from "../../../shared/enums";
 
-import { shallowCompare } from "shared/util/shallow-compare";
-import { ProgramCard } from "shared/components/program-card";
+import { shallowCompare } from "../../../shared/util/shallow-compare";
+import { ProgramCard } from "../../../shared/components/program-card";
 
 interface HSProgramElemProps {
   program: Program

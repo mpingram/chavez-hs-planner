@@ -1,8 +1,8 @@
 import {
   Program,
   ProgramDictionary
-} from "shared/types";
-import { SuccessChance } from "shared/enums";
+} from "../../../shared/types";
+import { SuccessChance } from "../../../shared/enums";
 
 const emptyRequirementFunction = (student, program) => SuccessChance.NOTIMPLEMENTED;
 

@@ -1,4 +1,4 @@
-import { ReqFnFilter } from "shared/types";
+import { ReqFnFilter } from "../../../../shared/types";
 
 export const either = (...filters: ReqFnFilter[]): ReqFnFilter => {
   return (student, program) => {

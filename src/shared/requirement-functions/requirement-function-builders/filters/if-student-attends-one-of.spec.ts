@@ -3,7 +3,7 @@ import { expect } from "chai";
 import {
   StudentData,
   Program
-} from "shared/types";
+} from "../../../../shared/types";
 
 import { ifStudentAttendsOneOf } from "./";
 

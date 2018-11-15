@@ -1,7 +1,7 @@
-import { SuccessChance } from "shared/enums";
-import { ProgramID } from "shared/types";
+import { SuccessChance } from "../../shared/enums";
+import { ProgramID } from "../../shared/types";
 
-interface ProgramOutcome {
+export interface ProgramOutcome {
   programID: ProgramID,
   applicationChance: SuccessChance
   selectionChance: SuccessChance
@@ -9,4 +9,3 @@ interface ProgramOutcome {
   distance?: number
 }
 
-export {ProgramOutcome};

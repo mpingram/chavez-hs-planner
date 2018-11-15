@@ -1,9 +1,9 @@
 import * as Redux from "redux";
 
-import { StudentData } from "shared/types";
-import { ActionType } from "shared/enums";
+import { StudentData } from "../../../shared/types";
+import { ActionType } from "../../../shared/enums";
 
-import calculateGPA from "shared/util/calculate-gpa";
+import calculateGPA from "../../../shared/util/calculate-gpa";
 
 import { initialStudentData } from "./initial-state";
 

@@ -3,7 +3,7 @@ import {
   ProgramDictionary,
   RawProgram,
   RequirementFunctionDictionary
-} from "shared/types";
+} from "../../../shared/types";
 
 
 export const createHSProgramDictionary = (rawProgramData: RawProgram[], requirementFunctions: RequirementFunctionDictionary): ProgramDictionary => {

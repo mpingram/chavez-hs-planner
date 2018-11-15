@@ -1,4 +1,4 @@
-import { connect, mapStateToProps, mapDispatchToProps } from "react-redux";
+import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import {
   updateStudentIEPStatus,
@@ -7,10 +7,9 @@ import {
   updateStudentCurrESProgram,
   updateStudentSiblingHSSchools,
   updateStudentSkip7OrRepeated8,
-} from "shared/redux/actions";
+} from "../../../shared/redux/actions";
 
-import { AppState } from "shared/types";
-import { INPUT_DEBOUNCE_TIME } from "shared/constants";
+import { AppState } from "../../../shared/types";
 
 import StudentInfoForm from "./student-info-form";
 

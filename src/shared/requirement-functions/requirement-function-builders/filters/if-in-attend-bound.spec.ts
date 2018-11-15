@@ -3,9 +3,9 @@ import { expect } from "chai";
 import {
   StudentData,
   Program
-} from "shared/types";
+} from "../../../../shared/types";
 
-import { createIfInAttendBound } from "shared/requirement-functions/requirement-function-builders/filters/if-in-attend-bound";
+import { createIfInAttendBound } from "../../../../shared/requirement-functions/requirement-function-builders/filters/if-in-attend-bound";
 
 const mockAttendBoundTable = require("./__mocks__/mock-school-attendance-boundary-table.json");
 const getMockAttendBoundTable = () => mockAttendBoundTable;

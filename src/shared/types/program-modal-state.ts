@@ -1,4 +1,4 @@
-import { Program, ProgramOutcome } from "shared/types";
+import { Program, ProgramOutcome } from "../../shared/types";
 
 export interface ProgramModalState {
   open: boolean

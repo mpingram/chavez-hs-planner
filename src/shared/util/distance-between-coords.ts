@@ -1,6 +1,6 @@
-import { LatLong } from "shared/types";
+import { LatLong } from "../../shared/types";
 
-import { GEO_APPROX_DEG_MI_CONVERSION_FACTOR } from "shared/constants";
+import { GEO_APPROX_DEG_MI_CONVERSION_FACTOR } from "../../shared/constants";
 
 
 // returns distance between geocoordinates, in miles

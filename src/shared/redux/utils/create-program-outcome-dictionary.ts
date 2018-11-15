@@ -3,11 +3,11 @@ import {
   ProgramOutcome,
   ProgramOutcomeDictionary,
   StudentData
-} from "shared/types";
+} from "../../../shared/types";
 
-import { SuccessChance } from "shared/enums";
+import { SuccessChance } from "../../../shared/enums";
 
-import { getOverallSuccessChance } from "shared/util/get-overall-success-chance";
+import { getOverallSuccessChance } from "../../../shared/util/get-overall-success-chance";
 
 export const createProgramOutcomeDictionary = (studentData: StudentData, programDict: ProgramDictionary): ProgramOutcomeDictionary => {
   let outcomeDict: ProgramOutcomeDictionary = {};

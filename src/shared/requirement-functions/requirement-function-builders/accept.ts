@@ -1,9 +1,9 @@
 import { 
   RequirementFunction,
   ReqFnFilter 
-} from "shared/types";
+} from "../../../shared/types";
 
-import { SuccessChance } from "shared/enums/success-chance";
+import { SuccessChance } from "../../../shared/enums/success-chance";
 
 export const accept = (filter: ReqFnFilter): RequirementFunction => {
   return (student, program) => {

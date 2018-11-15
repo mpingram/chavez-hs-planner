@@ -1,9 +1,9 @@
 import { expect } from "chai";
 
-import { StudentData, Program } from "shared/types";
-import { SuccessChance } from "shared/enums";
+import { StudentData, Program } from "../../../shared/types";
+import { SuccessChance } from "../../../shared/enums";
 
-import { lottery, LotteryStageSize } from "shared/requirement-functions/requirement-function-builders/lottery";
+import { lottery, LotteryStageSize } from "../../../shared/requirement-functions/requirement-function-builders/lottery";
 
 describe( "lottery", () => {
 

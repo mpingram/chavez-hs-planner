@@ -29,7 +29,4 @@
   "exclude": [
     "node_modules"
   ],
-  "awesomeTypescriptLoaderOptions": {
-    "useCache": true
-  }
 }

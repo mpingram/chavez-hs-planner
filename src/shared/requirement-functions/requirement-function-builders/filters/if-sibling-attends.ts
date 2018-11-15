@@ -1,4 +1,4 @@
-import { ReqFnFilter } from "shared/types";
+import { ReqFnFilter } from "../../../../shared/types";
 
 export const ifSiblingAttends: ReqFnFilter = (student, program) => {
   if (student.siblingHSSchoolIDs === null) {

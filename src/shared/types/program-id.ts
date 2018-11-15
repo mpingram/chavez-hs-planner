@@ -1,2 +1,1 @@
-type ProgramID = string;
-export {ProgramID};
+export type ProgramID = string;

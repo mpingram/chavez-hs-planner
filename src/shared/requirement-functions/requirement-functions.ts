@@ -1,10 +1,10 @@
 import {
   RequirementFunction,
-} from "shared/types";
+} from "../../shared/types";
 
 import {
   SuccessChance,
-} from "shared/enums";
+} from "../../shared/enums";
 
 
 import {
@@ -96,7 +96,7 @@ import {
  * We need to initialize these functions by passing them a link
  * to the app's redux store, which holds the data.
  * */
-import { store } from "shared/redux/store";
+import { store } from "../../shared/redux/store";
 const getAttendBoundDict = () => store.getState().data.schoolAttendanceBoundaryTable;
 const getSECutoffScores = () => store.getState().data.seCutoffScores;
 const getNonSECutoffScores = () => store.getState().data.nonSECutoffScores;
@@ -114,7 +114,7 @@ interface ReqFnTable {
     fn: RequirementFunction
   }
 }
-const requirementFunctions: ReqFnTable = {
+export const requirementFunctions: ReqFnTable = {
     "6adf97f83acf6453d4a6a4b1070f3754": {
         "desc": "None",
         "programs": [
@@ -5449,5 +5449,3 @@ const requirementFunctions: ReqFnTable = {
       "fn": notImplemented
   }
 }
-
-export {requirementFunctions};

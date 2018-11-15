@@ -4,8 +4,6 @@ import { Tooltip } from "react-tippy";
 import "react-tippy/dist/tippy.css";
 import Select from "react-select";
 
-import { Program } from "shared/types";
-
 import "./student-info-form.scss";
 
 interface StudentInfoFormProps {

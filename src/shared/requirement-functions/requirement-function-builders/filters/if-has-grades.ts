@@ -1,11 +1,11 @@
-import { ReqFnFilter } from "shared/types";
+import { ReqFnFilter } from "../../../../shared/types";
 
 import {
   isValidNwea, 
   isValidCombinedNwea, 
   isValidGPA, 
   isValidAttendance
-} from "shared/util/grade-validate";
+} from "../../../../shared/util/grade-validate";
 
 interface StudentGrades {
   nweaMath?: number

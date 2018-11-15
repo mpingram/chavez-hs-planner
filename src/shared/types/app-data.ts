@@ -5,7 +5,7 @@ import {
   ProgramOutcome,
   SchoolDictionary,
   TieredCutoffScores
-} from "shared/types";
+} from "../../shared/types";
 
 export interface AppData {
     hsPrograms: ProgramDictionary,

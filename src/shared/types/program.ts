@@ -1,6 +1,6 @@
-import { RequirementFunction } from "shared/types";
+import { RequirementFunction } from "../../shared/types";
 
-interface Program {
+export interface Program {
   id: string
 
   schoolNameShort: string
@@ -26,5 +26,3 @@ interface Program {
   applicationReqFn: RequirementFunction,
   selectionReqFn: RequirementFunction
 }
-
-export {Program};
