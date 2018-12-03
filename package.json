@@ -8,10 +8,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-config": "node ./config/build-scripts/main.js",
-    "test-config": "karma start ./config/build-scripts/karma.conf.js",
-    "deploy:production": "aws s3 sync dist/ s3://chavez-hs-planner.com --acl public-read",
-    "deploy:dev": "aws s3 sync dist/ s3://path-to-hs-dev",
+    "build-config": "node ./config/raw-data-processing/main.js",
+    "deploy:production": "aws s3 sync build/ s3://chavez-hs-planner.com --acl public-read",
+    "deploy:dev": "aws s3 sync build/ s3://path-to-hs-dev",
     "scrape-programs": "cd scraper && pipenv run python main.py ./raw-data/School_Locations_SY1718.csv"
   },
   "repository": {
@@ -43,9 +42,6 @@
     "@types/react-redux": "^6.0.9",
     "@types/redux-thunk": "^2.1.0",
     "chai": "^4.1.2",
-    "geojson-precision": "^0.4.0",
-    "geolib": "^2.0.24",
-    "jsonschema": "^1.2.4",
     "node-sass": "^4.10.0",
     "react-scripts": "^2.1.1",
     "typescript": "^3.1.6"
@@ -53,7 +49,6 @@
   "dependencies": {
     "browser-jsonp": "^1.1.5",
     "bulma": "^0.7.1",
-    "csv-parse": "^2.2.0",
     "lodash.debounce": "^4.0.8",
     "promise-polyfill": "^7.1.2",
     "react": "^16.6.3",
