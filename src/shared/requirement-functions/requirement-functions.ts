@@ -5462,7 +5462,20 @@ export const requirementFunctions: ReqFnTable = {
       "HARLAN HS: General Education"
     ],
     "desc": "Students who live within the school's attendance boundary can be admitted automatically.  Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, staff preference, general.",
-    "fn": todoImplement
+    // FIXME how to handle staff preference?
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          SIBLING_LOTTERY_STAGE,
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
   },
   "4f2838c3f11aa454470aa85a75995ac7": {
     "id": "4f2838c3f11aa454470aa85a75995ac7",
@@ -5470,7 +5483,33 @@ export const requirementFunctions: ReqFnTable = {
       "CICS - LONGWOOD: General Education"
     ],
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.  Students who are not currently enrolled in the school are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled in one of the following CICS schools: Avalon, Basil, Bucktown, Irving Park, Longwood, Prairie, Washington Park, West Belden, or Wrightwood; sibling; general.",
-    "fn": todoImplement
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          {
+            filter: ifStudentAttendsOneOf(
+              CICS_AVALON_ES_PROGRAM,
+              CICS_BASIL_ES_PROGRAM,
+              CICS_BUCKTOWN_ES_PROGRAM,
+              CICS_IRVING_PARK_ES_PROGRAM,
+              CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+              CICS_PRAIRIE_ES_PROGRAM,
+              CICS_WASHINGTON_PARK_ES_PROGRAM,
+              CICS_WEST_BELDEN_ES_PROGRAM,
+              CICS_WRIGHTWOOD_ES_PROGRAM
+              ),
+            size: LotteryStageSize.LARGE
+          },
+          SIBLING_LOTTERY_STAGE,
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
   },
   "265b45aa17f9f9f7ef72bc15abd29041": {
     "id": "265b45aa17f9f9f7ef72bc15abd29041",
@@ -5478,7 +5517,24 @@ export const requirementFunctions: ReqFnTable = {
       "LAKE VIEW HS: Early College STEM"
     ],
     "desc": "General Education and 504 Plan students: Minimum percentile of 50 in both reading and math on NWEA MAP, minimum 3.25 GPA in 7th grade, and 7th grade minimum attendance percentage of 93.  IEP and EL students: Minimum combined percentile of 50 in reading and math on NWEA MAP, minimum 3.25 GPA in 7th grade, and 7th grade minimum attendance percentage of 93.",
-    "fn": todoImplement
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades({
+          nweaCombined: 50,
+          gpa: 3.25,
+          attendance: 93
+        }))
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades({
+          nweaBoth: 50,
+          gpa: 3.25,
+          attendance: 93
+        }))
+      }
+    )
   },
   "8ed3774f1faa0beb316dadc66e8b9401": {
     "id": "8ed3774f1faa0beb316dadc66e8b9401",
@@ -5488,7 +5544,28 @@ export const requirementFunctions: ReqFnTable = {
       "RABY HS: Culinary Arts"
     ],
     "desc": "Students are randomly selected by computerized lottery. General Education and 504 Plan students: Preference is given to students with percentiles of 24 and above on the NWEA MAP in reading and math.  A total of 30% of the seats will be made available to applicants who live in the school's proximity.  IEP and EL students: Preference is given to students with combined NWEA MAP scores that equal 48 or above.  Note: Repeating 8th graders and students pushed into 8th grade from 6th grade due to age requirements qualify for selection but will be placed in a lower preference group.",
-    "fn": todoImplement
+    // custom req fn -- req fn builders a little ungainly for handling
+    // this kind of branching.
+    "fn": (s, p) => {
+      if( ifSkipped7OrRepeated8(s,p) ) {
+        return SuccessChance.UNLIKELY
+      } else if ( ifIEPorEL(s,p) ) {
+        const passesGrades = ifHasGrades({nweaCombined: 48})(s, p);
+        if( passesGrades ) { 
+          return SuccessChance.LIKELY;
+        } else {
+          return SuccessChance.UNCERTAIN;
+        }
+
+      } else {
+        const passesGrades = ifHasGrades({nweaBoth: 24})(s, p);
+        if ( passesGrades ) {
+          return SuccessChance.LIKELY;
+        } else {
+          return SuccessChance.UNCERTAIN;
+        }
+      }
+    }
   },
   "9aa679062455e290501432afb873a9e2": {
     "id": "9aa679062455e290501432afb873a9e2",
