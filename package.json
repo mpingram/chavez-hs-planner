@@ -6,11 +6,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:dev": "PUBLIC_URL=https://s3.amazonaws.com/path-to-hs-dev react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-config": "node ./config/raw-data-processing/main.js",
-    "deploy:production": "aws s3 sync build/ s3://chavez-hs-planner.com --acl public-read",
-    "deploy:dev": "aws s3 sync build/ s3://path-to-hs-dev",
+    "deploy:production": "aws s3 sync build/ s3://chavez-hs-planner.com --acl public-read --delete",
+    "deploy:dev": "aws s3 sync build/ s3://path-to-hs-dev --acl public-read --delete",
     "scrape-programs": "cd scraper && pipenv run python main.py ./raw-data/School_Locations_SY1718.csv"
   },
   "repository": {
