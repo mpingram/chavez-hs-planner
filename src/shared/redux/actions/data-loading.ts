@@ -26,7 +26,6 @@ import { updateProgramOutcomes } from "./update-program-outcomes";
 
 import { requirementFunctions } from "../../../shared/requirement-functions";
 import { Action } from "redux";
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
 
 const fetchJSONFrom = (url: string): Promise<any> => {
   return fetch(url).then( 
@@ -187,7 +186,7 @@ export const loadAllData = (): any /* NOTE can't get the types to work */ => {
   // dispatch all data loading actions, wrapped
   // by Promise.all().
   // TODO error handling?
-  return (dispatch: ThunkDispatch<AppState, null, Action<any>>, getState: () => AppState) => {
+  return (dispatch: any, getState: () => AppState) => {
     dispatch( loadingData() );
     return Promise.all([
       dispatch( loadHSPrograms(requirementFunctions) ),
