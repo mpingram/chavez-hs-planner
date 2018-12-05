@@ -72,6 +72,7 @@ export const PETERSON_ES_PROGRAM = "610127-General Education";
 export const ROGERS_ES_PROGRAM = "610147-General Education";
 export const OGDEN_ES_PROGRAM = "610101-General Education";
 export const DISNEY_II_ES_PROGRAM = "610363-Fine Arts & Technology";
+export const GOUDY_ES_PROGRAM = "609945-Magnet Cluster (Technology)"
 
 
 export const ACERO_ZIZUMBO_ES_PROGRAM = "400079-General Education";
