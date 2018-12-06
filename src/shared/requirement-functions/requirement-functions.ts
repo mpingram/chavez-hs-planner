@@ -50,12 +50,12 @@ import {
   CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
   U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
   CHICAGO_COLLEGIATE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
-  JAMIESON_OPEN_ENROLLMENT_ES_PROGRAM,
-  JAMIESON_GENERAL_EDUCATION_ES_PROGRAM,
+  JAMIESON_ES_PROGRAM,
   CLINTON_ES_PROGRAM,
   PETERSON_ES_PROGRAM,
   ROGERS_ES_PROGRAM,
-  OGDEN_ES_PROGRAM,
+  OGDEN_GENERAL_EDUCATION_ES_PROGRAM,
+  OGDEN_MAGNET_CLUSTER_ES_PROGRAM,
   DISNEY_II_ES_PROGRAM,
   GOUDY_ES_PROGRAM,
 
@@ -91,7 +91,7 @@ import {
   KILMER_ES_PROGRAM,
   MCPHERSON_ES_PROGRAM,
   WEST_RIDGE_ES_PROGRAM,
-  GREELEY_REGIONAL_GIFTD_CENTER_FOR_ELS_ES_PROGRAM,
+  GREELEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
   RAVENSWOOD_ES_PROGRAM,
   GREELEY_MAGNET_CLUSTER_ES_PROGRAM,
 
@@ -4080,8 +4080,7 @@ export const requirementFunctions: ReqFnTable = {
               filter: ifStudentAttendsOneOf(
                 BOONE_ES_PROGRAM,
                 CLINTON_ES_PROGRAM,
-                JAMIESON_OPEN_ENROLLMENT_ES_PROGRAM,
-                JAMIESON_GENERAL_EDUCATION_ES_PROGRAM,
+                JAMIESON_ES_PROGRAM,
                 PETERSON_ES_PROGRAM,
                 ROGERS_ES_PROGRAM,
                 WEST_RIDGE_ES_PROGRAM,
@@ -5369,7 +5368,7 @@ export const requirementFunctions: ReqFnTable = {
       // FIXME what's with the duplicated 'enrolled in school's middle years programme' stuff? Don't those students automaticaly get in?
       "fn": conditional(
         {
-          filter: ifStudentAttendsOneOf(OGDEN_ES_PROGRAM),
+          filter: ifStudentAttendsOneOf(OGDEN_GENERAL_EDUCATION_ES_PROGRAM, OGDEN_MAGNET_CLUSTER_ES_PROGRAM),
           fn: accept(everyone)
         },
         {
@@ -6186,8 +6185,7 @@ export const requirementFunctions: ReqFnTable = {
             filter: ifStudentAttendsOneOf(
               BOONE_ES_PROGRAM,
               CLINTON_ES_PROGRAM,
-              JAMIESON_GENERAL_EDUCATION_ES_PROGRAM,
-              JAMIESON_OPEN_ENROLLMENT_ES_PROGRAM,
+              JAMIESON_ES_PROGRAM,
               PETERSON_ES_PROGRAM,
               ROGERS_ES_PROGRAM,
               WEST_RIDGE_ES_PROGRAM,
@@ -7281,7 +7279,7 @@ export const requirementFunctions: ReqFnTable = {
           DISNEY_II_ES_PROGRAM,
           GOUDY_ES_PROGRAM,
           GREELEY_MAGNET_CLUSTER_ES_PROGRAM,
-          GREELEY_REGIONAL_GIFTD_CENTER_FOR_ELS_ES_PROGRAM,
+          GREELEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
           MCCUTCHEON_ES_PROGRAM,
           RAVENSWOOD_ES_PROGRAM
         ),
