@@ -1,7 +1,7 @@
 import * as Redux from "redux";
 
-import { ProgramOutcomeDictionary } from "shared/types";
-import { ActionType } from "shared/enums";
+import { ProgramOutcomeDictionary } from "../../../shared/types";
+import { ActionType } from "../../../shared/enums";
 
 import { initialProgramOutcomes } from "./initial-state";
 

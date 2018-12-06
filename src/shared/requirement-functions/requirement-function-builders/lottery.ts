@@ -3,14 +3,15 @@ import {
   Program,
   RequirementFunction,
   ReqFnFilter,
-} from "shared/types";
+} from "../../../shared/types";
 
-import {SuccessChance} from "shared/enums/success-chance";
+import {SuccessChance} from "../../../shared/enums/success-chance";
 
 import {
   ifInProximity,
   ifSiblingAttends,
   everyone,
+  ifAttends,
 } from "./filters";
 
 export enum LotteryStageSize {
@@ -39,6 +40,30 @@ export const GENERAL_LOTTERY_STAGE = {
   filter: everyone,
   size: LotteryStageSize.LARGE
 };
+
+// Staff preference lottery is for students with a parent
+// or guardian who works at the school.
+// FIXME implement
+export const STAFF_PREFERENCE_LOTTERY_STAGE = {
+  filter: (s,p) => false,
+  size: LotteryStageSize.SMALL
+}
+
+// an Attendance Area lottery stage is a stage that accepts students
+// who live in the school's attendance boundary.
+// FIXME implement
+export const ATTENDANCE_AREA_LOTTERY_STAGE = {
+  filter: (s,p) => false,
+  size: LotteryStageSize.LARGE
+}
+
+// Continuing Students lottery stage is a lottery stage that accepts
+// students currently enrolled in schools' 8th grade who wish to continue
+// through to the schools' 9th grade
+export const CONTINUING_STUDENTS_LOTTERY_STAGE = {
+  filter: ifAttends,
+  size: LotteryStageSize.LARGE
+}
 
 // We're treating tiered lottery stage (where even numbers of applicants are
 // accepted by tier) like general lottery stages (where applicants are 

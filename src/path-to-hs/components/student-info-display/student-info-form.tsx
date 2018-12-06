@@ -4,8 +4,6 @@ import { Tooltip } from "react-tippy";
 import "react-tippy/dist/tippy.css";
 import Select from "react-select";
 
-import { Program } from "shared/types";
-
 import "./student-info-form.scss";
 
 interface StudentInfoFormProps {
@@ -23,7 +21,7 @@ interface StudentInfoFormProps {
   tier: string | null
   skip7OrRepeat8: boolean | null
   onSkip7OrRepeat8Change: (newVal: boolean) => any
-  currESProgram: string | null
+  currESProgram: {value: string} | null
   onCurrESProgramChange: (newVal: string) => any
   siblingHSSchools: string[]
   onSiblingHSSchoolChange: (newVal: string[]) => any

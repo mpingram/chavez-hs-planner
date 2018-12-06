@@ -1,7 +1,7 @@
 import * as Redux from "redux";
 
-import { ProgramModalState } from "shared/types";
-import { ActionType } from "shared/enums";
+import { ProgramModalState } from "../../../shared/types";
+import { ActionType } from "../../../shared/enums";
 
 import { initialProgramModalState } from "./initial-state";
 

@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { Program, ProgramOutcome } from "shared/types";
-import { SuccessChance }from "shared/enums";
+import { Program, ProgramOutcome } from "../../shared/types";
+import { SuccessChance }from "../../shared/enums";
 
-import { ProgramCard } from "shared/components/program-card";
+import { ProgramCard } from "../../shared/components/program-card";
 
 import "./program-modal.scss";
 

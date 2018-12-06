@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { Tooltip } from "react-tippy";
 import "react-tippy/dist/tippy.css";
-import { LetterGrade } from "shared/types";
+import { LetterGrade } from "../../../shared/types";
 
 import "./grades-form.scss";
 

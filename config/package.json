@@ -4,12 +4,12 @@
   "description": "Config system for Chavez HS Planner website.",
   "main": " ",
   "scripts": {
-    "test": "mocha \"build-scripts/**/*.spec.js\"",
-    "build": "./build-scripts/main.js"
+    "test": "mocha \"raw-data-processing/**/*.spec.js\"",
+    "process-raw-data": "node ./raw-data-processing/main.js"
   },
   "author": "Michael Ingram",
   "license": "",
-  "homepage": "https://github.com/mpingram/path-to-hs#readme",
+  "homepage": "https://github.com/mpingram/chavez-hs-planner#readme",
   "devDependencies": {},
   "dependencies": {
     "chai": "^4.1.2",

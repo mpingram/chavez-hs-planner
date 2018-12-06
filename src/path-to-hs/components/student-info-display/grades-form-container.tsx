@@ -1,5 +1,5 @@
-import { connect, mapStateToProps, mapDispatchToProps } from "react-redux";
-import { createSelector } from "reselect";
+import { connect } from "react-redux";
+
 import {
   updateStudentNWEAPercentileMath,
   updateStudentNWEAPercentileRead,
@@ -8,13 +8,20 @@ import {
   updateStudentSubjGradeSci,
   updateStudentSubjGradeSocStudies,
   updateStudentAttendPercentage
-} from "shared/redux/actions";
-
-import { AppState } from "shared/types";
+} from "../../../shared/redux/actions";
 
 import { GradesForm, GradesFormProps } from "./grades-form";
 
-const mapStateToProps = (state: AppState): Partial<GradesFormProps> => {
+type StateProps = Pick<GradesFormProps,
+  "nweaMath" |
+  "nweaRead" |
+  "mathGrade" |
+  "readGrade" |
+  "scienceGrade" |
+  "socialStudiesGrade" |
+  "attendancePercentage" |
+  "gpa">
+const mapStateToProps = (state): StateProps => {
   return {
     nweaMath: state.studentData.nweaPercentileMath,
     nweaRead: state.studentData.nweaPercentileRead,
@@ -27,7 +34,15 @@ const mapStateToProps = (state: AppState): Partial<GradesFormProps> => {
   }
 };
 
-const mapDispatchToProps = (dispatch): Partial<GradesFormProps> => {
+type DispatchProps = Pick<GradesFormProps,
+  "onNWEAMathChange" |
+  "onNWEAReadChange" |
+  "onMathGradeChange" |
+  "onReadGradeChange" |
+  "onScienceGradeChange" |
+  "onSocialStudiesGradeChange" |
+  "onAttendancePercentageChange">
+const mapDispatchToProps = (dispatch): DispatchProps => {
   return {
     onNWEAMathChange: val => dispatch(updateStudentNWEAPercentileMath(val)),
     onNWEAReadChange: val => dispatch(updateStudentNWEAPercentileRead(val)),

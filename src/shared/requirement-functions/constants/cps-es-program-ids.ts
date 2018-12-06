@@ -13,7 +13,8 @@ export const CURTIS_ES_PROGRAM = "609900-Open Enrollment";
 export const DENEEN_ES_PROGRAM = "609883-Open Enrollment";
 export const DEWEY_ES_PROGRAM = "609885-Magnet Cluster";
 export const DULLES_ES_PROGRAM = "610263-Open Enrollment";
-export const DVORAK_ES_PROGRAM = "610254-Magnet Cluster";
+export const DVORAK_ES_PROGRAM = "610254-Magnet Cluster (Technology)";
+
 export const FULLER_ES_PROGRAM = "609928-Open Enrollment";
 export const GRESHAM_ES_PROGRAM = "609955-Open Enrollment";
 export const HARVARD_ES_PROGRAM = "609971-Open Enrollment";
@@ -21,21 +22,27 @@ export const HERZL_ES_PROGRAM = "609991-Open Enrollment";
 export const HOWE_ES_PROGRAM = "610000-Open Enrollment";
 export const JOHNSON_ES_PROGRAM = "610274-Open Enrollment";
 export const LEWIS_ES_PROGRAM = "610036-Open Enrollment";
-export const MARQUETTE_ES_PROGRAM = "610053-Magnet Cluster";
+export const MARQUETTE_ES_PROGRAM = "610053-Magnet Cluster (International Baccalaureate Middle Years)";
+
 export const MCNAIR_ES_PROGRAM = "610282-Open Enrollment";
 export const MORTON_ES_PROGRAM = "610257-Open Enrollment";
-export const NATIONAL_TEACHERS_ACADEMY_ES_PROGRAM = "610231-Open Enrollment";
+export const NATIONAL_TEACHERS_ACADEMY_GENERAL_EDUCATION_ES_PROGRAM = "610231-General Education";
+export const NATIONAL_TEACHERS_ACADEMY_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "610231-Selective Enrollment (Regional Gifted Center)";
+
 export const OKEEFFE_ES_PROGRAM = "610103-Open Enrollment";
 export const PICCOLO_ES_PROGRAM = "610106-Open Enrollment";
 export const SHERMAN_ES_PROGRAM = "610172-Open Enrollment";
 export const STAGG_ES_PROGRAM = "610339-Open Enrollment";
 export const TARKINGTON_ES_PROGRAM = "610396-Open Enrollment";
 export const CHICAGO_ACADEMY_ES_PROGRAM = "610248-Open Enrollment";
+
 export const BRENNEMANN_ES_PROGRAM = "610242-Magnet Cluster";
 export const COURTENAY_ES_PROGRAM = "610355-Open Enrollment";
 export const MCCUTCHEON_ES_PROGRAM = "610269-Open Enrollment";
-export const CARNEGIE_MAGNET_CLUSTER_ES_PROGRAM = "609837-Magnet Cluster";
-export const CARNEGIE_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609837-Regional Gifted Center";
+export const CARNEGIE_MAGNET_CLUSTER_ES_PROGRAM = "609837-Magnet Cluster (International Baccalaureate Middle Years)";
+export const CARNEGIE_OPEN_ENROLLMENT_ES_PROGRAM = "609837-Open Enrollment";
+export const CARNEGIE_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609837-Selective Enrollment (Regional Gifted Center)";
+
 export const ALCOTT_ES_PROGRAM = "609774-Open Enrollment";
 export const BOONE_ES_PROGRAM = "609804-Magnet Cluster";
 export const FIELD_ES_PROGRAM = "609918-Open Enrollment";
@@ -43,35 +50,46 @@ export const GALE_ES_PROGRAM = "609933-Open Enrollment";
 export const HAYT_ES_PROGRAM = "609976-Open Enrollment";
 export const JORDAN_ES_PROGRAM = "609865-Open Enrollment";
 export const KILMER_ES_PROGRAM = "610022-Open Enrollment";
-export const MCPHERSON_ES_PROGRAM = "610070-Magnet Cluster";
+
+export const MCPHERSON_ES_PROGRAM = "610070-610070-Magnet Cluster (International Baccalaureate Middle Years)";
 export const WEST_RIDGE_ES_PROGRAM = "610542-Open Enrollment";
-export const CALMECA_ES_PROGRAM = "610353-Open Enrollment";
-export const COOPER_ES_PROGRAM = "609867-Open Enrollment";
+export const CALMECA_ES_PROGRAM = "610353-Open Enrollment (Dual Language)";
+export const COOPER_ES_PROGRAM = "609867-Open Enrollment (Dual Language)";
+
 export const AUDUBON_ES_PROGRAM = "609782-Magnet Cluster";
 export const BELL_OPEN_ENROLLMENT_ES_PROGRAM = "609799-Open Enrollment";
-export const BELL_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609799-Regional Gifted Center";
+export const BELL_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609799-Selective Enrollment (Regional Gifted Center)";
 export const BLAINE_ES_PROGRAM = "609803-Magnet Cluster";
 export const BUDLONG_ES_PROGRAM = "609817-Open Enrollment";
-export const BURLEY_ES_PROGRAM = "609820-Magnet Cluster";
-export const CHAPPELL_ES_PROGRAM = "609852-Magnet Cluster";
+
+export const BURLEY_ES_PROGRAM = "609820-Magnet Cluster (Technology)";
+export const CHAPPELL_ES_PROGRAM = "609852-Magnet Cluster (World Language)";
+
 export const COONLEY_OPEN_ENROLLMENT_ES_PROGRAM = "609866-Open Enrollment";
-export const COONLEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609866-Regional Gifted Center";
-export const GREELEY_MAGNET_CLUSTER_ES_PROGRAM = "609850-Magnet Cluster";
-export const GREELEY_REGIONAL_GIFTD_CENTER_FOR_ELS_ES_PROGRAM = "609850-Regional Gifted Center for English Learners";
-export const HAMILTON_ES_PROGRAM = "609963-Magnet Cluster";
-export const HAWTHORNE_ES_PROGRAM = "609974-Citywide Magnet";
-export const INTER_AMERICAN_ES_PROGRAM = "610078-Citywide Magnet";
-export const JAHN_ES_PROGRAM = "610010-Magnet Cluster";
-export const JAMIESON_OPEN_ENROLLMENT_ES_PROGRAM = "610011-Open Enrollment";
-export const JAMIESON_GENERAL_EDUCATION_ES_PROGRAM = "610011-General Education";
-export const NETTELHORST_ES_PROGRAM = "610094-Magnet Cluster";
-export const RAVENSWOOD_ES_PROGRAM = "610141-Magnet Cluster";
-export const WATERS_ES_PROGRAM = "610220-Magnet Cluster";
+export const COONLEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609866-Selective Enrollment (Regional Gifted Center)";
+export const GREELEY_MAGNET_CLUSTER_ES_PROGRAM = "Magnet Cluster (World Language)";
+
+export const GREELEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "609850-Selective Enrollment (Regional Gifted Center for English Learners)";
+
+export const HAMILTON_ES_PROGRAM = "609963-Magnet Cluster (Fine and Performing Arts)";
+
+export const HAWTHORNE_ES_PROGRAM = "609974-Magnet (Scholastic Academy)";
+
+export const INTER_AMERICAN_ES_PROGRAM = "610078-Magnet (Dual Language Immersion/Dual Language)";
+
+export const JAHN_ES_PROGRAM = "610010-Magnet Cluster (World Language)";
+
+export const JAMIESON_ES_PROGRAM = "610011-Open Enrollment";
+export const NETTELHORST_ES_PROGRAM = "610094-Magnet Cluster (Fine and Performing Arts)";
+export const RAVENSWOOD_ES_PROGRAM = "610141-Magnet Cluster (Fine and Performing Arts)";
+export const WATERS_ES_PROGRAM = "610220-Magnet Cluster (Fine and Performing Arts)";
 export const CLINTON_ES_PROGRAM = "609859-General Education";
 export const PETERSON_ES_PROGRAM = "610127-General Education";
 export const ROGERS_ES_PROGRAM = "610147-General Education";
-export const OGDEN_ES_PROGRAM = "610101-General Education";
-export const DISNEY_II_ES_PROGRAM = "610363-Fine Arts & Technology";
+export const OGDEN_GENERAL_EDUCATION_ES_PROGRAM = "610101-General Education";
+export const OGDEN_MAGNET_CLUSTER_ES_PROGRAM = "610101-Magnet Cluster (International Baccalaureate Middle Years)";
+export const DISNEY_II_ES_PROGRAM = "610363-Magnet (Fine Arts/Technology)";
+export const GOUDY_ES_PROGRAM = "609945-Magnet Cluster (Technology)"
 
 
 export const ACERO_ZIZUMBO_ES_PROGRAM = "400079-General Education";
@@ -85,7 +103,7 @@ export const ACERO_CISNEROS_ES_PROGRAM = "400101-General Education";
 export const ACERO_IDAR_ES_PROGRAM = "400112-General Education";
 export const ACERO_SANTIAGO_ES_PROGRAM = "400114-General Education";
 export const ACERO_CLEMENTE_ES_PROGRAM = "400120-General Education";
-export const ACERO_DE_LA_CRUZ_ES_PROGRAM = "400121-General Education";
+export const ACERO_DE_LA_CRUZ_ES_PROGRAM = "400121-Fine & Performing Arts";
 
 export const ACERO_ES_PROGRAMS = [
   ACERO_ZIZUMBO_ES_PROGRAM,
@@ -159,14 +177,14 @@ export const GROW_COMMUNITY_SCHOOL_ES_PROGRAMS: string[] = [
   CHAPPELL_ES_PROGRAM,
   COONLEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
   COONLEY_OPEN_ENROLLMENT_ES_PROGRAM,
-  GREELEY_REGIONAL_GIFTD_CENTER_FOR_ELS_ES_PROGRAM,
+  GREELEY_MAGNET_CLUSTER_ES_PROGRAM,
+  GREELEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
   GREELEY_MAGNET_CLUSTER_ES_PROGRAM,
   HAMILTON_ES_PROGRAM,
   HAWTHORNE_ES_PROGRAM,
   INTER_AMERICAN_ES_PROGRAM,
   JAHN_ES_PROGRAM,
-  JAMIESON_GENERAL_EDUCATION_ES_PROGRAM,
-  JAMIESON_OPEN_ENROLLMENT_ES_PROGRAM,
+  JAMIESON_ES_PROGRAM,
   MCPHERSON_ES_PROGRAM,
   NETTELHORST_ES_PROGRAM,
   RAVENSWOOD_ES_PROGRAM,
@@ -193,7 +211,8 @@ export const AUSL_ES_PROGRAMS: string[] = [
   MARQUETTE_ES_PROGRAM,
   MCNAIR_ES_PROGRAM,
   MORTON_ES_PROGRAM,
-  NATIONAL_TEACHERS_ACADEMY_ES_PROGRAM,
+  NATIONAL_TEACHERS_ACADEMY_GENERAL_EDUCATION_ES_PROGRAM,
+  NATIONAL_TEACHERS_ACADEMY_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
   OKEEFFE_ES_PROGRAM,
   PICCOLO_ES_PROGRAM,
   SHERMAN_ES_PROGRAM,

@@ -1,7 +1,7 @@
 import * as Redux from "redux";
 
-import { AppData } from "shared/types";
-import { ActionType } from "shared/enums";
+import { AppData } from "../../../shared/types";
+import { ActionType } from "../../../shared/enums";
 
 import { initialData } from "./initial-state";
 

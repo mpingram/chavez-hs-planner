@@ -1,7 +1,7 @@
 import {
   ProgramDictionary,
   SchoolDictionary
-} from "shared/types";
+} from "../../../shared/types";
 
 /*
  * Creates a dictionary mapping school IDs to school names.

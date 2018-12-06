@@ -1,20 +1,20 @@
 import * as React from "react";
 
-import { SuccessChance } from "shared/enums";
+import { SuccessChance } from "../../shared/enums";
 
 interface ProgramCardProps {
   outcome: SuccessChance
   displayName: string
 }
 
-import SchoolIcon from "shared/components/icons/school";
+import SchoolIcon from "../../shared/components/icons/school";
 
-import OutcomeCertainIcon from "shared/components/icons/outcome-certain";
-import OutcomeLikelyIcon from "shared/components/icons/outcome-likely";
-import OutcomeUncertainIcon from "shared/components/icons/outcome-uncertain";
-import OutcomeUnlikelyIcon from "shared/components/icons/outcome-unlikely";
-import OutcomeNoneIcon from "shared/components/icons/outcome-none";
-import OutcomeNotImplementedIcon from "shared/components/icons/outcome-notimplemented";
+import OutcomeCertainIcon from "../../shared/components/icons/outcome-certain";
+import OutcomeLikelyIcon from "../../shared/components/icons/outcome-likely";
+import OutcomeUncertainIcon from "../../shared/components/icons/outcome-uncertain";
+import OutcomeUnlikelyIcon from "../../shared/components/icons/outcome-unlikely";
+import OutcomeNoneIcon from "../../shared/components/icons/outcome-none";
+import OutcomeNotImplementedIcon from "../../shared/components/icons/outcome-notimplemented";
 
 import "./program-card.scss";
 

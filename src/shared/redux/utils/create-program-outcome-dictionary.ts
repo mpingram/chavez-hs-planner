@@ -2,19 +2,38 @@ import {
   ProgramDictionary,
   ProgramOutcome,
   ProgramOutcomeDictionary,
-  StudentData
-} from "shared/types";
+  StudentData,
+} from "../../../shared/types";
 
-import { SuccessChance } from "shared/enums";
+import { SuccessChance } from "../../../shared/enums";
 
-import { getOverallSuccessChance } from "shared/util/get-overall-success-chance";
+import { getOverallSuccessChance } from "../../../shared/util/get-overall-success-chance";
 
 export const createProgramOutcomeDictionary = (studentData: StudentData, programDict: ProgramDictionary): ProgramOutcomeDictionary => {
   let outcomeDict: ProgramOutcomeDictionary = {};
   Object.keys(programDict).forEach( programID => {
     const program = programDict[programID];
-    const applicationChance = program.applicationReqFn(studentData, program);
-    const selectionChance = program.selectionReqFn(studentData, program);
+
+    // if the program's application or selection requirement functions are not defined,
+    // set the application and selection chances to SuccessChance.NOTIMPLEMENTED.
+    // --
+    let applicationChance: SuccessChance;
+    if (program.applicationReqFn === undefined) {
+      console.warn(`Missing application requirement function for program ${program.programName}`);
+      applicationChance = SuccessChance.NOTIMPLEMENTED;
+    } else {
+      applicationChance = program.applicationReqFn(studentData, program);
+    }
+
+    let selectionChance: SuccessChance;
+    if (program.selectionReqFn === undefined) {
+      console.warn(`Missing selection requirement function for program ${program.programName}`);
+      selectionChance = SuccessChance.NOTIMPLEMENTED;
+    } else {
+      selectionChance = program.selectionReqFn(studentData, program);
+    }
+    // --
+
     const outcome: ProgramOutcome = {
       programID: programID,
       applicationChance: applicationChance,

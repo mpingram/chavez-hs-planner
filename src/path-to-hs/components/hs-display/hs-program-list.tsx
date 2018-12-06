@@ -8,8 +8,8 @@ import {
   ProgramGroup,
   ProgramOutcomeDictionary,
   OutcomeCounts
-} from "shared/types";
-import { SuccessChance } from "shared/enums";
+} from "../../../shared/types";
+import { SuccessChance } from "../../../shared/enums";
 
 import { SearchBar } from "./search-bar";
 import HSProgramElement from "./hs-program-element";
@@ -37,7 +37,7 @@ import "./hs-program-list.scss";
  * ------------------------------------------------
  * */
 import { connect } from "react-redux";
-import { updateStudentSETestPercentile } from "shared/redux/actions";
+import { updateStudentSETestPercentile } from "../../../shared/redux/actions";
 interface SETEstPercentileFieldProps {
   value: number | null
   onChange: (value: number) => any
@@ -222,7 +222,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
     const aOutcome = this.props.outcomes[a.id]
     const bOutcome = this.props.outcomes[b.id]
 
-    function toNumber(outcome: ProgramOutcome | undefined) {
+    function toNumber(outcome: ProgramOutcome | undefined): number {
       if (outcome === undefined) {
         return -1;
       }
@@ -233,6 +233,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
           case SuccessChance.UNLIKELY: return 3;
           case SuccessChance.NONE: return 2;
           case SuccessChance.NOTIMPLEMENTED: return 1;
+          default: return -1;
       }
     }
     return toNumber(bOutcome) - toNumber(aOutcome);

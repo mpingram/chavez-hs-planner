@@ -1,9 +1,8 @@
-import { Gender } from "shared/enums";
+import { Gender } from "../../shared/enums";
 import { 
   LetterGrade,
-  GradeLevel, 
   LatLong
-} from "shared/types";
+} from "../../shared/types";
 
 export interface StudentData {
     gender: Gender | null
@@ -13,7 +12,7 @@ export interface StudentData {
     gradeLevel: number | null
     prevGradeLevel: number | null
     skippedGrade7OrRepeatedGrade8: boolean | null
-    currESProgramID: string | null
+    currESProgramID: {value: string} | null
     ell: boolean | null
     iep: boolean | null
     attendancePercentage: number | null

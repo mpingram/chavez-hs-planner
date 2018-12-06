@@ -1,9 +1,8 @@
 import * as React from "react";
 import * as Autosuggest from "react-autosuggest";
-import { createSelector } from "reselect";
 
-import { AppState, ProgramDictionary } from "shared/types";
-import { store } from "shared/redux/store";
+import { AppState, ProgramDictionary } from "../../../shared/types";
+import { store } from "../../../shared/redux/store";
 
 interface Suggestion {
   value: string
@@ -135,8 +134,7 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
   return suggestions;
 };
 
-
-import SearchIcon from "shared/components/icons/search";
+import SearchIcon from "../../../shared/components/icons/search";
 
 import "./search-bar.scss";
 
@@ -221,7 +219,7 @@ export class SearchBar extends React.PureComponent<SearchBarProps, SearchBarStat
 
   private handleSuggestionsFetchRequested = ({value}): void => {
     this.setState({
-      suggestions: getSuggestions(getProgramDict(store.getState()), value)
+      suggestions: getSuggestions(getProgramDict(store.getState() as AppState), value)
     });
   }
 

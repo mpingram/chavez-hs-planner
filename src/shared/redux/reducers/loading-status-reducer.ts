@@ -1,6 +1,6 @@
 import * as Redux from "redux";
 
-import { ActionType } from "shared/enums";
+import { ActionType } from "../../../shared/enums";
 
 interface LoadingStatus {
   loadingData: boolean

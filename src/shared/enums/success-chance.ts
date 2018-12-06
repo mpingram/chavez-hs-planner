@@ -1,4 +1,4 @@
-enum SuccessChance {
+export enum SuccessChance {
   CERTAIN = 5,
   LIKELY = 4,
   UNCERTAIN = 3,
@@ -6,5 +6,3 @@ enum SuccessChance {
   NONE = 1,
   NOTIMPLEMENTED = 0
 };
-
-export {SuccessChance};

@@ -1,11 +1,11 @@
 import { expect } from "chai";
 
-import { SuccessChance } from "shared/enums";
+import { SuccessChance } from "../../../shared/enums";
 import { 
   Program,
   ReqFnFilter,
   StudentData,
-} from "shared/types";
+} from "../../../shared/types";
 
 import { accept } from "./accept";
 

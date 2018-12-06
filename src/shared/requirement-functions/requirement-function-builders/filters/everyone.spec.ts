@@ -3,9 +3,9 @@ import { expect } from "chai";
 import { 
   StudentData,
   Program
-} from "shared/types";
+} from "../../../../shared/types";
 
-import { everyone } from "shared/requirement-functions/requirement-function-builders/filters";
+import { everyone } from "../../../../shared/requirement-functions/requirement-function-builders/filters";
 
 const s = {} as StudentData;
 const p = {} as Program;

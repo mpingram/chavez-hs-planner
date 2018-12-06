@@ -1,9 +1,8 @@
-import * as React from "react";
-import { connect, mapStateToProps } from "react-redux";
+import { connect } from "react-redux";
 
-import { AppState } from "shared/types";
+import { AppState } from "../../shared/types";
 
-import { closeProgramModal } from "shared/redux/actions";
+import { closeProgramModal } from "../../shared/redux/actions";
 
 import { ProgramModal } from "./program-modal";
 

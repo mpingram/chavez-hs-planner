@@ -2,11 +2,9 @@ import {
   CutoffScores,
   Program,
   ReqFnFilter,
-  RequirementFunction,
   StudentData,
   NonSECutoffDictionary,
-  AttendanceBoundaryDictionary
-} from "shared/types";
+} from "../../../shared/types";
 
 import { pointSystem } from "./point-system";
 

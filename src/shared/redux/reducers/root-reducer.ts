@@ -3,7 +3,7 @@ import * as Redux from "redux";
 import { 
   AppState,
   ProgramOutcomeDictionary
-} from "shared/types";
+} from "../../../shared/types";
 
 import { 
   createProgramOutcomeDictionary,

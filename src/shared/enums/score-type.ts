@@ -1,4 +1,4 @@
-enum ScoreType {
+export enum ScoreType {
   nweaPercentileMath = "nweaPercentileMath", 
   nweaPercentileRead = "nweaPercentileRead", 
   subjGradeMath = "subjGradeMath", 
@@ -7,5 +7,3 @@ enum ScoreType {
   subjGradeSocStudies = "subjGradeSocStudies",
   seTestPercentile = "seTestPercentile"
 }
-
-export {ScoreType};

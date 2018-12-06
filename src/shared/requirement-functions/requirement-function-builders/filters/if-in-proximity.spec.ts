@@ -2,12 +2,12 @@ import { expect } from "chai";
 import { 
   StudentData,
   Program
-} from "shared/types";
+} from "../../../../shared/types";
 
 import { CPS_PROXIMITY_LOTTERY_RADIUS_METERS } from "../../constants";
 import { computeDestinationPoint } from "geolib";
 
-import { ifInProximity } from "shared/requirement-functions/requirement-function-builders/filters/if-in-proximity";
+import { ifInProximity } from "../../../../shared/requirement-functions/requirement-function-builders/filters/if-in-proximity";
 
 
 describe("ifInProximity hsReqFilter", () => {

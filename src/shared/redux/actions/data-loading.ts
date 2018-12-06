@@ -3,30 +3,29 @@ import {
   ProgramDictionary,
   RequirementFunctionDictionary,
   SchoolDictionary
-} from "shared/types";
+} from "../../../shared/types";
 
-import { ActionType } from "shared/enums";
+import { ActionType } from "../../../shared/enums";
 
 import {
   HS_PROGRAMS_URL,
   NON_HS_PROGRAMS_URL,
   SE_CUTOFF_SCORES_URL,
   NON_SE_CUTOFF_SCORES_URL,
-  PROGRAM_TYPE_ID_TABLE_URL,
   SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL,
   TRACT_TIER_TABLE_URL
-} from "shared/constants";
+} from "../../../shared/constants";
 
 import { 
   createHSProgramDictionary,
   createNonHSProgramDictionary,
-  createHSSchoolDict,
   createProgramGroupDictionary
 } from "../utils"
 
 import { updateProgramOutcomes } from "./update-program-outcomes";
 
-import { requirementFunctions } from "shared/requirement-functions";
+import { requirementFunctions } from "../../../shared/requirement-functions";
+import { Action } from "redux";
 
 const fetchJSONFrom = (url: string): Promise<any> => {
   return fetch(url).then( 
@@ -183,11 +182,11 @@ export const updateHSSchools = (hsPrograms: ProgramDictionary) => {
  * ...
  * TODO figure out how we should do error handling.
  * */
-export const loadAllData = () => {
+export const loadAllData = (): any /* NOTE can't get the types to work */ => { 
   // dispatch all data loading actions, wrapped
   // by Promise.all().
   // TODO error handling?
-  return (dispatch, getState) => {
+  return (dispatch: any, getState: () => AppState) => {
     dispatch( loadingData() );
     return Promise.all([
       dispatch( loadHSPrograms(requirementFunctions) ),

@@ -1,4 +1,4 @@
-import { TieredCutoffScores } from "shared/types";
+import { TieredCutoffScores } from "../../shared/types";
 
 export interface SECutoffDictionary {
   [programID: string]: TieredCutoffScores

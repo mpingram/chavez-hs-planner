@@ -2,18 +2,17 @@ import {
   ActionType,
   Gender,
   ScoreType
-}  from "shared/enums";
+}  from "../../../shared/enums";
 
 import { 
   LetterGrade,
   Program,
   ProgramOutcome,
-} from "shared/types";
+} from "../../../shared/types";
 
 import * as debounce from "lodash.debounce";
 
 import { getTierAndGeo } from "../utils/get-tier-and-geo";
-import { updateProgramOutcomes } from "./update-program-outcomes";
 export { loadAllData } from "./data-loading";
 export * from "./update-program-outcomes";
 
