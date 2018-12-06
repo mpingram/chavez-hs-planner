@@ -5,5 +5,5 @@ export const ifAttends: ReqFnFilter = (student, program) => {
     return false;
   }
   // FIXME confirm that this is correct
-  return student.currESProgramID === program.id;
+  return student.currESProgramID.value === program.id;
 };

@@ -12,7 +12,7 @@ export interface StudentData {
     gradeLevel: number | null
     prevGradeLevel: number | null
     skippedGrade7OrRepeatedGrade8: boolean | null
-    currESProgramID: string | null
+    currESProgramID: {value: string} | null
     ell: boolean | null
     iep: boolean | null
     attendancePercentage: number | null

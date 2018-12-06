@@ -5,6 +5,11 @@ export const ifStudentAttendsOneOf = (...programIDs): ReqFnFilter => {
     throw new Error("No parameters passed to ifStudentAttendsOneOf -- usage: ifStudentAttendsOneOf(programID_1, programID_2, programID_3 ... )(student, program)");
   }
   return (student, program) => {
-    return programIDs.some( programID => programID === student.currESProgramID );
+    return programIDs.some( programID => {
+      if (student.currESProgramID === null) {
+        return false;
+      }
+      return programID === student.currESProgramID.value 
+    });
   }
 };

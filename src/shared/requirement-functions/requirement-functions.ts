@@ -6349,6 +6349,7 @@ export const requirementFunctions: ReqFnTable = {
         fn: lottery(
           {
             filter: ifStudentAttendsOneOf(
+              BOONE_ES_PROGRAM,
               FIELD_ES_PROGRAM,
               GALE_ES_PROGRAM,
               HAYT_ES_PROGRAM,
