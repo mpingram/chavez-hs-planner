@@ -3,6 +3,11 @@ const crypto = require("crypto");
 const PROGRAM_CATEGORY_ES = "ES";
 const PROGRAM_CATEGORY_HS = "HS";
 
+const isAcademicCenter = (program) => {
+  ACADEMIC_CENTER_PROGRAM_TYPES = ["Academic Center", "Selective Enrollment (Academic Center)"]
+  return ACADEMIC_CENTER_PROGRAM_TYPES.indexOf(program.Program_Type) > 0;
+}
+
 /**
  * Takes as input: 
  *  rawProgramData: array listing all CPS Programs, both elementary school and high school.
@@ -40,7 +45,7 @@ const isESProgram = (program) => {
     // in high schools. So, (confusingly) they are labeled as "HS"
     // because their school is a high school even though the programs
     // are ES programs.
-    if (program.Program_Type === "Academic Center") {
+    if (isAcademicCenter(program)) {
       return true;
     } else {
       return false;
@@ -56,7 +61,7 @@ const isHSProgram = (program) => {
     // in high schools. So, (confusingly) they are labeled as "HS"
     // because their school is a high school even though the programs
     // are ES programs.
-    if (program.Program_Type === "Academic Center") {
+    if (isAcademicCenter(program)) {
       return false;
     } else {
       return true;
@@ -130,11 +135,13 @@ const fixProgramTypeMisspellings = (programType) => {
   const misspellings = {
     'Instumental': 'Instrumental',
     'Medial': 'Medical',
+    'Theatre': 'Theater'
   };
   Object.keys(misspellings).forEach( misspelling => {
     const correctSpelling = misspellings[misspelling];
-    programType.replace(misspelling, correctSpelling);
+    programType = programType.replace(misspelling, correctSpelling);
   });
+  return programType;
 };
 
 function normalizeProgramData(rawProgramData) {
@@ -144,12 +151,13 @@ function normalizeProgramData(rawProgramData) {
     const p = sanitizeRequirementDescriptions(rawProgram);
 
     const programName = `${p.Short_Name}: ${p.Program_Type}`;
+    const programType = fixProgramTypeMisspellings(p.Program_Type);
     const category = getCategory(p);
 
     return {
       id: `${p.School_ID}-${p.Program_Type}`,
       programName: programName,
-      programType: p.Program_Type,
+      programType: programType,
 
       schoolNameShort: p.Short_Name,
       schoolNameLong: p.Long_Name,
