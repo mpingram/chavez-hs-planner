@@ -21,7 +21,7 @@ interface StudentInfoFormProps {
   tier: string | null
   skip7OrRepeat8: boolean | null
   onSkip7OrRepeat8Change: (newVal: boolean) => any
-  currESProgram: string | null
+  currESProgram: {value: string} | null
   onCurrESProgramChange: (newVal: string) => any
   siblingHSSchools: string[]
   onSiblingHSSchoolChange: (newVal: string[]) => any
