@@ -13,7 +13,7 @@ function nonSECutoffsCSVToJSON(csvPath) {
                                 school: ks[0]['school'],
                                 programType: ks[0]['programType'],
                                 cutoffScores: {
-                                    min: ks[0]['cutoffScores']
+                                    min: parseInt(ks[0]['cutoffScores'], 10)
                                 }
                             }
                         })
@@ -23,4 +23,7 @@ function nonSECutoffsCSVToJSON(csvPath) {
                         
 }
 
-module.exports = nonSECutoffsCSVToJSON
+const seJson = nonSECutoffsCSVToJSON('../raw-data/2019-07-10/non-se-cutoff-scores.csv')
+fs.writeFileSync('../raw-data/2019-07-10/non-se-cutoff-scores.json', seJson, 'utf-8')
+
+//module.exports = nonSECutoffsCSVToJSON
