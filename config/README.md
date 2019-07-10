@@ -8,7 +8,7 @@ raw data from CPS into a form that the Chavez HS Planner app can consume.
 The raw data that the config system takes is:
 * (geoJSON) high school attendance boundaries
 * (geoJSON) elementary school attendance boundaries
-* (json) a table mapping Chicago's neighborhoods<sup>1</sup> to CPS Tiers<sup>2</sup>.
+* (json) a table mapping Chicago's census tracts<sup>1</sup> to CPS Tiers<sup>2</sup>.
 * (json) a table of cutoff scores<sup>3</sup> for Selective Enrollment high schools
 * (json) a table of cutoff scores for all other (non-Selective-Enrollment) high schools
 * (csv) a list of all CPS high school programs and their admissions requirements
