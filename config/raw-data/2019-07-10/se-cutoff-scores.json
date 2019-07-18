@@ -1,7 +1,7 @@
 [
   {
     "school": "Lindblom",
-    "programID": "Lindblom-Selective Enrollment",
+    "programID": "610391-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -32,8 +32,8 @@
     }
   },
   {
-    "school": "Northside",
-    "programID": "Northside-Selective Enrollment",
+    "school": "Northside Prep",
+    "programID": "609749-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -65,7 +65,7 @@
   },
   {
     "school": "Payton",
-    "programID": "Payton-Selective Enrollment",
+    "programID": "609680-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -96,8 +96,8 @@
     }
   },
   {
-    "school": "South Shore",
-    "programID": "South Shore-Selective Enrollment",
+    "school": "South Shore Intl",
+    "programID": "610547-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -129,7 +129,7 @@
   },
   {
     "school": "Westinghouse",
-    "programID": "Westinghouse-Selective Enrollment",
+    "programID": "609693-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -161,7 +161,7 @@
   },
   {
     "school": "Young",
-    "programID": "Young-Selective Enrollment",
+    "programID": "609755-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -193,7 +193,7 @@
   },
   {
     "school": "Brooks",
-    "programID": "Brooks-Selective Enrollment",
+    "programID": "609726-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -225,7 +225,7 @@
   },
   {
     "school": "Hancock",
-    "programID": "Hancock-Selective Enrollment",
+    "programID": "609694-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -257,7 +257,7 @@
   },
   {
     "school": "Jones",
-    "programID": "Jones-Selective Enrollment",
+    "programID": "609678-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -289,7 +289,7 @@
   },
   {
     "school": "King",
-    "programID": "King-Selective Enrollment",
+    "programID": "609751-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {
@@ -320,8 +320,8 @@
     }
   },
   {
-    "school": "Lane",
-    "programID": "Lane-Selective Enrollment",
+    "school": "Lane Tech",
+    "programID": "609720-Selective Enrollment",
     "programType": "Selective Enrollment",
     "tieredCutoffScores": {
       "Rank": {

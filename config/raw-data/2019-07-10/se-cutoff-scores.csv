@@ -4,21 +4,21 @@ Lindblom,Tier 1,673,709.30,771
 Lindblom,Tier 2,703,729.75,771
 Lindblom,Tier 3,715,741.56,772
 Lindblom,Tier 4,617,683.04,767
-Northside,Rank,894,897.02,900
-Northside,Tier 1,713,784.22,877
-Northside,Tier 2,844,868.45,893
-Northside,Tier 3,876,884.69,894
-Northside,Tier 4,888,891.08,894
+Northside Prep,Rank,894,897.02,900
+Northside Prep,Tier 1,713,784.22,877
+Northside Prep,Tier 2,844,868.45,893
+Northside Prep,Tier 3,876,884.69,894
+Northside Prep,Tier 4,888,891.08,894
 Payton,Rank,898,899.26,900
 Payton,Tier 1,792,848.61,897
 Payton,Tier 2,871,886.45,898
 Payton,Tier 3,882,890.21,897
 Payton,Tier 4,894,895.95,898
-South Shore,Rank,684,728.98,820
-South Shore,Tier 1,602,637.60,682
-South Shore,Tier 2,608,646.69,683
-South Shore,Tier 3,600,640.86,680
-South Shore,Tier 4,602,622.25,668
+South Shore Intl,Rank,684,728.98,820
+South Shore Intl,Tier 1,602,637.60,682
+South Shore Intl,Tier 2,608,646.69,683
+South Shore Intl,Tier 3,600,640.86,680
+South Shore Intl,Tier 4,602,622.25,668
 Westinghouse,Rank,773,805.73,884
 Westinghouse,Tier 1,675,707.44,770
 Westinghouse,Tier 2,718,745.67,772
@@ -49,8 +49,8 @@ King,Tier 1,630.03,675,
 King,Tier 2,643.26,678,
 King,Tier 3,636.02,675,
 King,Tier 4,634.25,677,
-Lane,Rank,884.46,900,
-Lane,Tier 1,764.76,873,
-Lane,Tier 2,825.80,872,
-Lane,Tier 3,850.47,872,
-Lane,Tier 4,865.55,873,
+Lane Tech,Rank,884.46,900,
+Lane Tech,Tier 1,764.76,873,
+Lane Tech,Tier 2,825.80,872,
+Lane Tech,Tier 3,850.47,872,
+Lane Tech,Tier 4,865.55,873,

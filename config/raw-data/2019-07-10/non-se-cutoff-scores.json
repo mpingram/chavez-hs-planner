@@ -1,6 +1,6 @@
 [
   {
-    "programID": "Jones HS-Pre-Law",
+    "programID": "609678-Pre-Law",
     "school": "Jones HS",
     "programType": "Pre-Law",
     "cutoffScores": {
@@ -8,7 +8,7 @@
     }
   },
   {
-    "programID": "Juarez HS-International Baccalaureate (IB)",
+    "programID": "609764-International Baccalaureate (IB)",
     "school": "Juarez HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -16,7 +16,7 @@
     }
   },
   {
-    "programID": "Julian HS-Allied Health",
+    "programID": "609762-Allied Health",
     "school": "Julian HS",
     "programType": "Allied Health",
     "cutoffScores": {
@@ -24,7 +24,7 @@
     }
   },
   {
-    "programID": "Kelly HS-International Baccalaureate (IB)",
+    "programID": "609715-International Baccalaureate (IB)",
     "school": "Kelly HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -32,7 +32,7 @@
     }
   },
   {
-    "programID": "Kennedy HS-International Baccalaureate (IB)",
+    "programID": "609718-International Baccalaureate (IB)",
     "school": "Kennedy HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -40,7 +40,7 @@
     }
   },
   {
-    "programID": "Lincoln Park HS-Drama",
+    "programID": "609738-Drama",
     "school": "Lincoln Park HS",
     "programType": "Drama",
     "cutoffScores": {
@@ -48,7 +48,7 @@
     }
   },
   {
-    "programID": "Marine Leadership At Ames HS-Service Leadership Academy",
+    "programID": "609780-Service Leadership Academy",
     "school": "Marine Leadership At Ames HS",
     "programType": "Service Leadership Academy",
     "cutoffScores": {
@@ -56,7 +56,7 @@
     }
   },
   {
-    "programID": "Mather HS-Pre-Engineering",
+    "programID": "609724-Pre-Engineering",
     "school": "Mather HS",
     "programType": "Pre-Engineering",
     "cutoffScores": {
@@ -64,7 +64,7 @@
     }
   },
   {
-    "programID": "Morgan Park HS-International Baccalaureate (IB)",
+    "programID": "609725-International Baccalaureate (IB)",
     "school": "Morgan Park HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -72,15 +72,15 @@
     }
   },
   {
-    "programID": "North Grand Hs-Allied Health",
-    "school": "North Grand Hs",
+    "programID": "609691-Allied Health",
+    "school": "North-Grand Hs",
     "programType": "Allied Health",
     "cutoffScores": {
       "min": 381
     }
   },
   {
-    "programID": "Ogden HS-International Baccalaureate (IB)",
+    "programID": "610529-International Baccalaureate (IB)",
     "school": "Ogden HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -88,7 +88,7 @@
     }
   },
   {
-    "programID": "Phoenix Military HS-Service Leadership Academy",
+    "programID": "610304-Service Leadership Academy",
     "school": "Phoenix Military HS",
     "programType": "Service Leadership Academy",
     "cutoffScores": {
@@ -96,7 +96,7 @@
     }
   },
   {
-    "programID": "Prosser HS-International Baccalaureate (IB)",
+    "programID": "609679-International Baccalaureate (IB)",
     "school": "Prosser HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -104,7 +104,7 @@
     }
   },
   {
-    "programID": "Rickover Military HS-Service Leadership Academy",
+    "programID": "610390-Service Leadership Academy",
     "school": "Rickover Military HS",
     "programType": "Service Leadership Academy",
     "cutoffScores": {
@@ -112,7 +112,7 @@
     }
   },
   {
-    "programID": "Roosevelt HS-Cisco Networking",
+    "programID": "609728-Cisco Networking",
     "school": "Roosevelt HS",
     "programType": "Cisco Networking",
     "cutoffScores": {
@@ -120,7 +120,7 @@
     }
   },
   {
-    "programID": "Schurz HS-Allied Health",
+    "programID": "609729-Allied Health",
     "school": "Schurz HS",
     "programType": "Allied Health",
     "cutoffScores": {
@@ -128,7 +128,7 @@
     }
   },
   {
-    "programID": "Senn HS-Dance",
+    "programID": "609730-Dance",
     "school": "Senn HS",
     "programType": "Dance",
     "cutoffScores": {
@@ -136,7 +136,7 @@
     }
   },
   {
-    "programID": "Simeon HS-Career Academy",
+    "programID": "609692-Career Academy",
     "school": "Simeon HS",
     "programType": "Career Academy",
     "cutoffScores": {
@@ -144,7 +144,7 @@
     }
   },
   {
-    "programID": "South Shore Intl HS-International Baccalaureate (IB)",
+    "programID": "610547-International Baccalaureate (IB)",
     "school": "South Shore Intl HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -152,7 +152,7 @@
     }
   },
   {
-    "programID": "Steinmetz HS-International Baccalaureate (IB)",
+    "programID": "609732-International Baccalaureate (IB)",
     "school": "Steinmetz HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -160,7 +160,7 @@
     }
   },
   {
-    "programID": "Sullivan HS-Medical & Health Careers",
+    "programID": "609733-Medical & Health Careers",
     "school": "Sullivan HS",
     "programType": "Medical & Health Careers",
     "cutoffScores": {
@@ -168,7 +168,7 @@
     }
   },
   {
-    "programID": "Taft HS-International Baccalaureate (IB)",
+    "programID": "609734-International Baccalaureate (IB)",
     "school": "Taft HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -176,7 +176,7 @@
     }
   },
   {
-    "programID": "Von Steuben HS-Scholars",
+    "programID": "609737-Scholars",
     "school": "Von Steuben HS",
     "programType": "Scholars",
     "cutoffScores": {
@@ -184,7 +184,7 @@
     }
   },
   {
-    "programID": "Washington HS-International Baccalaureate (IB)",
+    "programID": "609739-International Baccalaureate (IB)",
     "school": "Washington HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -192,7 +192,7 @@
     }
   },
   {
-    "programID": "Wells HS-Pre-Law",
+    "programID": "609740-Pre-Law",
     "school": "Wells HS",
     "programType": "Pre-Law",
     "cutoffScores": {
@@ -200,7 +200,7 @@
     }
   },
   {
-    "programID": "Williams HS-Medical & Health Careers",
+    "programID": "610380-Medical & Health Careers",
     "school": "Williams HS",
     "programType": "Medical & Health Careers",
     "cutoffScores": {
@@ -208,7 +208,7 @@
     }
   },
   {
-    "programID": "Air Force HS-Service Leadership Academy",
+    "programID": "610513-Service Leadership Academy",
     "school": "Air Force HS",
     "programType": "Service Leadership Academy",
     "cutoffScores": {
@@ -216,7 +216,7 @@
     }
   },
   {
-    "programID": "Alcott HS-Pre-Engineering",
+    "programID": "610524-Pre-Engineering",
     "school": "Alcott HS",
     "programType": "Pre-Engineering",
     "cutoffScores": {
@@ -224,7 +224,7 @@
     }
   },
   {
-    "programID": "Amundsen HS-International Baccalaureate (IB)",
+    "programID": "609695-International Baccalaureate (IB)",
     "school": "Amundsen HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -232,7 +232,7 @@
     }
   },
   {
-    "programID": "Back Of The Yards HS-International Baccalaureate (IB)",
+    "programID": "610563-International Baccalaureate (IB)",
     "school": "Back Of The Yards HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -240,7 +240,7 @@
     }
   },
   {
-    "programID": "Bowen HS-Pre-Engineering",
+    "programID": "610323-Pre-Engineering",
     "school": "Bowen HS",
     "programType": "Pre-Engineering",
     "cutoffScores": {
@@ -248,7 +248,7 @@
     }
   },
   {
-    "programID": "Carver Military HS-Service Leadership Academy",
+    "programID": "609760-Service Leadership Academy",
     "school": "Carver Military HS",
     "programType": "Service Leadership Academy",
     "cutoffScores": {
@@ -256,7 +256,7 @@
     }
   },
   {
-    "programID": "Chiarts HS-Creative Writing",
+    "programID": "400022-Creative Writing",
     "school": "Chiarts HS",
     "programType": "Creative Writing",
     "cutoffScores": {
@@ -264,15 +264,15 @@
     }
   },
   {
-    "programID": "Chicago Military HS At Bronzeville-Service Leadership Academy",
-    "school": "Chicago Military HS At Bronzeville",
+    "programID": "609754-Service Leadership Academy",
+    "school": "Chicago Military HS",
     "programType": "Service Leadership Academy",
     "cutoffScores": {
       "min": 308
     }
   },
   {
-    "programID": "Chicago Vocational HS-Medical Assisting",
+    "programID": "609674-Medical Assisting",
     "school": "Chicago Vocational HS",
     "programType": "Medical Assisting",
     "cutoffScores": {
@@ -280,7 +280,7 @@
     }
   },
   {
-    "programID": "Clemente HS-Allied Health",
+    "programID": "609759-Allied Health",
     "school": "Clemente HS",
     "programType": "Allied Health",
     "cutoffScores": {
@@ -288,7 +288,7 @@
     }
   },
   {
-    "programID": "Curie HS-Dance",
+    "programID": "609756-Dance",
     "school": "Curie HS",
     "programType": "Dance",
     "cutoffScores": {
@@ -296,7 +296,7 @@
     }
   },
   {
-    "programID": "Dunbar HS-Allied Health",
+    "programID": "609676-Allied Health",
     "school": "Dunbar HS",
     "programType": "Allied Health",
     "cutoffScores": {
@@ -304,7 +304,7 @@
     }
   },
   {
-    "programID": "Dyett Arts HS-Choir",
+    "programID": "610587-Choir",
     "school": "Dyett Arts HS",
     "programType": "Choir",
     "cutoffScores": {
@@ -312,7 +312,7 @@
     }
   },
   {
-    "programID": "Farragut HS-Pre-Law",
+    "programID": "609704-Pre-Law",
     "school": "Farragut HS",
     "programType": "Pre-Law",
     "cutoffScores": {
@@ -320,7 +320,7 @@
     }
   },
   {
-    "programID": "Foreman HS-Pre-Engineering",
+    "programID": "609708-Pre-Engineering",
     "school": "Foreman HS",
     "programType": "Pre-Engineering",
     "cutoffScores": {
@@ -328,7 +328,7 @@
     }
   },
   {
-    "programID": "Hancock HS-Pre-Engineering",
+    "programID": "609694-Pre-Engineering",
     "school": "Hancock HS",
     "programType": "Pre-Engineering",
     "cutoffScores": {
@@ -336,7 +336,7 @@
     }
   },
   {
-    "programID": "Hubbard HS-International Baccalaureate (IB)",
+    "programID": "609741-International Baccalaureate (IB)",
     "school": "Hubbard HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
@@ -344,7 +344,7 @@
     }
   },
   {
-    "programID": "Hyde Park HS-International Baccalaureate (IB)",
+    "programID": "609713-International Baccalaureate (IB)",
     "school": "Hyde Park HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
