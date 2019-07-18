@@ -59,7 +59,7 @@ const createIBPointCalc = (ifInAttendBound: ReqFnFilter) => (student: StudentDat
 const createIBCutoffLookup = (getCutoffDict: () => NonSECutoffDictionary) => (student: StudentData, program: Program): CutoffScores => {
   const cutoff = getCutoffDict()[program.id];
   if (cutoff === undefined) {
-    throw new Error(`School ${program.schoolNameLong} not found in IB Cutoff scores`); 
+    throw new Error(`School ${program.schoolNameLong} with id ${program.id} not found in IB Cutoff scores`); 
   }
   return cutoff;
 };

@@ -28,7 +28,7 @@ function nonSECutoffsCSVToJSON(pathToCutoffScores, pathToSchoolIDs) {
         columns:true
     })
 
-    cutOffs = d3.nest().key( k => k['school'] ).rollup( ks => {
+    cutOffs = d3.nest().key( k => k['school'] + k['programType']).rollup( ks => {
                             const schoolRow = rawSchoolIDs.find( row => row['Short_Name'] === ks[0].school.toUpperCase() )
                             if (schoolRow === undefined) {
                                 throw new Error(`Could not find school ${ks[0].school.toUpperCase()}`);
