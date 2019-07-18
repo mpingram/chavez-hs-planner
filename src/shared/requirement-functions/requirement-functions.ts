@@ -7386,7 +7386,11 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Students who are not currently enrolled in the school are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.",
     "fn": conditional(
       {
-        filter: ifAttends,
+        filter: ifStudentAttendsOneOf(
+          CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+          CHICAGO_COLLEGIATE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+          FOUNDATIONS_COLLEGE_PREP_JOINT_ES_HS_PROGRAM,
+          ),//FIXME add perspectives and intrinsic 8th grades
         fn: accept(everyone)
       },
       {
@@ -7406,7 +7410,7 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Students who are not currently enrolled in the school are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled in one of the following CICS schools: Avalon, Basil, Bucktown, Irving Park, Longwood, Prairie, Washington Park, West Belden, or Wrightwood; sibling; general.",
     "fn": conditional(
       {
-        filter: ifAttends,
+        filter: ifStudentAttendsOneOf(CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
         fn: accept(everyone)
       },
       {
@@ -7580,7 +7584,7 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Students who are not currently enrolled in the school are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, overlay general.",
     "fn": conditional(
       {
-        filter: ifAttends,
+        filter: ifStudentAttendsOneOf(), //FIXME add noble-comer 8th grade 
         fn: accept(everyone)
       },
       {
@@ -7861,7 +7865,7 @@ export const requirementFunctions: ReqFnTable = {
       },
       {
         filter: everyone,
-        fn: sePointSystem //FIXME - interview point system?
+        fn: notImplemented
       }
     )
   },
@@ -7891,7 +7895,16 @@ export const requirementFunctions: ReqFnTable = {
       "CHICAGO VIRTUAL: General Education"
     ],
     "desc": "Students currently enrolled in the school's eighth grade will have a guaranteed offer to this program.Students are randomly selected by computerized lottery.",
-    "fn": lottery(GENERAL_LOTTERY_STAGE)
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(GENERAL_LOTTERY_STAGE)
+      }
+    )
   },
   "4c0f7d456bb3bcdcf96b1a2252a3f7b1": {
     "id": "4c0f7d456bb3bcdcf96b1a2252a3f7b1",
@@ -7947,7 +7960,7 @@ export const requirementFunctions: ReqFnTable = {
       },
       {
         filter: everyone,
-        fn: sePointSystem //#FIXME point system questions
+        fn: notImplemented
       }
     )
   },
@@ -7957,7 +7970,16 @@ export const requirementFunctions: ReqFnTable = {
       "FARRAGUT HS: General Education"
     ],
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Students who live within the school's attendance boundary can be admitted automatically. This program only accepts students who are currently enrolled or who live within the school's attendance boundary.",
-    "fn": accept(ifInAttendBound)
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: ifStudentAttendsOneOf(),//FIXME add farragut 8th grade
+        fn: accept(everyone)
+      }
+    )
   },
   "6f3b345db571ecf2523aa41d336feacc": {
     "id": "6f3b345db571ecf2523aa41d336feacc",
@@ -7974,11 +7996,21 @@ export const requirementFunctions: ReqFnTable = {
       "PERSPECTIVES - LEADERSHIP HS: General Education"
     ],
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Students who are not currently enrolled in the school are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, proximity, general.",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      PROXIMITY_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(),//FIXME add perspectives leadership 8th grade
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          SIBLING_LOTTERY_STAGE,
+          PROXIMITY_LOTTERY_STAGE,
+          GENERAL_LOTTERY_STAGE
+        )
+      }
     )
+      
   },
   "93eb17c3073fd47dccb5e53d38c2d875": {
     "id": "93eb17c3073fd47dccb5e53d38c2d875",
@@ -8044,6 +8076,10 @@ export const requirementFunctions: ReqFnTable = {
         fn: accept(everyone)
       },
       {
+        filter: ifStudentAttendsOneOf(),//FIXME add roosevelt gen ed 8th grade
+        fn: accept(everyone)
+      },
+      {
         filter: everyone,
         fn: lottery(
           SIBLING_LOTTERY_STAGE,
@@ -8067,7 +8103,7 @@ export const requirementFunctions: ReqFnTable = {
       {
         filter: everyone,
         fn: lottery(
-          SIBLING_LOTTERY_STAGE,
+          SIBLING_LOTTERY_STAGE, //FIXME
           GENERAL_LOTTERY_STAGE
         )
       }
@@ -8091,7 +8127,7 @@ export const requirementFunctions: ReqFnTable = {
       {
         filter: ifInAttendBound,
         fn: accept(everyone)
-      },//FIXME ask about gen ed vs iep, if there's no difference does it matter?
+      },
       {
         filter: everyone,
         fn: accept(ifHasGrades({
@@ -8167,7 +8203,7 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "Students currently enrolled in the school’s eighth grade will have a guaranteed offer to this program.Eligible students who do not attend the school are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school’s overlay boundary will be given 50 additional points. The school determines the minimum cutoff score for selections.",
     "fn": conditional(
       {
-        filter: ifAttends,
+        filter: ifStudentAttendsOneOf(OGDEN_GENERAL_EDUCATION_ES_PROGRAM, OGDEN_MAGNET_CLUSTER_ES_PROGRAM), //FIXME gened vs magnet schools for 8th grade
         fn: accept(everyone)
       },
       {
@@ -8198,7 +8234,7 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Eligible students who are not currently enrolled in the school are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, proximity, tiers.",
     "fn": conditional(
       {
-        filter: ifAttends,
+        filter: ifStudentAttendsOneOf(DISNEY_II_ES_PROGRAM),
         fn: accept(everyone)
       },
       {
@@ -8217,7 +8253,16 @@ export const requirementFunctions: ReqFnTable = {
       "TAFT HS: General Education"
     ],
     "desc": "Students currently enrolled in the school's eighth grade will receive an offer.Students enrolled in the Taft Academic Center or students who live within the school's attendance boundary can be admitted automatically.This program only accepts students who live within the school's attendance boundary or who attend the school's Academic Center.",
-    "fn": accept(ifAttends)//FIXME
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(TAFT_ACADEMIC_CENTER_PROGRAM), //FIXME needs taft 8th grade
+        fn: accept(everyone)
+      },
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      }
+    )
   },
   "7f46c4d6dfe5d0f8dadfd8f657026516": {
     "id": "7f46c4d6dfe5d0f8dadfd8f657026516",
@@ -8319,7 +8364,16 @@ export const requirementFunctions: ReqFnTable = {
       "KENWOOD HS: General Education"
     ],
     "desc": "Students currently enrolled in the school's Academic Center will receive an  offer.Students who live within the school's attendance boundary can be admitted automatically.This program only accepts students who live within the school's attendance boundary or who are enrolled in the school's Academic Center.",
-    "fn": accept(ifAttends)//FIXME this along with other one like it, maybe just conditional?
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(KENWOOD_ACADEMIC_CENTER_PROGRAM),
+        fn: accept(everyone)
+      },
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      }
+    )
   },
   "b137257a7242a3aea171bf6635060c3b": {
     "id": "b137257a7242a3aea171bf6635060c3b",

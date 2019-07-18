@@ -128,7 +128,7 @@ function buildCutoffScores() {
     }
     nonSECutoffScores[record.programID] = record.cutoffScores;
   });
-
+  console.log(OUTPUT_FILEPATH_SE_CUTOFF_SCORES)
   fs.writeFileSync(OUTPUT_FILEPATH_SE_CUTOFF_SCORES, JSON.stringify(seCutoffScores), "utf-8");
   fs.writeFileSync(OUTPUT_FILEPATH_NON_SE_CUTOFF_SCORES, JSON.stringify(nonSECutoffScores), "utf-8");
 }
@@ -176,3 +176,4 @@ function validateOrThrow(json, schema) {
  * Run all build scripts.
  * */
 buildAll();
+console.log('We did it!')
