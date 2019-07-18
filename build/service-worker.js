@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/mpingram/chavez-hs-planner/precache-manifest.db60f6628f4417eb7d0d287940e159dc.js"
+  "https://s3.amazonaws.com/path-to-hs-dev/precache-manifest.e60dafdf3d4ed75c63dad63d1fd25f3a.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/mpingram/chavez-hs-planner/index.html", {
+workbox.routing.registerNavigationRoute("https://s3.amazonaws.com/path-to-hs-dev/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
