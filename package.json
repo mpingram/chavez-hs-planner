@@ -12,6 +12,7 @@
     "build-config": "node ./config/raw-data-processing/main.js",
     "deploy:production": "aws s3 sync build/ s3://chavez-hs-planner.com --acl public-read --delete",
     "deploy:dev": "aws s3 sync build/ s3://path-to-hs-dev --acl public-read --delete",
+    "deploy-cps":"rm -r /var/www/hs-planner/* && rsync -rtv /home/rlangworthy/repos/chavez-hs-planner/build/ /var/www/hs-planner/; restorecon -R /var/www/hs-planner",
     "scrape-programs": "cd scraper && pipenv run python main.py ./raw-data/School_Locations_SY1718.csv"
   },
   "repository": {
