@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "https://s3.amazonaws.com/path-to-hs-dev/precache-manifest.e60dafdf3d4ed75c63dad63d1fd25f3a.js"
+  "/hs-planner/precache-manifest.cbb583354469c0c49f08f3101fc70886.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("https://s3.amazonaws.com/path-to-hs-dev/index.html", {
+workbox.routing.registerNavigationRoute("/hs-planner/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
