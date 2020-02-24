@@ -19,7 +19,6 @@ const sePointCalc = (student: StudentData, program: Program): number | null => {
     student.subjGradeSocStudies === null ||
     student.seTestPercentile === null
   ) {
-
     return null;
   }
 
@@ -64,12 +63,14 @@ const createSELookup = (getCutoffDict: () => SECutoffDictionary) => (student: St
   const cutoff = getCutoffDict()[program.id];
   if (cutoff === undefined) {
     throw new Error(`Failed to find cutoff scores for ${program.programName}`);
-    //return null;
+    return null;
   }
   if (student.tier === null) {
     return null;
   }
-
+  console.log(student)
+  console.log(cutoff)
+  console.log(cutoff.tier1)
   switch(student.tier) {
     case '1':
       return cutoff.tier1; 
@@ -104,7 +105,7 @@ export const createSEPointSystem = (getCutoffDict: () => SECutoffDictionary): Re
     
     const points = sePointCalc(student, program);
     const prevScores= seLookup(student, program);
-    
+    console.log(prevScores)
     if (prevScores === null) {
       console.error(`Failed to find cutoff scores for ${program.programName}`);
       return SuccessChance.NOTIMPLEMENTED;

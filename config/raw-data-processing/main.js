@@ -55,7 +55,7 @@ if (!mostRecentVersion) {
   throw new Error(`No versioned data folders found in ${rawDataParentDir}.\nSubfolders of this directory should be named in ISO8601 date format, ie 2017-01-01.`);
 }
 const srcDir = path.resolve(rawDataParentDir, mostRecentVersion);
-
+console.log(mostRecentVersion)
 const INPUT_FILEPATH_RAW_PROGRAM_DATA = path.join(srcDir, "program-data.csv");
 //const INPUT_FILEPATH_RAW_ES_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "es-attendance-boundaries.geojson");
 const INPUT_FILEPATH_RAW_HS_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "hs-attendance-boundaries.geojson");

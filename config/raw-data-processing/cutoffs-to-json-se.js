@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 
 const MAX_SE_SCORE = '900'
-const SE_PROGRAM_TYPE = 'Selective Enrollment'
+const SE_PROGRAM_TYPE = 'Selective Enrollment High School'
 
 /* 
  * Converts a .csv version of the non-SE cutoff scores to JSON.
@@ -49,11 +49,11 @@ function seCutoffsCSVtoJSON(pathToCutoffScores, pathToSchoolIDs){
                                 school: ks[0].School,
                                 programID: schoolID + '-' + SE_PROGRAM_TYPE,
                                 programType: SE_PROGRAM_TYPE,
-                                tieredCutoffScores: d3.nest().key(k => k['Selection Method'])
+                                tieredCutoffScores: d3.nest().key(k => k['Selection Method'].split(' ').join('').toLowerCase())
                                                             .rollup(rs => {
                                                                 return {
                                                                     min: parseInt(rs[0]['Min'], 10),
-                                                                    mean: parseInt(rs[0]['Mean'],10),
+                                                                    avg: parseInt(rs[0]['Mean'],10),
                                                                     // some 'Max' entries are blank - in that case, use highest possible score as max cutoff score
                                                                     max: parseInt(rs[0]['Max'] != '' ? rs[0]['Max'] : MAX_SE_SCORE,10)
                                                                 }
