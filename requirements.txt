@@ -5,7 +5,7 @@ django-extensions==1.7.2
 django-google-maps==0.6.0
 djangorestframework==3.6.2
 gviz_api==1.9.0
-Jinja2==2.8
+Jinja2==2.11.3
 pandas==0.20.3
 Pillow==3.3.1
 whitenoise==3.2.1
