@@ -49,7 +49,7 @@
     "@types/node": "^10.12.12",
     "browser-jsonp": "^1.1.5",
     "bulma": "^0.7.1",
-    "d3": "^5.9.7",
+    "d3": "^7.6.1",
     "lodash.debounce": "^4.0.8",
     "promise-polyfill": "^7.1.2",
     "react": "^16.6.3",
